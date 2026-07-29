@@ -1,0 +1,40 @@
+table dim_departments
+	lineageTag: c6b90723-29f7-4a6e-9596-bfd7352074b9
+	sourceLineageTag: [dbo].[hr_dl_dim_departments]
+
+	column OfficeID
+		dataType: int64
+		formatString: 0
+		lineageTag: ff98af7e-113f-42e3-a58a-ec95d5d8d346
+		sourceLineageTag: OfficeID
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentID
+		dataType: int64
+		formatString: 0
+		lineageTag: 00cc16fa-0cde-4e65-be42-8dd294818586
+		sourceLineageTag: DepartmentID
+		summarizeBy: count
+		sourceColumn: DepartmentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentName
+		dataType: string
+		lineageTag: 3458d6a1-129f-44ff-9b7b-65c427308f87
+		sourceLineageTag: DepartmentName
+		summarizeBy: none
+		sourceColumn: DepartmentName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hr_dl_dim_departments = entity
+		mode: directLake
+		source
+			entityName: dim_departments
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

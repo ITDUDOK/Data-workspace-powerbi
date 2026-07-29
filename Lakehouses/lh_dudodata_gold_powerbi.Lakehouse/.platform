@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "lh_dudodata_gold_powerbi"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "886d5ef0-9f6f-a16d-4936-835e097e8f82"
+  }
+}

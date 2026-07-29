@@ -1,0 +1,108 @@
+table centersclassificationtable
+	lineageTag: b2fc36b6-c19d-47f3-9f4f-8ba5c8f8089d
+	sourceLineageTag: [dbo].[management_dl_centersclassificationtable]
+
+	column Key
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e20a4024-1694-4485-a7c4-ae8fd789b35f
+		sourceLineageTag: Key
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterNr
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 59476346-2de0-42b4-9353-c82a27df4634
+		sourceLineageTag: CenterNr
+		summarizeBy: none
+		sourceColumn: CenterNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeftNr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a6720776-69b6-4047-8cb8-11eccc4f752f
+		sourceLineageTag: LeftNr
+		summarizeBy: sum
+		sourceColumn: LeftNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column RightNr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0113ab42-45a4-455d-b2dd-e9c91bedc942
+		sourceLineageTag: RightNr
+		summarizeBy: sum
+		sourceColumn: RightNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5bc9dbc8-2bb5-4c86-8a2d-dcc0189044d4
+		sourceLineageTag: Level
+		summarizeBy: sum
+		sourceColumn: Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 71622299-757c-4e3e-95df-16fab18e3582
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: af9f579f-11cd-44e0-b59b-0d5faa4e4cd6
+		sourceLineageTag: Classification
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column Confirmed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 56287b89-bda1-410e-b703-57edb4821803
+		sourceLineageTag: Confirmed
+		summarizeBy: none
+		sourceColumn: Confirmed
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5933893b-8870-493b-b410-9033ea5e1b1d
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition management_dl_centersclassificationtable = entity
+		mode: directLake
+		source
+			entityName: center_classification
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,59 @@
+table vat_rates
+	lineageTag: 368f5ba2-4b00-46c0-94cb-21f82c6cf6fd
+
+	column VatRateId
+		dataType: int64
+		lineageTag: 79455345-56d1-413c-84b7-df99624bb69f
+		sourceColumn: VatRateId
+
+	column VatCodeKey
+		dataType: string
+		lineageTag: e3806168-7846-43c2-b950-f82ab40696fd
+		sourceColumn: VatCodeKey
+
+	column VatCode
+		dataType: string
+		lineageTag: 2eea0c62-7c10-4caf-9609-65d4a2925084
+		sourceColumn: VatCode
+
+	column VatCodeName
+		dataType: string
+		lineageTag: 26340362-11f0-4b01-a6cc-2cb72a3f9fb9
+		sourceColumn: VatCodeName
+
+	column VatKey
+		dataType: string
+		lineageTag: 5c50d5cf-0cb1-4b61-b553-365f9a83341d
+		sourceColumn: VatKey
+
+	column VatRate
+		dataType: decimal
+		lineageTag: 4e813eeb-cd79-446b-812d-790b89720998
+		sourceColumn: VatRate
+
+	column FromDate
+		dataType: dateTime
+		lineageTag: 018e8aeb-54e6-4920-b71f-a83c842a612b
+		sourceColumn: FromDate
+
+	column CountryCode
+		dataType: string
+		lineageTag: 898cb390-f1cd-4ec7-9986-39cbdb759c47
+		sourceColumn: CountryCode
+
+	column Confirmed
+		dataType: boolean
+		lineageTag: 219e8119-549c-4314-8d39-ddf03d7aa0eb
+		sourceColumn: Confirmed
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: b73406bc-3e81-4d7c-a238-41c7a8d8cdfd
+		sourceColumn: ModifiedAt
+
+	partition 'vat_rates 1' = entity
+		mode: directLake
+		source
+			entityName: vat_rates
+			expressionSource: DatabaseQuery
+

@@ -1,0 +1,40 @@
+table fact_hourlylabour
+	lineageTag: 3e329b17-c8bc-4f6f-925e-8d9b1d2d2af4
+
+	column CardID
+		dataType: int64
+		lineageTag: eb165517-fd33-4cc9-9899-3398abafeebb
+		sourceColumn: CardID
+
+	column HourDate
+		dataType: dateTime
+		lineageTag: 7dee69fa-9829-48dd-862f-b41f0982d196
+		sourceColumn: HourDate
+
+	column HourOfficeID
+		dataType: string
+		lineageTag: 991f296a-0cf6-4187-ba2b-4b5bda1d9d86
+		sourceColumn: HourOfficeID
+
+	column Value
+		dataType: int64
+		lineageTag: 5a56b20f-9c75-4716-acb3-15f5f72c6634
+		sourceColumn: Value
+
+	column WorkingHour
+		dataType: int64
+		lineageTag: e7ac75d9-f1b0-4853-b7d9-d553f2cdb70a
+		sourceColumn: WorkingHour
+
+	column ProportionalCost
+		dataType: double
+		lineageTag: a3e4b7f6-6c49-47f9-99e0-139eb3465569
+		sourceColumn: ProportionalCost
+
+	partition 'fact_hourlylabour 1' = entity
+		mode: directLake
+		source
+			entityName: fact_hourlylabour
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

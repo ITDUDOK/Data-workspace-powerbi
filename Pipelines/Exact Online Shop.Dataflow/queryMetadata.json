@@ -1,0 +1,87 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Exact Online Shop",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "gatewayObjectId": "33f72515-25c3-4216-968b-5976e7110940",
+  "queriesMetadata": {
+    "ShopOrderRoutingStepPlans": {
+      "queryId": "4be4891f-af08-4c77-b232-23fcb9f0afdd",
+      "queryName": "ShopOrderRoutingStepPlans",
+      "loadEnabled": false
+    },
+    "ShopOrderStatus": {
+      "queryId": "054a9d4b-487a-4d22-8fe1-ecd83bef5729",
+      "queryName": "ShopOrderStatus",
+      "loadEnabled": false
+    },
+    "ShopOrders": {
+      "queryId": "f4a6aa75-cfc6-4df6-9dac-978d2f36bf46",
+      "queryName": "ShopOrders",
+      "loadEnabled": false
+    },
+    "ShopOrdersDeliveryPerformance": {
+      "queryId": "ba566b1c-c2f9-4c07-a535-8854693f2362",
+      "queryName": "ShopOrdersDeliveryPerformance",
+      "loadEnabled": false
+    },
+    "ShopOrderMaterialPlans": {
+      "queryId": "a51e3225-61a6-471e-8b9e-c9ad9a015a67",
+      "queryName": "ShopOrderMaterialPlans",
+      "loadEnabled": false
+    },
+    "PlannedOrderCalculationDateMethods": {
+      "queryId": "c47afbbb-ddf1-483b-b73e-f29471315140",
+      "queryName": "PlannedOrderCalculationDateMethods",
+      "loadEnabled": false
+    },
+    "PlannedOrderTypes": {
+      "queryId": "a2c65913-66b4-440a-a7b3-ff1ed5f0f82b",
+      "queryName": "PlannedOrderTypes",
+      "loadEnabled": false
+    },
+    "ReplenishmentTypes": {
+      "queryId": "2c2b1941-3d8d-463c-a320-b43c7acfc65a",
+      "queryName": "ReplenishmentTypes",
+      "loadEnabled": false
+    },
+    "fnGetExactOnlineTable": {
+      "queryId": "6ea88303-f9c8-4e5d-b077-02e89bf95578",
+      "queryName": "fnGetExactOnlineTable",
+      "loadEnabled": false
+    },
+    "DefaultDestination": {
+      "queryId": "1cd542d8-1dcc-4c5c-9e79-54b1cff803b1",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "ShopOrderMaterialPlans_DataDestination": {
+      "queryId": "fb6237b7-4c5e-4ada-b3e1-70a4bbdb7078",
+      "queryName": "ShopOrderMaterialPlans_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "ShopOrderRoutingStepPlans_DataDestination": {
+      "queryId": "a3e08133-31b7-478e-8a04-ba17bc5b850a",
+      "queryName": "ShopOrderRoutingStepPlans_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "ExactOnlinePremium",
+      "kind": "ExactOnlinePremium",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"7c70d480-1e0f-4968-a041-fc9074261bd8\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"c6062fed-690d-4d8f-b800-3e76c43c6a44\"}"
+    }
+  ]
+}

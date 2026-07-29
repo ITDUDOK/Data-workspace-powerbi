@@ -1,0 +1,221 @@
+table fact_sickness
+	lineageTag: 0cfa1552-8a7a-4cd5-b27b-4bc33aa2c4a4
+	sourceLineageTag: [dbo].[management_dl_fact_sickness]
+
+	column SicknessID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e256b317-e268-4500-9b49-ca62333560eb
+		sourceLineageTag: SicknessID
+		summarizeBy: count
+		sourceColumn: SicknessId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 9ddaa6d5-6fc7-41c0-8d44-e477d7cb7fd5
+		sourceLineageTag: CardID
+		summarizeBy: count
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1e550c18-63ae-4bfa-9dfe-9f44b178cbdb
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c66f2b58-255c-4e27-8047-0941a75ad15e
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3b1e3216-3aa0-4f5a-baa0-822067ef81f4
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bcd55edc-2be6-437e-9f23-87ee523ae7a6
+		sourceLineageTag: CardName
+		summarizeBy: none
+		sourceColumn: CardName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b03497cb-45ad-4216-9b81-fff186ba0d08
+		sourceLineageTag: OfficeID
+		summarizeBy: none
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cb7bedf8-7b5f-4985-b9f4-0503bc73689f
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SicknessStart
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 7f9e1b63-c595-460f-bf3d-d1a3de5ce67a
+		sourceLineageTag: SicknessStart
+		summarizeBy: none
+		sourceColumn: SicknessStart
+
+		annotation SummarizationSetBy = Automatic
+
+	column SicknessEnd
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 01e03c39-d788-4df4-b96e-82f8724ec113
+		sourceLineageTag: SicknessEnd
+		summarizeBy: none
+		sourceColumn: SicknessEnd
+
+		annotation SummarizationSetBy = Automatic
+
+	column SicknessWaitdayHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(6, 2)
+		lineageTag: 4f9c8e02-17e9-4f85-b078-c88500876461
+		sourceLineageTag: SicknessWaitdayHours
+		summarizeBy: sum
+		sourceColumn: SicknessWaitdayHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SicknessWaitdayDays
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(5, 2)
+		lineageTag: 29e9fad5-0e9c-4076-b465-2afe72e9e896
+		sourceLineageTag: SicknessWaitdayDays
+		summarizeBy: sum
+		sourceColumn: SicknessWaitdayDay
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SicknessHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(8, 2)
+		lineageTag: 4ab0107b-d914-429f-b0ba-158acc9713f3
+		sourceLineageTag: SicknessHours
+		summarizeBy: sum
+		sourceColumn: SicknessHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SicknessDays
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(6, 2)
+		lineageTag: 46c43c99-2bdf-4515-b2ea-0ef51404c93c
+		sourceLineageTag: SicknessDays
+		summarizeBy: sum
+		sourceColumn: SicknessDays
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SicknessType
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9239e4a9-ad84-4a04-9037-0527bc10e2c5
+		sourceLineageTag: SicknessType
+		summarizeBy: sum
+		sourceColumn: SicknessType
+
+		annotation SummarizationSetBy = Automatic
+
+	column SicknessTypeName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cc9d4ab9-d74b-4473-9437-3fa902e4f5e7
+		sourceLineageTag: SicknessTypeName
+		summarizeBy: none
+		sourceColumn: SicknessTypeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column RowKind
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1a3aa134-6994-4f12-abee-cb3ed03b6d77
+		sourceLineageTag: RowKind
+		summarizeBy: none
+		sourceColumn: RowKind
+
+		annotation SummarizationSetBy = Automatic
+
+	column MeldingId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: be571728-b52f-4d77-b28e-c823983958d2
+		sourceLineageTag: MeldingId
+		summarizeBy: none
+		sourceColumn: MeldingId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 0b355112-8a90-4bbb-a297-96f4ee22b510
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition management_dl_fact_sickness = entity
+		mode: directLake
+		source
+			entityName: sickness
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

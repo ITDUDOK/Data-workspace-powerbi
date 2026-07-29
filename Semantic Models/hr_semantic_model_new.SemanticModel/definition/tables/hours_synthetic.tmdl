@@ -1,0 +1,154 @@
+table hours_synthetic
+	lineageTag: 4f235f9a-5e88-4817-a6fe-3c12d9fcb246
+	sourceLineageTag: [dbo].[hours_synthetic]
+
+	column EmployeeId
+		dataType: string
+		lineageTag: d3650089-e8ed-4489-a1a8-a31ca582c259
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardId
+		dataType: int64
+		formatString: 0
+		lineageTag: fc346090-bce8-4216-ac30-d65b7dfbb54f
+		sourceLineageTag: CardId
+		summarizeBy: count
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardName
+		dataType: string
+		lineageTag: 243aebb9-670b-4aa1-ab11-2077c03b7114
+		sourceLineageTag: CardName
+		summarizeBy: none
+		sourceColumn: CardName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: da33389e-60ed-4c5a-84b3-41fdd8a245e5
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: 739cde4b-be0c-492c-bd11-d06c00d2ad00
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ad0715e-d351-4070-b3af-74cd2fca17f0
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: int64
+		formatString: 0
+		lineageTag: b916be26-2938-4f6b-b138-0270573e4cc3
+		sourceLineageTag: Department
+		summarizeBy: sum
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6255c9fb-ba9a-4ddf-819a-656e3ca1815a
+		sourceLineageTag: HourDate
+		summarizeBy: none
+		sourceColumn: HourDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: dee0edf5-26ed-4b46-b39c-7221df5856cd
+		sourceLineageTag: HourHours
+		summarizeBy: sum
+		sourceColumn: HourHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ContractWeeklyHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ef7319a1-410c-4e6f-a511-54b1a66685da
+		sourceLineageTag: ContractWeeklyHours
+		summarizeBy: sum
+		sourceColumn: ContractWeeklyHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column HourlyRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 33cfd8ef-a042-4dcd-9d52-8be43f06c25f
+		sourceLineageTag: HourlyRate
+		summarizeBy: sum
+		sourceColumn: HourlyRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column LabourCost
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 574581ed-3786-48c4-b84a-eef6b81dafae
+		sourceLineageTag: LabourCost
+		summarizeBy: sum
+		sourceColumn: LabourCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e35b41ef-40f2-40d9-b4e5-3850f955849f
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentName
+		dataType: string
+		lineageTag: ea1f13fd-041f-44d4-b472-46275524462b
+		sourceLineageTag: DepartmentName
+		summarizeBy: none
+		sourceColumn: DepartmentName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hours_synthetic = entity
+		mode: directLake
+		source
+			entityName: hours_synthetic
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

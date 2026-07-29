@@ -1,0 +1,107 @@
+table hr_functions
+	lineageTag: 13df5182-e1d3-4328-bf9c-94a227c20624
+	sourceLineageTag: [dbo].[hr_functions]
+
+	column HrFunctionId
+		dataType: int64
+		formatString: 0
+		lineageTag: 37e99c28-2a0f-44a3-9c60-d8ab9a96fef8
+		sourceLineageTag: HrFunctionId
+		summarizeBy: count
+		sourceColumn: HrFunctionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		lineageTag: a7c0e419-ba43-4cab-9089-9fb67d6dcec6
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionId
+		dataType: string
+		lineageTag: 9f4a744b-f692-4255-893b-b18c1481ba99
+		sourceLineageTag: FunctionId
+		summarizeBy: none
+		sourceColumn: FunctionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: 67c61566-33c6-4154-961a-1185e60aa346
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionCode
+		dataType: int64
+		formatString: 0
+		lineageTag: db729afc-cb3e-4155-b1eb-f082bf279423
+		sourceLineageTag: FunctionCode
+		summarizeBy: count
+		sourceColumn: FunctionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionDescription
+		dataType: string
+		lineageTag: 70e28028-9643-4c0b-ba87-092a92e0fbdf
+		sourceLineageTag: FunctionDescription
+		summarizeBy: none
+		sourceColumn: FunctionDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column PeriodYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 70bfe981-483f-4f9a-948f-032ff4ecc544
+		sourceLineageTag: PeriodYear
+		summarizeBy: sum
+		sourceColumn: PeriodYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		lineageTag: 543e8b2b-4291-4695-9fd8-55268ec3caf9
+		sourceLineageTag: Period
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 513be979-f8ce-4f54-8c4d-6e8346cee6c2
+		sourceLineageTag: CreatedAt
+		summarizeBy: none
+		sourceColumn: CreatedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2367e5f4-7b16-4994-af69-c713dbfb3eb3
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hr_functions = entity
+		mode: directLake
+		source
+			entityName: hr_functions
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

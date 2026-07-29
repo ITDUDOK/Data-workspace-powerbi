@@ -1,0 +1,30 @@
+table dim_time
+	lineageTag: e5ae4837-21be-447d-bca4-1e475b17ec30
+
+	column Dagdelen
+		dataType: string
+		lineageTag: 36df60b1-3f44-4f34-8c8b-883a12f4daef
+		sourceColumn: Dagdelen
+
+	column HourNumber
+		dataType: int64
+		lineageTag: 12f6f629-925b-4f46-8b42-87659b5a68cf
+		sourceColumn: HourNumber
+
+	column Hour
+		dataType: string
+		lineageTag: 4b9bfb1c-cb87-4774-81ef-300a7ca3f1ec
+		sourceColumn: Hour
+
+	column Index_Dagdelen
+		dataType: int64
+		lineageTag: 94d4b808-3ee6-4b40-9c91-8eb48960c59b
+		sourceColumn: Index_Dagdelen
+
+	partition 'dim_time 1' = entity
+		mode: directLake
+		source
+			entityName: dim_time
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

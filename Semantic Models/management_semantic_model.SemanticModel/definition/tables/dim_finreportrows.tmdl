@@ -1,0 +1,40 @@
+table dim_finreportrows
+	lineageTag: d7f6e32a-f035-43aa-a722-47dba44a1021
+
+	column ClassificatieCode
+		dataType: string
+		lineageTag: e8b81f5a-9b75-45d3-994f-6cb308044c2c
+		sourceColumn: ClassificatieCode
+
+	column Hoofdgroep
+		dataType: string
+		lineageTag: 7132f8e2-0c33-4dc2-8d21-8b67aa4a2b5b
+		sourceColumn: Hoofdgroep
+
+	column Subrij
+		dataType: string
+		lineageTag: c16afc71-eab9-4a3c-a12e-05e9130a113c
+		sourceColumn: Subrij
+
+	column SortHoofd
+		dataType: int64
+		lineageTag: 3206e9e0-790f-4772-bd17-178c7181d7b1
+		sourceColumn: SortHoofd
+
+	column SortSub
+		dataType: int64
+		lineageTag: 3a795632-d87f-415d-a925-ab4513c0ffbf
+		sourceColumn: SortSub
+
+	column Teken
+		dataType: int64
+		lineageTag: 00e15d51-6a4a-4d05-99c0-e53fba401c7e
+		sourceColumn: Teken
+
+	partition 'dim_finreportrows 1' = entity
+		mode: directLake
+		source
+			entityName: dim_finreportrows
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

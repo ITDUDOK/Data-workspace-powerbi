@@ -1,0 +1,173 @@
+table spaces
+	lineageTag: 2445ffb3-1f02-4990-be40-f35643373799
+	sourceLineageTag: [dbo].[spaces]
+
+	column SpaceId
+		dataType: string
+		lineageTag: 366dcf8e-5be4-4827-87cf-c323924fc0cb
+		sourceLineageTag: SpaceId
+		summarizeBy: none
+		sourceColumn: SpaceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationName
+		dataType: string
+		lineageTag: cf7d7005-cf70-4548-8e4b-0e460fcd7565
+		sourceLineageTag: LocationName
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: 2e6d2f0f-97a7-42a4-96a7-adcb2ee91d28
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Price
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2a9a19f5-f9aa-41d5-8e5a-212764e00783
+		sourceLineageTag: Price
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ProductName
+		dataType: string
+		lineageTag: 2249742b-997c-4f20-89f4-f156d933a968
+		sourceLineageTag: ProductName
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpaceName
+		dataType: string
+		lineageTag: c8572301-8298-4f05-9dbc-fb33e7f75ea9
+		sourceLineageTag: SpaceName
+		summarizeBy: none
+		sourceColumn: SpaceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subtitle
+		dataType: string
+		lineageTag: f54dd877-246c-465e-a617-d80c19f1f561
+		sourceLineageTag: Subtitle
+		summarizeBy: none
+		sourceColumn: Subtitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Disabled
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a54982b6-10ff-4345-b28a-5bf7566a0a72
+		sourceLineageTag: Disabled
+		summarizeBy: none
+		sourceColumn: Disabled
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 7e1eb4e8-6256-495f-be99-0cdc7131ebca
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Content
+		dataType: string
+		lineageTag: dbbfe8ee-6817-4313-a837-4b33a358ec22
+		sourceLineageTag: Content
+		summarizeBy: none
+		sourceColumn: Content
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d9ce35b9-2438-455b-b7b7-cc8fc4ae6817
+		sourceLineageTag: VatRate
+		summarizeBy: sum
+		sourceColumn: VatRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SortOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: fc3dab4c-cd91-4e40-838e-b4f6d3c589a9
+		sourceLineageTag: SortOrder
+		summarizeBy: sum
+		sourceColumn: SortOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeneralLedgerNumber
+		dataType: string
+		lineageTag: a9444e05-2f0c-486c-8e9d-64836b3ac588
+		sourceLineageTag: GeneralLedgerNumber
+		summarizeBy: none
+		sourceColumn: GeneralLedgerNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: 7c524faa-368a-4d4c-9f52-743048f4b5a0
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryId
+		dataType: string
+		lineageTag: 4cb88bad-33af-4a8d-b933-60d4ce5fa524
+		sourceLineageTag: CategoryId
+		summarizeBy: none
+		sourceColumn: CategoryId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryName
+		dataType: string
+		lineageTag: 761c7d7e-3858-40ce-b0ed-0313bedf1820
+		sourceLineageTag: CategoryName
+		summarizeBy: none
+		sourceColumn: CategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a9b2c0a0-41d1-42c7-ad02-b4dbf874d39d
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition spaces = entity
+		mode: directLake
+		source
+			entityName: spaces
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,90 @@
+table event_contacts
+	lineageTag: f1302af9-6fe0-4805-8ccb-419399cdb74c
+	sourceLineageTag: [dbo].[event_contacts]
+
+	column EventId
+		dataType: string
+		lineageTag: 8cf11bb1-a7c7-4dce-81de-6f9d81a2b98d
+		sourceLineageTag: EventId
+		summarizeBy: none
+		sourceColumn: EventId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactSeq
+		dataType: int64
+		formatString: 0
+		lineageTag: 536c21bf-f0de-4fc7-a9f7-c7c9a47246cb
+		sourceLineageTag: ContactSeq
+		summarizeBy: sum
+		sourceColumn: ContactSeq
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactId
+		dataType: string
+		lineageTag: 35a6184c-c548-4115-a7dc-4b64e0150eb5
+		sourceLineageTag: ContactId
+		summarizeBy: none
+		sourceColumn: ContactId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullName
+		dataType: string
+		lineageTag: 3d130cce-01e8-4c2f-af6f-ccee2d7375a8
+		sourceLineageTag: FullName
+		summarizeBy: none
+		sourceColumn: FullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: a9132a0a-d867-434e-b3d9-bd3c38b914fd
+		sourceLineageTag: Email
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: a447435f-7487-4682-bd63-68ea53ce0242
+		sourceLineageTag: Phone
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Role
+		dataType: string
+		lineageTag: 50f02652-cab5-4afd-b03b-399ebf734035
+		sourceLineageTag: Role
+		summarizeBy: none
+		sourceColumn: Role
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ab9070e8-e6fc-427f-b407-44e9f0b0c6aa
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventIdInt
+		dataType: int64
+		lineageTag: 6dfe9f6a-72c0-4391-a45f-6a0e142fc80f
+		sourceColumn: EventIdInt
+
+	partition event_contacts = entity
+		mode: directLake
+		source
+			entityName: event_contacts
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,70 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Exact Online MRP",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "gatewayObjectId": "33f72515-25c3-4216-968b-5976e7110940",
+  "queriesMetadata": {
+    "MRPScenarioLinkItems": {
+      "queryId": "faccb77d-d98e-49cb-8331-040042271f04",
+      "queryName": "MRPScenarioLinkItems",
+      "loadEnabled": false
+    },
+    "MRPScenarioLinkSalesForecasts": {
+      "queryId": "bed0adbe-41b0-4569-abe9-5a656b9aa06e",
+      "queryName": "MRPScenarioLinkSalesForecasts",
+      "loadEnabled": false
+    },
+    "MRPScenarioLinkWarehouses": {
+      "queryId": "630a4a35-e96b-4f64-aa90-491dede1c458",
+      "queryName": "MRPScenarioLinkWarehouses",
+      "loadEnabled": false
+    },
+    "MRPScenarioOrderEntryApprovalStatus": {
+      "queryId": "a2ec5bc1-21da-4605-a145-b00f1e4b9e67",
+      "queryName": "MRPScenarioOrderEntryApprovalStatus",
+      "loadEnabled": false
+    },
+    "MRPScenarioReorderPolicies": {
+      "queryId": "d729f8a0-108b-4a86-900f-2db6aea0d8f1",
+      "queryName": "MRPScenarioReorderPolicies",
+      "loadEnabled": false
+    },
+    "MRPScenarios": {
+      "queryId": "1c998442-198c-4827-9d21-4f95186dc9ea",
+      "queryName": "MRPScenarios",
+      "loadEnabled": false
+    },
+    "MRPScenarioWarningTypes": {
+      "queryId": "528e4c45-c3e2-4089-a854-7d664d35a565",
+      "queryName": "MRPScenarioWarningTypes",
+      "loadEnabled": false
+    },
+    "fnGetExactOnlineTable": {
+      "queryId": "73b2339d-c03f-4c1c-a959-7b4c51420fde",
+      "queryName": "fnGetExactOnlineTable",
+      "loadEnabled": false
+    },
+    "DefaultDestination": {
+      "queryId": "d5f5215b-96ad-47d7-8d5e-6bc16ec1dd41",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "ExactOnlinePremium",
+      "kind": "ExactOnlinePremium",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"7c70d480-1e0f-4968-a041-fc9074261bd8\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"c6062fed-690d-4d8f-b800-3e76c43c6a44\"}"
+    }
+  ]
+}

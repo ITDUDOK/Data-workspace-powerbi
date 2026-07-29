@@ -1,0 +1,133 @@
+table event_vat_rates
+	lineageTag: 8fd56175-9537-4d18-b937-1b9a39f67ae7
+	sourceLineageTag: [dbo].[event_vat_rates]
+
+	column EventVatRateId
+		dataType: int64
+		formatString: 0
+		lineageTag: a1781b76-cc09-41fe-a67f-a07bbd3fcf3e
+		sourceLineageTag: EventVatRateId
+		summarizeBy: count
+		sourceColumn: EventVatRateId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventId
+		dataType: int64
+		formatString: 0
+		lineageTag: 660bbbe5-d491-440d-b836-b67a7954acd7
+		sourceLineageTag: EventId
+		summarizeBy: count
+		sourceColumn: EventId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActivityId
+		dataType: int64
+		formatString: 0
+		lineageTag: bf927297-14e5-42bb-bf5e-4b4899facb4e
+		sourceLineageTag: ActivityId
+		summarizeBy: count
+		sourceColumn: ActivityId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductId
+		dataType: int64
+		formatString: 0
+		lineageTag: b99486f2-9d6c-414d-a22d-aeedd8ac162b
+		sourceLineageTag: ProductId
+		summarizeBy: count
+		sourceColumn: ProductId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: f6c7c61b-beb3-4882-9b60-e816ccf1c78b
+		sourceLineageTag: ProductName
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ObjectId
+		dataType: int64
+		formatString: 0
+		lineageTag: cc36ff41-dd36-4e37-ac7d-ee91bdd4b55e
+		sourceLineageTag: ObjectId
+		summarizeBy: count
+		sourceColumn: ObjectId
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatRate
+		dataType: double
+		lineageTag: a37ff982-8349-46d9-9a70-efbf9ec15b86
+		sourceLineageTag: VatRate
+		summarizeBy: sum
+		sourceColumn: VatRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VatAmount
+		dataType: double
+		lineageTag: 01aec234-f310-444e-a178-4fa61cf6963f
+		sourceLineageTag: VatAmount
+		summarizeBy: sum
+		sourceColumn: VatAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VatPrice
+		dataType: double
+		lineageTag: f35a4f24-dc4a-4079-99c5-6d33f93e7293
+		sourceLineageTag: VatPrice
+		summarizeBy: sum
+		sourceColumn: VatPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VatPriceExcl
+		dataType: double
+		lineageTag: d26c54d8-bc71-4359-b4a2-a3fb617eef66
+		sourceLineageTag: VatPriceExcl
+		summarizeBy: sum
+		sourceColumn: VatPriceExcl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GeneralLedgerNumber
+		dataType: string
+		lineageTag: b83cad6d-8093-4985-9cc7-e34a0d2de5ee
+		sourceLineageTag: GeneralLedgerNumber
+		summarizeBy: none
+		sourceColumn: GeneralLedgerNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6fddc319-af73-4539-96fa-a6e0588a2226
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition event_vat_rates = entity
+		mode: directLake
+		source
+			entityName: event_vat_rates
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

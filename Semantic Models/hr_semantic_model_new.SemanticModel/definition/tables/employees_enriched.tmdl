@@ -1,0 +1,379 @@
+table employees_enriched
+	lineageTag: e3d6639a-bc33-4d61-a355-54bb3432e2a1
+	sourceLineageTag: [dbo].[employees_enriched]
+
+	column EmployeeId
+		dataType: string
+		lineageTag: bfd877dd-65b7-4e09-896d-be22a22d8234
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: 9c8032eb-1c3d-4759-9352-99d00ea904a9
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: e341f250-c0b4-4efa-ac23-8cbed112dd42
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: b1c7f534-74e5-4833-ba73-737ab9f5ab57
+		sourceLineageTag: EmployeeNumber
+		summarizeBy: sum
+		sourceColumn: EmployeeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullName
+		dataType: string
+		lineageTag: d341562a-3186-44d0-8c30-7d639732fcba
+		sourceLineageTag: FullName
+		summarizeBy: none
+		sourceColumn: FullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeType
+		dataType: string
+		lineageTag: 321d3b26-bf8d-4579-b792-88464293605e
+		sourceLineageTag: EmployeeType
+		summarizeBy: none
+		sourceColumn: EmployeeType
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardId
+		dataType: int64
+		formatString: 0
+		lineageTag: f20f34f3-258c-4fde-b730-307682ae097d
+		sourceLineageTag: CardId
+		summarizeBy: count
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c3aa904-f3ec-40ef-8974-36f8ecb0e83d
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column NameMatchConfidence
+		dataType: string
+		lineageTag: 961dfa27-6142-4a1e-bbdf-4c9e6a0f118a
+		sourceLineageTag: NameMatchConfidence
+		summarizeBy: none
+		sourceColumn: NameMatchConfidence
+
+		annotation SummarizationSetBy = Automatic
+
+	column MatchScope
+		dataType: string
+		lineageTag: d5997f50-c738-4d38-ad77-32af3ac3e674
+		sourceLineageTag: MatchScope
+		summarizeBy: none
+		sourceColumn: MatchScope
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: 27a8a941-b8d3-44f8-852d-3e893f644380
+		sourceLineageTag: Department
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Function
+		dataType: string
+		lineageTag: be6ff6bc-5e08-4713-824c-9ea2db41996f
+		sourceLineageTag: Function
+		summarizeBy: none
+		sourceColumn: Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e48d168f-615d-4060-a1f5-ec301d5ca912
+		sourceLineageTag: ContractHours
+		summarizeBy: sum
+		sourceColumn: ContractHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column HourlySalary
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6678e86e-5b81-48de-9bd5-06e762164c7b
+		sourceLineageTag: HourlySalary
+		summarizeBy: sum
+		sourceColumn: HourlySalary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalaryRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e41e0341-8e29-432e-8636-eee57a48db5d
+		sourceLineageTag: SalaryRate
+		summarizeBy: sum
+		sourceColumn: SalaryRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CardStart
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fb3b23f8-9081-4387-9c69-15c57dd290f6
+		sourceLineageTag: CardStart
+		summarizeBy: none
+		sourceColumn: CardStart
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardEnd
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 61093529-6dc4-4518-ab84-3c046363b941
+		sourceLineageTag: CardEnd
+		summarizeBy: none
+		sourceColumn: CardEnd
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateOfBirth
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2b06b1e7-1b9b-4185-b9dd-571a3267606f
+		sourceLineageTag: DateOfBirth
+		summarizeBy: none
+		sourceColumn: DateOfBirth
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0b996085-2a77-4494-9cc6-cfdb765bd707
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerFullName
+		dataType: string
+		lineageTag: af012419-e7a7-4584-b9ae-fd12c03afe21
+		sourceLineageTag: ManagerFullName
+		summarizeBy: none
+		sourceColumn: ManagerFullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column NmbrsFunctionCode
+		dataType: string
+		lineageTag: 3b0ed4fe-487c-441e-a0aa-a74776afc368
+		sourceLineageTag: NmbrsFunctionCode
+		summarizeBy: none
+		sourceColumn: NmbrsFunctionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column NmbrsFunctionDescription
+		dataType: string
+		lineageTag: 73d42094-eec4-45a2-885c-994cd0c0bf75
+		sourceLineageTag: NmbrsFunctionDescription
+		summarizeBy: none
+		sourceColumn: NmbrsFunctionDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractStartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5a663087-1eea-4546-83d0-b2bfd432efe7
+		sourceLineageTag: ContractStartDate
+		summarizeBy: none
+		sourceColumn: ContractStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c54fa467-2063-40be-8c0e-d38639750328
+		sourceLineageTag: ContractEndDate
+		summarizeBy: none
+		sourceColumn: ContractEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsIndefiniteContract
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b07976e8-de02-4e9e-a0f2-945f4b343f61
+		sourceLineageTag: IsIndefiniteContract
+		summarizeBy: none
+		sourceColumn: IsIndefiniteContract
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmploymentEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6a9e8b63-1cd7-4527-b33e-4b2b04e9461b
+		sourceLineageTag: EmploymentEndDate
+		summarizeBy: none
+		sourceColumn: EmploymentEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndContractReason
+		dataType: string
+		lineageTag: 7ba3fc51-c2d2-4c4b-b3e2-24399375b3ec
+		sourceLineageTag: EndContractReason
+		summarizeBy: none
+		sourceColumn: EndContractReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeStartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3ca51f44-4f0e-4aa0-bc8e-3d81267d01dc
+		sourceLineageTag: EmployeeStartDate
+		summarizeBy: none
+		sourceColumn: EmployeeStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 17b74fad-05aa-4a9e-8be3-7093460edab0
+		sourceLineageTag: EmployeeEndDate
+		summarizeBy: none
+		sourceColumn: EmployeeEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsActief
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c940c785-0868-4dbb-bc9f-ee0e12e59227
+		sourceLineageTag: IsActief
+		summarizeBy: none
+		sourceColumn: IsActief
+
+		annotation SummarizationSetBy = Automatic
+
+	column VerzuimredenColumn
+		dataType: string
+		lineageTag: 8a14c971-92ef-428b-942a-768eef51f560
+		sourceLineageTag: VerzuimredenColumn
+		summarizeBy: none
+		sourceColumn: VerzuimredenColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDateEmployment
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1c328553-b6ba-47d6-89af-1352cc9930f8
+		sourceLineageTag: EndDateEmployment
+		summarizeBy: none
+		sourceColumn: EndDateEmployment
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinalEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7d6d8c9c-5574-415c-96cd-34a5872be13a
+		sourceLineageTag: FinalEndDate
+		summarizeBy: none
+		sourceColumn: FinalEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinalEndDateFormatted
+		dataType: string
+		lineageTag: ad7ed603-f994-40cb-b4f7-1e35c8ac0dce
+		sourceLineageTag: FinalEndDateFormatted
+		summarizeBy: none
+		sourceColumn: FinalEndDateFormatted
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentName
+		dataType: string
+		lineageTag: a2fcf4ee-60c8-4aa4-9a0a-a9bb03534e72
+		sourceLineageTag: DepartmentName
+		summarizeBy: none
+		sourceColumn: DepartmentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionName
+		dataType: string
+		lineageTag: bfd52cfd-ceaa-441a-b147-c9e483a79d7c
+		sourceLineageTag: FunctionName
+		summarizeBy: none
+		sourceColumn: FunctionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthdayDayMonth
+		dataType: string
+		lineageTag: c4c6280a-53a2-4a6a-8a33-941b4f1b6683
+		sourceLineageTag: BirthdayDayMonth
+		summarizeBy: none
+		sourceColumn: BirthdayDayMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthdaySortKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d0c1a2c-8344-4d03-96e0-fbe848dcb729
+		sourceLineageTag: BirthdaySortKey
+		summarizeBy: count
+		sourceColumn: BirthdaySortKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employees_enriched = entity
+		mode: directLake
+		source
+			entityName: employees_enriched
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

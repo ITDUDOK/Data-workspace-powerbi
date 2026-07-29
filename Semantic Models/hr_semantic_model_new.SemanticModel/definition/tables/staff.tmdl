@@ -1,0 +1,329 @@
+table staff
+	lineageTag: 26d005d9-43d2-4354-897b-9279bd298fa2
+	sourceLineageTag: [dbo].[staff]
+
+	column CardId
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d4dbcb1-db99-4764-b860-d17d6ea33f81
+		sourceLineageTag: CardId
+		summarizeBy: none
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		lineageTag: 9a607b65-6d5d-41dd-ad8e-aa612e235c3e
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: cb3e1e34-14ad-44d9-8dc7-efcf0690beb2
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: c581d329-ec66-417c-a44d-0f06a83de78d
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: 654aba1a-9d54-4186-8b0d-5891c26057b0
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardOffice
+		dataType: int64
+		formatString: 0
+		lineageTag: 5523bc26-0671-42a1-a02f-639346016420
+		sourceLineageTag: CardOffice
+		summarizeBy: sum
+		sourceColumn: CardOffice
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardAccountantNumber
+		dataType: string
+		lineageTag: 2f3ad148-b0b4-4837-b1d8-fb753497ec48
+		sourceLineageTag: CardAccountantNumber
+		summarizeBy: none
+		sourceColumn: CardAccountantNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardName
+		dataType: string
+		lineageTag: a29d952f-ae0e-44ee-a2cb-d5b56be54d7a
+		sourceLineageTag: CardName
+		summarizeBy: none
+		sourceColumn: CardName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardFirstName
+		dataType: string
+		lineageTag: bbd07434-db71-4bb3-b358-5127797ffc68
+		sourceLineageTag: CardFirstName
+		summarizeBy: none
+		sourceColumn: CardFirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardInsertion
+		dataType: string
+		lineageTag: ba366c6a-ff32-40c7-899a-319815f6a52a
+		sourceLineageTag: CardInsertion
+		summarizeBy: none
+		sourceColumn: CardInsertion
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardLastName
+		dataType: string
+		lineageTag: d455b0ef-6d94-4272-9a00-27f0e28e66c1
+		sourceLineageTag: CardLastName
+		summarizeBy: none
+		sourceColumn: CardLastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardStart
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: da96b674-e954-44c6-8afe-4d25123c5b12
+		sourceLineageTag: CardStart
+		summarizeBy: none
+		sourceColumn: CardStart
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardEnd
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cac3ddb8-623b-4769-80f1-2ab0ee1580d5
+		sourceLineageTag: CardEnd
+		summarizeBy: none
+		sourceColumn: CardEnd
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardContractHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 65656092-2c94-4126-b1d6-1d25b71d5875
+		sourceLineageTag: CardContractHours
+		summarizeBy: sum
+		sourceColumn: CardContractHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CardHourlySalary
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a5a580b9-0199-43da-8e61-b49199a0edff
+		sourceLineageTag: CardHourlySalary
+		summarizeBy: sum
+		sourceColumn: CardHourlySalary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CardSalaryRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 51de88e1-ae2c-4abf-aea5-e6cdeae3f1bf
+		sourceLineageTag: CardSalaryRate
+		summarizeBy: sum
+		sourceColumn: CardSalaryRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CardDepartment
+		dataType: int64
+		formatString: 0
+		lineageTag: 25fd38c7-b35b-4b9b-8ea2-fd0097bb63a3
+		sourceLineageTag: CardDepartment
+		summarizeBy: sum
+		sourceColumn: CardDepartment
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardFunction
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c6d4a82-b674-44e7-b04e-0f0ca1d7098c
+		sourceLineageTag: CardFunction
+		summarizeBy: none
+		sourceColumn: CardFunction
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardContractNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: b588a33e-17f8-482d-948e-b07aad6abf50
+		sourceLineageTag: CardContractNumber
+		summarizeBy: sum
+		sourceColumn: CardContractNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardContractProfile
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a98770e-6f0a-459f-9426-dbd8d6db9463
+		sourceLineageTag: CardContractProfile
+		summarizeBy: sum
+		sourceColumn: CardContractProfile
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardDateOfBirth
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4eb023fe-d7fe-4519-8bef-9fece5c89bc1
+		sourceLineageTag: CardDateOfBirth
+		summarizeBy: none
+		sourceColumn: CardDateOfBirth
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardGender
+		dataType: int64
+		formatString: 0
+		lineageTag: 89de578d-2e81-48bd-89dd-6b7f39272761
+		sourceLineageTag: CardGender
+		summarizeBy: sum
+		sourceColumn: CardGender
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardPhone
+		dataType: string
+		lineageTag: 2e94fc54-f09e-4282-a9f1-81acf03bc0a3
+		sourceLineageTag: CardPhone
+		summarizeBy: none
+		sourceColumn: CardPhone
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardMobile
+		dataType: string
+		lineageTag: 1a159b5d-0cd2-4b5d-bb31-d1a8ea61a1c6
+		sourceLineageTag: CardMobile
+		summarizeBy: none
+		sourceColumn: CardMobile
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardEmail
+		dataType: string
+		lineageTag: 2d1294f8-4025-41ee-a195-b392faf69ec5
+		sourceLineageTag: CardEmail
+		summarizeBy: none
+		sourceColumn: CardEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardAddress
+		dataType: string
+		lineageTag: fe9d54c6-6472-42b9-8c0b-f4e597eb1b55
+		sourceLineageTag: CardAddress
+		summarizeBy: none
+		sourceColumn: CardAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardAddressNumber
+		dataType: string
+		lineageTag: de401e87-ada3-4b94-a43d-7cf88ce4c121
+		sourceLineageTag: CardAddressNumber
+		summarizeBy: none
+		sourceColumn: CardAddressNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardAddressNumberAddition
+		dataType: string
+		lineageTag: 19522ef1-7c1d-4410-b5cf-f49dbb90fca9
+		sourceLineageTag: CardAddressNumberAddition
+		summarizeBy: none
+		sourceColumn: CardAddressNumberAddition
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardAddressPostal
+		dataType: string
+		lineageTag: f152ad49-aa03-4b3f-b06a-c86c5448f8f7
+		sourceLineageTag: CardAddressPostal
+		summarizeBy: none
+		sourceColumn: CardAddressPostal
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardAddressCity
+		dataType: string
+		lineageTag: cbcc002e-9177-49a6-94f2-0488950edbbf
+		sourceLineageTag: CardAddressCity
+		summarizeBy: none
+		sourceColumn: CardAddressCity
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardAddressCountry
+		dataType: string
+		lineageTag: 3efa0a3b-ded4-491e-8e98-27b94c6b0e76
+		sourceLineageTag: CardAddressCountry
+		summarizeBy: none
+		sourceColumn: CardAddressCountry
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardClockNumber
+		dataType: string
+		lineageTag: 74f19779-16fe-4174-b8ba-f65c7be5b3f5
+		sourceLineageTag: CardClockNumber
+		summarizeBy: none
+		sourceColumn: CardClockNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2429dba6-e743-421d-a24b-444761083433
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition staff = entity
+		mode: directLake
+		source
+			entityName: staff
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

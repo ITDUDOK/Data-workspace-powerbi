@@ -1,0 +1,62 @@
+relationship 0fd048a2-b85a-40cb-9884-67e1703bbbe8
+	fromColumn: event_package_lines.EventId
+	toColumn: fact_eventstable.event_id
+
+relationship 05e1b392-0e3c-496c-95ae-fbf6829e6082
+	crossFilteringBehavior: bothDirections
+	fromColumn: event_product_lines.EventId
+	toColumn: fact_eventstable.event_id
+
+relationship 3d7d16ba-8126-4f25-b612-cbaa2857b69e
+	fromColumn: event_vat_rates.EventId
+	toColumn: fact_eventstable.event_id
+
+relationship 2fdc0fce-aae2-4cc6-990a-19d6288ed12c
+	fromColumn: fact_eventstable.location_id
+	toColumn: spaces.SpaceId
+
+relationship 59fe45a1-64fc-4ed6-ad61-ea8d08891c54
+	fromColumn: fact_eventstable.EventDate
+	toColumn: dim_date.Date
+
+relationship bc1cf958-d9eb-431a-a241-b922a1ab0ed8
+	crossFilteringBehavior: bothDirections
+	fromColumn: products.CategoryId
+	toColumn: product_categories.CategoryId
+
+relationship ad96f691-96be-454d-8c90-33a22841e1ce
+	crossFilteringBehavior: bothDirections
+	fromColumn: invoice_lines.InvoiceId
+	toColumn: invoices.InvoiceId
+
+relationship fcea0f04-6aa4-4454-b4c3-52c62078a29d
+	crossFilteringBehavior: bothDirections
+	fromColumn: event_contacts.EventIdInt
+	toColumn: fact_eventstable.event_id
+
+relationship 15f5e450-f954-41bb-bfe6-26c7605712b4
+	fromColumn: fact_eventstable.company_id
+	toColumn: mice_companies.MiceCompanyIdInt
+
+relationship 9bcb74bf-dff6-44b8-bb8f-edda7702a5b3
+	fromColumn: fact_eventstable.client_id
+	toColumn: clients.ClientIdInt
+
+relationship 4098ca59-4e72-43df-b726-2c2a0c7a5173
+	crossFilteringBehavior: bothDirections
+	fromColumn: fact_eventstable.planner_id
+	toColumn: event_planners.PlannerIdInt
+
+relationship 88590b1a-28d9-4ac9-8447-52a4bded29a5
+	fromColumn: fact_eventstable.event_type_id
+	toColumn: event_types.EventTypeIdInt
+
+relationship e7b2b268-edd8-4eb2-9804-0d8f910eff17
+	fromColumn: event_product_lines.ObjectCategoryId
+	toColumn: product_categories.CategoryIdInt
+
+relationship f1d37071-403e-4a20-b8ab-e5ce8ccb48aa
+	crossFilteringBehavior: bothDirections
+	fromColumn: event_custom_attributes.EventIdInt
+	toColumn: fact_eventstable.event_id
+

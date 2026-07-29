@@ -1,0 +1,104 @@
+table fact_prognosis
+	lineageTag: 7c7f7c2b-b355-4e00-9af3-6c7f571c0962
+	sourceLineageTag: [dbo].[management_dl_fact_prognosis]
+
+	column PrognosisId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 473be8eb-82e7-4ad2-8baf-08b50c373271
+		sourceLineageTag: PrognosisId
+		summarizeBy: count
+		sourceColumn: PrognosisId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 973259bd-43e5-49f1-92a1-1e5c54b92351
+		sourceLineageTag: OfficeID
+		summarizeBy: none
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrognosisDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: ec209a68-5bb4-424a-b21b-3e3d25889028
+		sourceLineageTag: PrognosisDate
+		summarizeBy: none
+		sourceColumn: PrognosisDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column TypeID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 03058f44-139a-4a21-9574-35a5d1645b93
+		sourceLineageTag: TypeID
+		summarizeBy: count
+		sourceColumn: TypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrognosisGuests
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9dc6cb2f-2352-48df-81e1-586081c6ea28
+		sourceLineageTag: PrognosisGuests
+		summarizeBy: sum
+		sourceColumn: PrognosisGuests
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrognosisSpending
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(12, 2)
+		lineageTag: 94f4de85-87a4-4767-9494-3292fa393a76
+		sourceLineageTag: PrognosisSpending
+		summarizeBy: sum
+		sourceColumn: PrognosisSpending
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column PrognosisTurnover
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(14, 2)
+		lineageTag: cb46a894-8e65-4aa0-994a-4c6c2c5871a7
+		sourceLineageTag: PrognosisTurnover
+		summarizeBy: sum
+		sourceColumn: PrognosisTurnover
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: a608665a-6f4f-4ad1-bc2d-1625d0da75fa
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition management_dl_fact_prognosis = entity
+		mode: directLake
+		source
+			entityName: prognosis
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

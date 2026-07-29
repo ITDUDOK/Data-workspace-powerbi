@@ -1,0 +1,200 @@
+table payments
+	lineageTag: 2008beb1-da6e-41da-b649-9d73100b6801
+	sourceLineageTag: [dbo].[payments]
+
+	column TicketKey
+		dataType: string
+		lineageTag: e341c693-a391-4779-849a-aad48532bfd7
+		sourceLineageTag: TicketKey
+		summarizeBy: none
+		sourceColumn: TicketKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeKey
+		dataType: string
+		lineageTag: e02282a3-b542-4298-a8c4-2423885419c5
+		sourceLineageTag: PaymodeKey
+		summarizeBy: none
+		sourceColumn: PaymodeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeGroupKey
+		dataType: string
+		lineageTag: 8b50fb72-9c71-44e3-893e-3ab8786f9de3
+		sourceLineageTag: PaymodeGroupKey
+		summarizeBy: none
+		sourceColumn: PaymodeGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeGroupName
+		dataType: string
+		lineageTag: a22f7acb-5fec-4bf9-8b24-47e85b7f1931
+		sourceLineageTag: PaymodeGroupName
+		summarizeBy: none
+		sourceColumn: PaymodeGroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodePaymodeKey
+		dataType: string
+		lineageTag: 31f6881a-58fb-4eff-a0ec-d20d473c7c17
+		sourceLineageTag: PaymodePaymodeKey
+		summarizeBy: none
+		sourceColumn: PaymodePaymodeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterKey
+		dataType: string
+		lineageTag: 42834b8c-f119-494b-91d9-a6b631f7357b
+		sourceLineageTag: CenterKey
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterName
+		dataType: string
+		lineageTag: c54f52b1-8e03-4bab-ade0-5b3341e36ce8
+		sourceLineageTag: CenterName
+		summarizeBy: none
+		sourceColumn: CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeTotal
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: dbf6061f-e8de-4689-aa05-2395c15f4f41
+		sourceLineageTag: PaymodeTotal
+		summarizeBy: sum
+		sourceColumn: PaymodeTotal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column PaymodeQty
+		dataType: int64
+		formatString: 0
+		lineageTag: 67258059-fb23-49be-a8b1-c2dcdd769c5d
+		sourceLineageTag: PaymodeQty
+		summarizeBy: sum
+		sourceColumn: PaymodeQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeMemo
+		dataType: string
+		lineageTag: f832e9a0-3ffe-4088-ad0f-080173740f7c
+		sourceLineageTag: PaymodeMemo
+		summarizeBy: none
+		sourceColumn: PaymodeMemo
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeTerminalId
+		dataType: string
+		lineageTag: d9813a43-3469-44dd-9c39-5e02bb7747b4
+		sourceLineageTag: PaymodeTerminalId
+		summarizeBy: none
+		sourceColumn: PaymodeTerminalId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeTransactionId
+		dataType: string
+		lineageTag: 70b17bea-c708-45fe-9437-dbe2b9548274
+		sourceLineageTag: PaymodeTransactionId
+		summarizeBy: none
+		sourceColumn: PaymodeTransactionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b2f0fa82-1734-46b5-b760-cc612e92de21
+		sourceLineageTag: TicketDate
+		summarizeBy: none
+		sourceColumn: TicketDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketTime
+		dataType: string
+		lineageTag: d3e0ad24-8b8e-4e52-9bda-4eb52d280699
+		sourceLineageTag: TicketTime
+		summarizeBy: none
+		sourceColumn: TicketTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0f2fdbea-9097-47d6-91c4-a9e1354b21c1
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketTable_CenterKey
+		dataType: string
+		lineageTag: 193cdd24-8ca0-4306-9927-dad0b657623b
+		sourceLineageTag: TicketTable_CenterKey
+		summarizeBy: none
+		sourceColumn: TicketTable_CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketTable_CenterName
+		dataType: string
+		lineageTag: f7b01b6a-762b-41ef-bb01-f5f0dcc0028c
+		sourceLineageTag: TicketTable_CenterName
+		summarizeBy: none
+		sourceColumn: TicketTable_CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d4c45971-c1fc-439f-90d0-782a04bfcb56
+		sourceLineageTag: ActualDate
+		summarizeBy: none
+		sourceColumn: ActualDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 030b3c59-fcb8-4ec0-b200-4e8c2a8659f5
+		sourceLineageTag: Time
+		summarizeBy: none
+		sourceColumn: Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: e1fc5218-731b-4997-8d46-dd3a55bd401c
+		sourceLineageTag: HourNumber
+		summarizeBy: sum
+		sourceColumn: HourNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	partition payments = entity
+		mode: directLake
+		source
+			entityName: payments
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

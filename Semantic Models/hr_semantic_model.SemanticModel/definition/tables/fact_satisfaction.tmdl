@@ -1,0 +1,77 @@
+table fact_satisfaction
+	lineageTag: 1aac995e-bcff-4924-a4e5-50993d55627a
+	sourceLineageTag: [dbo].[hr_dl_fact_satisfaction]
+
+	column SatisfactionId
+		dataType: int64
+		formatString: 0
+		lineageTag: 229504ba-efc4-4bd0-9642-781cb60e1571
+		sourceLineageTag: SatisfactionId
+		summarizeBy: count
+		sourceColumn: SatisfactionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b840d7d5-2746-4da4-b695-6a7617719ade
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: SurveyDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column StaffName
+		dataType: string
+		lineageTag: c914430e-c019-4c98-981a-db91f91f5b14
+		sourceLineageTag: StaffName
+		summarizeBy: none
+		sourceColumn: StaffName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Office
+		dataType: string
+		lineageTag: 0683c58b-2aa1-48cc-aaed-c898c4322e27
+		sourceLineageTag: Office
+		summarizeBy: none
+		sourceColumn: Office
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: ed4dde86-66c0-4789-8ed2-67868e074f7e
+		sourceLineageTag: Department
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Satisfaction
+		dataType: int64
+		formatString: 0
+		lineageTag: ff39577e-fab7-4de9-9186-03d647866fd9
+		sourceLineageTag: Satisfaction
+		summarizeBy: sum
+		sourceColumn: Satisfaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column Remarks
+		dataType: string
+		lineageTag: ab7acee3-0b05-459e-a852-6131b2ac9a74
+		sourceLineageTag: Remarks
+		summarizeBy: none
+		sourceColumn: Remarks
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hr_dl_fact_satisfaction = entity
+		mode: directLake
+		source
+			entityName: fact_satisfaction
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

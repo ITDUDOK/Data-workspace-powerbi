@@ -1,0 +1,91 @@
+table dim_date
+	lineageTag: 353870a1-412e-4d6b-9050-f1dd571fa80e
+
+	measure 'Current Date' = TODAY()
+		formatString: General Date
+		lineageTag: b8c92a47-32b7-46fb-9930-774eefe7f7d8
+
+	measure 'Is Tot Huidige Maand' =
+			VAR _Today = TODAY ()
+			VAR _CurrentYear = YEAR ( _Today )
+			VAR _CurrentMonth = MONTH ( _Today )
+			VAR _MaxYear = MAX ( 'dim_date'[YearISO] )
+			VAR _MaxMonth = MAX ( 'dim_date'[Month] )
+			RETURN
+			    IF (
+			        NOT HASONEVALUE ( 'dim_date'[MonthName] )
+			            || _MaxYear < _CurrentYear
+			            || ( _MaxYear = _CurrentYear && _MaxMonth <= _CurrentMonth ),
+			        1,
+			        0
+			    )
+		formatString: 0
+		lineageTag: 85ee35c0-d863-444b-8ea5-44a508771103
+
+	column Date
+		dataType: dateTime
+		lineageTag: 04890a5a-171c-4dc3-a2e2-76c4524d143d
+		sourceColumn: Date
+
+	column DateString
+		dataType: string
+		lineageTag: 2c1cec04-2aac-4eb4-98e9-61e80862791e
+		sourceColumn: DateString
+
+	column DayISO
+		dataType: int64
+		lineageTag: ead9f058-f240-4956-94eb-1e664490c460
+		sourceColumn: DayISO
+
+	column DayName
+		dataType: string
+		lineageTag: 8c69b229-753a-459c-822d-0935f92aa08e
+		sourceColumn: DayName
+
+	column DayNumberOfTheWeek
+		dataType: int64
+		lineageTag: 3cab554a-9f72-4ddc-8baf-9175edd12625
+		sourceColumn: DayNumberOfTheWeek
+
+	column Month
+		dataType: int64
+		lineageTag: 4047aaa2-ef97-48dd-aa63-017b27094b8e
+		sourceColumn: Month
+
+	column MonthName
+		dataType: string
+		lineageTag: 41cd8768-4bc7-4bb7-8079-16d5723b4e6b
+		sourceColumn: MonthName
+
+	column Quarter
+		dataType: int64
+		lineageTag: b32090c1-1e77-4ab4-879d-f1ff17005361
+		sourceColumn: Quarter
+
+	column WeekISO
+		dataType: int64
+		lineageTag: 8b763b5a-d466-4f8a-8646-d43232d592e0
+		sourceColumn: WeekISO
+
+	column YearISO
+		dataType: int64
+		lineageTag: d876e433-6acc-4fa7-aa65-1b870576e397
+		sourceColumn: YearISO
+
+	column YearWeekSort
+		dataType: string
+		lineageTag: 472d2ad0-0319-4cf0-aa10-7ba8e98f6eb8
+		sourceColumn: YearWeekSort
+
+	column ThisWeekISO
+		dataType: string
+		lineageTag: be112fb5-80c2-4bab-b39c-64e1853fee57
+		sourceColumn: ThisWeekISO
+
+	partition 'dim_date 1' = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

@@ -1,0 +1,87 @@
+table bridge_company_office
+	lineageTag: fec2bd34-905b-4de7-b48c-df26bfde207c
+	sourceLineageTag: [dbo].[bridge_company_office]
+
+	column CompanyId
+		dataType: string
+		lineageTag: 32f8b8fa-8298-4c23-9dfa-35e992d1fa22
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: d31200a9-ff29-4c87-895c-6aaf58a56a49
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: f566be7c-b18c-4a86-a54f-2b995ee1fdf3
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: d1c53926-a25c-4a64-b1ec-ba3dd4fe44ec
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Confirmed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 54048e48-0648-4a5c-80d7-dccce8989313
+		sourceLineageTag: Confirmed
+		summarizeBy: none
+		sourceColumn: Confirmed
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConfirmedBy
+		dataType: string
+		lineageTag: ad73ad73-81e6-48ad-b4a9-9e92c5a103a3
+		sourceLineageTag: ConfirmedBy
+		summarizeBy: none
+		sourceColumn: ConfirmedBy
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConfirmedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2ac9a0e1-3453-4a6c-bad1-60b4b5c8ddf6
+		sourceLineageTag: ConfirmedAt
+		summarizeBy: none
+		sourceColumn: ConfirmedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 302997c5-593e-4efa-bbd6-e6f26249aa9d
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bridge_company_office = entity
+		mode: directLake
+		source
+			entityName: bridge_company_office
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

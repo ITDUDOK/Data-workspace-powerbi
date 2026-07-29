@@ -1,0 +1,174 @@
+table events
+	lineageTag: 25b75950-3daa-40c5-95f9-a11deb765a99
+
+	column EventId
+		dataType: string
+		lineageTag: d0fb092a-ef2e-49c3-9765-be540997e048
+		sourceColumn: EventId
+
+	column LocationName
+		dataType: string
+		lineageTag: 4c5ebf0f-0251-4fc3-a4cf-ea3021dd2bf5
+		sourceColumn: LocationName
+
+	column CompanyId
+		dataType: string
+		lineageTag: e6a9601a-06bf-46a9-970b-962dcd1cbc32
+		sourceColumn: CompanyId
+
+	column CreatedAt
+		dataType: dateTime
+		lineageTag: 754a3062-e4e5-4b6a-bbb7-5f1fc7129829
+		sourceColumn: CreatedAt
+
+	column UpdatedAt
+		dataType: dateTime
+		lineageTag: 2cc4998a-ee71-4416-91b2-986753d771fc
+		sourceColumn: UpdatedAt
+
+	column Status
+		dataType: string
+		lineageTag: 7b4a40cd-6c89-4fea-a6b9-1bb07bc69bf2
+		sourceColumn: Status
+
+	column PlannerId
+		dataType: string
+		lineageTag: 26dfe6d6-9891-43b1-a6ea-5b37ff1be949
+		sourceColumn: PlannerId
+
+	column PlannerFirstName
+		dataType: string
+		lineageTag: 619587db-d816-41b6-abcc-e03064f567d8
+		sourceColumn: PlannerFirstName
+
+	column PlannerLastName
+		dataType: string
+		lineageTag: 114e2fcd-b765-46d0-b03b-e1d88dcc052b
+		sourceColumn: PlannerLastName
+
+	column PlannerEmail
+		dataType: string
+		lineageTag: 0da060bb-84d2-4b9f-b029-3be8a27cd6d4
+		sourceColumn: PlannerEmail
+
+	column BookingId
+		dataType: string
+		lineageTag: 24388863-facd-4d47-a53b-8e64a5e9552e
+		sourceColumn: BookingId
+
+	column SpaceId
+		dataType: string
+		lineageTag: 70a4f12e-d71c-44bd-8ed9-77f5c1642bf1
+		sourceColumn: SpaceId
+
+	column SpaceName
+		dataType: string
+		lineageTag: 03015bb4-6f6c-4159-8d38-0d0c997474f1
+		sourceColumn: SpaceName
+
+	column Reference
+		dataType: string
+		lineageTag: 432f6914-8290-4578-a4dc-9b6ebd32bb1a
+		sourceColumn: Reference
+
+	column EventName
+		dataType: string
+		lineageTag: 3913a2fe-eb44-43bc-aa54-1be5747e862b
+		sourceColumn: EventName
+
+	column Guests
+		dataType: int64
+		lineageTag: 97c38587-877a-4d47-b119-9659e2020a83
+		sourceColumn: Guests
+
+	column GroupName
+		dataType: string
+		lineageTag: 1dcae5b2-6b37-48a4-af10-6b4dc3d47e62
+		sourceColumn: GroupName
+
+	column DatetimeStart
+		dataType: dateTime
+		lineageTag: f28ad520-9bcf-452f-b60e-dc1aa2d2277f
+		sourceColumn: DatetimeStart
+
+	column DatetimeEnd
+		dataType: dateTime
+		lineageTag: 1025c5b3-6ea5-458a-add8-956afee826c6
+		sourceColumn: DatetimeEnd
+
+	column EventTypeId
+		dataType: string
+		lineageTag: cfc3975f-ae46-4547-8cb2-4c43f24fc969
+		sourceColumn: EventTypeId
+
+	column EventTypeName
+		dataType: string
+		lineageTag: 14aa2719-4c92-4cc7-a434-6e0e529860ff
+		sourceColumn: EventTypeName
+
+	column ClientId
+		dataType: string
+		lineageTag: 4a429bd0-73d2-4b4b-b9bf-1fe4059f6654
+		sourceColumn: ClientId
+
+	column ClientName
+		dataType: string
+		lineageTag: 63d6319b-30f6-4739-9ada-b78e1611be4d
+		sourceColumn: ClientName
+
+	column Message
+		dataType: string
+		lineageTag: b9777ecd-8da0-4672-93a6-829a7d6feeee
+		sourceColumn: Message
+
+	column DateUnknown
+		dataType: boolean
+		lineageTag: cca6e2e8-de0a-4efc-b2e7-2421258558ba
+		sourceColumn: DateUnknown
+
+	column TotalPrice
+		dataType: decimal
+		lineageTag: 9c1359cd-5dc7-4107-92f5-9e6b51aa439c
+		sourceColumn: TotalPrice
+
+	column TotalPriceExclVat
+		dataType: decimal
+		lineageTag: 1916fa9f-db0c-4605-9d00-b57ba5e7a0c0
+		sourceColumn: TotalPriceExclVat
+
+	column TotalBilledAmount
+		dataType: decimal
+		lineageTag: d135d058-be57-41c3-80d4-57419254665b
+		sourceColumn: TotalBilledAmount
+
+	column TotalBilledAmountExclVat
+		dataType: decimal
+		lineageTag: c56f14d9-03ed-42bd-b0e1-180f814d57c4
+		sourceColumn: TotalBilledAmountExclVat
+
+	column Locale
+		dataType: string
+		lineageTag: 46948767-5882-4473-9dda-50026836371c
+		sourceColumn: Locale
+
+	column Url
+		dataType: string
+		lineageTag: 7ec56048-6abd-4a5a-a111-2065fb7314bc
+		sourceColumn: Url
+
+	column ExternalCompanyId
+		dataType: string
+		lineageTag: 3053376a-4199-40cc-984e-35434f951cdc
+		sourceColumn: ExternalCompanyId
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 714637db-9028-464d-8106-29d310d745c6
+		sourceColumn: ModifiedAt
+
+	partition 'events 1' = entity
+		mode: directLake
+		source
+			entityName: events
+			expressionSource: DatabaseQuery
+

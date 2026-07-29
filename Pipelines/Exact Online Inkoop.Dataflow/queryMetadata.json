@@ -1,0 +1,62 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Exact Online Inkoop",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "gatewayObjectId": "33f72515-25c3-4216-968b-5976e7110940",
+  "queriesMetadata": {
+    "PurchaseOrders": {
+      "queryId": "847cd53b-7e66-415e-be9b-4f18bee67392",
+      "queryName": "PurchaseOrders",
+      "loadEnabled": false
+    },
+    "PurchaseOrderTypes": {
+      "queryId": "2ece01c3-3185-46e3-8bfe-53f232ddff32",
+      "queryName": "PurchaseOrderTypes",
+      "loadEnabled": false
+    },
+    "PurchaseTransactions": {
+      "queryId": "d29e7bcd-d07e-43d7-8bfd-5accd3b3586b",
+      "queryName": "PurchaseTransactions",
+      "loadEnabled": false
+    },
+    "fnGetExactOnlineTable": {
+      "queryId": "349f1cd5-1377-4d5c-a3b1-b905c6ca4e6c",
+      "queryName": "fnGetExactOnlineTable",
+      "loadEnabled": false
+    },
+    "DefaultDestination": {
+      "queryId": "76ddbd0d-bd12-462c-9667-262542dd5d5c",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "PurchaseOrders_DataDestination": {
+      "queryId": "098df86f-1cb9-47e2-b1d1-46ecf28929c4",
+      "queryName": "PurchaseOrders_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "PurchaseTransactions_DataDestination": {
+      "queryId": "9109042f-a578-4ce7-b799-d1a43c214f07",
+      "queryName": "PurchaseTransactions_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "ExactOnlinePremium",
+      "kind": "ExactOnlinePremium",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"7c70d480-1e0f-4968-a041-fc9074261bd8\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"c6062fed-690d-4d8f-b800-3e76c43c6a44\"}"
+    }
+  ]
+}

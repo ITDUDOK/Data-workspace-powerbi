@@ -1,0 +1,48 @@
+table dim_company
+	lineageTag: 2b742959-098f-42cc-8b19-5daa6c8aa2ed
+	sourceLineageTag: [dbo].[hr_dl_dim_company]
+
+	column companyId
+		dataType: string
+		lineageTag: 3f80830b-5fac-418e-8f5d-dff2ef76b02b
+		sourceLineageTag: companyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column number
+		dataType: int64
+		formatString: 0
+		lineageTag: b248b2e2-0fca-4607-953b-716034102e42
+		sourceLineageTag: number
+		summarizeBy: sum
+		sourceColumn: CompanyNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: d99338e1-ca32-417a-bcef-9cb977901948
+		sourceLineageTag: name
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column debtorId
+		dataType: string
+		lineageTag: 20adbf47-beae-49e0-84ef-dc0d28ccf9b4
+		sourceLineageTag: debtorId
+		summarizeBy: none
+		sourceColumn: DebtorId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hr_dl_dim_company = entity
+		mode: directLake
+		source
+			entityName: dim_company
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

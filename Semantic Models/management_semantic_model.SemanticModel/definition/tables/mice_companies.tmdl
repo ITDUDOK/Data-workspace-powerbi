@@ -1,0 +1,29 @@
+table mice_companies
+	lineageTag: 5de09cc5-f8e3-4e7b-b6ee-b4a47f241dfb
+
+	column MiceCompanyId
+		dataType: string
+		lineageTag: 22bbf6d7-fe29-4f91-bb28-dc7b881da38e
+		sourceColumn: MiceCompanyId
+
+	column LocationName
+		dataType: string
+		lineageTag: 99029442-012e-4e21-b354-2b0b7d888964
+		sourceColumn: LocationName
+
+	column CompanyName
+		dataType: string
+		lineageTag: 627422c6-7c64-4145-9da3-4ef8d39cf82d
+		sourceColumn: CompanyName
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: a69fcd6c-0218-48fb-8ba7-d80a83757dc0
+		sourceColumn: ModifiedAt
+
+	partition 'mice_companies 1' = entity
+		mode: directLake
+		source
+			entityName: mice_companies
+			expressionSource: DatabaseQuery
+

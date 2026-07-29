@@ -1,0 +1,108 @@
+table dim_product
+	lineageTag: 5e2929a1-ed4b-4cdc-98b0-884a96075155
+	sourceLineageTag: [dbo].[management_dl_dim_product]
+
+	column GroupKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a7593946-b63c-4249-8301-df201b57fc5c
+		sourceLineageTag: GroupKey
+		summarizeBy: none
+		sourceColumn: GroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c3c3b32e-6486-4c92-9edf-3f7383185c59
+		sourceLineageTag: GroupName
+		summarizeBy: none
+		sourceColumn: GroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6ddb581f-453f-40a4-843b-6fdc27e962e8
+		sourceLineageTag: ProductKey
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fdef429e-8acb-4a75-a59c-11129522eb4a
+		sourceLineageTag: ProductName
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductNr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 41f9c006-55c7-4c2c-a180-adf8c0710ec0
+		sourceLineageTag: ProductNr
+		summarizeBy: sum
+		sourceColumn: ProductNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatPerc
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bfe9600b-ed33-485e-8087-ed59cc5497b5
+		sourceLineageTag: VatPerc
+		summarizeBy: sum
+		sourceColumn: VatPerc
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsAddon
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: f192a62c-f8bd-4650-90f4-d113afb9c604
+		sourceLineageTag: IsAddon
+		summarizeBy: none
+		sourceColumn: IsAddon
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5c6442a4-9877-44c0-b430-dbeabb51f144
+		sourceLineageTag: LineId
+		summarizeBy: count
+		sourceColumn: LineId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 0c7880f8-989c-42b2-b8f9-b22d9ae76970
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition management_dl_dim_product = entity
+		mode: directLake
+		source
+			entityName: product_dedup
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

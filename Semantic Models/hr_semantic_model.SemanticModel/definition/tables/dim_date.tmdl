@@ -1,0 +1,198 @@
+table dim_date
+	lineageTag: 49d66ca9-92a6-4f9f-820e-c88c5d824e9e
+	sourceLineageTag: [dbo].[hr_dl_dim_date]
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8cbe32e2-5597-45d9-ac1b-fc856e4ca32b
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: fae282ec-deff-42a3-be5c-2aacf8d8a9f2
+		sourceLineageTag: DateKey
+		summarizeBy: count
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: d3a4ae8c-4ce9-4078-b613-18fbfc7f691a
+		sourceLineageTag: Year
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 336ecb66-bf4e-4d4d-8053-2c7660f02d8b
+		sourceLineageTag: Quarter
+		summarizeBy: sum
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterName
+		dataType: string
+		lineageTag: 8e194375-4a3e-48f5-af08-5b030b9cfe93
+		sourceLineageTag: QuarterName
+		summarizeBy: none
+		sourceColumn: QuarterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 5fce5a6e-d625-433d-85f5-f4bbf5b48fa6
+		sourceLineageTag: Month
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: 588fba64-573b-4518-99d9-cdcf333f6d91
+		sourceLineageTag: MonthName
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNameShort
+		dataType: string
+		lineageTag: 72bd7f14-c0b0-4226-9e7f-acdd2eba6b73
+		sourceLineageTag: MonthNameShort
+		summarizeBy: none
+		sourceColumn: MonthNameShort
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: string
+		lineageTag: db0c8cce-0649-4c99-9ebf-cecd217fbf14
+		sourceLineageTag: YearMonth
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekISO
+		dataType: int64
+		formatString: 0
+		lineageTag: 222ccac6-a93c-4852-bf20-7e92bd4bb20f
+		sourceLineageTag: WeekISO
+		summarizeBy: sum
+		sourceColumn: WeekISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearISO
+		dataType: int64
+		formatString: 0
+		lineageTag: 95477acc-832b-4f98-89bb-53aaf169701e
+		sourceLineageTag: YearISO
+		summarizeBy: sum
+		sourceColumn: YearISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearWeekISO
+		dataType: string
+		lineageTag: 8a63a66c-9fa4-4d09-8365-754710a97cfb
+		sourceLineageTag: YearWeekISO
+		summarizeBy: none
+		sourceColumn: YearWeekISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 298672f4-8e6a-4c53-9cdf-e60fb6bc16cd
+		sourceLineageTag: DayOfMonth
+		summarizeBy: sum
+		sourceColumn: DayOfMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b43b4a6-200b-46fd-8f5b-159c01005d91
+		sourceLineageTag: DayOfYear
+		summarizeBy: sum
+		sourceColumn: DayOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekISO
+		dataType: int64
+		formatString: 0
+		lineageTag: d3573c10-143f-4a11-8621-1d125d9c8fdb
+		sourceLineageTag: DayOfWeekISO
+		summarizeBy: sum
+		sourceColumn: DayOfWeekISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayName
+		dataType: string
+		lineageTag: b4bbd5b6-902a-4953-a6d7-c6ee5ed2644a
+		sourceLineageTag: DayName
+		summarizeBy: none
+		sourceColumn: DayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayNameShort
+		dataType: string
+		lineageTag: 041e8c70-bed0-4363-b35a-7601900b3cdc
+		sourceLineageTag: DayNameShort
+		summarizeBy: none
+		sourceColumn: DayNameShort
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWeekend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f7c04f8a-825f-4b92-b072-a1242bf17f92
+		sourceLineageTag: IsWeekend
+		summarizeBy: none
+		sourceColumn: IsWeekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateString
+		dataType: string
+		lineageTag: 24d5fa1f-4bc7-4ae3-9c4c-4791cc1d4559
+		sourceLineageTag: DateString
+		summarizeBy: none
+		sourceColumn: DateString
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearWeek
+		dataType: string
+		lineageTag: 00480eef-caf9-4e74-9c97-ca1a33a6edf6
+		sourceColumn: YearWeek
+
+	partition hr_dl_dim_date = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

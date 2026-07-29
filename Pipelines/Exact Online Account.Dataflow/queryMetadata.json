@@ -1,0 +1,55 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Exact Online Account",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "gatewayObjectId": "33f72515-25c3-4216-968b-5976e7110940",
+  "queriesMetadata": {
+    "AccountClassificationNames": {
+      "queryId": "513993c7-6e38-47c0-ad5c-22838e23521d",
+      "queryName": "AccountClassificationNames",
+      "loadEnabled": false
+    },
+    "AccountClassifications": {
+      "queryId": "c083b628-7c87-4b8b-a104-76a63bb2d173",
+      "queryName": "AccountClassifications",
+      "loadEnabled": false
+    },
+    "Accounts": {
+      "queryId": "24e95061-e0b1-4871-a74a-553086d74d8c",
+      "queryName": "Accounts",
+      "loadEnabled": false
+    },
+    "AccountAccountClassifications_Table": {
+      "queryId": "aad3e1f6-68c0-4505-8595-30886296fed0",
+      "queryName": "AccountAccountClassifications_Table",
+      "loadEnabled": false
+    },
+    "fnGetExactOnlineTable": {
+      "queryId": "cc69a564-3323-4553-853a-698d8f9cbedb",
+      "queryName": "fnGetExactOnlineTable",
+      "loadEnabled": false
+    },
+    "DefaultDestination": {
+      "queryId": "d8005680-2a2c-4185-940f-7c11da43a552",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "ExactOnlinePremium",
+      "kind": "ExactOnlinePremium",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"7c70d480-1e0f-4968-a041-fc9074261bd8\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"c6062fed-690d-4d8f-b800-3e76c43c6a44\"}"
+    }
+  ]
+}

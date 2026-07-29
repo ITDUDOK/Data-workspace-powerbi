@@ -1,0 +1,156 @@
+table dim_center
+	lineageTag: 43c2ef0a-a480-4083-86e1-3ca408dd21d5
+	sourceLineageTag: [dbo].[management_dl_dim_center]
+
+	column Key
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ca486ee1-1cd1-4677-a64e-225910415c2f
+		sourceLineageTag: Key
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: eb4c2e11-b37a-4975-87e8-148dc0a496c0
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterNr
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a86a0001-fbbf-4bf2-ba95-44dacc339b0c
+		sourceLineageTag: CenterNr
+		summarizeBy: none
+		sourceColumn: CenterNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 929fa548-de03-4e7c-a160-a24f266aa73c
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9c1b6b07-b84e-4ac5-a038-69dc6ab4fdcd
+		sourceLineageTag: Level
+		summarizeBy: sum
+		sourceColumn: Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeftNr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1a8bf17c-4d1f-4d2b-94d5-6135d5a79320
+		sourceLineageTag: LeftNr
+		summarizeBy: sum
+		sourceColumn: LeftNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column RightNr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4d84c746-e1c5-4a48-93ca-ae9661f2f9ad
+		sourceLineageTag: RightNr
+		summarizeBy: sum
+		sourceColumn: RightNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column SiteNr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4b7b4f6d-435c-4497-8ee6-05449b5a6880
+		sourceLineageTag: SiteNr
+		summarizeBy: sum
+		sourceColumn: SiteNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubCenter
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f4c74d66-5229-43e7-8471-50f6f62849d3
+		sourceLineageTag: SubCenter
+		summarizeBy: sum
+		sourceColumn: SubCenter
+
+		annotation SummarizationSetBy = Automatic
+
+	column RevenueCenter
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 49d47f8b-74ea-4c88-9b71-e066e28c1795
+		sourceLineageTag: RevenueCenter
+		summarizeBy: none
+		sourceColumn: RevenueCenter
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdatedName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 055184a5-6096-4145-8f7d-ef767c793b2b
+		sourceLineageTag: UpdatedName
+		summarizeBy: none
+		sourceColumn: UpdatedName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassificatieLookup_Classification
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0b741ab1-71e3-4e3c-a71f-7200713c8e4d
+		sourceLineageTag: ClassificatieLookup_Classification
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: 044cbacb-ecb8-4c5f-9e3c-10697e4f0157
+		sourceColumn: Location
+
+	hierarchy 'ParentName Hiërarchie'
+		lineageTag: 00731183-f807-4514-8eb3-12eeaf63ee68
+
+		level Site
+			lineageTag: 5de3a939-c489-4f73-930c-cf7b2c275322
+			column: Location
+
+		level Subcenter
+			lineageTag: f478d8ef-199a-40a7-a7a4-593689637fc0
+			column: UpdatedName
+
+	partition management_dl_dim_center = entity
+		mode: directLake
+		source
+			entityName: centers
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

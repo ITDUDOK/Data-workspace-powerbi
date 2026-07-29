@@ -1,0 +1,82 @@
+table dim_productgroup
+	lineageTag: 886e3ef9-394d-4690-bbb4-037f85d1f0d6
+	sourceLineageTag: [dbo].[management_dl_dim_productgroup]
+
+	column Key
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d08903f2-52b0-4397-9d0e-e7afa48733c4
+		sourceLineageTag: Key
+		summarizeBy: none
+		sourceColumn: ProductGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1171ece1-17b5-4aff-813a-a43d141a232f
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: ProductGroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupNr
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 7c16005b-a982-4f2d-9d93-fbcfb6bc8fcf
+		sourceLineageTag: GroupNr
+		summarizeBy: sum
+		sourceColumn: ProductGroupNr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GroupLevel
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 558881d1-4556-452c-935b-8fe1d9635a77
+		sourceLineageTag: GroupLevel
+		summarizeBy: sum
+		sourceColumn: GroupLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatCodeKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5c11721b-0201-4a0c-816e-0e7db5bece31
+		sourceLineageTag: VatCodeKey
+		summarizeBy: none
+		sourceColumn: VatCodeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentProductGroup
+		dataType: string
+		lineageTag: 3ce8a091-0476-40dd-af9d-ccbb58bfcaca
+		sourceColumn: ParentProductGroup
+
+	hierarchy 'Name Hiërarchie'
+		lineageTag: b6dc029f-467d-4480-b48e-bfbbfe4b0420
+
+		level ParentProductGroup
+			lineageTag: 9b60baf3-1fa1-4233-bf58-6ff81535caec
+			column: ParentProductGroup
+
+		level Name
+			lineageTag: 4d5fe6f5-2c0e-4f99-ba4b-ec9a9b323092
+			column: Name
+
+	partition management_dl_dim_productgroup = entity
+		mode: directLake
+		source
+			entityName: productgroups
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

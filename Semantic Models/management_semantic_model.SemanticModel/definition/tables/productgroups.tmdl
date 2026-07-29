@@ -1,0 +1,54 @@
+table productgroups
+	lineageTag: 41694a00-b145-4b7e-832c-d28e81c3bd8a
+
+	column ProductGroupKey
+		dataType: string
+		lineageTag: 34323d9c-a9d7-4cd3-b636-aafc0811c84a
+		sourceColumn: ProductGroupKey
+
+	column ProductGroupName
+		dataType: string
+		lineageTag: b91d6b6f-86be-4a1a-a312-433b7495bf90
+		sourceColumn: ProductGroupName
+
+	column ProductGroupNr
+		dataType: decimal
+		lineageTag: 2ef1e377-e649-4ac5-8a0d-88c57dacfb85
+		sourceColumn: ProductGroupNr
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 18db4e2b-e5c9-4782-a94a-453469a25d0e
+		sourceColumn: ModifiedAt
+
+	column GroupLevel
+		dataType: int64
+		lineageTag: 58534dc0-1dc3-42d8-b7ce-b69a5b46f6b0
+		sourceColumn: GroupLevel
+
+	column LeftNr
+		dataType: int64
+		lineageTag: 9628e451-fcb3-4126-94f4-85a8c3de6451
+		sourceColumn: LeftNr
+
+	column RightNr
+		dataType: int64
+		lineageTag: eea97454-ea9b-4d49-9654-93dd9dcd1563
+		sourceColumn: RightNr
+
+	column VatCodeKey
+		dataType: string
+		lineageTag: 835651cb-2f50-41db-8bd8-8ef2457577cb
+		sourceColumn: VatCodeKey
+
+	column ParentProductGroup
+		dataType: string
+		lineageTag: a843787d-d445-4704-8974-0f1afb00ed8c
+		sourceColumn: ParentProductGroup
+
+	partition 'productgroups 1' = entity
+		mode: directLake
+		source
+			entityName: productgroups
+			expressionSource: DatabaseQuery
+

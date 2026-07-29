@@ -1,0 +1,799 @@
+table measurements
+	lineageTag: 7f13e6aa-b0a6-436f-9c75-b123f366f970
+
+	measure TotaleOmzetincBTW =
+			CALCULATE(
+			    SUM('fact_sales'[LineTotalInc]),
+			    TREATAS(VALUES('fact_payments'[TicketKey]), 'fact_sales'[TicketKey])
+			)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 7785011f-f984-48f5-bf57-2dc8517b2063
+
+	measure TotaleOmzetExBtw =
+			CALCULATE(
+			    SUM('fact_sales'[LineTotalEx]),
+			    KEEPFILTERS(
+			        TREATAS(VALUES('fact_payments'[TicketKey]), 'fact_sales'[TicketKey])
+			    )
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: b149cdfc-b8df-4535-91c0-307465bcefb8
+
+	measure TotaleOmzetExBTW_PreviousWeek =
+			IF(
+			    HASONEVALUE('dim_date'[ThisWeekISO]),
+			    VAR LastWeekTickets =
+			        CALCULATETABLE(
+			            VALUES('fact_payments'[TicketKey]),
+			            DATEADD('dim_date'[Date], -7, DAY)
+			        )
+			    RETURN
+			    CALCULATE(
+			        SUM('fact_sales'[LineTotalEx]),
+			        TREATAS(LastWeekTickets, 'fact_sales'[TicketKey]),
+			        DATEADD('dim_date'[Date], -7, DAY)
+			    ),
+			    IF(
+			        ISFILTERED('dim_date'[MonthName]),
+			        VAR LastMonthTickets =
+			            CALCULATETABLE(
+			                VALUES('fact_payments'[TicketKey]),
+			                DATEADD('dim_date'[Date], -1, MONTH)
+			            )
+			        RETURN
+			        CALCULATE(
+			            SUM('fact_sales'[LineTotalEx]),
+			            TREATAS(LastMonthTickets, 'fact_sales'[TicketKey]),
+			            DATEADD('dim_date'[Date], -1, MONTH)
+			        )
+			    )
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 6074d205-1640-4362-85f5-2d2ac040cce1
+
+	measure TotaleOmzetExBTW_PercentageChange =
+			VAR CurrentWeek = [TotaleOmzetExBtw]
+			VAR PreviousWeek = [TotaleOmzetExBTW_PreviousWeek]
+			RETURN DIVIDE(CurrentWeek - PreviousWeek, PreviousWeek)
+		formatString: 0%;-0%;0%
+		lineageTag: df111d05-3b8a-40dd-9b70-8f67a0b516c4
+
+	measure Netto_GewerktUren =
+			VAR UniekeUren =
+			    SUMMARIZE(
+			        'fact_hours',
+			        'fact_hours'[HourID],
+			        "Uren", MAX('fact_hours'[HourHours])
+			    )
+			RETURN
+			    SUMX(UniekeUren, [Uren])
+		formatString: #,0
+		lineageTag: dcc43d4b-6e31-4a7a-a5ac-c61ddccee04a
+
+	measure LabourCost =
+			VAR UniekeUren =
+			    SUMMARIZE(
+			        FILTER(
+			            'fact_hours',
+			            'fact_hours'[HourHours] > 0
+			        ),
+			        'fact_hours'[HourID],
+			        'fact_hours'[CardID],
+			        'fact_hours'[HourOfficeID],
+			        "Uren", MAX('fact_hours'[HourHours])
+			    )
+			VAR HoursWithRates =
+			    ADDCOLUMNS(
+			        UniekeUren,
+			        "SalaryRate",
+			        VAR CurrentOffice = [HourOfficeID]
+			        VAR CurrentCard = [CardID]
+			        RETURN
+			        MAXX(
+			            FILTER(
+			                'dim_staff',
+			                'dim_staff'[OfficeID] = CurrentOffice &&
+			                'dim_staff'[CardID] = CurrentCard
+			            ),
+			            'dim_staff'[CardSalaryRate]
+			        )
+			    )
+			RETURN
+			    SUMX(
+			        HoursWithRates,
+			        [Uren] * MAX([SalaryRate], 0)
+			    )
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: e8d28791-bcdf-48ca-9224-52f6d0630501
+
+	measure LabourCost_PercentageOfRevenue =
+			VAR Omzet = [TotaleOmzetExBtw]
+			VAR PersoneelsKosten = [LabourCost]
+			RETURN DIVIDE(PersoneelsKosten, Omzet, BLANK())
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: e6972f7f-0342-49e9-beee-4ee1c6383462
+
+	measure LabourCost_Planning = CALCULATE(SUM('fact_planning'[PlanningCosts]),'fact_planning'[PlanningTypeID] in {"Gepland", "Pool dienst", "Ongeplande dienst"})
+		lineageTag: eb8a0ef3-3add-4ed8-8770-dba7279b2652
+
+	measure LabourCost_PreviousWeek =
+			IF(
+			    HASONEVALUE('dim_date'[ThisWeekISO]),
+			    CALCULATE(
+			        [LabourCost],
+			        DATEADD('dim_date'[Date], -7, DAY)
+			    ),
+			    IF(
+			        ISFILTERED('dim_date'[MonthName]),
+			        CALCULATE(
+			            [LabourCost],
+			            DATEADD('dim_date'[Date], -1, MONTH)
+			        )
+			    )
+			)
+		formatString: 0
+		lineageTag: e83fc2fa-d4fd-45a4-9210-53ad496b0687
+
+	measure LabourCost_PercentageChange =
+			VAR CurrentWeek = [LabourCost]
+			VAR PreviousWeek = [LabourCost_PreviousWeek]
+			RETURN
+			DIVIDE(CurrentWeek - PreviousWeek, PreviousWeek)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 21f9768f-90dc-421c-9393-7ccc1417ae8e
+
+	measure LabourCost_PercentageOfRevenue_PreviousWeek =
+			IF(
+			    HASONEVALUE('dim_date'[ThisWeekISO]),
+			    CALCULATE(
+			        [LabourCost_PercentageOfRevenue],
+			        DATEADD('dim_date'[Date], -7, DAY)
+			    ),
+			    IF(
+			        ISFILTERED('dim_date'[MonthName]),
+			        CALCULATE(
+			            [LabourCost_PercentageOfRevenue],
+			            DATEADD('dim_date'[Date], -1, MONTH)
+			        )
+			    )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: e4bbfb78-a5c8-4a5b-808a-970e75124a5d
+
+	measure TotalTickets = DISTINCTCOUNT('fact_payments'[TicketKey])
+		formatString: #,0
+		lineageTag: 0dd2521f-6a8d-4087-89e5-4b3650efacf9
+
+	measure AverageSpendingPerTicket =
+			DIVIDE(
+			    SUM('fact_sales'[LineTotalEx]),
+			    DISTINCTCOUNT('fact_sales'[TicketKey]),
+			    BLANK()
+			)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: c264de6c-b7aa-4ba5-9274-90cdb0028cf6
+
+	measure LabourCost_Hourly_PreviousWeek =
+			IF(
+			    HASONEVALUE('dim_date'[ThisWeekISO]),
+			    CALCULATE(
+			        SUM('fact_hourlylabour'[ProportionalCost]),
+			        DATEADD('dim_date'[Date], -7, DAY)
+			    ),
+			    IF(
+			        ISFILTERED('dim_date'[MonthName]),
+			        CALCULATE(
+			            SUM('fact_hourlylabour'[ProportionalCost]),
+			            DATEADD('dim_date'[Date], -1, MONTH)
+			        )
+			    )
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 01c835c9-e2a8-4dac-9180-e20a0fe52223
+
+	measure LabourCost_Hourly = SUM('fact_hourlylabour'[ProportionalCost])
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 99f96cec-6c6b-4cc0-a517-88fa2c841ceb
+
+	measure LabourCost_HourlyPercentageChange =
+			VAR CurrentWeek = [LabourCost_Hourly]
+			VAR PreviousWeek = [LabourCost_Hourly_PreviousWeek]
+			Var PercentChange = DIVIDE(CurrentWeek - PreviousWeek, PreviousWeek)
+			
+			RETURN
+			IF(
+			    ISBLANK(PercentChange),
+			    BLANK(),
+			    PercentChange
+			)
+		formatString: 0%;-0%;0%
+		lineageTag: 74a34656-be10-4f38-88dc-76af247448e4
+
+	measure LabourCost_HourlyPercentageOfRevenue = ```
+			VAR Omzet = [TotaleOmzetExBtw]
+			VAR PersoneelsKosten = [LabourCost_Hourly]
+			RETURN
+			DIVIDE(PersoneelsKosten, Omzet, 0) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 54ebc5cd-3239-4af4-bb90-75ead19c7ae6
+
+	measure LabourCost_HourlyPercentageOfRevenue_PreviousWeek =
+			IF(
+			    HASONEFILTER('dim_date'[ThisWeekISO]),
+			    CALCULATE(
+			        [LabourCost_PercentageOfRevenue],
+			        DATEADD('dim_date'[Date], -7, DAY)
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: aa83fe6b-bcdb-4a6c-8215-746825dff496
+
+	measure TotalPrognosis = SUM('fact_prognosis'[PrognosisTurnover])
+		lineageTag: 0e68050e-6bca-4852-8a15-2b214507ac54
+
+	measure Totalplanned = ```
+			CALCULATE(
+			    SUM('fact_planning'[PlanningHours]), 
+			    'fact_planning'[PlanningTypeID] IN {"Gepland", "Pool dienst", "Open dienst"}, 
+			    NOT(ISBLANK('fact_planning'[CardID]))
+			)
+			```
+		formatString: #,0
+		lineageTag: 8c000c71-a63c-4ebf-82a6-466d879c0d27
+
+	measure TotalBudget = SUM('fact_prognosis'[PrognosisSpending])
+		lineageTag: 011a5358-512a-473a-bfd2-fb76ad03aa0c
+
+	measure TotalSicknessHours = SUM('fact_sickness'[SicknessHours])
+		lineageTag: 1611f424-2367-40cf-b85d-357dc98648e7
+
+	measure LabourCost_Planning_PercentageOfPrognosis =
+			VAR prognosis = [TotalPrognosis]
+			VAR labourcost = [LabourCost_Planning]
+			RETURN
+			Divide(labourcost, prognosis)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e1e1c50a-3c5f-4bcb-af91-20ac8b3d974c
+
+	measure LabourCost_Hourly_Average = CALCULATE(AVERAGE('fact_hourlylabour'[ProportionalCost]))
+		lineageTag: e7f018a8-b58e-424b-b6b6-2b11d18e9714
+
+	measure LabourCost_Planning_Average = ```
+			VAR Planningcost = CALCULATE(SUM('fact_planning'[PlanningCosts]))
+			VAR Planninghours = CALCULATE(SUM('fact_planning'[PlanningHours]))
+			RETURN 
+			DIVIDE(Planningcost, Planninghours)
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: dfcd7c19-4a1a-4b87-8bd9-783b096f239d
+
+	measure Product_Sum_Quantity =
+			CALCULATE(
+			    SUM('fact_sales'[LineQty]),
+			    TREATAS(VALUES('fact_payments'[TicketKey]), 'fact_sales'[TicketKey])
+			)
+		formatString: #,0
+		lineageTag: 476c472f-ec99-45bd-a83c-dda0dc5447cb
+
+	measure TotalLine_SUM = SUM('fact_sales'[LineTotalEx])
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 23dad27a-9619-438f-ba1e-83c9e188a478
+
+	measure TotalInternal_Percentage =
+			VAR internal = CALCULATE([TotalLine_SUM], NOT ISBLANK('fact_sales'[TicketTable_Internal]))
+			VAR TotalOmzet = [TotaleOmzetExBtw]
+			RETURN
+			    DIVIDE(internal, TotalOmzet, 0)
+		formatString: 0%;-0%;0%
+		lineageTag: bcc36c8d-5962-496b-a25e-90bc37f0c614
+
+	measure LabourCost_PreviousYear =
+			CALCULATE(
+			    [LabourCost],
+			    DATEADD('dim_date'[Date], -364, DAY)
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: b5347fe2-e398-442c-a7fc-deda152c53b6
+
+	measure TotaleOmzetExBTW_PreviousYear =
+			VAR LastYearTickets =
+			    CALCULATETABLE(
+			        VALUES('fact_payments'[TicketKey]),
+			        DATEADD('dim_date'[Date], -364, DAY)
+			    )
+			RETURN
+			CALCULATE(
+			    SUM('fact_sales'[LineTotalEx]),
+			    TREATAS(LastYearTickets, 'fact_sales'[TicketKey]),
+			    DATEADD('dim_date'[Date], -364, DAY)
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 7faf3daa-4c98-46ee-ab4f-cc3ee66e18dc
+
+	measure TotaleOmzetExBTW_PercentageChangeYear =
+			VAR CurrentWeek = [TotaleOmzetExBtw]
+			VAR PreviousWeek = [TotaleOmzetExBTW_PreviousYear]
+			VAR PercentChange = DIVIDE(CurrentWeek - PreviousWeek, PreviousWeek)
+			RETURN
+			IF(
+			    ISBLANK(PercentChange),
+			    BLANK(),
+			    PercentChange
+			)
+		formatString: 0%;-0%;0%
+		lineageTag: 25f3e9d3-0ee6-4b55-b203-28295c3277af
+
+	measure LabourCost_PercentageChangeYear =
+			VAR CurrentWeek = [LabourCost]
+			VAR PreviousWeek = [LabourCost_PreviousYear]
+			Var PercentChange = DIVIDE(CurrentWeek - PreviousWeek, PreviousWeek)
+			
+			RETURN
+			IF(
+			    ISBLANK(PercentChange),
+			    BLANK(),
+			    PercentChange
+			)
+		formatString: 0%;-0%;0%
+		lineageTag: 14fdb697-ea45-4919-a7ce-3edf0ec89fe0
+
+	measure LabourCost_PercentageOfRevenue_PreviousYear =
+			CALCULATE(
+			    [LabourCost_PercentageOfRevenue],
+			    DATEADD('dim_date'[Date],  -364, DAY)
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 40736a82-78e9-4c9c-964f-1b941bf27f22
+
+	measure TotaleOmzetExBtw_QR =
+			CALCULATE(
+			    SUM('fact_sales'[LineTotalEx]),
+			    KEEPFILTERS(
+			        TREATAS(VALUES('fact_payments'[TicketKey]), 'fact_sales'[TicketKey])
+			    ), 'fact_sales'[OrdersTable_OrderUserName] = "QR Bestelling"
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 712331c7-f340-43c8-9dcd-46c8746c5f7e
+
+	measure SumCovers =
+			SUMX(
+			    SUMMARIZE(
+			        CALCULATETABLE(
+			            'fact_sales',
+			            KEEPFILTERS(TREATAS(VALUES('fact_payments'[TicketKey]), 'fact_sales'[TicketKey]))
+			        ),
+			        'fact_sales'[TicketKey],
+			        "Covers", MAX('fact_sales'[TicketTable_Covers])
+			    ),
+			    [Covers]
+			)
+		formatString: 0
+		lineageTag: 92e72464-e513-4098-b9be-14f6635bd0d9
+
+	measure LabourCost_Hourly_PreviousYear = CALCULATE(SUM('fact_hourlylabour'[ProportionalCost]), DATEADD('dim_date'[Date],  -364, DAY))
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 0d384c00-bd8d-48f1-b045-e8f840788671
+
+	measure LabourCost_HourlyPercentageOfRevenue_PreviousYear =
+			CALCULATE(
+			VAR Omzet = [TotaleOmzetExBtw]
+			VAR PersoneelsKosten = [LabourCost_Hourly]
+			RETURN
+			DIVIDE(PersoneelsKosten, Omzet, 0), DATEADD('dim_date'[Date],  -364, DAY))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a0223702-a470-448a-91bb-20b1a4f28bbf
+
+	measure Test_Filter = "HASONEFILTER: " & IF(HASONEFILTER('dim_date'[ThisWeekISO]), "JA", "NEE")
+		lineageTag: b2509b61-2914-44ee-9e85-e9328e44029e
+
+	measure TotaleOmzetPerUur = [TotaleOmzetExBtw] / [Netto_GewerktUren]
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: cda915af-c805-42ee-8919-ce98756b05ad
+
+	measure TotalPrognosisperhour = [TotalPrognosis] / [Totalplanned]
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 44c6c24a-ce7e-43ea-ad5d-fbc212fabf0f
+
+	measure Netto_GewerktUren_PreviousWeek =
+			IF(
+			    HASONEVALUE('dim_date'[ThisWeekISO]),
+			    CALCULATE(
+			        [Netto_GewerktUren],
+			        DATEADD('dim_date'[Date], -7, DAY)
+			    ),
+			    IF(
+			        ISFILTERED('dim_date'[MonthName]),
+			        CALCULATE(
+			            [Netto_GewerktUren],
+			            DATEADD('dim_date'[Date], -1, MONTH)
+			        )
+			    )
+			)
+		formatString: 0
+		lineageTag: 1998f3e9-e93f-4887-9a0b-44b57d94b6df
+
+	measure AverageSpendingPerTicket_PreviousWeek =
+			IF(
+			    HASONEVALUE('dim_date'[ThisWeekISO]),
+			    CALCULATE(
+			        [AverageSpendingPerTicket],
+			        DATEADD('dim_date'[Date], -7, DAY)
+			    ),
+			    IF(
+			        ISFILTERED('dim_date'[MonthName]),
+			        CALCULATE(
+			            [AverageSpendingPerTicket],
+			            DATEADD('dim_date'[Date], -1, MONTH)
+			        )
+			    )
+			)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 5e2ec06a-7037-4422-92d4-e96a919a509e
+
+	measure Netto_GewerktUren_PreviousYear =
+			IF(
+			    HASONEVALUE('dim_date'[ThisWeekISO]),
+			    CALCULATE(
+			        [Netto_GewerktUren],
+			        DATEADD('dim_date'[Date], -364, DAY)
+			    ),
+			    IF(
+			        ISFILTERED('dim_date'[MonthName]),
+			        CALCULATE(
+			            [Netto_GewerktUren],
+			            DATEADD('dim_date'[Date], -1, YEAR)
+			        )
+			    )
+			)
+		formatString: 0
+		lineageTag: 33efa89a-9b41-401d-8559-40061e2af767
+
+	measure AverageSpendingPerTicket_PreviousYear =
+			IF(
+			    HASONEVALUE('dim_date'[ThisWeekISO]),
+			    CALCULATE(
+			        [AverageSpendingPerTicket],
+			        DATEADD('dim_date'[Date], -364, DAY)
+			    ),
+			    IF(
+			        ISFILTERED('dim_date'[MonthName]),
+			        CALCULATE(
+			            [AverageSpendingPerTicket],
+			            DATEADD('dim_date'[Date], -1, YEAR)
+			        )
+			    )
+			)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 6956484e-443f-45f2-b7ef-4301d906e506
+
+	measure OPU = [TotaleOmzetExBtw] / [Netto_GewerktUren]
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: aec02a30-edb8-48fa-a870-a6bbc6332e08
+
+	measure OPU_PreviousWeek =
+			IF(
+			    HASONEVALUE('dim_date'[ThisWeekISO]),
+			    CALCULATE(
+			        [OPU],
+			        DATEADD('dim_date'[Date], -7, DAY)
+			    ),
+			    IF(
+			        ISFILTERED('dim_date'[MonthName]),
+			        CALCULATE(
+			            [OPU],
+			            DATEADD('dim_date'[Date], -1, MONTH)
+			        )
+			    )
+			)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: abf60847-b031-4754-8bb4-d5f32c4e6b4d
+
+	measure OPU_PreviousYear =
+			IF(
+			    HASONEVALUE('dim_date'[ThisWeekISO]),
+			    CALCULATE(
+			        [OPU],
+			        DATEADD('dim_date'[Date], -364, DAY)
+			    ),
+			    IF(
+			        ISFILTERED('dim_date'[MonthName]),
+			        CALCULATE(
+			            [OPU],
+			            DATEADD('dim_date'[Date], -1, YEAR)
+			        )
+			    )
+			)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 570fd725-543f-44c3-89e5-4570696a1dc9
+
+	measure TotaleOmzetExBtw_ByPaymentGroup =
+			VAR _GroupPayments = SUM('fact_payments'[PaymodeTotal])
+			VAR _TotalPayments =
+			    CALCULATE(
+			        SUM('fact_payments'[PaymodeTotal]),
+			        ALL('fact_payments'[PaymodeGroupName]),
+			        ALL('dim_paymentmethod')
+			    )
+			VAR _Revenue =
+			    CALCULATE(
+			        [TotaleOmzetExBtw],
+			        ALL('fact_payments'[PaymodeGroupName]),
+			        ALL('dim_paymentmethod')
+			    )
+			RETURN
+			    DIVIDE(_GroupPayments, _TotalPayments) * _Revenue
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 9a52dd3e-17bd-4891-8972-777527c57b36
+
+	measure MICE_Gepland =
+			CALCULATE(
+			    SUM('fact_eventstable'[event_total_price_excl_vat]),
+			    'fact_eventstable'[event_status] = "Confirmed"
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: b01df664-6e19-4e58-aa09-d7214241dd2d
+
+	measure MICE_Optie =
+			CALCULATE(
+			    SUM('fact_eventstable'[event_total_price_excl_vat]),
+			    'fact_eventstable'[event_status] IN {"Option", "Option expired"}
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 512e3f92-bae5-414a-a8f3-f8eeb9a0542a
+
+	measure TotaleOmzetExBtw_ExclEvents =
+			VAR Drempel = 500
+			VAR EventTickets =
+			    FILTER(
+			        SUMMARIZE(
+			            'fact_sales',
+			            'fact_sales'[TicketKey],
+			            "TicketOmzet", SUM('fact_sales'[LineTotalEx])
+			        ),
+			        [TicketOmzet] >= Drempel
+			    )
+			RETURN
+			CALCULATE(
+			    [TotaleOmzetExBtw],
+			    EXCEPT(
+			        VALUES('fact_sales'[TicketKey]),
+			        SELECTCOLUMNS(EventTickets, "TicketKey", 'fact_sales'[TicketKey])
+			    )
+			)
+		lineageTag: 93126aaa-5997-4e87-93e2-a4f23d30dab6
+
+	measure Prognose_Horeca =
+			VAR SelectedScenario = SELECTEDVALUE('scenario'[ScenarioID], 1)
+			VAR CorrPct = SELECTEDVALUE('correctiefactor'[CorrPercent], 0)
+			VAR CorrMultiplier = 1 + CorrPct / 100
+			VAR BaseValue =
+			    SWITCH(
+			        SelectedScenario,
+			        1,
+			            SUMX(
+			                VALUES('dim_date'[Date]),
+			                VAR d = 'dim_date'[Date]
+			                VAR W1 = CALCULATE([TotaleOmzetExBtw_ExclEvents], ALL('dim_date'), 'dim_date'[Date] = d - 7)
+			                VAR W2 = CALCULATE([TotaleOmzetExBtw_ExclEvents], ALL('dim_date'), 'dim_date'[Date] = d - 14)
+			                VAR W3 = CALCULATE([TotaleOmzetExBtw_ExclEvents], ALL('dim_date'), 'dim_date'[Date] = d - 21)
+			                VAR W4 = CALCULATE([TotaleOmzetExBtw_ExclEvents], ALL('dim_date'), 'dim_date'[Date] = d - 28)
+			                RETURN MAX(DIVIDE(W1 + W2 + W3 + W4, 4), 0)
+			            ),
+			        2,
+			            SUMX(
+			                VALUES('dim_date'[Date]),
+			                VAR d = 'dim_date'[Date]
+			                RETURN MAX(
+			                    CALCULATE([TotaleOmzetExBtw_ExclEvents], ALL('dim_date'), 'dim_date'[Date] = d - 364),
+			                    0
+			                )
+			            )
+			    )
+			RETURN
+			    ROUND(BaseValue * CorrMultiplier, 0)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 765a1dad-1bfd-4825-a5d3-13cf025c5d20
+
+	measure Week_Prognose = INT([Prognose_Horeca] + [MICE_Gepland] + [MICE_Optie])
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 5f9e4837-92e1-4c7f-85c6-4d0c324870b0
+
+	measure Horeca_VorigJaar =
+			SUMX(
+			    VALUES('dim_date'[Date]),
+			    VAR d = 'dim_date'[Date]
+			    RETURN MAX(
+			        CALCULATE([TotaleOmzetExBtw_ExclEvents], ALL('dim_date'), 'dim_date'[Date] = d - 364),
+			        0
+			    )
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: eb6188a8-8308-4839-ae23-fea403af893b
+
+	measure Tickets_VorigJaar =
+			SUMX(
+			    VALUES('dim_date'[Date]),
+			    VAR d = 'dim_date'[Date]
+			    RETURN CALCULATE([TotalTickets], ALL('dim_date'), 'dim_date'[Date] = d - 364)
+			)
+		formatString: #,0
+		lineageTag: e8bb4cfb-dfc1-4d17-bfcc-dc39854e1077
+
+	measure Events_VorigJaar =
+			SUMX(
+			    VALUES('dim_date'[Date]),
+			    VAR d = 'dim_date'[Date]
+			    RETURN
+			    CALCULATE(
+			        SUM('fact_eventstable'[event_total_price_excl_vat]),
+			        ALL('dim_date'),
+			        'dim_date'[Date] = d - 364,
+			        'fact_eventstable'[event_status] IN {"Confirmed", "Option", "Option expired"}
+			    )
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 947b56e4-53a5-4bbd-844d-42392788752a
+
+	measure 'Bedrag P&L' =
+			VAR Cutoff       = EOMONTH(TODAY(), 0)
+			VAR IsGrandTotal = NOT ISINSCOPE('dim_finreportrows'[Hoofdgroep])
+			VAR PeriodStart  = MIN('dim_date'[Date])
+			VAR IsFuture     = ISFILTERED('dim_date'[MonthName]) && PeriodStart > Cutoff
+			
+			VAR GrandTotal =
+			    CALCULATE(
+			        -1 * SUMX(
+			            FILTER(
+			                'gltransacties_fin',
+			                NOT ISBLANK(RELATED('dim_finreportrows'[ClassificatieCode]))
+			            ),
+			            'gltransacties_fin'[AmountFC]
+			        ),
+			        KEEPFILTERS('dim_date'[Date] <= Cutoff)
+			    )
+			
+			VAR RowTotal =
+			    CALCULATE(
+			        SUMX(
+			            'gltransacties_fin',
+			            'gltransacties_fin'[AmountFC] * RELATED('dim_finreportrows'[Teken])
+			        ),
+			        KEEPFILTERS('dim_date'[Date] <= Cutoff)
+			    )
+			
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        IsFuture,     BLANK(),
+			        IsGrandTotal, GrandTotal,
+			                      RowTotal
+			    )
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 3b66438a-6143-4fb5-be52-f7a2a5fb60ef
+
+	measure _Fin_Omzet =
+			CALCULATE(
+			    SUMX('gltransacties_fin', 'gltransacties_fin'[AmountFC] * RELATED('dim_finreportrows'[Teken])),
+			    'dim_finreportrows'[Hoofdgroep] = "Omzet"
+			)
+		lineageTag: f75e5b0f-f6d6-452c-89c6-62f55065cdea
+
+	measure _Fin_Inkoopwaarde =
+			CALCULATE(
+			    SUMX('gltransacties_fin', 'gltransacties_fin'[AmountFC] * RELATED('dim_finreportrows'[Teken])),
+			    'dim_finreportrows'[Hoofdgroep] = "Inkoopwaarde"
+			)
+		lineageTag: a2eed78b-234d-4a1c-86ab-9d62dc92b4f9
+
+	measure _Fin_Personeelskosten =
+			CALCULATE(
+			    SUMX('gltransacties_fin', 'gltransacties_fin'[AmountFC] * RELATED('dim_finreportrows'[Teken])),
+			    'dim_finreportrows'[Hoofdgroep] = "Personeelskosten"
+			)
+		lineageTag: 542f4f73-4e33-4be5-a47e-af50c3f900da
+
+	measure Fin_Kengetal =
+			VAR Sel = SELECTEDVALUE('dim_kengetallen'[Kengetal])
+			VAR SelPeriod = SELECTEDVALUE('gltransacties_fin'[ReportingPeriod])
+			VAR SelYear = MAX('dim_date'[YearISO])
+			VAR ActiveDivisions = VALUES('map_division_office'[Division])
+			VAR IsToekomst =
+			    ISBLANK(SelPeriod)
+			    || (SelYear = YEAR(TODAY()) && SelPeriod > MONTH(TODAY()))
+			    || SelYear > YEAR(TODAY())
+			VAR MinStatus =
+			    IF(
+			        NOT IsToekomst,
+			        IF(
+			            NOT ISBLANK(SelPeriod),
+			            CALCULATE(
+			                MIN('dim_divisionperiodstatus'[YearPeriodStatus]),
+			                'dim_divisionperiodstatus'[FinPeriod] = SelPeriod,
+			                'dim_divisionperiodstatus'[FinYear] = SelYear,
+			                TREATAS(ActiveDivisions, 'dim_divisionperiodstatus'[Division])
+			            ),
+			            CALCULATE(
+			                MIN('dim_divisionperiodstatus'[YearPeriodStatus]),
+			                'dim_divisionperiodstatus'[FinYear] = SelYear,
+			                TREATAS(ActiveDivisions, 'dim_divisionperiodstatus'[Division])
+			            )
+			        )
+			    )
+			VAR PeriodStatus = IF(MinStatus = 1, "Definitief", "Concept")
+			RETURN
+			IF(
+			    IsToekomst && Sel = "Status",
+			    BLANK(),
+			    SWITCH(
+			        Sel,
+			        "Personeelskosten %", REPT(UNICHAR(160), 10) & FORMAT(DIVIDE([_Fin_Personeelskosten], [_Fin_Omzet]), "0%"),
+			        "Bruto marge %",      REPT(UNICHAR(160), 10) & FORMAT(DIVIDE([_Fin_Omzet] - [_Fin_Inkoopwaarde], [_Fin_Omzet]), "0%"),
+			        "Resultaat %",        REPT(UNICHAR(160), 10) & FORMAT(DIVIDE([Bedrag P&L], [_Fin_Omzet]), "0%"),
+			        "Status",             PeriodStatus
+			    )
+			)
+		lineageTag: 5f132e38-76e3-4090-97da-b16f28fc9d7c
+
+	measure 'Is Current Date' = ```
+			IF ( 
+			    MAX ( 'dim_date'[Date] ) = [Current Date], 
+			    1, 
+			    0 
+			)
+			```
+		formatString: 0
+		lineageTag: 7a79a3f8-118f-4cbd-a610-77c73f0124ea
+
+	measure Debug_EventVsTotal =
+			VAR TotaalOmzet = [TotaleOmzetExBtw]
+			VAR EventOmzet = CALCULATE(
+			    SUM('fact_eventstable'[event_total_price_excl_vat]),
+			    'fact_eventstable'[event_status] = "Confirmed"
+			)
+			RETURN TotaalOmzet - EventOmzet
+		lineageTag: 6fe7167d-5a7f-45ef-bb56-f7cb8c116a3f
+
+	measure Drinks_Per_Ticket =
+			DIVIDE(
+			    CALCULATE(
+			        SUM('fact_sales'[LineQty]),
+			        'dim_productgroup'[ParentProductGroup] in {"DRANKEN HOOG", "DRANKEN LAAG"}
+			    ),
+			    DISTINCTCOUNT('fact_sales'[TicketKey]),
+			    0
+			)
+		formatString: 0.0
+		lineageTag: 7e53e271-cca5-4795-9a1e-bbe77c5762b1
+
+	measure Cake_Per_HotDrink =
+			DIVIDE(
+			    CALCULATE(
+			        SUM('fact_sales'[LineQty]),
+			        'fact_sales'[LineGroupName] IN {"TAART", "gebak", "patisserie"},
+			        NOT 'fact_sales'[LineProductName] IN {"Slagroom", "met Slagroom"}
+			    ),
+			    CALCULATE(
+			        SUM('fact_sales'[LineQty]),
+			        'fact_sales'[LineGroupName] IN {"Koffie en Thee", "Verse Thee"}
+			    ),
+			    0
+			)
+		lineageTag: 98d531ef-3603-40d3-91ff-4a471eb9c006
+
+	measure TotaalBetaald_ByPaymentGroup = SUM('fact_payments'[PaymodeTotal])
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: d99f8b42-2a74-4137-81b1-c6faca73045e
+
+	column Column
+		dataType: string
+		lineageTag: 6e8c1bcb-d37c-4f89-9f70-07c8bc4a2d51
+		sourceColumn: Column
+
+	partition 'measurements 1' = entity
+		mode: directLake
+		source
+			entityName: measurements
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

@@ -1,0 +1,104 @@
+table products
+	lineageTag: 6858aeb7-ef1a-48ec-aaee-1867aae8522e
+
+	column ProductId
+		dataType: string
+		lineageTag: 5fe960e4-4df3-4b3d-bcbf-3ddfec16e459
+		sourceColumn: ProductId
+
+	column LocationName
+		dataType: string
+		lineageTag: 4c9e8538-4c8f-4cba-af4d-ce263ad1f265
+		sourceColumn: LocationName
+
+	column CompanyId
+		dataType: string
+		lineageTag: 1fa4b3c3-00cc-4d57-a21b-f88af98c680e
+		sourceColumn: CompanyId
+
+	column AmountPerPerson
+		dataType: int64
+		lineageTag: 662c0ed6-1192-403a-b037-9b17747d0209
+		sourceColumn: AmountPerPerson
+
+	column Name
+		dataType: string
+		lineageTag: dd0f07f5-36e3-467a-b012-2461cb0a2c63
+		sourceColumn: Name
+
+	column Description
+		dataType: string
+		lineageTag: 72feeeda-9b6e-4405-8ccb-7ab86b0880de
+		sourceColumn: Description
+
+	column Content
+		dataType: string
+		lineageTag: ee8a8f78-4d89-43ed-9ab0-dc95d2e38357
+		sourceColumn: Content
+
+	column Price
+		dataType: decimal
+		lineageTag: 8112ab08-6e1d-4198-8108-f01d7d7deb03
+		sourceColumn: Price
+
+	column PriceExclVat
+		dataType: decimal
+		lineageTag: acc046ac-341b-4a29-8e98-1509e5723d35
+		sourceColumn: PriceExclVat
+
+	column Vat
+		dataType: decimal
+		lineageTag: b134a853-edfa-46d1-bbdb-b794b5abe6fb
+		sourceColumn: Vat
+
+	column GeneralLedgerNumber
+		dataType: string
+		lineageTag: b1625d10-339a-4078-be4c-9ef9994a39cd
+		sourceColumn: GeneralLedgerNumber
+
+	column VatRate
+		dataType: decimal
+		lineageTag: 7301d93c-2d0f-4346-8177-9a7eb8532429
+		sourceColumn: VatRate
+
+	column VatRatesJson
+		dataType: string
+		lineageTag: 128127c3-9465-42b6-abf9-c1197ea0c974
+		sourceColumn: VatRatesJson
+
+	column Code
+		dataType: string
+		lineageTag: a46f6a85-9674-4574-98ed-acfcae49ef18
+		sourceColumn: Code
+
+	column PriceName
+		dataType: string
+		lineageTag: e4c9c0e1-5bf6-46de-bf82-f5ef8c7cd4f4
+		sourceColumn: PriceName
+
+	column GroupId
+		dataType: string
+		lineageTag: 8b59012f-d229-4b0c-8597-04353209755c
+		sourceColumn: GroupId
+
+	column CategoryId
+		dataType: string
+		lineageTag: a72d8023-08e6-4bdb-8079-5903b61f4dd2
+		sourceColumn: CategoryId
+
+	column CategoryName
+		dataType: string
+		lineageTag: 938f0748-7271-4f2b-b4d9-25bc291e2a1c
+		sourceColumn: CategoryName
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 24786016-9b35-4c4f-b8b4-89f8b602c016
+		sourceColumn: ModifiedAt
+
+	partition 'products 1' = entity
+		mode: directLake
+		source
+			entityName: products
+			expressionSource: DatabaseQuery
+

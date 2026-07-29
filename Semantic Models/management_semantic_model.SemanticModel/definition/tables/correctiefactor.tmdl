@@ -1,0 +1,15 @@
+table correctiefactor
+	lineageTag: 7150b34b-886e-419d-95fb-2dc15e6368bf
+
+	column CorrPercent
+		dataType: int64
+		lineageTag: db0c2c0c-0edf-4e96-acbf-28bb6072c519
+		sourceColumn: CorrPercent
+
+	partition 'correctiefactor 1' = entity
+		mode: directLake
+		source
+			entityName: correctiefactor
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

@@ -1,0 +1,113 @@
+table fact_freedays
+	lineageTag: d46dca3e-a1c0-442d-9a11-aa08999b353f
+	sourceLineageTag: [dbo].[hr_dl_fact_freedays]
+
+	column OfficeID
+		dataType: int64
+		formatString: 0
+		lineageTag: d124cfab-9976-4e64-8d27-e8b7b8e528fe
+		sourceLineageTag: OfficeID
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: 10b9e744-c865-447d-b9bb-3a5aedee51cd
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardID
+		dataType: int64
+		formatString: 0
+		lineageTag: 544afc6c-2b69-4bef-9c41-624255023456
+		sourceLineageTag: CardID
+		summarizeBy: count
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FreedayID
+		dataType: int64
+		formatString: 0
+		lineageTag: cd151f21-2a28-4d46-85f5-649ec9f9c1e0
+		sourceLineageTag: FreedayID
+		summarizeBy: count
+		sourceColumn: FreedayId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FreedayStart
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 42ae82ca-2a37-4fb7-8cbd-a38636b45160
+		sourceLineageTag: FreedayStart
+		summarizeBy: none
+		sourceColumn: FreedayStart
+
+		annotation SummarizationSetBy = Automatic
+
+	column FreedayEnd
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c7c18c97-2144-48e9-b456-fd812591fd96
+		sourceLineageTag: FreedayEnd
+		summarizeBy: none
+		sourceColumn: FreedayEnd
+
+		annotation SummarizationSetBy = Automatic
+
+	column FreedayDays
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 95e3f376-9ee4-496d-bdd6-12e09c733cde
+		sourceLineageTag: FreedayDays
+		summarizeBy: sum
+		sourceColumn: FreedayDays
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column FreedayType
+		dataType: int64
+		formatString: 0
+		lineageTag: ab2e2a54-3737-4753-9e3f-b7701b37c8db
+		sourceLineageTag: FreedayType
+		summarizeBy: sum
+		sourceColumn: FreedayType
+
+		annotation SummarizationSetBy = Automatic
+
+	column FreedayHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: dfe83df1-c0c7-4bcf-931c-89450afc021b
+		sourceLineageTag: FreedayHours
+		summarizeBy: sum
+		sourceColumn: FreedayHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column FreedayRemarks
+		dataType: string
+		lineageTag: fa367a43-883f-44ea-a15c-0fcdf032d9ef
+		sourceLineageTag: FreedayRemarks
+		summarizeBy: none
+		sourceColumn: FreedayRemarks
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hr_dl_fact_freedays = entity
+		mode: directLake
+		source
+			entityName: fact_freedays
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

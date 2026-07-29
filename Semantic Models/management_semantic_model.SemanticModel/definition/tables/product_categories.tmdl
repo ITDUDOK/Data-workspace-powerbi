@@ -1,0 +1,34 @@
+table product_categories
+	lineageTag: 38cf899a-a16c-443f-855a-8d73cbf72c91
+
+	column CategoryId
+		dataType: string
+		lineageTag: 780c2133-0e36-4c17-b82b-917fb49b9fcc
+		sourceColumn: CategoryId
+
+	column LocationName
+		dataType: string
+		lineageTag: e032027e-8177-4313-9a18-e4e94deedc48
+		sourceColumn: LocationName
+
+	column CompanyId
+		dataType: string
+		lineageTag: 8b84d882-0c08-40d8-aa10-c4934e0667bd
+		sourceColumn: CompanyId
+
+	column CategoryName
+		dataType: string
+		lineageTag: 069a10c1-3fec-4146-a846-19c7733bf7f9
+		sourceColumn: CategoryName
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: d56a587a-0c41-4e02-80c7-93be2cb5bac3
+		sourceColumn: ModifiedAt
+
+	partition 'product_categories 1' = entity
+		mode: directLake
+		source
+			entityName: product_categories
+			expressionSource: DatabaseQuery
+

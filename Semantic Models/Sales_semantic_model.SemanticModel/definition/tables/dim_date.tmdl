@@ -1,0 +1,126 @@
+table dim_date
+	lineageTag: e0cac5e2-c53d-43b4-9fbb-6b9672786054
+	sourceLineageTag: [dbo].[dim_date]
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: aa96109d-1da9-487a-8a27-c3723b71d23f
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateString
+		dataType: string
+		lineageTag: 895d4aa8-1282-4c4d-90fa-3f14f85556a0
+		sourceLineageTag: DateString
+		summarizeBy: none
+		sourceColumn: DateString
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayISO
+		dataType: int64
+		formatString: 0
+		lineageTag: 02f4d972-68be-4c25-b9b1-f56240cb9e47
+		sourceLineageTag: DayISO
+		summarizeBy: sum
+		sourceColumn: DayISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayName
+		dataType: string
+		lineageTag: e3ce9df8-0fdd-4100-aaca-c61ec3edf175
+		sourceLineageTag: DayName
+		summarizeBy: none
+		sourceColumn: DayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayNumberOfTheWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d9077f2-cb32-4d03-89cd-35e99ef7e675
+		sourceLineageTag: DayNumberOfTheWeek
+		summarizeBy: sum
+		sourceColumn: DayNumberOfTheWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: eb6d9cca-d55d-4aaf-8700-75ebe73911d2
+		sourceLineageTag: Month
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: 33b33048-051a-4b46-bf4f-a99928d51f6a
+		sourceLineageTag: MonthName
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 887ca85a-ee2b-4d22-ab1c-9004e87ab0cf
+		sourceLineageTag: Quarter
+		summarizeBy: sum
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekISO
+		dataType: int64
+		formatString: 0
+		lineageTag: 45dd45b0-d078-41d3-ba71-953e0ea36620
+		sourceLineageTag: WeekISO
+		summarizeBy: sum
+		sourceColumn: WeekISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearISO
+		dataType: int64
+		formatString: 0
+		lineageTag: 8204825d-3f76-4c26-92ee-54f83f0b79b5
+		sourceLineageTag: YearISO
+		summarizeBy: sum
+		sourceColumn: YearISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearWeekSort
+		dataType: string
+		lineageTag: da2239e1-bc93-4b25-a4c2-04afceaf6564
+		sourceLineageTag: YearWeekSort
+		summarizeBy: none
+		sourceColumn: YearWeekSort
+
+		annotation SummarizationSetBy = Automatic
+
+	column ThisWeekISO
+		dataType: string
+		lineageTag: bb53fefd-aee7-4437-aa4c-d7eb1e5b044b
+		sourceLineageTag: ThisWeekISO
+		summarizeBy: none
+		sourceColumn: ThisWeekISO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

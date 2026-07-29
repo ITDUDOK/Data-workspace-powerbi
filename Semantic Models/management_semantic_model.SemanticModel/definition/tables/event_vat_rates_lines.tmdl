@@ -1,0 +1,54 @@
+table event_vat_rates_lines
+	lineageTag: 095acdf6-b25c-44b9-9e65-5843ae5b7060
+
+	column ProductId
+		dataType: string
+		lineageTag: f6b12a36-b841-451a-94eb-d6ae4195042a
+		sourceColumn: ProductId
+
+	column LineNr
+		dataType: int64
+		lineageTag: 1703fc53-57c4-4184-ad74-566a6fb44072
+		sourceColumn: LineNr
+
+	column Rate
+		dataType: decimal
+		lineageTag: d7fc4319-b2e2-4a24-86bc-1762438861e1
+		sourceColumn: Rate
+
+	column Vat
+		dataType: decimal
+		lineageTag: a0f63fcb-6a16-4181-a8ec-e4e5910a52aa
+		sourceColumn: Vat
+
+	column Price
+		dataType: decimal
+		lineageTag: 6e8c06dd-3098-4d41-a33c-5f9e05b3bdd1
+		sourceColumn: Price
+
+	column PriceExcl
+		dataType: decimal
+		lineageTag: ee7325a0-f637-4792-bb5c-1060db3dd032
+		sourceColumn: PriceExcl
+
+	column GeneralLedgerNumber
+		dataType: string
+		lineageTag: 04638117-6176-4b65-bf0e-1ea5f95c973c
+		sourceColumn: GeneralLedgerNumber
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 94e3b37d-5b6d-4d63-a6b7-2c593e685cc9
+		sourceColumn: ModifiedAt
+
+	column CategoryId
+		dataType: string
+		lineageTag: e6c1f724-fa5d-4999-b747-b526c3fd77d2
+		sourceColumn: CategoryId
+
+	partition 'event_vat_rates_lines 1' = entity
+		mode: directLake
+		source
+			entityName: event_vat_rates_lines
+			expressionSource: DatabaseQuery
+

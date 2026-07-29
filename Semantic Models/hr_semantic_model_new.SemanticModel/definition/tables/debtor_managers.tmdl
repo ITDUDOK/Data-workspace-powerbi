@@ -1,0 +1,159 @@
+table debtor_managers
+	lineageTag: 4f19fb8c-1f2b-4ed1-9eb3-ad5ff9bc65cd
+	sourceLineageTag: [dbo].[debtor_managers]
+
+	column ManagerId
+		dataType: string
+		lineageTag: 73a8479d-f276-4341-b0fd-5ee79d02480a
+		sourceLineageTag: ManagerId
+		summarizeBy: none
+		sourceColumn: ManagerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DebtorId
+		dataType: string
+		lineageTag: 58cc4084-98f5-42be-8608-f3d0b381945e
+		sourceLineageTag: DebtorId
+		summarizeBy: none
+		sourceColumn: DebtorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: e00401c9-879a-4eae-a8d7-f4c90adb8452
+		sourceLineageTag: ManagerNumber
+		summarizeBy: sum
+		sourceColumn: ManagerNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: c1202cc8-ab44-42a4-a69e-59e6daaddc20
+		sourceLineageTag: FirstName
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: db1299db-6894-493b-af1c-28d5a3a412bc
+		sourceLineageTag: LastName
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 3f59ab20-2c57-43ed-8ccb-3b1b669003c3
+		sourceLineageTag: Gender
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentId
+		dataType: string
+		lineageTag: eef7a565-7bd2-40aa-9e3c-c0d84e18ea00
+		sourceLineageTag: DepartmentId
+		summarizeBy: none
+		sourceColumn: DepartmentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentCode
+		dataType: int64
+		formatString: 0
+		lineageTag: bf8aa055-fc45-489b-b111-afb68cea20b8
+		sourceLineageTag: DepartmentCode
+		summarizeBy: count
+		sourceColumn: DepartmentCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentDescription
+		dataType: string
+		lineageTag: a964ff2e-115f-4acd-bd51-69f53a882894
+		sourceLineageTag: DepartmentDescription
+		summarizeBy: none
+		sourceColumn: DepartmentDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionId
+		dataType: string
+		lineageTag: 73cb2816-0102-4dea-a9ff-ff2195a1286f
+		sourceLineageTag: FunctionId
+		summarizeBy: none
+		sourceColumn: FunctionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionCode
+		dataType: int64
+		formatString: 0
+		lineageTag: d37583f3-5650-4815-a6a4-d205e98628ba
+		sourceLineageTag: FunctionCode
+		summarizeBy: count
+		sourceColumn: FunctionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionDescription
+		dataType: string
+		lineageTag: e8d6e56b-a3ba-4387-95b1-f442446dc643
+		sourceLineageTag: FunctionDescription
+		summarizeBy: none
+		sourceColumn: FunctionDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumber
+		dataType: string
+		lineageTag: 5daa253a-e255-4d4e-ab85-fc2d0fc49a12
+		sourceLineageTag: PhoneNumber
+		summarizeBy: none
+		sourceColumn: PhoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cellphone
+		dataType: string
+		lineageTag: 9cd88026-99a8-4777-ae5d-6e9fa23b32b6
+		sourceLineageTag: Cellphone
+		summarizeBy: none
+		sourceColumn: Cellphone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: 85965458-0b70-4913-83ef-5f7393fefd71
+		sourceLineageTag: Email
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 04c16589-7c1d-435d-a80b-b3a002d03310
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition debtor_managers = entity
+		mode: directLake
+		source
+			entityName: debtor_managers
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

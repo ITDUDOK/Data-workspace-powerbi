@@ -1,0 +1,274 @@
+table employee_schedule_current
+	lineageTag: 5d2093df-2996-45c6-8d51-c31194687f96
+	sourceLineageTag: [dbo].[employee_schedule_current]
+
+	column EmployeeId
+		dataType: string
+		lineageTag: b701ca6a-81b8-4769-a0e8-af54c25a4d1a
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: a9f44a27-e0b7-40cd-ad53-0b04b8790c82
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduleId
+		dataType: string
+		lineageTag: ab7aebd7-5d71-429d-9206-1be064543253
+		sourceLineageTag: ScheduleId
+		summarizeBy: none
+		sourceColumn: ScheduleId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduleStartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8d01439d-9b00-47ca-a167-a70fc2931353
+		sourceLineageTag: ScheduleStartDate
+		summarizeBy: none
+		sourceColumn: ScheduleStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParttimePercentage
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9c135b57-96f6-4f2b-84dc-1e2587eeb08e
+		sourceLineageTag: ParttimePercentage
+		summarizeBy: sum
+		sourceColumn: ParttimePercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column HoursPerWeek
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 82dd4552-01ab-4b25-8a0a-02c10417251b
+		sourceLineageTag: HoursPerWeek
+		summarizeBy: sum
+		sourceColumn: HoursPerWeek
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column DaysPerWeek
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: edf4fca1-7736-4c0f-bf91-fd971d42fcbe
+		sourceLineageTag: DaysPerWeek
+		summarizeBy: sum
+		sourceColumn: DaysPerWeek
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week1Monday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ab525ee2-83f1-4397-9a49-6dbbf7fe7b63
+		sourceLineageTag: Week1Monday
+		summarizeBy: sum
+		sourceColumn: Week1Monday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week1Tuesday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 0aff07d3-ac8c-4fc6-a7f2-443a5ba0e364
+		sourceLineageTag: Week1Tuesday
+		summarizeBy: sum
+		sourceColumn: Week1Tuesday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week1Wednesday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ed2692d1-fbea-43fe-824d-72ff49ebbf0b
+		sourceLineageTag: Week1Wednesday
+		summarizeBy: sum
+		sourceColumn: Week1Wednesday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week1Thursday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 81260c2c-d225-4965-ac9f-f2e58b982a16
+		sourceLineageTag: Week1Thursday
+		summarizeBy: sum
+		sourceColumn: Week1Thursday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week1Friday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e54401f0-c051-4eae-867b-5b8c982ba492
+		sourceLineageTag: Week1Friday
+		summarizeBy: sum
+		sourceColumn: Week1Friday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week1Saturday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: afb783a8-8230-4eb2-b595-6e975fd54a30
+		sourceLineageTag: Week1Saturday
+		summarizeBy: sum
+		sourceColumn: Week1Saturday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week1Sunday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9f27f3f4-5fa2-422a-8d0a-f215e788dbf1
+		sourceLineageTag: Week1Sunday
+		summarizeBy: sum
+		sourceColumn: Week1Sunday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week2Monday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b3f3d8d9-02ec-48b3-81ce-97416d8904be
+		sourceLineageTag: Week2Monday
+		summarizeBy: sum
+		sourceColumn: Week2Monday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week2Tuesday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 39b7d2dd-0daf-449a-8259-10770a6d76a2
+		sourceLineageTag: Week2Tuesday
+		summarizeBy: sum
+		sourceColumn: Week2Tuesday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week2Wednesday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e5834133-253b-4a80-96f4-978a1332a181
+		sourceLineageTag: Week2Wednesday
+		summarizeBy: sum
+		sourceColumn: Week2Wednesday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week2Thursday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 439dff4d-217b-45f2-92e4-12f785b298b5
+		sourceLineageTag: Week2Thursday
+		summarizeBy: sum
+		sourceColumn: Week2Thursday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week2Friday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b7016ff3-991d-4cc5-bbd6-d6c169377716
+		sourceLineageTag: Week2Friday
+		summarizeBy: sum
+		sourceColumn: Week2Friday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week2Saturday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 011011cb-10a2-48f2-9d1a-704726a09767
+		sourceLineageTag: Week2Saturday
+		summarizeBy: sum
+		sourceColumn: Week2Saturday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Week2Sunday
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c6fecd81-7086-408a-8399-82216307fcff
+		sourceLineageTag: Week2Sunday
+		summarizeBy: sum
+		sourceColumn: Week2Sunday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column AvgWeeklyScheduledHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2ef23f77-1ad9-430f-a5d2-e4f95d9daaf7
+		sourceLineageTag: AvgWeeklyScheduledHours
+		summarizeBy: sum
+		sourceColumn: AvgWeeklyScheduledHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9dc90ad1-6b8a-4b28-9dd1-51d0264cffd9
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employee_schedule_current = entity
+		mode: directLake
+		source
+			entityName: employee_schedule_current
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,191 @@
+table fact_planning
+	lineageTag: a3dd0bac-6d72-4bdb-9c73-d11c1b8dcbe9
+	sourceLineageTag: [dbo].[hr_dl_fact_planning]
+
+	column OfficeID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ed4d4fe-b249-4283-abf0-a0a9f47af805
+		sourceLineageTag: OfficeID
+		summarizeBy: count
+		sourceColumn: OfficeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: 3df63516-4c63-44d9-b88c-52a4157f5dbf
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardID
+		dataType: int64
+		formatString: 0
+		lineageTag: 818a3ea3-b8ae-4fad-ae77-3ea03acbbb15
+		sourceLineageTag: CardID
+		summarizeBy: count
+		sourceColumn: CardID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningDepartmentID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d46d484-7a55-407d-a427-a2350b2e3fc1
+		sourceLineageTag: PlanningDepartmentID
+		summarizeBy: count
+		sourceColumn: PlanningDepartmentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningTeamID
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b743048-7304-42a3-affc-626e56e840b4
+		sourceLineageTag: PlanningTeamID
+		summarizeBy: count
+		sourceColumn: PlanningTeamID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9445f615-7535-499e-9c2c-c5ceb81cf530
+		sourceLineageTag: PlanningDate
+		summarizeBy: none
+		sourceColumn: PlanningDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningStart
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: eeed199a-8911-4f60-81c1-e059d98d49f8
+		sourceLineageTag: PlanningStart
+		summarizeBy: none
+		sourceColumn: PlanningStart
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningEnd
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 00703e44-f1dd-4526-8991-5a48d9ff9ca6
+		sourceLineageTag: PlanningEnd
+		summarizeBy: none
+		sourceColumn: PlanningEnd
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a098a2e5-35df-43ed-bab1-43dc46b4163a
+		sourceLineageTag: PlanningHours
+		summarizeBy: sum
+		sourceColumn: PlanningHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column PlanningCosts
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: bde45013-f018-426b-b9cf-dea3d6ad1786
+		sourceLineageTag: PlanningCosts
+		summarizeBy: sum
+		sourceColumn: PlanningCosts
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column PlanningWorkplaceID
+		dataType: int64
+		formatString: 0
+		lineageTag: 460c7d72-5864-4d12-8d52-32c8b23a2e35
+		sourceLineageTag: PlanningWorkplaceID
+		summarizeBy: count
+		sourceColumn: PlanningWorkplaceID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningWorkplaceName
+		dataType: string
+		lineageTag: 0b567d16-2b68-410e-be9a-25fb2cd243ba
+		sourceLineageTag: PlanningWorkplaceName
+		summarizeBy: none
+		sourceColumn: PlanningWorkplaceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningWorkplaceType
+		dataType: string
+		lineageTag: d14e93f4-9795-4e4e-a207-2909fab4ad0c
+		sourceLineageTag: PlanningWorkplaceType
+		summarizeBy: none
+		sourceColumn: PlanningWorkplaceType
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningProjectID
+		dataType: int64
+		formatString: 0
+		lineageTag: cd63b9aa-1202-4f85-8dca-c22ed8f0be13
+		sourceLineageTag: PlanningProjectID
+		summarizeBy: count
+		sourceColumn: PlanningProjectID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningBreak
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d677e1f2-66a6-45b6-b9a0-b3cdb26aafda
+		sourceLineageTag: PlanningBreak
+		summarizeBy: sum
+		sourceColumn: PlanningBreak
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column PlanningLabels
+		dataType: string
+		lineageTag: d430209a-c2d0-48a1-bc49-a5e1f529211c
+		sourceLineageTag: PlanningLabels
+		summarizeBy: none
+		sourceColumn: PlanningLabels
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningRemarks
+		dataType: string
+		lineageTag: a7b8be59-661f-409a-8cac-5cd9e68bceff
+		sourceLineageTag: PlanningRemarks
+		summarizeBy: none
+		sourceColumn: PlanningRemarks
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningTypeID
+		dataType: string
+		lineageTag: bab9f75e-ea6c-42b7-8964-cf9cb62e4f37
+		sourceLineageTag: PlanningTypeID
+		summarizeBy: none
+		sourceColumn: PlanningTypeID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hr_dl_fact_planning = entity
+		mode: directLake
+		source
+			entityName: fact_planning
+			schemaName: hr
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,53 @@
+table mice_companies
+	lineageTag: 2dcf328d-5502-475e-84fd-bfd4abb125c8
+	sourceLineageTag: [dbo].[mice_companies]
+
+	column MiceCompanyId
+		dataType: string
+		lineageTag: 547e96b4-17fa-4cff-a7de-ac01721f01c6
+		sourceLineageTag: MiceCompanyId
+		summarizeBy: none
+		sourceColumn: MiceCompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationName
+		dataType: string
+		lineageTag: 33bc237b-6454-48b1-8a26-948f9f4ec032
+		sourceLineageTag: LocationName
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: 14c55c5a-4388-49e8-823b-e9505449895b
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 38c76cf6-72ea-43fa-a1a2-36232a2abf87
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiceCompanyIdInt
+		dataType: int64
+		lineageTag: c6939513-12c5-4e55-9f56-62ab47195942
+		sourceColumn: MiceCompanyIdInt
+
+	partition mice_companies = entity
+		mode: directLake
+		source
+			entityName: mice_companies
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

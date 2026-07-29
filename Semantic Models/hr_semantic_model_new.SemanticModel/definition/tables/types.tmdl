@@ -1,0 +1,60 @@
+table types
+	lineageTag: 06e397df-9c74-4333-ab86-645204a49634
+	sourceLineageTag: [dbo].[types]
+
+	column TypeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d79f806-ab22-4a1c-aa6c-7fb1443d7f46
+		sourceLineageTag: TypeId
+		summarizeBy: count
+		sourceColumn: TypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: cf02ac43-a9c3-4d66-a380-3b5d597e7628
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TypeParentId
+		dataType: int64
+		formatString: 0
+		lineageTag: ef36ef5d-ff18-4a90-8810-0893b897bae9
+		sourceLineageTag: TypeParentId
+		summarizeBy: count
+		sourceColumn: TypeParentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TypeName
+		dataType: string
+		lineageTag: bc55a9ef-b60a-45dc-924e-0573910defb5
+		sourceLineageTag: TypeName
+		summarizeBy: none
+		sourceColumn: TypeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e7625c9c-0b8e-47b0-8ec6-cbb0eea2b851
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition types = entity
+		mode: directLake
+		source
+			entityName: types
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

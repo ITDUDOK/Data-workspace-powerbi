@@ -1,0 +1,77 @@
+table bridge_center_office
+	lineageTag: 71121834-0eee-41a9-8530-19ac1139977a
+	sourceLineageTag: [dbo].[bridge_center_office]
+
+	column CenterKey
+		dataType: string
+		lineageTag: 4a9a81b7-4863-426a-9acf-4d17ced6e7b2
+		sourceLineageTag: CenterKey
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterName
+		dataType: string
+		lineageTag: 4fbc5334-21ef-45d5-a0a7-b7603b9c0d50
+		sourceLineageTag: CenterName
+		summarizeBy: none
+		sourceColumn: CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 267097c3-c568-41be-b864-1b8d4ef3dcb4
+		sourceLineageTag: OfficeId
+		summarizeBy: none
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: 111ce898-4253-4583-b585-65b8c10d81a0
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MatchConfidence
+		dataType: string
+		lineageTag: bfef2a67-bf68-4a45-8e9e-775394dc7a1a
+		sourceLineageTag: MatchConfidence
+		summarizeBy: none
+		sourceColumn: MatchConfidence
+
+		annotation SummarizationSetBy = Automatic
+
+	column Confirmed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3cd7fa59-799f-4844-b389-69db613b14dc
+		sourceLineageTag: Confirmed
+		summarizeBy: none
+		sourceColumn: Confirmed
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 956c7323-140b-4e6a-a969-088cd8ecb376
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bridge_center_office = entity
+		mode: directLake
+		source
+			entityName: bridge_center_office
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

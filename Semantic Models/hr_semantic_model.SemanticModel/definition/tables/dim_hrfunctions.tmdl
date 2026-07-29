@@ -1,0 +1,48 @@
+table dim_hrfunctions
+	lineageTag: 46ddd374-0bfa-4a46-9cb7-38f42d2ec65b
+	sourceLineageTag: [dbo].[hr_dl_dim_hrfunctions]
+
+	column debtorId
+		dataType: string
+		lineageTag: 8aa83ee0-17b2-4c1a-9997-e7e80bf8a6f8
+		sourceLineageTag: debtorId
+		summarizeBy: none
+		sourceColumn: DebtorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column functionId
+		dataType: string
+		lineageTag: 67627278-8b74-4547-acff-b4a27ec5ddab
+		sourceLineageTag: functionId
+		summarizeBy: none
+		sourceColumn: FunctionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column code
+		dataType: int64
+		formatString: 0
+		lineageTag: c157631f-06e9-49a3-8034-a22c0b2b675b
+		sourceLineageTag: code
+		summarizeBy: sum
+		sourceColumn: FunctionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 428c3e15-b41d-4806-92d2-b2d644608b6c
+		sourceLineageTag: description
+		summarizeBy: none
+		sourceColumn: FunctionDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hr_dl_dim_hrfunctions = entity
+		mode: directLake
+		source
+			entityName: dim_hrfunctions
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

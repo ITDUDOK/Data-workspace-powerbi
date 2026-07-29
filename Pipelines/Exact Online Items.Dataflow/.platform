@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "Exact Online Items"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c6cf03a4-2f9e-a71d-41f4-a7d5f86a7481"
+  }
+}

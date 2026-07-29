@@ -1,0 +1,34 @@
+table event_planners
+	lineageTag: aeb85960-bce9-4eb8-a47c-09f7248f23c0
+
+	column PlannerId
+		dataType: string
+		lineageTag: 0df51730-43c5-4f58-9f94-e48e0b3817b5
+		sourceColumn: PlannerId
+
+	column PlannerFirstName
+		dataType: string
+		lineageTag: 0764e9ea-dfc9-4340-90fc-88b4d38a96c2
+		sourceColumn: PlannerFirstName
+
+	column PlannerLastName
+		dataType: string
+		lineageTag: 27fed703-c50f-4e77-8e62-8afa76f60bf3
+		sourceColumn: PlannerLastName
+
+	column PlannerEmail
+		dataType: string
+		lineageTag: 3febe64d-28ba-4c7c-83c3-8ad2daaee8f1
+		sourceColumn: PlannerEmail
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 79e0ffe0-4a8c-463e-9b10-c8761e0bc200
+		sourceColumn: ModifiedAt
+
+	partition 'event_planners 1' = entity
+		mode: directLake
+		source
+			entityName: event_planners
+			expressionSource: DatabaseQuery
+

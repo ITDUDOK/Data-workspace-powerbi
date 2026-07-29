@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "Exact Online Account"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9a16f654-d648-ab40-4ed1-c87beda9186b"
+  }
+}

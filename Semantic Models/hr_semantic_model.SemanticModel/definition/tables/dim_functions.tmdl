@@ -1,0 +1,59 @@
+table dim_functions
+	lineageTag: 232c847b-8660-4653-8294-26d0d05b851a
+	sourceLineageTag: [dbo].[hr_dl_dim_functions]
+
+	column FunctionID
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c43b950-80b4-4aa6-ba43-f41d9c8156db
+		sourceLineageTag: FunctionID
+		summarizeBy: count
+		sourceColumn: FunctionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionName
+		dataType: string
+		lineageTag: af929d71-e706-428c-abff-bd115e639fcc
+		sourceLineageTag: FunctionName
+		summarizeBy: none
+		sourceColumn: FunctionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentID
+		dataType: int64
+		formatString: 0
+		lineageTag: 80b1015c-8461-4d2c-a4e8-42a675b6320c
+		sourceLineageTag: DepartmentID
+		summarizeBy: count
+		sourceColumn: DepartmentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionAccountant
+		dataType: string
+		lineageTag: 79795f3a-903b-4fc8-a839-5f654ef827bd
+		sourceLineageTag: FunctionAccountant
+		summarizeBy: none
+		sourceColumn: FunctionAccountant
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionState
+		dataType: int64
+		formatString: 0
+		lineageTag: e92b9713-9ba2-4aae-8027-5b6b343b1541
+		sourceLineageTag: FunctionState
+		summarizeBy: sum
+		sourceColumn: FunctionState
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hr_dl_dim_functions = entity
+		mode: directLake
+		source
+			entityName: dim_functions
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

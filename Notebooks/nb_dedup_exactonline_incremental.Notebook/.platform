@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "nb_dedup_exactonline_incremental"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a4a7a5b5-4c7b-a4bc-4290-306f949d078b"
+  }
+}

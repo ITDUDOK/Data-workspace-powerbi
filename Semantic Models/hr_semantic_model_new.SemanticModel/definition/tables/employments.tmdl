@@ -1,0 +1,106 @@
+table employments
+	lineageTag: e2e754c9-657e-44a4-937b-4e5a0eed234f
+	sourceLineageTag: [dbo].[employments]
+
+	column EmploymentId
+		dataType: string
+		lineageTag: 51813bc6-6e19-4258-b040-10ccf4d946ba
+		sourceLineageTag: EmploymentId
+		summarizeBy: none
+		sourceColumn: EmploymentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: 9c1827cd-2465-47f1-9856-bb24d4c2239b
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		lineageTag: 8d0be7cb-f741-4ee6-835b-8b772bdf2285
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 516451d2-3470-4288-a149-11584cd0944f
+		sourceLineageTag: StartDate
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 19cc9883-67c0-4159-8f48-cd0189f8eac3
+		sourceLineageTag: EndDate
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column SeniorityDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a815790e-667c-4a15-8d7c-2909cf5dc711
+		sourceLineageTag: SeniorityDate
+		summarizeBy: none
+		sourceColumn: SeniorityDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndContractReasonCode
+		dataType: string
+		lineageTag: 4665d161-4dd5-4961-9a1e-eaac8f07c173
+		sourceLineageTag: EndContractReasonCode
+		summarizeBy: none
+		sourceColumn: EndContractReasonCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndContractReasonDescription
+		dataType: string
+		lineageTag: 87c62a46-a4cb-40e5-96ca-d5d1b3d03bc2
+		sourceLineageTag: EndContractReasonDescription
+		summarizeBy: none
+		sourceColumn: EndContractReasonDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChangedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b441e430-7ed0-4dea-86ae-3ad6213860d3
+		sourceLineageTag: ChangedDate
+		summarizeBy: none
+		sourceColumn: ChangedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2577a9b0-e742-4721-93ce-642fdf2f3c08
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employments = entity
+		mode: directLake
+		source
+			entityName: employments
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

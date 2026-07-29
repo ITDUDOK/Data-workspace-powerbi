@@ -1,0 +1,30 @@
+table business_line
+	lineageTag: 33307156-aa04-4388-aad9-f82ef65154b9
+	sourceLineageTag: [dbo].[business_line]
+
+	column BusinessLine
+		dataType: string
+		lineageTag: 83b52f3a-65e2-4208-b4de-b8bc84d2e363
+		sourceLineageTag: BusinessLine
+		summarizeBy: none
+		sourceColumn: BusinessLine
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e9543d38-3220-4058-aa08-ec0e870d35cb
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition business_line = entity
+		mode: directLake
+		source
+			entityName: business_line
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

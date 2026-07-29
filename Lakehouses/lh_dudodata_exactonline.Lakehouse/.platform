@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "lh_dudodata_exactonline",
+    "description": "Ruwe Exact Online tabellen (Inkoop, Verkoop, Stock, MRP, Account, Items, Shop, GL) voor alle Dudok-divisies"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2"
+  }
+}

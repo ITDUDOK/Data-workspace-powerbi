@@ -1,0 +1,154 @@
+table cumulative
+	lineageTag: 58d1290e-a0a1-436e-90c3-699354f83d90
+	sourceLineageTag: [dbo].[cumulative]
+
+	column CardId
+		dataType: int64
+		formatString: 0
+		lineageTag: aac71f5a-e86f-4ceb-a42a-9fea9819ca2e
+		sourceLineageTag: CardId
+		summarizeBy: count
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		lineageTag: 7c9ceabf-a81d-48f2-bce6-7940b3fcc040
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: a36cc05d-40fb-4520-b9fc-4088587213f2
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: 3e3d89ae-2899-4c27-9659-bce3e9636ab7
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 09eb629c-fef6-49d8-bc6b-cb7aed0957d8
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d25735c4-173e-4652-9011-84e16d72d833
+		sourceLineageTag: YearMonth
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourcePeriod
+		dataType: string
+		lineageTag: 2033594c-3d89-4dcc-8d0b-b75b808892cf
+		sourceLineageTag: SourcePeriod
+		summarizeBy: none
+		sourceColumn: SourcePeriod
+
+		annotation SummarizationSetBy = Automatic
+
+	column SnapshotDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a9a3dc7e-dc27-43a1-b0aa-e8e37553a17d
+		sourceLineageTag: SnapshotDate
+		summarizeBy: none
+		sourceColumn: SnapshotDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column CummOverHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 4e823114-e03f-44d6-8fad-84f1d9d66b45
+		sourceLineageTag: CummOverHours
+		summarizeBy: sum
+		sourceColumn: CummOverHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CummHolidayHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a3f418d1-38ac-43ff-859f-26c2cdaa5378
+		sourceLineageTag: CummHolidayHours
+		summarizeBy: sum
+		sourceColumn: CummHolidayHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CummCompensationHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 870c7936-351a-4a08-9c21-a97ae7df5009
+		sourceLineageTag: CummCompensationHours
+		summarizeBy: sum
+		sourceColumn: CummCompensationHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CummAdvHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8cf7d446-ae6b-4218-89d6-4b038bddaba4
+		sourceLineageTag: CummAdvHours
+		summarizeBy: sum
+		sourceColumn: CummAdvHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 67a1d968-3d88-470c-ae11-bceb7384d5fa
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonthKey
+		dataType: string
+		lineageTag: ab23ec76-85d5-4aaa-a3d6-733eff41db79
+		sourceLineageTag: YearMonthKey
+		summarizeBy: none
+		sourceColumn: YearMonthKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition cumulative = entity
+		mode: directLake
+		source
+			entityName: cumulative
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

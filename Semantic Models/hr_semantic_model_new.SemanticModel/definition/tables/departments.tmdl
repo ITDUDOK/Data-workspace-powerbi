@@ -1,0 +1,59 @@
+table departments
+	lineageTag: 41a8fe7d-947a-4803-853b-f97b4be9c151
+	sourceLineageTag: [dbo].[departments]
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 8373ad85-0c27-4108-9548-0d9a50498cff
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c77cac8-4ea8-4f4b-8d03-5f744b72b916
+		sourceLineageTag: DepartmentId
+		summarizeBy: count
+		sourceColumn: DepartmentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentName
+		dataType: string
+		lineageTag: 7d0cce98-2dc0-4df9-9ca0-d3433ede7170
+		sourceLineageTag: DepartmentName
+		summarizeBy: none
+		sourceColumn: DepartmentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentReference
+		dataType: string
+		lineageTag: 5edc11cd-abf0-4a0c-9d3a-a7a12b20ea10
+		sourceLineageTag: DepartmentReference
+		summarizeBy: none
+		sourceColumn: DepartmentReference
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4e20a57c-6dec-4e2d-a737-04e9904309f7
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition departments = entity
+		mode: directLake
+		source
+			entityName: departments
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

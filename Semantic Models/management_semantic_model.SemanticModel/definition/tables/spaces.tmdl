@@ -1,0 +1,94 @@
+table spaces
+	lineageTag: 129f40b4-b199-4197-84e5-62d690d32446
+
+	column SpaceId
+		dataType: string
+		lineageTag: 9261f160-00df-4600-92fa-0c7327d8c072
+		sourceColumn: SpaceId
+
+	column LocationName
+		dataType: string
+		lineageTag: 6eecd4ef-ed16-4d29-b412-8787064d7059
+		sourceColumn: LocationName
+
+	column CompanyId
+		dataType: string
+		lineageTag: 73a9bd6b-ff8f-4386-b840-9b101f64281c
+		sourceColumn: CompanyId
+
+	column Price
+		dataType: decimal
+		lineageTag: a6832a48-0c3c-4197-bf1e-1740e538ab3b
+		sourceColumn: Price
+
+	column ProductName
+		dataType: string
+		lineageTag: 4221431a-476a-4119-a40f-673695ac27fc
+		sourceColumn: ProductName
+
+	column SpaceName
+		dataType: string
+		lineageTag: ef979e97-2337-433d-b024-f8a305f0952a
+		sourceColumn: SpaceName
+
+	column Subtitle
+		dataType: string
+		lineageTag: 63e433db-5a5c-4528-873d-af17fdd4f9da
+		sourceColumn: Subtitle
+
+	column Disabled
+		dataType: boolean
+		lineageTag: 9707ef61-bca8-4be6-ad9b-06296750bce4
+		sourceColumn: Disabled
+
+	column Description
+		dataType: string
+		lineageTag: 5038a9cc-dabf-4b1b-9ae4-ee6ee97bf71d
+		sourceColumn: Description
+
+	column Content
+		dataType: string
+		lineageTag: 95d865c5-a465-4142-b942-faf6c3cb370e
+		sourceColumn: Content
+
+	column VatRate
+		dataType: decimal
+		lineageTag: 73df5357-6c66-475f-a531-53db62b265d9
+		sourceColumn: VatRate
+
+	column SortOrder
+		dataType: int64
+		lineageTag: d6dbda2e-68b1-4f59-a492-f4a79fe6a7d3
+		sourceColumn: SortOrder
+
+	column GeneralLedgerNumber
+		dataType: string
+		lineageTag: 64c1bab8-c0c2-48d6-aa99-f198c74df10e
+		sourceColumn: GeneralLedgerNumber
+
+	column Code
+		dataType: string
+		lineageTag: c07cec81-b09e-424a-91d1-cce2a7063022
+		sourceColumn: Code
+
+	column CategoryId
+		dataType: string
+		lineageTag: f48e3f3f-325e-415b-a3dc-b68b15fc3b34
+		sourceColumn: CategoryId
+
+	column CategoryName
+		dataType: string
+		lineageTag: 0484b853-d145-43c4-93f6-db78ec4b67cb
+		sourceColumn: CategoryName
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 63aaeb92-51a5-4b4f-b700-7a8f0767ec92
+		sourceColumn: ModifiedAt
+
+	partition 'spaces 1' = entity
+		mode: directLake
+		source
+			entityName: spaces
+			expressionSource: DatabaseQuery
+

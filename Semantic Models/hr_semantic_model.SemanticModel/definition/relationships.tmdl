@@ -1,0 +1,205 @@
+relationship 0bfe613e-b0a1-49c9-8394-2b9aea08cea2
+	fromColumn: fact_freedays.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship f8fe2853-1c38-495e-ac3b-045b3fe51e66
+	fromColumn: fact_planning.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 13ebbc8e-5301-44ad-9189-da775afe12fc
+	fromColumn: fact_prognosis.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 31a8edc5-e53e-436b-ae8f-4b58863e613e
+	fromColumn: dim_teams.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 53c55f33-f705-4708-9490-863f1c4e20b3
+	fromColumn: fact_types.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship b9a129ff-55c7-4152-a87b-aab304884a2d
+	isActive: false
+	fromColumn: fact_hours.HourOfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 35215a3b-3251-4320-957f-961e280894f4
+	fromColumn: fact_hours.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 170e7e94-d3a3-4d97-8519-e751c689a884
+	fromColumn: fact_sickness.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship a5ccf81a-1da0-4908-a861-d52ba2cdff31
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: dim_departments.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 73c2bcd8-7e50-4937-97f0-feb7fa821845
+	fromColumn: bridge_employees.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 7bd04a86-e6e0-4141-aeef-6f25706fdad0
+	fromColumn: dim_company.debtorId
+	toColumn: dim_debtors.debtorId
+
+relationship 1b9f74cd-53c0-4ce9-b80a-790cfb22e590
+	fromColumn: dim_hrfunctions.debtorId
+	toColumn: dim_debtors.debtorId
+
+relationship 45a47cca-5e33-46e9-aab0-aed81010138b
+	fromColumn: fact_managers.functionId
+	toColumn: dim_hrfunctions.functionId
+
+relationship d59573e5-fd80-4cbc-aecf-7e8b0e5345a9
+	isActive: false
+	fromColumn: fact_employeesfunctions.functionId
+	toColumn: dim_hrfunctions.functionId
+
+relationship cc1af3a0-4e30-419f-8beb-06a0b2542d1d
+	isActive: false
+	fromColumn: fact_employeesfunctions.companyId
+	toColumn: dim_company.companyId
+
+relationship 0749fc2f-d826-4fa6-951c-31129e2c784e
+	crossFilteringBehavior: bothDirections
+	fromColumn: fact_employeesfunctions.employeeId
+	toColumn: fact_hrcontracts.employeeId
+
+relationship 1b286491-198d-4074-b83d-fc4c93609fea
+	fromColumn: fact_employeesmanagers.managerId
+	toColumn: fact_managers.managerId
+
+relationship 1aa6b243-6d56-4eca-987e-9be3cab7e589
+	isActive: false
+	fromColumn: fact_hrcontracts.companyId
+	toColumn: dim_company.companyId
+
+relationship 10da9735-401e-4394-bbc4-c71c45da5670
+	isActive: false
+	fromColumn: bridge_employees.companyName
+	toColumn: dim_company.companyId
+
+relationship b564811a-6de8-4c1c-b6df-55c56de8cf96
+	fromColumn: bridge_employees.Number
+	toColumn: dim_company.number
+
+relationship fb79ab82-5aa8-4dfe-816f-7949025bb6fa
+	crossFilteringBehavior: bothDirections
+	fromColumn: fact_contracts.CardID
+	toColumn: dim_staff.CardID
+
+relationship 602cd0c0-ed56-41f5-9531-58bdaba4168e
+	fromColumn: fact_cumulative.CardID
+	toColumn: dim_staff.CardID
+
+relationship e2cfdec4-4818-4df7-8c3c-bf289df94f19
+	fromColumn: fact_hours.CardID
+	toColumn: dim_staff.CardID
+
+relationship 27530ee4-7a69-431c-9037-461ea32edcc7
+	fromColumn: fact_planning.CardID
+	toColumn: dim_staff.CardID
+
+relationship 4f97bca5-d7f7-45c6-8650-b306d7d9df8e
+	fromColumn: fact_sickness.CardID
+	toColumn: dim_staff.CardID
+
+relationship f39e32e2-6a29-41d4-b110-079c36a790b8
+	isActive: false
+	fromColumn: bridge_employees.CardID
+	toColumn: dim_staff.CardID
+
+relationship 84690faf-d264-4f90-9bb9-6c52c8fe0c1c
+	crossFilteringBehavior: bothDirections
+	fromColumn: dim_staff.CardFunction
+	toColumn: dim_functions.FunctionID
+
+relationship b351e691-bc82-4279-aab7-7e28a92c461b
+	fromColumn: dim_functions.DepartmentID
+	toColumn: dim_departments.DepartmentID
+
+relationship 50eebc82-043c-4c0f-af30-744f36294590
+	isActive: false
+	fromColumn: fact_hours.HourDepartmentID
+	toColumn: dim_departments.DepartmentID
+
+relationship c751af40-9951-4936-bbd6-d49317d6fc98
+	isActive: false
+	fromColumn: fact_planning.PlanningDepartmentID
+	toColumn: dim_departments.DepartmentID
+
+relationship 74a996e4-6c43-4d0d-acd0-e6005a6246df
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: fact_sickness.CardID
+	toColumn: bridge_employees.CardID
+
+relationship 23b498fa-d14f-47de-8d9c-562a3329d715
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: fact_hours.HourOfficeID
+	toColumn: bridge_employees.OfficeID
+
+relationship fe6c5dde-2d1a-426f-9c60-1af6777bee47
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: fact_hours.OfficeID
+	toColumn: bridge_employees.OfficeID
+
+relationship c5e44def-04f6-4852-9870-a4a14c74ab7a
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: bridge_employees.CardID
+	toColumn: fact_hours.CardID
+
+relationship c91317b6-208f-482d-b7e7-fde908393cc1
+	fromColumn: fact_satisfaction.StaffName
+	toColumn: bridge_employees.CardName
+
+relationship 86b09d49-e30d-4d7d-a53b-4ea3916c0553
+	fromColumn: fact_hours.HourDate
+	toColumn: dim_date.Date
+
+relationship adeb658c-eade-4f0a-a47e-f38e84b298f1
+	fromColumn: fact_sickness.SicknessStart
+	toColumn: dim_date.Date
+
+relationship 1b1792eb-7d51-452d-b0e7-355981e413e8
+	isActive: false
+	fromColumn: fact_sickness.SicknessEnd
+	toColumn: dim_date.Date
+
+relationship 4caaa51d-d69f-434e-a687-f9bd67cba781
+	fromColumn: fact_planning.PlanningDate
+	toColumn: dim_date.Date
+
+relationship ba56dc9c-2f4d-4fef-890f-5439fa525b7f
+	fromColumn: fact_prognosis.PrognosisDate
+	toColumn: dim_date.Date
+
+relationship a8bbeea9-c542-42ff-b2a8-7496a6f455b9
+	fromColumn: fact_satisfaction.Date
+	toColumn: dim_date.Date
+
+relationship 85aa17b7-acda-4253-bd8d-78ab64a6344d
+	isActive: false
+	fromColumn: fact_contracts.ContractDisplayEndDate
+	toColumn: dim_date.Date
+
+relationship af7a1368-188f-4eeb-bb6b-2d01ffd071ff
+	isActive: false
+	fromColumn: fact_contracts.ContractProbationEnd
+	toColumn: dim_date.Date
+
+relationship e376c9f9-973b-40ab-9818-5364b593cbca
+	fromColumn: fact_cumulative.YearMonth
+	toColumn: dim_date.YearMonth
+
+relationship 5e7e1c2e-9dbc-478a-bc26-bf3555a6b2cf
+	isActive: false
+	fromColumn: fact_cumulative.YearWeek
+	toColumn: dim_date.YearWeek
+

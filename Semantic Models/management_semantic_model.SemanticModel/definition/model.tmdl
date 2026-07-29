@@ -1,0 +1,68 @@
+model Model
+	culture: en-US
+	collation: Latin1_General_100_BIN2_UTF8
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["DatabaseQuery"]
+
+annotation __TEdtr = 1
+
+annotation PBI_ProTooling = ["WebModelingEdit","DaxQueryView_Desktop","RemoteModeling","TMDLView_Desktop"]
+
+ref table gltransacties_fin
+ref table dim_offices
+ref table fact_sales
+ref table fact_eventstable
+ref table fact_planning
+ref table dim_table
+ref table dim_center
+ref table dim_divisionperiodstatus
+ref table dim_paymentmethod
+ref table bridge
+ref table fact_prognosis
+ref table dim_productgroup
+ref table fact_sickness
+ref table fact_hours
+ref table centersclassificationtable
+ref table fact_payments
+ref table dim_staff
+ref table dim_departments
+ref table glaccounts_fin
+ref table dim_product
+ref table dim_date
+ref table dim_time
+ref table scenario
+ref table correctiefactor
+ref table dim_finreportrows
+ref table dim_kengetallen
+ref table map_division_office
+ref table measurements
+ref table fact_hourlylabour
+ref table clients
+ref table debtors
+ref table users
+ref table vat_rates
+ref table paymodegroups
+ref table productgroups
+ref table product_categories
+ref table mice_companies
+ref table event_contacts
+ref table event_custom_attributes
+ref table spaces
+ref table event_planners
+ref table products
+ref table event_types
+ref table event_vat_rates_lines
+ref table invoice_lines
+ref table invoices
+ref table event_package_lines
+ref table event_product_lines
+ref table events
+ref table event_vat_rates
+

@@ -1,0 +1,130 @@
+table hr_contracts
+	lineageTag: fc1643f2-eedb-434f-be5d-1a5d93a21209
+	sourceLineageTag: [dbo].[hr_contracts]
+
+	column ContractId
+		dataType: string
+		lineageTag: 11cea7d0-f826-45a5-a942-f8e1886b59a0
+		sourceLineageTag: ContractId
+		summarizeBy: none
+		sourceColumn: ContractId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: 73904224-29c4-4471-9edd-c0173a87a321
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		lineageTag: 62836ff8-9763-4f44-8c06-3f0adf49fd01
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1d0cb004-1182-4038-8951-08b6264e4da6
+		sourceLineageTag: StartDate
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrialPeriod
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c46b6a35-4ea6-48df-8108-78f497791c42
+		sourceLineageTag: TrialPeriod
+		summarizeBy: none
+		sourceColumn: TrialPeriod
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0548ab65-5fe2-45fc-adaf-5edd2e09ec1b
+		sourceLineageTag: EndDate
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Indefinite
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f7285cf9-ff39-422d-bd7b-873eda788f46
+		sourceLineageTag: Indefinite
+		summarizeBy: none
+		sourceColumn: Indefinite
+
+		annotation SummarizationSetBy = Automatic
+
+	column WrittenContract
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e0f7c9e2-2886-486e-9b23-46fc55b0d6cf
+		sourceLineageTag: WrittenContract
+		summarizeBy: none
+		sourceColumn: WrittenContract
+
+		annotation SummarizationSetBy = Automatic
+
+	column HoursPerWeek
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 64b21ee8-1495-4bdd-9652-8a1080697ef2
+		sourceLineageTag: HoursPerWeek
+		summarizeBy: sum
+		sourceColumn: HoursPerWeek
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CreatedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8bb9ceee-4767-49fd-b877-0cdab4e37ab7
+		sourceLineageTag: CreatedAt
+		summarizeBy: none
+		sourceColumn: CreatedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: edf5d4b9-3135-4b36-be78-50c1799607d6
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLatestContract
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9d8d1307-2d16-4b26-b7d8-0ccc2be0889e
+		sourceLineageTag: IsLatestContract
+		summarizeBy: none
+		sourceColumn: IsLatestContract
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hr_contracts = entity
+		mode: directLake
+		source
+			entityName: hr_contracts
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,144 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Exact Online Stock",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "gatewayObjectId": "33f72515-25c3-4216-968b-5976e7110940",
+  "queriesMetadata": {
+    "StockCounts": {
+      "queryId": "5d013e9f-8d0e-4d3f-876e-015f9d8021c2",
+      "queryName": "StockCounts",
+      "loadEnabled": false
+    },
+    "StockCountSources": {
+      "queryId": "6674f95e-4c0d-43e7-911e-0d1e768d39f1",
+      "queryName": "StockCountSources",
+      "loadEnabled": false
+    },
+    "StockCountStatus": {
+      "queryId": "551862c7-fabb-4cf4-b4ca-6b8ff5133fd3",
+      "queryName": "StockCountStatus",
+      "loadEnabled": false
+    },
+    "StockEntries": {
+      "queryId": "7be59894-842d-4a72-b237-457068335eac",
+      "queryName": "StockEntries",
+      "loadEnabled": false
+    },
+    "StockOverview": {
+      "queryId": "76b7bff9-d168-4f69-9bf9-517e638fdb01",
+      "queryName": "StockOverview",
+      "loadEnabled": false
+    },
+    "StockEntryStatus": {
+      "queryId": "43dbc750-c559-4bb9-ba2b-113240e994f2",
+      "queryName": "StockEntryStatus",
+      "loadEnabled": false
+    },
+    "StockEntryTypes": {
+      "queryId": "da677313-a909-4deb-837a-d799d1f111fa",
+      "queryName": "StockEntryTypes",
+      "loadEnabled": false
+    },
+    "StockPlanning": {
+      "queryId": "07842ada-392e-436c-bd41-c4b3cd44b2a9",
+      "queryName": "StockPlanning",
+      "loadEnabled": false
+    },
+    "StockPlanningStatus": {
+      "queryId": "bc17953f-57b9-41a3-b5cc-5982abeb5867",
+      "queryName": "StockPlanningStatus",
+      "loadEnabled": false
+    },
+    "StockPlanningTypes": {
+      "queryId": "27d874ce-2c95-45b0-a52f-0e0c4e57fbb1",
+      "queryName": "StockPlanningTypes",
+      "loadEnabled": false
+    },
+    "StockPositions": {
+      "queryId": "eb6fca06-8cf5-4031-b267-508f04c95dd4",
+      "queryName": "StockPositions",
+      "loadEnabled": false
+    },
+    "StockReplenishmentAdvices": {
+      "queryId": "c478497c-db36-4c21-bbf1-2cd085fbac71",
+      "queryName": "StockReplenishmentAdvices",
+      "loadEnabled": false
+    },
+    "StockTransactions": {
+      "queryId": "4e35ff30-de58-488c-8e42-f3461978ddae",
+      "queryName": "StockTransactions",
+      "loadEnabled": false
+    },
+    "StockTransactionSources": {
+      "queryId": "bb34b0b5-15b1-489a-997a-c64288e32f82",
+      "queryName": "StockTransactionSources",
+      "loadEnabled": false
+    },
+    "StockTransactionStatus": {
+      "queryId": "c481440c-de9d-4566-a978-7561df3ca222",
+      "queryName": "StockTransactionStatus",
+      "loadEnabled": false
+    },
+    "StockTransactionTypes": {
+      "queryId": "6b0d3be3-c067-4555-b3b9-90c7c4b16d3c",
+      "queryName": "StockTransactionTypes",
+      "loadEnabled": false
+    },
+    "Warehouses": {
+      "queryId": "88710995-ebd2-4f2c-a668-0bc8e651357f",
+      "queryName": "Warehouses",
+      "loadEnabled": false
+    },
+    "fnGetExactOnlineTable": {
+      "queryId": "954f2b08-8e3c-4d06-b3ff-d82bcd9bb9b3",
+      "queryName": "fnGetExactOnlineTable",
+      "loadEnabled": false
+    },
+    "DefaultDestination": {
+      "queryId": "b0b3e0eb-678a-439d-a48d-a4cf8e75b9ec",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "StockTransactions_DataDestination": {
+      "queryId": "ceba0164-ba51-42ca-a77a-158cd91b4c5e",
+      "queryName": "StockTransactions_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "StockPlanning_DataDestination": {
+      "queryId": "75cc2fdd-0487-4062-909d-814f898ebb07",
+      "queryName": "StockPlanning_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "StockEntries_DataDestination": {
+      "queryId": "8b1845de-1508-4b38-ac2b-570714ecf29d",
+      "queryName": "StockEntries_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "StockCounts_DataDestination": {
+      "queryId": "dfffaf68-9a34-4d96-acc9-5a468f4eb832",
+      "queryName": "StockCounts_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "ExactOnlinePremium",
+      "kind": "ExactOnlinePremium",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"7c70d480-1e0f-4968-a041-fc9074261bd8\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"c6062fed-690d-4d8f-b800-3e76c43c6a44\"}"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+table dim_table
+	lineageTag: bad9b1f8-f854-4665-ac27-d8a4456ef892
+	sourceLineageTag: [dbo].[management_dl_dim_table]
+
+	column CenterKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 05bcc863-5a4b-4cec-ade6-d2c88ca7d78e
+		sourceLineageTag: CenterKey
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e733e015-e48b-40ad-9a3c-b0b9883496fe
+		sourceLineageTag: CenterName
+		summarizeBy: none
+		sourceColumn: CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wijk
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 99af41b8-b7f8-4114-a72d-42d19530b959
+		sourceLineageTag: Wijk
+		summarizeBy: none
+		sourceColumn: Wijk
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableNr
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c8385637-13c0-4d66-b153-7c6d4a76c11b
+		sourceLineageTag: TableNr
+		summarizeBy: none
+		sourceColumn: TableNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: e8c1bdac-540a-47bd-acce-2d0f25b98cee
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition management_dl_dim_table = entity
+		mode: directLake
+		source
+			entityName: table_numbers
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

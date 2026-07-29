@@ -1,0 +1,25 @@
+table map_division_office
+	lineageTag: 1422dac6-7fce-43db-a992-ea72cfdc87e2
+
+	column Division
+		dataType: int64
+		lineageTag: a32c90ea-3b79-47f6-96b3-6aa283e35286
+		sourceColumn: Division
+
+	column OfficeID
+		dataType: string
+		lineageTag: 3c456320-016a-430f-968b-07ef9850184e
+		sourceColumn: OfficeID
+
+	column Administratie
+		dataType: string
+		lineageTag: 621db29f-47d1-4063-a05c-0aa938041a25
+		sourceColumn: Administratie
+
+	partition 'map_division_office 1' = entity
+		mode: directLake
+		source
+			entityName: map_division_office
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

@@ -1,0 +1,256 @@
+table contracts
+	lineageTag: fbce653c-82bd-4509-9a27-8a78d7040b6f
+	sourceLineageTag: [dbo].[contracts]
+
+	column ContractId
+		dataType: int64
+		formatString: 0
+		lineageTag: 0a42441e-e2cf-44c5-9acb-ee15b1365df6
+		sourceLineageTag: ContractId
+		summarizeBy: count
+		sourceColumn: ContractId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentId
+		dataType: int64
+		formatString: 0
+		lineageTag: e668d5e6-9f6f-45fd-be5d-dfbdf43336dc
+		sourceLineageTag: ParentId
+		summarizeBy: count
+		sourceColumn: ParentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardId
+		dataType: int64
+		formatString: 0
+		lineageTag: 0264a07f-e78f-4025-a73c-0005b87d92a9
+		sourceLineageTag: CardId
+		summarizeBy: count
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		lineageTag: 9500cfa0-13c7-44e8-abfc-3b653c47017c
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: d3937816-f2ab-4c5c-bbf0-14266bb7f1cb
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Profile
+		dataType: string
+		lineageTag: 6fa3cf38-7ed5-4039-8cfa-8d92482d7305
+		sourceLineageTag: Profile
+		summarizeBy: none
+		sourceColumn: Profile
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cao
+		dataType: string
+		lineageTag: fe4390ef-e999-48fa-938a-73fcabb29562
+		sourceLineageTag: Cao
+		summarizeBy: none
+		sourceColumn: Cao
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractNumber
+		dataType: double
+		lineageTag: f1d564bf-9abb-4862-96fb-26432300d3ac
+		sourceLineageTag: ContractNumber
+		summarizeBy: sum
+		sourceColumn: ContractNumber
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ContractStartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 20184207-628a-4721-9834-7ff00dd63586
+		sourceLineageTag: ContractStartDate
+		summarizeBy: none
+		sourceColumn: ContractStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 75ab3792-4fec-40ab-b5e8-1e00a9415a27
+		sourceLineageTag: ContractEndDate
+		summarizeBy: none
+		sourceColumn: ContractEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractProbationEnd
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ecb4cf11-7c36-4588-890e-cfca2835112f
+		sourceLineageTag: ContractProbationEnd
+		summarizeBy: none
+		sourceColumn: ContractProbationEnd
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractDisplayEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fdeff3a1-1000-4eb9-92e2-d2cb897e057a
+		sourceLineageTag: ContractDisplayEndDate
+		summarizeBy: none
+		sourceColumn: ContractDisplayEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractType
+		dataType: string
+		lineageTag: 532a46b1-b0c9-4e16-b29d-ae14b2fb4085
+		sourceLineageTag: ContractType
+		summarizeBy: none
+		sourceColumn: ContractType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractWeekHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2f780c8a-dc39-4c98-a4bf-2e5c850f8816
+		sourceLineageTag: ContractWeekHours
+		summarizeBy: sum
+		sourceColumn: ContractWeekHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ContractWeekDays
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c836152f-73fb-47e8-a1b5-a7fed8082fe1
+		sourceLineageTag: ContractWeekDays
+		summarizeBy: sum
+		sourceColumn: ContractWeekDays
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ContractDayHoursAvg
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9571bf4f-4f3b-43a4-a95e-a02f96eea225
+		sourceLineageTag: ContractDayHoursAvg
+		summarizeBy: sum
+		sourceColumn: ContractDayHoursAvg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ContractPeriodHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3d183120-1f9f-43ae-a26a-e2871d84eea7
+		sourceLineageTag: ContractPeriodHours
+		summarizeBy: sum
+		sourceColumn: ContractPeriodHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ContractFirstPeriodHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 83905402-dc7e-46b8-8357-d1b193eb057f
+		sourceLineageTag: ContractFirstPeriodHours
+		summarizeBy: sum
+		sourceColumn: ContractFirstPeriodHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ContractLastPeriodHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 29f6cced-a061-467c-acfe-42ffa750f722
+		sourceLineageTag: ContractLastPeriodHours
+		summarizeBy: sum
+		sourceColumn: ContractLastPeriodHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ContractHolidayBuild
+		dataType: string
+		lineageTag: 6720275e-ba30-4ec1-ab52-42df344ed928
+		sourceLineageTag: ContractHolidayBuild
+		summarizeBy: none
+		sourceColumn: ContractHolidayBuild
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractRemarks
+		dataType: string
+		lineageTag: 892dbf63-b540-4863-8a8c-5fe507ee7fbb
+		sourceLineageTag: ContractRemarks
+		summarizeBy: none
+		sourceColumn: ContractRemarks
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractModified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 29419624-a9dd-4d0c-bf26-39cccf8d2981
+		sourceLineageTag: ContractModified
+		summarizeBy: none
+		sourceColumn: ContractModified
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractModifiedBy
+		dataType: string
+		lineageTag: 78be2a0d-23ce-4415-b54c-fd9bda1bb515
+		sourceLineageTag: ContractModifiedBy
+		summarizeBy: none
+		sourceColumn: ContractModifiedBy
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 53628fe0-0556-4b3f-891a-f8f8f192f04d
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition contracts = entity
+		mode: directLake
+		source
+			entityName: contracts
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

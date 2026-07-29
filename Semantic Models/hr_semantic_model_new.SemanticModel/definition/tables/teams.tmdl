@@ -1,0 +1,60 @@
+table teams
+	lineageTag: 42a586e9-a026-49af-85e1-9801c19dea2e
+	sourceLineageTag: [dbo].[teams]
+
+	column TeamId
+		dataType: int64
+		formatString: 0
+		lineageTag: d50e1bc6-5057-431a-b223-a073ff943a3e
+		sourceLineageTag: TeamId
+		summarizeBy: count
+		sourceColumn: TeamId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 649ddb66-c783-423c-a5d8-3f6897f0b957
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentId
+		dataType: int64
+		formatString: 0
+		lineageTag: 79a3a4a5-9a30-4079-97c8-c7391fb6562d
+		sourceLineageTag: DepartmentId
+		summarizeBy: count
+		sourceColumn: DepartmentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamName
+		dataType: string
+		lineageTag: 146f85b8-d3ca-4b44-892c-9a52e1693ed5
+		sourceLineageTag: TeamName
+		summarizeBy: none
+		sourceColumn: TeamName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 63b8b143-a236-4595-a72c-8bcceb714830
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition teams = entity
+		mode: directLake
+		source
+			entityName: teams
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

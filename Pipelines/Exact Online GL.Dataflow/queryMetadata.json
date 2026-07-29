@@ -1,0 +1,81 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Exact Online GL",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "gatewayObjectId": "33f72515-25c3-4216-968b-5976e7110940",
+  "queriesMetadata": {
+    "Divisions": {
+      "queryId": "b983e527-9bfd-458a-8589-8672d2ef15ed",
+      "queryName": "Divisions",
+      "loadEnabled": false
+    },
+    "GLAccounts": {
+      "queryId": "4c8b80fa-14b5-4fac-9b51-bddd005b4d2f",
+      "queryName": "GLAccounts",
+      "loadEnabled": false
+    },
+    "GLTransactions": {
+      "queryId": "02598979-43c6-414d-bc21-4c24a26c3020",
+      "queryName": "GLTransactions",
+      "loadEnabled": false
+    },
+    "GLTransactionStatus": {
+      "queryId": "d312987d-bab1-4804-bc78-e1747776b58d",
+      "queryName": "GLTransactionStatus",
+      "loadEnabled": false
+    },
+    "GLClassifications": {
+      "queryId": "305d5c71-adc4-44ff-8cf4-b4da628f3596",
+      "queryName": "GLClassifications",
+      "loadEnabled": false
+    },
+    "Administratie": {
+      "queryId": "d9792ca1-6e41-44b0-b58d-fc6f40d4a762",
+      "queryName": "Administratie",
+      "loadEnabled": false
+    },
+    "DivisionPeriodStatus": {
+      "queryId": "520ac8ed-d141-4606-90e8-9c15670afc3f",
+      "queryName": "DivisionPeriodStatus",
+      "loadEnabled": false
+    },
+    "fnGetExactOnlineTable": {
+      "queryId": "dc01723a-23d1-4fc8-b5cc-ca2a2d984613",
+      "queryName": "fnGetExactOnlineTable",
+      "loadEnabled": false
+    },
+    "DefaultDestination": {
+      "queryId": "d51c3139-90e0-4056-b451-b70df95675fb",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "GLTransactions_DataDestination": {
+      "queryId": "f49180e0-f0f6-49f6-86c4-0a0932b63b07",
+      "queryName": "GLTransactions_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "GLAccountSchemaStructures": {
+      "queryId": "92d7972c-ef44-4939-8885-252c12300b29",
+      "queryName": "GLAccountSchemaStructures",
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "ExactOnlinePremium",
+      "kind": "ExactOnlinePremium",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"7c70d480-1e0f-4968-a041-fc9074261bd8\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"c6062fed-690d-4d8f-b800-3e76c43c6a44\"}"
+    }
+  ]
+}

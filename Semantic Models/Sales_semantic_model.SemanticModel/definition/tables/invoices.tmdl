@@ -1,0 +1,245 @@
+table invoices
+	lineageTag: f717a0b7-c4fb-4806-b3fb-a54580500f8c
+	sourceLineageTag: [dbo].[invoices]
+
+	column InvoiceId
+		dataType: string
+		lineageTag: 2147394d-7d6d-41d3-8d2e-0e16f6c72596
+		sourceLineageTag: InvoiceId
+		summarizeBy: none
+		sourceColumn: InvoiceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationName
+		dataType: string
+		lineageTag: 41b65ea8-5cd9-4130-9409-e018ae3a549e
+		sourceLineageTag: LocationName
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: 78cfdae9-c034-4149-bc5e-f9ad04ade570
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceType
+		dataType: string
+		lineageTag: b687d64a-5912-486c-8d94-e49e474ad580
+		sourceLineageTag: InvoiceType
+		summarizeBy: none
+		sourceColumn: InvoiceType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Identifier
+		dataType: string
+		lineageTag: 309e48bf-2fab-4d83-b96c-81dc91baed3a
+		sourceLineageTag: Identifier
+		summarizeBy: none
+		sourceColumn: Identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceNumber
+		dataType: string
+		lineageTag: 9f4b6492-ae23-4346-94c3-53c7944ba3b1
+		sourceLineageTag: InvoiceNumber
+		summarizeBy: none
+		sourceColumn: InvoiceNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientId
+		dataType: string
+		lineageTag: b1d1ed2c-a68b-4c5b-b923-ec71f68a2985
+		sourceLineageTag: ClientId
+		summarizeBy: none
+		sourceColumn: ClientId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientName
+		dataType: string
+		lineageTag: 9784ca9e-86ec-4fe1-9323-7f57e2ec285b
+		sourceLineageTag: ClientName
+		summarizeBy: none
+		sourceColumn: ClientName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientEmail
+		dataType: string
+		lineageTag: 1a137c42-b8b7-4daa-ae37-c45d1d8b05e3
+		sourceLineageTag: ClientEmail
+		summarizeBy: none
+		sourceColumn: ClientEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientCity
+		dataType: string
+		lineageTag: e67dcfe8-13d2-487e-bba3-3302cd495314
+		sourceLineageTag: ClientCity
+		summarizeBy: none
+		sourceColumn: ClientCity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: e50541f5-5ad1-4f92-a753-3e347c110f8f
+		sourceLineageTag: Status
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateSent
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e2b93c63-85a5-4740-ad17-cc1332784fa5
+		sourceLineageTag: DateSent
+		summarizeBy: none
+		sourceColumn: DateSent
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateDue
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 896537d3-8dd9-40be-a723-d40c198d613c
+		sourceLineageTag: DateDue
+		summarizeBy: none
+		sourceColumn: DateDue
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: ec507b3a-50b3-4575-a1af-5db4a2c055b4
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalExclVat
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1cb8a961-78ed-416f-af3c-3ea339d09aa7
+		sourceLineageTag: TotalExclVat
+		summarizeBy: sum
+		sourceColumn: TotalExclVat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TotalVat
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: fca0ec4d-2eb1-4294-9950-c03b2f1a869e
+		sourceLineageTag: TotalVat
+		summarizeBy: sum
+		sourceColumn: TotalVat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TotalDiscount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5da98f5e-6a00-41d0-8925-a617e0b41d6e
+		sourceLineageTag: TotalDiscount
+		summarizeBy: sum
+		sourceColumn: TotalDiscount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TotalInclVat
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e4d2e128-d838-42c8-aaaa-6b1d653fb03c
+		sourceLineageTag: TotalInclVat
+		summarizeBy: sum
+		sourceColumn: TotalInclVat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ParentInvoiceId
+		dataType: string
+		lineageTag: 311ef173-edbd-4a92-a55d-c6afd749e346
+		sourceLineageTag: ParentInvoiceId
+		summarizeBy: none
+		sourceColumn: ParentInvoiceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reference
+		dataType: string
+		lineageTag: 566c416d-320e-443e-a3e9-8d9cfc18a128
+		sourceLineageTag: Reference
+		summarizeBy: none
+		sourceColumn: Reference
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentTermDays
+		dataType: int64
+		formatString: 0
+		lineageTag: 630de552-a7c3-48fa-9254-fe4f020905a5
+		sourceLineageTag: PaymentTermDays
+		summarizeBy: sum
+		sourceColumn: PaymentTermDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 261e2771-6c04-4d6f-880d-24c17ee0a68a
+		sourceLineageTag: CreatedAt
+		summarizeBy: none
+		sourceColumn: CreatedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdatedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6e8693f5-ee5f-44b6-8406-f994a82ebf29
+		sourceLineageTag: UpdatedAt
+		summarizeBy: none
+		sourceColumn: UpdatedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 86b2ab94-bcd1-4ece-9de5-146e7765f578
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition invoices = entity
+		mode: directLake
+		source
+			entityName: invoices
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

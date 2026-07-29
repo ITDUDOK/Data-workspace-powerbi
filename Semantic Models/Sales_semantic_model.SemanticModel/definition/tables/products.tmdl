@@ -1,0 +1,196 @@
+table products
+	lineageTag: dd726e14-8bf3-4f9c-a9b1-a2f92400b4b8
+	sourceLineageTag: [dbo].[products]
+
+	column ProductId
+		dataType: string
+		lineageTag: c9aed682-6506-4f6c-ade5-a82edf25b14a
+		sourceLineageTag: ProductId
+		summarizeBy: none
+		sourceColumn: ProductId
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationName
+		dataType: string
+		lineageTag: 67e83b22-de6d-428e-a6ec-974b23f7a877
+		sourceLineageTag: LocationName
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: a18f9594-73c2-4f4b-9aed-9e0a9d073ab9
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AmountPerPerson
+		dataType: int64
+		formatString: 0
+		lineageTag: ad2e9d36-0046-4322-bb18-0e52ac6ceaa7
+		sourceLineageTag: AmountPerPerson
+		summarizeBy: sum
+		sourceColumn: AmountPerPerson
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 9b0c0c11-e1b6-427a-bc1d-5051374668a7
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 631e058b-100c-4e59-a773-13945f3a3321
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Content
+		dataType: string
+		lineageTag: ef90a7c0-1a1d-4fa5-96fd-ee6005211e09
+		sourceLineageTag: Content
+		summarizeBy: none
+		sourceColumn: Content
+
+		annotation SummarizationSetBy = Automatic
+
+	column Price
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6ec2b9d1-8cd5-4d1f-8dc5-0a567984a07b
+		sourceLineageTag: Price
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column PriceExclVat
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8960c9a0-81d0-40ef-b8a6-0aeba6c075ee
+		sourceLineageTag: PriceExclVat
+		summarizeBy: sum
+		sourceColumn: PriceExclVat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Vat
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9e16fd80-cf6b-437f-8813-4294890c21f3
+		sourceLineageTag: Vat
+		summarizeBy: sum
+		sourceColumn: Vat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column GeneralLedgerNumber
+		dataType: string
+		lineageTag: 20205b49-ed88-4680-94c5-beeb00961fe0
+		sourceLineageTag: GeneralLedgerNumber
+		summarizeBy: none
+		sourceColumn: GeneralLedgerNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e61d88a1-8d24-4a3a-9339-8814ce7ff439
+		sourceLineageTag: VatRate
+		summarizeBy: sum
+		sourceColumn: VatRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column VatRatesJson
+		dataType: string
+		lineageTag: f0b791c9-3310-493f-8e3c-75b98937d773
+		sourceLineageTag: VatRatesJson
+		summarizeBy: none
+		sourceColumn: VatRatesJson
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: c89e61e2-3c01-47d5-ad34-203b522f649f
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceName
+		dataType: string
+		lineageTag: 75bfbfd8-a6d5-4581-aa9d-a4aaee5f2b87
+		sourceLineageTag: PriceName
+		summarizeBy: none
+		sourceColumn: PriceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupId
+		dataType: string
+		lineageTag: 1fa60555-fdd4-45bd-b492-b1fe16e77d12
+		sourceLineageTag: GroupId
+		summarizeBy: none
+		sourceColumn: GroupId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryId
+		dataType: string
+		lineageTag: bb9c36f3-e9d0-4514-a49e-2717ec772178
+		sourceLineageTag: CategoryId
+		summarizeBy: none
+		sourceColumn: CategoryId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryName
+		dataType: string
+		lineageTag: c725fa5a-ab71-4db3-87e3-36e5718a75b8
+		sourceLineageTag: CategoryName
+		summarizeBy: none
+		sourceColumn: CategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ad0b7bb6-faec-4941-8265-f4e0a34c6bd5
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition products = entity
+		mode: directLake
+		source
+			entityName: products
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

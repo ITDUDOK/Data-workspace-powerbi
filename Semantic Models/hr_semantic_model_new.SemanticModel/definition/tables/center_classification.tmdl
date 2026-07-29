@@ -1,0 +1,97 @@
+table center_classification
+	lineageTag: f7a23884-2b32-4c48-a7c4-d5e0bcc6791d
+	sourceLineageTag: [dbo].[center_classification]
+
+	column CenterKey
+		dataType: string
+		lineageTag: 38272d72-c64a-4b2f-9234-61b6a23ed463
+		sourceLineageTag: CenterKey
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterNr
+		dataType: string
+		lineageTag: fc63bfd6-581d-41e0-bd7e-15cb9e1c2e1c
+		sourceLineageTag: CenterNr
+		summarizeBy: none
+		sourceColumn: CenterNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeftNr
+		dataType: int64
+		formatString: 0
+		lineageTag: b73562e6-bff0-457a-82f8-afb4854ad91b
+		sourceLineageTag: LeftNr
+		summarizeBy: sum
+		sourceColumn: LeftNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column RightNr
+		dataType: int64
+		formatString: 0
+		lineageTag: 0052636d-4193-4c07-b847-c0aeaa5a2ed5
+		sourceLineageTag: RightNr
+		summarizeBy: sum
+		sourceColumn: RightNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level
+		dataType: int64
+		formatString: 0
+		lineageTag: a6e3949b-a08e-472a-baab-620d4ce2b04e
+		sourceLineageTag: Level
+		summarizeBy: sum
+		sourceColumn: Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 4ff8580c-9f41-4f8d-b07f-b697d6dd24a3
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification
+		dataType: string
+		lineageTag: 0617e2eb-e1f0-442e-ac54-d54d0c24400b
+		sourceLineageTag: Classification
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column Confirmed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7e6a0782-aa9e-4f1b-94d0-0f96b0d2bba4
+		sourceLineageTag: Confirmed
+		summarizeBy: none
+		sourceColumn: Confirmed
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3bdb9b82-506c-46ab-aa5b-0cf0e40a99d4
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition center_classification = entity
+		mode: directLake
+		source
+			entityName: center_classification
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

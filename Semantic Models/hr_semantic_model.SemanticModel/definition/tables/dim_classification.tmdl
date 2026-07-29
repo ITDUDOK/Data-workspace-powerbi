@@ -1,0 +1,67 @@
+table dim_classification
+	lineageTag: 31dd32f4-a6e7-403d-b53f-855978bf9e72
+	sourceLineageTag: [dbo].[hr_dl_dim_classification]
+
+	column CenterNr
+		dataType: string
+		lineageTag: ae60d2d8-6c32-4b01-afc2-a0c2f46de40b
+		sourceLineageTag: CenterNr
+		summarizeBy: none
+		sourceColumn: CenterNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column Key
+		dataType: string
+		lineageTag: 05c7793f-768a-4a70-b930-d0dac21df6da
+		sourceLineageTag: Key
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeftNr
+		dataType: int64
+		formatString: 0
+		lineageTag: 56dc584e-d13a-44dc-bb5e-09fdcec64930
+		sourceLineageTag: LeftNr
+		summarizeBy: sum
+		sourceColumn: LeftNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level
+		dataType: int64
+		formatString: 0
+		lineageTag: 1849bac0-5d09-4e1b-9f18-4d422cfc30fc
+		sourceLineageTag: Level
+		summarizeBy: sum
+		sourceColumn: Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 31f5b44a-60f6-45a2-8698-d9511975d73e
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification
+		dataType: string
+		lineageTag: 08371d7e-f1ed-4cfe-8f26-de2dfa94784b
+		sourceLineageTag: Classification
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hr_dl_dim_classification = entity
+		mode: directLake
+		source
+			entityName: dim_classification
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

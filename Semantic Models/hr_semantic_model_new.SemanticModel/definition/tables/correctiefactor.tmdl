@@ -1,0 +1,31 @@
+table correctiefactor
+	lineageTag: beefbf06-7ba6-48ee-91a9-d6275e18e263
+	sourceLineageTag: [dbo].[correctiefactor]
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9b60f5f6-4366-4b0d-bdfc-a4e3a7f0d4b6
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column CorrPercent
+		dataType: int64
+		formatString: 0
+		lineageTag: 992ac25f-c613-4b67-9236-5a6f184df95f
+		sourceLineageTag: CorrPercent
+		summarizeBy: sum
+		sourceColumn: CorrPercent
+
+		annotation SummarizationSetBy = Automatic
+
+	partition correctiefactor = entity
+		mode: directLake
+		source
+			entityName: correctiefactor
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,115 @@
+table employee_managers
+	lineageTag: d6a7f49d-3e40-43e0-9f2a-0fd060fcc86a
+	sourceLineageTag: [dbo].[employee_managers]
+
+	column EmployeeManagerId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e38c95b-3d10-4036-ad05-9a14b5120c57
+		sourceLineageTag: EmployeeManagerId
+		summarizeBy: count
+		sourceColumn: EmployeeManagerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		lineageTag: 1e1b2d77-ef78-4ef0-b808-8901c425a92c
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerId
+		dataType: string
+		lineageTag: 254b29fd-37fe-4825-9460-a9b8347ed8fb
+		sourceLineageTag: ManagerId
+		summarizeBy: none
+		sourceColumn: ManagerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: 7df9c27d-aba9-4558-b243-8da3ae90c5b9
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerFirstName
+		dataType: string
+		lineageTag: 7371c967-6a0d-49d1-a09a-3725425e8e61
+		sourceLineageTag: ManagerFirstName
+		summarizeBy: none
+		sourceColumn: ManagerFirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerLastName
+		dataType: string
+		lineageTag: 88852553-0a32-4fd3-8130-42173dd446f6
+		sourceLineageTag: ManagerLastName
+		summarizeBy: none
+		sourceColumn: ManagerLastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerEmail
+		dataType: string
+		lineageTag: e54a5f9d-ef31-4bff-9a38-6839f0b1c02f
+		sourceLineageTag: ManagerEmail
+		summarizeBy: none
+		sourceColumn: ManagerEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column PeriodYear
+		dataType: int64
+		formatString: 0
+		lineageTag: d08bd4ef-7bb8-43aa-a08b-efd84598fdff
+		sourceLineageTag: PeriodYear
+		summarizeBy: sum
+		sourceColumn: PeriodYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		lineageTag: 37a1ed45-de4c-405f-b5c2-363e5463a869
+		sourceLineageTag: Period
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 530eb7c3-a356-48e4-afa1-387957527788
+		sourceLineageTag: CreatedAt
+		summarizeBy: none
+		sourceColumn: CreatedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 339e685c-5fa5-461b-8e2f-afa97fcb31df
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employee_managers = entity
+		mode: directLake
+		source
+			entityName: employee_managers
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,156 @@
+relationship e7a40ea6-d067-46c2-aad4-851bf5938d19
+	fromColumn: fact_sales.LineProductKey
+	toColumn: dim_product.ProductKey
+
+relationship ebdcc93d-e330-4595-aab1-f294212b520d
+	fromColumn: fact_sales.CenterKey
+	toColumn: dim_center.Key
+
+relationship a0396190-3387-46c6-bdf4-78f8b4ca173d
+	fromColumn: dim_product.GroupKey
+	toColumn: dim_productgroup.Key
+
+relationship a06d7e31-9dd4-454d-b929-813a04481a4a
+	fromColumn: fact_payments.TicketTable_CenterKey
+	toColumn: dim_center.Key
+
+relationship e67f9346-70e6-4275-81c2-25c0aba22fc2
+	fromColumn: fact_planning.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 2570cbe2-914d-4513-87d4-a1d5732fa577
+	fromColumn: fact_prognosis.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 568c52e4-bf14-424d-9112-49fc0251408e
+	fromColumn: fact_sickness.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 605deee6-8144-442e-9399-1674b29cbd90
+	crossFilteringBehavior: bothDirections
+	fromColumn: dim_staff.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship c1d5492d-8579-4bc3-a6f9-c82da25cb9fb
+	fromColumn: fact_hours.HourOfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 7eb4125a-5f0e-475b-a6fb-95213f3a5140
+	fromColumn: fact_planning.PlanningDate
+	toColumn: dim_date.Date
+
+relationship b7874eae-58f1-4361-bf67-66b553f46a67
+	fromColumn: fact_hours.HourDate
+	toColumn: dim_date.Date
+
+relationship 4ab5732e-1e35-4546-9507-3c120008cf32
+	fromColumn: fact_hours.HourEnterNumber
+	toColumn: dim_time.HourNumber
+
+relationship d1274905-1b29-480f-93b4-6472cfc5e51a
+	fromColumn: fact_prognosis.PrognosisDate
+	toColumn: dim_date.Date
+
+relationship 36dce41a-159d-4dbe-a404-cfe56374e6b0
+	fromColumn: fact_hours.HourDepartmentID
+	toColumn: dim_departments.DepartmentID
+
+relationship 28cc5d79-bac3-4560-b2ba-6ce8ebe40071
+	fromColumn: fact_planning.PlanningDepartmentID
+	toColumn: dim_departments.DepartmentID
+
+relationship a991f2c5-34e7-4470-9814-de1b689c3805
+	fromColumn: fact_sickness.SicknessStart
+	toColumn: dim_date.Date
+
+relationship 2b83fc2a-0c0d-492c-9689-e47472cb9e9b
+	isActive: false
+	fromColumn: fact_sickness.SicknessEnd
+	toColumn: dim_date.Date
+
+relationship d727d884-7909-4f11-99d7-ca63f70d6abd
+	fromColumn: fact_hourlylabour.HourDate
+	toColumn: dim_date.Date
+
+relationship 7178acfd-fe42-4db3-a3f9-ea2a49611f14
+	fromColumn: fact_hourlylabour.HourOfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 2c8c1875-0916-4b66-9027-4cc1f9d7ca2f
+	fromColumn: fact_hourlylabour.WorkingHour
+	toColumn: dim_time.HourNumber
+
+relationship f0302a2b-5096-4c09-9da4-535d0a70f98d
+	fromColumn: fact_sales.ActualDate
+	toColumn: dim_date.Date
+
+relationship 2e042529-5a60-42c8-8c0e-02a489a1866a
+	fromColumn: fact_sales.HourNumber
+	toColumn: dim_time.HourNumber
+
+relationship 12ebf514-1c61-479a-9170-37c969848fb1
+	fromColumn: fact_payments.HourNumber
+	toColumn: dim_time.HourNumber
+
+relationship c0ae79fa-8e3e-4dc8-8c16-5e4eb210306c
+	fromColumn: fact_payments.ActualDate
+	toColumn: dim_date.Date
+
+relationship 3fc34af3-aa19-4f7d-bc5b-70a8b1d0c2f0
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: dim_center.Key
+	toColumn: bridge.Key
+
+relationship fdb1ef6e-4d3c-4b0c-af40-574b7a000ee1
+	crossFilteringBehavior: bothDirections
+	fromColumn: bridge.MappedOfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 3bbeb2c6-dd4c-4637-b7d6-2694480056d9
+	fromColumn: dim_table.TableNr
+	toColumn: fact_sales.TicketTable_TableNr
+
+relationship 44c72ade-6316-4083-b5a4-91a55f9959cc
+	fromColumn: fact_eventstable.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship 68d02ed4-ffe4-4b9e-92d2-cef8f0a8bf00
+	fromColumn: fact_eventstable.EventDate
+	toColumn: dim_date.Date
+
+relationship e68f4c8e-9a16-43a6-8ce0-800986c73d87
+	fromColumn: gltransacties_fin.Division
+	toColumn: map_division_office.Division
+
+relationship 3970c6f9-cb3f-4af3-9795-910ae2af51f1
+	fromColumn: gltransacties_fin.GLAccount
+	toColumn: glaccounts_fin.ID
+
+relationship f84c15b6-b6db-4fcf-90d2-db0c752a8fc6
+	fromColumn: glaccounts_fin.ClassificatieCode
+	toColumn: dim_finreportrows.ClassificatieCode
+
+relationship 467f557e-9e51-46e1-8193-f0222f80ced8
+	fromColumn: gltransacties_fin.EntryDate
+	toColumn: dim_date.Date
+
+relationship e9e5a7b1-53bd-4281-9fa9-9f362ba878d1
+	crossFilteringBehavior: bothDirections
+	fromColumn: map_division_office.OfficeID
+	toColumn: dim_offices.OfficeID
+
+relationship ddcdfcba-48f3-4e32-93d2-920189fb2f0c
+	fromColumn: dim_center.LeftNr
+	toColumn: centersclassificationtable.LeftNr
+
+relationship 0a658b76-b9e0-48d1-b103-f1230d6c99b3
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: bridge.LeftNr
+	toColumn: centersclassificationtable.LeftNr
+
+relationship 52a5ecb1-98ef-4481-9b03-63d4c3ea032e
+	fromColumn: fact_payments.PaymodeGroupKey
+	toColumn: dim_paymentmethod.PaymodeGroupKey
+

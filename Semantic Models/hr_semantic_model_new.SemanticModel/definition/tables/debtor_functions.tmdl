@@ -1,0 +1,58 @@
+table debtor_functions
+	lineageTag: 5bf92371-92e7-4f8b-adb8-a8130c179d8b
+	sourceLineageTag: [dbo].[debtor_functions]
+
+	column FunctionId
+		dataType: string
+		lineageTag: fd3559a5-4c64-435c-9770-f20885314ef5
+		sourceLineageTag: FunctionId
+		summarizeBy: none
+		sourceColumn: FunctionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DebtorId
+		dataType: string
+		lineageTag: 7787a2af-a38c-4bb9-9790-cc0d7d3851c2
+		sourceLineageTag: DebtorId
+		summarizeBy: none
+		sourceColumn: DebtorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionCode
+		dataType: int64
+		formatString: 0
+		lineageTag: 6bdbc5e7-c768-42a0-b326-9116d915943e
+		sourceLineageTag: FunctionCode
+		summarizeBy: count
+		sourceColumn: FunctionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionDescription
+		dataType: string
+		lineageTag: 5cdee298-45a6-4014-b4a1-9bbbe604527c
+		sourceLineageTag: FunctionDescription
+		summarizeBy: none
+		sourceColumn: FunctionDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fbe7e673-7817-4e60-9a7c-2e21d4cb5f71
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition debtor_functions = entity
+		mode: directLake
+		source
+			entityName: debtor_functions
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

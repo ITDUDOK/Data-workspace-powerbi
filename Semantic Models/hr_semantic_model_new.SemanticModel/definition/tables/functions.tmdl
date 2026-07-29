@@ -1,0 +1,69 @@
+table functions
+	lineageTag: 60087fed-b19f-417b-80af-77c732d570bb
+	sourceLineageTag: [dbo].[functions]
+
+	column FunctionId
+		dataType: int64
+		formatString: 0
+		lineageTag: 556bdd70-acd5-4bd6-bd82-2085401b36cb
+		sourceLineageTag: FunctionId
+		summarizeBy: count
+		sourceColumn: FunctionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionName
+		dataType: string
+		lineageTag: e1a1e7d8-a518-48bc-a775-8e718eebb130
+		sourceLineageTag: FunctionName
+		summarizeBy: none
+		sourceColumn: FunctionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentId
+		dataType: int64
+		formatString: 0
+		lineageTag: b901153d-1eb8-4311-9bca-545775f42f26
+		sourceLineageTag: DepartmentId
+		summarizeBy: count
+		sourceColumn: DepartmentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionAccountant
+		dataType: string
+		lineageTag: 84fa4a25-3899-4b00-9a6c-a00b69dec873
+		sourceLineageTag: FunctionAccountant
+		summarizeBy: none
+		sourceColumn: FunctionAccountant
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionState
+		dataType: int64
+		formatString: 0
+		lineageTag: 6082e230-3a04-4355-841e-28aff2743083
+		sourceLineageTag: FunctionState
+		summarizeBy: sum
+		sourceColumn: FunctionState
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2add863f-db15-4de9-be75-b6ed53085569
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition functions = entity
+		mode: directLake
+		source
+			entityName: functions
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

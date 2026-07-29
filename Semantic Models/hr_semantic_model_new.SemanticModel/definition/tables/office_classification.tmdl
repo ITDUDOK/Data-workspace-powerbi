@@ -1,0 +1,40 @@
+table office_classification
+	lineageTag: 9b077db2-14ca-4709-8f06-cf1aa78a89cf
+	sourceLineageTag: [dbo].[office_classification]
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 62a600d7-48e3-47be-b7e3-b3d0d198c0e1
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification
+		dataType: string
+		lineageTag: 93bc0d67-9541-472b-b3e7-c283ef7e47f0
+		sourceLineageTag: Classification
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 78414fb4-6dc8-4564-9fed-67b38c84a852
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition office_classification = entity
+		mode: directLake
+		source
+			entityName: office_classification
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

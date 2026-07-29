@@ -1,0 +1,61 @@
+table fact_mutations
+	lineageTag: ad662268-3bb9-4dd0-9aa7-12a43fdfe36d
+	sourceLineageTag: [dbo].[hr_dl_fact_mutations]
+
+	column StaffID
+		dataType: int64
+		formatString: 0
+		lineageTag: 923e045f-e04c-4664-b5df-befcdaf4796d
+		sourceLineageTag: StaffID
+		summarizeBy: count
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column WageCode
+		dataType: string
+		lineageTag: f3a3419b-8858-4fd2-8555-c165e712bee3
+		sourceLineageTag: WageCode
+		summarizeBy: none
+		sourceColumn: WageCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c4dca71b-ddc2-475d-8bf9-4f173198e765
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: MutationDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3bb76966-2dec-4d27-8f43-9b32ca9eedfd
+		sourceLineageTag: Value
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Remarks
+		dataType: string
+		lineageTag: fceb65d6-694e-4d07-a0a2-592d2bb0775b
+		sourceLineageTag: Remarks
+		summarizeBy: none
+		sourceColumn: Remarks
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hr_dl_fact_mutations = entity
+		mode: directLake
+		source
+			entityName: fact_mutations
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

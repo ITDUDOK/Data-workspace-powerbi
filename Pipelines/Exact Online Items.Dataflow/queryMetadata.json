@@ -1,0 +1,70 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Exact Online Items",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "gatewayObjectId": "33f72515-25c3-4216-968b-5976e7110940",
+  "queriesMetadata": {
+    "ItemClasses": {
+      "queryId": "e1c64e92-b3d5-49f1-a966-74139099a02b",
+      "queryName": "ItemClasses",
+      "loadEnabled": false
+    },
+    "ItemGroups": {
+      "queryId": "79f0440d-b9a4-4b9c-812b-4a4d888bb0f0",
+      "queryName": "ItemGroups",
+      "loadEnabled": false
+    },
+    "ItemMaterials": {
+      "queryId": "e9955d04-d122-411a-9556-f852304476a0",
+      "queryName": "ItemMaterials",
+      "loadEnabled": false
+    },
+    "ItemPrices": {
+      "queryId": "d47fa7cc-61ca-4510-82dd-5e95099de825",
+      "queryName": "ItemPrices",
+      "loadEnabled": false
+    },
+    "Items": {
+      "queryId": "122def4b-109f-4329-ab4c-4bcf57ca8c99",
+      "queryName": "Items",
+      "loadEnabled": false
+    },
+    "ItemWarehouses": {
+      "queryId": "a382f596-02a8-48df-b06b-7e35f55b39fa",
+      "queryName": "ItemWarehouses",
+      "loadEnabled": false
+    },
+    "MaterialRequirements": {
+      "queryId": "d5390375-cadc-402b-94f2-671ebaf59004",
+      "queryName": "MaterialRequirements",
+      "loadEnabled": false
+    },
+    "fnGetExactOnlineTable": {
+      "queryId": "aefc6361-96e1-4c6d-a940-c1f0bc3f5dab",
+      "queryName": "fnGetExactOnlineTable",
+      "loadEnabled": false
+    },
+    "DefaultDestination": {
+      "queryId": "5982a24f-1fa9-4b9a-abfd-ec15a6469127",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "ExactOnlinePremium",
+      "kind": "ExactOnlinePremium",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"7c70d480-1e0f-4968-a041-fc9074261bd8\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"33f72515-25c3-4216-968b-5976e7110940\",\"DatasourceId\":\"c6062fed-690d-4d8f-b800-3e76c43c6a44\"}"
+    }
+  ]
+}

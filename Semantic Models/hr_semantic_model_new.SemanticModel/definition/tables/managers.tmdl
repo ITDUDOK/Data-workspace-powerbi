@@ -1,0 +1,30 @@
+table managers
+	lineageTag: 63a8229c-2580-4201-85a8-7a81ac02c2ef
+	sourceLineageTag: [dbo].[managers]
+
+	column ManagerFullName
+		dataType: string
+		lineageTag: 0517a211-76e0-48be-afea-e3ff84469b4e
+		sourceLineageTag: ManagerFullName
+		summarizeBy: none
+		sourceColumn: ManagerFullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9e335d40-09c0-489d-abc3-a95e13b0c34f
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition managers = entity
+		mode: directLake
+		source
+			entityName: managers
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

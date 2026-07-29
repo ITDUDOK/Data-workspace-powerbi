@@ -1,0 +1,58 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["DirectLake - lh_dudodata_gold_powerbi"]
+
+annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb","WebModelingEdit"]
+
+annotation __TEdtr = 1
+
+ref table offices
+ref table center_classification
+ref table employees_enriched
+ref table hr_contracts
+ref table dates
+ref table functions
+ref table companies
+ref table departments
+ref table debtors
+ref table employee_managers
+ref table employee_schedule_current
+ref table debtor_managers
+ref table hr_functions
+ref table hours_synthetic
+ref table debtor_functions
+ref table employments
+ref table satisfaction
+ref table types
+ref table planning
+ref table teams
+ref table contracts
+ref table hours
+ref table sickness
+ref table staff
+ref table freedays
+ref table bridge_center_office
+ref table mutations
+ref table prognosis
+ref table bridge_company_office
+ref table measurements
+ref table business_line
+ref table correctiefactor
+ref table cumulative
+ref table office_classification
+ref table centers
+ref table tickets
+ref table sales
+ref table payments
+ref table hours_summary
+ref table hourly_labour
+ref table managers
+

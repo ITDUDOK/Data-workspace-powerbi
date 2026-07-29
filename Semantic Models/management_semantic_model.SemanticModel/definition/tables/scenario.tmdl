@@ -1,0 +1,20 @@
+table scenario
+	lineageTag: f7ed0ccd-d5c2-41f2-8fe5-67fa461a0427
+
+	column ScenarioID
+		dataType: int64
+		lineageTag: f8bfb3d8-7482-4169-8bc7-40e5e84822db
+		sourceColumn: ScenarioID
+
+	column ScenarioName
+		dataType: string
+		lineageTag: 6352b388-3778-4d9a-a5b3-cad9ad3ced50
+		sourceColumn: ScenarioName
+
+	partition 'scenario 1' = entity
+		mode: directLake
+		source
+			entityName: scenario
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

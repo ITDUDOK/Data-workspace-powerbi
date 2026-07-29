@@ -1,0 +1,130 @@
+table debtors
+	lineageTag: 204003e6-faec-4393-b684-ba10255c6ba7
+	sourceLineageTag: [dbo].[debtors]
+
+	column DebtorId
+		dataType: string
+		lineageTag: ec518fa3-cd3b-44f5-9dc6-d7872259c212
+		sourceLineageTag: DebtorId
+		summarizeBy: none
+		sourceColumn: DebtorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DebtorNumber
+		dataType: string
+		lineageTag: a7767f77-3659-4c0b-982c-b0158c1be728
+		sourceLineageTag: DebtorNumber
+		summarizeBy: none
+		sourceColumn: DebtorNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column DebtorName
+		dataType: string
+		lineageTag: 34922035-43e2-4dc5-9848-7b59403223af
+		sourceLineageTag: DebtorName
+		summarizeBy: none
+		sourceColumn: DebtorName
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressId
+		dataType: string
+		lineageTag: 9f6e0cb3-29a1-4313-96e4-8d4dda450aae
+		sourceLineageTag: AddressId
+		summarizeBy: none
+		sourceColumn: AddressId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Street
+		dataType: string
+		lineageTag: 5d8a615e-2c41-42dd-8633-c88b562bca34
+		sourceLineageTag: Street
+		summarizeBy: none
+		sourceColumn: Street
+
+		annotation SummarizationSetBy = Automatic
+
+	column HouseNumber
+		dataType: string
+		lineageTag: d77ec7a8-249d-465b-a2f8-ab382363ca9a
+		sourceLineageTag: HouseNumber
+		summarizeBy: none
+		sourceColumn: HouseNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column HouseNumberAddition
+		dataType: string
+		lineageTag: bf0061b8-b378-4ab6-a8af-e93951e5a7ae
+		sourceLineageTag: HouseNumberAddition
+		summarizeBy: none
+		sourceColumn: HouseNumberAddition
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: b5ee3380-0566-47f1-ad1d-2bf68acc6049
+		sourceLineageTag: PostalCode
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 06f8a2e0-3faf-4a63-a46b-5be4a96fd7bb
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvince
+		dataType: string
+		lineageTag: 4ad96376-40bb-49dc-aad9-d0a943c3d284
+		sourceLineageTag: StateProvince
+		summarizeBy: none
+		sourceColumn: StateProvince
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryISOCode
+		dataType: string
+		lineageTag: 87a7829b-16f7-4b39-81f0-5c3953ad7ef2
+		sourceLineageTag: CountryISOCode
+		summarizeBy: none
+		sourceColumn: CountryISOCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressCreatedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 259884e7-3b56-4d60-96ab-54557468751e
+		sourceLineageTag: AddressCreatedAt
+		summarizeBy: none
+		sourceColumn: AddressCreatedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 44b94590-770d-4eef-82e9-2a2d23bb649e
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition debtors = entity
+		mode: directLake
+		source
+			entityName: debtors
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

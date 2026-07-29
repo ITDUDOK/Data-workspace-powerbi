@@ -1,0 +1,108 @@
+table mutations
+	lineageTag: 0a2c463f-2d18-4ef1-b745-ef3fbde40490
+	sourceLineageTag: [dbo].[mutations]
+
+	column MutationId
+		dataType: int64
+		formatString: 0
+		lineageTag: d99f8f78-cbb8-426b-b566-f4b5006c2b2c
+		sourceLineageTag: MutationId
+		summarizeBy: count
+		sourceColumn: MutationId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		lineageTag: e85eeb41-8cf2-4a73-b3fa-1fa524821194
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: 5b068514-e804-479b-b87f-ccb4907db203
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: 2dd38406-5900-4f64-8cc5-17a69ba919dd
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardId
+		dataType: int64
+		formatString: 0
+		lineageTag: df0c9280-ae8b-4867-a053-ab75ee73b725
+		sourceLineageTag: CardId
+		summarizeBy: count
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column WageCode
+		dataType: string
+		lineageTag: 2dac9d03-0646-49e4-bebc-4397c2aa4e8f
+		sourceLineageTag: WageCode
+		summarizeBy: none
+		sourceColumn: WageCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column MutationDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bbcde3a9-c594-46d7-a8f7-24ee302c3677
+		sourceLineageTag: MutationDate
+		summarizeBy: none
+		sourceColumn: MutationDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d65ab3ed-da55-4fd6-a0b4-42ad68f72bb7
+		sourceLineageTag: Value
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Remarks
+		dataType: string
+		lineageTag: b4354062-f083-4fb2-b973-7efd527f10b5
+		sourceLineageTag: Remarks
+		summarizeBy: none
+		sourceColumn: Remarks
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a48bf1f8-bd07-4d72-9f10-1713cb97ee84
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mutations = entity
+		mode: directLake
+		source
+			entityName: mutations
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

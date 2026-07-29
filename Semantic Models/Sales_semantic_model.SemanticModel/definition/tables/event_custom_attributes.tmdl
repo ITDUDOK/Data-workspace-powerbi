@@ -1,0 +1,305 @@
+table event_custom_attributes
+	lineageTag: b8d38c0f-5dff-4f5e-84f3-49bb710b985c
+	sourceLineageTag: [dbo].[event_custom_attributes]
+
+	column EventId
+		dataType: string
+		lineageTag: 7cdab093-d452-4293-b3d8-f18ce0a5b77e
+		sourceLineageTag: EventId
+		summarizeBy: none
+		sourceColumn: EventId
+
+		annotation SummarizationSetBy = Automatic
+
+	column NotitiesNietOpWerkbrief
+		dataType: string
+		lineageTag: cec5ae05-67f8-478b-b19e-ac53732d4883
+		sourceLineageTag: NotitiesNietOpWerkbrief
+		summarizeBy: none
+		sourceColumn: NotitiesNietOpWerkbrief
+
+		annotation SummarizationSetBy = Automatic
+
+	column PoInkoopnummer
+		dataType: string
+		lineageTag: 205e2336-cdb3-497d-936a-5f87eace1ae6
+		sourceLineageTag: PoInkoopnummer
+		summarizeBy: none
+		sourceColumn: PoInkoopnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column PoInkoopordernummer
+		dataType: string
+		lineageTag: 0e3dc67b-088c-4703-a819-260d83927c5c
+		sourceLineageTag: PoInkoopordernummer
+		summarizeBy: none
+		sourceColumn: PoInkoopordernummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column FbAantekeningen
+		dataType: string
+		lineageTag: 94025b54-e0fd-40df-949e-1a1b2e572936
+		sourceLineageTag: FbAantekeningen
+		summarizeBy: none
+		sourceColumn: FbAantekeningen
+
+		annotation SummarizationSetBy = Automatic
+
+	column Opstelling
+		dataType: string
+		lineageTag: 0fbe64aa-82a7-4419-8e3f-f50f63ef278a
+		sourceLineageTag: Opstelling
+		summarizeBy: none
+		sourceColumn: Opstelling
+
+		annotation SummarizationSetBy = Automatic
+
+	column Leveranciers
+		dataType: string
+		lineageTag: bdd7111d-6652-495f-918e-61b3bcd72294
+		sourceLineageTag: Leveranciers
+		summarizeBy: none
+		sourceColumn: Leveranciers
+
+		annotation SummarizationSetBy = Automatic
+
+	column Decoratie
+		dataType: string
+		lineageTag: c61b8c2f-5684-4ec0-b45c-e4be79eb8dee
+		sourceLineageTag: Decoratie
+		summarizeBy: none
+		sourceColumn: Decoratie
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gasten
+		dataType: string
+		lineageTag: 2d7bc411-6d2d-4cc0-9166-13630b484c47
+		sourceLineageTag: Gasten
+		summarizeBy: none
+		sourceColumn: Gasten
+
+		annotation SummarizationSetBy = Automatic
+
+	column BetaalwijzeRaw
+		dataType: string
+		lineageTag: 319889aa-af89-4b4c-861b-319f54acb125
+		sourceLineageTag: BetaalwijzeRaw
+		summarizeBy: none
+		sourceColumn: BetaalwijzeRaw
+
+		annotation SummarizationSetBy = Automatic
+
+	column Locatie
+		dataType: string
+		lineageTag: 2337b7a8-62f0-43a8-a442-ee860753cbdb
+		sourceLineageTag: Locatie
+		summarizeBy: none
+		sourceColumn: Locatie
+
+		annotation SummarizationSetBy = Automatic
+
+	column Accountmanager
+		dataType: string
+		lineageTag: dbbd4b62-63b2-4a2e-a315-bc9179e738a0
+		sourceLineageTag: Accountmanager
+		summarizeBy: none
+		sourceColumn: Accountmanager
+
+		annotation SummarizationSetBy = Automatic
+
+	column Producent
+		dataType: string
+		lineageTag: 6998881c-29b5-4a1a-be69-2f4c7d09222f
+		sourceLineageTag: Producent
+		summarizeBy: none
+		sourceColumn: Producent
+
+		annotation SummarizationSetBy = Automatic
+
+	column Slagingskans
+		dataType: string
+		lineageTag: ee578626-cf43-4fab-9499-7b50b2db0452
+		sourceLineageTag: Slagingskans
+		summarizeBy: none
+		sourceColumn: Slagingskans
+
+		annotation SummarizationSetBy = Automatic
+
+	column Handtekening
+		dataType: string
+		lineageTag: baa96118-6fa8-46ec-acbc-6443aad06b1a
+		sourceLineageTag: Handtekening
+		summarizeBy: none
+		sourceColumn: Handtekening
+
+		annotation SummarizationSetBy = Automatic
+
+	column NotitiesWelOpDeWerkbrief
+		dataType: string
+		lineageTag: 1ebd168a-bf9f-4fde-b90c-0387fa25601f
+		sourceLineageTag: NotitiesWelOpDeWerkbrief
+		summarizeBy: none
+		sourceColumn: NotitiesWelOpDeWerkbrief
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpbouwEnDraaiduty
+		dataType: string
+		lineageTag: f742ddad-0a9a-496f-b06e-26419e90ff40
+		sourceLineageTag: OpbouwEnDraaiduty
+		summarizeBy: none
+		sourceColumn: OpbouwEnDraaiduty
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomDatum
+		dataType: string
+		lineageTag: 7913a29c-682b-4534-81ef-d4870c884d35
+		sourceLineageTag: CustomDatum
+		summarizeBy: none
+		sourceColumn: CustomDatum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Personeel
+		dataType: string
+		lineageTag: b101e30f-2a31-4e9b-8ba0-d7325d31893e
+		sourceLineageTag: Personeel
+		summarizeBy: none
+		sourceColumn: Personeel
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpstellingTurbinehal
+		dataType: string
+		lineageTag: bf469e94-269b-4f73-b51c-cc71e6b1c9a4
+		sourceLineageTag: OpstellingTurbinehal
+		summarizeBy: none
+		sourceColumn: OpstellingTurbinehal
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpstellingMegawatt
+		dataType: string
+		lineageTag: 88bcc727-13ee-49bf-9377-1b245f434400
+		sourceLineageTag: OpstellingMegawatt
+		summarizeBy: none
+		sourceColumn: OpstellingMegawatt
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpstellingVoltageIngang
+		dataType: string
+		lineageTag: ff5ab924-b38e-472b-92b8-ba92ca32470c
+		sourceLineageTag: OpstellingVoltageIngang
+		summarizeBy: none
+		sourceColumn: OpstellingVoltageIngang
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpstellingMachinekamer1
+		dataType: string
+		lineageTag: 10d20828-24ba-416d-bfc4-74e1ba0979cb
+		sourceLineageTag: OpstellingMachinekamer1
+		summarizeBy: none
+		sourceColumn: OpstellingMachinekamer1
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpstellingMachinekamer2
+		dataType: string
+		lineageTag: 25c82606-fbd6-456d-8116-18705e2e40ea
+		sourceLineageTag: OpstellingMachinekamer2
+		summarizeBy: none
+		sourceColumn: OpstellingMachinekamer2
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpstellingSchakelruimte
+		dataType: string
+		lineageTag: 2fbf75e4-95b0-4ca0-9baf-90648562e4fd
+		sourceLineageTag: OpstellingSchakelruimte
+		summarizeBy: none
+		sourceColumn: OpstellingSchakelruimte
+
+		annotation SummarizationSetBy = Automatic
+
+	column Catering
+		dataType: string
+		lineageTag: f972f8a3-53b5-43d7-a616-c3a9d26572e3
+		sourceLineageTag: Catering
+		summarizeBy: none
+		sourceColumn: Catering
+
+		annotation SummarizationSetBy = Automatic
+
+	column Crewcatering
+		dataType: string
+		lineageTag: 4a1bc425-9cee-42a5-97df-9d58c5096c9d
+		sourceLineageTag: Crewcatering
+		summarizeBy: none
+		sourceColumn: Crewcatering
+
+		annotation SummarizationSetBy = Automatic
+
+	column Techniek
+		dataType: string
+		lineageTag: c6231fe4-b865-48fd-bd40-feeaf3372067
+		sourceLineageTag: Techniek
+		summarizeBy: none
+		sourceColumn: Techniek
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bijzonderheden
+		dataType: string
+		lineageTag: 4aa12e25-6fba-4f52-b146-c0ef2a3f43f9
+		sourceLineageTag: Bijzonderheden
+		summarizeBy: none
+		sourceColumn: Bijzonderheden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Label
+		dataType: string
+		lineageTag: 7652ed5b-b65e-48de-882b-fedb33f26b82
+		sourceLineageTag: Label
+		summarizeBy: none
+		sourceColumn: Label
+
+		annotation SummarizationSetBy = Automatic
+
+	column Basisvoorziening
+		dataType: string
+		lineageTag: 1d3b89f8-51bc-46dd-b8a7-2d9b40e4e327
+		sourceLineageTag: Basisvoorziening
+		summarizeBy: none
+		sourceColumn: Basisvoorziening
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8fc6ea11-bdb1-48f8-b467-f95e0e8cd0cc
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventIdInt
+		dataType: int64
+		lineageTag: dca54f2c-824b-43e5-bf20-770a59123574
+		sourceColumn: EventIdInt
+
+	partition event_custom_attributes = entity
+		mode: directLake
+		source
+			entityName: event_custom_attributes
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

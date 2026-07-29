@@ -1,0 +1,74 @@
+table debtors
+	lineageTag: 090cabcc-2388-45ad-91cb-8d4a4498dd9c
+
+	column DebtorId
+		dataType: string
+		lineageTag: 649b0ef3-9003-4115-b2e0-2a2da624f085
+		sourceColumn: DebtorId
+
+	column DebtorNumber
+		dataType: string
+		lineageTag: f0b3429d-d617-4024-84bc-6b00f8bbc997
+		sourceColumn: DebtorNumber
+
+	column DebtorName
+		dataType: string
+		lineageTag: 3442685e-5c22-4370-98d3-e923eb2ec998
+		sourceColumn: DebtorName
+
+	column AddressId
+		dataType: string
+		lineageTag: 869a8d02-8991-4e01-b1ac-9178f3454657
+		sourceColumn: AddressId
+
+	column Street
+		dataType: string
+		lineageTag: 59fe6b9d-ff9f-41c7-a2c1-b7df903ea184
+		sourceColumn: Street
+
+	column HouseNumber
+		dataType: string
+		lineageTag: c21146b8-8953-4289-887a-37a99fe24fdb
+		sourceColumn: HouseNumber
+
+	column HouseNumberAddition
+		dataType: string
+		lineageTag: d3ae0152-e5c1-4df6-ba72-0e4c2c23a046
+		sourceColumn: HouseNumberAddition
+
+	column PostalCode
+		dataType: string
+		lineageTag: a9bca32b-f248-4a95-91b7-14a300efa6ef
+		sourceColumn: PostalCode
+
+	column City
+		dataType: string
+		lineageTag: 8b4bff67-b7bd-41d4-bfdb-c30f870673e8
+		sourceColumn: City
+
+	column StateProvince
+		dataType: string
+		lineageTag: 0a30f26e-2702-4943-b1df-4398cbced4fa
+		sourceColumn: StateProvince
+
+	column CountryISOCode
+		dataType: string
+		lineageTag: 16c015ad-f5d6-4b6a-b516-66377fb11724
+		sourceColumn: CountryISOCode
+
+	column AddressCreatedAt
+		dataType: dateTime
+		lineageTag: f93663fb-a727-452e-8463-3276f0206118
+		sourceColumn: AddressCreatedAt
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 4c0fe050-cef2-4fb7-a16b-151ce02ffb19
+		sourceColumn: ModifiedAt
+
+	partition 'debtors 1' = entity
+		mode: directLake
+		source
+			entityName: debtors
+			expressionSource: DatabaseQuery
+
