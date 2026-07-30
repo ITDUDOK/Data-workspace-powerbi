@@ -33,6 +33,11 @@
       "queryName": "GLClassifications",
       "loadEnabled": false
     },
+    "GLAccountSchemaStructures": {
+      "queryId": "92d7972c-ef44-4939-8885-252c12300b29",
+      "queryName": "GLAccountSchemaStructures",
+      "loadEnabled": false
+    },
     "Administratie": {
       "queryId": "d9792ca1-6e41-44b0-b58d-fc6f40d4a762",
       "queryName": "Administratie",
@@ -41,6 +46,11 @@
     "DivisionPeriodStatus": {
       "queryId": "520ac8ed-d141-4606-90e8-9c15670afc3f",
       "queryName": "DivisionPeriodStatus",
+      "loadEnabled": false
+    },
+    "Costcenters": {
+      "queryId": "2ea951f6-a940-48d5-a5c9-99f1fde40fdc",
+      "queryName": "Costcenters",
       "loadEnabled": false
     },
     "fnGetExactOnlineTable": {
@@ -58,11 +68,6 @@
       "queryId": "f49180e0-f0f6-49f6-86c4-0a0932b63b07",
       "queryName": "GLTransactions_DataDestination",
       "isHidden": true,
-      "loadEnabled": false
-    },
-    "GLAccountSchemaStructures": {
-      "queryId": "92d7972c-ef44-4939-8885-252c12300b29",
-      "queryName": "GLAccountSchemaStructures",
       "loadEnabled": false
     }
   },

@@ -518,7 +518,7 @@ table measurements
 	measure MICE_Gepland =
 			CALCULATE(
 			    SUM('fact_eventstable'[TotalPriceExclVat]),
-			    'fact_eventstable'[Status] = "Confirmed"
+			    'fact_eventstable'[Status] = "confirmed"
 			)
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: b01df664-6e19-4e58-aa09-d7214241dd2d
@@ -526,7 +526,7 @@ table measurements
 	measure MICE_Optie =
 			CALCULATE(
 			    SUM('fact_eventstable'[TotalPriceExclVat]),
-			    'fact_eventstable'[Status] IN {"Option", "Option expired"}
+			    'fact_eventstable'[Status] IN {"option", "option_expired"}
 			)
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 512e3f92-bae5-414a-a8f3-f8eeb9a0542a
@@ -654,7 +654,7 @@ table measurements
 			        SUM('fact_eventstable'[TotalPriceExclVat]),
 			        ALL('dim_date'),
 			        'dim_date'[Date] = d - 364,
-			        'fact_eventstable'[Status] IN {"Confirmed", "Option", "Option expired"}
+			        'fact_eventstable'[Status] IN {"confirmed", "option", "option_expired"}
 			    )
 			)
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
@@ -774,7 +774,7 @@ table measurements
 			VAR TotaalOmzet = [TotaleOmzetExBtw]
 			VAR EventOmzet = CALCULATE(
 			    SUM('fact_eventstable'[TotalPriceExclVat]),
-			    'fact_eventstable'[Status] = "Confirmed"
+			    'fact_eventstable'[Status] = "confirmed"
 			)
 			RETURN TotaalOmzet - EventOmzet
 		lineageTag: 6fe7167d-5a7f-45ef-bb56-f7cb8c116a3f
