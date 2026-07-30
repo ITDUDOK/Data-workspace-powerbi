@@ -1,20 +1,34 @@
 table scenario
-	lineageTag: f7ed0ccd-d5c2-41f2-8fe5-67fa461a0427
+	lineageTag: 8762e060-6b34-491d-ba45-72e343f6e467
+	sourceLineageTag: [dbo].[scenario]
 
 	column ScenarioID
 		dataType: int64
-		lineageTag: f8bfb3d8-7482-4169-8bc7-40e5e84822db
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 86b159db-52bf-49b9-a1a9-51087e4e708e
+		sourceLineageTag: ScenarioID
+		summarizeBy: count
 		sourceColumn: ScenarioID
+
+		annotation SummarizationSetBy = Automatic
 
 	column ScenarioName
 		dataType: string
-		lineageTag: 6352b388-3778-4d9a-a5b3-cad9ad3ced50
+		sourceProviderType: varchar(8000)
+		lineageTag: 89cfa40d-268a-46c7-86a1-909a02b354e6
+		sourceLineageTag: ScenarioName
+		summarizeBy: none
 		sourceColumn: ScenarioName
 
-	partition 'scenario 1' = entity
+		annotation SummarizationSetBy = Automatic
+
+	partition scenario = entity
 		mode: directLake
 		source
 			entityName: scenario
 			schemaName: dbo
 			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
 

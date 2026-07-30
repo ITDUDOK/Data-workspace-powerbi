@@ -1,20 +1,33 @@
 table dim_kengetallen
-	lineageTag: 2845ac6f-3a87-41cb-9244-5c0f46da83a7
+	lineageTag: 964c7553-7e8c-4e67-8826-71706b6c4105
+	sourceLineageTag: [dbo].[kengetallen]
 
 	column Kengetal
 		dataType: string
-		lineageTag: a59ce032-ff43-4720-b902-44df05ada36f
+		sourceProviderType: varchar(8000)
+		lineageTag: 6dd7bf4d-2b5a-4219-a325-8d1fef29c8b0
+		sourceLineageTag: Kengetal
+		summarizeBy: none
 		sourceColumn: Kengetal
+
+		annotation SummarizationSetBy = Automatic
 
 	column SortOrder
 		dataType: string
-		lineageTag: afcaefa6-b100-4e7b-b86b-a93323cd4656
+		sourceProviderType: varchar(8000)
+		lineageTag: ee7d8084-cc62-4e2e-a585-4885584ef417
+		sourceLineageTag: SortOrder
+		summarizeBy: none
 		sourceColumn: SortOrder
 
-	partition 'dim_kengetallen 1' = entity
+		annotation SummarizationSetBy = Automatic
+
+	partition kengetallen = entity
 		mode: directLake
 		source
-			entityName: dim_kengetallen
+			entityName: kengetallen
 			schemaName: dbo
 			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
 

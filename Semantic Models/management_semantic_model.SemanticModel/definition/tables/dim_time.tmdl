@@ -1,30 +1,66 @@
 table dim_time
-	lineageTag: e5ae4837-21be-447d-bca4-1e475b17ec30
+	lineageTag: 6c202dcf-a19f-4504-be04-b3cc5dc32634
+	sourceLineageTag: [dbo].[time]
 
 	column Dagdelen
 		dataType: string
-		lineageTag: 36df60b1-3f44-4f34-8c8b-883a12f4daef
+		sourceProviderType: varchar(8000)
+		lineageTag: 5e318f62-a7ca-4543-bce9-58fb1ae2db9e
+		sourceLineageTag: Dagdelen
+		summarizeBy: none
 		sourceColumn: Dagdelen
+
+		annotation SummarizationSetBy = Automatic
 
 	column HourNumber
 		dataType: int64
-		lineageTag: 12f6f629-925b-4f46-8b42-87659b5a68cf
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 978c4234-f84e-4a86-bff9-5fae403a2faf
+		sourceLineageTag: HourNumber
+		summarizeBy: sum
 		sourceColumn: HourNumber
+
+		annotation SummarizationSetBy = Automatic
 
 	column Hour
 		dataType: string
-		lineageTag: 4b9bfb1c-cb87-4774-81ef-300a7ca3f1ec
+		sourceProviderType: varchar(8000)
+		lineageTag: 96bc6828-aeb1-4507-a071-e7a1aaccc551
+		sourceLineageTag: Hour
+		summarizeBy: none
 		sourceColumn: Hour
+
+		annotation SummarizationSetBy = Automatic
 
 	column Index_Dagdelen
 		dataType: int64
-		lineageTag: 94d4b808-3ee6-4b40-9c91-8eb48960c59b
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: afe51a1d-d5d7-4baf-a9a0-bfac5dd36fed
+		sourceLineageTag: Index_Dagdelen
+		summarizeBy: sum
 		sourceColumn: Index_Dagdelen
 
-	partition 'dim_time 1' = entity
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4320466c-6522-45b0-b59a-75d39a54d7c5
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition time = entity
 		mode: directLake
 		source
-			entityName: dim_time
+			entityName: time
 			schemaName: dbo
 			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
 

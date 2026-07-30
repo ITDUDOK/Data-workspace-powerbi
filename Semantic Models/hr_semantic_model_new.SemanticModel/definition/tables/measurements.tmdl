@@ -1859,48 +1859,16 @@ table measurements
 			    )
 		lineageTag: 85e931da-4ae7-4508-a3f6-ff20016dc3a1
 
-	measure LabourCost = ```
-			
+	measure LabourCost =
 			VAR GeselecteerdOffice = VALUES(offices[OfficeId])
-			VAR UniekeShifts = 
-			    CALCULATETABLE(
-			        SUMMARIZE(
-			            hours,
-			            hours[HourId],
-			            hours[CardId],
-			            hours[HourOfficeId],
-			            hours[HourEnterNumber],
-			            hours[HourExitNumber],
-			            hours[HourDate],
-			            "ThuisOfficeID", MAX(hours[OfficeId])
-			        ),
-			        ALL(offices)
-			    )
-			VAR GefilterdOpOffice = 
-			    FILTER(
-			        UniekeShifts,
-			        [ThuisOfficeID] IN GeselecteerdOffice || [HourOfficeID] IN GeselecteerdOffice
-			    )
 			RETURN
-			    SUMX(
-			        GefilterdOpOffice,
-			        VAR CurrentCard = [CardID]
-			        VAR CurrentDate = [HourDate]
-			        VAR CurrentEnter = [HourEnterNumber]
-			        VAR CurrentExit = [HourExitNumber]
-			        VAR CurrentHourOffice = [HourOfficeID]
-			        RETURN
-			            CALCULATE(
-			                SUM(hourly_labour[ProportionalCost]),
-			                hourly_labour[CardId] = CurrentCard,
-			                hourly_labour[HourDate] = CurrentDate,
-			                hourly_labour[HourEnterNumber] = CurrentEnter,
-			                hourly_labour[HourExitNumber] = CurrentExit,
-			                hourly_labour[HourOfficeId] = CurrentHourOffice,
-			                ALL(hourly_labour)
-			            )
+			CALCULATE(
+			    SUM(hourly_labour[ProportionalCost]),
+			    FILTER(
+			        ALL(hourly_labour),
+			        hourly_labour[OfficeId] IN GeselecteerdOffice || hourly_labour[HourOfficeId] IN GeselecteerdOffice
 			    )
-			```
+			)
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 9794815c-c585-43c6-9413-627299a3e930
 
@@ -2020,13 +1988,15 @@ table measurements
 			VAR SelectedMonth = IF(HASONEVALUE(dates[Month]), VALUES(dates[Month]), MONTH(TODAY()))
 			
 			-- Geselecteerde locaties ophalen VOOR de REMOVEFILTERS — anders weg
-			VAR GeselOfficeNames =
+			VAR GeselOfficeIds =
 			    CALCULATETABLE(
-			        VALUES(hours[HourOfficeName]),
-			        ALLSELECTED(hours[HourOfficeName])
+			        VALUES(hours[HourOfficeId]),
+			        ALLSELECTED(hours[HourOfficeId])
 			    )
+			VAR GeselOfficeNames =
+			    SELECTCOLUMNS(GeselOfficeIds, "OfficeName", LOOKUPVALUE(offices[OfficeName], offices[OfficeId], hours[HourOfficeId]))
 			VAR HeeftSelectie =
-			    COUNTROWS(GeselOfficeNames) < COUNTROWS(ALL(hours[HourOfficeName]))
+			    COUNTROWS(GeselOfficeIds) < COUNTROWS(ALL(hours[HourOfficeId]))
 			
 			VAR UrenPerLocatie =
 			    ADDCOLUMNS(

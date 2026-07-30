@@ -1,12 +1,12 @@
 table gltransacties_fin
-	lineageTag: 1c67ea60-5000-493f-bd16-6338d4803e97
-	sourceLineageTag: [dbo].[management_dl_gltransacties_fin]
+	lineageTag: 668fdd7d-7ea9-4868-ad59-65609d77881b
+	sourceLineageTag: [dbo].[gltransacties_fin]
 
 	column EntryDate
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: 9a54495e-afd0-4251-851c-8d79611a39b6
+		lineageTag: e857f87a-32a3-4657-aa6a-e6e88eca9364
 		sourceLineageTag: EntryDate
 		summarizeBy: none
 		sourceColumn: EntryDate
@@ -16,7 +16,7 @@ table gltransacties_fin
 	column GLAccount
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 49d88e16-db02-4d88-be41-47ed4f74b0ef
+		lineageTag: c83630b3-2131-4f2e-8271-ff07e84ff8a8
 		sourceLineageTag: GLAccount
 		summarizeBy: none
 		sourceColumn: GLAccount
@@ -26,7 +26,7 @@ table gltransacties_fin
 	column AmountFC
 		dataType: double
 		sourceProviderType: float
-		lineageTag: 78522070-d3b9-4fab-9faa-595c55d7c2f7
+		lineageTag: 68ee189c-6082-4f37-8e92-005b7f8bf034
 		sourceLineageTag: AmountFC
 		summarizeBy: sum
 		sourceColumn: AmountFC
@@ -39,7 +39,7 @@ table gltransacties_fin
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 77f1d425-f020-42f4-a325-3874f7a2dcd5
+		lineageTag: 47394f5c-eaff-458b-82d3-c69f8407f7c0
 		sourceLineageTag: Division
 		summarizeBy: sum
 		sourceColumn: Division
@@ -50,7 +50,7 @@ table gltransacties_fin
 		dataType: int64
 		formatString: 0
 		sourceProviderType: smallint
-		lineageTag: ec2ba008-26b8-4d6b-958a-c26532538017
+		lineageTag: 87ebf6ed-7f8e-4d71-9ada-0ccaea445fe9
 		sourceLineageTag: ReportingPeriod
 		summarizeBy: sum
 		sourceColumn: ReportingPeriod
@@ -61,14 +61,14 @@ table gltransacties_fin
 		dataType: int64
 		formatString: 0
 		sourceProviderType: smallint
-		lineageTag: ce430d09-7fe8-4e7d-b313-907a1d3cb904
+		lineageTag: cdb682f0-29b7-4c87-a745-be9c917c8b85
 		sourceLineageTag: Status
 		summarizeBy: sum
 		sourceColumn: Status
 
 		annotation SummarizationSetBy = Automatic
 
-	partition management_dl_gltransacties_fin = entity
+	partition gltransacties_fin = entity
 		mode: directLake
 		source
 			entityName: gltransacties_fin

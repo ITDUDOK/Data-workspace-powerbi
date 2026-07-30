@@ -1,12 +1,12 @@
-table centersclassificationtable
-	lineageTag: b2fc36b6-c19d-47f3-9f4f-8ba5c8f8089d
-	sourceLineageTag: [dbo].[management_dl_centersclassificationtable]
+table center_classification
+	lineageTag: b781d449-bd94-4f47-a9bc-219a971ad48f
+	sourceLineageTag: [dbo].[center_classification]
 
-	column Key
+	column CenterKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: e20a4024-1694-4485-a7c4-ae8fd789b35f
-		sourceLineageTag: Key
+		lineageTag: 25ce76b4-2b51-4456-b323-c312d083d675
+		sourceLineageTag: CenterKey
 		summarizeBy: none
 		sourceColumn: CenterKey
 
@@ -15,7 +15,7 @@ table centersclassificationtable
 	column CenterNr
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 59476346-2de0-42b4-9353-c82a27df4634
+		lineageTag: 1d328b3f-a417-4774-9e73-58050ca01062
 		sourceLineageTag: CenterNr
 		summarizeBy: none
 		sourceColumn: CenterNr
@@ -26,7 +26,7 @@ table centersclassificationtable
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: a6720776-69b6-4047-8cb8-11eccc4f752f
+		lineageTag: fd641271-12ef-4bf8-b699-13d24af6b3cc
 		sourceLineageTag: LeftNr
 		summarizeBy: sum
 		sourceColumn: LeftNr
@@ -37,7 +37,7 @@ table centersclassificationtable
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 0113ab42-45a4-455d-b2dd-e9c91bedc942
+		lineageTag: 8f887f53-4680-4915-a787-a2e5b7e15ee0
 		sourceLineageTag: RightNr
 		summarizeBy: sum
 		sourceColumn: RightNr
@@ -48,7 +48,7 @@ table centersclassificationtable
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 5bc9dbc8-2bb5-4c86-8a2d-dcc0189044d4
+		lineageTag: 98757b52-49ff-4788-9b4e-47c83cc59589
 		sourceLineageTag: Level
 		summarizeBy: sum
 		sourceColumn: Level
@@ -58,7 +58,7 @@ table centersclassificationtable
 	column Name
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 71622299-757c-4e3e-95df-16fab18e3582
+		lineageTag: 21fd3ef2-27da-4f2b-8044-3db638c430c4
 		sourceLineageTag: Name
 		summarizeBy: none
 		sourceColumn: Name
@@ -68,7 +68,7 @@ table centersclassificationtable
 	column Classification
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: af9f579f-11cd-44e0-b59b-0d5faa4e4cd6
+		lineageTag: 825d44b6-962d-4222-a124-7dad3d14dc8a
 		sourceLineageTag: Classification
 		summarizeBy: none
 		sourceColumn: Classification
@@ -79,7 +79,7 @@ table centersclassificationtable
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		sourceProviderType: bit
-		lineageTag: 56287b89-bda1-410e-b703-57edb4821803
+		lineageTag: f04e7224-cbbe-43bd-8f6e-80d1c542110e
 		sourceLineageTag: Confirmed
 		summarizeBy: none
 		sourceColumn: Confirmed
@@ -90,14 +90,14 @@ table centersclassificationtable
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: 5933893b-8870-493b-b410-9033ea5e1b1d
+		lineageTag: a6a2560a-e47a-4e97-9eb9-9d542ef3661b
 		sourceLineageTag: ModifiedAt
 		summarizeBy: none
 		sourceColumn: ModifiedAt
 
 		annotation SummarizationSetBy = Automatic
 
-	partition management_dl_centersclassificationtable = entity
+	partition center_classification = entity
 		mode: directLake
 		source
 			entityName: center_classification

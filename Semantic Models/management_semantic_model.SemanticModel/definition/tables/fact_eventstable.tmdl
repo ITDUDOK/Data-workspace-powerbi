@@ -1,280 +1,360 @@
 table fact_eventstable
-	lineageTag: 0f32d259-5165-4a2d-8e9b-b0dfd05412b2
-	sourceLineageTag: [dbo].[management_dl_fact_eventstable]
+	lineageTag: 834aa80a-a01c-46ad-a680-a097da0dc336
+	sourceLineageTag: [dbo].[events]
 
-	column company_id
-		dataType: int64
-		formatString: 0
-		sourceProviderType: bigint
-		lineageTag: 53a07666-9c30-4ffb-bf88-a4602057779c
-		sourceLineageTag: company_id
-		summarizeBy: sum
-		sourceColumn: company_id
-
-		annotation SummarizationSetBy = Automatic
-
-	column event_id
-		dataType: int64
-		formatString: 0
-		sourceProviderType: bigint
-		lineageTag: 6922e9b1-8db6-4dde-a8ab-c7d2fa213a26
-		sourceLineageTag: event_id
-		summarizeBy: sum
-		sourceColumn: event_id
-
-		annotation SummarizationSetBy = Automatic
-
-	column event_name
+	column EventId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: f824a180-94a1-432f-8673-a8708e023ab1
-		sourceLineageTag: event_name
+		lineageTag: ef716051-ac1c-4d3b-9fdf-b72879c152e4
+		sourceLineageTag: EventId
 		summarizeBy: none
-		sourceColumn: event_name
+		sourceColumn: EventId
 
 		annotation SummarizationSetBy = Automatic
 
-	column event_status
+	column LocationName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: ac9deb9a-5796-4d68-a789-01a3b4beb3b2
-		sourceLineageTag: event_status
+		lineageTag: ea1a8407-9424-44c1-8414-d51995f44bc2
+		sourceLineageTag: LocationName
 		summarizeBy: none
-		sourceColumn: event_status
+		sourceColumn: LocationName
 
 		annotation SummarizationSetBy = Automatic
 
-	column event_start
+	column CompanyId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 05f43766-d059-48aa-8a4b-7b437d91a101
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedAt
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: 0ae0f80b-b584-41b7-a1c7-5b02154ee6d2
-		sourceLineageTag: event_start
+		lineageTag: 3b07e21e-9d80-408e-942e-2c74d5693c9c
+		sourceLineageTag: CreatedAt
 		summarizeBy: none
-		sourceColumn: event_start
+		sourceColumn: CreatedAt
 
 		annotation SummarizationSetBy = Automatic
 
-	column event_end
+	column UpdatedAt
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: c6e6a35d-09d8-47ca-afad-f0122053c4bf
-		sourceLineageTag: event_end
+		lineageTag: a64051e8-9fcf-426c-bf23-968d12132c5c
+		sourceLineageTag: UpdatedAt
 		summarizeBy: none
-		sourceColumn: event_end
+		sourceColumn: UpdatedAt
 
 		annotation SummarizationSetBy = Automatic
 
-	column event_guests
+	column Status
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 30fe5098-6a2c-47e3-a013-eca72aa92115
+		sourceLineageTag: Status
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannerId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 30d1737d-f855-4efd-946d-57f3c2ebca88
+		sourceLineageTag: PlannerId
+		summarizeBy: none
+		sourceColumn: PlannerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannerFirstName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4f3d1e7b-7818-495d-8094-783ba6543742
+		sourceLineageTag: PlannerFirstName
+		summarizeBy: none
+		sourceColumn: PlannerFirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannerLastName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 81562212-9fc2-4b8b-ab9c-5b1f4e0a3f82
+		sourceLineageTag: PlannerLastName
+		summarizeBy: none
+		sourceColumn: PlannerLastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannerEmail
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 31ec9feb-ed88-48aa-8b02-92bb9c8d3363
+		sourceLineageTag: PlannerEmail
+		summarizeBy: none
+		sourceColumn: PlannerEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column BookingId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d5138bae-ce55-464b-92cf-a109512f7105
+		sourceLineageTag: BookingId
+		summarizeBy: none
+		sourceColumn: BookingId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpaceId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3eb49c2c-4007-40e1-89a6-ff0dd0959459
+		sourceLineageTag: SpaceId
+		summarizeBy: none
+		sourceColumn: SpaceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpaceName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b96186ab-0fff-450f-b6f6-5fa23267ee64
+		sourceLineageTag: SpaceName
+		summarizeBy: none
+		sourceColumn: SpaceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reference
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4c1a7341-6c69-461d-a92f-99bdda7ff0e4
+		sourceLineageTag: Reference
+		summarizeBy: none
+		sourceColumn: Reference
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 83cc38d7-67a7-40b8-9fba-9d241cc16272
+		sourceLineageTag: EventName
+		summarizeBy: none
+		sourceColumn: EventName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Guests
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 23dd4e28-ada4-4668-9133-8dd798f4c4c0
-		sourceLineageTag: event_guests
+		lineageTag: 49f96eff-40e2-462e-9a67-622001995425
+		sourceLineageTag: Guests
 		summarizeBy: sum
-		sourceColumn: event_guests
+		sourceColumn: Guests
 
 		annotation SummarizationSetBy = Automatic
 
-	column planner_id
-		dataType: int64
-		formatString: 0
-		sourceProviderType: bigint
-		lineageTag: 06780417-c5c1-4512-bb02-697f39a7e6b0
-		sourceLineageTag: planner_id
-		summarizeBy: sum
-		sourceColumn: planner_id
-
-		annotation SummarizationSetBy = Automatic
-
-	column client_id
-		dataType: int64
-		formatString: 0
-		sourceProviderType: bigint
-		lineageTag: 0d9b5125-1b63-4b0d-8fd7-2ddb2c0a7717
-		sourceLineageTag: client_id
-		summarizeBy: sum
-		sourceColumn: client_id
-
-		annotation SummarizationSetBy = Automatic
-
-	column location_id
+	column GroupName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: eac5fa03-419f-4b66-9799-1f8d6868ae51
-		sourceLineageTag: location_id
+		lineageTag: df6ea92e-4985-4143-abcd-619dcbdfcec1
+		sourceLineageTag: GroupName
 		summarizeBy: none
-		sourceColumn: location_id
+		sourceColumn: GroupName
 
 		annotation SummarizationSetBy = Automatic
 
-	column event_total_price
+	column DatetimeStart
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 994dbc8c-fffb-4907-a4a7-a3876092c036
+		sourceLineageTag: DatetimeStart
+		summarizeBy: none
+		sourceColumn: DatetimeStart
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatetimeEnd
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 679d4bd6-11d6-4e7f-9d5f-1ecdd3bd5c13
+		sourceLineageTag: DatetimeEnd
+		summarizeBy: none
+		sourceColumn: DatetimeEnd
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventTypeId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 756336a9-639f-4c10-81af-8368fa99093d
+		sourceLineageTag: EventTypeId
+		summarizeBy: none
+		sourceColumn: EventTypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventTypeName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fe61a172-4f7e-4d5d-8f39-91ece820b90d
+		sourceLineageTag: EventTypeName
+		summarizeBy: none
+		sourceColumn: EventTypeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 44ec4aa6-a172-4371-86fa-0ec2446f2c94
+		sourceLineageTag: ClientId
+		summarizeBy: none
+		sourceColumn: ClientId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 289f8f85-364b-4fe8-8c1b-904ec3f3d50c
+		sourceLineageTag: ClientName
+		summarizeBy: none
+		sourceColumn: ClientName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Message
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bad6fc0a-8dc9-4c45-8cff-f94b3f654c44
+		sourceLineageTag: Message
+		summarizeBy: none
+		sourceColumn: Message
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateUnknown
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: e22e2b3f-e442-4c3d-9680-45f3732a8bb2
+		sourceLineageTag: DateUnknown
+		summarizeBy: none
+		sourceColumn: DateUnknown
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalPrice
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(14, 2)
-		lineageTag: eb1bad7e-dede-45bc-8dae-63b6ae9f6e60
-		sourceLineageTag: event_total_price
+		lineageTag: 2013c912-9d90-49aa-a6dd-e7670793972a
+		sourceLineageTag: TotalPrice
 		summarizeBy: sum
-		sourceColumn: event_total_price
+		sourceColumn: TotalPrice
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	column event_total_price_excl_vat
+	column TotalPriceExclVat
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(14, 2)
-		lineageTag: 93db79d5-12ca-42f7-bb84-0c3815b7fa04
-		sourceLineageTag: event_total_price_excl_vat
+		lineageTag: 1f4df023-83dd-4c1f-a5d7-1e09abbefd5b
+		sourceLineageTag: TotalPriceExclVat
 		summarizeBy: sum
-		sourceColumn: event_total_price_excl_vat
+		sourceColumn: TotalPriceExclVat
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	column event_url
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: a8bc76eb-5909-4332-ab3d-a4e2ef3347cf
-		sourceLineageTag: event_url
-		summarizeBy: none
-		sourceColumn: event_url
-
-		annotation SummarizationSetBy = Automatic
-
-	column created
-		dataType: dateTime
-		formatString: General Date
-		sourceProviderType: datetime2
-		lineageTag: 267a617e-c6fe-4aed-a5da-d6ba1cadb77c
-		sourceLineageTag: created
-		summarizeBy: none
-		sourceColumn: created
-
-		annotation SummarizationSetBy = Automatic
-
-	column updated
-		dataType: dateTime
-		formatString: General Date
-		sourceProviderType: datetime2
-		lineageTag: c4dfda5e-a188-4993-83d6-5c7ebbd7c381
-		sourceLineageTag: updated
-		summarizeBy: none
-		sourceColumn: updated
-
-		annotation SummarizationSetBy = Automatic
-
-	column booking_id
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 70175e26-85b5-4321-abe1-46138d09dfcf
-		sourceLineageTag: booking_id
-		summarizeBy: none
-		sourceColumn: booking_id
-
-		annotation SummarizationSetBy = Automatic
-
-	column reference
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: a56a3430-9853-4684-98cb-7e30b02cd767
-		sourceLineageTag: reference
-		summarizeBy: none
-		sourceColumn: reference
-
-		annotation SummarizationSetBy = Automatic
-
-	column event_type_id
-		dataType: int64
-		formatString: 0
-		sourceProviderType: bigint
-		lineageTag: 865ba20f-ad82-4bb4-ac7e-9891fc4122bb
-		sourceLineageTag: event_type_id
+	column TotalBilledAmount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(14, 2)
+		lineageTag: 97d0198e-491f-4707-9f01-cb64edd7f09b
+		sourceLineageTag: TotalBilledAmount
 		summarizeBy: sum
-		sourceColumn: event_type_id
+		sourceColumn: TotalBilledAmount
 
 		annotation SummarizationSetBy = Automatic
 
-	column locale
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TotalBilledAmountExclVat
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(14, 2)
+		lineageTag: 7d5f7090-b4f9-4132-a574-8a81e3596509
+		sourceLineageTag: TotalBilledAmountExclVat
+		summarizeBy: sum
+		sourceColumn: TotalBilledAmountExclVat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Locale
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 98945bdb-f065-4492-860a-fee386c368a7
-		sourceLineageTag: locale
+		lineageTag: a9274d03-a14d-4e47-bbb2-d778a499f2d0
+		sourceLineageTag: Locale
 		summarizeBy: none
-		sourceColumn: locale
+		sourceColumn: Locale
 
 		annotation SummarizationSetBy = Automatic
 
-	column OfficeID
+	column Url
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 5ee8521f-b499-4c79-8109-71c2c3cc7ed3
-		sourceLineageTag: OfficeID
+		lineageTag: 73edfab0-43e0-40d5-8d46-bd106353b329
+		sourceLineageTag: Url
 		summarizeBy: none
-		sourceColumn: OfficeID
+		sourceColumn: Url
 
 		annotation SummarizationSetBy = Automatic
 
-	column EventDate
-		dataType: dateTime
-		formatString: General Date
-		sourceProviderType: date
-		lineageTag: ac6e6ea3-7538-4c94-8489-93c4891b4306
-		sourceLineageTag: EventDate
+	column ExternalCompanyId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e2c0dd89-7aa8-4c98-b39f-58af5da1a6ab
+		sourceLineageTag: ExternalCompanyId
 		summarizeBy: none
-		sourceColumn: EventDate
+		sourceColumn: ExternalCompanyId
 
 		annotation SummarizationSetBy = Automatic
 
-	column CancelledTimestamp
+	column ModifiedAt
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: 7de72488-b049-43db-9840-07d2a8da1e06
-		sourceLineageTag: CancelledTimestamp
+		lineageTag: 01320659-faca-42fd-aed1-1360ea4ddd64
+		sourceLineageTag: ModifiedAt
 		summarizeBy: none
-		sourceColumn: CancelledTimestamp
+		sourceColumn: ModifiedAt
 
 		annotation SummarizationSetBy = Automatic
 
-	column ConfirmedTimestamp
-		dataType: dateTime
-		formatString: General Date
-		sourceProviderType: datetime2
-		lineageTag: 24bf3cd9-e7c0-4a4b-9996-6e31750c61a7
-		sourceLineageTag: ConfirmedTimestamp
-		summarizeBy: none
-		sourceColumn: ConfirmedTimestamp
-
-		annotation SummarizationSetBy = Automatic
-
-	column cancellation_reason
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 20e8b0df-1358-4107-898a-a7dc01809146
-		sourceLineageTag: cancellation_reason
-		summarizeBy: none
-		sourceColumn: cancellation_reason
-
-		annotation SummarizationSetBy = Automatic
-
-	column cancellation_note
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: e1d595c3-b69b-4618-afac-e752256c6fd1
-		sourceLineageTag: cancellation_note
-		summarizeBy: none
-		sourceColumn: cancellation_note
-
-		annotation SummarizationSetBy = Automatic
-
-	partition management_dl_fact_eventstable = entity
+	partition events = entity
 		mode: directLake
 		source
-			entityName: fact_eventstable
+			entityName: events
 			schemaName: dbo
 			expressionSource: DatabaseQuery
 

@@ -1,22 +1,22 @@
 table dim_center
-	lineageTag: 43c2ef0a-a480-4083-86e1-3ca408dd21d5
-	sourceLineageTag: [dbo].[management_dl_dim_center]
+	lineageTag: c40982cd-e212-4281-bdf6-5a3f86f18758
+	sourceLineageTag: [dbo].[centers]
 
-	column Key
+	column CenterKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: ca486ee1-1cd1-4677-a64e-225910415c2f
-		sourceLineageTag: Key
+		lineageTag: d51346f5-ce42-4801-ad1d-4fc6a4f128d2
+		sourceLineageTag: CenterKey
 		summarizeBy: none
 		sourceColumn: CenterKey
 
 		annotation SummarizationSetBy = Automatic
 
-	column Name
+	column CenterName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: eb4c2e11-b37a-4975-87e8-148dc0a496c0
-		sourceLineageTag: Name
+		lineageTag: f7d5d490-352a-4b6c-9428-d334be28f84b
+		sourceLineageTag: CenterName
 		summarizeBy: none
 		sourceColumn: CenterName
 
@@ -25,7 +25,7 @@ table dim_center
 	column CenterNr
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: a86a0001-fbbf-4bf2-ba95-44dacc339b0c
+		lineageTag: dbf5aa43-4323-4536-9efc-4611e73e7409
 		sourceLineageTag: CenterNr
 		summarizeBy: none
 		sourceColumn: CenterNr
@@ -36,7 +36,7 @@ table dim_center
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: 929fa548-de03-4e7c-a160-a24f266aa73c
+		lineageTag: a5bc08a0-4985-4f68-9343-1895d47ea807
 		sourceLineageTag: ModifiedAt
 		summarizeBy: none
 		sourceColumn: ModifiedAt
@@ -47,7 +47,7 @@ table dim_center
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 9c1b6b07-b84e-4ac5-a038-69dc6ab4fdcd
+		lineageTag: e80949fe-afc3-4571-979d-f26ded097afd
 		sourceLineageTag: Level
 		summarizeBy: sum
 		sourceColumn: Level
@@ -58,7 +58,7 @@ table dim_center
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 1a8bf17c-4d1f-4d2b-94d5-6135d5a79320
+		lineageTag: a6fd8628-ebc1-4d35-966e-14615e5f5cc9
 		sourceLineageTag: LeftNr
 		summarizeBy: sum
 		sourceColumn: LeftNr
@@ -69,7 +69,7 @@ table dim_center
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 4d84c746-e1c5-4a48-93ca-ae9661f2f9ad
+		lineageTag: d355f52e-8e2e-4f7d-b6d4-d6063df22e58
 		sourceLineageTag: RightNr
 		summarizeBy: sum
 		sourceColumn: RightNr
@@ -80,7 +80,7 @@ table dim_center
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 4b7b4f6d-435c-4497-8ee6-05449b5a6880
+		lineageTag: 08818c7b-8ca5-4f29-8af5-eab8b1fe63c9
 		sourceLineageTag: SiteNr
 		summarizeBy: sum
 		sourceColumn: SiteNr
@@ -91,7 +91,7 @@ table dim_center
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: f4c74d66-5229-43e7-8471-50f6f62849d3
+		lineageTag: a1f05d9c-6027-4f32-bf2c-2c773288b156
 		sourceLineageTag: SubCenter
 		summarizeBy: sum
 		sourceColumn: SubCenter
@@ -102,7 +102,7 @@ table dim_center
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		sourceProviderType: bit
-		lineageTag: 49d47f8b-74ea-4c88-9b71-e066e28c1795
+		lineageTag: 9e435f3a-abfb-40ff-89e1-3d9867fd0737
 		sourceLineageTag: RevenueCenter
 		summarizeBy: none
 		sourceColumn: RevenueCenter
@@ -112,40 +112,41 @@ table dim_center
 	column UpdatedName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 055184a5-6096-4145-8f7d-ef767c793b2b
+		lineageTag: 6f4f59da-a6b6-45a2-8e23-dd3cd1989e1a
 		sourceLineageTag: UpdatedName
 		summarizeBy: none
 		sourceColumn: UpdatedName
 
 		annotation SummarizationSetBy = Automatic
 
-	column ClassificatieLookup_Classification
+	column Location
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 0b741ab1-71e3-4e3c-a71f-7200713c8e4d
-		sourceLineageTag: ClassificatieLookup_Classification
+		lineageTag: 6f9a8217-226d-4431-8e05-948ec6f89ca8
+		sourceLineageTag: Location
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 67980218-3a98-41c0-9ff7-265f31a2a209
+		sourceLineageTag: Classification
 		summarizeBy: none
 		sourceColumn: Classification
 
 		annotation SummarizationSetBy = Automatic
 
-	column Location
-		dataType: string
-		lineageTag: 044cbacb-ecb8-4c5f-9e3c-10697e4f0157
-		sourceColumn: Location
-
 	hierarchy 'ParentName Hiërarchie'
-		lineageTag: 00731183-f807-4514-8eb3-12eeaf63ee68
+		lineageTag: ccb4e270-1ac2-4137-957a-a8b6915c1737
 
-		level Site
-			lineageTag: 5de3a939-c489-4f73-930c-cf7b2c275322
+		level Location
+			lineageTag: 88ae9927-30ec-4935-883d-3de0b458a3eb
 			column: Location
 
-		level Subcenter
-			lineageTag: f478d8ef-199a-40a7-a7a4-593689637fc0
-			column: UpdatedName
-
-	partition management_dl_dim_center = entity
+	partition centers = entity
 		mode: directLake
 		source
 			entityName: centers

@@ -1,12 +1,12 @@
 table fact_planning
-	lineageTag: ca45713a-4c6e-4154-96f7-c72ab2fa39fe
-	sourceLineageTag: [dbo].[management_dl_fact_planning]
+	lineageTag: 239edd0f-5b29-4791-bb3c-730c856a694e
+	sourceLineageTag: [dbo].[planning]
 
 	column PlanningId
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: bd0682c4-9e61-470b-b8e4-f87e20de083a
+		lineageTag: e246677f-a276-40fd-a026-77acc2c7b06c
 		sourceLineageTag: PlanningId
 		summarizeBy: count
 		sourceColumn: PlanningId
@@ -16,7 +16,7 @@ table fact_planning
 	column EmployeeId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: b37b37a7-86c4-4183-b5a8-bcb817327c32
+		lineageTag: d85677d9-646d-46ad-a8f1-45b49b6e225a
 		sourceLineageTag: EmployeeId
 		summarizeBy: none
 		sourceColumn: EmployeeId
@@ -26,7 +26,7 @@ table fact_planning
 	column CompanyId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: b67b133d-cfde-492e-b0de-19288ec7d915
+		lineageTag: 7a5359e5-1c97-44fc-bbe8-3a75b228dcd8
 		sourceLineageTag: CompanyId
 		summarizeBy: none
 		sourceColumn: CompanyId
@@ -36,30 +36,31 @@ table fact_planning
 	column CompanyName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: c39686e3-a1e1-44a4-a196-4982528a93e5
+		lineageTag: 38e9f281-3b55-4fd4-8cb0-8b0c38304185
 		sourceLineageTag: CompanyName
 		summarizeBy: none
 		sourceColumn: CompanyName
 
 		annotation SummarizationSetBy = Automatic
 
-	column CardID
+	column CardId
 		dataType: int64
 		formatString: 0
-		sourceProviderType: bigint
-		lineageTag: 758c8c60-8c25-46af-aeeb-82e897b0bd72
-		sourceLineageTag: CardID
+		sourceProviderType: int
+		lineageTag: 6fda445c-06cb-4d62-afc4-1a7805747358
+		sourceLineageTag: CardId
 		summarizeBy: count
 		sourceColumn: CardId
 
 		annotation SummarizationSetBy = Automatic
 
-	column OfficeID
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: e37e06d6-e9be-4f20-8795-9d3c99313ca1
-		sourceLineageTag: OfficeID
-		summarizeBy: none
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 94d5d9a3-44be-48c0-81e4-1f596d4edf4d
+		sourceLineageTag: OfficeId
+		summarizeBy: count
 		sourceColumn: OfficeId
 
 		annotation SummarizationSetBy = Automatic
@@ -67,19 +68,19 @@ table fact_planning
 	column OfficeName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 85d30b94-100a-40a2-a413-5b3d87e1b8df
+		lineageTag: 74857eab-26b1-4eca-ad41-14f193aa26c3
 		sourceLineageTag: OfficeName
 		summarizeBy: none
 		sourceColumn: OfficeName
 
 		annotation SummarizationSetBy = Automatic
 
-	column PlanningDepartmentID
+	column DepartmentId
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: de4d7753-bc7b-4858-87a6-b9ebcc364f2e
-		sourceLineageTag: PlanningDepartmentID
+		lineageTag: 74ce16fd-4b19-4451-b388-6b591eaf1fd5
+		sourceLineageTag: DepartmentId
 		summarizeBy: count
 		sourceColumn: DepartmentId
 
@@ -88,19 +89,19 @@ table fact_planning
 	column DepartmentName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: eeaad8bf-d712-45ca-854f-60af0df3635e
+		lineageTag: 5cb1aa4d-44d9-41d1-a897-b0b331eb3284
 		sourceLineageTag: DepartmentName
 		summarizeBy: none
 		sourceColumn: DepartmentName
 
 		annotation SummarizationSetBy = Automatic
 
-	column PlanningTeamID
+	column TeamId
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: fc0dd1f2-b4d2-4fc5-a9c6-f34d9543bfee
-		sourceLineageTag: PlanningTeamID
+		lineageTag: 7d9648f2-84fa-486c-9d3e-4a8fb2fda6f7
+		sourceLineageTag: TeamId
 		summarizeBy: count
 		sourceColumn: TeamId
 
@@ -110,7 +111,7 @@ table fact_planning
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: date
-		lineageTag: a84ed41d-3a32-4e70-afef-36c86e21714a
+		lineageTag: 235327f6-2f50-40a5-83cb-04c947e7709f
 		sourceLineageTag: PlanningDate
 		summarizeBy: none
 		sourceColumn: PlanningDate
@@ -120,7 +121,7 @@ table fact_planning
 	column PlanningStart
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: de0fd6dd-f75a-4f0a-a553-d447da773548
+		lineageTag: 9e15f7c8-db9c-47c4-97e6-883cd928d063
 		sourceLineageTag: PlanningStart
 		summarizeBy: none
 		sourceColumn: PlanningStart
@@ -130,7 +131,7 @@ table fact_planning
 	column PlanningEnd
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 86125736-8c48-43f6-8e77-fa75e8373765
+		lineageTag: 2d5a157b-4aad-4014-aaa2-8ca623c9df5c
 		sourceLineageTag: PlanningEnd
 		summarizeBy: none
 		sourceColumn: PlanningEnd
@@ -141,7 +142,7 @@ table fact_planning
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(5, 2)
-		lineageTag: 304844c4-d174-49d3-b432-cb240c8b1835
+		lineageTag: 47910b0d-cc40-45b2-b009-e39aee5f50f3
 		sourceLineageTag: PlanningHours
 		summarizeBy: sum
 		sourceColumn: PlanningHours
@@ -154,7 +155,7 @@ table fact_planning
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(10, 2)
-		lineageTag: 412afabf-997a-49a0-a613-34df0c85fe21
+		lineageTag: 217c7ca9-caac-4ca3-8ed3-9269dd15c226
 		sourceLineageTag: PlanningCosts
 		summarizeBy: sum
 		sourceColumn: PlanningCosts
@@ -163,12 +164,12 @@ table fact_planning
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	column PlanningWorkplaceID
+	column PlanningWorkplaceId
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 43a937dd-418c-43b4-b633-7a4b6b18c330
-		sourceLineageTag: PlanningWorkplaceID
+		lineageTag: 0b1646a6-4d9f-47d2-a338-2775a68b9851
+		sourceLineageTag: PlanningWorkplaceId
 		summarizeBy: count
 		sourceColumn: PlanningWorkplaceId
 
@@ -177,7 +178,7 @@ table fact_planning
 	column PlanningWorkplaceName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 7bea0dee-fcdf-4d7b-acd1-79df9b782cdf
+		lineageTag: 8229e9ad-30fc-4e70-bf40-41ebe178ca75
 		sourceLineageTag: PlanningWorkplaceName
 		summarizeBy: none
 		sourceColumn: PlanningWorkplaceName
@@ -187,19 +188,19 @@ table fact_planning
 	column PlanningWorkplaceType
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: f5b5b5ba-9640-4201-bdda-821fd54a7bec
+		lineageTag: f53a4ea9-ca33-4d12-81c4-417800cee466
 		sourceLineageTag: PlanningWorkplaceType
 		summarizeBy: none
 		sourceColumn: PlanningWorkplaceType
 
 		annotation SummarizationSetBy = Automatic
 
-	column PlanningProjectID
+	column PlanningProjectId
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 326501cd-64be-4130-8ffc-8eca66b32afc
-		sourceLineageTag: PlanningProjectID
+		lineageTag: 5475091b-9702-4009-9ace-9fc96a64a19e
+		sourceLineageTag: PlanningProjectId
 		summarizeBy: count
 		sourceColumn: PlanningProjectId
 
@@ -209,7 +210,7 @@ table fact_planning
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(4, 2)
-		lineageTag: 31b75884-50b7-49e5-8b54-24f8aae4b25c
+		lineageTag: a21a6cb0-c413-4b65-973e-4896610d4096
 		sourceLineageTag: PlanningBreak
 		summarizeBy: sum
 		sourceColumn: PlanningBreak
@@ -221,7 +222,7 @@ table fact_planning
 	column PlanningLabels
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 54eb4d26-ae60-4640-853c-7c5d993fc3f3
+		lineageTag: df48e07a-e614-4e94-8882-32cf5b4da1a5
 		sourceLineageTag: PlanningLabels
 		summarizeBy: none
 		sourceColumn: PlanningLabels
@@ -231,18 +232,18 @@ table fact_planning
 	column PlanningRemarks
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 42edf627-946b-4a97-a289-db0550a377bb
+		lineageTag: 1e57aa9d-62cf-4646-96c3-ac89c0561b71
 		sourceLineageTag: PlanningRemarks
 		summarizeBy: none
 		sourceColumn: PlanningRemarks
 
 		annotation SummarizationSetBy = Automatic
 
-	column PlanningTypeID
+	column PlanningTypeId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: efa6ba80-a6bb-4092-8376-97f4c827a1d9
-		sourceLineageTag: PlanningTypeID
+		lineageTag: 9915b436-b944-4f53-932b-e4f1a009602d
+		sourceLineageTag: PlanningTypeId
 		summarizeBy: none
 		sourceColumn: PlanningTypeId
 
@@ -252,7 +253,7 @@ table fact_planning
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		sourceProviderType: bit
-		lineageTag: 2ac65838-86a4-4366-885a-37d03c50ff93
+		lineageTag: 647a9506-eba2-479e-9d44-dc4052c88861
 		sourceLineageTag: IsOpenShift
 		summarizeBy: none
 		sourceColumn: IsOpenShift
@@ -263,7 +264,7 @@ table fact_planning
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: ae0bad6a-b8b0-4228-9e6c-677c8cc85c73
+		lineageTag: 05a16835-c1d7-4fd5-b551-8dae9d616e9d
 		sourceLineageTag: ModifiedAt
 		summarizeBy: none
 		sourceColumn: ModifiedAt
@@ -274,14 +275,14 @@ table fact_planning
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		sourceProviderType: bit
-		lineageTag: e23d76bd-ab6d-447e-8700-134a1b083af4
+		lineageTag: 9c0db5d2-659a-4b70-b59e-6f143d900c3e
 		sourceLineageTag: IsAnomalousCost
 		summarizeBy: none
 		sourceColumn: IsAnomalousCost
 
 		annotation SummarizationSetBy = Automatic
 
-	partition management_dl_fact_planning = entity
+	partition planning = entity
 		mode: directLake
 		source
 			entityName: planning

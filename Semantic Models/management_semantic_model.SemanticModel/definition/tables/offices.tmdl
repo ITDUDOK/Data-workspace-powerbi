@@ -1,36 +1,36 @@
-table dim_offices
-	lineageTag: 7ce56a32-4ed7-492a-87b4-da9b038e2fe6
-	sourceLineageTag: [dbo].[management_dl_dim_offices]
+table offices
+	lineageTag: e0e052b7-f473-485e-992f-22d65934b990
+	sourceLineageTag: [dbo].[offices]
 
-	column OfficeID
-		dataType: string
+	column OfficeId
+		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: b4c718a8-9194-4fbd-a46e-e2112ee2e269
-		sourceLineageTag: OfficeID
+		lineageTag: dc07e697-c0ec-4508-aef2-44554f53a8b7
+		sourceLineageTag: OfficeId
 		summarizeBy: count
-		sourceColumn: OfficeID
+		sourceColumn: OfficeId
 
 		annotation SummarizationSetBy = Automatic
 
 	column OfficeName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 9d5eb948-31f7-4423-962d-89e9e9fea2fc
+		lineageTag: 2ce49a37-8575-4ffa-a291-e19bdd830e71
 		sourceLineageTag: OfficeName
 		summarizeBy: none
 		sourceColumn: OfficeName
 
 		annotation SummarizationSetBy = Automatic
 
-	column OfficeIDAccountant
+	column OfficeIdAccountant
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: d07752bc-83f4-4f33-8834-b61b82488e9e
-		sourceLineageTag: OfficeIDAccountant
+		lineageTag: 0a8d04f2-87b9-4c60-82f4-bdf467b7ee8c
+		sourceLineageTag: OfficeIdAccountant
 		summarizeBy: sum
-		sourceColumn: OfficeIDAccountant
+		sourceColumn: OfficeIdAccountant
 
 		annotation SummarizationSetBy = Automatic
 
@@ -38,17 +38,17 @@ table dim_offices
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: e712076a-6f75-4a8c-9208-407174e3b0a8
+		lineageTag: 7daebdf3-774a-48c4-a38d-f088e43b9d5d
 		sourceLineageTag: ModifiedAt
 		summarizeBy: none
 		sourceColumn: ModifiedAt
 
 		annotation SummarizationSetBy = Automatic
 
-	partition management_dl_dim_offices = entity
+	partition offices = entity
 		mode: directLake
 		source
-			entityName: dim_offices
+			entityName: offices
 			schemaName: dbo
 			expressionSource: DatabaseQuery
 

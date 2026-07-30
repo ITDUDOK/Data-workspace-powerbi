@@ -1,12 +1,12 @@
 table dim_divisionperiodstatus
-	lineageTag: 8a78ccbe-97b1-4942-b729-499aa8159680
-	sourceLineageTag: [dbo].[management_dl_dim_divisionperiodstatus]
+	lineageTag: 0d473930-f267-4af2-8d24-485690267359
+	sourceLineageTag: [dbo].[divisionperiodstatus]
 
 	column Division
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 899b7bd8-9114-47b6-8841-56b44ba95997
+		lineageTag: 93e6385b-7d25-44ad-a526-e60b56d7db0a
 		sourceLineageTag: Division
 		summarizeBy: sum
 		sourceColumn: Division
@@ -17,7 +17,7 @@ table dim_divisionperiodstatus
 		dataType: int64
 		formatString: 0
 		sourceProviderType: smallint
-		lineageTag: 6e884ba6-657e-49b2-aeca-c125cbd88034
+		lineageTag: 39a3d40f-19d7-465a-a92a-3f65e197308f
 		sourceLineageTag: FinYear
 		summarizeBy: sum
 		sourceColumn: FinYear
@@ -28,7 +28,7 @@ table dim_divisionperiodstatus
 		dataType: int64
 		formatString: 0
 		sourceProviderType: smallint
-		lineageTag: cef084ef-5279-4133-9ccc-ca26068a3a50
+		lineageTag: e19ce141-28c1-4030-8f61-054a1ac753d3
 		sourceLineageTag: FinPeriod
 		summarizeBy: sum
 		sourceColumn: FinPeriod
@@ -39,7 +39,7 @@ table dim_divisionperiodstatus
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 9734cb5e-f755-4292-9218-53d4a8080bfd
+		lineageTag: e57d57a4-b623-4675-9852-2ed5cfb83e6c
 		sourceLineageTag: YearPeriodStatus
 		summarizeBy: sum
 		sourceColumn: YearPeriodStatus
@@ -49,17 +49,17 @@ table dim_divisionperiodstatus
 	column Journal
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 2d4227ce-3180-40bd-9b36-7254fb3eddac
+		lineageTag: b06acc88-23b5-42c7-8872-f91ccbd4137c
 		sourceLineageTag: Journal
 		summarizeBy: none
 		sourceColumn: Journal
 
 		annotation SummarizationSetBy = Automatic
 
-	partition management_dl_dim_divisionperiodstatus = entity
+	partition divisionperiodstatus = entity
 		mode: directLake
 		source
-			entityName: dim_divisionperiodstatus
+			entityName: divisionperiodstatus
 			schemaName: dbo
 			expressionSource: DatabaseQuery
 

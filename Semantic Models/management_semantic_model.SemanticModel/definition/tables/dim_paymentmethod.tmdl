@@ -1,11 +1,21 @@
 table dim_paymentmethod
-	lineageTag: d9cc8900-2664-4640-88be-25c481c22d47
-	sourceLineageTag: [dbo].[management_dl_dim_paymentmethod]
+	lineageTag: e7dd2352-a337-4dfb-8a59-7e757407f083
+	sourceLineageTag: [dbo].[paymentmethod_dedup]
+
+	column PaymodeGroupKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cce3ab5b-5cbf-41fd-aeca-d9e4318ec560
+		sourceLineageTag: PaymodeGroupKey
+		summarizeBy: none
+		sourceColumn: PaymodeGroupKey
+
+		annotation SummarizationSetBy = Automatic
 
 	column TicketKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 8d97158e-cc63-4c9a-b7f0-5cce96ae2f94
+		lineageTag: cc6fa703-9f34-4add-b3da-547127e9a1a1
 		sourceLineageTag: TicketKey
 		summarizeBy: none
 		sourceColumn: TicketKey
@@ -15,27 +25,17 @@ table dim_paymentmethod
 	column PaymodeKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 4a0afb79-8362-40ec-9c8e-d08bd21e3ebb
+		lineageTag: 681dc3d3-3935-4888-a59b-372640409537
 		sourceLineageTag: PaymodeKey
 		summarizeBy: none
 		sourceColumn: PaymodeKey
 
 		annotation SummarizationSetBy = Automatic
 
-	column PaymodeGroupKey
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 2c7b6015-c026-4972-a26c-acd0fae2be46
-		sourceLineageTag: PaymodeGroupKey
-		summarizeBy: none
-		sourceColumn: PaymodeGroupKey
-
-		annotation SummarizationSetBy = Automatic
-
 	column PaymodeGroupName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 2b00848f-d039-423e-adc4-0ceffe5527df
+		lineageTag: 33e2f011-48f4-496a-bfe6-86c0ee2fdf41
 		sourceLineageTag: PaymodeGroupName
 		summarizeBy: none
 		sourceColumn: PaymodeGroupName
@@ -45,7 +45,7 @@ table dim_paymentmethod
 	column PaymodePaymodeKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 6e27b219-4c51-4d1a-b2f4-3949bc9e7d93
+		lineageTag: a85913e5-eb0e-44d3-83d9-5dd780aaaa67
 		sourceLineageTag: PaymodePaymodeKey
 		summarizeBy: none
 		sourceColumn: PaymodePaymodeKey
@@ -55,7 +55,7 @@ table dim_paymentmethod
 	column PaymodePaymodeName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: b1f11291-04cf-45d0-acc6-34fbfd9b06b4
+		lineageTag: 5a9e144c-02d1-4935-9140-2871f2bc895a
 		sourceLineageTag: PaymodePaymodeName
 		summarizeBy: none
 		sourceColumn: PaymodePaymodeName
@@ -66,7 +66,7 @@ table dim_paymentmethod
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 632c09e3-a296-43ba-9de7-4052d36ba471
+		lineageTag: 35c55a46-809f-4631-b796-6a36cff55ed4
 		sourceLineageTag: PaymodePaymodeNr
 		summarizeBy: sum
 		sourceColumn: PaymodePaymodeNr
@@ -76,7 +76,7 @@ table dim_paymentmethod
 	column PaymodePaymodeType
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: f529f0ad-08c9-45cf-bade-b87dedd198ef
+		lineageTag: 0f49ce6d-fc8d-464c-bea1-ff01ec739649
 		sourceLineageTag: PaymodePaymodeType
 		summarizeBy: none
 		sourceColumn: PaymodePaymodeType
@@ -84,23 +84,22 @@ table dim_paymentmethod
 		annotation SummarizationSetBy = Automatic
 
 	column PaymodePrice
-		dataType: decimal
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
-		sourceProviderType: decimal(14, 2)
-		lineageTag: 55777ae6-aecc-41a8-bf00-fa96335e08e9
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: a2b79e61-f889-4933-86aa-a7e43dfd20f5
 		sourceLineageTag: PaymodePrice
 		summarizeBy: sum
 		sourceColumn: PaymodePrice
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column PaymodeQty
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 5044a2e7-129e-4aa8-9f1d-30cbff9a732a
+		lineageTag: 5aaf4cbf-24ce-49b5-afe7-2ba938aa2333
 		sourceLineageTag: PaymodeQty
 		summarizeBy: sum
 		sourceColumn: PaymodeQty
@@ -108,22 +107,21 @@ table dim_paymentmethod
 		annotation SummarizationSetBy = Automatic
 
 	column PaymodeTotal
-		dataType: decimal
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
-		sourceProviderType: decimal(14, 2)
-		lineageTag: e899a7bc-1876-46db-835d-69ebe613d7e4
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 248f0ae3-5783-4d5e-9ce8-a4fa4f0a16d0
 		sourceLineageTag: PaymodeTotal
 		summarizeBy: sum
 		sourceColumn: PaymodeTotal
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column PaymodeMemo
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 774b794d-d38c-49e1-8eea-1a319f3d58d5
+		lineageTag: 52101b99-4d02-468d-89ff-c2213bc1cbad
 		sourceLineageTag: PaymodeMemo
 		summarizeBy: none
 		sourceColumn: PaymodeMemo
@@ -133,7 +131,7 @@ table dim_paymentmethod
 	column PaymodeTerminalId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 3de3d101-412d-4abe-8695-7f79ba95aa40
+		lineageTag: 6ea4d468-571a-4724-b0a8-8699fdc15a22
 		sourceLineageTag: PaymodeTerminalId
 		summarizeBy: none
 		sourceColumn: PaymodeTerminalId
@@ -143,7 +141,7 @@ table dim_paymentmethod
 	column PaymodeTransactionId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 5ffed925-84a8-4d42-a0ef-b32e2a45488d
+		lineageTag: 18e999a2-64dd-4abc-9b18-de80dcdf2736
 		sourceLineageTag: PaymodeTransactionId
 		summarizeBy: none
 		sourceColumn: PaymodeTransactionId
@@ -153,7 +151,7 @@ table dim_paymentmethod
 	column CenterKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 85333056-3488-47b9-9b20-e3d281e67468
+		lineageTag: 8f5cdd33-cc87-463a-8a43-b601efb65917
 		sourceLineageTag: CenterKey
 		summarizeBy: none
 		sourceColumn: CenterKey
@@ -163,7 +161,7 @@ table dim_paymentmethod
 	column CenterName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: f39c97de-9b6f-4bac-905c-32aeaae54320
+		lineageTag: 85c031e0-89b9-4cbc-8201-aa6b6a9d1f0a
 		sourceLineageTag: CenterName
 		summarizeBy: none
 		sourceColumn: CenterName
@@ -174,14 +172,14 @@ table dim_paymentmethod
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: 285fa827-2c6c-4bdf-b399-7d333bc84d17
+		lineageTag: b3544fa9-668a-4fad-b9e2-f270a409cd0e
 		sourceLineageTag: ModifiedAt
 		summarizeBy: none
 		sourceColumn: ModifiedAt
 
 		annotation SummarizationSetBy = Automatic
 
-	partition management_dl_dim_paymentmethod = entity
+	partition paymentmethod_dedup = entity
 		mode: directLake
 		source
 			entityName: paymentmethod_dedup

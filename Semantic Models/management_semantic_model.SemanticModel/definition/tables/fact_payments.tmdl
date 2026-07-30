@@ -1,11 +1,11 @@
 table fact_payments
-	lineageTag: 0b06f7f2-a394-4858-915d-074967a55d8c
-	sourceLineageTag: [dbo].[management_dl_fact_payments]
+	lineageTag: 15e202f3-bc1a-4f43-aa2a-6545063a9300
+	sourceLineageTag: [dbo].[payments]
 
 	column TicketKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 796b54a3-6034-48ed-b8cd-182155877cc2
+		lineageTag: a50e163b-2c51-4442-bfa3-a44a05c6a091
 		sourceLineageTag: TicketKey
 		summarizeBy: none
 		sourceColumn: TicketKey
@@ -15,7 +15,7 @@ table fact_payments
 	column PaymodeKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 0ef56ab7-f2a5-4f83-bcb1-d65ddbab8dd4
+		lineageTag: eef1a8ec-02a5-4e61-b969-f01a8e19982e
 		sourceLineageTag: PaymodeKey
 		summarizeBy: none
 		sourceColumn: PaymodeKey
@@ -25,7 +25,7 @@ table fact_payments
 	column PaymodeGroupKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: efca463f-9f82-47b1-96e2-297827a4736b
+		lineageTag: 85df7824-bbef-4f96-8512-fff23279f9a7
 		sourceLineageTag: PaymodeGroupKey
 		summarizeBy: none
 		sourceColumn: PaymodeGroupKey
@@ -35,7 +35,7 @@ table fact_payments
 	column PaymodeGroupName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: f257171d-3009-456f-b6a6-4e6e8d74a5a8
+		lineageTag: c4b0f634-e442-49e8-881b-e49397ea938c
 		sourceLineageTag: PaymodeGroupName
 		summarizeBy: none
 		sourceColumn: PaymodeGroupName
@@ -45,7 +45,7 @@ table fact_payments
 	column PaymodePaymodeKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 2ece49ff-7fe5-4fe0-9b53-d5163482f4fd
+		lineageTag: 1fe42899-008f-49a8-b143-51b25a52a891
 		sourceLineageTag: PaymodePaymodeKey
 		summarizeBy: none
 		sourceColumn: PaymodePaymodeKey
@@ -55,10 +55,20 @@ table fact_payments
 	column CenterKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 1609726e-51bc-41ad-bd23-8c32cb674e21
+		lineageTag: 9a5934c5-007b-449b-8e45-2880c61dfdcb
 		sourceLineageTag: CenterKey
 		summarizeBy: none
 		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: caa9069a-99f6-42e7-9292-04a5c6809543
+		sourceLineageTag: CenterName
+		summarizeBy: none
+		sourceColumn: CenterName
 
 		annotation SummarizationSetBy = Automatic
 
@@ -66,7 +76,7 @@ table fact_payments
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(14, 2)
-		lineageTag: 3b7d8f8d-87b5-46e7-959d-3cc394443a39
+		lineageTag: 70bbb5b6-cd4a-41b5-8851-f7405410b5b3
 		sourceLineageTag: PaymodeTotal
 		summarizeBy: sum
 		sourceColumn: PaymodeTotal
@@ -79,7 +89,7 @@ table fact_payments
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: e5aa8a18-1024-41a2-b618-fa68dd4d2166
+		lineageTag: 9091121a-9dbf-4908-9e1d-a458f3742293
 		sourceLineageTag: PaymodeQty
 		summarizeBy: sum
 		sourceColumn: PaymodeQty
@@ -89,7 +99,7 @@ table fact_payments
 	column PaymodeMemo
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 16bb2c93-e9a7-4d88-95ac-bf83e63b578c
+		lineageTag: 749abb30-877b-46cb-aa48-70b2849951e0
 		sourceLineageTag: PaymodeMemo
 		summarizeBy: none
 		sourceColumn: PaymodeMemo
@@ -99,7 +109,7 @@ table fact_payments
 	column PaymodeTerminalId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 4d59529c-32d1-425b-9c67-806679690323
+		lineageTag: 0cd3a1ec-bc5f-4af1-8990-42ff6ecf5710
 		sourceLineageTag: PaymodeTerminalId
 		summarizeBy: none
 		sourceColumn: PaymodeTerminalId
@@ -109,38 +119,49 @@ table fact_payments
 	column PaymodeTransactionId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: ed966955-8533-40c1-898f-6717c158f941
+		lineageTag: 52a4dc19-2208-4391-b81c-94ee1180f484
 		sourceLineageTag: PaymodeTransactionId
 		summarizeBy: none
 		sourceColumn: PaymodeTransactionId
 
 		annotation SummarizationSetBy = Automatic
 
-	column TicketTable_TicketDate
+	column TicketDate
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: date
-		lineageTag: 2ca3b1f9-31bf-4a6b-996d-c2a8fb48d52a
-		sourceLineageTag: TicketTable_TicketDate
+		lineageTag: aacbcf43-ade9-4e93-93ed-4818f4719e6b
+		sourceLineageTag: TicketDate
 		summarizeBy: none
 		sourceColumn: TicketDate
 
 		annotation SummarizationSetBy = Automatic
 
-	column TicketTable_TicketTime
+	column TicketTime
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 771c982b-4cac-4ef4-904a-c1fec4f94f72
-		sourceLineageTag: TicketTable_TicketTime
+		lineageTag: 1dfe0082-d9ed-4459-9b25-72cd41d730db
+		sourceLineageTag: TicketTime
 		summarizeBy: none
 		sourceColumn: TicketTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: e5e27ac5-8c74-43d4-baa7-7230f68e22a9
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
 
 		annotation SummarizationSetBy = Automatic
 
 	column TicketTable_CenterKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: ea8a73f6-9887-4ff9-8f80-14d109522d5c
+		lineageTag: 00c47623-1fd8-41a8-9566-6b61c73c9a81
 		sourceLineageTag: TicketTable_CenterKey
 		summarizeBy: none
 		sourceColumn: TicketTable_CenterKey
@@ -150,7 +171,7 @@ table fact_payments
 	column TicketTable_CenterName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: c2b4288c-457c-4ba0-9457-5bf2289a482a
+		lineageTag: 30d2d37d-0b89-4e9e-bc27-a39e8b153a08
 		sourceLineageTag: TicketTable_CenterName
 		summarizeBy: none
 		sourceColumn: TicketTable_CenterName
@@ -161,7 +182,7 @@ table fact_payments
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: date
-		lineageTag: e45f3f7f-ee0d-47ee-a2b9-de415ad6e87c
+		lineageTag: da8317e1-c470-4641-8671-910b5ad92a61
 		sourceLineageTag: ActualDate
 		summarizeBy: none
 		sourceColumn: ActualDate
@@ -172,7 +193,7 @@ table fact_payments
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: c635aed1-eac7-4115-9364-792297689bce
+		lineageTag: 933b537b-b1ec-4a59-ab8c-aa35b75002c5
 		sourceLineageTag: Time
 		summarizeBy: none
 		sourceColumn: Time
@@ -182,20 +203,15 @@ table fact_payments
 	column HourNumber
 		dataType: int64
 		formatString: 0
-		sourceProviderType: bigint
-		lineageTag: a5cb4e0f-ec2a-4638-a2db-e105fc9dfb62
+		sourceProviderType: int
+		lineageTag: 475572ad-8198-41fc-9900-23af67857d66
 		sourceLineageTag: HourNumber
 		summarizeBy: sum
 		sourceColumn: HourNumber
 
 		annotation SummarizationSetBy = Automatic
 
-	column ModifiedAt
-		dataType: dateTime
-		lineageTag: d56d7141-6cc6-410d-b7d8-10d3dd3e398d
-		sourceColumn: ModifiedAt
-
-	partition management_dl_fact_payments = entity
+	partition payments = entity
 		mode: directLake
 		source
 			entityName: payments

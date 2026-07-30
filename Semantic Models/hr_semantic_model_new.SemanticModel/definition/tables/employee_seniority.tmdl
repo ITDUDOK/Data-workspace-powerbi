@@ -1,0 +1,40 @@
+table employee_seniority
+	lineageTag: ec1a7c05-7506-441f-8e61-9302b4462304
+	sourceLineageTag: [dbo].[employee_seniority]
+
+	column EmployeeId
+		dataType: string
+		lineageTag: b9241961-d79a-4725-8af4-ed73051f44f5
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SeniorityDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6b3de2b3-d9d2-4987-b365-cccb3c3090cd
+		sourceLineageTag: SeniorityDate
+		summarizeBy: none
+		sourceColumn: SeniorityDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5a02ec33-1861-411e-9ba8-d9cc2239f554
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employee_seniority = entity
+		mode: directLake
+		source
+			entityName: employee_seniority
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

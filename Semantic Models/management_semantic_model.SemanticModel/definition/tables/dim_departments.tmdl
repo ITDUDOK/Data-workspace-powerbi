@@ -1,24 +1,24 @@
 table dim_departments
-	lineageTag: 97009cbb-ea5b-4f84-b2c3-eab1d1aee49e
-	sourceLineageTag: [dbo].[management_dl_dim_departments]
+	lineageTag: 54e4a205-6756-4b39-a974-c68a48c4cf49
+	sourceLineageTag: [dbo].[departments]
 
-	column OfficeID
+	column OfficeId
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: ba2586c2-84c7-4004-8ea0-805e282a9c07
-		sourceLineageTag: OfficeID
+		lineageTag: d3632e60-1e5a-4d4f-a1c4-805461914d4f
+		sourceLineageTag: OfficeId
 		summarizeBy: count
 		sourceColumn: OfficeId
 
 		annotation SummarizationSetBy = Automatic
 
-	column DepartmentID
+	column DepartmentId
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 72cc58a6-f037-46de-bbfd-d068a478a59f
-		sourceLineageTag: DepartmentID
+		lineageTag: 871b5bab-7d76-44ae-aa2e-458646eea6cf
+		sourceLineageTag: DepartmentId
 		summarizeBy: count
 		sourceColumn: DepartmentId
 
@@ -27,7 +27,7 @@ table dim_departments
 	column DepartmentName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 796b68b1-07c8-4933-9246-9a5f67ccc05f
+		lineageTag: 483149a5-f82b-4ffb-a602-3f77a81c63f1
 		sourceLineageTag: DepartmentName
 		summarizeBy: none
 		sourceColumn: DepartmentName
@@ -37,7 +37,7 @@ table dim_departments
 	column DepartmentReference
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: d3d6f346-e179-495c-97e1-1cc48344172f
+		lineageTag: 027d2b11-142f-4b00-8a3e-ca70097cbe76
 		sourceLineageTag: DepartmentReference
 		summarizeBy: none
 		sourceColumn: DepartmentReference
@@ -48,14 +48,14 @@ table dim_departments
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: ddaaabb4-1baf-4d79-a757-cf12d8bb722d
+		lineageTag: 92379c58-1717-47c0-8b3d-7cbbb2c3c9f1
 		sourceLineageTag: ModifiedAt
 		summarizeBy: none
 		sourceColumn: ModifiedAt
 
 		annotation SummarizationSetBy = Automatic
 
-	partition management_dl_dim_departments = entity
+	partition departments = entity
 		mode: directLake
 		source
 			entityName: departments

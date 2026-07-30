@@ -1,40 +1,76 @@
 table dim_finreportrows
-	lineageTag: d7f6e32a-f035-43aa-a722-47dba44a1021
+	lineageTag: cd0a1ee8-507b-4ea5-af91-8bded321796f
+	sourceLineageTag: [dbo].[finreportrows]
 
 	column ClassificatieCode
 		dataType: string
-		lineageTag: e8b81f5a-9b75-45d3-994f-6cb308044c2c
+		sourceProviderType: varchar(8000)
+		lineageTag: 7c48fd47-d126-4323-8deb-db3c551a03af
+		sourceLineageTag: ClassificatieCode
+		summarizeBy: none
 		sourceColumn: ClassificatieCode
+
+		annotation SummarizationSetBy = Automatic
 
 	column Hoofdgroep
 		dataType: string
-		lineageTag: 7132f8e2-0c33-4dc2-8d21-8b67aa4a2b5b
+		sourceProviderType: varchar(8000)
+		lineageTag: 9c251c0e-84f3-4650-93a9-74419aef37bb
+		sourceLineageTag: Hoofdgroep
+		summarizeBy: none
 		sourceColumn: Hoofdgroep
+
+		annotation SummarizationSetBy = Automatic
 
 	column Subrij
 		dataType: string
-		lineageTag: c16afc71-eab9-4a3c-a12e-05e9130a113c
+		sourceProviderType: varchar(8000)
+		lineageTag: a5b9eb10-2ba8-4415-871b-78e338477e4d
+		sourceLineageTag: Subrij
+		summarizeBy: none
 		sourceColumn: Subrij
+
+		annotation SummarizationSetBy = Automatic
 
 	column SortHoofd
 		dataType: int64
-		lineageTag: 3206e9e0-790f-4772-bd17-178c7181d7b1
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d9383d4c-d734-4cad-b62c-e08243122f59
+		sourceLineageTag: SortHoofd
+		summarizeBy: sum
 		sourceColumn: SortHoofd
+
+		annotation SummarizationSetBy = Automatic
 
 	column SortSub
 		dataType: int64
-		lineageTag: 3a795632-d87f-415d-a925-ab4513c0ffbf
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: deb16e45-dc16-4318-aa30-61b324779c52
+		sourceLineageTag: SortSub
+		summarizeBy: sum
 		sourceColumn: SortSub
+
+		annotation SummarizationSetBy = Automatic
 
 	column Teken
 		dataType: int64
-		lineageTag: 00e15d51-6a4a-4d05-99c0-e53fba401c7e
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 927a2519-fb82-44a8-8a34-0390432811be
+		sourceLineageTag: Teken
+		summarizeBy: sum
 		sourceColumn: Teken
 
-	partition 'dim_finreportrows 1' = entity
+		annotation SummarizationSetBy = Automatic
+
+	partition finreportrows = entity
 		mode: directLake
 		source
-			entityName: dim_finreportrows
+			entityName: finreportrows
 			schemaName: dbo
 			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
 

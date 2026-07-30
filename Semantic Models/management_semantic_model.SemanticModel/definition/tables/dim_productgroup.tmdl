@@ -1,32 +1,32 @@
 table dim_productgroup
-	lineageTag: 886e3ef9-394d-4690-bbb4-037f85d1f0d6
-	sourceLineageTag: [dbo].[management_dl_dim_productgroup]
+	lineageTag: 916b6a76-0290-44fb-a079-eb58e1ab2477
+	sourceLineageTag: [dbo].[productgroups]
 
-	column Key
+	column ProductGroupKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: d08903f2-52b0-4397-9d0e-e7afa48733c4
-		sourceLineageTag: Key
+		lineageTag: 23ae9c4a-12f2-4538-9ad4-ffb87c4671cc
+		sourceLineageTag: ProductGroupKey
 		summarizeBy: none
 		sourceColumn: ProductGroupKey
 
 		annotation SummarizationSetBy = Automatic
 
-	column Name
+	column ProductGroupName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 1171ece1-17b5-4aff-813a-a43d141a232f
-		sourceLineageTag: Name
+		lineageTag: 9c59499d-c848-4fa6-9f73-d7723b270303
+		sourceLineageTag: ProductGroupName
 		summarizeBy: none
 		sourceColumn: ProductGroupName
 
 		annotation SummarizationSetBy = Automatic
 
-	column GroupNr
+	column ProductGroupNr
 		dataType: double
 		sourceProviderType: decimal(18, 2)
-		lineageTag: 7c16005b-a982-4f2d-9d93-fbcfb6bc8fcf
-		sourceLineageTag: GroupNr
+		lineageTag: 809ebace-801b-4cee-9c70-006b13c148b1
+		sourceLineageTag: ProductGroupNr
 		summarizeBy: sum
 		sourceColumn: ProductGroupNr
 
@@ -34,21 +34,54 @@ table dim_productgroup
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: bf04353e-cf77-4bd4-9261-0ecc626f5510
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
 	column GroupLevel
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 558881d1-4556-452c-935b-8fe1d9635a77
+		lineageTag: 81afaa70-f87a-467d-b5bd-603859c43814
 		sourceLineageTag: GroupLevel
 		summarizeBy: sum
 		sourceColumn: GroupLevel
 
 		annotation SummarizationSetBy = Automatic
 
+	column LeftNr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: dc956e52-0030-4cd7-bbc9-2b61391db846
+		sourceLineageTag: LeftNr
+		summarizeBy: sum
+		sourceColumn: LeftNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column RightNr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d9df8156-83c0-4f38-847c-504fb94bddbd
+		sourceLineageTag: RightNr
+		summarizeBy: sum
+		sourceColumn: RightNr
+
+		annotation SummarizationSetBy = Automatic
+
 	column VatCodeKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 5c11721b-0201-4a0c-816e-0e7db5bece31
+		lineageTag: def64a2f-679c-4756-bfa7-3cc46d80e528
 		sourceLineageTag: VatCodeKey
 		summarizeBy: none
 		sourceColumn: VatCodeKey
@@ -57,21 +90,26 @@ table dim_productgroup
 
 	column ParentProductGroup
 		dataType: string
-		lineageTag: 3ce8a091-0476-40dd-af9d-ccbb58bfcaca
+		sourceProviderType: varchar(8000)
+		lineageTag: 54fe19d3-13d3-4b6a-bff8-5129ea986b89
+		sourceLineageTag: ParentProductGroup
+		summarizeBy: none
 		sourceColumn: ParentProductGroup
 
+		annotation SummarizationSetBy = Automatic
+
 	hierarchy 'Name Hiërarchie'
-		lineageTag: b6dc029f-467d-4480-b48e-bfbbfe4b0420
+		lineageTag: 1133f25d-ea06-4936-a71a-8b123b9ef54a
 
 		level ParentProductGroup
-			lineageTag: 9b60baf3-1fa1-4233-bf58-6ff81535caec
+			lineageTag: 5fb15569-b86d-4994-943b-20106ccedc1e
 			column: ParentProductGroup
 
 		level Name
-			lineageTag: 4d5fe6f5-2c0e-4f99-ba4b-ec9a9b323092
-			column: Name
+			lineageTag: 35f234fc-50d0-4614-9292-5525c560f38c
+			column: ProductGroupName
 
-	partition management_dl_dim_productgroup = entity
+	partition productgroups = entity
 		mode: directLake
 		source
 			entityName: productgroups

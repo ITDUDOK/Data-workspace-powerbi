@@ -1,0 +1,86 @@
+table bridge_center_office
+	lineageTag: cc20fc27-b973-49cd-9b4a-90a5eb0d55f6
+	sourceLineageTag: [dbo].[bridge_center_office]
+
+	column CenterKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b5f46a27-f278-482e-93e8-0300982e65cf
+		sourceLineageTag: CenterKey
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d9bc6297-8425-4795-b4f6-33177646a279
+		sourceLineageTag: CenterName
+		summarizeBy: none
+		sourceColumn: CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5e9399b5-a24e-46f9-84db-bde800297481
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 36518d38-97b0-449c-bbd5-beb511ae5edb
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MatchConfidence
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ed54d7f5-bca0-4d36-9afb-dd9b1fe35336
+		sourceLineageTag: MatchConfidence
+		summarizeBy: none
+		sourceColumn: MatchConfidence
+
+		annotation SummarizationSetBy = Automatic
+
+	column Confirmed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 94da8a8b-329c-47a7-8cff-b43cb0ebdeb3
+		sourceLineageTag: Confirmed
+		summarizeBy: none
+		sourceColumn: Confirmed
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 948f6923-37ab-4fac-9386-a6f9815c46c2
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bridge_center_office = entity
+		mode: directLake
+		source
+			entityName: bridge_center_office
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

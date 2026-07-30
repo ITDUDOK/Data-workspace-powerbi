@@ -1,25 +1,56 @@
 table map_division_office
-	lineageTag: 1422dac6-7fce-43db-a992-ea72cfdc87e2
+	lineageTag: 7cc3fdca-5039-44ee-8891-e8b03514fbee
+	sourceLineageTag: [dbo].[map_division_office]
 
 	column Division
 		dataType: int64
-		lineageTag: a32c90ea-3b79-47f6-96b3-6aa283e35286
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 489ce5d2-c32b-4aa7-89be-9cd226919bb6
+		sourceLineageTag: Division
+		summarizeBy: sum
 		sourceColumn: Division
 
+		annotation SummarizationSetBy = Automatic
+
 	column OfficeID
-		dataType: string
-		lineageTag: 3c456320-016a-430f-968b-07ef9850184e
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d40a2692-56a5-4f2f-978d-641ce5cdc532
+		sourceLineageTag: OfficeID
+		summarizeBy: count
 		sourceColumn: OfficeID
+
+		annotation SummarizationSetBy = Automatic
 
 	column Administratie
 		dataType: string
-		lineageTag: 621db29f-47d1-4063-a05c-0aa938041a25
+		sourceProviderType: varchar(8000)
+		lineageTag: afaec5fc-cafe-4184-8c99-c5a5d0fcfc3f
+		sourceLineageTag: Administratie
+		summarizeBy: none
 		sourceColumn: Administratie
 
-	partition 'map_division_office 1' = entity
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: baabefd8-e7e1-44bb-a15f-01982c5a6ee8
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition map_division_office = entity
 		mode: directLake
 		source
 			entityName: map_division_office
 			schemaName: dbo
 			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
 

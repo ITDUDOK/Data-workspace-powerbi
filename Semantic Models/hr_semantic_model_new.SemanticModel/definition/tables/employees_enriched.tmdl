@@ -2,6 +2,365 @@ table employees_enriched
 	lineageTag: e3d6639a-bc33-4d61-a355-54bb3432e2a1
 	sourceLineageTag: [dbo].[employees_enriched]
 
+	measure 'Historical Employee Active' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			VAR CurrentEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    0,
+			    VAR HasContract =
+			        SUMX(
+			            CurrentEmployeeIds,
+			            VAR EmpId = employees_enriched[EmployeeId]
+			            RETURN
+			            CALCULATE(
+			                COUNTROWS(hr_contracts),
+			                ALL(hr_contracts),
+			                hr_contracts[EmployeeId] = EmpId,
+			                hr_contracts[StartDate] <= SelectedEndDate,
+			                OR(
+			                    ISBLANK(hr_contracts[EndDate]),
+			                    hr_contracts[EndDate] >= SelectedStartDate
+			                )
+			            )
+			        ) > 0
+			    VAR HasEmployment =
+			        SUMX(
+			            CurrentEmployeeIds,
+			            VAR EmpId = employees_enriched[EmployeeId]
+			            RETURN
+			            CALCULATE(
+			                COUNTROWS(employments),
+			                ALL(employments),
+			                employments[EmployeeId] = EmpId,
+			                employments[StartDate] <= SelectedEndDate,
+			                OR(
+			                    ISBLANK(employments[EndDate]),
+			                    employments[EndDate] >= SelectedStartDate
+			                )
+			            )
+			        ) > 0
+			    RETURN IF(OR(HasContract, HasEmployment), 1, 0)
+			)
+		lineageTag: 0be8de7e-f71a-4d71-894d-f72c6b5ef78d
+
+	measure 'FTE EMPLOYEES' =
+			
+			VAR StandardHours = 38
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    0,
+			    SUMX(
+			        SUMMARIZE(
+			            FILTER(
+			                employees_enriched,
+			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
+			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
+			                employees_enriched[EmployeeEndDate] >= SelectedStartDate
+			            ),
+			            employees_enriched[FullName],
+			            "MaxHours", MAX(employees_enriched[ContractHours])
+			        ),
+			        DIVIDE([MaxHours], StandardHours, 0)
+			    )
+			)
+		lineageTag: 61fcdcd7-6480-48dd-a5d4-7ec48d8ce23b
+
+	measure 'Gem. Uurloon incl' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    AVERAGEX(
+			        SUMMARIZE(
+			            FILTER(
+			                employees_enriched,
+			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
+			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
+			                employees_enriched[EmployeeEndDate] >= SelectedStartDate &&
+			                NOT(ISBLANK(employees_enriched[SalaryRate]))
+			            ),
+			            employees_enriched[FullName],
+			            "MaxSalaryRate", MAX(employees_enriched[SalaryRate])
+			        ),
+			        [MaxSalaryRate]
+			    )
+			)
+		lineageTag: 25357ab6-8c48-40bc-b5ac-7f92d9dc87e9
+
+	measure 'Gem. Leeftijd' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			VAR ReferenceDate = TODAY()
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    VAR ActiveEmployees =
+			        SUMMARIZE(
+			            FILTER(
+			                employees_enriched,
+			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
+			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
+			                employees_enriched[EmployeeEndDate] >= SelectedStartDate &&
+			                NOT(ISBLANK(employees_enriched[DateOfBirth]))
+			            ),
+			            employees_enriched[FullName],
+			            "DateOfBirth", MAX(employees_enriched[DateOfBirth])
+			        )
+			    VAR TotalAge =
+			        SUMX(
+			            ActiveEmployees,
+			            VAR BirthDate = [DateOfBirth]
+			            VAR YearDiff = YEAR(ReferenceDate) - YEAR(BirthDate)
+			            VAR HadBirthdayThisYear =
+			                (MONTH(ReferenceDate) > MONTH(BirthDate)) ||
+			                (MONTH(ReferenceDate) = MONTH(BirthDate) && DAY(ReferenceDate) >= DAY(BirthDate))
+			            VAR Age = YearDiff - IF(HadBirthdayThisYear, 0, 1)
+			            RETURN Age
+			        )
+			    VAR TotalPersons = COUNTROWS(ActiveEmployees)
+			    VAR AverageAge = IF(TotalPersons > 0, DIVIDE(TotalAge, TotalPersons, BLANK()), BLANK())
+			    RETURN IF(NOT(ISBLANK(AverageAge)), INT(AverageAge), BLANK())
+			)
+		lineageTag: 098cc804-5534-4756-ae0c-ca09bbb570e8
+
+	measure 'In Dienst' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    VAR NewEmployees =
+			        SUMMARIZE(
+			            FILTER(
+			                employees_enriched,
+			                CALCULATE([Historical Employee Active]) = 1 &&
+			                employees_enriched[EmployeeStartDate] >= SelectedStartDate &&
+			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
+			                NOT(ISBLANK(employees_enriched[EmployeeStartDate]))
+			            ),
+			            employees_enriched[FullName]
+			        )
+			    RETURN COUNTROWS(NewEmployees)
+			)
+		lineageTag: f5c560ae-69a9-4ebe-8f42-d9d5334332ef
+
+	measure 'Uit Dienst' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    0,
+			    VAR LeftEmployeeIds =
+			        FILTER(
+			            ALL(employments[EmployeeId]),
+			            VAR CurrentEmpId = employments[EmployeeId]
+			            VAR HasEndInPeriod =
+			                CALCULATE(
+			                    COUNTROWS(employments),
+			                    employments[EmployeeId] = CurrentEmpId,
+			                    NOT(ISBLANK(employments[EndDate])),
+			                    employments[EndDate] >= SelectedStartDate,
+			                    employments[EndDate] <= SelectedEndDate
+			                ) > 0
+			            VAR IsCurrentCompanyEmployee = CurrentEmpId IN VALUES(employees_enriched[EmployeeId])
+			            RETURN HasEndInPeriod && IsCurrentCompanyEmployee
+			        )
+			    RETURN COUNTROWS(LeftEmployeeIds)
+			)
+		lineageTag: 4fe0689c-2ca9-4aa4-8aa0-6072e84f5fbc
+
+	measure 'Gem. Arbeidsduur (jaren)' =
+			
+			VAR ReferenceDate = TODAY()
+			RETURN
+			AVERAGEX(
+			    employees_enriched,
+			    VAR SeniorityDate = LOOKUPVALUE(employee_seniority[SeniorityDate], employee_seniority[EmployeeId], employees_enriched[EmployeeId])
+			    VAR ContractStartDate = employees_enriched[ContractStartDate]
+			    VAR EmploymentEndDate = employees_enriched[EmploymentEndDate]
+			    VAR FinalStartDate = COALESCE(SeniorityDate, ContractStartDate)
+			    VAR ActualEndDate = IF(ISBLANK(EmploymentEndDate), ReferenceDate, EmploymentEndDate)
+			    RETURN
+			    IF(
+			        NOT(ISBLANK(FinalStartDate)),
+			        DATEDIFF(FinalStartDate, ActualEndDate, DAY) / 365.25,
+			        BLANK()
+			    )
+			)
+		lineageTag: 58a2a9b8-31e2-4b66-960a-749b9ec47d4f
+
+	measure 'Ziekteverzuim %' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    VAR PeriodeDagen = DATEDIFF(SelectedStartDate, SelectedEndDate, DAY) + 1
+			    VAR AantalWeken = PeriodeDagen / 7
+			    VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
+			    VAR TotaalZiekteuren =
+			        CALCULATE(
+			            SUM(sickness[SicknessHours]),
+			            sickness[CardId] IN CurrentCardIDs,
+			            sickness[SicknessStart] <= SelectedEndDate,
+			            sickness[SicknessEnd] >= SelectedStartDate
+			        )
+			    VAR WerkelijkGewerktUren =
+			        CALCULATE(
+			            SUM(hours[HourHours]),
+			            hours[CardId] IN CurrentCardIDs,
+			            hours[HourDate] >= SelectedStartDate,
+			            hours[HourDate] <= SelectedEndDate
+			        )
+			    VAR ContractUren =
+			        SUMX(employees_enriched, employees_enriched[ContractHours] * AantalWeken)
+			    VAR TotaalUren =
+			        IF(
+			            COUNTROWS(FILTER(employees_enriched, employees_enriched[OfficeId] = 11)) > 0 && WerkelijkGewerktUren > 0,
+			            WerkelijkGewerktUren,
+			            ContractUren
+			        )
+			    RETURN IF(TotaalUren > 0, TotaalZiekteuren / TotaalUren, BLANK())
+			)
+		lineageTag: 936363c2-4ae7-4831-9fb2-c42560c67468
+
+	measure 'Verzuim Datum Filter' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			VAR SelectedCategorie = SELECTEDVALUE(verzuimcategorieen[Categorie])
+			VAR CurrentReden = SELECTEDVALUE(employees_enriched[VerzuimredenColumn])
+			VAR CurrentEinddatum = SELECTEDVALUE(employees_enriched[EndDateEmployment])
+			RETURN
+			IF(
+			    ISBLANK(SelectedCategorie),
+			    1,
+			    IF(
+			        CurrentReden = SelectedCategorie,
+			        IF(
+			            OR(
+			                CurrentReden = "Actief",
+			                OR(
+			                    ISBLANK(SelectedStartDate),
+			                    AND(
+			                        NOT(ISBLANK(CurrentEinddatum)),
+			                        AND(
+			                            CurrentEinddatum >= SelectedStartDate,
+			                            CurrentEinddatum <= SelectedEndDate
+			                        )
+			                    )
+			                )
+			            ),
+			            1,
+			            0
+			        ),
+			        0
+			    )
+			)
+		lineageTag: 7178388a-a001-4944-be1b-3dd71a5c0693
+
+	measure 'Gem. Uurloon excl' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    VAR ActiveEmployees =
+			        SUMMARIZE(
+			            FILTER(
+			                employees_enriched,
+			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
+			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
+			                employees_enriched[EmployeeEndDate] >= SelectedStartDate &&
+			                NOT(ISBLANK(employees_enriched[HourlySalary]))
+			            ),
+			            employees_enriched[FullName],
+			            "MaxHourlySalary", MAX(employees_enriched[HourlySalary])
+			        )
+			    VAR TotalSalary = SUMX(ActiveEmployees, [MaxHourlySalary])
+			    VAR TotalPersons = COUNTROWS(ActiveEmployees)
+			    RETURN IF(TotalPersons > 0, DIVIDE(TotalSalary, TotalPersons, BLANK()), BLANK())
+			)
+		lineageTag: 7aada547-708c-4709-aaae-616a4c92290e
+
+	measure ContractHoursHR_Alt =
+			
+			VAR SelectedEmployee = SELECTEDVALUE(employees_enriched[CardId])
+			RETURN
+			IF(
+			    ISBLANK(SelectedEmployee),
+			    BLANK(),
+			    MAXX(
+			        FILTER(employees_enriched, employees_enriched[CardId] = SelectedEmployee),
+			        employees_enriched[ContractHours]
+			    )
+			)
+		lineageTag: 8037ddae-723f-40d5-8c35-52319092ac73
+
+	measure 'Aantal Ziektemeldingen' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
+			    VAR AantalMeldingen =
+			        CALCULATE(
+			            DISTINCTCOUNT(sickness[MeldingId]),
+			            sickness[CardId] IN CurrentCardIDs,
+			            sickness[SicknessStart] <= SelectedEndDate,
+			            sickness[SicknessEnd] >= SelectedStartDate
+			        )
+			    RETURN AantalMeldingen
+			)
+		lineageTag: 5b363ee3-557b-4e8c-af95-5d8b53e51f6c
+
+	measure 'Actieve Medewerkers in Periode' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    COUNTROWS(
+			        FILTER(
+			            VALUES(employees_enriched[EmployeeId]),
+			            VAR _start = CALCULATE(MIN(employees_enriched[EmployeeStartDate]))
+			            VAR _contract = CALCULATE(MIN(employees_enriched[ContractStartDate]))
+			            VAR EmpStart = COALESCE(_start, _contract)
+			            VAR EmpEnd = CALCULATE(MAX(employees_enriched[EmployeeEndDate]))
+			            RETURN
+			                NOT(ISBLANK(EmpStart))
+			                && EmpStart <= SelectedEndDate
+			                && EmpEnd >= SelectedStartDate
+			        )
+			    )
+			)
+		lineageTag: 23caa824-89fb-4804-8553-1d4537f7e4fd
+
 	column EmployeeId
 		dataType: string
 		lineageTag: bfd877dd-65b7-4e09-896d-be22a22d8234

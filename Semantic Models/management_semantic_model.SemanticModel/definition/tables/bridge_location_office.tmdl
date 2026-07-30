@@ -1,0 +1,76 @@
+table bridge_location_office
+	lineageTag: b1feee40-748a-4a60-b94f-273832b45466
+	sourceLineageTag: [dbo].[bridge_location_office]
+
+	column LocationName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4e55dec9-3e32-4c29-9edd-85a3c9e80e65
+		sourceLineageTag: LocationName
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3955ff8d-2cd7-46f5-9a64-ada54f9c30e6
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8a4b084e-bf26-4132-8e85-116fdbaf295e
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MatchConfidence
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 476d0eb0-b24f-4336-8c37-cae24025fd38
+		sourceLineageTag: MatchConfidence
+		summarizeBy: none
+		sourceColumn: MatchConfidence
+
+		annotation SummarizationSetBy = Automatic
+
+	column Confirmed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: bc5f983a-7b57-4c7d-9974-a01b1b3001da
+		sourceLineageTag: Confirmed
+		summarizeBy: none
+		sourceColumn: Confirmed
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: adba04fb-9aa3-4767-963d-f4de0605d001
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bridge_location_office = entity
+		mode: directLake
+		source
+			entityName: bridge_location_office
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

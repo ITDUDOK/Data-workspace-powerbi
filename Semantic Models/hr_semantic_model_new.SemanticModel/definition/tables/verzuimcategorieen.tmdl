@@ -1,0 +1,30 @@
+table verzuimcategorieen
+	lineageTag: ffeec24e-8396-40fb-8b3f-8da14d278b9d
+	sourceLineageTag: [dbo].[verzuimcategorieen]
+
+	column Categorie
+		dataType: string
+		lineageTag: 502e6ce4-37d9-4aaa-87d5-49ddc4262093
+		sourceLineageTag: Categorie
+		summarizeBy: none
+		sourceColumn: Categorie
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0a6413ed-f73b-4af9-9375-a60de9e12d5b
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition verzuimcategorieen = entity
+		mode: directLake
+		source
+			entityName: verzuimcategorieen
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

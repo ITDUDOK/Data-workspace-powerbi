@@ -55,4 +55,7 @@ ref table payments
 ref table hours_summary
 ref table hourly_labour
 ref table managers
+ref table contracts_enriched
+ref table verzuimcategorieen
+ref table employee_seniority
 

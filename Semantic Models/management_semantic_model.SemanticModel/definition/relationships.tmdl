@@ -1,156 +1,161 @@
-relationship e7a40ea6-d067-46c2-aad4-851bf5938d19
+relationship f1e6fd85-f01d-42a9-88b1-ea026bec8ee0
 	fromColumn: fact_sales.LineProductKey
 	toColumn: dim_product.ProductKey
 
-relationship ebdcc93d-e330-4595-aab1-f294212b520d
+relationship 8229695d-7fd9-4d36-81f7-e65f8e85701f
 	fromColumn: fact_sales.CenterKey
-	toColumn: dim_center.Key
+	toColumn: dim_center.CenterKey
 
-relationship a0396190-3387-46c6-bdf4-78f8b4ca173d
+relationship 7dc8cf08-fbd1-4e91-b5d3-643fc49c61d0
 	fromColumn: dim_product.GroupKey
-	toColumn: dim_productgroup.Key
+	toColumn: dim_productgroup.ProductGroupKey
 
-relationship a06d7e31-9dd4-454d-b929-813a04481a4a
+relationship 7b6bba44-8df0-406d-8de6-c4a351cc5a60
 	fromColumn: fact_payments.TicketTable_CenterKey
-	toColumn: dim_center.Key
+	toColumn: dim_center.CenterKey
 
-relationship e67f9346-70e6-4275-81c2-25c0aba22fc2
-	fromColumn: fact_planning.OfficeID
-	toColumn: dim_offices.OfficeID
+relationship e34e9622-f0f8-489b-99bb-6a7812403ae2
+	fromColumn: fact_planning.OfficeId
+	toColumn: offices.OfficeId
 
-relationship 2570cbe2-914d-4513-87d4-a1d5732fa577
-	fromColumn: fact_prognosis.OfficeID
-	toColumn: dim_offices.OfficeID
+relationship 878f9512-23ce-4f2f-8d8a-934b6c2e8bc6
+	fromColumn: fact_prognosis.OfficeId
+	toColumn: offices.OfficeId
 
-relationship 568c52e4-bf14-424d-9112-49fc0251408e
-	fromColumn: fact_sickness.OfficeID
-	toColumn: dim_offices.OfficeID
+relationship 98527c28-ba82-4fb5-89d4-de11af88f4b0
+	fromColumn: fact_sickness.OfficeId
+	toColumn: offices.OfficeId
 
-relationship 605deee6-8144-442e-9399-1674b29cbd90
+relationship f0a32e7a-58e4-4456-8269-1c4ad2e57221
 	crossFilteringBehavior: bothDirections
-	fromColumn: dim_staff.OfficeID
-	toColumn: dim_offices.OfficeID
+	fromColumn: dim_staff.OfficeId
+	toColumn: offices.OfficeId
 
-relationship c1d5492d-8579-4bc3-a6f9-c82da25cb9fb
-	fromColumn: fact_hours.HourOfficeID
-	toColumn: dim_offices.OfficeID
+relationship 73dfbe0f-b2a6-4f43-bd32-3b0db1bfc078
+	fromColumn: fact_hours.HourOfficeId
+	toColumn: offices.OfficeId
 
-relationship 7eb4125a-5f0e-475b-a6fb-95213f3a5140
+relationship fd586e3d-4f3f-49e0-a256-0ef9c3b51bca
 	fromColumn: fact_planning.PlanningDate
 	toColumn: dim_date.Date
 
-relationship b7874eae-58f1-4361-bf67-66b553f46a67
+relationship 58348d2f-68e3-43b3-9232-5e2a380cc233
 	fromColumn: fact_hours.HourDate
 	toColumn: dim_date.Date
 
-relationship 4ab5732e-1e35-4546-9507-3c120008cf32
+relationship 5a571999-23b2-4c29-8b43-ddd6a6e24d41
 	fromColumn: fact_hours.HourEnterNumber
 	toColumn: dim_time.HourNumber
 
-relationship d1274905-1b29-480f-93b4-6472cfc5e51a
+relationship 5383e6dc-f84a-4e9f-a5e8-7d970f4e49a7
 	fromColumn: fact_prognosis.PrognosisDate
 	toColumn: dim_date.Date
 
-relationship 36dce41a-159d-4dbe-a404-cfe56374e6b0
-	fromColumn: fact_hours.HourDepartmentID
-	toColumn: dim_departments.DepartmentID
+relationship 4d1cda16-762e-4273-92b9-92ff36ff7825
+	fromColumn: fact_hours.HourDepartmentId
+	toColumn: dim_departments.DepartmentId
 
-relationship 28cc5d79-bac3-4560-b2ba-6ce8ebe40071
-	fromColumn: fact_planning.PlanningDepartmentID
-	toColumn: dim_departments.DepartmentID
+relationship 7c2cae2e-dfaa-49c3-b46e-68d8001ea1b8
+	fromColumn: fact_planning.DepartmentId
+	toColumn: dim_departments.DepartmentId
 
-relationship a991f2c5-34e7-4470-9814-de1b689c3805
+relationship 2465a11d-8ec2-452f-9ed4-16599b32a67c
 	fromColumn: fact_sickness.SicknessStart
 	toColumn: dim_date.Date
 
-relationship 2b83fc2a-0c0d-492c-9689-e47472cb9e9b
+relationship 9957c6a7-077f-4e24-ba6d-13924ec1449f
 	isActive: false
 	fromColumn: fact_sickness.SicknessEnd
 	toColumn: dim_date.Date
 
-relationship d727d884-7909-4f11-99d7-ca63f70d6abd
+relationship f3ed68be-e44f-4903-946c-8504ddc99b49
 	fromColumn: fact_hourlylabour.HourDate
 	toColumn: dim_date.Date
 
-relationship 7178acfd-fe42-4db3-a3f9-ea2a49611f14
-	fromColumn: fact_hourlylabour.HourOfficeID
-	toColumn: dim_offices.OfficeID
+relationship 052b445d-429c-4c04-8e2d-cc233c6aaf89
+	fromColumn: fact_hourlylabour.HourOfficeId
+	toColumn: offices.OfficeId
 
-relationship 2c8c1875-0916-4b66-9027-4cc1f9d7ca2f
+relationship 3644f576-50d2-4b08-93ba-9ee27860d227
 	fromColumn: fact_hourlylabour.WorkingHour
 	toColumn: dim_time.HourNumber
 
-relationship f0302a2b-5096-4c09-9da4-535d0a70f98d
+relationship 58e772d3-6f7c-4582-9e7d-aef7b06eb9bf
 	fromColumn: fact_sales.ActualDate
 	toColumn: dim_date.Date
 
-relationship 2e042529-5a60-42c8-8c0e-02a489a1866a
+relationship 6ca0562d-d9c2-40ab-adb0-9adb76fcf68c
 	fromColumn: fact_sales.HourNumber
 	toColumn: dim_time.HourNumber
 
-relationship 12ebf514-1c61-479a-9170-37c969848fb1
+relationship c6594427-5d19-4fd2-a171-499335c7c67c
 	fromColumn: fact_payments.HourNumber
 	toColumn: dim_time.HourNumber
 
-relationship c0ae79fa-8e3e-4dc8-8c16-5e4eb210306c
+relationship b67128d9-b70b-4535-a772-6ea900041127
 	fromColumn: fact_payments.ActualDate
 	toColumn: dim_date.Date
 
-relationship 3fc34af3-aa19-4f7d-bc5b-70a8b1d0c2f0
+relationship 7a330172-dab5-406a-8221-cb3bebf8ffda
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
-	fromColumn: dim_center.Key
-	toColumn: bridge.Key
+	fromColumn: dim_center.CenterKey
+	toColumn: bridge_center_office.CenterKey
 
-relationship fdb1ef6e-4d3c-4b0c-af40-574b7a000ee1
+relationship 2be4d88d-4291-43fb-ac99-e50ae2ba4f25
 	crossFilteringBehavior: bothDirections
-	fromColumn: bridge.MappedOfficeID
-	toColumn: dim_offices.OfficeID
+	fromColumn: bridge_center_office.OfficeId
+	toColumn: offices.OfficeId
 
-relationship 3bbeb2c6-dd4c-4637-b7d6-2694480056d9
+relationship 36475f07-2327-4ac8-bffa-81351089eea0
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
 	fromColumn: dim_table.TableNr
-	toColumn: fact_sales.TicketTable_TableNr
+	toColumn: fact_sales.TableNr
 
-relationship 44c72ade-6316-4083-b5a4-91a55f9959cc
-	fromColumn: fact_eventstable.OfficeID
-	toColumn: dim_offices.OfficeID
+relationship dc5f5ad2-483b-4fba-985d-5ac988503086
+	fromColumn: fact_eventstable.LocationName
+	toColumn: bridge_location_office.LocationName
 
-relationship 68d02ed4-ffe4-4b9e-92d2-cef8f0a8bf00
-	fromColumn: fact_eventstable.EventDate
-	toColumn: dim_date.Date
+relationship 24af831b-719d-4697-a3d1-3642d6c7b6b1
+	fromColumn: bridge_location_office.OfficeId
+	toColumn: offices.OfficeId
 
-relationship e68f4c8e-9a16-43a6-8ce0-800986c73d87
+relationship 7e7b64be-25f2-4b1a-93b9-aa38e1d0d2e1
 	fromColumn: gltransacties_fin.Division
 	toColumn: map_division_office.Division
 
-relationship 3970c6f9-cb3f-4af3-9795-910ae2af51f1
+relationship 8b9ac5e9-c25e-4491-8af8-91bce746e75e
 	fromColumn: gltransacties_fin.GLAccount
 	toColumn: glaccounts_fin.ID
 
-relationship f84c15b6-b6db-4fcf-90d2-db0c752a8fc6
+relationship 428c13a7-5701-49ed-929e-60312354463a
 	fromColumn: glaccounts_fin.ClassificatieCode
 	toColumn: dim_finreportrows.ClassificatieCode
 
-relationship 467f557e-9e51-46e1-8193-f0222f80ced8
+relationship b027e1c5-45f4-42ee-9443-7ad2aa156d42
 	fromColumn: gltransacties_fin.EntryDate
 	toColumn: dim_date.Date
 
-relationship e9e5a7b1-53bd-4281-9fa9-9f362ba878d1
+relationship 90084939-ece6-4104-93ae-e3e2f692de80
 	crossFilteringBehavior: bothDirections
+	fromCardinality: one
 	fromColumn: map_division_office.OfficeID
-	toColumn: dim_offices.OfficeID
+	toColumn: offices.OfficeId
 
-relationship ddcdfcba-48f3-4e32-93d2-920189fb2f0c
+relationship 4784a403-f2e9-4d07-b580-3ccdde915cc6
 	fromColumn: dim_center.LeftNr
-	toColumn: centersclassificationtable.LeftNr
+	toColumn: center_classification.LeftNr
 
-relationship 0a658b76-b9e0-48d1-b103-f1230d6c99b3
-	isActive: false
-	crossFilteringBehavior: bothDirections
-	fromColumn: bridge.LeftNr
-	toColumn: centersclassificationtable.LeftNr
+relationship 6b35da7b-ead2-410a-90cd-b9660ebf59c9
+	fromColumn: fact_revenue_hourly.CenterKey
+	toColumn: dim_center.CenterKey
 
-relationship 52a5ecb1-98ef-4481-9b03-63d4c3ea032e
-	fromColumn: fact_payments.PaymodeGroupKey
-	toColumn: dim_paymentmethod.PaymodeGroupKey
+relationship 6c2a6e36-eae4-47d6-a979-58db322b7a25
+	fromColumn: fact_revenue_hourly.TicketDate
+	toColumn: dim_date.Date
+
+relationship 286e25f1-d9c2-4c70-b387-f31c8f026998
+	fromColumn: fact_revenue_hourly.HourNumber
+	toColumn: dim_time.HourNumber
 

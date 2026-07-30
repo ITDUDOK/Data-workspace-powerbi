@@ -1,24 +1,25 @@
 table fact_prognosis
-	lineageTag: 7c7f7c2b-b355-4e00-9af3-6c7f571c0962
-	sourceLineageTag: [dbo].[management_dl_fact_prognosis]
+	lineageTag: 47931e58-7bc1-4008-a288-3ba1bc1052e4
+	sourceLineageTag: [dbo].[prognosis]
 
 	column PrognosisId
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 473be8eb-82e7-4ad2-8baf-08b50c373271
+		lineageTag: bbcf2ee6-0840-4e31-8969-23b3efe675c1
 		sourceLineageTag: PrognosisId
 		summarizeBy: count
 		sourceColumn: PrognosisId
 
 		annotation SummarizationSetBy = Automatic
 
-	column OfficeID
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 973259bd-43e5-49f1-92a1-1e5c54b92351
-		sourceLineageTag: OfficeID
-		summarizeBy: none
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bed4f0f6-2cf0-4a45-9e76-4782806d4e0b
+		sourceLineageTag: OfficeId
+		summarizeBy: count
 		sourceColumn: OfficeId
 
 		annotation SummarizationSetBy = Automatic
@@ -27,19 +28,19 @@ table fact_prognosis
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: date
-		lineageTag: ec209a68-5bb4-424a-b21b-3e3d25889028
+		lineageTag: fc1cdcb6-197f-4287-802a-38cc23968752
 		sourceLineageTag: PrognosisDate
 		summarizeBy: none
 		sourceColumn: PrognosisDate
 
 		annotation SummarizationSetBy = Automatic
 
-	column TypeID
+	column TypeId
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 03058f44-139a-4a21-9574-35a5d1645b93
-		sourceLineageTag: TypeID
+		lineageTag: ed8aec85-c1e3-41c7-a364-848342f1457a
+		sourceLineageTag: TypeId
 		summarizeBy: count
 		sourceColumn: TypeId
 
@@ -49,7 +50,7 @@ table fact_prognosis
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 9dc6cb2f-2352-48df-81e1-586081c6ea28
+		lineageTag: a8b07c7a-b557-4cee-a6b3-a9ca413dcdf0
 		sourceLineageTag: PrognosisGuests
 		summarizeBy: sum
 		sourceColumn: PrognosisGuests
@@ -60,7 +61,7 @@ table fact_prognosis
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(12, 2)
-		lineageTag: 94f4de85-87a4-4767-9494-3292fa393a76
+		lineageTag: 94ce2cdd-fc4d-403a-b9ec-5fc0b6c24107
 		sourceLineageTag: PrognosisSpending
 		summarizeBy: sum
 		sourceColumn: PrognosisSpending
@@ -73,7 +74,7 @@ table fact_prognosis
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(14, 2)
-		lineageTag: cb46a894-8e65-4aa0-994a-4c6c2c5871a7
+		lineageTag: 86a47c64-7473-4509-958f-fc12430c33e6
 		sourceLineageTag: PrognosisTurnover
 		summarizeBy: sum
 		sourceColumn: PrognosisTurnover
@@ -86,14 +87,14 @@ table fact_prognosis
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: a608665a-6f4f-4ad1-bc2d-1625d0da75fa
+		lineageTag: 3be4c3d2-f441-4bb2-bebb-2d56bd43fd37
 		sourceLineageTag: ModifiedAt
 		summarizeBy: none
 		sourceColumn: ModifiedAt
 
 		annotation SummarizationSetBy = Automatic
 
-	partition management_dl_fact_prognosis = entity
+	partition prognosis = entity
 		mode: directLake
 		source
 			entityName: prognosis

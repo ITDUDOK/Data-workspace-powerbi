@@ -1,12 +1,12 @@
 table glaccounts_fin
-	lineageTag: f0d0888e-1754-43c1-a11f-61bdb06b9e63
-	sourceLineageTag: [dbo].[management_dl_glaccounts_fin]
+	lineageTag: 0beb0e49-4874-4dee-bf39-66bd3592c7b0
+	sourceLineageTag: [dbo].[glaccounts_fin]
 
 	column Division
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: c3a80493-eac4-44dc-8131-c925b20613a1
+		lineageTag: 989db2c6-57b7-4e05-9752-5637552f6e34
 		sourceLineageTag: Division
 		summarizeBy: sum
 		sourceColumn: Division
@@ -16,7 +16,7 @@ table glaccounts_fin
 	column ID
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 8ee0c29e-d103-446f-abd8-84b86b09148b
+		lineageTag: 790757eb-b9c6-44d7-8a2b-5341a877e7fb
 		sourceLineageTag: ID
 		summarizeBy: none
 		sourceColumn: ID
@@ -26,7 +26,7 @@ table glaccounts_fin
 	column Code
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: dd42ef00-c113-4f1c-8878-4ed9434e6938
+		lineageTag: f34845cb-f5b9-41a0-bd48-91e4f4ccd10a
 		sourceLineageTag: Code
 		summarizeBy: none
 		sourceColumn: Code
@@ -36,7 +36,7 @@ table glaccounts_fin
 	column Description
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 750047bc-565c-43e7-a2b9-974d8f51c79e
+		lineageTag: 7cd5c966-5e9e-4d9d-8bba-c9beaa4774bc
 		sourceLineageTag: Description
 		summarizeBy: none
 		sourceColumn: Description
@@ -46,14 +46,14 @@ table glaccounts_fin
 	column ClassificatieCode
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 9fd0e4f7-4a0a-4e94-9c38-6bdfebe4e81a
+		lineageTag: 510228b1-a040-40a8-a451-474a2a73e578
 		sourceLineageTag: ClassificatieCode
 		summarizeBy: none
 		sourceColumn: ClassificatieCode
 
 		annotation SummarizationSetBy = Automatic
 
-	partition management_dl_glaccounts_fin = entity
+	partition glaccounts_fin = entity
 		mode: directLake
 		source
 			entityName: glaccounts_fin

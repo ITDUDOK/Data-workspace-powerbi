@@ -1,24 +1,24 @@
 table fact_sickness
-	lineageTag: 0cfa1552-8a7a-4cd5-b27b-4bc33aa2c4a4
-	sourceLineageTag: [dbo].[management_dl_fact_sickness]
+	lineageTag: 0f6a58cb-4af7-4dd9-b018-c9e6054ffd6a
+	sourceLineageTag: [dbo].[sickness]
 
-	column SicknessID
+	column SicknessId
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: e256b317-e268-4500-9b49-ca62333560eb
-		sourceLineageTag: SicknessID
+		lineageTag: aaee7fca-735b-443c-b5b9-ad8889656074
+		sourceLineageTag: SicknessId
 		summarizeBy: count
 		sourceColumn: SicknessId
 
 		annotation SummarizationSetBy = Automatic
 
-	column CardID
+	column CardId
 		dataType: int64
 		formatString: 0
-		sourceProviderType: bigint
-		lineageTag: 9ddaa6d5-6fc7-41c0-8d44-e477d7cb7fd5
-		sourceLineageTag: CardID
+		sourceProviderType: int
+		lineageTag: 7a95a3a3-26cb-450e-8555-d80931cf9d54
+		sourceLineageTag: CardId
 		summarizeBy: count
 		sourceColumn: CardId
 
@@ -27,7 +27,7 @@ table fact_sickness
 	column EmployeeId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 1e550c18-63ae-4bfa-9dfe-9f44b178cbdb
+		lineageTag: ce4c061f-f13b-415e-9cf5-6728741fbbec
 		sourceLineageTag: EmployeeId
 		summarizeBy: none
 		sourceColumn: EmployeeId
@@ -37,7 +37,7 @@ table fact_sickness
 	column CompanyId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: c66f2b58-255c-4e27-8047-0941a75ad15e
+		lineageTag: 5bd1bc21-0b2b-404b-91fe-6241c4ad118d
 		sourceLineageTag: CompanyId
 		summarizeBy: none
 		sourceColumn: CompanyId
@@ -47,7 +47,7 @@ table fact_sickness
 	column CompanyName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 3b1e3216-3aa0-4f5a-baa0-822067ef81f4
+		lineageTag: d7cf2c8f-b437-4311-9c5d-9fbaa1a53738
 		sourceLineageTag: CompanyName
 		summarizeBy: none
 		sourceColumn: CompanyName
@@ -57,19 +57,20 @@ table fact_sickness
 	column CardName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: bcd55edc-2be6-437e-9f23-87ee523ae7a6
+		lineageTag: 65fd168f-0c6f-4a3c-8297-d3994370438c
 		sourceLineageTag: CardName
 		summarizeBy: none
 		sourceColumn: CardName
 
 		annotation SummarizationSetBy = Automatic
 
-	column OfficeID
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: b03497cb-45ad-4216-9b81-fff186ba0d08
-		sourceLineageTag: OfficeID
-		summarizeBy: none
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b1ab5c4b-2ff3-4411-a852-2b4395af2118
+		sourceLineageTag: OfficeId
+		summarizeBy: count
 		sourceColumn: OfficeId
 
 		annotation SummarizationSetBy = Automatic
@@ -77,7 +78,7 @@ table fact_sickness
 	column OfficeName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: cb7bedf8-7b5f-4985-b9f4-0503bc73689f
+		lineageTag: ca3f0144-dd18-4ae9-bde4-719a6f69bdc8
 		sourceLineageTag: OfficeName
 		summarizeBy: none
 		sourceColumn: OfficeName
@@ -88,7 +89,7 @@ table fact_sickness
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: date
-		lineageTag: 7f9e1b63-c595-460f-bf3d-d1a3de5ce67a
+		lineageTag: c3df780d-1f41-470c-872b-1910f2fa486f
 		sourceLineageTag: SicknessStart
 		summarizeBy: none
 		sourceColumn: SicknessStart
@@ -99,7 +100,7 @@ table fact_sickness
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: date
-		lineageTag: 01e03c39-d788-4df4-b96e-82f8724ec113
+		lineageTag: 89df0865-9975-4b2e-b3ef-9f10e132b1e3
 		sourceLineageTag: SicknessEnd
 		summarizeBy: none
 		sourceColumn: SicknessEnd
@@ -110,7 +111,7 @@ table fact_sickness
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(6, 2)
-		lineageTag: 4f9c8e02-17e9-4f85-b078-c88500876461
+		lineageTag: 247b76f7-e32d-4b1c-a51c-3e611277aba6
 		sourceLineageTag: SicknessWaitdayHours
 		summarizeBy: sum
 		sourceColumn: SicknessWaitdayHours
@@ -119,12 +120,12 @@ table fact_sickness
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	column SicknessWaitdayDays
+	column SicknessWaitdayDay
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(5, 2)
-		lineageTag: 29e9fad5-0e9c-4076-b465-2afe72e9e896
-		sourceLineageTag: SicknessWaitdayDays
+		lineageTag: dd91b115-2e17-4b6e-8121-cb546233fc0e
+		sourceLineageTag: SicknessWaitdayDay
 		summarizeBy: sum
 		sourceColumn: SicknessWaitdayDay
 
@@ -136,7 +137,7 @@ table fact_sickness
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(8, 2)
-		lineageTag: 4ab0107b-d914-429f-b0ba-158acc9713f3
+		lineageTag: 84590dd4-3281-4a91-bab5-16a606d8733c
 		sourceLineageTag: SicknessHours
 		summarizeBy: sum
 		sourceColumn: SicknessHours
@@ -149,7 +150,7 @@ table fact_sickness
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(6, 2)
-		lineageTag: 46c43c99-2bdf-4515-b2ea-0ef51404c93c
+		lineageTag: fdd3e5ef-9ef2-4c08-99d9-fdfb0f462158
 		sourceLineageTag: SicknessDays
 		summarizeBy: sum
 		sourceColumn: SicknessDays
@@ -162,7 +163,7 @@ table fact_sickness
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 9239e4a9-ad84-4a04-9037-0527bc10e2c5
+		lineageTag: 2b95756a-628a-4ca5-a1be-9585145cafc8
 		sourceLineageTag: SicknessType
 		summarizeBy: sum
 		sourceColumn: SicknessType
@@ -172,7 +173,7 @@ table fact_sickness
 	column SicknessTypeName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: cc9d4ab9-d74b-4473-9437-3fa902e4f5e7
+		lineageTag: 158b869d-b3fc-43dd-91c0-2b8f3699eda7
 		sourceLineageTag: SicknessTypeName
 		summarizeBy: none
 		sourceColumn: SicknessTypeName
@@ -182,7 +183,7 @@ table fact_sickness
 	column RowKind
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 1a3aa134-6994-4f12-abee-cb3ed03b6d77
+		lineageTag: 97a08f6d-0380-4b53-8390-d54f03004d99
 		sourceLineageTag: RowKind
 		summarizeBy: none
 		sourceColumn: RowKind
@@ -192,7 +193,7 @@ table fact_sickness
 	column MeldingId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: be571728-b52f-4d77-b28e-c823983958d2
+		lineageTag: 5f870d1c-bb16-43c8-9657-6559e74d6c5f
 		sourceLineageTag: MeldingId
 		summarizeBy: none
 		sourceColumn: MeldingId
@@ -203,14 +204,14 @@ table fact_sickness
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: 0b355112-8a90-4bbb-a297-96f4ee22b510
+		lineageTag: 8661a24a-ba8a-4d67-82d7-b569ffe26275
 		sourceLineageTag: ModifiedAt
 		summarizeBy: none
 		sourceColumn: ModifiedAt
 
 		annotation SummarizationSetBy = Automatic
 
-	partition management_dl_fact_sickness = entity
+	partition sickness = entity
 		mode: directLake
 		source
 			entityName: sickness

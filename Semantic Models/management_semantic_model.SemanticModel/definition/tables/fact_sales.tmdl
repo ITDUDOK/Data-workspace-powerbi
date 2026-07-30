@@ -1,41 +1,41 @@
 table fact_sales
-	lineageTag: dfe913af-3335-41a6-9ac7-3157a4a40947
-	sourceLineageTag: [dbo].[management_dl_fact_sales]
+	lineageTag: cb12d278-db96-483c-8eac-4e6f45285884
+	sourceLineageTag: [dbo].[sales]
 
 	column TicketKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 569c9d74-c1f8-4929-b09f-6dc26d99f7f3
+		lineageTag: 05ac7f64-cad2-4340-92cc-5cea49a2c53d
 		sourceLineageTag: TicketKey
 		summarizeBy: none
 		sourceColumn: TicketKey
 
 		annotation SummarizationSetBy = Automatic
 
-	column OrderKey
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 1c5e7d00-c64d-41a8-84df-4d8012bea9d1
-		sourceLineageTag: OrderKey
-		summarizeBy: none
-		sourceColumn: OrderKey
-
-		annotation SummarizationSetBy = Automatic
-
 	column LineKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 8906e8b3-a332-460b-9d0f-c1a6b1bb8df8
+		lineageTag: 0ea213c6-49d0-4190-8df4-8ded78398af1
 		sourceLineageTag: LineKey
 		summarizeBy: none
 		sourceColumn: LineKey
 
 		annotation SummarizationSetBy = Automatic
 
+	column OrderKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f2bd07f6-8c0c-4290-82ac-f01729d47811
+		sourceLineageTag: OrderKey
+		summarizeBy: none
+		sourceColumn: OrderKey
+
+		annotation SummarizationSetBy = Automatic
+
 	column LineGroupKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 8a1f3476-6a8a-4c53-98c7-87b84733d206
+		lineageTag: 7e97336f-c778-4035-9f9d-107fc8ddc1bb
 		sourceLineageTag: LineGroupKey
 		summarizeBy: none
 		sourceColumn: LineGroupKey
@@ -45,7 +45,7 @@ table fact_sales
 	column LineGroupName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: fa41f05e-fa5b-4d45-85db-9e02d6cbcf4b
+		lineageTag: 76c1bbb6-92bb-4fd3-a27e-76f8785d5609
 		sourceLineageTag: LineGroupName
 		summarizeBy: none
 		sourceColumn: LineGroupName
@@ -56,7 +56,7 @@ table fact_sales
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(14, 2)
-		lineageTag: ad35d0ea-1d39-461f-9ba7-4b1d47ecd3fa
+		lineageTag: a6a6d15c-3306-4908-a4b6-cf8eaa1bac9c
 		sourceLineageTag: LinePrice
 		summarizeBy: sum
 		sourceColumn: LinePrice
@@ -68,7 +68,7 @@ table fact_sales
 	column LineProductKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 69fda34d-8201-494d-bd2d-a0f360fb5c2a
+		lineageTag: a7b228a8-94bf-4ab0-8fa3-aad3af69cc5b
 		sourceLineageTag: LineProductKey
 		summarizeBy: none
 		sourceColumn: LineProductKey
@@ -78,7 +78,7 @@ table fact_sales
 	column LineProductName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 5ce52eac-e3b7-4a50-83de-dbe4dc20d00a
+		lineageTag: 523ce915-3e7a-4045-b87c-0fc4f51818bd
 		sourceLineageTag: LineProductName
 		summarizeBy: none
 		sourceColumn: LineProductName
@@ -89,7 +89,7 @@ table fact_sales
 		dataType: int64
 		formatString: 0
 		sourceProviderType: bigint
-		lineageTag: 40ce1b0d-acc9-47f0-a9e8-f530a3ab9aca
+		lineageTag: ca74ce32-b452-4365-91eb-7319d50bd64c
 		sourceLineageTag: LineProductNr
 		summarizeBy: sum
 		sourceColumn: LineProductNr
@@ -100,7 +100,7 @@ table fact_sales
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: c0af0713-add9-40c6-82c7-dc4a67fa713b
+		lineageTag: 113a8fec-db8b-457e-b243-6a3810195b76
 		sourceLineageTag: LineQty
 		summarizeBy: sum
 		sourceColumn: LineQty
@@ -111,7 +111,7 @@ table fact_sales
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(14, 2)
-		lineageTag: 805b6454-9be6-4936-990b-974bfea5ce1a
+		lineageTag: 924db872-8e54-4b12-b3aa-eca1a3a13822
 		sourceLineageTag: LineTotalEx
 		summarizeBy: sum
 		sourceColumn: LineTotalEx
@@ -124,7 +124,7 @@ table fact_sales
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(14, 2)
-		lineageTag: d88de118-b9af-42cd-8c4f-c24e673e7a62
+		lineageTag: 6af28f4c-7e8e-40d8-9014-e312375643c7
 		sourceLineageTag: LineTotalInc
 		summarizeBy: sum
 		sourceColumn: LineTotalInc
@@ -137,7 +137,7 @@ table fact_sales
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: db9eb92a-c175-4b5c-a249-4700a336e003
+		lineageTag: bbec2534-a2da-4a07-8fa5-7832e7db025d
 		sourceLineageTag: LineVatPerc
 		summarizeBy: sum
 		sourceColumn: LineVatPerc
@@ -147,37 +147,17 @@ table fact_sales
 	column CenterKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: f57254e6-c59b-4b61-8ac4-03a2a2bc0672
+		lineageTag: f5fa4ffc-0855-45a3-88fb-b656a48859b3
 		sourceLineageTag: CenterKey
 		summarizeBy: none
 		sourceColumn: CenterKey
 
 		annotation SummarizationSetBy = Automatic
 
-	column OrdersTable_OrderUserName
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 175ade2f-508a-432b-a3dd-a289b537123d
-		sourceLineageTag: OrdersTable_OrderUserName
-		summarizeBy: none
-		sourceColumn: OrderUserName
-
-		annotation SummarizationSetBy = Automatic
-
-	column OrdersTable_OrderUserKey
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 5cc0c8b2-18f3-4c4b-857f-9ce9d99f03fa
-		sourceLineageTag: OrdersTable_OrderUserKey
-		summarizeBy: none
-		sourceColumn: OrderUserKey
-
-		annotation SummarizationSetBy = Automatic
-
 	column CenterName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 83c13b4a-478f-41c2-852c-fcaccaad5adc
+		lineageTag: 4af00569-bfbc-4ddc-85eb-049a90c613f1
 		sourceLineageTag: CenterName
 		summarizeBy: none
 		sourceColumn: CenterName
@@ -188,7 +168,7 @@ table fact_sales
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		sourceProviderType: bit
-		lineageTag: adc9fea0-e40d-4848-bb68-60ffaf68b330
+		lineageTag: 7a6de55b-cacc-4873-b4c4-1b9a87295598
 		sourceLineageTag: IsAddon
 		summarizeBy: none
 		sourceColumn: IsAddon
@@ -198,40 +178,60 @@ table fact_sales
 	column ParentLineKey
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: ddf4ee5b-e105-4622-899b-0b0e1fa5802a
+		lineageTag: 6e46ee31-9a65-42b7-8e20-2e93cf0478f7
 		sourceLineageTag: ParentLineKey
 		summarizeBy: none
 		sourceColumn: ParentLineKey
 
 		annotation SummarizationSetBy = Automatic
 
-	column TicketTable_TicketTime
+	column OrderUserName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 7dbfaa64-6d82-4062-a797-036907cbae9b
-		sourceLineageTag: TicketTable_TicketTime
+		lineageTag: 45c9bc45-0e4b-46d7-abbf-448c86d2af6c
+		sourceLineageTag: OrderUserName
 		summarizeBy: none
-		sourceColumn: TicketTime
+		sourceColumn: OrderUserName
 
 		annotation SummarizationSetBy = Automatic
 
-	column TicketTable_TicketDate
+	column OrderUserKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f157552d-4853-43c6-977f-cd2b984a2e28
+		sourceLineageTag: OrderUserKey
+		summarizeBy: none
+		sourceColumn: OrderUserKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketDate
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: date
-		lineageTag: b32c39ef-174f-478e-a314-29b38e833e8b
-		sourceLineageTag: TicketTable_TicketDate
+		lineageTag: 9e02364e-231d-49d9-9168-56981c83d895
+		sourceLineageTag: TicketDate
 		summarizeBy: none
 		sourceColumn: TicketDate
 
 		annotation SummarizationSetBy = Automatic
 
-	column TicketTable_TotalPrice
+	column TicketTime
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 011f90f9-d8e8-4dc4-82f6-6caf68ff3fdc
+		sourceLineageTag: TicketTime
+		summarizeBy: none
+		sourceColumn: TicketTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketTotalPrice
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(14, 2)
-		lineageTag: 00cd67fd-5355-4c66-b742-09a08dd74e91
-		sourceLineageTag: TicketTable_TotalPrice
+		lineageTag: 01412531-8cb2-4f96-9418-9cda62e8f12e
+		sourceLineageTag: TicketTotalPrice
 		summarizeBy: sum
 		sourceColumn: TicketTotalPrice
 
@@ -239,33 +239,54 @@ table fact_sales
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	column TicketTable_Internal
+	column TicketInternal
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: b9799ac2-1a53-46e5-8e73-97eba79e0ef9
-		sourceLineageTag: TicketTable_Internal
+		lineageTag: ffde7b09-9124-4a56-8ec8-462cfc9c9261
+		sourceLineageTag: TicketInternal
 		summarizeBy: none
 		sourceColumn: TicketInternal
 
 		annotation SummarizationSetBy = Automatic
 
-	column TicketTable_TableNr
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 6380061f-064a-4a29-a050-9cf10cd36b7b
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f479b9b2-d08a-44af-b74e-65b82a614ceb
+		sourceLineageTag: SalesId
+		summarizeBy: count
+		sourceColumn: SalesId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableNr
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: f97bc103-3bdd-47cf-957d-2e84799e8bde
-		sourceLineageTag: TicketTable_TableNr
+		lineageTag: 7fcf3d2f-fde2-486c-b564-caabaec6f85d
+		sourceLineageTag: TableNr
 		summarizeBy: none
 		sourceColumn: TableNr
 
 		annotation SummarizationSetBy = Automatic
 
-	column TicketTable_Covers
+	column Covers
 		dataType: string
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: fb3eed03-8d7f-414c-8b4c-71b954f800c6
-		sourceLineageTag: TicketTable_Covers
-		summarizeBy: sum
+		sourceProviderType: varchar(8000)
+		lineageTag: 26c2e591-7694-4b89-9242-ce6cea8a44af
+		sourceLineageTag: Covers
+		summarizeBy: none
 		sourceColumn: Covers
 
 		annotation SummarizationSetBy = Automatic
@@ -274,21 +295,10 @@ table fact_sales
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: date
-		lineageTag: 16e1a769-5245-49be-b67c-fc7b592b3b57
+		lineageTag: 8bf33ed8-e6d7-4146-bfda-13a633e092bc
 		sourceLineageTag: ActualDate
 		summarizeBy: none
 		sourceColumn: ActualDate
-
-		annotation SummarizationSetBy = Automatic
-
-	column SalesKey
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: b56a7f24-18ed-4cad-925c-6179c51464ca
-		sourceLineageTag: SalesKey
-		summarizeBy: count
-		sourceColumn: SalesId
 
 		annotation SummarizationSetBy = Automatic
 
@@ -296,7 +306,7 @@ table fact_sales
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: 5710e1a6-c3b6-412c-8fd5-d56fcdc42fd2
+		lineageTag: 662fc0f3-31ab-4f14-9acc-7d084d09edd8
 		sourceLineageTag: Time
 		summarizeBy: none
 		sourceColumn: Time
@@ -306,20 +316,15 @@ table fact_sales
 	column HourNumber
 		dataType: int64
 		formatString: 0
-		sourceProviderType: bigint
-		lineageTag: 4d9abccb-6373-4256-a114-04fed9f71dd6
+		sourceProviderType: int
+		lineageTag: f76b4918-a91b-42a1-a3ff-a4bdda5b9e2c
 		sourceLineageTag: HourNumber
 		summarizeBy: sum
 		sourceColumn: HourNumber
 
 		annotation SummarizationSetBy = Automatic
 
-	column ModifiedAt
-		dataType: dateTime
-		lineageTag: 31b55f2d-63a2-4565-a772-ac99f5356957
-		sourceColumn: ModifiedAt
-
-	partition management_dl_fact_sales = entity
+	partition sales = entity
 		mode: directLake
 		source
 			entityName: sales
