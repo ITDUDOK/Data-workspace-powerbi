@@ -1,0 +1,245 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "4e8655a34fff6203ba8f",
+  "position": {
+    "x": 221.31338320864506,
+    "y": 394.7464671654198,
+    "z": 10006,
+    "height": 311.7539484621779,
+    "width": 1055.4945968412303,
+    "tabOrder": 10006
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_center"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              },
+              "queryRef": "dim_center.Location",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "AverageSpendingPerTicket"
+                }
+              },
+              "queryRef": "measurements.AverageSpendingPerTicket",
+              "nativeQueryRef": "Gemiddelde besteding ",
+              "displayName": "Gemiddelde besteding "
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Drinks_Per_Ticket"
+                }
+              },
+              "queryRef": "measurements.drinks_per_ticket",
+              "nativeQueryRef": "Drankjes per ticket",
+              "displayName": "Drankjes per ticket"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Cake_Per_HotDrink"
+                }
+              },
+              "queryRef": "measurements.Cake_Per_HotDrink",
+              "nativeQueryRef": "Taart per warme drank",
+              "displayName": "Taart per warme drank"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "measurements"
+                  }
+                },
+                "Property": "AverageSpendingPerTicket"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "191.81629260182876D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.AverageSpendingPerTicket"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "182.71239895105532D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.drinks_per_ticket"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "225.9924885511714D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Cake_Per_HotDrink"
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d9765beedc43c5ed4a6a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "AverageSpendingPerTicket"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e85c738cb7728b7261c9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Drinks_Per_Ticket"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6c67a6eddbd519c59596",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Cake_Per_HotDrink"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "221ed2098400e4bd6b53",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_center"
+              }
+            },
+            "Property": "Location"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

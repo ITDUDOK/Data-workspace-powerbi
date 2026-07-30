@@ -1,0 +1,370 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "c2800796033ce8b9f85b",
+  "position": {
+    "x": 266.50455927051672,
+    "y": 83.647416413373861,
+    "z": 3000,
+    "height": 623.46504559270522,
+    "width": 1013.4954407294833,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_date"
+                    }
+                  },
+                  "Property": "Month"
+                }
+              },
+              "queryRef": "dim_date.Month",
+              "nativeQueryRef": "Month",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_date"
+                    }
+                  },
+                  "Property": "ThisWeekISO"
+                }
+              },
+              "queryRef": "dim_date.ThisWeekISO",
+              "nativeQueryRef": "ThisWeekISO",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_date"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "dim_date.Date",
+              "nativeQueryRef": "Date",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Prognose_Horeca"
+                }
+              },
+              "queryRef": "measurements.Prognose_Horeca",
+              "nativeQueryRef": "Prognose Horeca",
+              "displayName": "Prognose Horeca"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "MICE_Gepland"
+                }
+              },
+              "queryRef": "measurements.MICE_Gepland",
+              "nativeQueryRef": "MICE Gepland",
+              "displayName": "MICE Gepland"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "MICE_Optie"
+                }
+              },
+              "queryRef": "measurements.MICE_Optie",
+              "nativeQueryRef": "MICE Optie",
+              "displayName": "MICE Optie"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Week_Prognose"
+                }
+              },
+              "queryRef": "measurements.Week_Prognose",
+              "nativeQueryRef": "Week Prognose",
+              "displayName": "Week Prognose"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Horeca_VorigJaar"
+                }
+              },
+              "queryRef": "measurements.Horeca_VorigJaar",
+              "nativeQueryRef": "Horeca vorig jaar",
+              "displayName": "Horeca vorig jaar"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Events_VorigJaar"
+                }
+              },
+              "queryRef": "measurements.Events_VorigJaar",
+              "nativeQueryRef": "Events vorig jaar",
+              "displayName": "Events vorig jaar"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Tickets_VorigJaar"
+                }
+              },
+              "queryRef": "measurements.Tickets_VorigJaar",
+              "nativeQueryRef": "Tickets vorig jaar",
+              "displayName": "Tickets vorig jaar"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "dim_date.Month"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dim_date.ThisWeekISO"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dim_date.Date"
+            ],
+            "isCollapsed": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Prognose_Horeca"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d1389de2c46ae4416630",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Prognose_Horeca"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d90cb2a20d148da28b53",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "MICE_Gepland"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6de23608469d8a096886",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "MICE_Optie"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f19f52e0b5667c7c47e0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Week_Prognose"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "afc9b7579e31a0668ac3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Horeca_VorigJaar"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fda0ccf5a18b0642334a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Events_VorigJaar"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "106b7b3bb711b06209e0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Tickets_VorigJaar"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "85cf6eacc090b8e442c7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "ThisWeekISO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2f19d6b338be202e3009",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "Month"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "820e48b2eb64a2722698",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

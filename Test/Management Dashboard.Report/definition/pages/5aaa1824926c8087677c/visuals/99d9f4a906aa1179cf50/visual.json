@@ -1,0 +1,401 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "99d9f4a906aa1179cf50",
+  "position": {
+    "x": 294.26679280983916,
+    "y": 500.13245033112582,
+    "z": 8000,
+    "height": 208.28760643330179,
+    "width": 985.73320719016078,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_center"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              },
+              "queryRef": "dim_center.Location",
+              "nativeQueryRef": "Location",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTW_PreviousYear"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTW_PreviousYear",
+              "nativeQueryRef": "Omzet",
+              "displayName": "Omzet"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "AverageSpendingPerTicket_PreviousYear"
+                }
+              },
+              "queryRef": "measurements.AverageSpendingPerTicket_PreviousYear",
+              "nativeQueryRef": "Gem ticket €",
+              "displayName": "Gem ticket €"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "OPU_PreviousYear"
+                }
+              },
+              "queryRef": "measurements.OPU_PreviousYear",
+              "nativeQueryRef": "OPU",
+              "displayName": "OPU"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Netto_GewerktUren_PreviousYear"
+                }
+              },
+              "queryRef": "measurements.Netto_GewerktUren_PreviousYear",
+              "nativeQueryRef": "Uren",
+              "displayName": "Uren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "LabourCost_PercentageOfRevenue_PreviousYear"
+                }
+              },
+              "queryRef": "measurements.LabourCost_PercentageOfRevenue_PreviousYear",
+              "nativeQueryRef": "Loonkosten %",
+              "displayName": "Loonkosten %"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "88.95362846102992D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.TotaleOmzetExBTW_PreviousYear"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "126.32923368022705D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.AverageSpendingPerTicket_PreviousYear"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.54020813623463D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.OPU_PreviousYear"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "96.49377380139518D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Netto_GewerktUren_PreviousYear"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "152.28289197643772D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.LabourCost_PercentageOfRevenue_PreviousYear"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Vorig Jaar'"
+                }
+              }
+            },
+            "heading": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Heading6'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a2817644ae20d3124960",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTW_PreviousYear"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1e80ae4c15dc1c05ccdb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "AverageSpendingPerTicket_PreviousYear"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "203ddcd766e802556623",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "OPU_PreviousYear"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "143b10e3bb24a47cd2d5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Netto_GewerktUren_PreviousYear"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e5beda9d190b14867da9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_PercentageOfRevenue_PreviousYear"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8baa0bc8d4a6551a0c4d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_center"
+              }
+            },
+            "Property": "Location"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dim_center",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "Location"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

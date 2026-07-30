@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Cross-product analyse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b5e640d5-dc7c-4689-b6da-b1f0c50ac5a2"
+  }
+}

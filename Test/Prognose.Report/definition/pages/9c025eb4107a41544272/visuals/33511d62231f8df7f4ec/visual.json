@@ -1,0 +1,78 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "33511d62231f8df7f4ec",
+  "position": {
+    "x": 1.9452887537993921,
+    "y": 604.984802431611,
+    "z": 8000,
+    "height": 86.565349544072959,
+    "width": 266.50455927051672,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "correctiefactor"
+                    }
+                  },
+                  "Property": "CorrPercent"
+                }
+              },
+              "queryRef": "correctiefactor.CorrPercent",
+              "nativeQueryRef": "Correctiefactor",
+              "active": true,
+              "displayName": "Correctiefactor"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "08c91acf76e4dd4d0760",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "correctiefactor"
+              }
+            },
+            "Property": "CorrPercent"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

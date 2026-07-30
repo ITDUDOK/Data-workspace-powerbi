@@ -1,0 +1,124 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "781bf42917f5cccc6b1c",
+  "position": {
+    "x": 0,
+    "y": 101.15501519756839,
+    "z": 10000,
+    "height": 83.647416413373861,
+    "width": 213.98176291793314,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_productgroup"
+                    }
+                  },
+                  "Property": "ParentProductGroup"
+                }
+              },
+              "queryRef": "dim_productgroup.ParentProductGroup",
+              "nativeQueryRef": "ParentProductGroup",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_productgroup"
+                    }
+                  },
+                  "Property": "ProductGroupName"
+                }
+              },
+              "queryRef": "dim_productgroup.ProductGroupName",
+              "nativeQueryRef": "ProductGroupName",
+              "active": false
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Product Groep'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "ParentProductGroup",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9a8d3f3fb990b09a050c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_productgroup"
+              }
+            },
+            "Property": "ParentProductGroup"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "db4d9239503706e50e4b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_productgroup"
+              }
+            },
+            "Property": "ProductGroupName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
