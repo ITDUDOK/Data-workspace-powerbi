@@ -1,0 +1,520 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "2100b8ac12c1edc350e5",
+  "position": {
+    "x": 295.11265164644715,
+    "y": 124.15944540727902,
+    "z": 0,
+    "height": 277.01906412478337,
+    "width": 984.54072790294617,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_date"
+                    }
+                  },
+                  "Property": "DayName"
+                }
+              },
+              "queryRef": "dim_date.DayName",
+              "nativeQueryRef": "Weekdag",
+              "active": true,
+              "displayName": "Weekdag"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBtw"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTW",
+              "nativeQueryRef": "Deze week",
+              "displayName": "Deze week"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTW_PreviousWeek"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTW_PreviousWeek",
+              "nativeQueryRef": "Vorige week",
+              "displayName": "Vorige week",
+              "format": "\"€\" #,0.###############;\"€\" -#,0.###############;\"€\" #,0.###############"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTW_PercentageChange"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTW_PercentageChange",
+              "nativeQueryRef": "Groei %",
+              "displayName": "Groei %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "LabourCost"
+                }
+              },
+              "queryRef": "measurements.PersoneelsKosten",
+              "nativeQueryRef": "Personeelskosten",
+              "displayName": "Personeelskosten"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "LabourCost_PreviousWeek"
+                }
+              },
+              "queryRef": "measurements.LabourCost_PreviousWeek",
+              "nativeQueryRef": "Vorige week ",
+              "displayName": "Vorige week ",
+              "format": "\"€\" #,0;\"€\" -#,0;\"€\" #,0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "LabourCost_PercentageOfRevenue"
+                }
+              },
+              "queryRef": "measurements.LabourCost_PercentageOfRevenue",
+              "nativeQueryRef": "Personeel %",
+              "displayName": "Personeel %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "LabourCost_PercentageOfRevenue_PreviousWeek"
+                }
+              },
+              "queryRef": "measurements.LabourCost_PercentageOfRevenue_PreviousWeek",
+              "nativeQueryRef": "Vorige week %",
+              "displayName": "Vorige week %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotalTickets"
+                }
+              },
+              "queryRef": "measurements.TotalTickets",
+              "nativeQueryRef": "Tickets (#)",
+              "displayName": "Tickets (#)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "AverageSpendingPerTicket"
+                }
+              },
+              "queryRef": "measurements.AverageSpendingPerTicket",
+              "nativeQueryRef": "Besteding (€)",
+              "displayName": "Besteding (€)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "SumCovers"
+                }
+              },
+              "queryRef": "measurements.SumCovers",
+              "nativeQueryRef": "Couverts",
+              "displayName": "Couverts"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "90.27536308402745D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.TotaleOmzetExBTW"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "61.600779210230534D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.TotaleOmzetExBTW_PercentageChange"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "90.49578255982051D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.TotaleOmzetExBTW_PreviousWeek"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "88.51448503812264D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.LabourCost_PercentageOfRevenue"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "95.05171297644321D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.AverageSpendingPerTicket"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.87175128514961D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.PersoneelsKosten"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.TotaleOmzetExBTW_PreviousWeek"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Prestatie t.o.v. voorgaande week'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3dade1d774556b4c9a80",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBtw"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "af96219c5ec27ba08c58",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTW_PreviousWeek"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6687729d4c949bc76c39",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTW_PercentageChange"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cf3c2529303609177269",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7d7d09855bce3344442e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_PreviousWeek"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "19001d02a5310c00ae1d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_PercentageOfRevenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e15cd3095e08d250212c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_PercentageOfRevenue_PreviousWeek"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e49afb19d112b803b3ac",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotalTickets"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dbbbfc170e31e42a037d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "AverageSpendingPerTicket"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "90ff0030090009b91a20",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "SumCovers"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f254c1ef84e170087004",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "DayName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

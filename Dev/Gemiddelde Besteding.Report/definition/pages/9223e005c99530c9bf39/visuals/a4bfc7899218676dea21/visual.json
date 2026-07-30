@@ -1,0 +1,78 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "a4bfc7899218676dea21",
+  "position": {
+    "x": 0,
+    "y": 337.29010806317541,
+    "z": 10005,
+    "height": 86.184538653366587,
+    "width": 221.31338320864506,
+    "tabOrder": 10005
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_center"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              },
+              "queryRef": "dim_center.Location",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "53846a2c629bee311420",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_center"
+              }
+            },
+            "Property": "Location"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

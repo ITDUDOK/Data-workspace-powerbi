@@ -1,0 +1,182 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "e0aee0d0acd3a3a60332",
+  "position": {
+    "x": 275.77123050259962,
+    "y": 80.48526863084922,
+    "z": 0,
+    "height": 627.03639514731367,
+    "width": 491.0225303292894,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_product"
+                    }
+                  },
+                  "Property": "ProductName"
+                }
+              },
+              "queryRef": "dim_product.ProductName",
+              "nativeQueryRef": "ProductName",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Product_Sum_Quantity"
+                }
+              },
+              "queryRef": "measurements.Product_Sum_Quantity",
+              "nativeQueryRef": "Verkopen (#)",
+              "displayName": "Verkopen (#)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "measurements"
+                  }
+                },
+                "Property": "Product_Sum_Quantity"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "178.91560353287537D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Product_Sum_Quantity"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "257.8601860063977D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_product.ProductName"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Product_Sum_Quantity"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7dfa820e3715b1d00940",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Product_Sum_Quantity"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6eac4c1e0014478e19e0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_product"
+              }
+            },
+            "Property": "ProductName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

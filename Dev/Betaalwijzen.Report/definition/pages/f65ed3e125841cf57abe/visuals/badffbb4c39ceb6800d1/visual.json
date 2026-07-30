@@ -1,0 +1,174 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "badffbb4c39ceb6800d1",
+  "position": {
+    "x": 310.20408163265307,
+    "y": 87.074829931972786,
+    "z": 8001,
+    "height": 620.40816326530614,
+    "width": 967.61904761904771,
+    "tabOrder": 8001
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_paymentmethod"
+                    }
+                  },
+                  "Property": "PaymodeGroupName"
+                }
+              },
+              "queryRef": "dim_paymentmethod.PaymodeGroupName",
+              "nativeQueryRef": "PaymodeGroupName",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_center"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              },
+              "queryRef": "dim_center.Location",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_center"
+                    }
+                  },
+                  "Property": "UpdatedName"
+                }
+              },
+              "queryRef": "dim_center.UpdatedName",
+              "nativeQueryRef": "UpdatedName",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaalBetaald_ByPaymentGroup"
+                }
+              },
+              "queryRef": "measurements.TotaalBetaald_ByPaymentGroup",
+              "nativeQueryRef": "TotaalBetaald_ByPaymentGroup"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "dim_center.Location"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_center"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dim_center.UpdatedName"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "28a56d919ee732309874",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_center"
+              }
+            },
+            "Property": "Location"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ea6c3830335d50170207",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_paymentmethod"
+              }
+            },
+            "Property": "PaymodeGroupName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5e430a1c82893483b3b2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaalBetaald_ByPaymentGroup"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

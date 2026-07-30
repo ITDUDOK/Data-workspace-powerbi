@@ -1,0 +1,402 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "43acb752e573b5241ed5",
+  "position": {
+    "x": 295.22412387938061,
+    "y": 401.62999185004077,
+    "z": 5000,
+    "height": 246.19396903015485,
+    "width": 984.77587612061939,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_date"
+                    }
+                  },
+                  "Property": "DayName"
+                }
+              },
+              "queryRef": "dim_date.DayName",
+              "nativeQueryRef": "Weekdag",
+              "active": true,
+              "displayName": "Weekdag"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBtw"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTW",
+              "nativeQueryRef": "Deze week",
+              "displayName": "Deze week"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTW_PreviousYear"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTW_PreviousYear",
+              "nativeQueryRef": "Vorig jaar",
+              "displayName": "Vorig jaar"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTW_PercentageChangeYear"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTW_PercentageChangeYear",
+              "nativeQueryRef": "Groei %",
+              "displayName": "Groei %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "LabourCost"
+                }
+              },
+              "queryRef": "measurements.LabourCost",
+              "nativeQueryRef": "Personeelskosten",
+              "displayName": "Personeelskosten"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "LabourCost_PreviousYear"
+                }
+              },
+              "queryRef": "measurements.LabourCost_PreviousYear",
+              "nativeQueryRef": "Vorig jaar1",
+              "displayName": "Vorig jaar"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "LabourCost_PercentageOfRevenue"
+                }
+              },
+              "queryRef": "measurements.LabourCost_PercentageOfRevenue",
+              "nativeQueryRef": "Personeel %",
+              "displayName": "Personeel %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "LabourCost_PercentageOfRevenue_PreviousYear"
+                }
+              },
+              "queryRef": "measurements.LabourCost_PercentageOfRevenue_PreviousYear",
+              "nativeQueryRef": "Vorig jaar %",
+              "displayName": "Vorig jaar %"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "107.23648099249759D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.TotaleOmzetExBTW_PreviousYear"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "78.13333333333333D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.TotaleOmzetExBTW_PercentageChangeYear"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.26666666666667D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.LabourCost_PreviousYear"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.06666666666666D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.LabourCost_PercentageOfRevenue"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.95984607662707D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.LabourCost_PercentageOfRevenue_PreviousYear"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "112.88991572217378D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.TotaleOmzetExBTW"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Prestatie t.o.v. vorig jaar'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "cde41a8026d72b082ad0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBtw"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "113eecfd9114dedb0d54",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTW_PreviousYear"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "445c0042e3655d458116",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTW_PercentageChangeYear"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e086bdf7e060368826c0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "34577812c630166aab4b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_PreviousYear"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f6a769433e40d04a184c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_PercentageOfRevenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2514879082e51c6c6004",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_PercentageOfRevenue_PreviousYear"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "35892d85040946030016",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "DayName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "ecdd9fe2611de2eae59c",
+  "position": {
+    "x": 364.14738646101114,
+    "y": 78.971722365038559,
+    "z": 0,
+    "height": 628.48329048843186,
+    "width": 535.25278491859467,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_product"
+                    }
+                  },
+                  "Property": "ProductName"
+                }
+              },
+              "queryRef": "dim_product.ProductName",
+              "nativeQueryRef": "ProductName",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBtw"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTW",
+              "nativeQueryRef": "Verkopen (€)",
+              "displayName": "Verkopen (€)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Product_Sum_Quantity"
+                }
+              },
+              "queryRef": "measurements.Product_Sum_Quantity",
+              "nativeQueryRef": "Verkopen (#)",
+              "displayName": "Verkopen (#)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "measurements"
+                  }
+                },
+                "Property": "TotaleOmzetExBtw"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "130.97112649715177D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Product_Sum_Quantity"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "130.6256593399122D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.TotaleOmzetExBTW"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Menu Verkopen'"
+                }
+              }
+            },
+            "heading": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Normal'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f93d3dbe1d9d35380e03",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBtw"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d84948e2e920b506ad1a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Product_Sum_Quantity"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dcf6ad1b51eb12e84807",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_product"
+              }
+            },
+            "Property": "ProductName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

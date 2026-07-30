@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Interne rekeningen"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4ccc8b2b-41fe-435f-a61d-a5a6dbee1ad1"
+  }
+}
