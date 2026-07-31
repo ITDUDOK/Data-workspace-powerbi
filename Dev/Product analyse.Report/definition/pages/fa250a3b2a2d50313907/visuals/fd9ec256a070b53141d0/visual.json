@@ -17,32 +17,42 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_productgroup"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_productgroup"
+                        }
+                      },
+                      "Hierarchy": "Name Hiërarchie"
                     }
                   },
-                  "Property": "ParentProductGroup"
+                  "Level": "ParentProductGroup"
                 }
               },
-              "queryRef": "dim_productgroup.ParentProductGroup",
-              "nativeQueryRef": "ParentProductGroup",
+              "queryRef": "dim_productgroup.Name Hiërarchie.ParentProductGroup",
+              "nativeQueryRef": "Name Hiërarchie ParentProductGroup",
               "active": true
             },
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_productgroup"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_productgroup"
+                        }
+                      },
+                      "Hierarchy": "Name Hiërarchie"
                     }
                   },
-                  "Property": "ProductGroupName"
+                  "Level": "Name"
                 }
               },
-              "queryRef": "dim_productgroup.ProductGroupName",
-              "nativeQueryRef": "ProductGroupName",
+              "queryRef": "dim_productgroup.Name Hiërarchie.Name",
+              "nativeQueryRef": "Name Hiërarchie Name",
               "active": false
             }
           ]
@@ -57,7 +67,7 @@
         "levels": [
           {
             "queryRefs": [
-              "dim_productgroup.ParentProductGroup"
+              "dim_productgroup.Name Hiërarchie.ParentProductGroup"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -76,7 +86,7 @@
           },
           {
             "queryRefs": [
-              "dim_productgroup.ProductGroupName"
+              "dim_productgroup.Name Hiërarchie.Name"
             ],
             "isCollapsed": true,
             "isPinned": true
@@ -311,7 +321,6 @@
             }
           ]
         },
-        "howCreated": "User",
         "objects": {
           "general": [
             {
@@ -327,6 +336,25 @@
             }
           ]
         }
+      },
+      {
+        "name": "cb619b8e842d5a1c60d5",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_productgroup"
+                  }
+                },
+                "Hierarchy": "Name Hiërarchie"
+              }
+            },
+            "Level": "Name"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

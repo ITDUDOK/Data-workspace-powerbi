@@ -130,6 +130,20 @@
                               "Value": "null"
                             }
                           }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "2018L"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "2019L"
+                            }
+                          }
                         ]
                       ]
                     }

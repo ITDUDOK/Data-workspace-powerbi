@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "f056657640bd23d941eb",
   "position": {
-    "x": 2.6666666666666665,
-    "y": 514.66666666666663,
+    "x": 0.97264437689969607,
+    "y": 514.52887537993922,
     "z": 2000,
-    "height": 86.666666666666671,
-    "width": 406.66666666666669,
+    "height": 86.565349544072959,
+    "width": 408.51063829787233,
     "tabOrder": 2000
   },
   "visual": {
@@ -115,7 +115,65 @@
             "Property": "ThisWeekISO"
           }
         },
-        "type": "Categorical"
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dim_date",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "ThisWeekISO"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ]
   }

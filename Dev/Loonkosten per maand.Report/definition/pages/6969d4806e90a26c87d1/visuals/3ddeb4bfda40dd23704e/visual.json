@@ -413,6 +413,13 @@
                         [
                           {
                             "Literal": {
+                              "Value": "'OUD - Alfredo''s'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
                               "Value": "'OUD - Bar Bistro Binnenrotte'"
                             }
                           }
@@ -504,7 +511,7 @@
                         [
                           {
                             "Literal": {
-                              "Value": "'OUD - Alfredo''s'"
+                              "Value": "'Dudok HQ Testomgeving'"
                             }
                           }
                         ]

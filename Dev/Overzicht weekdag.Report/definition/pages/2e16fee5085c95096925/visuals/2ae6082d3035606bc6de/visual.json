@@ -3,10 +3,10 @@
   "name": "2ae6082d3035606bc6de",
   "position": {
     "x": 0,
-    "y": 291.66666666666669,
+    "y": 240.24316109422494,
     "z": 0,
-    "height": 80.555555555555557,
-    "width": 337.77777777777777,
+    "height": 80.729483282674778,
+    "width": 337.50759878419456,
     "tabOrder": 0
   },
   "visual": {
@@ -17,6 +17,61 @@
           "projections": [
             {
               "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_center"
+                        }
+                      },
+                      "Hierarchy": "ParentName Hiërarchie"
+                    }
+                  },
+                  "Level": "Location"
+                }
+              },
+              "queryRef": "dim_center.ParentName Hiërarchie.Location",
+              "nativeQueryRef": "ParentName Hiërarchie Location",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_center"
+                        }
+                      },
+                      "Hierarchy": "ParentName Hiërarchie"
+                    }
+                  },
+                  "Level": "UpdatedName"
+                }
+              },
+              "queryRef": "dim_center.ParentName Hiërarchie.UpdatedName",
+              "nativeQueryRef": "ParentName Hiërarchie UpdatedName",
+              "active": false
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "dim_center.ParentName Hiërarchie.Location"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
@@ -25,15 +80,21 @@
                   },
                   "Property": "Location"
                 }
-              },
-              "queryRef": "dim_center.Location",
-              "nativeQueryRef": "Location",
-              "active": true
-            }
-          ]
-        }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dim_center.ParentName Hiërarchie.UpdatedName"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
       }
-    },
+    ],
     "objects": {
       "data": [
         {
@@ -92,18 +153,155 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "20e5fcc13bc8d7a9d02d",
+        "name": "6e4c447c0b0bc59c04d6",
         "field": {
-          "Column": {
+          "HierarchyLevel": {
             "Expression": {
-              "SourceRef": {
-                "Entity": "dim_center"
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_center"
+                  }
+                },
+                "Hierarchy": "ParentName Hiërarchie"
               }
             },
-            "Property": "Location"
+            "Level": "UpdatedName"
           }
         },
         "type": "Categorical"
+      },
+      {
+        "name": "89fe3eb7a10b5881741d",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_center"
+                  }
+                },
+                "Hierarchy": "ParentName Hiërarchie"
+              }
+            },
+            "Level": "Location"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dim_center",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "Location"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              },
+              "Annotations": {
+                "filterExpressionMetadata": {
+                  "expressions": [
+                    {
+                      "HierarchyLevel": {
+                        "Expression": {
+                          "Hierarchy": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "dim_center"
+                              }
+                            },
+                            "Hierarchy": "ParentName Hiërarchie"
+                          }
+                        },
+                        "Level": "Location"
+                      }
+                    }
+                  ],
+                  "decomposedIdentities": {
+                    "values": [
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "null"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    ],
+                    "columns": [
+                      {
+                        "value": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "dim_center"
+                              }
+                            },
+                            "Property": "Location"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "valueMap": [
+                    {
+                      "0": "(Leeg)"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ]
   }

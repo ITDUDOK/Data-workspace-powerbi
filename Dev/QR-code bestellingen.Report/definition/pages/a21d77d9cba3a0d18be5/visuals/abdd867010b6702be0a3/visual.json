@@ -17,74 +17,48 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_center"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_center"
+                        }
+                      },
+                      "Hierarchy": "ParentName Hiërarchie"
                     }
                   },
-                  "Property": "Location"
+                  "Level": "Location"
                 }
               },
-              "queryRef": "dim_center.Location",
-              "nativeQueryRef": "Location",
+              "queryRef": "dim_center.ParentName Hiërarchie.Location",
+              "nativeQueryRef": "ParentName Hiërarchie Location",
               "active": true
             },
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_center"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_center"
+                        }
+                      },
+                      "Hierarchy": "ParentName Hiërarchie"
                     }
                   },
-                  "Property": "UpdatedName"
+                  "Level": "UpdatedName"
                 }
               },
-              "queryRef": "dim_center.UpdatedName",
-              "nativeQueryRef": "UpdatedName",
+              "queryRef": "dim_center.ParentName Hiërarchie.UpdatedName",
+              "nativeQueryRef": "ParentName Hiërarchie UpdatedName",
               "active": false
             }
           ]
         }
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Values"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "dim_center.Location"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_center"
-                    }
-                  },
-                  "Property": "Location"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "dim_center.UpdatedName"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          }
-        ],
-        "root": {}
-      }
-    ],
     "objects": {
       "data": [
         {
@@ -143,29 +117,488 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "80681392e95ac0c0446d",
+        "name": "e5bec34a440d0bc02b2b",
         "field": {
-          "Column": {
+          "HierarchyLevel": {
             "Expression": {
-              "SourceRef": {
-                "Entity": "dim_center"
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_center"
+                  }
+                },
+                "Hierarchy": "ParentName Hiërarchie"
               }
             },
-            "Property": "Location"
+            "Level": "Location"
           }
         },
-        "type": "Categorical"
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dim_center",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "Location"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Dudok Horeca Shared Services'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Dudok HQ Testomgeving'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Alfredo''s'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Bar Bistro Binnenrotte'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - De Harmonie'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Dudok Barendrecht'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Dudok Delft'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Dudok Patisserie Westewagenstraat B.V'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Dudok Rijnstraat Den Haag'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Mart Café'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Roes'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Schielandshuis'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Stadbrasserie Rotterdam'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Stadsbrasserie Rotterdam'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Vicini Arnhem'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Lola'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              },
+              "Annotations": {
+                "filterExpressionMetadata": {
+                  "expressions": [
+                    {
+                      "HierarchyLevel": {
+                        "Expression": {
+                          "Hierarchy": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "dim_center"
+                              }
+                            },
+                            "Hierarchy": "ParentName Hiërarchie"
+                          }
+                        },
+                        "Level": "Location"
+                      }
+                    }
+                  ],
+                  "decomposedIdentities": {
+                    "values": [
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "null"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'Dudok Horeca Shared Services'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'Dudok HQ Testomgeving'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Alfredo''s'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Bar Bistro Binnenrotte'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - De Harmonie'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Dudok Barendrecht'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Dudok Delft'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Dudok Patisserie Westewagenstraat B.V'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Dudok Rijnstraat Den Haag'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Lola'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Mart Café'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Roes'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Schielandshuis'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Stadbrasserie Rotterdam'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Stadsbrasserie Rotterdam'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Vicini Arnhem'"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    ],
+                    "columns": [
+                      {
+                        "value": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "dim_center"
+                              }
+                            },
+                            "Property": "Location"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "valueMap": [
+                    {
+                      "0": "(Leeg)"
+                    },
+                    {
+                      "0": "Dudok Horeca Shared Services"
+                    },
+                    {
+                      "0": "Dudok HQ Testomgeving"
+                    },
+                    {
+                      "0": "OUD - Alfredo's"
+                    },
+                    {
+                      "0": "OUD - Bar Bistro Binnenrotte"
+                    },
+                    {
+                      "0": "OUD - De Harmonie"
+                    },
+                    {
+                      "0": "OUD - Dudok Barendrecht"
+                    },
+                    {
+                      "0": "OUD - Dudok Delft"
+                    },
+                    {
+                      "0": "OUD - Dudok Patisserie Westewagenstraat B.V"
+                    },
+                    {
+                      "0": "OUD - Dudok Rijnstraat Den Haag"
+                    },
+                    {
+                      "0": "OUD - Lola"
+                    },
+                    {
+                      "0": "OUD - Mart Café"
+                    },
+                    {
+                      "0": "OUD - Roes"
+                    },
+                    {
+                      "0": "OUD - Schielandshuis"
+                    },
+                    {
+                      "0": "OUD - Stadbrasserie Rotterdam"
+                    },
+                    {
+                      "0": "OUD - Stadsbrasserie Rotterdam"
+                    },
+                    {
+                      "0": "OUD - Vicini Arnhem"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       },
       {
-        "name": "dd83dad33982d715b2bc",
+        "name": "269d1dbed984790b0418",
         "field": {
-          "Column": {
+          "HierarchyLevel": {
             "Expression": {
-              "SourceRef": {
-                "Entity": "dim_center"
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_center"
+                  }
+                },
+                "Hierarchy": "ParentName Hiërarchie"
               }
             },
-            "Property": "UpdatedName"
+            "Level": "UpdatedName"
           }
         },
         "type": "Categorical"

@@ -153,7 +153,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "135.2937379703254D"
+                  "Value": "145.97058550091737D"
                 }
               }
             }
@@ -216,6 +216,20 @@
           },
           "selector": {
             "metadata": "measurements.OPU"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "70.42553191489361D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_date.WeekISO"
           }
         }
       ],

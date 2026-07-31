@@ -36,18 +36,43 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_center"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_center"
+                        }
+                      },
+                      "Hierarchy": "ParentName Hiërarchie"
                     }
                   },
-                  "Property": "Location"
+                  "Level": "Location"
                 }
               },
-              "queryRef": "dim_center.Location",
-              "nativeQueryRef": "Location",
+              "queryRef": "dim_center.ParentName Hiërarchie.Location",
+              "nativeQueryRef": "ParentName Hiërarchie Location",
               "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_center"
+                        }
+                      },
+                      "Hierarchy": "ParentName Hiërarchie"
+                    }
+                  },
+                  "Level": "UpdatedName"
+                }
+              },
+              "queryRef": "dim_center.ParentName Hiërarchie.UpdatedName",
+              "nativeQueryRef": "ParentName Hiërarchie UpdatedName",
+              "active": false
             }
           ]
         },
@@ -648,20 +673,6 @@
               }
             ]
           }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "247.3981723571948D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "dim_center.Location"
-          }
         }
       ],
       "rowTotal": [
@@ -885,20 +896,6 @@
         "type": "Advanced"
       },
       {
-        "name": "02d8c46971d1dcb317d8",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_center"
-              }
-            },
-            "Property": "Location"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
         "name": "b9802cefd00b15e48bea",
         "field": {
           "Column": {
@@ -908,6 +905,44 @@
               }
             },
             "Property": "DayName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7238b9bfaa7ace0d1620",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_center"
+                  }
+                },
+                "Hierarchy": "ParentName Hiërarchie"
+              }
+            },
+            "Level": "Location"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a99d8c6442143cbd050c",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_center"
+                  }
+                },
+                "Hierarchy": "ParentName Hiërarchie"
+              }
+            },
+            "Level": "UpdatedName"
           }
         },
         "type": "Categorical"

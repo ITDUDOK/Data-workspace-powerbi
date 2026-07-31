@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "dim_product.ProductName",
-              "nativeQueryRef": "ProductName",
-              "active": true
+              "nativeQueryRef": "Product",
+              "active": true,
+              "displayName": "Product"
             }
           ]
         },

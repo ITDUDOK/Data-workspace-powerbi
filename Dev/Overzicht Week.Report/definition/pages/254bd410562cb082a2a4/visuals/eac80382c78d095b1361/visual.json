@@ -46,22 +46,28 @@
                 }
               },
               "queryRef": "dim_center.Location",
-              "nativeQueryRef": "Location",
-              "active": true
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
             },
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_center"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_center"
+                        }
+                      },
+                      "Hierarchy": "ParentName Hiërarchie"
                     }
                   },
-                  "Property": "RevenueCenter"
+                  "Level": "UpdatedName"
                 }
               },
-              "queryRef": "dim_center.RevenueCenter",
-              "nativeQueryRef": "RevenueCenter",
+              "queryRef": "dim_center.ParentName Hiërarchie.UpdatedName",
+              "nativeQueryRef": "ParentName Hiërarchie UpdatedName",
               "active": false
             }
           ]
@@ -847,7 +853,26 @@
         "type": "Advanced"
       },
       {
-        "name": "c41970d89b6698b781eb",
+        "name": "df826555cade059a1b8c",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_center"
+                  }
+                },
+                "Hierarchy": "ParentName Hiërarchie"
+              }
+            },
+            "Level": "UpdatedName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "526536503a341713528e",
         "field": {
           "Column": {
             "Expression": {
@@ -856,20 +881,6 @@
               }
             },
             "Property": "Location"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2c6a8d534cbdd51a2a2a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_center"
-              }
-            },
-            "Property": "RevenueCenter"
           }
         },
         "type": "Categorical"

@@ -17,6 +17,61 @@
           "projections": [
             {
               "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_productgroup"
+                        }
+                      },
+                      "Hierarchy": "Name Hiërarchie"
+                    }
+                  },
+                  "Level": "ParentProductGroup"
+                }
+              },
+              "queryRef": "dim_productgroup.Name Hiërarchie.ParentProductGroup",
+              "nativeQueryRef": "Name Hiërarchie ParentProductGroup",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_productgroup"
+                        }
+                      },
+                      "Hierarchy": "Name Hiërarchie"
+                    }
+                  },
+                  "Level": "Name"
+                }
+              },
+              "queryRef": "dim_productgroup.Name Hiërarchie.Name",
+              "nativeQueryRef": "Name Hiërarchie Name",
+              "active": false
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "dim_productgroup.Name Hiërarchie.ParentProductGroup"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
@@ -25,30 +80,21 @@
                   },
                   "Property": "ParentProductGroup"
                 }
-              },
-              "queryRef": "dim_productgroup.ParentProductGroup",
-              "nativeQueryRef": "ParentProductGroup",
-              "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_productgroup"
-                    }
-                  },
-                  "Property": "ProductGroupName"
-                }
-              },
-              "queryRef": "dim_productgroup.ProductGroupName",
-              "nativeQueryRef": "ProductGroupName",
-              "active": false
-            }
-          ]
-        }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dim_productgroup.Name Hiërarchie.Name"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
       }
-    },
+    ],
     "objects": {
       "data": [
         {
@@ -147,6 +193,7 @@
             }
           ]
         },
+        "howCreated": "User",
         "objects": {
           "general": [
             {
@@ -164,15 +211,39 @@
         }
       },
       {
-        "name": "a433b032ac7c2e056830",
+        "name": "defa6500da0948a97094",
         "field": {
-          "Column": {
+          "HierarchyLevel": {
             "Expression": {
-              "SourceRef": {
-                "Entity": "dim_productgroup"
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_productgroup"
+                  }
+                },
+                "Hierarchy": "Name Hiërarchie"
               }
             },
-            "Property": "ProductGroupName"
+            "Level": "ParentProductGroup"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ea4b2a9cd0a1b5d34d30",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_productgroup"
+                  }
+                },
+                "Hierarchy": "Name Hiërarchie"
+              }
+            },
+            "Level": "Name"
           }
         },
         "type": "Categorical"
