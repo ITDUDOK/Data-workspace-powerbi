@@ -1,0 +1,7 @@
+role PowerBIPatisserieAll
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 52 || [SiteNr] = 55 || [SiteNr] = 53 || [SiteNr] = 56 || [SiteNr] = 57 || [SiteNr] = 58
+
+	tablePermission offices = [OfficeId] = 13 || [OfficeId] = 42 || [OfficeId] = 41 || [OfficeId] = 12 || [OfficeId] = 45 || [OfficeId] = 46
+

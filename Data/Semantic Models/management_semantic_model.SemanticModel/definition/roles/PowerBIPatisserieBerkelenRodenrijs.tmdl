@@ -1,0 +1,7 @@
+role PowerBIPatisserieBerkelenRodenrijs
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 55
+
+	tablePermission offices = [OfficeId] = 42
+

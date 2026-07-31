@@ -351,6 +351,11 @@ table fact_eventstable
 
 		annotation SummarizationSetBy = Automatic
 
+	column EventDate
+		dataType: dateTime
+		lineageTag: 8a85eae3-04d7-4e76-a242-71625dcdba74
+		sourceColumn: EventDate
+
 	partition events = entity
 		mode: directLake
 		source

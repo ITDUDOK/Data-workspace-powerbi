@@ -1,0 +1,7 @@
+role PowerBIHorecaAanhetIJ
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 45
+
+	tablePermission offices = [OfficeId] = 19
+

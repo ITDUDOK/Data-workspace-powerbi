@@ -47,3 +47,23 @@ ref table fact_sales
 ref table fact_payments
 ref table bridge_center_office
 
+ref role PowerBIHorecaAanhetIJ
+ref role PowerBIHorecaDudokDenHaag
+ref role PowerBIHorecaAll
+ref role PowerBIHorecaArnhem
+ref role PowerBIHorecaDudokRotterdam
+ref role PowerBIHorecaTrattoriaSophia
+ref role PowerBIPatisserieAll
+ref role PowerBIPatisserieLeidenCS
+ref role PowerBIPatisserieRotterdamCS
+ref role PowerBIPatisserieMeent
+ref role PowerBIPatisserieUtrechtCS
+ref role PowerBIPatisserieDenHaagCS
+ref role PowerBIPatisserieBerkelenRodenrijs
+ref role PowerBIAdmin
+ref role PowerBIEventsAll
+ref role PowerBIHRAll
+ref role PowerBIHRHoreca
+ref role PowerBIHRPatisserie
+ref role PowerBIHREvents
+

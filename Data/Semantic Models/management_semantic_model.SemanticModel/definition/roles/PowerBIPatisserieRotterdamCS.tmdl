@@ -1,0 +1,7 @@
+role PowerBIPatisserieRotterdamCS
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 52
+
+	tablePermission offices = [OfficeId] = 13
+

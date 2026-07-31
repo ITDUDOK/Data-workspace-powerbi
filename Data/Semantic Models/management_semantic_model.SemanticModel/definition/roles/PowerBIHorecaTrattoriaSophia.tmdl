@@ -1,0 +1,7 @@
+role PowerBIHorecaTrattoriaSophia
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 4
+
+	tablePermission offices = [OfficeId] = 37
+

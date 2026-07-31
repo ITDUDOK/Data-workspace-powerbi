@@ -159,3 +159,7 @@ relationship 286e25f1-d9c2-4c70-b387-f31c8f026998
 	fromColumn: fact_revenue_hourly.HourNumber
 	toColumn: dim_time.HourNumber
 
+relationship 76d9b2e5-5f5c-4c80-82dd-ff717d4ec775
+	fromColumn: fact_eventstable.EventDate
+	toColumn: dim_date.Date
+

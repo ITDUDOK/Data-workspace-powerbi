@@ -1,0 +1,7 @@
+role PowerBIPatisserieMeent
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 53
+
+	tablePermission offices = [OfficeId] = 41
+
