@@ -3,9 +3,9 @@
   "name": "781bf42917f5cccc6b1c",
   "position": {
     "x": 0,
-    "y": 101.15501519756839,
+    "y": 144.92401215805472,
     "z": 10000,
-    "height": 83.647416413373861,
+    "height": 67.112462006079028,
     "width": 213.98176291793314,
     "tabOrder": 10000
   },
@@ -59,6 +59,42 @@
         }
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "dim_productgroup.Name Hiërarchie.ParentProductGroup"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_productgroup"
+                    }
+                  },
+                  "Property": "ParentProductGroup"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dim_productgroup.Name Hiërarchie.Name"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
     "objects": {
       "data": [
         {
