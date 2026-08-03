@@ -46,8 +46,29 @@
                 }
               },
               "queryRef": "dim_center.Location",
-              "nativeQueryRef": "Location",
-              "active": true
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_center"
+                        }
+                      },
+                      "Hierarchy": "ParentName Hiërarchie"
+                    }
+                  },
+                  "Level": "UpdatedName"
+                }
+              },
+              "queryRef": "dim_center.ParentName Hiërarchie.UpdatedName",
+              "nativeQueryRef": "ParentName Hiërarchie UpdatedName",
+              "active": false
             }
           ]
         },
@@ -71,6 +92,42 @@
         }
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "dim_center.Location"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_center"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dim_center.ParentName Hiërarchie.UpdatedName"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
     "objects": {
       "columnWidth": [
         {
@@ -834,20 +891,6 @@
         "type": "Advanced"
       },
       {
-        "name": "121a0b9046e0838ed035",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_center"
-              }
-            },
-            "Property": "Location"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
         "name": "ea9c7671935ba553c09b",
         "field": {
           "Column": {
@@ -860,6 +903,39 @@
           }
         },
         "type": "Advanced"
+      },
+      {
+        "name": "58151121bb030eead11e",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_center"
+                  }
+                },
+                "Hierarchy": "ParentName Hiërarchie"
+              }
+            },
+            "Level": "UpdatedName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "749361e5aa39be23512c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_center"
+              }
+            },
+            "Property": "Location"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

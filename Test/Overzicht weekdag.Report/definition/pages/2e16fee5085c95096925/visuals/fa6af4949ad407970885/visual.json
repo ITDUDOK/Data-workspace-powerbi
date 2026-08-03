@@ -36,32 +36,42 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_center"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_center"
+                        }
+                      },
+                      "Hierarchy": "ParentName Hiërarchie"
                     }
                   },
-                  "Property": "Location"
+                  "Level": "Location"
                 }
               },
-              "queryRef": "dim_center.Location",
-              "nativeQueryRef": "Location",
+              "queryRef": "dim_center.ParentName Hiërarchie.Location",
+              "nativeQueryRef": "ParentName Hiërarchie Location",
               "active": true
             },
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_center"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_center"
+                        }
+                      },
+                      "Hierarchy": "ParentName Hiërarchie"
                     }
                   },
-                  "Property": "UpdatedName"
+                  "Level": "UpdatedName"
                 }
               },
-              "queryRef": "dim_center.UpdatedName",
-              "nativeQueryRef": "UpdatedName",
+              "queryRef": "dim_center.ParentName Hiërarchie.UpdatedName",
+              "nativeQueryRef": "ParentName Hiërarchie UpdatedName",
               "active": false
             },
             {
@@ -114,6 +124,28 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_center"
+                      }
+                    },
+                    "Hierarchy": "ParentName Hiërarchie"
+                  }
+                },
+                "Level": "Location"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "expansionStates": [
@@ -124,22 +156,48 @@
         "levels": [
           {
             "queryRefs": [
-              "dim_center.Location"
+              "dim_center.ParentName Hiërarchie.Location"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_center"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
             "queryRefs": [
-              "dim_center.UpdatedName"
+              "dim_center.ParentName Hiërarchie.UpdatedName"
             ],
-            "isCollapsed": true
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_center"
+                    }
+                  },
+                  "Property": "UpdatedName"
+                }
+              }
+            ],
+            "isPinned": true
           },
           {
             "queryRefs": [
               "dim_table.Wijk"
             ],
-            "isCollapsed": true
+            "isCollapsed": true,
+            "isPinned": true
           },
           {
             "queryRefs": [
@@ -1005,6 +1063,13 @@
                   "Value": "true"
                 }
               }
+            },
+            "perColumnLevel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -1150,29 +1215,39 @@
         "type": "Categorical"
       },
       {
-        "name": "b1630b85a599343d86e1",
+        "name": "54ba99f741ed0943bcde",
         "field": {
-          "Column": {
+          "HierarchyLevel": {
             "Expression": {
-              "SourceRef": {
-                "Entity": "dim_center"
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_center"
+                  }
+                },
+                "Hierarchy": "ParentName Hiërarchie"
               }
             },
-            "Property": "Location"
+            "Level": "Location"
           }
         },
         "type": "Categorical"
       },
       {
-        "name": "f5680a8418338089aed3",
+        "name": "f39767a82558b8046135",
         "field": {
-          "Column": {
+          "HierarchyLevel": {
             "Expression": {
-              "SourceRef": {
-                "Entity": "dim_center"
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_center"
+                  }
+                },
+                "Hierarchy": "ParentName Hiërarchie"
               }
             },
-            "Property": "UpdatedName"
+            "Level": "UpdatedName"
           }
         },
         "type": "Categorical"

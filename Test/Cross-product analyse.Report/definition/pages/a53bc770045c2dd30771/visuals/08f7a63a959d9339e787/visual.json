@@ -93,19 +93,61 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "89d39149e360bd6d604d",
+        "name": "362e5e7fc039ec76020a",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "DIM_Date"
+                "Entity": "dim_date"
               }
             },
-            "Property": "Week"
+            "Property": "DayName"
           }
         },
         "type": "Categorical",
-        "howCreated": "User",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dim_date",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "DayName"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
         "objects": {
           "general": [
             {
@@ -121,20 +163,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "362e5e7fc039ec76020a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_date"
-              }
-            },
-            "Property": "DayName"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }
