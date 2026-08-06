@@ -25,14 +25,22 @@ table dim_date
 
 	column Date
 		dataType: dateTime
-		formatString: General Date
+		formatString: dd/mm/yy
 		sourceProviderType: date
 		lineageTag: 05f100d1-72ac-409c-b745-3b842b15751f
 		sourceLineageTag: Date
 		summarizeBy: none
 		sourceColumn: Date
 
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
 
 	column DateKey
 		dataType: int64
@@ -253,11 +261,13 @@ table dim_date
 
 	column ThisWeekISO
 		dataType: string
-		lineageTag: e097c388-de9b-49e3-a94b-b2f0c8407c96
+		sourceProviderType: varchar(8000)
+		lineageTag: 500af701-a7bb-4ed3-9ce6-227820219fa1
+		sourceLineageTag: ThisWeekISO
+		summarizeBy: none
 		sourceColumn: ThisWeekISO
-		sortByColumn: WeekISO
 
-		changedProperty = SortByColumn
+		annotation SummarizationSetBy = Automatic
 
 	partition 'dates 1' = entity
 		mode: directLake

@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "name": "gltransacties_fin",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/gltransacties_fin",
+        "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  },
+  {
+    "name": "glaccounts_fin",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/glaccounts_fin",
+        "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  },
+  {
+    "name": "finreportrows",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/finreportrows",
+        "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  }
+]

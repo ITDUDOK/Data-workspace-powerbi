@@ -1,0 +1,40 @@
+table slicer_werklocatie
+	lineageTag: 5eb0fac5-57c7-45d1-ac70-73b3b35771ed
+	sourceLineageTag: [dbo].[slicer_werklocatie]
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e45c60d-2438-4d1b-aa15-f676698e8c59
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: e72dbde8-46b5-48f6-b622-6d14f51c65da
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 573e943f-fb56-4bca-8d9d-842f930019db
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition slicer_werklocatie = entity
+		mode: directLake
+		source
+			entityName: slicer_werklocatie
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,9 @@
+role PowerBIHorecaArnhem
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 3
+
+	tablePermission offices = [OfficeId] = 10
+
+	annotation PBI_Id = beac0e54c74a4a889447c54923799e4d
+

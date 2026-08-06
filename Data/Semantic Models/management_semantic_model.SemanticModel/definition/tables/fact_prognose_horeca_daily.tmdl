@@ -1,0 +1,34 @@
+table fact_prognose_horeca_daily
+	lineageTag: 38289cc7-61a9-40e6-8f1b-13f57aa8d5d3
+
+	column CenterKey
+		dataType: string
+		lineageTag: 050efe44-f322-49cc-8702-65ef296a86e0
+		sourceColumn: CenterKey
+
+	column Date
+		dataType: dateTime
+		lineageTag: 21a5fe70-9eaa-4239-858b-8aeacbc3030a
+		sourceColumn: Date
+
+	column Scenario1Avg
+		dataType: decimal
+		lineageTag: 20a24727-a6e2-47ad-a008-f4c29ea9f3f6
+		sourceColumn: Scenario1Avg
+
+	column Scenario2Val
+		dataType: decimal
+		lineageTag: 0f61c61b-6612-4652-a8e6-0c901ddacd9f
+		sourceColumn: Scenario2Val
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 25118e7a-7293-432e-9df1-a1205704c02b
+		sourceColumn: ModifiedAt
+
+	partition 'fact_prognose_horeca_daily 1' = entity
+		mode: directLake
+		source
+			entityName: prognose_horeca_daily
+			expressionSource: DatabaseQuery
+

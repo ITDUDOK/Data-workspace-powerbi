@@ -1,0 +1,5 @@
+role PowerBIHRAll
+	modelPermission: read
+
+	annotation PBI_Id = 29f092d97f3d439b80d4e54cbafe5af0
+

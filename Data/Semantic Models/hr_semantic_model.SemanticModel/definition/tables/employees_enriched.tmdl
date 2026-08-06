@@ -1,0 +1,824 @@
+table employees_enriched
+	lineageTag: e3d6639a-bc33-4d61-a355-54bb3432e2a1
+	sourceLineageTag: [dbo].[employees_enriched]
+
+	measure 'Historical Employee Active' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			VAR CurrentEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    0,
+			    VAR HasContract =
+			        SUMX(
+			            CurrentEmployeeIds,
+			            VAR EmpId = employees_enriched[EmployeeId]
+			            RETURN
+			            CALCULATE(
+			                COUNTROWS(hr_contracts),
+			                ALL(hr_contracts),
+			                hr_contracts[EmployeeId] = EmpId,
+			                hr_contracts[StartDate] <= SelectedEndDate,
+			                OR(
+			                    ISBLANK(hr_contracts[EndDate]),
+			                    hr_contracts[EndDate] >= SelectedStartDate
+			                )
+			            )
+			        ) > 0
+			    VAR HasEmployment =
+			        SUMX(
+			            CurrentEmployeeIds,
+			            VAR EmpId = employees_enriched[EmployeeId]
+			            RETURN
+			            CALCULATE(
+			                COUNTROWS(employments),
+			                ALL(employments),
+			                employments[EmployeeId] = EmpId,
+			                employments[StartDate] <= SelectedEndDate,
+			                OR(
+			                    ISBLANK(employments[EndDate]),
+			                    employments[EndDate] >= SelectedStartDate
+			                )
+			            )
+			        ) > 0
+			    RETURN IF(OR(HasContract, HasEmployment), 1, 0)
+			)
+		lineageTag: 0be8de7e-f71a-4d71-894d-f72c6b5ef78d
+
+	measure 'FTE EMPLOYEES' =
+			
+			VAR StandardHours = 38
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    0,
+			    SUMX(
+			        SUMMARIZE(
+			            FILTER(
+			                employees_enriched,
+			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
+			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
+			                (ISBLANK(employees_enriched[EmployeeEndDate]) || employees_enriched[EmployeeEndDate] >= SelectedStartDate)
+			            ),
+			            employees_enriched[FullName],
+			            "MaxHours", MAX(employees_enriched[ContractHours])
+			        ),
+			        DIVIDE([MaxHours], StandardHours, 0)
+			    )
+			)
+		lineageTag: 61fcdcd7-6480-48dd-a5d4-7ec48d8ce23b
+
+	measure 'Gem. Uurloon incl' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    AVERAGEX(
+			        SUMMARIZE(
+			            FILTER(
+			                employees_enriched,
+			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
+			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
+			                (ISBLANK(employees_enriched[EmployeeEndDate]) || employees_enriched[EmployeeEndDate] >= SelectedStartDate) &&
+			                NOT(ISBLANK(employees_enriched[SalaryRate]))
+			            ),
+			            employees_enriched[FullName],
+			            "MaxSalaryRate", MAX(employees_enriched[SalaryRate])
+			        ),
+			        [MaxSalaryRate]
+			    )
+			)
+		lineageTag: 25357ab6-8c48-40bc-b5ac-7f92d9dc87e9
+
+	measure 'Gem. Leeftijd' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			VAR ReferenceDate = TODAY()
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    VAR ActiveEmployees =
+			        SUMMARIZE(
+			            FILTER(
+			                employees_enriched,
+			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
+			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
+			                (ISBLANK(employees_enriched[EmployeeEndDate]) || employees_enriched[EmployeeEndDate] >= SelectedStartDate) &&
+			                NOT(ISBLANK(employees_enriched[DateOfBirth]))
+			            ),
+			            employees_enriched[FullName],
+			            "DateOfBirth", MAX(employees_enriched[DateOfBirth])
+			        )
+			    VAR TotalAge =
+			        SUMX(
+			            ActiveEmployees,
+			            VAR BirthDate = [DateOfBirth]
+			            VAR YearDiff = YEAR(ReferenceDate) - YEAR(BirthDate)
+			            VAR HadBirthdayThisYear =
+			                (MONTH(ReferenceDate) > MONTH(BirthDate)) ||
+			                (MONTH(ReferenceDate) = MONTH(BirthDate) && DAY(ReferenceDate) >= DAY(BirthDate))
+			            VAR Age = YearDiff - IF(HadBirthdayThisYear, 0, 1)
+			            RETURN Age
+			        )
+			    VAR TotalPersons = COUNTROWS(ActiveEmployees)
+			    VAR AverageAge = IF(TotalPersons > 0, DIVIDE(TotalAge, TotalPersons, BLANK()), BLANK())
+			    RETURN IF(NOT(ISBLANK(AverageAge)), INT(AverageAge), BLANK())
+			)
+		lineageTag: 098cc804-5534-4756-ae0c-ca09bbb570e8
+
+	measure 'In Dienst' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    VAR NewEmployees =
+			        SUMMARIZE(
+			            FILTER(
+			                employees_enriched,
+			                CALCULATE([Historical Employee Active]) = 1 &&
+			                employees_enriched[EmployeeStartDate] >= SelectedStartDate &&
+			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
+			                NOT(ISBLANK(employees_enriched[EmployeeStartDate]))
+			            ),
+			            employees_enriched[FullName]
+			        )
+			    RETURN COUNTROWS(NewEmployees)
+			)
+		lineageTag: f5c560ae-69a9-4ebe-8f42-d9d5334332ef
+
+	measure 'Uit Dienst' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    0,
+			    VAR LeftEmployeeIds =
+			        FILTER(
+			            ALL(employments[EmployeeId]),
+			            VAR CurrentEmpId = employments[EmployeeId]
+			            VAR HasEndInPeriod =
+			                CALCULATE(
+			                    COUNTROWS(employments),
+			                    employments[EmployeeId] = CurrentEmpId,
+			                    NOT(ISBLANK(employments[EndDate])),
+			                    employments[EndDate] >= SelectedStartDate,
+			                    employments[EndDate] <= SelectedEndDate
+			                ) > 0
+			            VAR IsCurrentCompanyEmployee = CurrentEmpId IN VALUES(employees_enriched[EmployeeId])
+			            RETURN HasEndInPeriod && IsCurrentCompanyEmployee
+			        )
+			    RETURN COUNTROWS(LeftEmployeeIds)
+			)
+		lineageTag: 4fe0689c-2ca9-4aa4-8aa0-6072e84f5fbc
+
+	measure 'Gem. Arbeidsduur (jaren)' =
+			
+			VAR ReferenceDate = TODAY()
+			RETURN
+			AVERAGEX(
+			    employees_enriched,
+			    VAR SeniorityDate = LOOKUPVALUE(employee_seniority[SeniorityDate], employee_seniority[EmployeeId], employees_enriched[EmployeeId])
+			    VAR ContractStartDate = employees_enriched[ContractStartDate]
+			    VAR EmploymentEndDate = employees_enriched[EmploymentEndDate]
+			    VAR FinalStartDate = COALESCE(SeniorityDate, ContractStartDate)
+			    VAR ActualEndDate = IF(ISBLANK(EmploymentEndDate), ReferenceDate, EmploymentEndDate)
+			    RETURN
+			    IF(
+			        NOT(ISBLANK(FinalStartDate)),
+			        DATEDIFF(FinalStartDate, ActualEndDate, DAY) / 365.25,
+			        BLANK()
+			    )
+			)
+		lineageTag: 58a2a9b8-31e2-4b66-960a-749b9ec47d4f
+
+	measure 'Ziekteverzuim %' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    VAR PeriodeDagen = DATEDIFF(SelectedStartDate, SelectedEndDate, DAY) + 1
+			    VAR AantalWeken = PeriodeDagen / 7
+			    VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
+			    VAR TotaalZiekteuren =
+			        CALCULATE(
+			            SUM(sickness[SicknessHours]),
+			            sickness[CardId] IN CurrentCardIDs,
+			            sickness[SicknessStart] <= SelectedEndDate,
+			            sickness[SicknessEnd] >= SelectedStartDate
+			        )
+			    VAR WerkelijkGewerktUren =
+			        CALCULATE(
+			            SUM(hours[HourHours]),
+			            hours[CardId] IN CurrentCardIDs,
+			            hours[HourDate] >= SelectedStartDate,
+			            hours[HourDate] <= SelectedEndDate
+			        )
+			    VAR ContractUren =
+			        SUMX(employees_enriched, employees_enriched[ContractHours] * AantalWeken)
+			    VAR TotaalUren =
+			        IF(
+			            COUNTROWS(FILTER(employees_enriched, employees_enriched[OfficeId] = 11)) > 0 && WerkelijkGewerktUren > 0,
+			            WerkelijkGewerktUren,
+			            ContractUren
+			        )
+			    RETURN IF(TotaalUren > 0, TotaalZiekteuren / TotaalUren, BLANK())
+			)
+		lineageTag: 936363c2-4ae7-4831-9fb2-c42560c67468
+
+	measure 'Verzuim Datum Filter' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			VAR SelectedCategorie = SELECTEDVALUE(verzuimcategorieen[Categorie])
+			VAR CurrentReden = SELECTEDVALUE(employees_enriched[VerzuimredenColumn])
+			VAR CurrentEinddatum = SELECTEDVALUE(employees_enriched[EndDateEmployment])
+			RETURN
+			IF(
+			    ISBLANK(SelectedCategorie),
+			    1,
+			    IF(
+			        CurrentReden = SelectedCategorie,
+			        IF(
+			            OR(
+			                CurrentReden = "Actief",
+			                OR(
+			                    ISBLANK(SelectedStartDate),
+			                    AND(
+			                        NOT(ISBLANK(CurrentEinddatum)),
+			                        AND(
+			                            CurrentEinddatum >= SelectedStartDate,
+			                            CurrentEinddatum <= SelectedEndDate
+			                        )
+			                    )
+			                )
+			            ),
+			            1,
+			            0
+			        ),
+			        0
+			    )
+			)
+		lineageTag: 7178388a-a001-4944-be1b-3dd71a5c0693
+
+	measure 'Gem. Uurloon excl' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    VAR ActiveEmployees =
+			        SUMMARIZE(
+			            FILTER(
+			                employees_enriched,
+			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
+			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
+			                (ISBLANK(employees_enriched[EmployeeEndDate]) || employees_enriched[EmployeeEndDate] >= SelectedStartDate) &&
+			                NOT(ISBLANK(employees_enriched[HourlySalary]))
+			            ),
+			            employees_enriched[FullName],
+			            "MaxHourlySalary", MAX(employees_enriched[HourlySalary])
+			        )
+			    VAR TotalSalary = SUMX(ActiveEmployees, [MaxHourlySalary])
+			    VAR TotalPersons = COUNTROWS(ActiveEmployees)
+			    RETURN IF(TotalPersons > 0, DIVIDE(TotalSalary, TotalPersons, BLANK()), BLANK())
+			)
+		lineageTag: 7aada547-708c-4709-aaae-616a4c92290e
+
+	measure ContractHoursHR_Alt =
+			
+			VAR SelectedEmployee = SELECTEDVALUE(employees_enriched[CardId])
+			RETURN
+			IF(
+			    ISBLANK(SelectedEmployee),
+			    BLANK(),
+			    MAXX(
+			        FILTER(employees_enriched, employees_enriched[CardId] = SelectedEmployee),
+			        employees_enriched[ContractHours]
+			    )
+			)
+		lineageTag: 8037ddae-723f-40d5-8c35-52319092ac73
+
+	measure 'Aantal Ziektemeldingen' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
+			    VAR AantalMeldingen =
+			        CALCULATE(
+			            DISTINCTCOUNT(sickness[MeldingId]),
+			            sickness[CardId] IN CurrentCardIDs,
+			            sickness[SicknessStart] <= SelectedEndDate,
+			            sickness[SicknessEnd] >= SelectedStartDate
+			        )
+			    RETURN AantalMeldingen
+			)
+		lineageTag: 5b363ee3-557b-4e8c-af95-5d8b53e51f6c
+
+	measure 'Actieve Medewerkers in Periode' =
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate),
+			    BLANK(),
+			    COUNTROWS(
+			        FILTER(
+			            VALUES(employees_enriched[EmployeeId]),
+			            VAR _start = CALCULATE(MIN(employees_enriched[EmployeeStartDate]))
+			            VAR _contract = CALCULATE(MIN(employees_enriched[ContractStartDate]))
+			            VAR EmpStart = COALESCE(_start, _contract)
+			            VAR EmpEnd = CALCULATE(MAX(employees_enriched[EmployeeEndDate]))
+			            RETURN
+			                NOT(ISBLANK(EmpStart))
+			                && EmpStart <= SelectedEndDate
+			                && (ISBLANK(EmpEnd) || EmpEnd >= SelectedStartDate)
+			        )
+			    )
+			)
+		lineageTag: 23caa824-89fb-4804-8553-1d4537f7e4fd
+
+	column EmployeeId
+		dataType: string
+		lineageTag: bfd877dd-65b7-4e09-896d-be22a22d8234
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: 9c8032eb-1c3d-4759-9352-99d00ea904a9
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: e341f250-c0b4-4efa-ac23-8cbed112dd42
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: b1c7f534-74e5-4833-ba73-737ab9f5ab57
+		sourceLineageTag: EmployeeNumber
+		summarizeBy: sum
+		sourceColumn: EmployeeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullName
+		dataType: string
+		lineageTag: d341562a-3186-44d0-8c30-7d639732fcba
+		sourceLineageTag: FullName
+		summarizeBy: none
+		sourceColumn: FullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeType
+		dataType: string
+		lineageTag: 321d3b26-bf8d-4579-b792-88464293605e
+		sourceLineageTag: EmployeeType
+		summarizeBy: none
+		sourceColumn: EmployeeType
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardId
+		dataType: int64
+		formatString: 0
+		lineageTag: f20f34f3-258c-4fde-b730-307682ae097d
+		sourceLineageTag: CardId
+		summarizeBy: count
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c3aa904-f3ec-40ef-8974-36f8ecb0e83d
+		sourceLineageTag: OfficeId
+		summarizeBy: none
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column NameMatchConfidence
+		dataType: string
+		lineageTag: 961dfa27-6142-4a1e-bbdf-4c9e6a0f118a
+		sourceLineageTag: NameMatchConfidence
+		summarizeBy: none
+		sourceColumn: NameMatchConfidence
+
+		annotation SummarizationSetBy = Automatic
+
+	column MatchScope
+		dataType: string
+		lineageTag: d5997f50-c738-4d38-ad77-32af3ac3e674
+		sourceLineageTag: MatchScope
+		summarizeBy: none
+		sourceColumn: MatchScope
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: 27a8a941-b8d3-44f8-852d-3e893f644380
+		sourceLineageTag: Department
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Function
+		dataType: string
+		lineageTag: be6ff6bc-5e08-4713-824c-9ea2db41996f
+		sourceLineageTag: Function
+		summarizeBy: none
+		sourceColumn: Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractHours
+		dataType: decimal
+		formatString: 0
+		lineageTag: e48d168f-615d-4060-a1f5-ec301d5ca912
+		sourceLineageTag: ContractHours
+		summarizeBy: sum
+		sourceColumn: ContractHours
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourlySalary
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6678e86e-5b81-48de-9bd5-06e762164c7b
+		sourceLineageTag: HourlySalary
+		summarizeBy: sum
+		sourceColumn: HourlySalary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalaryRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e41e0341-8e29-432e-8636-eee57a48db5d
+		sourceLineageTag: SalaryRate
+		summarizeBy: sum
+		sourceColumn: SalaryRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CardStart
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fb3b23f8-9081-4387-9c69-15c57dd290f6
+		sourceLineageTag: CardStart
+		summarizeBy: none
+		sourceColumn: CardStart
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardEnd
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 61093529-6dc4-4518-ab84-3c046363b941
+		sourceLineageTag: CardEnd
+		summarizeBy: none
+		sourceColumn: CardEnd
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateOfBirth
+		dataType: dateTime
+		formatString: dd/mm/yy
+		lineageTag: 2b06b1e7-1b9b-4185-b9dd-571a3267606f
+		sourceLineageTag: DateOfBirth
+		summarizeBy: none
+		sourceColumn: DateOfBirth
+
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0b996085-2a77-4494-9cc6-cfdb765bd707
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerFullName
+		dataType: string
+		lineageTag: af012419-e7a7-4584-b9ae-fd12c03afe21
+		sourceLineageTag: ManagerFullName
+		summarizeBy: none
+		sourceColumn: ManagerFullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column NmbrsFunctionCode
+		dataType: string
+		lineageTag: 3b0ed4fe-487c-441e-a0aa-a74776afc368
+		sourceLineageTag: NmbrsFunctionCode
+		summarizeBy: none
+		sourceColumn: NmbrsFunctionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column NmbrsFunctionDescription
+		dataType: string
+		lineageTag: 73d42094-eec4-45a2-885c-994cd0c0bf75
+		sourceLineageTag: NmbrsFunctionDescription
+		summarizeBy: none
+		sourceColumn: NmbrsFunctionDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractStartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5a663087-1eea-4546-83d0-b2bfd432efe7
+		sourceLineageTag: ContractStartDate
+		summarizeBy: none
+		sourceColumn: ContractStartDate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ContractEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c54fa467-2063-40be-8c0e-d38639750328
+		sourceLineageTag: ContractEndDate
+		summarizeBy: none
+		sourceColumn: ContractEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsIndefiniteContract
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b07976e8-de02-4e9e-a0f2-945f4b343f61
+		sourceLineageTag: IsIndefiniteContract
+		summarizeBy: none
+		sourceColumn: IsIndefiniteContract
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmploymentEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6a9e8b63-1cd7-4527-b33e-4b2b04e9461b
+		sourceLineageTag: EmploymentEndDate
+		summarizeBy: none
+		sourceColumn: EmploymentEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndContractReason
+		dataType: string
+		lineageTag: 7ba3fc51-c2d2-4c4b-b3e2-24399375b3ec
+		sourceLineageTag: EndContractReason
+		summarizeBy: none
+		sourceColumn: EndContractReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeStartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3ca51f44-4f0e-4aa0-bc8e-3d81267d01dc
+		sourceLineageTag: EmployeeStartDate
+		summarizeBy: none
+		sourceColumn: EmployeeStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 17b74fad-05aa-4a9e-8be3-7093460edab0
+		sourceLineageTag: EmployeeEndDate
+		summarizeBy: none
+		sourceColumn: EmployeeEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsActief
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c940c785-0868-4dbb-bc9f-ee0e12e59227
+		sourceLineageTag: IsActief
+		summarizeBy: none
+		sourceColumn: IsActief
+
+		annotation SummarizationSetBy = Automatic
+
+	column VerzuimredenColumn
+		dataType: string
+		lineageTag: 8a14c971-92ef-428b-942a-768eef51f560
+		sourceLineageTag: VerzuimredenColumn
+		summarizeBy: none
+		sourceColumn: VerzuimredenColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDateEmployment
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1c328553-b6ba-47d6-89af-1352cc9930f8
+		sourceLineageTag: EndDateEmployment
+		summarizeBy: none
+		sourceColumn: EndDateEmployment
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinalEndDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7d6d8c9c-5574-415c-96cd-34a5872be13a
+		sourceLineageTag: FinalEndDate
+		summarizeBy: none
+		sourceColumn: FinalEndDate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FinalEndDateFormatted
+		dataType: string
+		lineageTag: ad7ed603-f994-40cb-b4f7-1e35c8ac0dce
+		sourceLineageTag: FinalEndDateFormatted
+		summarizeBy: none
+		sourceColumn: FinalEndDateFormatted
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentName
+		dataType: string
+		lineageTag: a2fcf4ee-60c8-4aa4-9a0a-a9bb03534e72
+		sourceLineageTag: DepartmentName
+		summarizeBy: none
+		sourceColumn: DepartmentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionName
+		dataType: string
+		lineageTag: bfd52cfd-ceaa-441a-b147-c9e483a79d7c
+		sourceLineageTag: FunctionName
+		summarizeBy: none
+		sourceColumn: FunctionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthdayDayMonth
+		dataType: string
+		lineageTag: c4c6280a-53a2-4a6a-8a33-941b4f1b6683
+		sourceLineageTag: BirthdayDayMonth
+		summarizeBy: none
+		sourceColumn: BirthdayDayMonth
+		sortByColumn: BirthdaySortKey
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthdaySortKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d0c1a2c-8344-4d03-96e0-fbe848dcb729
+		sourceLineageTag: BirthdaySortKey
+		summarizeBy: count
+		sourceColumn: BirthdaySortKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e7be834-993c-490c-ab99-400a813c1993
+		sourceLineageTag: BirthYear
+		summarizeBy: sum
+		sourceColumn: BirthYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthQuarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 425dc7c4-133a-4228-9883-2440740d96d1
+		sourceLineageTag: BirthQuarter
+		summarizeBy: sum
+		sourceColumn: BirthQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthQuarterName
+		dataType: string
+		lineageTag: 2343f860-9ceb-438f-9a8f-0dada5d7af38
+		sourceLineageTag: BirthQuarterName
+		summarizeBy: none
+		sourceColumn: BirthQuarterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 883ca4d9-2b23-4101-a4c5-c1db14063ae3
+		sourceLineageTag: BirthMonth
+		summarizeBy: sum
+		sourceColumn: BirthMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthMonthName
+		dataType: string
+		lineageTag: 63bff29e-d553-47d3-8ba7-35695701248d
+		sourceLineageTag: BirthMonthName
+		summarizeBy: none
+		sourceColumn: BirthMonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDay
+		dataType: int64
+		formatString: 0
+		lineageTag: 945d6ad4-e71e-451d-a7d3-2fa68559efc6
+		sourceLineageTag: BirthDay
+		summarizeBy: sum
+		sourceColumn: BirthDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: 9ad1f53a-9021-4af9-8104-2308fadeef85
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employees_enriched = entity
+		mode: directLake
+		source
+			entityName: employees_enriched
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

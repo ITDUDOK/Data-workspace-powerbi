@@ -1,0 +1,89 @@
+table employee_worklocation_monthly
+	lineageTag: d2d41bfc-5dc2-450d-952f-c9910fc904bc
+	sourceLineageTag: [dbo].[employee_worklocation_monthly]
+
+	measure WerklocatieHuidigeMaand =
+			VAR HuidigEmployeeId = SELECTEDVALUE(contracts_enriched[EmployeeId])
+			VAR SelectedYear = COALESCE(SELECTEDVALUE(dates[Year]), YEAR(TODAY()))
+			VAR SelectedMonth = COALESCE(SELECTEDVALUE(dates[Month]), MONTH(TODAY()))
+			RETURN
+			IF(
+			    ISBLANK(HuidigEmployeeId),
+			    BLANK(),
+			    CALCULATE(
+			        SELECTEDVALUE(employee_worklocation_monthly[WerklocatieOfficeName]),
+			        REMOVEFILTERS(employee_worklocation_monthly),
+			        employee_worklocation_monthly[EmployeeId] = HuidigEmployeeId,
+			        YEAR(employee_worklocation_monthly[YearMonth]) = SelectedYear,
+			        MONTH(employee_worklocation_monthly[YearMonth]) = SelectedMonth
+			    )
+			)
+		lineageTag: fea829a8-f073-43f7-9403-072c400d6141
+
+	column EmployeeId
+		dataType: string
+		lineageTag: 861d1448-8fa6-4b5d-8a36-77a9dfa24e44
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 863f02fb-519e-49a5-9d15-a401bacce840
+		sourceLineageTag: YearMonth
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column WerklocatieOfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 640c4fbd-e589-4465-8e64-86e494b5fb13
+		sourceLineageTag: WerklocatieOfficeId
+		summarizeBy: count
+		sourceColumn: WerklocatieOfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column WerklocatieOfficeName
+		dataType: string
+		lineageTag: ff7461c1-8f3c-49e6-bea0-7f1714ef2a15
+		sourceLineageTag: WerklocatieOfficeName
+		summarizeBy: none
+		sourceColumn: WerklocatieOfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: bf1271a8-e1e7-4c61-ad0b-f1bde83ccdf7
+		sourceLineageTag: TotalHours
+		summarizeBy: sum
+		sourceColumn: TotalHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b676edb7-c0b2-4333-a393-856b84933b04
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition employee_worklocation_monthly = entity
+		mode: directLake
+		source
+			entityName: employee_worklocation_monthly
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

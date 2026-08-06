@@ -1,0 +1,9 @@
+role PowerBIPatisserieMeent
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 53
+
+	tablePermission offices = [OfficeId] = 41
+
+	annotation PBI_Id = a9ea43fe2e7a430a9b547b9775ce8ee8
+

@@ -1,0 +1,9 @@
+role PowerBIPatisserieUtrechtCS
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 56
+
+	tablePermission offices = [OfficeId] = 12
+
+	annotation PBI_Id = 1f8500e0085142b298058ad5c599afb2
+

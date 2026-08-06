@@ -1,0 +1,9 @@
+role PowerBIPatisserieBerkelenRodenrijs
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 55
+
+	tablePermission offices = [OfficeId] = 42
+
+	annotation PBI_Id = bc00a6b4a1174b34b3c838ad250e681c
+

@@ -1,0 +1,9 @@
+role PowerBIHREvents
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 99 || [SiteNr] = 50 || [SiteNr] = 44 || [SiteNr] = 9 || [SiteNr] = 36 || [SiteNr] = 7 || [SiteNr] = 31 || [SiteNr] = 10
+
+	tablePermission offices = [OfficeId] = 21 || [OfficeId] = 39 || [OfficeId] = 23 || [OfficeId] = 24 || [OfficeId] = 44 || [OfficeId] = 43 || [OfficeId] = 47
+
+	annotation PBI_Id = 69a0e6faaf9b49e7b56ee076987f0360
+

@@ -1,0 +1,9 @@
+role PowerBIPatisserieDenHaagCS
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 58
+
+	tablePermission offices = [OfficeId] = 46
+
+	annotation PBI_Id = 9b4d1bcb84a74e35b9e0db20fe553a0e
+

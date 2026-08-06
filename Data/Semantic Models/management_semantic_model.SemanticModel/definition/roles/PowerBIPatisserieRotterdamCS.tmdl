@@ -1,0 +1,9 @@
+role PowerBIPatisserieRotterdamCS
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 52
+
+	tablePermission offices = [OfficeId] = 13
+
+	annotation PBI_Id = b0f77543fa6644388c71b7773a016ba7
+

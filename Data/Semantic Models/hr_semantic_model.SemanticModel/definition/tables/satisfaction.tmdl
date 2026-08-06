@@ -1,0 +1,105 @@
+table satisfaction
+	lineageTag: 8d81ebf5-237c-4923-8da9-897880f69ac5
+	sourceLineageTag: [dbo].[satisfaction]
+
+	column SatisfactionId
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fbaf689-00b1-4e90-b69f-3fc35c8efbfa
+		sourceLineageTag: SatisfactionId
+		summarizeBy: count
+		sourceColumn: SatisfactionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SurveyDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f10d4d45-88ea-41c3-a3f4-4b5d55ca8b53
+		sourceLineageTag: SurveyDate
+		summarizeBy: none
+		sourceColumn: SurveyDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column StaffName
+		dataType: string
+		lineageTag: 6034dc90-b55e-432a-a348-3f0ba39d8474
+		sourceLineageTag: StaffName
+		summarizeBy: none
+		sourceColumn: StaffName
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		lineageTag: 13ae2185-5e15-4d92-9b6c-b6ed674b324b
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Office
+		dataType: string
+		lineageTag: b8b8c43b-f133-4ce6-be56-398d740f8bc3
+		sourceLineageTag: Office
+		summarizeBy: none
+		sourceColumn: Office
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: 20bd9c54-31b9-4643-afab-b64e978040db
+		sourceLineageTag: Department
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Satisfaction
+		dataType: int64
+		formatString: 0
+		lineageTag: 84cbd5f6-1c17-46c5-9c0b-9096d9a44e2d
+		sourceLineageTag: Satisfaction
+		summarizeBy: sum
+		sourceColumn: Satisfaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column Remarks
+		dataType: string
+		lineageTag: 2fd92a84-d5bd-477f-9a98-638298caffa9
+		sourceLineageTag: Remarks
+		summarizeBy: none
+		sourceColumn: Remarks
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6fc4a3e7-600a-4205-b53a-31f312c67c51
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column Werklocatie
+		dataType: string
+		lineageTag: d5beba46-0025-48c3-862e-3d097a7cb810
+		sourceLineageTag: Werklocatie
+		summarizeBy: none
+		sourceColumn: Werklocatie
+
+		annotation SummarizationSetBy = Automatic
+
+	partition satisfaction = entity
+		mode: directLake
+		source
+			entityName: satisfaction
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

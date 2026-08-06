@@ -1,12 +1,12 @@
 table fact_hours
-	lineageTag: 1f61043b-8bf8-405a-89d1-1a31bd3d7d83
+	lineageTag: 647d0613-348b-4550-a0a4-432708244e85
 	sourceLineageTag: [dbo].[hours]
 
 	column HourId
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: fb759a23-301c-4c80-83a5-7ef91d5952cb
+		lineageTag: 2c42882b-044a-4dc4-92b7-3bdffbca173c
 		sourceLineageTag: HourId
 		summarizeBy: count
 		sourceColumn: HourId
@@ -16,7 +16,7 @@ table fact_hours
 	column EmployeeId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 24fa9be5-3de1-4a87-828e-9f83461f10fe
+		lineageTag: 6416975c-a5d3-41b3-8e56-dac713d6a417
 		sourceLineageTag: EmployeeId
 		summarizeBy: none
 		sourceColumn: EmployeeId
@@ -26,7 +26,7 @@ table fact_hours
 	column CompanyId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 0f3254bf-a227-4a3f-bd0b-f3740a571b98
+		lineageTag: f6151eac-8268-4009-83bf-e30346b897cf
 		sourceLineageTag: CompanyId
 		summarizeBy: none
 		sourceColumn: CompanyId
@@ -36,7 +36,7 @@ table fact_hours
 	column CompanyName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 1bda5e3c-76ba-4cb2-a823-7300cc2f1ff3
+		lineageTag: 54a70fd7-68fd-464f-a414-751902c0d6dc
 		sourceLineageTag: CompanyName
 		summarizeBy: none
 		sourceColumn: CompanyName
@@ -47,7 +47,7 @@ table fact_hours
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 8671d4df-9b80-4763-8a84-6897ed3f93d9
+		lineageTag: b8b57220-ef05-4820-bfa0-6cc20665df52
 		sourceLineageTag: CardId
 		summarizeBy: count
 		sourceColumn: CardId
@@ -57,7 +57,7 @@ table fact_hours
 	column CardName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 04e37599-ead7-47fc-849a-6624f3a80375
+		lineageTag: 0e50d09e-c398-4ba0-92ce-50ae47081ecf
 		sourceLineageTag: CardName
 		summarizeBy: none
 		sourceColumn: CardName
@@ -68,7 +68,7 @@ table fact_hours
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 101e2b43-9265-42b9-94fc-0ddffc59914c
+		lineageTag: 9960ef9e-7335-4408-8c8e-47386f2167d1
 		sourceLineageTag: OfficeId
 		summarizeBy: count
 		sourceColumn: OfficeId
@@ -78,7 +78,7 @@ table fact_hours
 	column OfficeName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 097197cb-4d8d-42c3-9a56-7527cdf37d65
+		lineageTag: 334e60b4-4eae-4d10-aaf1-2656a56fd9db
 		sourceLineageTag: OfficeName
 		summarizeBy: none
 		sourceColumn: OfficeName
@@ -89,7 +89,7 @@ table fact_hours
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: eab622b1-b950-4b7f-af2c-8a1ccf819735
+		lineageTag: 6d6bc5d9-0fde-4b6d-ac05-01960358eec9
 		sourceLineageTag: HourDepartmentId
 		summarizeBy: count
 		sourceColumn: HourDepartmentId
@@ -100,7 +100,7 @@ table fact_hours
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: dd09be57-42eb-4a41-8917-5823d883ec52
+		lineageTag: ecc48676-047f-486d-8161-1c0b4b684a29
 		sourceLineageTag: HourTeamId
 		summarizeBy: count
 		sourceColumn: HourTeamId
@@ -111,7 +111,7 @@ table fact_hours
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: date
-		lineageTag: 059bdc85-ae88-46ac-a8eb-67801ca2ec24
+		lineageTag: abbefb62-62e6-418a-a5ae-fe7cf3791169
 		sourceLineageTag: HourDate
 		summarizeBy: none
 		sourceColumn: HourDate
@@ -122,7 +122,7 @@ table fact_hours
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(5, 2)
-		lineageTag: 5061e81e-ea2e-4e3b-a312-a34c1fc24121
+		lineageTag: 3a7cb118-2a31-4d0c-ad89-67770508a90f
 		sourceLineageTag: HourHours
 		summarizeBy: sum
 		sourceColumn: HourHours
@@ -135,7 +135,7 @@ table fact_hours
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: 54a65c8a-d117-46f7-8fce-ed21aa30ce75
+		lineageTag: c4391d7d-7581-4eb7-a357-9ec1e402541c
 		sourceLineageTag: HourEnter
 		summarizeBy: none
 		sourceColumn: HourEnter
@@ -146,7 +146,7 @@ table fact_hours
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: e87b7aef-e28c-438d-92db-5e9cca9c66cf
+		lineageTag: 0d2930d4-7634-476c-a9c7-ddc6c570d801
 		sourceLineageTag: HourExit
 		summarizeBy: none
 		sourceColumn: HourExit
@@ -157,7 +157,7 @@ table fact_hours
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: d6a88e5a-def5-416b-9962-c929bd29747c
+		lineageTag: d3cc49d9-b2fa-4825-886a-91cfecbc2c0d
 		sourceLineageTag: HourState
 		summarizeBy: sum
 		sourceColumn: HourState
@@ -168,7 +168,7 @@ table fact_hours
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 1f78c75f-55d0-4f6a-8cd0-043f0bdf476b
+		lineageTag: 698c9967-ca6a-44da-838f-26d6732c78aa
 		sourceLineageTag: HourType
 		summarizeBy: sum
 		sourceColumn: HourType
@@ -178,7 +178,7 @@ table fact_hours
 	column HourTypeName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 18ca87e8-daef-4f47-afce-4d332c1785dc
+		lineageTag: 59226c03-235e-4cc9-a22e-e99bdec59bcc
 		sourceLineageTag: HourTypeName
 		summarizeBy: none
 		sourceColumn: HourTypeName
@@ -188,7 +188,7 @@ table fact_hours
 	column ProjectId
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 758f6b89-9d7b-4cb7-8269-3c91759b314c
+		lineageTag: 52be0891-6e2b-4fe7-b401-2d12a136672b
 		sourceLineageTag: ProjectId
 		summarizeBy: none
 		sourceColumn: ProjectId
@@ -199,7 +199,7 @@ table fact_hours
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(4, 2)
-		lineageTag: 9fa072ce-269c-4340-b5e8-6fd378859629
+		lineageTag: 50886c62-98e1-437f-985a-753657c9ec16
 		sourceLineageTag: HourBreak
 		summarizeBy: sum
 		sourceColumn: HourBreak
@@ -212,7 +212,7 @@ table fact_hours
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		sourceProviderType: bit
-		lineageTag: 1f142211-c46b-4796-9f3f-92deba10bad4
+		lineageTag: 98398bce-c163-43d7-9114-8f5390e30040
 		sourceLineageTag: IsFutureDated
 		summarizeBy: none
 		sourceColumn: IsFutureDated
@@ -223,7 +223,7 @@ table fact_hours
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
-		lineageTag: 87b7efbc-ce40-4a1e-a5dd-50cccf87c2be
+		lineageTag: 556ec1f5-4f38-49e8-b8dd-f8618424f309
 		sourceLineageTag: ModifiedAt
 		summarizeBy: none
 		sourceColumn: ModifiedAt
@@ -234,7 +234,7 @@ table fact_hours
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		sourceProviderType: bit
-		lineageTag: c7d6249b-5126-45da-aae7-fc40952e2e34
+		lineageTag: 93962c79-a487-44ed-8660-a15bcaa23da1
 		sourceLineageTag: IsExternalLabor
 		summarizeBy: none
 		sourceColumn: IsExternalLabor
@@ -245,7 +245,7 @@ table fact_hours
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		sourceProviderType: bit
-		lineageTag: 0fafc58d-3618-4f8e-a9ac-25d87043aac1
+		lineageTag: b8c4e93c-59ba-4000-92b9-0e8f6cbe0ff0
 		sourceLineageTag: IsAnomalousHours
 		summarizeBy: none
 		sourceColumn: IsAnomalousHours
@@ -255,7 +255,7 @@ table fact_hours
 	column AnomalyReason
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 392b7244-0137-4bfc-82da-8a40f1a770c0
+		lineageTag: a1d555dd-4f6b-45bb-aae1-599dfdda2239
 		sourceLineageTag: AnomalyReason
 		summarizeBy: none
 		sourceColumn: AnomalyReason
@@ -265,7 +265,7 @@ table fact_hours
 	column HourDepartmentName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 53d8777c-c8e4-49a2-a7ec-5e05e377c071
+		lineageTag: 89e24ab8-545d-4651-831d-e41363151ce7
 		sourceLineageTag: HourDepartmentName
 		summarizeBy: none
 		sourceColumn: HourDepartmentName
@@ -276,7 +276,7 @@ table fact_hours
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: aa3b1fc2-d90f-49ad-94fd-9b5ec04c8dbc
+		lineageTag: 4c72faa6-7942-4ae4-a6e6-1700a7bed51d
 		sourceLineageTag: HourOfficeId
 		summarizeBy: count
 		sourceColumn: HourOfficeId
@@ -287,7 +287,7 @@ table fact_hours
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 7f686c04-1ea7-484d-bbd4-c1ff2857e920
+		lineageTag: d263a609-e724-467d-8c05-82ec36fd76de
 		sourceLineageTag: HourEnterNumber
 		summarizeBy: sum
 		sourceColumn: HourEnterNumber
@@ -298,7 +298,7 @@ table fact_hours
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: e90c1993-5173-4784-bf55-d66bbbcdf9ca
+		lineageTag: 2610a5c7-cbc7-48e2-81d2-609c29eef0bd
 		sourceLineageTag: HourExitNumber
 		summarizeBy: sum
 		sourceColumn: HourExitNumber
@@ -309,7 +309,7 @@ table fact_hours
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: date
-		lineageTag: d8729a8b-44ff-474c-821a-eda17ce95f15
+		lineageTag: 5e35a67a-d744-4bf7-93cb-6ce37f88f940
 		sourceLineageTag: HourEnterDate
 		summarizeBy: none
 		sourceColumn: HourEnterDate
@@ -320,7 +320,7 @@ table fact_hours
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: date
-		lineageTag: f442287c-96be-439d-9053-f23cbf42d147
+		lineageTag: 79235cf7-d9f5-4cb5-ab87-c690f0ec6680
 		sourceLineageTag: HourExitDate
 		summarizeBy: none
 		sourceColumn: HourExitDate
@@ -331,7 +331,7 @@ table fact_hours
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		sourceProviderType: decimal(10, 2)
-		lineageTag: 9572e36c-d93c-4f84-8946-81f18d4a0d9a
+		lineageTag: 79602a4c-32eb-4df6-8df7-f846d2c83879
 		sourceLineageTag: SalaryRate
 		summarizeBy: sum
 		sourceColumn: SalaryRate
@@ -339,6 +339,16 @@ table fact_hours
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column HourOfficeName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d3be6110-f557-479f-85ac-5385b71202eb
+		sourceLineageTag: HourOfficeName
+		summarizeBy: none
+		sourceColumn: HourOfficeName
+
+		annotation SummarizationSetBy = Automatic
 
 	partition hours = entity
 		mode: directLake

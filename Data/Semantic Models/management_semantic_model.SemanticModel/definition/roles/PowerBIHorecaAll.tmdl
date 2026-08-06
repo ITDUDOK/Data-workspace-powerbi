@@ -1,0 +1,9 @@
+role PowerBIHorecaAll
+	modelPermission: read
+
+	tablePermission dim_center = [SiteNr] = 3 || [SiteNr] = 2 || [SiteNr] = 1 || [SiteNr] = 4 || [SiteNr] = 45
+
+	tablePermission offices = [OfficeId] = 1 || [OfficeId] = 6 || [OfficeId] = 10 || [OfficeId] = 37 || [OfficeId] = 19
+
+	annotation PBI_Id = a235e2643c4a4e80a03d940ba36a3c48
+

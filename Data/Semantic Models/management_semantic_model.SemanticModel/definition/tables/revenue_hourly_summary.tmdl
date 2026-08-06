@@ -1,0 +1,91 @@
+table revenue_hourly_summary
+	lineageTag: ffa437ab-6162-4606-816b-1edad3840b4b
+	sourceLineageTag: [dbo].[revenue_hourly_summary]
+
+	column CenterKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fa50dca2-8bbf-4439-bf77-16a4e061c478
+		sourceLineageTag: CenterKey
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 2e0936af-75dd-4a8d-a577-882d79f14fdb
+		sourceLineageTag: TicketDate
+		summarizeBy: none
+		sourceColumn: TicketDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourNumber
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3ee9b04f-aee7-4178-b05e-42155602c00a
+		sourceLineageTag: HourNumber
+		summarizeBy: sum
+		sourceColumn: HourNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotaleOmzetExBtw
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 79e3cd7a-ab78-48b5-a3a3-44ffe3be0c25
+		sourceLineageTag: TotaleOmzetExBtw
+		summarizeBy: sum
+		sourceColumn: TotaleOmzetExBtw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotaleOmzetExBtw_ExclEvents
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 3d132db7-bac5-4ba2-8250-d1c20c427f38
+		sourceLineageTag: TotaleOmzetExBtw_ExclEvents
+		summarizeBy: sum
+		sourceColumn: TotaleOmzetExBtw_ExclEvents
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalTickets
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a9121bec-a49b-4a02-9dda-53b7fd9c7d06
+		sourceLineageTag: TotalTickets
+		summarizeBy: sum
+		sourceColumn: TotalTickets
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5d822f94-5b82-42aa-bf43-dc28cb203bb5
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition revenue_hourly_summary = entity
+		mode: directLake
+		source
+			entityName: revenue_hourly_summary
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

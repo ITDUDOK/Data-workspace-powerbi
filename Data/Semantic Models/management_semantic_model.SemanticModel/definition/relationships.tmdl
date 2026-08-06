@@ -31,29 +31,13 @@ relationship f0a32e7a-58e4-4456-8269-1c4ad2e57221
 	fromColumn: dim_staff.OfficeId
 	toColumn: offices.OfficeId
 
-relationship 73dfbe0f-b2a6-4f43-bd32-3b0db1bfc078
-	fromColumn: fact_hours.HourOfficeId
-	toColumn: offices.OfficeId
-
 relationship fd586e3d-4f3f-49e0-a256-0ef9c3b51bca
 	fromColumn: fact_planning.PlanningDate
 	toColumn: dim_date.Date
 
-relationship 58348d2f-68e3-43b3-9232-5e2a380cc233
-	fromColumn: fact_hours.HourDate
-	toColumn: dim_date.Date
-
-relationship 5a571999-23b2-4c29-8b43-ddd6a6e24d41
-	fromColumn: fact_hours.HourEnterNumber
-	toColumn: dim_time.HourNumber
-
 relationship 5383e6dc-f84a-4e9f-a5e8-7d970f4e49a7
 	fromColumn: fact_prognosis.PrognosisDate
 	toColumn: dim_date.Date
-
-relationship 4d1cda16-762e-4273-92b9-92ff36ff7825
-	fromColumn: fact_hours.HourDepartmentId
-	toColumn: dim_departments.DepartmentId
 
 relationship 7c2cae2e-dfaa-49c3-b46e-68d8001ea1b8
 	fromColumn: fact_planning.DepartmentId
@@ -114,7 +98,7 @@ relationship 36475f07-2327-4ac8-bffa-81351089eea0
 	toColumn: fact_sales.TableNr
 
 relationship dc5f5ad2-483b-4fba-985d-5ac988503086
-	fromColumn: fact_eventstable.LocationName
+	fromColumn: events.LocationName
 	toColumn: bridge_location_office.LocationName
 
 relationship 24af831b-719d-4697-a3d1-3642d6c7b6b1
@@ -148,14 +132,44 @@ relationship 4784a403-f2e9-4d07-b580-3ccdde915cc6
 	toColumn: center_classification.LeftNr
 
 relationship 6b35da7b-ead2-410a-90cd-b9660ebf59c9
-	fromColumn: fact_revenue_hourly.CenterKey
+	fromColumn: revenue_hourly_summary.CenterKey
 	toColumn: dim_center.CenterKey
 
 relationship 6c2a6e36-eae4-47d6-a979-58db322b7a25
-	fromColumn: fact_revenue_hourly.TicketDate
+	fromColumn: revenue_hourly_summary.TicketDate
 	toColumn: dim_date.Date
 
 relationship 286e25f1-d9c2-4c70-b387-f31c8f026998
-	fromColumn: fact_revenue_hourly.HourNumber
+	fromColumn: revenue_hourly_summary.HourNumber
 	toColumn: dim_time.HourNumber
+
+relationship 253b7d89-e9aa-4e43-830d-f39be7ad8ae2
+	isActive: false
+	fromColumn: fact_hours.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 8cffdfdf-f6d3-43bf-80a1-601f23cf7588
+	fromColumn: fact_hours.HourDate
+	toColumn: dim_date.Date
+
+relationship 8680c58f-f7d6-4f16-a835-ac7c39b58612
+	isActive: false
+	fromColumn: fact_hours.CardId
+	toColumn: dim_staff.CardId
+
+relationship 512f35c1-b226-4a9c-bef1-f1779550a43e
+	fromColumn: fact_prognose_horeca_daily.CenterKey
+	toColumn: dim_center.CenterKey
+
+relationship 672e4403-e8d3-434a-9759-c0e2fcd513ca
+	fromColumn: fact_prognose_horeca_daily.Date
+	toColumn: dim_date.Date
+
+relationship c1b35211-443e-4408-ab58-a41817ac23b4
+	fromColumn: events.EventDate
+	toColumn: dim_date.Date
+
+relationship c9949607-d2c2-4204-9feb-d7219860487f
+	fromColumn: fact_hours.HourOfficeId
+	toColumn: offices.OfficeId
 

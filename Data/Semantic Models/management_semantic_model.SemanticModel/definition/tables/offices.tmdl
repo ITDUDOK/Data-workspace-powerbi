@@ -8,7 +8,7 @@ table offices
 		sourceProviderType: int
 		lineageTag: dc07e697-c0ec-4508-aef2-44554f53a8b7
 		sourceLineageTag: OfficeId
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: OfficeId
 
 		annotation SummarizationSetBy = Automatic
