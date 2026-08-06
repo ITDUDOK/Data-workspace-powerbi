@@ -406,71 +406,14 @@ table measurements
 		formatString: 0
 		lineageTag: 6673d876-c63d-440d-8b7e-aa125d2b2aaf
 
-	measure Aantal_UitDienst_In_Periode =
+	measure Aantal_UitDienst_In_Periode = ```
 			
-			VAR GekozenDatum = SELECTEDVALUE(dates[Date])
-			VAR GekozenMaand = SELECTEDVALUE(dates[Month])
-			VAR GekozenWeek = SELECTEDVALUE(dates[WeekISO])  -- Adjust column name if needed
-			VAR GekozenJaar = SELECTEDVALUE(dates[YearISO])
-			
-			VAR BeginPeriode =
-			    IF(
-			        NOT ISBLANK(GekozenDatum),
-			        GekozenDatum,
-			        IF(
-			            NOT ISBLANK(GekozenMaand) && NOT ISBLANK(GekozenJaar),
-			            CALCULATE(
-			                MIN(dates[Date]),
-			                dates[Month] = GekozenMaand,
-			                dates[YearISO] = GekozenJaar
-			            ),
-			            IF(
-			                NOT ISBLANK(GekozenWeek) && NOT ISBLANK(GekozenJaar),
-			                CALCULATE(
-			                    MIN(dates[Date]),
-			                    dates[WeekISO] = GekozenWeek,
-			                    dates[YearISO] = GekozenJaar
-			                ),
-			                DATE(GekozenJaar, 1, 1)
-			            )
-			        )
-			    )
-			
-			VAR EindPeriode =
-			    IF(
-			        NOT ISBLANK(GekozenDatum),
-			        GekozenDatum,
-			        IF(
-			            NOT ISBLANK(GekozenMaand) && NOT ISBLANK(GekozenJaar),
-			            CALCULATE(
-			                MAX(dates[Date]),
-			                dates[Month] = GekozenMaand,
-			                dates[YearISO] = GekozenJaar
-			            ),
-			            IF(
-			                NOT ISBLANK(GekozenWeek) && NOT ISBLANK(GekozenJaar),
-			                CALCULATE(
-			                    MAX(dates[Date]),
-			                    dates[WeekISO] = GekozenWeek,
-			                    dates[YearISO] = GekozenJaar
-			                ),
-			                DATE(GekozenJaar, 12, 31)
-			            )
-			        )
-			    )
-			
-			RETURN
-			IF(
-			    NOT ISBLANK(BeginPeriode),
-			    CALCULATE(
-			        DISTINCTCOUNT(staff[CardId]),
-			        ALL(dates),
-			        staff[CardEnd] >= BeginPeriode,
-			        staff[CardEnd] <= EindPeriode,
-			        NOT ISBLANK(staff[CardEnd])
-			    ),
-			    BLANK()
+			CALCULATE(
+			    DISTINCTCOUNT(employees_enriched[EmployeeId]),
+			    NOT ISBLANK(employees_enriched[FinalEndDate])
 			)
+			
+			```
 		formatString: 0
 		lineageTag: 67dbea93-5484-43af-9be2-cfe26a611f02
 
@@ -712,12 +655,13 @@ table measurements
 			```
 		lineageTag: 69abacbd-d6e3-49cc-b81d-b092881f169a
 
-	measure SicknessHourSom = ```
+	measure SicknessHourSom =
 			
 			VAR GekozenData = VALUES(dates[Date])
 			VAR HeeftSelectie = NOT ISEMPTY(GekozenData)
 			VAR MinDate = IF(HeeftSelectie, MINX(GekozenData, dates[Date]), TODAY())
 			VAR MaxDate = IF(HeeftSelectie, MAXX(GekozenData, dates[Date]), TODAY())
+			VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
 			
 			RETURN
 			CALCULATE(
@@ -727,18 +671,18 @@ table measurements
 			        VAR SicknessEnd = IF(ISBLANK(sickness[SicknessEnd]), TODAY(), sickness[SicknessEnd])
 			        VAR OverlapStart = MAX(SicknessStart, MinDate)
 			        VAR OverlapEnd = MIN(SicknessEnd, MaxDate)
-			        
+			
 			        RETURN
 			        IF(
-			            OverlapStart <= OverlapEnd,  -- There is overlap with selected period
-			            sickness[SicknessHours] * 
+			            OverlapStart <= OverlapEnd,
+			            sickness[SicknessHours] *
 			            DIVIDE(OverlapEnd - OverlapStart + 1, SicknessEnd - SicknessStart + 1, 0),
 			            0
 			        )
 			    ),
-			    REMOVEFILTERS(dates)
+			    REMOVEFILTERS(dates),
+			    sickness[CardId] IN CurrentCardIDs
 			)
-			```
 		lineageTag: 93faa079-20b5-464a-bcfd-8db2fde2887c
 
 	measure SicknessEntries =
@@ -809,31 +753,14 @@ table measurements
 		formatString: 0
 		lineageTag: 065c1cb7-7d00-4b32-8586-4d6ba8bc26c5
 
-	measure AantalVertrokkenWerknemers =
+	measure AantalVertrokkenWerknemers = ```
 			
-			VAR GekozenData = VALUES(dates[Date])
-			VAR HeeftSelectie = NOT ISEMPTY(GekozenData)
-			VAR MinDate = IF(HeeftSelectie, MINX(GekozenData, dates[Date]), TODAY())
-			VAR MaxDate = IF(HeeftSelectie, MAXX(GekozenData, dates[Date]), TODAY())
-			
-			RETURN
 			CALCULATE(
-			    DISTINCTCOUNT(hr_contracts[EmployeeId]),
-			    REMOVEFILTERS(dates),  -- Remove date filters
-			    KEEPFILTERS(
-			        FILTER(
-			            ALL(hr_contracts),
-			            -- Employee left during the selected period
-			            hr_contracts[EndDate] >= MinDate
-			            &&
-			            hr_contracts[EndDate] <= MaxDate
-			            &&
-			            NOT ISBLANK(hr_contracts[EndDate])  -- Must have an actual end date
-			            &&
-			            hr_contracts[Indefinite] <> TRUE()  -- Exclude indefinite contracts
-			        )
-			    )
+			    DISTINCTCOUNT(employees_enriched[EmployeeId]),
+			    NOT ISBLANK(employees_enriched[FinalEndDate])
 			)
+			
+			```
 		formatString: 0
 		lineageTag: 38d8b203-a7af-4f93-ae3a-ed08461b116f
 
@@ -946,7 +873,6 @@ table measurements
 			        VAR CurrentCard = hours[CardId]
 			        VAR HourlyRate = LOOKUPVALUE(
 			            staff[CardSalaryRate], 
-			            staff[OfficeId], CurrentOffice,
 			            staff[CardId], CurrentCard
 			            )
 			        RETURN
@@ -968,7 +894,6 @@ table measurements
 			        VAR CurrentCard = hours[CardId]
 			        VAR HourlyRate = LOOKUPVALUE(
 			            staff[CardSalaryRate], 
-			            staff[OfficeId], CurrentOffice,
 			            staff[CardId], CurrentCard
 			            )
 			        RETURN
@@ -1057,41 +982,36 @@ table measurements
 	measure Netto_GewerktUren = ```
 			
 			VAR GeselecteerdOffice = VALUES(offices[OfficeId])
-			VAR AlleUren = 
+			VAR GeselecteerdeDepartments = VALUES(departments[DepartmentId])
+			VAR BasisUren =
 			    CALCULATETABLE(
-			        SUMMARIZE(
-			            hours,
-			            hours[HourId],
-			            hours[HourDepartmentId],
-			            "Uren", MAX(hours[HourHours]),
-			            "ThuisOfficeID", MAX(hours[OfficeId]),
-			            "WerkOfficeID", MAX(hours[HourOfficeId])
-			        ),
+			        hours,
 			        ALL(offices),
 			        ALL(departments)
 			    )
-			VAR GefilterdOpOffice = 
+			VAR GefilterdOpOfficeEnDepartment =
 			    FILTER(
-			        AlleUren,
-			        [ThuisOfficeID] IN GeselecteerdOffice || [WerkOfficeID] IN GeselecteerdOffice
-			    )
-			VAR GefilterdOpDepartment = 
-			    FILTER(
-			        GefilterdOpOffice,
-			        CALCULATE(
-			            COUNTROWS(departments),
-			            departments[DepartmentId] = EARLIER(hours[HourDepartmentId])
-			        ) > 0
+			        BasisUren,
+			        (hours[OfficeId] IN GeselecteerdOffice || hours[HourOfficeId] IN GeselecteerdOffice)
+			            && hours[HourDepartmentId] IN GeselecteerdeDepartments
 			    )
 			RETURN
-			    SUMX(GefilterdOpDepartment, [Uren])
+			    SUMX(GefilterdOpOfficeEnDepartment, hours[HourHours])
+			
 			```
 		lineageTag: 38281019-09fc-499d-970c-5b1ad08584ae
 
 	measure TotalBudget = SUM(prognosis[PrognosisSpending])
 		lineageTag: 7d8d9724-3e0b-4951-960c-b43e12ed724d
 
-	measure TotalSicknessHours = SUM(sickness[SicknessHours])
+	measure TotalSicknessHours =
+			
+			VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
+			RETURN
+			CALCULATE(
+			    SUM(sickness[SicknessHours]),
+			    sickness[CardId] IN CurrentCardIDs
+			)
 		lineageTag: e5eb84fe-c435-4ffe-9dd0-1be0f30de314
 
 	measure Average_salary_hourly_Total =
@@ -1122,11 +1042,15 @@ table measurements
 		lineageTag: 13ab90c0-107a-4d6f-8a39-f6e16997cccf
 
 	measure ContractUren =
-			
+			VAR HuidigCardID = [CardID_MA_Gekozen_OpNaam]
+			RETURN
 			IF(
-			    HASONEVALUE(employees_enriched[FullName]),
-			    MIN(employees_enriched[ContractHours]),
-			    BLANK()
+			    ISBLANK(HuidigCardID),
+			    BLANK(),
+			    CALCULATE(
+			        SELECTEDVALUE(employees_enriched[ContractHours]),
+			        employees_enriched[CardId] = HuidigCardID
+			    )
 			)
 		formatString: 0
 		lineageTag: 9a44625b-a9c8-4eef-a663-1987163f34a9
@@ -1216,47 +1140,72 @@ table measurements
 			)
 		lineageTag: e31b5862-3408-4dc1-8135-0a0917e41ce1
 
-	measure 'WL Afdeling' =
+	measure 'WL Afdeling' = ```
 			
-			IF(
-			    HASONEVALUE(hours[CardName]),
-			    CALCULATE(
-			        MAX(employees_enriched[DepartmentName]),
-			        employees_enriched[FullName] = SELECTEDVALUE(hours[CardName])
-			    ),
-			    BLANK()
-			)
+			VAR HuidigCardID =
+			    COALESCE(
+			        SELECTEDVALUE(employees_enriched[CardId]),
+			        SELECTEDVALUE(hours[CardId]),
+			        SELECTEDVALUE(hours_summary[CardId])
+			    )
+			RETURN
+			    IF(
+			        ISBLANK(HuidigCardID),
+			        BLANK(),
+			        CALCULATE(
+			            SELECTEDVALUE(employees_enriched[DepartmentName]),
+			            employees_enriched[CardId] = HuidigCardID
+			        )
+			    )
+			
+			```
 		lineageTag: 23fe67ca-7468-4334-b828-3673475ab1aa
 
-	measure 'WL Functie' =
+	measure 'WL Functie' = ```
 			
-			IF(
-			    HASONEVALUE(hours[CardName]),
-			    CALCULATE(
-			        MAX(employees_enriched[NmbrsFunctionDescription]),
-			        employees_enriched[FullName] = SELECTEDVALUE(hours[CardName])
-			    ),
-			    BLANK()
-			)
+			VAR HuidigCardID =
+			    COALESCE(
+			        SELECTEDVALUE(employees_enriched[CardId]),
+			        SELECTEDVALUE(hours[CardId]),
+			        SELECTEDVALUE(hours_summary[CardId])
+			    )
+			RETURN
+			    IF(
+			        ISBLANK(HuidigCardID),
+			        BLANK(),
+			        CALCULATE(
+			            SELECTEDVALUE(employees_enriched[NmbrsFunctionDescription]),
+			            employees_enriched[CardId] = HuidigCardID
+			        )
+			    )
+			
+			```
 		lineageTag: 6390bcfe-3ee5-4884-b9c2-6552330ae1f5
 
 	measure 'WL Contractlocatie' = ```
 			
-			IF(
-			    HASONEVALUE(hours[CardName]),
-			    VAR ContractOfficeID = 
+			VAR HuidigCardID =
+			    COALESCE(
+			        SELECTEDVALUE(employees_enriched[CardId]),
+			        SELECTEDVALUE(hours[CardId]),
+			        SELECTEDVALUE(hours_summary[CardId])
+			    )
+			VAR ContractOfficeID =
+			    IF(
+			        ISBLANK(HuidigCardID),
+			        BLANK(),
 			        CALCULATE(
-			            MAX(employees_enriched[OfficeID]),
-			            employees_enriched[FullName] = SELECTEDVALUE(hours[CardName])
+			            SELECTEDVALUE(employees_enriched[OfficeID]),
+			            employees_enriched[CardId] = HuidigCardID
 			        )
-			    RETURN
-			        LOOKUPVALUE(
-			            offices[OfficeName],
-			            offices[OfficeId],
-			            ContractOfficeID
-			        ),
-			    BLANK()
-			)
+			    )
+			RETURN
+			    LOOKUPVALUE(
+			        offices[OfficeName],
+			        offices[OfficeId],
+			        ContractOfficeID
+			    )
+			
 			```
 		lineageTag: ed8f22d1-1d36-402b-80fe-79bc20b7771a
 
@@ -1307,9 +1256,11 @@ table measurements
 		lineageTag: 96085676-3b1b-4c45-9b71-6bd265f1fa49
 
 	measure Ziekmeldingen_6M =
-			
 			VAR HuidigCardID = [CardID_MA_Gekozen_OpNaam]
-			VAR Grens = EDATE(TODAY(), -6)
+			VAR SelectedYear = COALESCE(SELECTEDVALUE(dates[Year]), YEAR(TODAY()))
+			VAR SelectedMonth = COALESCE(SELECTEDVALUE(dates[Month]), MONTH(TODAY()))
+			VAR VorigeMaandEinde = EOMONTH(DATE(SelectedYear, SelectedMonth, 1), -1)
+			VAR Grens = EDATE(VorigeMaandEinde, -6)
 			RETURN
 			    CALCULATE(
 			        DISTINCTCOUNT(sickness[MeldingId]),
@@ -1322,28 +1273,28 @@ table measurements
 
 	measure Saldo_Overuren =
 			
-			VAR HuidigCardID = SELECTEDVALUE(employees_enriched[CardId])
+			VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
 			VAR VorigeMaand = EDATE(TODAY(), -1)
-			VAR HuidigYearMonth = YEAR(VorigeMaand) * 100 + MONTH(VorigeMaand)
+			VAR HuidigYearMonth = DATE(YEAR(VorigeMaand), MONTH(VorigeMaand), 1)
 			RETURN
 			    CALCULATE(
 			        AVERAGE(cumulative[CummOverHours]),
 			        REMOVEFILTERS(dates),
-			        cumulative[CardId] = HuidigCardID,
+			        cumulative[CardId] IN CurrentCardIDs,
 			        cumulative[YearMonth] = HuidigYearMonth
 			    )
 		lineageTag: 8f020d61-8cf3-450a-8a22-3cf2b46430f6
 
 	measure Saldo_Vakantieuren =
 			
-			VAR HuidigCardID = SELECTEDVALUE(employees_enriched[CardId])
+			VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
 			VAR VorigeMaand = EDATE(TODAY(), -1)
-			VAR HuidigYearMonth = YEAR(VorigeMaand) * 100 + MONTH(VorigeMaand)
+			VAR HuidigYearMonth = DATE(YEAR(VorigeMaand), MONTH(VorigeMaand), 1)
 			RETURN
 			    CALCULATE(
 			        AVERAGE(cumulative[CummHolidayHours]),
 			        REMOVEFILTERS(dates),
-			        cumulative[CardId] = HuidigCardID,
+			        cumulative[CardId] IN CurrentCardIDs,
 			        cumulative[YearMonth] = HuidigYearMonth
 			    )
 		lineageTag: 5a89b367-48cf-4df1-91d6-edb807a81e6b
@@ -1367,7 +1318,7 @@ table measurements
 			VAR SelectedYear = IF(HASONEVALUE(dates[Year]), VALUES(dates[Year]), YEAR(TODAY()))
 			VAR SelectedMonth = IF(HASONEVALUE(dates[Month]), VALUES(dates[Month]), MONTH(TODAY()))
 			VAR VorigeMaand = EDATE(DATE(SelectedYear, SelectedMonth, 1), -1)
-			VAR VorigeYearMonth = YEAR(VorigeMaand) * 100 + MONTH(VorigeMaand)
+			VAR VorigeYearMonth = DATE(YEAR(VorigeMaand), MONTH(VorigeMaand), 1)
 			RETURN
 			IF(
 			    ISBLANK(HuidigCardID),
@@ -1387,7 +1338,7 @@ table measurements
 			VAR SelectedYear = IF(HASONEVALUE(dates[Year]), VALUES(dates[Year]), YEAR(TODAY()))
 			VAR SelectedMonth = IF(HASONEVALUE(dates[Month]), VALUES(dates[Month]), MONTH(TODAY()))
 			VAR VorigeMaand = EDATE(DATE(SelectedYear, SelectedMonth, 1), -1)
-			VAR VorigeYearMonth = YEAR(VorigeMaand) * 100 + MONTH(VorigeMaand)
+			VAR VorigeYearMonth = DATE(YEAR(VorigeMaand), MONTH(VorigeMaand), 1)
 			RETURN
 			IF(
 			    ISBLANK(HuidigCardID),
@@ -1447,7 +1398,7 @@ table measurements
 			    ISBLANK(SelectedStartDate),
 			    1,
 			    IF(
-			        EmpStart <= SelectedEndDate && EmpEnd >= SelectedStartDate,
+			        EmpStart <= SelectedEndDate && (ISBLANK(EmpEnd) || EmpEnd >= SelectedStartDate),
 			        1,
 			        0
 			    )
@@ -1543,37 +1494,38 @@ table measurements
 		formatString: 0%;-0%;0%
 		lineageTag: 72bb974d-c2c6-43a6-af4d-a3f2981f8194
 
-	measure 'RC Diensten Gepland' =
+	measure 'RC Diensten Gepland' = ```
 			
+			VAR GeselecteerdeCardID = SELECTEDVALUE(employees_enriched[CardId])
+			RETURN
 			CALCULATE(
 			    COUNTROWS(planning),
 			    planning[PlanningTypeId] IN { "Gepland", "Pool dienst", "Open dienst" },
-			    NOT(ISBLANK(planning[CardId]))
+			    NOT(ISBLANK(planning[CardId])),
+			    IF(ISBLANK(GeselecteerdeCardID), TRUE(), planning[CardId] = GeselecteerdeCardID)
 			)
+			
+			```
 		formatString: #,0
 		lineageTag: 8fb4e1af-1480-4f2c-a4d7-31d6206423c4
 
-	measure 'RC Diensten Gerealiseerd' =
+	measure 'RC Diensten Gerealiseerd' = ```
 			
 			VAR GeselecteerdOffice = VALUES(offices[OfficeId])
-			VAR UniekeShifts =
+			VAR BasisUren =
 			    CALCULATETABLE(
-			        SUMMARIZE(
-			            hours,
-			            hours[HourId],
-			            "ThuisOfficeID", MAX(hours[OfficeId]),
-			            "HuurOfficeID",  MAX(hours[HourOfficeId])
-			        ),
+			        hours,
 			        ALL(offices)
 			    )
 			RETURN
 			COUNTROWS(
 			    FILTER(
-			        UniekeShifts,
-			        [ThuisOfficeID] IN GeselecteerdOffice
-			            || [HuurOfficeID] IN GeselecteerdOffice
+			        BasisUren,
+			        hours[OfficeId] IN GeselecteerdOffice || hours[HourOfficeId] IN GeselecteerdOffice
 			    )
 			)
+			
+			```
 		formatString: #,0
 		lineageTag: 1f608a3a-e35f-46a7-8752-977869a1bd08
 
@@ -1690,9 +1642,9 @@ table measurements
 			    )
 			
 			-- Welke offices heeft de slicer geselecteerd?
-			VAR GeselOffices  = VALUES(offices[OfficeId])
+			VAR GeselOffices  = VALUES(slicer_werklocatie[OfficeId])
 			VAR HeeftSelectie =
-			    COUNTROWS(GeselOffices) < COUNTROWS(ALL(offices[OfficeId]))
+			    COUNTROWS(GeselOffices) < COUNTROWS(ALL(slicer_werklocatie[OfficeId]))
 			
 			RETURN
 			    IF(
@@ -1859,16 +1811,25 @@ table measurements
 			    )
 		lineageTag: 85e931da-4ae7-4508-a3f6-ff20016dc3a1
 
-	measure LabourCost =
+	measure LabourCost = ```
+			
 			VAR GeselecteerdOffice = VALUES(offices[OfficeId])
+			VAR BasisKosten =
+			    CALCULATETABLE(
+			        hourly_labour,
+			        ALL(hourly_labour[OfficeId]),
+			        ALL(hourly_labour[HourOfficeId])
+			    )
 			RETURN
 			CALCULATE(
 			    SUM(hourly_labour[ProportionalCost]),
 			    FILTER(
-			        ALL(hourly_labour),
+			        BasisKosten,
 			        hourly_labour[OfficeId] IN GeselecteerdOffice || hourly_labour[HourOfficeId] IN GeselecteerdOffice
 			    )
 			)
+			
+			```
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 9794815c-c585-43c6-9413-627299a3e930
 
@@ -1963,7 +1924,7 @@ table measurements
 			                && (
 			                    hours_summary[IsCalculatedHours] IN { "Yes", "YES", "Ja", "JA", "True", "TRUE", "1" }
 			                    || hours_summary[HourTypeName] = "Calculated Contract Hours"
-			                    || hours_summary[HourType] = "99"
+			                    || hours_summary[HourType] = 99
 			                )
 			        )
 			    )
@@ -2140,6 +2101,334 @@ table measurements
 			    )
 			)
 		lineageTag: cb4170be-b2f8-4332-b4c5-8b4f971602bb
+
+	measure Werklocatie_MA =
+			VAR HuidigCardID = [CardID_MA_Gekozen_OpNaam]
+			VAR SelectedYear = COALESCE(SELECTEDVALUE(dates[Year]), YEAR(TODAY()))
+			VAR SelectedMonth = COALESCE(SELECTEDVALUE(dates[Month]), MONTH(TODAY()))
+			VAR VorigeMaandDate = EDATE(DATE(SelectedYear, SelectedMonth, 1), -1)
+			VAR VorigeYear = YEAR(VorigeMaandDate)
+			VAR VorigeMonth = MONTH(VorigeMaandDate)
+			VAR HuidigEmployeeId =
+			    CALCULATE(
+			        SELECTEDVALUE(employees_enriched[EmployeeId]),
+			        employees_enriched[CardId] = HuidigCardID
+			    )
+			RETURN
+			IF(
+			    ISBLANK(HuidigCardID),
+			    BLANK(),
+			    CALCULATE(
+			        SELECTEDVALUE(employee_worklocation_monthly[WerklocatieOfficeName]),
+			        REMOVEFILTERS(employee_worklocation_monthly),
+			        REMOVEFILTERS(dates),
+			        employee_worklocation_monthly[EmployeeId] = HuidigEmployeeId,
+			        YEAR(employee_worklocation_monthly[YearMonth]) = VorigeYear,
+			        MONTH(employee_worklocation_monthly[YearMonth]) = VorigeMonth
+			    )
+			)
+		lineageTag: 56d89e50-e215-49b3-baa3-6f86d68e8117
+
+	measure Tevredenheidscijfer_MA =
+			VAR HuidigCardID = [CardID_MA_Gekozen_OpNaam]
+			VAR HuidigEmployeeId =
+			    CALCULATE(
+			        SELECTEDVALUE(employees_enriched[EmployeeId]),
+			        employees_enriched[CardId] = HuidigCardID
+			    )
+			VAR SelectedYear = COALESCE(SELECTEDVALUE(dates[Year]), YEAR(TODAY()))
+			VAR SelectedMonth = COALESCE(SELECTEDVALUE(dates[Month]), MONTH(TODAY()))
+			VAR VorigeMaandDate = EDATE(DATE(SelectedYear, SelectedMonth, 1), -1)
+			VAR VorigeStart = DATE(YEAR(VorigeMaandDate), MONTH(VorigeMaandDate), 1)
+			VAR VorigeEind = EOMONTH(VorigeMaandDate, 0)
+			VAR RuweScore =
+			    IF(
+			        ISBLANK(HuidigCardID),
+			        BLANK(),
+			        CALCULATE(
+			            AVERAGE(satisfaction[Satisfaction]),
+			            REMOVEFILTERS(satisfaction),
+			            REMOVEFILTERS(dates),
+			            satisfaction[EmployeeId] = HuidigEmployeeId,
+			            satisfaction[SurveyDate] >= VorigeStart,
+			            satisfaction[SurveyDate] <= VorigeEind
+			        )
+			    )
+			RETURN
+			IF(ISBLANK(RuweScore), BLANK(), (RuweScore - 1) * 2.5)
+		lineageTag: 90c820ae-c043-4189-99a1-1ca4dca328fe
+
+	measure Saldo_Compensatieuren =
+			
+			VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
+			VAR VorigeMaand = EDATE(TODAY(), -1)
+			VAR HuidigYearMonth = DATE(YEAR(VorigeMaand), MONTH(VorigeMaand), 1)
+			RETURN
+			    CALCULATE(
+			        AVERAGE(cumulative[CummCompensationHours]),
+			        REMOVEFILTERS(dates),
+			        cumulative[CardId] IN CurrentCardIDs,
+			        cumulative[YearMonth] = HuidigYearMonth
+			    )
+		lineageTag: 4cc77dec-fc51-4fd1-bf1e-23e556fdda9a
+
+	measure 'Average Satisfaction' =
+			
+			VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			VAR RuweScore =
+			    CALCULATE(
+			        AVERAGE(satisfaction[Satisfaction]),
+			        satisfaction[EmployeeId] IN RelevantEmployeeIds
+			    )
+			RETURN
+			IF(ISBLANK(RuweScore), BLANK(), (RuweScore - 1) * 2.5)
+		lineageTag: fd36f22e-8454-467e-90a0-1646974571f6
+
+	measure 'Heel onprettig' =
+			
+			VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			RETURN
+			CALCULATE(
+			    COUNTROWS(satisfaction),
+			    satisfaction[EmployeeId] IN RelevantEmployeeIds,
+			    satisfaction[Satisfaction] = 1
+			)
+		displayFolder: Tevredenheid Categorieën
+		lineageTag: 408ba006-c505-4fb1-aaa5-d13ccc111172
+
+	measure Onprettig =
+			
+			VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			RETURN
+			CALCULATE(
+			    COUNTROWS(satisfaction),
+			    satisfaction[EmployeeId] IN RelevantEmployeeIds,
+			    satisfaction[Satisfaction] = 2
+			)
+		displayFolder: Tevredenheid Categorieën
+		lineageTag: 4083912e-5c1a-4bf3-840c-833b8c758100
+
+	measure Normaal =
+			
+			VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			RETURN
+			CALCULATE(
+			    COUNTROWS(satisfaction),
+			    satisfaction[EmployeeId] IN RelevantEmployeeIds,
+			    satisfaction[Satisfaction] = 3
+			)
+		displayFolder: Tevredenheid Categorieën
+		lineageTag: a1024013-1838-4045-8a30-fb7ccb5491e2
+
+	measure Prettig =
+			
+			VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			RETURN
+			CALCULATE(
+			    COUNTROWS(satisfaction),
+			    satisfaction[EmployeeId] IN RelevantEmployeeIds,
+			    satisfaction[Satisfaction] = 4
+			)
+		displayFolder: Tevredenheid Categorieën
+		lineageTag: 285187bf-b4ce-4a14-9a79-adad3a187761
+
+	measure 'Heel prettig' =
+			
+			VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			RETURN
+			CALCULATE(
+			    COUNTROWS(satisfaction),
+			    satisfaction[EmployeeId] IN RelevantEmployeeIds,
+			    satisfaction[Satisfaction] = 5
+			)
+		displayFolder: Tevredenheid Categorieën
+		lineageTag: 41ae3b90-2c4b-4f33-b3ec-7d3caceb58df
+
+	measure 'WL Manager' = ```
+			
+			VAR HuidigCardID =
+			    COALESCE(
+			        SELECTEDVALUE(employees_enriched[CardId]),
+			        SELECTEDVALUE(hours[CardId]),
+			        SELECTEDVALUE(hours_summary[CardId])
+			    )
+			RETURN
+			    IF(
+			        ISBLANK(HuidigCardID),
+			        BLANK(),
+			        CALCULATE(
+			            SELECTEDVALUE(employees_enriched[ManagerFullName]),
+			            employees_enriched[CardId] = HuidigCardID
+			        )
+			    )
+			
+			```
+		lineageTag: ed6180b8-ce3c-4d8c-be25-28e5849b5015
+
+	measure WL_Werklocatie = ```
+			
+			VAR GekozenData = VALUES(dates[Date])
+			VAR HeeftSelectie = NOT ISEMPTY(GekozenData)
+			VAR MinDate = IF(HeeftSelectie, MINX(GekozenData, dates[Date]), TODAY())
+			VAR MaxDate = IF(HeeftSelectie, MAXX(GekozenData, dates[Date]), TODAY())
+			VAR HuidigCardID =
+			    COALESCE(
+			        SELECTEDVALUE(employees_enriched[CardId]),
+			        SELECTEDVALUE(hours[CardId]),
+			        SELECTEDVALUE(hours_summary[CardId])
+			    )
+			VAR UrenPerLocatie =
+			    FILTER(
+			        ADDCOLUMNS(
+			            CALCULATETABLE(
+			                VALUES(hours[HourOfficeId]),
+			                REMOVEFILTERS(dates),
+			                REMOVEFILTERS(hours),
+			                hours[CardId] = HuidigCardID,
+			                hours[HourDate] >= MinDate,
+			                hours[HourDate] <= MaxDate
+			            ),
+			            "TotaalUren", CALCULATE(
+			                SUM(hours[HourHours]),
+			                REMOVEFILTERS(dates),
+			                hours[CardId] = HuidigCardID,
+			                hours[HourDate] >= MinDate,
+			                hours[HourDate] <= MaxDate
+			            )
+			        ),
+			        [TotaalUren] > 0
+			    )
+			VAR MaxUren = MAXX(UrenPerLocatie, [TotaalUren])
+			VAR TopOfficeID = 
+			    MAXX(
+			        FILTER(UrenPerLocatie, [TotaalUren] = MaxUren),
+			        hours[HourOfficeId]
+			    )
+			RETURN
+			    IF(
+			        ISBLANK(HuidigCardID),
+			        BLANK(),
+			        LOOKUPVALUE(
+			            offices[OfficeName],
+			            offices[OfficeId],
+			            TopOfficeID
+			        )
+			    )
+			```
+		lineageTag: cfa870e1-f57e-40e5-ba0d-c83d790359c2
+
+	measure Totalplanned = CALCULATE(SUM(planning[PlanningHours]), planning[PlanningTypeId] in {"Gepland", "Pool dienst", "Ongeplande dienst"}, USERELATIONSHIP(departments[DepartmentId], planning[DepartmentId]), not ISBLANK(planning[CardId]))
+		formatString: #,0
+		lineageTag: 5613d5e7-1457-4739-8b0a-91fed64029aa
+
+	measure 'RC Gem Uurloon' =
+			VAR Uren = [Netto_GewerktUren]
+			RETURN
+			IF(
+			    ISBLANK(Uren) || Uren = 0,
+			    BLANK(),
+			    DIVIDE([LabourCost], Uren)
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: d96932a5-471d-46a7-b05e-15dcecc2ee8a
+
+	measure 'RC Omzet Per Uur Gepland' = DIVIDE([TotalPrognosis], [Totalplanned])
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 8a944fa6-6fb2-49a0-98a6-24db7ce0a68d
+
+	measure 'RC Personeelskosten Gerealiseerd %' = DIVIDE([LabourCost], [TotaleOmzetExBTW])
+		formatString: 0%;-0%;0%
+		lineageTag: f5d58230-646d-4179-b534-41c75b42a90c
+
+	measure 'RC Verschil Omzet Per Uur %' =
+			DIVIDE(
+			    [RC Omzet Per Uur Gerealiseerd] - [RC Omzet Per Uur Gepland],
+			    [RC Omzet Per Uur Gepland]
+			)
+		formatString: 0%;-0%;0%
+		lineageTag: 3226adb0-ebd0-4333-9f3a-d93552c3a4f2
+
+	measure 'RC Verschil Personeelskosten %' = DIVIDE([LabourCost] - [LabourCost_Planning], [LabourCost_Planning])
+		formatString: 0%;-0%;0%
+		lineageTag: 4ba1c284-caa4-46fc-82da-a4bef9fbda09
+
+	measure 'RC Verschil Uren %' = DIVIDE([Netto_GewerktUren] - [Totalplanned], [Totalplanned])
+		formatString: 0%;-0%;0%
+		lineageTag: 2f57f311-8c17-4726-b48c-97171bd46f89
+
+	measure 'VK Contracturen' =
+			VAR MinDate = MIN(dates[Date])
+			VAR MaxDate = MAX(dates[Date])
+			VAR CurrentOffices = VALUES(offices[OfficeId])
+			VAR SourceOffices =
+			    CALCULATETABLE(
+			        VALUES(map_vkoffice[SourceOfficeId]),
+			        TREATAS(CurrentOffices, map_vkoffice[TargetOfficeId])
+			    )
+			RETURN
+			IF(
+			    ISBLANK(MinDate),
+			    BLANK(),
+			    CALCULATE(
+			        SUMX(
+			            employees_enriched,
+			            VAR WeeklyHours = employees_enriched[ContractHours]
+			            VAR EmpStart = employees_enriched[EmployeeStartDate]
+			            VAR EmpEnd   = COALESCE(employees_enriched[EmployeeEndDate], MaxDate)
+			            VAR OverlapStart = MAX(EmpStart, MinDate)
+			            VAR OverlapEnd   = MIN(EmpEnd,   MaxDate)
+			            VAR OverlapDays  =
+			                IF(
+			                    NOT ISBLANK(EmpStart) && OverlapStart <= OverlapEnd,
+			                    OverlapEnd - OverlapStart + 1,
+			                    0
+			                )
+			            RETURN COALESCE(WeeklyHours, 0) * DIVIDE(OverlapDays, 7, 0)
+			        ),
+			        TREATAS(SourceOffices, employees_enriched[OfficeId]),
+			        REMOVEFILTERS(offices)
+			    )
+			)
+		lineageTag: c40ae1d2-150d-47bc-aae2-aa2706075949
+
+	measure 'VK Ziekteuren' =
+			VAR MinDate = MIN(dates[Date])
+			VAR MaxDate = MAX(dates[Date])
+			VAR CurrentOffices = VALUES(offices[OfficeId])
+			VAR SourceOffices =
+			    CALCULATETABLE(
+			        VALUES(map_vkoffice[SourceOfficeId]),
+			        TREATAS(CurrentOffices, map_vkoffice[TargetOfficeId])
+			    )
+			VAR RelevantCardIDs =
+			    CALCULATETABLE(
+			        VALUES(employees_enriched[CardId]),
+			        TREATAS(SourceOffices, employees_enriched[OfficeId]),
+			        REMOVEFILTERS(offices)
+			    )
+			RETURN
+			IF(
+			    ISBLANK(MinDate),
+			    BLANK(),
+			    CALCULATE(
+			        SUMX(
+			            FILTER(
+			                sickness,
+			                sickness[CardId] IN RelevantCardIDs
+			                    && NOT ISBLANK(sickness[SicknessEnd])
+			                    && sickness[SicknessEnd] >= MinDate
+			                    && sickness[SicknessEnd] <= MaxDate
+			            ),
+			            sickness[SicknessHours]
+			        ),
+			        REMOVEFILTERS(dates),
+			        REMOVEFILTERS(offices)
+			    )
+			)
+		lineageTag: 8fd72edf-8b2b-41b6-9c89-8a9703cd82f6
+
+	measure 'VK Verzuim Uren %' = DIVIDE([VK Ziekteuren], [VK Contracturen], 0)
+		lineageTag: afa39010-6967-4d81-869e-44dc445fa25b
 
 	column Column
 		lineageTag: cb79abd1-a66d-40b1-9de9-4efafec4d089

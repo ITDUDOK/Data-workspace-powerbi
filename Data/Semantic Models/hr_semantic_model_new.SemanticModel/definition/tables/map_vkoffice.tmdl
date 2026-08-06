@@ -2,10 +2,12 @@ table map_vkoffice
 	lineageTag: 21f90134-2fdd-4725-8c22-d419441dc83e
 
 	column SourceOfficeId
+		lineageTag: c88ec328-6142-4ac1-aa1f-eec920ee1153
 		isNameInferred
 		sourceColumn: [SourceOfficeId]
 
 	column TargetOfficeId
+		lineageTag: 2a5c0bce-66fe-4674-ad48-4f647d723493
 		isNameInferred
 		sourceColumn: [TargetOfficeId]
 

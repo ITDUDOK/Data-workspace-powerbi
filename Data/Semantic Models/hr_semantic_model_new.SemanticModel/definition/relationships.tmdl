@@ -1,0 +1,192 @@
+relationship 70d72a14-a232-4243-b555-313834ebb4c7
+	fromColumn: freedays.OfficeId
+	toColumn: offices.OfficeId
+
+relationship c355eb6f-1af8-41a7-8f0b-12fc207cd35d
+	fromColumn: planning.OfficeId
+	toColumn: offices.OfficeId
+
+relationship cf20e01b-1d3e-41fc-ab8d-37d1aaa749cb
+	fromColumn: prognosis.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 698fcf84-51f2-4cbc-b3d9-10f0492fe54a
+	fromColumn: teams.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 75b11e1c-70bd-436f-aebf-fd86e209605c
+	fromColumn: types.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 5cc89451-235d-4449-83fe-2abf60fbd78a
+	isActive: false
+	fromColumn: staff.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 7ceeb566-2511-4023-932d-90b945c5077c
+	fromColumn: sickness.OfficeId
+	toColumn: offices.OfficeId
+
+relationship efb8c1d2-e141-462c-b222-e62280e299d8
+	fromColumn: employees_enriched.OfficeId
+	toColumn: offices.OfficeId
+
+relationship d9908ad7-aa31-40b5-a653-00ef7b7fabfc
+	isActive: false
+	fromColumn: employments.EndDate
+	toColumn: dates.Date
+
+relationship c0612aa2-b591-4385-86d8-81788f0127d8
+	fromColumn: sickness.SicknessStart
+	toColumn: dates.Date
+
+relationship 6cdef99e-7f8e-4bfe-84a2-df3a73e17b82
+	fromColumn: prognosis.PrognosisDate
+	toColumn: dates.Date
+
+relationship 268eab10-ea29-4576-b076-49ecdaa67f30
+	fromColumn: planning.PlanningDate
+	toColumn: dates.Date
+
+relationship c3177ebb-5934-4a67-8d94-b8363cbd542c
+	fromColumn: companies.DebtorId
+	toColumn: debtors.DebtorId
+
+relationship 6f8322bc-7dcf-4a12-963e-e98938d423ee
+	fromColumn: debtor_functions.DebtorId
+	toColumn: debtors.DebtorId
+
+relationship 5a054061-f78b-414b-b45f-409d8b422a17
+	fromColumn: employees_enriched.CompanyId
+	toColumn: companies.CompanyId
+
+relationship 434d4ac4-266d-4d58-be58-7ab238e69dbf
+	fromColumn: hr_contracts.EmployeeId
+	toColumn: employees_enriched.EmployeeId
+
+relationship 2fe782da-795d-4f53-a660-ae1caf343924
+	fromColumn: employments.EmployeeId
+	toColumn: employees_enriched.EmployeeId
+
+relationship 766da54e-4ee9-41c3-a6b6-9205c3a23ef6
+	fromColumn: employee_managers.EmployeeId
+	toColumn: employees_enriched.EmployeeId
+
+relationship b788aabc-8f11-4379-9bb5-44a06c0a079a
+	fromColumn: hr_functions.EmployeeId
+	toColumn: employees_enriched.EmployeeId
+
+relationship 3f8d9fa5-cd54-4dc4-b1a4-430a55c4f2e9
+	fromColumn: debtor_managers.FunctionId
+	toColumn: debtor_functions.FunctionId
+
+relationship 5675a38f-494f-49fe-9ac9-e2e9f2291427
+	isActive: false
+	fromColumn: employments.EmployeeId
+	toColumn: hr_functions.EmployeeId
+
+relationship d781cc93-95c3-4485-813c-1151ac50ace0
+	isActive: false
+	fromColumn: hr_functions.EmployeeId
+	toColumn: hr_contracts.EmployeeId
+
+relationship 7af855ee-13ae-4c7f-a4e4-966125a7105f
+	isActive: false
+	fromColumn: employee_managers.ManagerId
+	toColumn: debtor_managers.ManagerId
+
+relationship f4bd89d0-bc97-40e4-97a2-b04fee41ddc2
+	isActive: false
+	fromColumn: employments.EmployeeId
+	toColumn: employee_managers.EmployeeId
+
+relationship 209746b8-c1a3-4922-a872-a81d9332bd63
+	fromColumn: contracts.CardId
+	toColumn: staff.CardId
+
+relationship 6504fd90-8972-4663-8c27-6f6d8687018a
+	fromColumn: planning.CardId
+	toColumn: staff.CardId
+
+relationship 9c8f5114-1ce5-4ac2-9649-7412f541a9e1
+	fromColumn: sickness.CardId
+	toColumn: staff.CardId
+
+relationship 532650e4-34c4-46c0-b412-7b1259132860
+	fromColumn: staff.CardFunction
+	toColumn: functions.FunctionId
+
+relationship 772e7911-053a-478f-ab5a-67b1f362574b
+	fromColumn: functions.DepartmentId
+	toColumn: departments.DepartmentId
+
+relationship 0f111731-1115-47a0-ad1d-fb5bc2a4d173
+	fromColumn: bridge_center_office.OfficeId
+	toColumn: offices.OfficeId
+
+relationship c097730c-c72a-4646-8a63-5c900c4d6a87
+	fromColumn: hours.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 12125643-beb3-4929-a72e-bea267ee0395
+	fromColumn: hours.HourDate
+	toColumn: dates.Date
+
+relationship 905f4927-08f3-4964-82c7-5e0b38e29a52
+	fromColumn: hours.CardId
+	toColumn: staff.CardId
+
+relationship c2da8645-637d-0aa0-6d05-507f95d9b51f
+	isActive: false
+	fromColumn: satisfaction.SurveyDate
+	toColumn: dates.Date
+
+relationship 8d943ac2-54ff-80d3-a571-3df0037639cb
+	fromColumn: satisfaction.EmployeeId
+	toColumn: employees_enriched.EmployeeId
+
+relationship 50ec14fa-3203-425d-94d4-4530ddb5700b
+	fromColumn: hours_summary.HourDate
+	toColumn: dates.Date
+
+relationship ad45db82-c46f-486d-a8ad-30cdd5a5cf0d
+	crossFilteringBehavior: bothDirections
+	fromColumn: employees_enriched.CardId
+	toColumn: staff.CardId
+
+relationship ddab370a-2abd-4b58-b855-b2e63029d072
+	fromColumn: hourly_labour.HourDate
+	toColumn: dates.Date
+
+relationship 76df5450-45ff-49ec-9070-7a6630d3abb8
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: centers.CenterKey
+	toColumn: bridge_center_office.CenterKey
+
+relationship 7a4f1e80-e9b8-4696-8628-4ce555ce1df2
+	fromColumn: sales.CenterKey
+	toColumn: centers.CenterKey
+
+relationship 9dc08a31-fe90-479c-9310-1226f7b33d40
+	fromColumn: payments.CenterKey
+	toColumn: centers.CenterKey
+
+relationship 5b436633-8e3e-4c64-b412-1554c3259aa3
+	fromColumn: sales.ActualDate
+	toColumn: dates.Date
+
+relationship 0d0b4c02-2e9c-4fa6-8ca5-d8f7c14a2f94
+	fromColumn: payments.ActualDate
+	toColumn: dates.Date
+
+relationship 3382dec6-81c5-40dd-999e-24665650e3d1
+	isActive: false
+	fromColumn: planning.DepartmentId
+	toColumn: departments.DepartmentId
+
+relationship 3c667f80-f976-4ab2-82d6-ac2b823334f6
+	isActive: false
+	fromColumn: employees_enriched.FinalEndDate
+	toColumn: dates.Date
+

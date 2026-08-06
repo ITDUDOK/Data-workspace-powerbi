@@ -1,0 +1,453 @@
+table GLAccounts
+	lineageTag: 5511428e-11de-407f-ab09-cb7133a42b4f
+	sourceLineageTag: [dbo].[GLAccounts]
+
+	column ID
+		dataType: string
+		lineageTag: f691169e-a88b-48c0-a9ee-8ed4038a60ea
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 88ea3d81-0752-4b41-ad05-0e129a034d94
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 5ee2c44c-30d9-4f2e-b1a3-acdd238149c5
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 4495bd0a-41db-4b85-badf-e1a61475e225
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SearchCode
+		dataType: string
+		lineageTag: 71a78205-6de6-4733-85b1-fdd129517f8d
+		sourceLineageTag: SearchCode
+		summarizeBy: none
+		sourceColumn: SearchCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: int64
+		formatString: 0
+		lineageTag: 81c4b415-7e25-4426-b322-f4a381dea7f2
+		sourceLineageTag: Type
+		summarizeBy: sum
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingCode
+		dataType: string
+		lineageTag: 37e51295-00d7-43fd-97f9-2ea0e521e315
+		sourceLineageTag: ReportingCode
+		summarizeBy: none
+		sourceColumn: ReportingCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column BalanceType
+		dataType: string
+		lineageTag: 6dcf68a5-1277-4ec0-979e-4b4ad8710518
+		sourceLineageTag: BalanceType
+		summarizeBy: none
+		sourceColumn: BalanceType
+
+		annotation SummarizationSetBy = Automatic
+
+	column BalanceSide
+		dataType: string
+		lineageTag: adcc8668-61d9-4f22-962a-d0bcf62f9b91
+		sourceLineageTag: BalanceSide
+		summarizeBy: none
+		sourceColumn: BalanceSide
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBlocked
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: df9fc259-8621-4218-8521-826451456947
+		sourceLineageTag: IsBlocked
+		summarizeBy: none
+		sourceColumn: IsBlocked
+
+		annotation SummarizationSetBy = Automatic
+
+	column RevalueCurrency
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1ba49108-e5f5-4ee3-b7c3-87ff75d67127
+		sourceLineageTag: RevalueCurrency
+		summarizeBy: none
+		sourceColumn: RevalueCurrency
+
+		annotation SummarizationSetBy = Automatic
+
+	column VATCode
+		dataType: string
+		lineageTag: 85967ada-fee7-4f74-b2d8-f4065b940101
+		sourceLineageTag: VATCode
+		summarizeBy: none
+		sourceColumn: VATCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column VATNonDeductiblePercentage
+		dataType: double
+		lineageTag: 94866942-5184-40ee-b2af-69b4bf77f3c2
+		sourceLineageTag: VATNonDeductiblePercentage
+		summarizeBy: sum
+		sourceColumn: VATNonDeductiblePercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PrivatePercentage
+		dataType: double
+		lineageTag: d3379a23-6830-4915-b2f9-d6c33fa177e7
+		sourceLineageTag: PrivatePercentage
+		summarizeBy: sum
+		sourceColumn: PrivatePercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VATGLAccountType
+		dataType: string
+		lineageTag: 1934e6b2-9fc9-49bd-ae7f-cf201094edfa
+		sourceLineageTag: VATGLAccountType
+		summarizeBy: none
+		sourceColumn: VATGLAccountType
+
+		annotation SummarizationSetBy = Automatic
+
+	column BelcotaxType
+		dataType: int64
+		formatString: 0
+		lineageTag: ada96fe2-e20d-49dd-ae7f-204e3d3d03bf
+		sourceLineageTag: BelcotaxType
+		summarizeBy: sum
+		sourceColumn: BelcotaxType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Matching
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4c1da690-b584-4741-88af-ebedbfab9f4a
+		sourceLineageTag: Matching
+		summarizeBy: none
+		sourceColumn: Matching
+
+		annotation SummarizationSetBy = Automatic
+
+	column Compress
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7b8e957c-03b8-452e-ab95-e92bb4a83de0
+		sourceLineageTag: Compress
+		summarizeBy: none
+		sourceColumn: Compress
+
+		annotation SummarizationSetBy = Automatic
+
+	column Costcenter
+		dataType: string
+		lineageTag: e73e57fb-1206-490c-9299-f9229169e71c
+		sourceLineageTag: Costcenter
+		summarizeBy: none
+		sourceColumn: Costcenter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Costunit
+		dataType: string
+		lineageTag: 0451c307-637d-470c-bb64-e207736fe341
+		sourceLineageTag: Costunit
+		summarizeBy: none
+		sourceColumn: Costunit
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExpenseNonDeductiblePercentage
+		dataType: double
+		lineageTag: 873c0f15-1091-4586-bc44-28024d640214
+		sourceLineageTag: ExpenseNonDeductiblePercentage
+		summarizeBy: sum
+		sourceColumn: ExpenseNonDeductiblePercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ExcludeVATListing
+		dataType: int64
+		formatString: 0
+		lineageTag: 3963b3fe-236c-4129-906c-71cda28e9028
+		sourceLineageTag: ExcludeVATListing
+		summarizeBy: sum
+		sourceColumn: ExcludeVATListing
+
+		annotation SummarizationSetBy = Automatic
+
+	column UseCostcenter
+		dataType: int64
+		formatString: 0
+		lineageTag: 6769ddc0-5fd1-41f2-83d7-4c999fe5a606
+		sourceLineageTag: UseCostcenter
+		summarizeBy: sum
+		sourceColumn: UseCostcenter
+
+		annotation SummarizationSetBy = Automatic
+
+	column UseCostunit
+		dataType: int64
+		formatString: 0
+		lineageTag: c92b1633-1e34-4603-9e20-49f98cb50f75
+		sourceLineageTag: UseCostunit
+		summarizeBy: sum
+		sourceColumn: UseCostunit
+
+		annotation SummarizationSetBy = Automatic
+
+	column BABS
+		dataType: int64
+		formatString: 0
+		lineageTag: 22f6312b-5d14-4bba-8503-dd012f7363e9
+		sourceLineageTag: BABS
+		summarizeBy: sum
+		sourceColumn: BABS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TopicParent
+		dataType: string
+		lineageTag: 8ac3d991-7310-45b3-8c5f-66288fe33cc2
+		sourceLineageTag: TopicParent
+		summarizeBy: none
+		sourceColumn: TopicParent
+
+		annotation SummarizationSetBy = Automatic
+
+	column TopicTime
+		dataType: int64
+		formatString: 0
+		lineageTag: 45a14c6e-711b-4907-a6ad-a3090bb04f6a
+		sourceLineageTag: TopicTime
+		summarizeBy: sum
+		sourceColumn: TopicTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: 8a94a314-c8d4-44bb-88e7-17c1ce4e917e
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrivateGLAccount
+		dataType: string
+		lineageTag: 2edf90e3-5e71-4f8b-ae54-4e06961b3dfa
+		sourceLineageTag: PrivateGLAccount
+		summarizeBy: none
+		sourceColumn: PrivateGLAccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column VATNonDeductibleGLAccount
+		dataType: string
+		lineageTag: 66dd92ef-9579-4c5d-8dfa-fe47f69595c2
+		sourceLineageTag: VATNonDeductibleGLAccount
+		summarizeBy: none
+		sourceColumn: VATNonDeductibleGLAccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearEndReflectionGLAccount
+		dataType: string
+		lineageTag: 76c314f2-458d-4224-9d99-383d7420eba6
+		sourceLineageTag: YearEndReflectionGLAccount
+		summarizeBy: none
+		sourceColumn: YearEndReflectionGLAccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearEndCostGLAccount
+		dataType: string
+		lineageTag: 780951d0-21e5-43cd-9a0d-52b417da7ede
+		sourceLineageTag: YearEndCostGLAccount
+		summarizeBy: none
+		sourceColumn: YearEndCostGLAccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 69ecb0a3-f1d3-49e0-8f48-2e22eb21b0ba
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: cba639e1-1dd1-4338-af02-3525cc16ca14
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9ff0277c-abab-4402-8228-dd7548d4991f
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 54869bac-3c3d-41a8-aecf-a44a90dd9762
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsVariableVatNonDeductiblePercentage
+		dataType: int64
+		formatString: 0
+		lineageTag: 18113469-f508-4d64-8b77-7c796db5a5a6
+		sourceLineageTag: IsVariableVatNonDeductiblePercentage
+		summarizeBy: sum
+		sourceColumn: IsVariableVatNonDeductiblePercentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatSystem
+		dataType: string
+		lineageTag: ed17522a-4418-4628-8712-bed94f1f623c
+		sourceLineageTag: VatSystem
+		summarizeBy: none
+		sourceColumn: VatSystem
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatevAutomaticVAT
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f1786b7-7821-452c-ac1d-24feef14cce9
+		sourceLineageTag: DatevAutomaticVAT
+		summarizeBy: sum
+		sourceColumn: DatevAutomaticVAT
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssimilatedVatBox
+		dataType: int64
+		formatString: 0
+		lineageTag: b9518be1-e436-4999-b85a-bdd4c5d510db
+		sourceLineageTag: AssimilatedVatBox
+		summarizeBy: sum
+		sourceColumn: AssimilatedVatBox
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoCategoryDescription
+		dataType: string
+		lineageTag: d6b5fde7-9f59-4787-aed9-1cb8a09d94c0
+		sourceLineageTag: GoCategoryDescription
+		summarizeBy: none
+		sourceColumn: GoCategoryDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoCategoryIsActive
+		dataType: int64
+		formatString: 0
+		lineageTag: dc3d5744-bc43-49bc-b365-4aefc7587938
+		sourceLineageTag: GoCategoryIsActive
+		summarizeBy: sum
+		sourceColumn: GoCategoryIsActive
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimestampAsBigInt
+		dataType: int64
+		formatString: 0
+		lineageTag: 10062b27-8c88-47cd-80d5-b4947d4ed4fe
+		sourceLineageTag: TimestampAsBigInt
+		summarizeBy: sum
+		sourceColumn: TimestampAsBigInt
+
+		annotation SummarizationSetBy = Automatic
+
+	column AllowCostsInSales
+		dataType: int64
+		formatString: 0
+		lineageTag: 655b654b-86c0-4a1c-8450-7bff68b25cee
+		sourceLineageTag: AllowCostsInSales
+		summarizeBy: sum
+		sourceColumn: AllowCostsInSales
+
+		annotation SummarizationSetBy = Automatic
+
+	column DbModified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 381d25e2-bdd9-434f-b066-afbf45e9acd1
+		sourceLineageTag: DbModified
+		summarizeBy: none
+		sourceColumn: DbModified
+
+		annotation SummarizationSetBy = Automatic
+
+	column CmdmIndex
+		dataType: string
+		lineageTag: e1c9d2d4-31ff-4c86-8335-877cbd1b0bb0
+		sourceLineageTag: CmdmIndex
+		summarizeBy: none
+		sourceColumn: CmdmIndex
+
+		annotation SummarizationSetBy = Automatic
+
+	partition GLAccounts = entity
+		mode: directLake
+		source
+			entityName: GLAccounts
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+
