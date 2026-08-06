@@ -2430,6 +2430,137 @@ table measurements
 	measure 'VK Verzuim Uren %' = DIVIDE([VK Ziekteuren], [VK Contracturen], 0)
 		lineageTag: afa39010-6967-4d81-869e-44dc445fa25b
 
+	measure 'VK Bruto Loonkosten' =
+			VAR SelectedYearMonths =
+			    CALCULATETABLE(SUMMARIZE(dates, dates[Year], dates[Month]))
+			VAR CurrentOffices = VALUES(offices[OfficeId])
+			VAR SourceOffices =
+			    CALCULATETABLE(
+			        VALUES(map_vkoffice[SourceOfficeId]),
+			        TREATAS(CurrentOffices, map_vkoffice[TargetOfficeId])
+			    )
+			VAR Divisions =
+			    CALCULATETABLE(
+			        VALUES(map_division_office[Division]),
+			        TREATAS(SourceOffices, map_division_office[OfficeID])
+			    )
+			VAR AccountIDs =
+			    CALCULATETABLE(
+			        VALUES(GLAccounts[ID]),
+			        GLAccounts[Code] >= "4000",
+			        GLAccounts[Code] <= "4019"
+			    )
+			VAR DivisionTotal =
+			    CALCULATE(
+			        SUM(GLTransactions[AmountDC]),
+			        TREATAS(SelectedYearMonths, GLTransactions[ReportingYear], GLTransactions[ReportingPeriod]),
+			        TREATAS(AccountIDs, GLTransactions[GLAccount]),
+			        TREATAS(Divisions,  GLTransactions[Division]),
+			        REMOVEFILTERS(dates),
+			        REMOVEFILTERS(offices)
+			    )
+			VAR FilteredHours = [VK Contracturen]
+			VAR TotalHours =
+			    CALCULATE(
+			        [VK Contracturen],
+			        REMOVEFILTERS(employees_enriched[ManagerFullName]),
+			        REMOVEFILTERS(employees_enriched[FunctionName]),
+			        REMOVEFILTERS(employees_enriched[IsActief])
+			    )
+			RETURN
+			    DivisionTotal * DIVIDE(FilteredHours, TotalHours, 0)
+		lineageTag: 9989fffa-33c1-4ddc-8d79-b6ca942ddf9c
+
+	measure 'VK Betaald Ziekengeld' =
+			VAR SelectedYearMonths =
+			    CALCULATETABLE(SUMMARIZE(dates, dates[Year], dates[Month]))
+			VAR CurrentOffices = VALUES(offices[OfficeId])
+			VAR SourceOffices =
+			    CALCULATETABLE(
+			        VALUES(map_vkoffice[SourceOfficeId]),
+			        TREATAS(CurrentOffices, map_vkoffice[TargetOfficeId])
+			    )
+			VAR Divisions =
+			    CALCULATETABLE(
+			        VALUES(map_division_office[Division]),
+			        TREATAS(SourceOffices, map_division_office[OfficeID])
+			    )
+			VAR AccountIDs =
+			    CALCULATETABLE(VALUES(GLAccounts[ID]), GLAccounts[Code] = "4020")
+			VAR DivisionTotal =
+			    CALCULATE(
+			        SUM(GLTransactions[AmountDC]),
+			        TREATAS(SelectedYearMonths, GLTransactions[ReportingYear], GLTransactions[ReportingPeriod]),
+			        TREATAS(AccountIDs, GLTransactions[GLAccount]),
+			        TREATAS(Divisions,  GLTransactions[Division]),
+			        REMOVEFILTERS(dates),
+			        REMOVEFILTERS(offices)
+			    )
+			VAR FilteredHours = [VK Contracturen]
+			VAR TotalHours =
+			    CALCULATE(
+			        [VK Contracturen],
+			        REMOVEFILTERS(employees_enriched[ManagerFullName]),
+			        REMOVEFILTERS(employees_enriched[FunctionName]),
+			        REMOVEFILTERS(employees_enriched[IsActief])
+			    )
+			RETURN
+			    DivisionTotal * DIVIDE(FilteredHours, TotalHours, 0)
+		lineageTag: ce75840b-cdd4-4823-8053-240d6ae09b7a
+
+	measure 'VK Ontvangen Ziekengeld' =
+			VAR SelectedYearMonths =
+			    CALCULATETABLE(SUMMARIZE(dates, dates[Year], dates[Month]))
+			VAR CurrentOffices = VALUES(offices[OfficeId])
+			VAR SourceOffices =
+			    CALCULATETABLE(
+			        VALUES(map_vkoffice[SourceOfficeId]),
+			        TREATAS(CurrentOffices, map_vkoffice[TargetOfficeId])
+			    )
+			VAR Divisions =
+			    CALCULATETABLE(
+			        VALUES(map_division_office[Division]),
+			        TREATAS(SourceOffices, map_division_office[OfficeID])
+			    )
+			VAR AccountIDs =
+			    CALCULATETABLE(VALUES(GLAccounts[ID]), GLAccounts[Code] = "4021")
+			VAR DivisionTotal =
+			    CALCULATE(
+			        SUM(GLTransactions[AmountDC]),
+			        TREATAS(SelectedYearMonths, GLTransactions[ReportingYear], GLTransactions[ReportingPeriod]),
+			        TREATAS(AccountIDs, GLTransactions[GLAccount]),
+			        TREATAS(Divisions,  GLTransactions[Division]),
+			        REMOVEFILTERS(dates),
+			        REMOVEFILTERS(offices)
+			    )
+			VAR FilteredHours = [VK Contracturen]
+			VAR TotalHours =
+			    CALCULATE(
+			        [VK Contracturen],
+			        REMOVEFILTERS(employees_enriched[ManagerFullName]),
+			        REMOVEFILTERS(employees_enriched[FunctionName]),
+			        REMOVEFILTERS(employees_enriched[IsActief])
+			    )
+			RETURN
+			    DivisionTotal * DIVIDE(FilteredHours, TotalHours, 0)
+		lineageTag: 31481333-8153-4257-8740-1ab765d2abf7
+
+	measure 'VK Verzuim Financieel %' =
+			DIVIDE(
+			    [VK Betaald Ziekengeld],
+			    [VK Bruto Loonkosten] + [VK Betaald Ziekengeld],
+			    0
+			)
+		lineageTag: 20025db0-3e5c-458e-a483-b3b81a7fbff9
+
+	measure 'VK Netto Verzuim %' =
+			DIVIDE(
+			    [VK Betaald Ziekengeld] + [VK Ontvangen Ziekengeld],
+			    [VK Bruto Loonkosten] + [VK Betaald Ziekengeld],
+			    0
+			)
+		lineageTag: 5693c00e-7a68-484d-b305-85c450d60483
+
 	column Column
 		lineageTag: cb79abd1-a66d-40b1-9de9-4efafec4d089
 		isNameInferred
