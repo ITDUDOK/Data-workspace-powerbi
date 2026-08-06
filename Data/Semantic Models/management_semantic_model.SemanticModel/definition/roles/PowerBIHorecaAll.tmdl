@@ -5,3 +5,5 @@ role PowerBIHorecaAll
 
 	tablePermission offices = [OfficeId] = 1 || [OfficeId] = 6 || [OfficeId] = 10 || [OfficeId] = 37 || [OfficeId] = 19
 
+	annotation PBI_Id = a235e2643c4a4e80a03d940ba36a3c48
+

@@ -60,7 +60,7 @@ table dim_center
 		sourceProviderType: int
 		lineageTag: a6fd8628-ebc1-4d35-966e-14615e5f5cc9
 		sourceLineageTag: LeftNr
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: LeftNr
 
 		annotation SummarizationSetBy = Automatic
@@ -145,6 +145,10 @@ table dim_center
 		level Location
 			lineageTag: 88ae9927-30ec-4935-883d-3de0b458a3eb
 			column: Location
+
+		level UpdatedName
+			lineageTag: ede6141e-1ac1-4834-8124-2bd9b5df530a
+			column: UpdatedName
 
 	partition centers = entity
 		mode: directLake

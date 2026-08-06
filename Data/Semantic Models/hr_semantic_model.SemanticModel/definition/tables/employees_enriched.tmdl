@@ -62,7 +62,7 @@ table employees_enriched
 			                employees_enriched,
 			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
 			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
-			                employees_enriched[EmployeeEndDate] >= SelectedStartDate
+			                (ISBLANK(employees_enriched[EmployeeEndDate]) || employees_enriched[EmployeeEndDate] >= SelectedStartDate)
 			            ),
 			            employees_enriched[FullName],
 			            "MaxHours", MAX(employees_enriched[ContractHours])
@@ -86,7 +86,7 @@ table employees_enriched
 			                employees_enriched,
 			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
 			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
-			                employees_enriched[EmployeeEndDate] >= SelectedStartDate &&
+			                (ISBLANK(employees_enriched[EmployeeEndDate]) || employees_enriched[EmployeeEndDate] >= SelectedStartDate) &&
 			                NOT(ISBLANK(employees_enriched[SalaryRate]))
 			            ),
 			            employees_enriched[FullName],
@@ -112,7 +112,7 @@ table employees_enriched
 			                employees_enriched,
 			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
 			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
-			                employees_enriched[EmployeeEndDate] >= SelectedStartDate &&
+			                (ISBLANK(employees_enriched[EmployeeEndDate]) || employees_enriched[EmployeeEndDate] >= SelectedStartDate) &&
 			                NOT(ISBLANK(employees_enriched[DateOfBirth]))
 			            ),
 			            employees_enriched[FullName],
@@ -291,7 +291,7 @@ table employees_enriched
 			                employees_enriched,
 			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
 			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
-			                employees_enriched[EmployeeEndDate] >= SelectedStartDate &&
+			                (ISBLANK(employees_enriched[EmployeeEndDate]) || employees_enriched[EmployeeEndDate] >= SelectedStartDate) &&
 			                NOT(ISBLANK(employees_enriched[HourlySalary]))
 			            ),
 			            employees_enriched[FullName],
@@ -355,7 +355,7 @@ table employees_enriched
 			            RETURN
 			                NOT(ISBLANK(EmpStart))
 			                && EmpStart <= SelectedEndDate
-			                && EmpEnd >= SelectedStartDate
+			                && (ISBLANK(EmpEnd) || EmpEnd >= SelectedStartDate)
 			        )
 			    )
 			)
@@ -431,7 +431,7 @@ table employees_enriched
 		formatString: 0
 		lineageTag: 9c3aa904-f3ec-40ef-8974-36f8ecb0e83d
 		sourceLineageTag: OfficeId
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: OfficeId
 
 		annotation SummarizationSetBy = Automatic
@@ -474,15 +474,15 @@ table employees_enriched
 
 	column ContractHours
 		dataType: decimal
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: 0
 		lineageTag: e48d168f-615d-4060-a1f5-ec301d5ca912
 		sourceLineageTag: ContractHours
 		summarizeBy: sum
 		sourceColumn: ContractHours
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = FormatString
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation SummarizationSetBy = Automatic
 
 	column HourlySalary
 		dataType: decimal
@@ -530,13 +530,21 @@ table employees_enriched
 
 	column DateOfBirth
 		dataType: dateTime
-		formatString: General Date
+		formatString: dd/mm/yy
 		lineageTag: 2b06b1e7-1b9b-4185-b9dd-571a3267606f
 		sourceLineageTag: DateOfBirth
 		summarizeBy: none
 		sourceColumn: DateOfBirth
 
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
 
 	column ModifiedAt
 		dataType: dateTime
@@ -577,13 +585,17 @@ table employees_enriched
 
 	column ContractStartDate
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
 		lineageTag: 5a663087-1eea-4546-83d0-b2bfd432efe7
 		sourceLineageTag: ContractStartDate
 		summarizeBy: none
 		sourceColumn: ContractStartDate
 
+		changedProperty = DataType
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column ContractEndDate
 		dataType: dateTime
@@ -675,13 +687,17 @@ table employees_enriched
 
 	column FinalEndDate
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
 		lineageTag: 7d6d8c9c-5574-415c-96cd-34a5872be13a
 		sourceLineageTag: FinalEndDate
 		summarizeBy: none
 		sourceColumn: FinalEndDate
 
+		changedProperty = DataType
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column FinalEndDateFormatted
 		dataType: string
@@ -716,6 +732,9 @@ table employees_enriched
 		sourceLineageTag: BirthdayDayMonth
 		summarizeBy: none
 		sourceColumn: BirthdayDayMonth
+		sortByColumn: BirthdaySortKey
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
@@ -726,6 +745,73 @@ table employees_enriched
 		sourceLineageTag: BirthdaySortKey
 		summarizeBy: count
 		sourceColumn: BirthdaySortKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e7be834-993c-490c-ab99-400a813c1993
+		sourceLineageTag: BirthYear
+		summarizeBy: sum
+		sourceColumn: BirthYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthQuarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 425dc7c4-133a-4228-9883-2440740d96d1
+		sourceLineageTag: BirthQuarter
+		summarizeBy: sum
+		sourceColumn: BirthQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthQuarterName
+		dataType: string
+		lineageTag: 2343f860-9ceb-438f-9a8f-0dada5d7af38
+		sourceLineageTag: BirthQuarterName
+		summarizeBy: none
+		sourceColumn: BirthQuarterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 883ca4d9-2b23-4101-a4c5-c1db14063ae3
+		sourceLineageTag: BirthMonth
+		summarizeBy: sum
+		sourceColumn: BirthMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthMonthName
+		dataType: string
+		lineageTag: 63bff29e-d553-47d3-8ba7-35695701248d
+		sourceLineageTag: BirthMonthName
+		summarizeBy: none
+		sourceColumn: BirthMonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDay
+		dataType: int64
+		formatString: 0
+		lineageTag: 945d6ad4-e71e-451d-a7d3-2fa68559efc6
+		sourceLineageTag: BirthDay
+		summarizeBy: sum
+		sourceColumn: BirthDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: 9ad1f53a-9021-4af9-8104-2308fadeef85
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
 
 		annotation SummarizationSetBy = Automatic
 

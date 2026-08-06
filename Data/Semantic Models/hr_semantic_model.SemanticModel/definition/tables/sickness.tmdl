@@ -123,27 +123,27 @@ table sickness
 
 	column SicknessHours
 		dataType: decimal
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: #,0.00
 		lineageTag: 00164b6a-ef5f-4517-a440-3eed70510a77
 		sourceLineageTag: SicknessHours
 		summarizeBy: sum
 		sourceColumn: SicknessHours
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = FormatString
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation SummarizationSetBy = Automatic
 
 	column SicknessDays
 		dataType: decimal
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: #,0.00
 		lineageTag: c88414fb-49cd-4ff8-b3d3-0f6852d7c0a7
 		sourceLineageTag: SicknessDays
 		summarizeBy: sum
 		sourceColumn: SicknessDays
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = FormatString
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation SummarizationSetBy = Automatic
 
 	column SicknessType
 		dataType: int64

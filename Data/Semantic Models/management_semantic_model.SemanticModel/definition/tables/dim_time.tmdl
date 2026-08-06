@@ -18,7 +18,7 @@ table dim_time
 		sourceProviderType: int
 		lineageTag: 978c4234-f84e-4a86-bff9-5fae403a2faf
 		sourceLineageTag: HourNumber
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: HourNumber
 
 		annotation SummarizationSetBy = Automatic

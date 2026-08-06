@@ -1,4 +1,4 @@
-table fact_eventstable
+table events
 	lineageTag: 834aa80a-a01c-46ad-a680-a097da0dc336
 	sourceLineageTag: [dbo].[events]
 
@@ -353,8 +353,14 @@ table fact_eventstable
 
 	column EventDate
 		dataType: dateTime
-		lineageTag: 8a85eae3-04d7-4e76-a242-71625dcdba74
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 66e3f954-f4ab-44c9-b8fa-ffe6519c256c
+		sourceLineageTag: EventDate
+		summarizeBy: none
 		sourceColumn: EventDate
+
+		annotation SummarizationSetBy = Automatic
 
 	partition events = entity
 		mode: directLake

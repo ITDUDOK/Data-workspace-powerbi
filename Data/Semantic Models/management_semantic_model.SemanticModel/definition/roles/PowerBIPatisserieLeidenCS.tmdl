@@ -5,3 +5,5 @@ role PowerBIPatisserieLeidenCS
 
 	tablePermission offices = [OfficeId] = 45
 
+	annotation PBI_Id = 0fdd9dc9ed0c4dd9a556c73c92fe9c1c
+

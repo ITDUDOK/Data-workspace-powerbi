@@ -23,7 +23,7 @@ table measurements
 			            TREATAS(VALUES('fact_payments'[TicketKey]), 'fact_sales'[TicketKey])
 			        )
 			    ),
-			    SUM('fact_revenue_hourly'[TotaleOmzetExBtw])
+			    SUM('revenue_hourly_summary'[TotaleOmzetExBtw])
 			)
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: b149cdfc-b8df-4535-91c0-307465bcefb8
@@ -143,7 +143,7 @@ table measurements
 			IF(
 			    IncompatibleFilterActive,
 			    DISTINCTCOUNT('fact_payments'[TicketKey]),
-			    SUM('fact_revenue_hourly'[TotalTickets])
+			    SUM('revenue_hourly_summary'[TotalTickets])
 			)
 		formatString: #,0
 		lineageTag: 0dd2521f-6a8d-4087-89e5-4b3650efacf9
@@ -333,11 +333,16 @@ table measurements
 		lineageTag: 40736a82-78e9-4c9c-964f-1b941bf27f22
 
 	measure TotaleOmzetExBtw_QR =
-			CALCULATE(
-			    SUM('fact_sales'[LineTotalEx]),
-			    KEEPFILTERS(
-			        TREATAS(VALUES('fact_payments'[TicketKey]), 'fact_sales'[TicketKey])
-			    ), 'fact_sales'[OrderUserName] = "QR Bestelling"
+			
+			IF(
+			    ISFILTERED('dim_date'[yeariso]) || ISFILTERED('dim_center'[location]),
+			    CALCULATE(
+			        SUM('fact_sales'[LineTotalEx]),
+			        KEEPFILTERS(
+			            TREATAS(VALUES('fact_payments'[TicketKey]), 'fact_sales'[TicketKey])
+			        ),
+			        'fact_sales'[OrderUserName] = "QR Bestelling"
+			    )
 			)
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 712331c7-f340-43c8-9dcd-46c8746c5f7e
@@ -517,16 +522,16 @@ table measurements
 
 	measure MICE_Gepland =
 			CALCULATE(
-			    SUM('fact_eventstable'[TotalPriceExclVat]),
-			    'fact_eventstable'[Status] = "confirmed"
+			    SUM('events'[TotalPriceExclVat]),
+			    'events'[Status] = "confirmed"
 			)
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: b01df664-6e19-4e58-aa09-d7214241dd2d
 
 	measure MICE_Optie =
 			CALCULATE(
-			    SUM('fact_eventstable'[TotalPriceExclVat]),
-			    'fact_eventstable'[Status] IN {"option", "option_expired"}
+			    SUM('events'[TotalPriceExclVat]),
+			    'events'[Status] IN {"option", "option_expired"}
 			)
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 512e3f92-bae5-414a-a8f3-f8eeb9a0542a
@@ -556,57 +561,27 @@ table measurements
 			            SELECTCOLUMNS(EventTickets, "TicketKey", 'fact_sales'[TicketKey])
 			        )
 			    ),
-			    SUM('fact_revenue_hourly'[TotaleOmzetExBtw_ExclEvents])
+			    SUM('revenue_hourly_summary'[TotaleOmzetExBtw_ExclEvents])
 			)
 		lineageTag: 93126aaa-5997-4e87-93e2-a4f23d30dab6
 
-	measure Prognose_Horeca = ```
+	measure Prognose_Horeca =
 			
 			VAR SelectedScenario = SELECTEDVALUE('scenario'[ScenarioID], 1)
 			VAR CorrPct = SELECTEDVALUE('correctiefactor'[CorrPercent], 0)
 			VAR CorrMultiplier = 1 + CorrPct / 100
-			VAR VisibleDates = VALUES('dim_date'[Date])
-			VAR NeededDates =
-			    DISTINCT(
-			        UNION(
-			            SELECTCOLUMNS(VisibleDates, "Date", 'dim_date'[Date] - 7),
-			            SELECTCOLUMNS(VisibleDates, "Date", 'dim_date'[Date] - 14),
-			            SELECTCOLUMNS(VisibleDates, "Date", 'dim_date'[Date] - 21),
-			            SELECTCOLUMNS(VisibleDates, "Date", 'dim_date'[Date] - 28),
-			            SELECTCOLUMNS(VisibleDates, "Date", 'dim_date'[Date] - 364)
-			        )
-			    )
-			VAR DailyRevenue =
-			    ADDCOLUMNS(
-			        NeededDates,
-			        "Rev",
-			            VAR d = [Date]
-			            RETURN CALCULATE([TotaleOmzetExBtw_ExclEvents], ALL('dim_date'), 'dim_date'[Date] = d)
-			    )
-			VAR BaseValue =
+			VAR RawValue =
 			    SWITCH(
 			        SelectedScenario,
-			        1,
-			            SUMX(
-			                VisibleDates,
-			                VAR d = 'dim_date'[Date]
-			                VAR W1 = MAXX(FILTER(DailyRevenue, [Date] = d - 7), [Rev])
-			                VAR W2 = MAXX(FILTER(DailyRevenue, [Date] = d - 14), [Rev])
-			                VAR W3 = MAXX(FILTER(DailyRevenue, [Date] = d - 21), [Rev])
-			                VAR W4 = MAXX(FILTER(DailyRevenue, [Date] = d - 28), [Rev])
-			                RETURN MAX(DIVIDE(W1 + W2 + W3 + W4, 4), 0)
-			            ),
-			        2,
-			            SUMX(
-			                VisibleDates,
-			                VAR d = 'dim_date'[Date]
-			                RETURN MAX(MAXX(FILTER(DailyRevenue, [Date] = d - 364), [Rev]), 0)
-			            )
+			        1, SUM('fact_prognose_horeca_daily'[Scenario1Avg]),
+			        2, SUM('fact_prognose_horeca_daily'[Scenario2Val])
 			    )
 			RETURN
-			    ROUND(BaseValue * CorrMultiplier, 0)
-			
-			```
+			    IF(
+			        ISFILTERED('dim_date'[YearISO]) && ISFILTERED('dim_center'[Location]),
+			        ROUND(MAX(RawValue, 0) * CorrMultiplier, 0),
+			        BLANK()
+			    )
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 765a1dad-1bfd-4825-a5d3-13cf025c5d20
 
@@ -651,10 +626,10 @@ table measurements
 			    VAR d = 'dim_date'[Date]
 			    RETURN
 			    CALCULATE(
-			        SUM('fact_eventstable'[TotalPriceExclVat]),
+			        SUM('events'[TotalPriceExclVat]),
 			        ALL('dim_date'),
 			        'dim_date'[Date] = d - 364,
-			        'fact_eventstable'[Status] IN {"confirmed", "option", "option_expired"}
+			        'events'[Status] IN {"confirmed", "option", "option_expired"}
 			    )
 			)
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
@@ -733,15 +708,15 @@ table measurements
 			        IF(
 			            NOT ISBLANK(SelPeriod),
 			            CALCULATE(
-			                MIN('dim_divisionperiodstatus'[YearPeriodStatus]),
-			                'dim_divisionperiodstatus'[FinPeriod] = SelPeriod,
-			                'dim_divisionperiodstatus'[FinYear] = SelYear,
-			                TREATAS(ActiveDivisions, 'dim_divisionperiodstatus'[Division])
+			                MIN('divisionperiodstatus'[YearPeriodStatus]),
+			                'divisionperiodstatus'[FinPeriod] = SelPeriod,
+			                'divisionperiodstatus'[FinYear] = SelYear,
+			                TREATAS(ActiveDivisions, 'divisionperiodstatus'[Division])
 			            ),
 			            CALCULATE(
-			                MIN('dim_divisionperiodstatus'[YearPeriodStatus]),
-			                'dim_divisionperiodstatus'[FinYear] = SelYear,
-			                TREATAS(ActiveDivisions, 'dim_divisionperiodstatus'[Division])
+			                MIN('divisionperiodstatus'[YearPeriodStatus]),
+			                'divisionperiodstatus'[FinYear] = SelYear,
+			                TREATAS(ActiveDivisions, 'divisionperiodstatus'[Division])
 			            )
 			        )
 			    )
@@ -773,8 +748,8 @@ table measurements
 	measure Debug_EventVsTotal =
 			VAR TotaalOmzet = [TotaleOmzetExBtw]
 			VAR EventOmzet = CALCULATE(
-			    SUM('fact_eventstable'[TotalPriceExclVat]),
-			    'fact_eventstable'[Status] = "confirmed"
+			    SUM('events'[TotalPriceExclVat]),
+			    'events'[Status] = "confirmed"
 			)
 			RETURN TotaalOmzet - EventOmzet
 		lineageTag: 6fe7167d-5a7f-45ef-bb56-f7cb8c116a3f

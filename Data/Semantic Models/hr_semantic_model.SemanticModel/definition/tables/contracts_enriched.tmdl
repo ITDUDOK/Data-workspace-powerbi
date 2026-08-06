@@ -129,13 +129,21 @@ table contracts_enriched
 
 	column CardStart
 		dataType: dateTime
-		formatString: General Date
+		formatString: dd/mm/yy
 		lineageTag: 3e92355b-15ad-48be-8e17-5f610285a46b
 		sourceLineageTag: CardStart
 		summarizeBy: none
 		sourceColumn: CardStart
 
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
 
 	column CardContractHours
 		dataType: decimal
@@ -202,15 +210,15 @@ table contracts_enriched
 
 	column GemArbeidsduurJaren
 		dataType: decimal
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: #,0.00
 		lineageTag: 1f9d3418-158e-4fdd-82fd-3e05a84178b7
 		sourceLineageTag: GemArbeidsduurJaren
 		summarizeBy: sum
 		sourceColumn: GemArbeidsduurJaren
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = FormatString
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation SummarizationSetBy = Automatic
 
 	column VerzuimredenCode
 		dataType: string
@@ -228,6 +236,24 @@ table contracts_enriched
 		sourceLineageTag: ModifiedAt
 		summarizeBy: none
 		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: 8f80149f-5f0f-4790-81d1-08709b098e9e
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractLocatie
+		dataType: string
+		lineageTag: bd6d5355-77bc-4dae-9455-616133206bea
+		sourceLineageTag: ContractLocatie
+		summarizeBy: none
+		sourceColumn: ContractLocatie
 
 		annotation SummarizationSetBy = Automatic
 

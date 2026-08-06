@@ -127,15 +127,15 @@ table planning
 
 	column PlanningHours
 		dataType: decimal
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: #,0
 		lineageTag: b922757c-5add-4eda-90b1-e341525988b8
 		sourceLineageTag: PlanningHours
 		summarizeBy: sum
 		sourceColumn: PlanningHours
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = FormatString
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation SummarizationSetBy = Automatic
 
 	column PlanningCosts
 		dataType: decimal

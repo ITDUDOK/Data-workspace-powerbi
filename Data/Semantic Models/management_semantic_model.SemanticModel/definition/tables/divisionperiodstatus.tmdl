@@ -1,4 +1,4 @@
-table dim_divisionperiodstatus
+table divisionperiodstatus
 	lineageTag: 0d473930-f267-4af2-8d24-485690267359
 	sourceLineageTag: [dbo].[divisionperiodstatus]
 

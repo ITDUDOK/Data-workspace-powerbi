@@ -1,4 +1,4 @@
-table fact_revenue_hourly
+table revenue_hourly_summary
 	lineageTag: ffa437ab-6162-4606-816b-1edad3840b4b
 	sourceLineageTag: [dbo].[revenue_hourly_summary]
 

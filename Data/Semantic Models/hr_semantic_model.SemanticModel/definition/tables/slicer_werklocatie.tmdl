@@ -1,11 +1,11 @@
-table offices
-	lineageTag: 449b4739-c642-49a8-9341-f57172432a86
-	sourceLineageTag: [dbo].[offices]
+table slicer_werklocatie
+	lineageTag: 5eb0fac5-57c7-45d1-ac70-73b3b35771ed
+	sourceLineageTag: [dbo].[slicer_werklocatie]
 
 	column OfficeId
 		dataType: int64
 		formatString: 0
-		lineageTag: d09612df-d1ba-467e-beba-04959c467a01
+		lineageTag: 1e45c60d-2438-4d1b-aa15-f676698e8c59
 		sourceLineageTag: OfficeId
 		summarizeBy: count
 		sourceColumn: OfficeId
@@ -14,37 +14,27 @@ table offices
 
 	column OfficeName
 		dataType: string
-		lineageTag: ab74d3fc-70c1-49c1-8a1f-e61cef34e91f
+		lineageTag: e72dbde8-46b5-48f6-b622-6d14f51c65da
 		sourceLineageTag: OfficeName
 		summarizeBy: none
 		sourceColumn: OfficeName
 
 		annotation SummarizationSetBy = Automatic
 
-	column OfficeIdAccountant
-		dataType: int64
-		formatString: 0
-		lineageTag: b8016613-6c3d-4230-aec0-466495a05c82
-		sourceLineageTag: OfficeIdAccountant
-		summarizeBy: sum
-		sourceColumn: OfficeIdAccountant
-
-		annotation SummarizationSetBy = Automatic
-
 	column ModifiedAt
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 6a0da87c-0135-4261-8b13-9da29e44f769
+		lineageTag: 573e943f-fb56-4bca-8d9d-842f930019db
 		sourceLineageTag: ModifiedAt
 		summarizeBy: none
 		sourceColumn: ModifiedAt
 
 		annotation SummarizationSetBy = Automatic
 
-	partition offices = entity
+	partition slicer_werklocatie = entity
 		mode: directLake
 		source
-			entityName: offices
+			entityName: slicer_werklocatie
 			schemaName: dbo
 			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
 
