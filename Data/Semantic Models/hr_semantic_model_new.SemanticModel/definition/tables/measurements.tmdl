@@ -1691,7 +1691,15 @@ table measurements
 			    & " | GekozenCardID=" & COALESCE( FORMAT( GekozenID, "0" ), "BLANK" )
 		lineageTag: 7d50f048-66ce-45ff-851d-e25b94c7ee7e
 
-	measure CardID_MA_Gekozen_OpNaam =
+	measure CardID_MA_Gekozen_OpNaam = ```
+			
+			-- Als de huidige rij al een eigen (niet-genulde) CardId heeft, gebruik die
+			-- direct -- veilig en ondubbelzinnig, ongeacht naamgenoten elders in het
+			-- model. Alleen als de rij zelf geen CardId heeft (een 'superseded'
+			-- contractrecord na de CardId-dedup, zie usp_LoadEmployeesEnriched) valt
+			-- deze terug op de oude naam-gebaseerde zoekopdracht, wat bij naamgenoten
+			-- nog steeds de verkeerde persoon kan opleveren.
+			VAR EigenCardId = SELECTEDVALUE( employees_enriched[CardId] )
 			
 			VAR CurrentName =
 			    SELECTEDVALUE( employees_enriched[FullName] )
@@ -1744,8 +1752,12 @@ table measurements
 			        employees_enriched[CardId], DESC
 			    )
 			
+			VAR CardIdViaNaam = MAXX( BestRow, employees_enriched[CardId] )
+			
 			RETURN
-			    MAXX( BestRow, employees_enriched[CardId] )
+			    IF( NOT ISBLANK( EigenCardId ), EigenCardId, CardIdViaNaam )
+			
+			```
 		formatString: 0
 		lineageTag: 510f446a-9b07-41f0-b397-8316e4524ba5
 
@@ -1941,23 +1953,17 @@ table measurements
 			    )
 		lineageTag: a0756fa0-a032-45cd-a59d-782302f61965
 
-	measure Werklocatie_Filter_MA =
+	measure Werklocatie_Filter_MA = ```
 			
 			VAR HuidigCardID = SELECTEDVALUE(employees_enriched[CardId])
 			
 			VAR SelectedYear  = IF(HASONEVALUE(dates[Year]),  VALUES(dates[Year]),  YEAR(TODAY()))
 			VAR SelectedMonth = IF(HASONEVALUE(dates[Month]), VALUES(dates[Month]), MONTH(TODAY()))
 			
-			-- Geselecteerde locaties ophalen VOOR de REMOVEFILTERS — anders weg
-			VAR GeselOfficeIds =
-			    CALCULATETABLE(
-			        VALUES(hours[HourOfficeId]),
-			        ALLSELECTED(hours[HourOfficeId])
-			    )
-			VAR GeselOfficeNames =
-			    SELECTCOLUMNS(GeselOfficeIds, "OfficeName", LOOKUPVALUE(offices[OfficeName], offices[OfficeId], hours[HourOfficeId]))
+			-- Geselecteerde werklocaties ophalen VOOR de REMOVEFILTERS -- anders weg
+			VAR GeselOfficeNames = VALUES(slicer_werklocatie[OfficeName])
 			VAR HeeftSelectie =
-			    COUNTROWS(GeselOfficeIds) < COUNTROWS(ALL(hours[HourOfficeId]))
+			    COUNTROWS(GeselOfficeNames) < COUNTROWS(ALL(slicer_werklocatie[OfficeName]))
 			
 			VAR UrenPerLocatie =
 			    ADDCOLUMNS(
@@ -2001,6 +2007,8 @@ table measurements
 			            IF(CONTAINSROW(GeselOfficeNames, EffectiefName), 1, BLANK())
 			        )
 			    )
+			
+			```
 		formatString: 0
 		lineageTag: 65a2354e-f77b-4970-99c7-ce1cb7dcbf0a
 
@@ -2102,7 +2110,8 @@ table measurements
 			)
 		lineageTag: cb4170be-b2f8-4332-b4c5-8b4f971602bb
 
-	measure Werklocatie_MA =
+	measure Werklocatie_MA = ```
+			
 			VAR HuidigCardID = [CardID_MA_Gekozen_OpNaam]
 			VAR SelectedYear = COALESCE(SELECTEDVALUE(dates[Year]), YEAR(TODAY()))
 			VAR SelectedMonth = COALESCE(SELECTEDVALUE(dates[Month]), MONTH(TODAY()))
@@ -2114,10 +2123,7 @@ table measurements
 			        SELECTEDVALUE(employees_enriched[EmployeeId]),
 			        employees_enriched[CardId] = HuidigCardID
 			    )
-			RETURN
-			IF(
-			    ISBLANK(HuidigCardID),
-			    BLANK(),
+			VAR WerklocatieViaUren =
 			    CALCULATE(
 			        SELECTEDVALUE(employee_worklocation_monthly[WerklocatieOfficeName]),
 			        REMOVEFILTERS(employee_worklocation_monthly),
@@ -2126,7 +2132,22 @@ table measurements
 			        YEAR(employee_worklocation_monthly[YearMonth]) = VorigeYear,
 			        MONTH(employee_worklocation_monthly[YearMonth]) = VorigeMonth
 			    )
-			)
+			-- Fallback naar contractlocatie als er geen uren zijn geregistreerd in de vorige maand
+			VAR ContractOfficeId =
+			    CALCULATE(
+			        SELECTEDVALUE(employees_enriched[OfficeId]),
+			        employees_enriched[CardId] = HuidigCardID
+			    )
+			VAR WerklocatieViaContract =
+			    LOOKUPVALUE(offices[OfficeName], offices[OfficeId], ContractOfficeId)
+			RETURN
+			    IF(
+			        ISBLANK(HuidigCardID),
+			        BLANK(),
+			        IF(NOT ISBLANK(WerklocatieViaUren), WerklocatieViaUren, WerklocatieViaContract)
+			    )
+			
+			```
 		lineageTag: 56d89e50-e215-49b3-baa3-6f86d68e8117
 
 	measure Tevredenheidscijfer_MA =
@@ -2389,7 +2410,10 @@ table measurements
 			        REMOVEFILTERS(offices)
 			    )
 			)
+		formatString: #,0
 		lineageTag: c40ae1d2-150d-47bc-aae2-aa2706075949
+
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure 'VK Ziekteuren' =
 			VAR MinDate = MIN(dates[Date])
@@ -2425,9 +2449,13 @@ table measurements
 			        REMOVEFILTERS(offices)
 			    )
 			)
+		formatString: #,0
 		lineageTag: 8fd72edf-8b2b-41b6-9c89-8a9703cd82f6
 
+		annotation PBI_FormatHint = {"isDecimal":true}
+
 	measure 'VK Verzuim Uren %' = DIVIDE([VK Ziekteuren], [VK Contracturen], 0)
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: afa39010-6967-4d81-869e-44dc445fa25b
 
 	measure 'VK Bruto Loonkosten' =
@@ -2470,6 +2498,7 @@ table measurements
 			    )
 			RETURN
 			    DivisionTotal * DIVIDE(FilteredWeight, TotalWeight, 0)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 9989fffa-33c1-4ddc-8d79-b6ca942ddf9c
 
 	measure 'VK Betaald Ziekengeld' =
@@ -2508,6 +2537,7 @@ table measurements
 			    )
 			RETURN
 			    DivisionTotal * DIVIDE(FilteredWeight, TotalWeight, 0)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: ce75840b-cdd4-4823-8053-240d6ae09b7a
 
 	measure 'VK Ontvangen Ziekengeld' =
@@ -2546,6 +2576,7 @@ table measurements
 			    )
 			RETURN
 			    DivisionTotal * DIVIDE(FilteredWeight, TotalWeight, 0)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 31481333-8153-4257-8740-1ab765d2abf7
 
 	measure 'VK Verzuim Financieel %' =
@@ -2554,6 +2585,7 @@ table measurements
 			    [VK Bruto Loonkosten] + [VK Betaald Ziekengeld],
 			    0
 			)
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 20025db0-3e5c-458e-a483-b3b81a7fbff9
 
 	measure 'VK Netto Verzuim %' =
@@ -2562,6 +2594,7 @@ table measurements
 			    [VK Bruto Loonkosten] + [VK Betaald Ziekengeld],
 			    0
 			)
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 5693c00e-7a68-484d-b305-85c450d60483
 
 	measure 'VK Loonkosten Gewicht' =
@@ -2644,6 +2677,30 @@ table measurements
 			)
 		isHidden
 		lineageTag: ee140865-ae90-4e95-8e20-f916cacfdd7b
+
+	measure Leeftijd_MA = ```
+			
+			VAR HuidigCardID = [CardID_MA_Gekozen_OpNaam]
+			RETURN
+			    IF(
+			        ISBLANK( HuidigCardID ),
+			        BLANK(),
+			        VAR GeboorteDatum =
+			            CALCULATE(
+			                SELECTEDVALUE( employees_enriched[DateOfBirth] ),
+			                employees_enriched[CardId] = HuidigCardID
+			            )
+			        RETURN
+			            IF(
+			                ISBLANK( GeboorteDatum ),
+			                BLANK(),
+			                DATEDIFF( GeboorteDatum, TODAY(), YEAR )
+			            )
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 0a6daecc-602e-47c9-92f6-9616f2867131
 
 	column Column
 		lineageTag: cb79abd1-a66d-40b1-9de9-4efafec4d089

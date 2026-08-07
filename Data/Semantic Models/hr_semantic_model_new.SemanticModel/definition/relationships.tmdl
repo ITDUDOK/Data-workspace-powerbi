@@ -195,6 +195,7 @@ relationship c596e1e4-2c9f-c789-fd37-8e6d080fd276
 	toColumn: dates.Date
 
 relationship f8d50cec-273e-4943-8ab3-f8631319fce8
+	isActive: false
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: office_classification.OfficeId
@@ -203,5 +204,16 @@ relationship f8d50cec-273e-4943-8ab3-f8631319fce8
 relationship b39206c6-4757-43c4-bc33-9542b1d5c588
 	crossFilteringBehavior: bothDirections
 	fromColumn: office_classification.Classification
+	toColumn: business_line.BusinessLine
+
+relationship 500fee6c-c688-447b-8a74-c34566ba7313
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: employee_business_line.EmployeeId
+	toColumn: employees_enriched.EmployeeId
+
+relationship 61390a6e-294c-429f-80dd-806fe522c1b3
+	crossFilteringBehavior: bothDirections
+	fromColumn: employee_business_line.BusinessLine
 	toColumn: business_line.BusinessLine
 

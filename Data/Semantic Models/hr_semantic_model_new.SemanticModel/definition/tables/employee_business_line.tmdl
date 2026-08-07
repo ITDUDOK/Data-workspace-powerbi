@@ -1,0 +1,35 @@
+table employee_business_line
+	lineageTag: 0ef06c14-26dd-4be6-b5e1-a79fa9f97935
+
+	column EmployeeId
+		dataType: string
+		lineageTag: 54670b4b-f530-4ac6-80fd-625fa0c9e408
+		sourceColumn: EmployeeId
+
+	column EffectiveOfficeId
+		dataType: int64
+		lineageTag: 8563d5a5-a479-4770-9f21-465a5fd67bbc
+		sourceColumn: EffectiveOfficeId
+
+	column BusinessLine
+		dataType: string
+		lineageTag: b44383c1-4491-466b-bfa3-0cc9668daa7b
+		sourceColumn: BusinessLine
+
+	column IsFromWerklocatie
+		dataType: boolean
+		lineageTag: 27224c31-d99d-4553-b83e-bceb79dfaf4a
+		sourceColumn: IsFromWerklocatie
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 56ef4b5f-0c84-4517-a2aa-cc9a022c2659
+		sourceColumn: ModifiedAt
+
+	partition 'employee_business_line 1' = entity
+		mode: directLake
+		source
+			entityName: employee_business_line
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

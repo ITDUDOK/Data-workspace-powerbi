@@ -67,6 +67,9 @@ table dates
 		sourceLineageTag: MonthName
 		summarizeBy: none
 		sourceColumn: MonthName
+		sortByColumn: Month
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 

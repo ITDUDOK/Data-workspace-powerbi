@@ -421,7 +421,7 @@ table employees_enriched
 		formatString: 0
 		lineageTag: f20f34f3-258c-4fde-b730-307682ae097d
 		sourceLineageTag: CardId
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: CardId
 
 		annotation SummarizationSetBy = Automatic
