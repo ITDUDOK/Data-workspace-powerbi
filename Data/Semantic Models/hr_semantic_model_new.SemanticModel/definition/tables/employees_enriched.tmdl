@@ -793,6 +793,9 @@ table employees_enriched
 		sourceLineageTag: BirthMonthName
 		summarizeBy: none
 		sourceColumn: BirthMonthName
+		sortByColumn: BirthMonth
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 

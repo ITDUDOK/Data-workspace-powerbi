@@ -64,5 +64,4 @@ ref table map_vkoffice
 ref table GLTransactions
 ref table GLAccounts
 ref table map_division_office
-ref table employee_business_line
 

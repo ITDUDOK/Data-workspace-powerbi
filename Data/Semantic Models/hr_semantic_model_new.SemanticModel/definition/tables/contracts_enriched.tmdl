@@ -147,27 +147,27 @@ table contracts_enriched
 
 	column CardContractHours
 		dataType: decimal
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: #,0
 		lineageTag: e081896d-507c-45d9-98c0-07a41deb9710
 		sourceLineageTag: CardContractHours
 		summarizeBy: sum
 		sourceColumn: CardContractHours
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = FormatString
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation SummarizationSetBy = Automatic
 
 	column UurloonExclusief
 		dataType: decimal
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: 1b8dd10e-5d6d-42d1-9b2b-6d29a105bb70
 		sourceLineageTag: UurloonExclusief
 		summarizeBy: sum
 		sourceColumn: UurloonExclusief
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = FormatString
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation SummarizationSetBy = Automatic
 
 	column ActiveToday
 		dataType: boolean
@@ -267,8 +267,13 @@ table contracts_enriched
 
 	column IsCurrentContract
 		dataType: boolean
-		lineageTag: 4f90a5f2-9cf5-4380-b459-f83ce973eb8f
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 08bb7ea9-1c17-4261-aa94-49ea0dbbd0fa
+		sourceLineageTag: IsCurrentContract
+		summarizeBy: none
 		sourceColumn: IsCurrentContract
+
+		annotation SummarizationSetBy = Automatic
 
 	partition contracts_enriched = entity
 		mode: directLake

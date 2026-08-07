@@ -458,31 +458,26 @@ table measurements
 			VAR HeeftSelectie = NOT ISEMPTY(GekozenData)
 			VAR MinDate = IF(HeeftSelectie, MINX(GekozenData, dates[Date]), TODAY())
 			VAR MaxDate = IF(HeeftSelectie, MAXX(GekozenData, dates[Date]), TODAY())
+			VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
 			
-			VAR ZiekteUren = 
+			VAR ZiekteUren =
 			    CALCULATE(
 			        SUM(sickness[SicknessHours]),
 			        REMOVEFILTERS(dates),
-			        KEEPFILTERS(
-			            FILTER(
-			                ALL(sickness),
-			                sickness[SicknessStart] >= MinDate &&
-			                sickness[SicknessStart] <= MaxDate
-			            )
-			        )
+			        REMOVEFILTERS(sickness),
+			        sickness[CardId] IN CurrentCardIDs,
+			        sickness[SicknessStart] >= MinDate,
+			        sickness[SicknessStart] <= MaxDate
 			    )
 			
-			VAR GewerkteUren = 
+			VAR GewerkteUren =
 			    CALCULATE(
 			        SUM(hours[HourHours]),
 			        REMOVEFILTERS(dates),
-			        KEEPFILTERS(
-			            FILTER(
-			                ALL(hours),
-			                hours[HourDate] >= MinDate &&
-			                hours[HourDate] <= MaxDate
-			            )
-			        )
+			        REMOVEFILTERS(hours),
+			        hours[CardId] IN CurrentCardIDs,
+			        hours[HourDate] >= MinDate,
+			        hours[HourDate] <= MaxDate
 			    )
 			
 			RETURN
@@ -491,6 +486,7 @@ table measurements
 			    DIVIDE(ZiekteUren, GewerkteUren, 0) * 100,
 			    0
 			)
+			
 			```
 		lineageTag: fd7ae8b4-d3ac-4405-b3e4-47fc9f873cd1
 
@@ -500,8 +496,9 @@ table measurements
 			VAR HeeftSelectie = NOT ISEMPTY(GekozenData)
 			VAR MinDate = IF(HeeftSelectie, MINX(GekozenData, dates[Date]), TODAY())
 			VAR MaxDate = IF(HeeftSelectie, MAXX(GekozenData, dates[Date]), TODAY())
+			VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
 			
-			VAR ZiekteUren = 
+			VAR ZiekteUren =
 			    CALCULATE(
 			        SUMX(
 			            sickness,
@@ -509,29 +506,27 @@ table measurements
 			            VAR SicknessEnd = IF(ISBLANK(sickness[SicknessEnd]), TODAY(), sickness[SicknessEnd])
 			            VAR OverlapStart = MAX(SicknessStart, MinDate)
 			            VAR OverlapEnd = MIN(SicknessEnd, MaxDate)
-			            
+			
 			            RETURN
 			            IF(
-			                OverlapStart <= OverlapEnd,  -- There is overlap
-			                sickness[SicknessHours] * 
+			                OverlapStart <= OverlapEnd,
+			                sickness[SicknessHours] *
 			                DIVIDE(OverlapEnd - OverlapStart + 1, SicknessEnd - SicknessStart + 1, 0),
 			                0
 			            )
 			        ),
-			        REMOVEFILTERS(dates)
+			        REMOVEFILTERS(dates),
+			        sickness[CardId] IN CurrentCardIDs
 			    )
 			
-			VAR GewerkteUren = 
+			VAR GewerkteUren =
 			    CALCULATE(
 			        SUM(hours[HourHours]),
 			        REMOVEFILTERS(dates),
-			        KEEPFILTERS(
-			            FILTER(
-			                ALL(hours),
-			                hours[HourDate] >= MinDate &&
-			                hours[HourDate] <= MaxDate
-			            )
-			        )
+			        REMOVEFILTERS(hours),
+			        hours[CardId] IN CurrentCardIDs,
+			        hours[HourDate] >= MinDate,
+			        hours[HourDate] <= MaxDate
 			    )
 			
 			RETURN
@@ -540,6 +535,7 @@ table measurements
 			    DIVIDE(ZiekteUren, GewerkteUren, 0),
 			    0
 			)
+			
 			```
 		formatString: #,0.00%;-#,0.00%;#,0.00%
 		lineageTag: d859f459-d733-45d1-8a45-55cc5d34a3f2
