@@ -339,7 +339,7 @@ table measurements
 		formatString: 0
 		lineageTag: fd4aa140-7686-495d-94d8-289755044150
 
-	measure Aantal_InDienst_In_Periode =
+	measure Aantal_InDienst_In_Periode = ```
 			
 			VAR GekozenDatum = SELECTEDVALUE(dates[Date])
 			VAR GekozenMaand = SELECTEDVALUE(dates[Month])
@@ -396,13 +396,15 @@ table measurements
 			IF(
 			    NOT ISBLANK(BeginPeriode),
 			    CALCULATE(
-			        DISTINCTCOUNT(staff[CardId]),
+			        DISTINCTCOUNT(employees_enriched[CardId]),
 			        ALL(dates),
-			        staff[CardStart] >= BeginPeriode,
-			        staff[CardStart] <= EindPeriode
+			        employees_enriched[CardStart] >= BeginPeriode,
+			        employees_enriched[CardStart] <= EindPeriode
 			    ),
 			    BLANK()
 			)
+			
+			```
 		formatString: 0
 		lineageTag: 6673d876-c63d-440d-8b7e-aa125d2b2aaf
 
@@ -729,7 +731,7 @@ table measurements
 			)
 		lineageTag: 2de0a0ea-fb8e-4ad2-b9d3-a74861318630
 
-	measure AantalNieuweWerknemers =
+	measure AantalNieuweWerknemers = ```
 			
 			VAR GekozenData = VALUES(dates[Date])
 			VAR HeeftSelectie = NOT ISEMPTY(GekozenData)
@@ -739,17 +741,18 @@ table measurements
 			RETURN
 			CALCULATE(
 			    DISTINCTCOUNT(hr_contracts[EmployeeId]),
-			    REMOVEFILTERS(dates),  -- Remove date filters
+			    REMOVEFILTERS(dates),
 			    KEEPFILTERS(
 			        FILTER(
-			            ALL(hr_contracts),
-			            -- Employee started during the selected period
+			            hr_contracts,
 			            hr_contracts[StartDate] >= MinDate
 			            &&
 			            hr_contracts[StartDate] <= MaxDate
 			        )
 			    )
 			)
+			
+			```
 		formatString: 0
 		lineageTag: 065c1cb7-7d00-4b32-8586-4d6ba8bc26c5
 
@@ -834,13 +837,14 @@ table measurements
 		lineageTag: db10bdf7-8097-4c92-bdb0-dea0a9200c7e
 
 	measure TotalPrognosis = SUM(prognosis[PrognosisTurnover])
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: ccf32025-6981-4342-adb9-19ac38e777d7
 
 	measure LabourCost_Planning = ```
 			CALCULATE(SUM(planning[PlanningCosts]),planning[PlanningTypeId] in {"Gepland", "Pool dienst"})
 			
 			```
-		formatString: #,0
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 226b30a2-2a3b-4f92-88a8-40e3f1fe70fb
 
 	measure LabourCost_Planning_Average = ```
@@ -1002,6 +1006,7 @@ table measurements
 		lineageTag: 38281019-09fc-499d-970c-5b1ad08584ae
 
 	measure TotalBudget = SUM(prognosis[PrognosisSpending])
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 7d8d9724-3e0b-4951-960c-b43e12ed724d
 
 	measure TotalSicknessHours =
@@ -1299,16 +1304,18 @@ table measurements
 			    )
 		lineageTag: 5a89b367-48cf-4df1-91d6-edb807a81e6b
 
-	measure Einddatum_Contract =
+	measure Einddatum_Contract = ```
 			
 			VAR CurrentEmployeeId = SELECTEDVALUE(employees_enriched[EmployeeId])
 			RETURN
 			CALCULATE(
-			    MAX(hr_contracts[EndDate]),
-			    hr_contracts[EmployeeId] = CurrentEmployeeId,
-			    hr_contracts[IsLatestContract] = TRUE(),
+			    MAX(contracts_enriched[EndDate]),
+			    contracts_enriched[EmployeeId] = CurrentEmployeeId,
+			    contracts_enriched[IsCurrentContract] = TRUE(),
 			    REMOVEFILTERS()
 			)
+			
+			```
 		formatString: dd/mm/yyyy
 		lineageTag: c08749c6-4d81-43a8-a85c-1c1850020cfe
 
@@ -1778,34 +1785,46 @@ table measurements
 		formatString: 0
 		lineageTag: 39be337e-e371-4a49-85d8-0ad5cb18baad
 
-	measure EndDatum_Actief_Filter_MA =
+	measure EndDatum_Actief_Filter_MA = ```
 			
 			VAR SelectedYear  = COALESCE( SELECTEDVALUE( dates[YearISO] ), YEAR( TODAY() ) )
 			VAR SelectedMonth = COALESCE( SELECTEDVALUE( dates[Month] ),  MONTH( TODAY() ) )
 			VAR MaandStart    = DATE( SelectedYear, SelectedMonth, 1 )
 			VAR MaandEind     = EOMONTH( MaandStart, 0 )
 			
-			VAR MaxEinde =
-			    CALCULATE(
-			        MAX( employees_enriched[EmployeeEndDate] ),
-			        ALLEXCEPT( 'employees_enriched', employees_enriched[FullName] )
-			    )
+			-- Zelfde identiteitsresolutie als Contractlocatie_MA/Werklocatie_MA/Functie_MA:
+			-- gebruikt de eigen CardId van de rij als die er is, anders naam+maand-overlap
+			-- als fallback. Voorkomt dat twee verschillende dienstverbanden van dezelfde
+			-- naam (bv. bij een overstap naar een andere entiteit) als 1 doorlopende
+			-- periode worden behandeld.
+			VAR HuidigCardID = [CardID_MA_Gekozen_OpNaam]
 			
 			VAR MinStart =
 			    CALCULATE(
-			        MIN( employees_enriched[EmployeeStartDate] ),
-			        ALLEXCEPT( 'employees_enriched', employees_enriched[FullName] )
+			        SELECTEDVALUE( employees_enriched[EmployeeStartDate] ),
+			        employees_enriched[CardId] = HuidigCardID
+			    )
+			VAR MaxEinde =
+			    CALCULATE(
+			        SELECTEDVALUE( employees_enriched[EmployeeEndDate] ),
+			        employees_enriched[CardId] = HuidigCardID
 			    )
 			
 			RETURN
 			    IF(
-			        -- Startdatum moet vóór of in de geselecteerde maand liggen
-			        ( ISBLANK( MinStart ) || MinStart <= MaandEind )
-			        -- EN einddatum moet op of na de maandstart liggen (of BLANK = nog actief)
-			        && ( ISBLANK( MaxEinde ) || MaxEinde >= MaandStart ),
-			        1,
-			        BLANK()
+			        ISBLANK( HuidigCardID ),
+			        BLANK(),
+			        IF(
+			            -- Startdatum moet vóór of in de geselecteerde maand liggen
+			            ( ISBLANK( MinStart ) || MinStart <= MaandEind )
+			            -- EN einddatum moet op of na de maandstart liggen (of BLANK = nog actief)
+			            && ( ISBLANK( MaxEinde ) || MaxEinde >= MaandStart ),
+			            1,
+			            BLANK()
+			        )
 			    )
+			
+			```
 		formatString: 0
 		lineageTag: 74264532-6d56-428c-911d-d0a565c4e33e
 
@@ -2193,75 +2212,135 @@ table measurements
 			    )
 		lineageTag: 4cc77dec-fc51-4fd1-bf1e-23e556fdda9a
 
-	measure 'Average Satisfaction' =
+	measure 'Average Satisfaction' = ```
 			
 			VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			
+			    VAR GekozenData = VALUES(dates[Date])
+			    VAR HeeftSelectie = NOT ISEMPTY(GekozenData)
+			    VAR MinDate = IF(HeeftSelectie, MINX(GekozenData, dates[Date]), BLANK())
+			    VAR MaxDate = IF(HeeftSelectie, MAXX(GekozenData, dates[Date]), BLANK())
+			
 			VAR RuweScore =
 			    CALCULATE(
 			        AVERAGE(satisfaction[Satisfaction]),
-			        satisfaction[EmployeeId] IN RelevantEmployeeIds
+			        REMOVEFILTERS(dates),
+			        satisfaction[EmployeeId] IN RelevantEmployeeIds,
+			        IF(HeeftSelectie, satisfaction[SurveyDate] >= MinDate && satisfaction[SurveyDate] <= MaxDate, TRUE())
 			    )
 			RETURN
 			IF(ISBLANK(RuweScore), BLANK(), (RuweScore - 1) * 2.5)
+			
+			```
 		lineageTag: fd36f22e-8454-467e-90a0-1646974571f6
 
-	measure 'Heel onprettig' =
+	measure 'Heel onprettig' = ```
 			
 			VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			
+			    VAR GekozenData = VALUES(dates[Date])
+			    VAR HeeftSelectie = NOT ISEMPTY(GekozenData)
+			    VAR MinDate = IF(HeeftSelectie, MINX(GekozenData, dates[Date]), BLANK())
+			    VAR MaxDate = IF(HeeftSelectie, MAXX(GekozenData, dates[Date]), BLANK())
+			
 			RETURN
 			CALCULATE(
 			    COUNTROWS(satisfaction),
+			    REMOVEFILTERS(dates),
 			    satisfaction[EmployeeId] IN RelevantEmployeeIds,
-			    satisfaction[Satisfaction] = 1
+			    satisfaction[Satisfaction] = 1,
+			    IF(HeeftSelectie, satisfaction[SurveyDate] >= MinDate && satisfaction[SurveyDate] <= MaxDate, TRUE())
 			)
+			
+			```
 		displayFolder: Tevredenheid Categorieën
 		lineageTag: 408ba006-c505-4fb1-aaa5-d13ccc111172
 
-	measure Onprettig =
+	measure Onprettig = ```
 			
 			VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			
+			    VAR GekozenData = VALUES(dates[Date])
+			    VAR HeeftSelectie = NOT ISEMPTY(GekozenData)
+			    VAR MinDate = IF(HeeftSelectie, MINX(GekozenData, dates[Date]), BLANK())
+			    VAR MaxDate = IF(HeeftSelectie, MAXX(GekozenData, dates[Date]), BLANK())
+			
 			RETURN
 			CALCULATE(
 			    COUNTROWS(satisfaction),
+			    REMOVEFILTERS(dates),
 			    satisfaction[EmployeeId] IN RelevantEmployeeIds,
-			    satisfaction[Satisfaction] = 2
+			    satisfaction[Satisfaction] = 2,
+			    IF(HeeftSelectie, satisfaction[SurveyDate] >= MinDate && satisfaction[SurveyDate] <= MaxDate, TRUE())
 			)
+			
+			```
 		displayFolder: Tevredenheid Categorieën
 		lineageTag: 4083912e-5c1a-4bf3-840c-833b8c758100
 
-	measure Normaal =
+	measure Normaal = ```
 			
 			VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			
+			    VAR GekozenData = VALUES(dates[Date])
+			    VAR HeeftSelectie = NOT ISEMPTY(GekozenData)
+			    VAR MinDate = IF(HeeftSelectie, MINX(GekozenData, dates[Date]), BLANK())
+			    VAR MaxDate = IF(HeeftSelectie, MAXX(GekozenData, dates[Date]), BLANK())
+			
 			RETURN
 			CALCULATE(
 			    COUNTROWS(satisfaction),
+			    REMOVEFILTERS(dates),
 			    satisfaction[EmployeeId] IN RelevantEmployeeIds,
-			    satisfaction[Satisfaction] = 3
+			    satisfaction[Satisfaction] = 3,
+			    IF(HeeftSelectie, satisfaction[SurveyDate] >= MinDate && satisfaction[SurveyDate] <= MaxDate, TRUE())
 			)
+			
+			```
 		displayFolder: Tevredenheid Categorieën
 		lineageTag: a1024013-1838-4045-8a30-fb7ccb5491e2
 
-	measure Prettig =
+	measure Prettig = ```
 			
 			VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			
+			    VAR GekozenData = VALUES(dates[Date])
+			    VAR HeeftSelectie = NOT ISEMPTY(GekozenData)
+			    VAR MinDate = IF(HeeftSelectie, MINX(GekozenData, dates[Date]), BLANK())
+			    VAR MaxDate = IF(HeeftSelectie, MAXX(GekozenData, dates[Date]), BLANK())
+			
 			RETURN
 			CALCULATE(
 			    COUNTROWS(satisfaction),
+			    REMOVEFILTERS(dates),
 			    satisfaction[EmployeeId] IN RelevantEmployeeIds,
-			    satisfaction[Satisfaction] = 4
+			    satisfaction[Satisfaction] = 4,
+			    IF(HeeftSelectie, satisfaction[SurveyDate] >= MinDate && satisfaction[SurveyDate] <= MaxDate, TRUE())
 			)
+			
+			```
 		displayFolder: Tevredenheid Categorieën
 		lineageTag: 285187bf-b4ce-4a14-9a79-adad3a187761
 
-	measure 'Heel prettig' =
+	measure 'Heel prettig' = ```
 			
 			VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
+			
+			    VAR GekozenData = VALUES(dates[Date])
+			    VAR HeeftSelectie = NOT ISEMPTY(GekozenData)
+			    VAR MinDate = IF(HeeftSelectie, MINX(GekozenData, dates[Date]), BLANK())
+			    VAR MaxDate = IF(HeeftSelectie, MAXX(GekozenData, dates[Date]), BLANK())
+			
 			RETURN
 			CALCULATE(
 			    COUNTROWS(satisfaction),
+			    REMOVEFILTERS(dates),
 			    satisfaction[EmployeeId] IN RelevantEmployeeIds,
-			    satisfaction[Satisfaction] = 5
+			    satisfaction[Satisfaction] = 5,
+			    IF(HeeftSelectie, satisfaction[SurveyDate] >= MinDate && satisfaction[SurveyDate] <= MaxDate, TRUE())
 			)
+			
+			```
 		displayFolder: Tevredenheid Categorieën
 		lineageTag: 41ae3b90-2c4b-4f33-b3ec-7d3caceb58df
 

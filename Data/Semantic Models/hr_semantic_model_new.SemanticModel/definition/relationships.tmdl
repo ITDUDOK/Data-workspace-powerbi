@@ -206,13 +206,13 @@ relationship b39206c6-4757-43c4-bc33-9542b1d5c588
 	fromColumn: office_classification.Classification
 	toColumn: business_line.BusinessLine
 
-relationship 500fee6c-c688-447b-8a74-c34566ba7313
+relationship 89ead8d8-fabb-4e9a-bc90-b9189377d259
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: employee_business_line.EmployeeId
 	toColumn: employees_enriched.EmployeeId
 
-relationship 61390a6e-294c-429f-80dd-806fe522c1b3
+relationship 4e7311d8-2c3a-47a4-a555-906fe69df22b
 	crossFilteringBehavior: bothDirections
 	fromColumn: employee_business_line.BusinessLine
 	toColumn: business_line.BusinessLine

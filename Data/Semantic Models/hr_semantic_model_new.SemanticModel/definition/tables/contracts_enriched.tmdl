@@ -265,6 +265,11 @@ table contracts_enriched
 
 		annotation SummarizationSetBy = Automatic
 
+	column IsCurrentContract
+		dataType: boolean
+		lineageTag: 4f90a5f2-9cf5-4380-b459-f83ce973eb8f
+		sourceColumn: IsCurrentContract
+
 	partition contracts_enriched = entity
 		mode: directLake
 		source

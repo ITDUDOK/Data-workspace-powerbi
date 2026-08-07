@@ -3,34 +3,142 @@ table hours_summary
 	sourceLineageTag: [dbo].[hours_summary]
 
 	measure Uren_Vast_Bezetting = CALCULATE(SUM(hours_summary[HourHours]), hours_summary[EmployeeType] = "Vast", hours_summary[IsActief] = TRUE)
+		formatString: #,0
 		lineageTag: 2f071f63-7031-438e-b7fd-e2e924b2508c
 
-	measure Uren_Flex_Bezetting = CALCULATE(SUM(hours_summary[HourHours]), hours_summary[EmployeeType] = "Flex", hours_summary[IsActief] = TRUE)
+		changedProperty = FormatString
+
+	measure Uren_Flex_Bezetting = ```
+			
+			    VAR CurrentWorkCenter = SELECTEDVALUE(hours_summary[WorkCenter])
+			    VAR StaffingOfficeId =
+			        SWITCH(
+			            TRUE(),
+			            CurrentWorkCenter = "Dudok Staffing", 11,
+			            CurrentWorkCenter = "Dudok Horeca Shared Services.", 15,
+			            BLANK()
+			        )
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(StaffingOfficeId),
+			    CALCULATE(
+			        SUM(hours_summary[HourHours]),
+			        REMOVEFILTERS(hours_summary[WorkCenter]),
+			        hours_summary[OfficeId] = StaffingOfficeId,
+			        hours_summary[EmployeeType] = "Flex",
+			        hours_summary[IsActief] = TRUE
+			    ),
+			    CALCULATE(SUM(hours_summary[HourHours]), hours_summary[EmployeeType] = "Flex", hours_summary[IsActief] = TRUE)
+			)
+			
+			```
+		formatString: #,0
 		lineageTag: 33a7d37f-5927-437d-b896-172ea4e60d9f
 
+		changedProperty = FormatString
+
 	measure Totaal_Uren_Bezetting = [Uren_Vast_Bezetting] + [Uren_Flex_Bezetting]
+		formatString: #,0
 		lineageTag: 7a21a91c-26ff-40c2-90b9-bae65d04a73a
 
+		changedProperty = FormatString
+
 	measure Pct_Uren_Vast_Bezetting = DIVIDE([Uren_Vast_Bezetting], [Totaal_Uren_Bezetting], BLANK())
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: c4e0cff9-ad5c-4b7f-b44e-2169f44609e5
+
+		changedProperty = FormatString
 
 	measure Mdw_Vast_Bezetting = CALCULATE(DISTINCTCOUNT(hours_summary[CardId]), hours_summary[EmployeeType] = "Vast", hours_summary[HourHours] > 0, hours_summary[IsActief] = TRUE)
 		lineageTag: ff000ee6-99d5-4819-bc88-c6afbf343379
 
-	measure Mdw_Flex_Bezetting = CALCULATE(DISTINCTCOUNT(hours_summary[CardId]), hours_summary[EmployeeType] = "Flex", hours_summary[HourHours] > 0, hours_summary[IsActief] = TRUE)
+	measure Mdw_Flex_Bezetting = ```
+			
+			    VAR CurrentWorkCenter = SELECTEDVALUE(hours_summary[WorkCenter])
+			    VAR StaffingOfficeId =
+			        SWITCH(
+			            TRUE(),
+			            CurrentWorkCenter = "Dudok Staffing", 11,
+			            CurrentWorkCenter = "Dudok Horeca Shared Services.", 15,
+			            BLANK()
+			        )
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(StaffingOfficeId),
+			    CALCULATE(
+			        DISTINCTCOUNT(hours_summary[CardId]),
+			        REMOVEFILTERS(hours_summary[WorkCenter]),
+			        hours_summary[OfficeId] = StaffingOfficeId,
+			        hours_summary[EmployeeType] = "Flex",
+			        hours_summary[HourHours] > 0,
+			        hours_summary[IsActief] = TRUE
+			    ),
+			    CALCULATE(DISTINCTCOUNT(hours_summary[CardId]), hours_summary[EmployeeType] = "Flex", hours_summary[HourHours] > 0, hours_summary[IsActief] = TRUE)
+			)
+			
+			```
 		lineageTag: 6fa2727b-c59a-43af-b354-eba5376530f6
 
 	measure Totaal_Mdw_Bezetting = [Mdw_Vast_Bezetting] + [Mdw_Flex_Bezetting]
 		lineageTag: f300ce0f-cfa2-4146-9fd4-d7d503bc3d81
 
 	measure Gem_Uurloon_Vast_Bezetting = AVERAGEX(FILTER(VALUES(hours_summary[CardId]), VAR EmpType = CALCULATE(MAX(hours_summary[EmployeeType])) VAR Salary = CALCULATE(MAX(hours_summary[HourlySalary])) RETURN EmpType = "Vast" && NOT(ISBLANK(Salary))), CALCULATE(MAX(hours_summary[HourlySalary])))
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: 3198376f-9809-46a0-b108-04b724875c7e
 
-	measure Gem_Uurloon_Flex_Bezetting = AVERAGEX(FILTER(VALUES(hours_summary[CardId]), VAR EmpType = CALCULATE(MAX(hours_summary[EmployeeType])) VAR Salary = CALCULATE(MAX(hours_summary[HourlySalary])) RETURN EmpType = "Flex" && NOT(ISBLANK(Salary))), CALCULATE(MAX(hours_summary[HourlySalary])))
+		changedProperty = FormatString
+
+	measure Gem_Uurloon_Flex_Bezetting = ```
+			
+			    VAR CurrentWorkCenter = SELECTEDVALUE(hours_summary[WorkCenter])
+			    VAR StaffingOfficeId =
+			        SWITCH(
+			            TRUE(),
+			            CurrentWorkCenter = "Dudok Staffing", 11,
+			            CurrentWorkCenter = "Dudok Horeca Shared Services.", 15,
+			            BLANK()
+			        )
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(StaffingOfficeId),
+			    CALCULATE(
+			        AVERAGEX(
+			            FILTER(
+			                VALUES(hours_summary[CardId]),
+			                VAR EmpType = CALCULATE(MAX(hours_summary[EmployeeType]))
+			                VAR Salary = CALCULATE(MAX(hours_summary[HourlySalary]))
+			                RETURN EmpType = "Flex" && NOT(ISBLANK(Salary))
+			            ),
+			            CALCULATE(MAX(hours_summary[HourlySalary]))
+			        ),
+			        REMOVEFILTERS(hours_summary[WorkCenter]),
+			        hours_summary[OfficeId] = StaffingOfficeId
+			    ),
+			    AVERAGEX(
+			        FILTER(
+			            VALUES(hours_summary[CardId]),
+			            VAR EmpType = CALCULATE(MAX(hours_summary[EmployeeType]))
+			            VAR Salary = CALCULATE(MAX(hours_summary[HourlySalary]))
+			            RETURN EmpType = "Flex" && NOT(ISBLANK(Salary))
+			        ),
+			        CALCULATE(MAX(hours_summary[HourlySalary]))
+			    )
+			)
+			
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: e6761c6f-9f50-4613-8e29-d55f9eccb4cd
 
+		changedProperty = FormatString
+
 	measure Gem_Uurloon_Totaal_Bezetting = AVERAGEX(FILTER(VALUES(hours_summary[CardId]), NOT(ISBLANK(CALCULATE(MAX(hours_summary[HourlySalary]))))), CALCULATE(MAX(hours_summary[HourlySalary])))
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
 		lineageTag: f6eb80c6-f75a-431e-a229-73d50d45df86
+
+		changedProperty = FormatString
 
 	column HourId
 		dataType: int64

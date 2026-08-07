@@ -1,29 +1,29 @@
 table employee_business_line
-	lineageTag: 0ef06c14-26dd-4be6-b5e1-a79fa9f97935
+	lineageTag: 962055ab-527e-488e-87ec-3f2c191de7f7
 
 	column EmployeeId
 		dataType: string
-		lineageTag: 54670b4b-f530-4ac6-80fd-625fa0c9e408
+		lineageTag: cd276904-664e-44df-aaec-aa55ffe6297d
 		sourceColumn: EmployeeId
 
 	column EffectiveOfficeId
 		dataType: int64
-		lineageTag: 8563d5a5-a479-4770-9f21-465a5fd67bbc
+		lineageTag: 9b077aa5-f3f1-45e8-bb92-1077b4c10263
 		sourceColumn: EffectiveOfficeId
 
 	column BusinessLine
 		dataType: string
-		lineageTag: b44383c1-4491-466b-bfa3-0cc9668daa7b
+		lineageTag: 59ab19c4-1874-49f8-a27a-5199e4fcdd1d
 		sourceColumn: BusinessLine
 
 	column IsFromWerklocatie
 		dataType: boolean
-		lineageTag: 27224c31-d99d-4553-b83e-bceb79dfaf4a
+		lineageTag: bddb1beb-4721-471d-aa14-759baad8f3b2
 		sourceColumn: IsFromWerklocatie
 
 	column ModifiedAt
 		dataType: dateTime
-		lineageTag: 56ef4b5f-0c84-4517-a2aa-cc9a022c2659
+		lineageTag: 5ec0dc0c-40b4-43ae-800f-7890de1dc7cb
 		sourceColumn: ModifiedAt
 
 	partition 'employee_business_line 1' = entity
