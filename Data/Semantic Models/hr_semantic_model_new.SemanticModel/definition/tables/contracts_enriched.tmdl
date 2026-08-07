@@ -181,13 +181,21 @@ table contracts_enriched
 
 	column FinalEndDate
 		dataType: dateTime
-		formatString: General Date
+		formatString: dd/mm/yy
 		lineageTag: 9cd6cc91-db84-4649-8ef1-e433021c0834
 		sourceLineageTag: FinalEndDate
 		summarizeBy: none
 		sourceColumn: FinalEndDate
 
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
 
 	column ContractType
 		dataType: string

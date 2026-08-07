@@ -2459,16 +2459,17 @@ table measurements
 			        REMOVEFILTERS(dates),
 			        REMOVEFILTERS(offices)
 			    )
-			VAR FilteredHours = [VK Contracturen]
-			VAR TotalHours =
+			VAR FilteredWeight = [VK Loonkosten Gewicht]
+			VAR TotalWeight =
 			    CALCULATE(
-			        [VK Contracturen],
+			        [VK Loonkosten Gewicht],
 			        REMOVEFILTERS(employees_enriched[ManagerFullName]),
 			        REMOVEFILTERS(employees_enriched[FunctionName]),
-			        REMOVEFILTERS(employees_enriched[IsActief])
+			        REMOVEFILTERS(employees_enriched[IsActief]),
+			        REMOVEFILTERS(employees_enriched[FullName])
 			    )
 			RETURN
-			    DivisionTotal * DIVIDE(FilteredHours, TotalHours, 0)
+			    DivisionTotal * DIVIDE(FilteredWeight, TotalWeight, 0)
 		lineageTag: 9989fffa-33c1-4ddc-8d79-b6ca942ddf9c
 
 	measure 'VK Betaald Ziekengeld' =
@@ -2496,16 +2497,17 @@ table measurements
 			        REMOVEFILTERS(dates),
 			        REMOVEFILTERS(offices)
 			    )
-			VAR FilteredHours = [VK Contracturen]
-			VAR TotalHours =
+			VAR FilteredWeight = [VK Ziekte Gewicht]
+			VAR TotalWeight =
 			    CALCULATE(
-			        [VK Contracturen],
+			        [VK Ziekte Gewicht],
 			        REMOVEFILTERS(employees_enriched[ManagerFullName]),
 			        REMOVEFILTERS(employees_enriched[FunctionName]),
-			        REMOVEFILTERS(employees_enriched[IsActief])
+			        REMOVEFILTERS(employees_enriched[IsActief]),
+			        REMOVEFILTERS(employees_enriched[FullName])
 			    )
 			RETURN
-			    DivisionTotal * DIVIDE(FilteredHours, TotalHours, 0)
+			    DivisionTotal * DIVIDE(FilteredWeight, TotalWeight, 0)
 		lineageTag: ce75840b-cdd4-4823-8053-240d6ae09b7a
 
 	measure 'VK Ontvangen Ziekengeld' =
@@ -2533,16 +2535,17 @@ table measurements
 			        REMOVEFILTERS(dates),
 			        REMOVEFILTERS(offices)
 			    )
-			VAR FilteredHours = [VK Contracturen]
-			VAR TotalHours =
+			VAR FilteredWeight = [VK Ziekte Gewicht]
+			VAR TotalWeight =
 			    CALCULATE(
-			        [VK Contracturen],
+			        [VK Ziekte Gewicht],
 			        REMOVEFILTERS(employees_enriched[ManagerFullName]),
 			        REMOVEFILTERS(employees_enriched[FunctionName]),
-			        REMOVEFILTERS(employees_enriched[IsActief])
+			        REMOVEFILTERS(employees_enriched[IsActief]),
+			        REMOVEFILTERS(employees_enriched[FullName])
 			    )
 			RETURN
-			    DivisionTotal * DIVIDE(FilteredHours, TotalHours, 0)
+			    DivisionTotal * DIVIDE(FilteredWeight, TotalWeight, 0)
 		lineageTag: 31481333-8153-4257-8740-1ab765d2abf7
 
 	measure 'VK Verzuim Financieel %' =
@@ -2560,6 +2563,87 @@ table measurements
 			    0
 			)
 		lineageTag: 5693c00e-7a68-484d-b305-85c450d60483
+
+	measure 'VK Loonkosten Gewicht' =
+			VAR MinDate = MIN(dates[Date])
+			VAR MaxDate = MAX(dates[Date])
+			VAR CurrentOffices = VALUES(offices[OfficeId])
+			VAR SourceOffices =
+			    CALCULATETABLE(
+			        VALUES(map_vkoffice[SourceOfficeId]),
+			        TREATAS(CurrentOffices, map_vkoffice[TargetOfficeId])
+			    )
+			RETURN
+			IF(
+			    ISBLANK(MinDate),
+			    BLANK(),
+			    CALCULATE(
+			        SUMX(
+			            employees_enriched,
+			            VAR WeeklyHours = employees_enriched[ContractHours]
+			            VAR HourlyRate = employees_enriched[HourlySalary]
+			            VAR EmpStart = employees_enriched[EmployeeStartDate]
+			            VAR EmpEnd   = COALESCE(employees_enriched[EmployeeEndDate], MaxDate)
+			            VAR OverlapStart = MAX(EmpStart, MinDate)
+			            VAR OverlapEnd   = MIN(EmpEnd,   MaxDate)
+			            VAR OverlapDays  =
+			                IF(
+			                    NOT ISBLANK(EmpStart) && OverlapStart <= OverlapEnd,
+			                    OverlapEnd - OverlapStart + 1,
+			                    0
+			                )
+			            RETURN COALESCE(WeeklyHours, 0) * DIVIDE(OverlapDays, 7, 0) * COALESCE(HourlyRate, 0)
+			        ),
+			        TREATAS(SourceOffices, employees_enriched[OfficeId]),
+			        REMOVEFILTERS(offices)
+			    )
+			)
+		isHidden
+		lineageTag: d91c1cf1-39d4-4cf2-8633-0c4855716a9d
+
+	measure 'VK Ziekte Gewicht' =
+			VAR MinDate = MIN(dates[Date])
+			VAR MaxDate = MAX(dates[Date])
+			VAR CurrentOffices = VALUES(offices[OfficeId])
+			VAR SourceOffices =
+			    CALCULATETABLE(
+			        VALUES(map_vkoffice[SourceOfficeId]),
+			        TREATAS(CurrentOffices, map_vkoffice[TargetOfficeId])
+			    )
+			VAR RelevantCardIDs =
+			    CALCULATETABLE(
+			        VALUES(employees_enriched[CardId]),
+			        TREATAS(SourceOffices, employees_enriched[OfficeId]),
+			        REMOVEFILTERS(offices)
+			    )
+			RETURN
+			IF(
+			    ISBLANK(MinDate),
+			    BLANK(),
+			    CALCULATE(
+			        SUMX(
+			            FILTER(
+			                sickness,
+			                sickness[CardId] IN RelevantCardIDs
+			                    && NOT ISBLANK(sickness[SicknessEnd])
+			                    && sickness[SicknessEnd] >= MinDate
+			                    && sickness[SicknessEnd] <= MaxDate
+			            ),
+			            VAR CurrentCard = sickness[CardId]
+			            VAR Rate =
+			                CALCULATE(
+			                    MAX(employees_enriched[HourlySalary]),
+			                    ALL(employees_enriched),
+			                    employees_enriched[CardId] = CurrentCard
+			                )
+			            RETURN sickness[SicknessHours] * COALESCE(Rate, 0)
+			        ),
+			        REMOVEFILTERS(dates),
+			        REMOVEFILTERS(offices)
+			    )
+			)
+		isHidden
+		lineageTag: ee140865-ae90-4e95-8e20-f916cacfdd7b
 
 	column Column
 		lineageTag: cb79abd1-a66d-40b1-9de9-4efafec4d089
