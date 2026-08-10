@@ -1,0 +1,67 @@
+table event_planners
+	lineageTag: 75621a59-ebdf-4fe5-b1f0-a7915e2831c1
+	sourceLineageTag: [dbo].[event_planners]
+
+	column PlannerId
+		dataType: string
+		lineageTag: 6de61031-c5a1-4f34-8e99-e718d632da1e
+		sourceLineageTag: PlannerId
+		summarizeBy: none
+		sourceColumn: PlannerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannerFirstName
+		dataType: string
+		lineageTag: 01ef4568-9179-4d46-8aa2-a6902eb4af26
+		sourceLineageTag: PlannerFirstName
+		summarizeBy: none
+		sourceColumn: PlannerFirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannerLastName
+		dataType: string
+		lineageTag: d308aa74-ea6b-4894-8031-cdd55c63f14f
+		sourceLineageTag: PlannerLastName
+		summarizeBy: none
+		sourceColumn: PlannerLastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannerEmail
+		dataType: string
+		lineageTag: 524eba6b-750a-4ba6-9505-1fad96af3613
+		sourceLineageTag: PlannerEmail
+		summarizeBy: none
+		sourceColumn: PlannerEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d5dd6399-b77b-473e-bd1d-8f2823ae70dc
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannerIdInt
+		dataType: int64
+		formatString: 0
+		lineageTag: a7ae2d3f-bd19-4dd7-b600-060903c7a49e
+		sourceLineageTag: PlannerIdInt
+		summarizeBy: sum
+		sourceColumn: PlannerIdInt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition event_planners = entity
+		mode: directLake
+		source
+			entityName: event_planners
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

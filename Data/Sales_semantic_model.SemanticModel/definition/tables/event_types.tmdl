@@ -1,0 +1,49 @@
+table event_types
+	lineageTag: 5d60dc9f-64e8-45d1-813b-f34ae3a0ffe1
+	sourceLineageTag: [dbo].[event_types]
+
+	column EventTypeId
+		dataType: string
+		lineageTag: f3c781f0-6437-49de-89ac-bfbf3e63e240
+		sourceLineageTag: EventTypeId
+		summarizeBy: none
+		sourceColumn: EventTypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventTypeName
+		dataType: string
+		lineageTag: 7350e94d-6d8f-4bf7-b476-56f7e3d0e4a4
+		sourceLineageTag: EventTypeName
+		summarizeBy: none
+		sourceColumn: EventTypeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 610d0485-b84f-4bd4-980d-62f78f47a7fb
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventTypeIdInt
+		dataType: int64
+		formatString: 0
+		lineageTag: 45d288f4-e389-4160-8a54-5593e57b9a34
+		sourceLineageTag: EventTypeIdInt
+		summarizeBy: sum
+		sourceColumn: EventTypeIdInt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition event_types = entity
+		mode: directLake
+		source
+			entityName: event_types
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

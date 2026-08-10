@@ -1,0 +1,40 @@
+table product_categories
+	lineageTag: aa772622-0537-4f9e-bb63-98c68f781610
+
+	column CategoryId
+		dataType: string
+		lineageTag: ab90234a-9d0e-4dd4-be51-4d53f145c5b5
+		sourceColumn: CategoryId
+
+	column LocationName
+		dataType: string
+		lineageTag: ab246365-c9f1-4943-85ec-8f01cea21d0b
+		sourceColumn: LocationName
+
+	column CompanyId
+		dataType: string
+		lineageTag: dced1c14-1245-4f24-9187-204954059301
+		sourceColumn: CompanyId
+
+	column CategoryName
+		dataType: string
+		lineageTag: 5da3fc7b-f195-4889-836c-56baa54af1c7
+		sourceColumn: CategoryName
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 54a2d076-43d5-4cb5-a6f0-a3e001300ce7
+		sourceColumn: ModifiedAt
+
+	column CategoryIdInt
+		dataType: int64
+		lineageTag: 5ae3f326-c420-4c93-9a3c-f0d3d90902ee
+		sourceColumn: CategoryIdInt
+
+	partition 'product_categories 1' = entity
+		mode: directLake
+		source
+			entityName: product_categories
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

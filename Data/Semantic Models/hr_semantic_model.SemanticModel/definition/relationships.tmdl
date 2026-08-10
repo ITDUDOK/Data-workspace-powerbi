@@ -210,13 +210,13 @@ relationship 8d080c13-e3b6-40d1-a8cc-d67dd273be02
 	fromColumn: contracts_enriched.EmployeeId
 	toColumn: employees_enriched.EmployeeId
 
-relationship 9ca37ba7-87d6-49d4-ba1e-d7ff181272d9
+relationship 674ca3c5-8263-410d-a3ae-7812bdbd0a7a
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: employee_business_line.EmployeeId
 	toColumn: employees_enriched.EmployeeId
 
-relationship ddb48efb-4500-486a-8098-31d09224f720
+relationship 7c8fac81-9453-420c-9b2c-80a8e094c436
 	crossFilteringBehavior: bothDirections
 	fromColumn: employee_business_line.BusinessLine
 	toColumn: business_line.BusinessLine

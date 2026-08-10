@@ -1,0 +1,95 @@
+table event_contacts
+	lineageTag: 3b205ca1-27a4-485f-abda-e56fa87700e5
+	sourceLineageTag: [dbo].[event_contacts]
+
+	column EventId
+		dataType: string
+		lineageTag: 626a9151-538d-4d97-8b17-83812c0aa102
+		sourceLineageTag: EventId
+		summarizeBy: none
+		sourceColumn: EventId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactSeq
+		dataType: int64
+		formatString: 0
+		lineageTag: 491e7a36-d5aa-407f-8776-5df4226e47db
+		sourceLineageTag: ContactSeq
+		summarizeBy: sum
+		sourceColumn: ContactSeq
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactId
+		dataType: string
+		lineageTag: 55c74263-0af5-41d7-9d5b-fd229948b1b4
+		sourceLineageTag: ContactId
+		summarizeBy: none
+		sourceColumn: ContactId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullName
+		dataType: string
+		lineageTag: 5eb5c518-c761-4d08-a82a-724851624b95
+		sourceLineageTag: FullName
+		summarizeBy: none
+		sourceColumn: FullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: 0aa31120-9e58-4bd8-b3be-e405d2ef7f3d
+		sourceLineageTag: Email
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: 235aadd0-d13e-4add-a038-03bd620ff570
+		sourceLineageTag: Phone
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Role
+		dataType: string
+		lineageTag: fb5184a9-af58-4917-91d9-ae4c479c7509
+		sourceLineageTag: Role
+		summarizeBy: none
+		sourceColumn: Role
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9c463bab-df63-4cc8-b979-5026bb07bf76
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventIdInt
+		dataType: int64
+		formatString: 0
+		lineageTag: 92ebe480-d52d-4539-abf4-738efa4b2613
+		sourceLineageTag: EventIdInt
+		summarizeBy: sum
+		sourceColumn: EventIdInt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition event_contacts = entity
+		mode: directLake
+		source
+			entityName: event_contacts
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

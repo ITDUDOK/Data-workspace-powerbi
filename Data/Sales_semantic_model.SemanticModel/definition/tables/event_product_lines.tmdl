@@ -1,0 +1,266 @@
+table event_product_lines
+	lineageTag: 250142bd-62c1-497b-b87c-90174ec66dd2
+	sourceLineageTag: [dbo].[event_product_lines]
+
+	column EventProductLineId
+		dataType: int64
+		formatString: 0
+		lineageTag: 955c0150-876b-4130-8fd0-0b005a9efc9b
+		sourceLineageTag: EventProductLineId
+		summarizeBy: count
+		sourceColumn: EventProductLineId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSource
+		dataType: string
+		lineageTag: 2c5e138c-07b3-4c20-9563-2df028390199
+		sourceLineageTag: ProductSource
+		summarizeBy: none
+		sourceColumn: ProductSource
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActivityId
+		dataType: int64
+		formatString: 0
+		lineageTag: deb14848-9a6c-44db-8fdb-18c4e10b9820
+		sourceLineageTag: ActivityId
+		summarizeBy: count
+		sourceColumn: ActivityId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActivityName
+		dataType: string
+		lineageTag: 7315de37-bf22-4ee6-812c-4d65c718a652
+		sourceLineageTag: ActivityName
+		summarizeBy: none
+		sourceColumn: ActivityName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductId
+		dataType: int64
+		formatString: 0
+		lineageTag: ba2c0651-2e17-4094-b998-fd533f1fda1e
+		sourceLineageTag: ProductId
+		summarizeBy: count
+		sourceColumn: ProductId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ObjectType
+		dataType: string
+		lineageTag: 2f04b009-e35f-4b01-aad3-9b8a9b569e8a
+		sourceLineageTag: ObjectType
+		summarizeBy: none
+		sourceColumn: ObjectType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ObjectId
+		dataType: int64
+		formatString: 0
+		lineageTag: 97070640-3a4f-4667-8853-2d198286695a
+		sourceLineageTag: ObjectId
+		summarizeBy: count
+		sourceColumn: ObjectId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ObjectCode
+		dataType: string
+		lineageTag: b3b46e4e-0b23-45d8-9ac6-e4890e27b70e
+		sourceLineageTag: ObjectCode
+		summarizeBy: none
+		sourceColumn: ObjectCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ObjectCategoryId
+		dataType: int64
+		formatString: 0
+		lineageTag: 97668ca5-8f20-4a6c-bc70-d183b393544a
+		sourceLineageTag: ObjectCategoryId
+		summarizeBy: count
+		sourceColumn: ObjectCategoryId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductEventId
+		dataType: int64
+		formatString: 0
+		lineageTag: b239c82e-7dee-48b5-9016-40c6e7142c92
+		sourceLineageTag: ProductEventId
+		summarizeBy: count
+		sourceColumn: ProductEventId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventTimelineId
+		dataType: int64
+		formatString: 0
+		lineageTag: c46c165b-7c9d-45db-8bb7-b9fa8c77a925
+		sourceLineageTag: EventTimelineId
+		summarizeBy: count
+		sourceColumn: EventTimelineId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventActivityId
+		dataType: int64
+		formatString: 0
+		lineageTag: ee94ca54-054f-4b3b-9175-719d8e456585
+		sourceLineageTag: EventActivityId
+		summarizeBy: count
+		sourceColumn: EventActivityId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventPackageId
+		dataType: int64
+		formatString: 0
+		lineageTag: df894525-087a-422a-aa76-49603990728a
+		sourceLineageTag: EventPackageId
+		summarizeBy: count
+		sourceColumn: EventPackageId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b3931a8-9c40-4520-ae47-2ddbebf57d0f
+		sourceLineageTag: Amount
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column AmountPp
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f33a68e-8c37-4bd5-af65-99cc557e20fe
+		sourceLineageTag: AmountPp
+		summarizeBy: sum
+		sourceColumn: AmountPp
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: 18be9ad9-95cf-4570-9a8d-6c97f4ad169b
+		sourceLineageTag: ProductName
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subtitle
+		dataType: string
+		lineageTag: 630317de-2dd6-455a-be35-850242c42908
+		sourceLineageTag: Subtitle
+		summarizeBy: none
+		sourceColumn: Subtitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 0761d03c-bce3-4cea-b57d-c489fc5e035b
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Price
+		dataType: double
+		lineageTag: 1d61912f-919b-419f-a12a-38608e1e81fb
+		sourceLineageTag: Price
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceExclVat
+		dataType: double
+		lineageTag: f8a3030f-6d0e-4338-a51b-8ff171904900
+		sourceLineageTag: PriceExclVat
+		summarizeBy: sum
+		sourceColumn: PriceExclVat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalPrice
+		dataType: double
+		lineageTag: c8cbfa01-ad24-42f6-8112-136da36ef63f
+		sourceLineageTag: TotalPrice
+		summarizeBy: sum
+		sourceColumn: TotalPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalPriceExclVat
+		dataType: double
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 3e508c83-1e23-44e1-8f9c-40cee6d5b613
+		sourceLineageTag: TotalPriceExclVat
+		summarizeBy: sum
+		sourceColumn: TotalPriceExclVat
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostPrice
+		dataType: double
+		lineageTag: bcbde4aa-6549-4cc2-b41c-7f899b62ffb0
+		sourceLineageTag: CostPrice
+		summarizeBy: sum
+		sourceColumn: CostPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Vat
+		dataType: double
+		lineageTag: b8421b0d-ee9c-4103-839f-fae722d437dc
+		sourceLineageTag: Vat
+		summarizeBy: sum
+		sourceColumn: Vat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 49da27c0-f069-43bf-af27-8e6119430a44
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventId
+		dataType: string
+		lineageTag: 1f016414-df32-4794-9630-338eab768160
+		sourceColumn: EventId
+
+	partition event_product_lines = entity
+		mode: directLake
+		source
+			entityName: event_product_lines
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

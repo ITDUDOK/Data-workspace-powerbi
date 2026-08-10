@@ -1,0 +1,60 @@
+relationship cb8eeb11-ec7a-486a-a373-1faeda39c8e7
+	fromColumn: event_contacts.EventId
+	toColumn: events.EventId
+
+relationship 9b17a65a-7d12-4f53-af46-d1fc5c251473
+	fromColumn: event_custom_attributes.EventId
+	toColumn: events.EventId
+
+relationship 2a4e31dd-10c9-4322-9361-847ba654bb38
+	fromColumn: event_activities.EventId
+	toColumn: events.EventId
+
+relationship 9165235e-0f73-4c96-9e0a-214a70c1d934
+	fromColumn: events.ClientId
+	toColumn: clients.ClientId
+
+relationship 33449251-2461-4715-b709-7bfe947bb3e9
+	fromColumn: events.PlannerId
+	toColumn: event_planners.PlannerId
+
+relationship 57c18a37-446e-440c-bc73-f898b14fa96c
+	fromColumn: events.EventTypeId
+	toColumn: event_types.EventTypeId
+
+relationship ffd21f53-9d4f-4dbb-a348-67fd8d51151f
+	fromColumn: events.LocationName
+	toColumn: bridge_location_office.LocationName
+
+relationship b12ae6c6-1ee6-47c1-81ff-00092ed3e562
+	fromColumn: events.EventDate
+	toColumn: dates.Date
+
+relationship 60742d2f-a332-475c-9722-55e6a2889f78
+	fromColumn: invoice_lines.InvoiceId
+	toColumn: invoices.InvoiceId
+
+relationship 799e9cd0-5d4b-46b5-8826-506668bd01c2
+	fromColumn: invoice_lines.EventId
+	toColumn: events.EventId
+
+relationship 91bc0c1a-c963-455b-8b32-e6f7495688ed
+	fromColumn: events.CompanyId
+	toColumn: mice_companies.MiceCompanyId
+
+relationship 7d3616e4-8b6b-4784-9147-1085a02e2014
+	fromColumn: products.CategoryId
+	toColumn: product_categories.CategoryId
+
+relationship 9a2bdf1f-4bbf-48e5-aefc-349b42e46e97
+	fromColumn: events.SpaceId
+	toColumn: spaces.SpaceId
+
+relationship d954e0dd-ca97-45cb-91fe-05e90e30ed51
+	fromColumn: event_package_lines.EventId
+	toColumn: events.EventId
+
+relationship fff1c00b-8d17-48d1-97c0-e8cf73267890
+	fromColumn: event_product_lines.EventId
+	toColumn: events.EventId
+

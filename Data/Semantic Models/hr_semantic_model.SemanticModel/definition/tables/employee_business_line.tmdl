@@ -1,32 +1,56 @@
 table employee_business_line
-	lineageTag: 444a76fc-f84f-4dae-aecd-3af6149e2359
+	lineageTag: b2b8617c-6cfc-4a4b-a025-66a4bbd73e82
+	sourceLineageTag: [dbo].[employee_business_line]
 
 	column EmployeeId
 		dataType: string
-		lineageTag: d2a61712-6568-4254-814a-8f64e9e10686
+		lineageTag: ee4ce4cf-9993-4a6c-84df-d3d1ba135e55
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
 		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
 
 	column EffectiveOfficeId
 		dataType: int64
-		lineageTag: 49f7461e-7032-4a7c-abf6-a7c1a295b002
+		formatString: 0
+		lineageTag: b7fd063d-2752-4507-a48c-f75d24a6daef
+		sourceLineageTag: EffectiveOfficeId
+		summarizeBy: count
 		sourceColumn: EffectiveOfficeId
+
+		annotation SummarizationSetBy = Automatic
 
 	column BusinessLine
 		dataType: string
-		lineageTag: 3c8c291d-a559-4b9a-939b-65223823ac72
+		lineageTag: 07880615-801b-40b4-9f7b-e380949b6352
+		sourceLineageTag: BusinessLine
+		summarizeBy: none
 		sourceColumn: BusinessLine
+
+		annotation SummarizationSetBy = Automatic
 
 	column IsFromWerklocatie
 		dataType: boolean
-		lineageTag: 334cfe3d-ee39-4da6-a1f0-d804123b20eb
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: cf2fbadb-b0c8-4778-85b0-871c8191433d
+		sourceLineageTag: IsFromWerklocatie
+		summarizeBy: none
 		sourceColumn: IsFromWerklocatie
+
+		annotation SummarizationSetBy = Automatic
 
 	column ModifiedAt
 		dataType: dateTime
-		lineageTag: f642aab8-39f2-4923-b461-cf7f4f466073
+		formatString: General Date
+		lineageTag: de9079b1-beae-48ba-946e-bd877c580290
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
 		sourceColumn: ModifiedAt
 
-	partition 'employee_business_line 1' = entity
+		annotation SummarizationSetBy = Automatic
+
+	partition employee_business_line = entity
 		mode: directLake
 		source
 			entityName: employee_business_line

@@ -1,0 +1,108 @@
+table event_package_lines
+	lineageTag: 3780d957-3fab-41d2-9d3b-d64435a75ad6
+	sourceLineageTag: [dbo].[event_package_lines]
+
+	column EventPackageLineId
+		dataType: int64
+		formatString: 0
+		lineageTag: 405d09e8-bde7-4ae5-90fb-94c573229243
+		sourceLineageTag: EventPackageLineId
+		summarizeBy: count
+		sourceColumn: EventPackageLineId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PackageId
+		dataType: int64
+		formatString: 0
+		lineageTag: 4235bc4e-096a-4834-8684-466a4527fc23
+		sourceLineageTag: PackageId
+		summarizeBy: count
+		sourceColumn: PackageId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PackageName
+		dataType: string
+		lineageTag: 1046aba6-d2f6-4eed-9eed-9f23f41675a0
+		sourceLineageTag: PackageName
+		summarizeBy: none
+		sourceColumn: PackageName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PackageDescription
+		dataType: string
+		lineageTag: d8b354db-2293-41e1-9e0e-abaa86179bf9
+		sourceLineageTag: PackageDescription
+		summarizeBy: none
+		sourceColumn: PackageDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column PackagePrice
+		dataType: double
+		lineageTag: 9a2f40a1-8626-41ca-8d6c-7cf9f39ccc63
+		sourceLineageTag: PackagePrice
+		summarizeBy: sum
+		sourceColumn: PackagePrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PackagePriceExclVat
+		dataType: double
+		lineageTag: 06ddaf7f-0608-4bf6-8215-2c3180d7d648
+		sourceLineageTag: PackagePriceExclVat
+		summarizeBy: sum
+		sourceColumn: PackagePriceExclVat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PackageTotalPrice
+		dataType: double
+		lineageTag: 48889b7d-7438-4e6b-8c7a-b16bc5bebbb4
+		sourceLineageTag: PackageTotalPrice
+		summarizeBy: sum
+		sourceColumn: PackageTotalPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PackageTotalPriceExclVat
+		dataType: double
+		lineageTag: 02de563d-3cd7-4d54-b5f8-5e4d0058b177
+		sourceLineageTag: PackageTotalPriceExclVat
+		summarizeBy: sum
+		sourceColumn: PackageTotalPriceExclVat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a09a4092-b8e9-4a56-9f58-5605543f7f49
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventId
+		dataType: string
+		lineageTag: 9b8ea619-96a0-4cc7-af1a-1a458b277c1d
+		sourceColumn: EventId
+
+	partition event_package_lines = entity
+		mode: directLake
+		source
+			entityName: event_package_lines
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

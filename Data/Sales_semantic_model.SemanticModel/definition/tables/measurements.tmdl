@@ -1,0 +1,104 @@
+table measurements
+	lineageTag: 43bb2548-ecb3-4791-ad49-8133db1e1571
+	sourceLineageTag: [dbo].[measurements]
+
+	measure Event_URL =
+			IF (
+			    NOT ISEMPTY ( 'events' ),
+			    IF (
+			        ISINSCOPE ( 'events'[EventLabel] ),
+			        SELECTEDVALUE ( 'events'[Url] )
+			    )
+			)
+		lineageTag: 0a794ef5-ecdb-4b53-8d59-233baebf4c76
+
+	measure Event_status =
+			IF (
+			    NOT ISEMPTY ( 'events' ),
+			    IF (
+			        ISINSCOPE ( 'events'[EventLabel] ),
+			        SELECTEDVALUE ( 'events'[Status] )
+			    )
+			)
+		lineageTag: 1059f79f-6b4c-4447-978e-24e8108dac9c
+
+	measure Event_id = CALCULATE(DISTINCTCOUNT('events'[EventId]), ALL('events'[BookingId]))
+		formatString: #,0
+		lineageTag: 1a538641-6d66-4a96-821e-2727a04521da
+
+		changedProperty = FormatString
+
+	measure Event_planner = TRIM ( SELECTEDVALUE ( 'events'[PlannerFirstName] ) & " " & SELECTEDVALUE ( 'events'[PlannerLastName] ) )
+		lineageTag: a6c9463c-3f45-43dc-8fac-634c77e6127c
+
+	measure total_costprice =
+			SUMX (
+			    'event_product_lines',
+			    'event_product_lines'[Amount] * 'event_product_lines'[CostPrice]
+			)
+		lineageTag: ec897701-b84f-46d3-a454-09161ae6e9f8
+
+	measure Marge =
+			VAR Revenue = SUM ( 'event_product_lines'[TotalPriceExclVat] )
+			VAR Cost    = [total_costprice]
+			RETURN
+			    DIVIDE ( Revenue - Cost, Revenue )
+		formatString: 0%;-0%;0%
+		lineageTag: f5953bfa-b10b-45fc-9d56-42877c7efae6
+
+		changedProperty = FormatString
+
+	measure Marge2 =
+			Var revenue = CALCULATE(SUM('event_product_lines'[TotalPriceExclVat]))
+			Var cost    = CALCULATE(SUM('event_product_lines'[CostPrice]))
+			RETURN
+			DIVIDE(cost, revenue)
+		lineageTag: 14defbb5-0b63-4482-8829-131172f3a03a
+
+	measure 'Datum event' =
+			IF (
+			    NOT ISEMPTY ( 'events' ),
+			    IF (
+			        ISINSCOPE ( 'events'[EventLabel] ),
+			        FORMAT (
+			            SELECTEDVALUE ( 'events'[EventDate] ),
+			            "ddd dd mmm yyyy",
+			            "nl-NL"
+			        )
+			    )
+			)
+		lineageTag: da4eb976-695d-41e6-8464-20e65ec0e30d
+
+	measure Event_rows = COUNTROWS(VALUES('events'[EventName]))
+		lineageTag: d2f0f6ef-75ae-4e85-b243-c651514085d8
+
+	measure 'Total Rows Only' =
+			IF (
+			    HASONEVALUE ( 'events'[EventName] ),
+			    BLANK (),
+			    COUNTROWS ( 'events' )
+			)
+		lineageTag: f2bbe0a7-dee2-4f38-8ac6-510962eff9d2
+
+	measure omzet/gasten = CALCULATE(DIVIDE(SUM('events'[TotalPriceExclVat]), SUM('events'[Guests])))
+		lineageTag: 31b140bf-a929-460a-a7d5-fcc6429a595c
+
+	measure omzet/event = CALCULATE(DIVIDE(SUM('events'[TotalPriceExclVat]), [Event_id]))
+		lineageTag: 649ae782-1cec-4ff1-ab6c-e333a2896494
+
+	column Column
+		dataType: string
+		lineageTag: 4668f553-0c39-49ab-9531-74c1482cbc47
+		sourceLineageTag: Column
+		summarizeBy: none
+		sourceColumn: Column
+
+		annotation SummarizationSetBy = Automatic
+
+	partition measurements = entity
+		mode: directLake
+		source
+			entityName: measurements
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

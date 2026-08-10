@@ -1,0 +1,103 @@
+table event_vat_rates_lines
+	lineageTag: 7c842671-02db-4ed9-af0a-3d865fe556d0
+	sourceLineageTag: [dbo].[event_vat_rates_lines]
+
+	column ProductId
+		dataType: string
+		lineageTag: a4f56016-b066-48e5-84a1-929c539fc608
+		sourceLineageTag: ProductId
+		summarizeBy: none
+		sourceColumn: ProductId
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineNr
+		dataType: int64
+		formatString: 0
+		lineageTag: a2042e67-7a4d-493e-9c84-8d15ea729a37
+		sourceLineageTag: LineNr
+		summarizeBy: sum
+		sourceColumn: LineNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9faf5b94-69a3-4a64-9407-87df947276c7
+		sourceLineageTag: Rate
+		summarizeBy: sum
+		sourceColumn: Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Vat
+		dataType: double
+		lineageTag: bf96a6bf-1e5e-46c9-94e6-11845c4a6bb9
+		sourceLineageTag: Vat
+		summarizeBy: sum
+		sourceColumn: Vat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Price
+		dataType: double
+		lineageTag: 9835953a-f8b4-4c8b-b60b-e197c01689e0
+		sourceLineageTag: Price
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceExcl
+		dataType: double
+		lineageTag: f20cf195-430a-416b-8473-a6a509cbe9e4
+		sourceLineageTag: PriceExcl
+		summarizeBy: sum
+		sourceColumn: PriceExcl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GeneralLedgerNumber
+		dataType: string
+		lineageTag: 997b7b19-20b8-40ec-b201-8482de115d19
+		sourceLineageTag: GeneralLedgerNumber
+		summarizeBy: none
+		sourceColumn: GeneralLedgerNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f90e1dcb-3553-4be5-b4f8-4c37d13507ff
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryId
+		dataType: string
+		lineageTag: 8a5d6e99-207f-494d-ac63-5e3c17f2aa3b
+		sourceLineageTag: CategoryId
+		summarizeBy: none
+		sourceColumn: CategoryId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition event_vat_rates_lines = entity
+		mode: directLake
+		source
+			entityName: event_vat_rates_lines
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

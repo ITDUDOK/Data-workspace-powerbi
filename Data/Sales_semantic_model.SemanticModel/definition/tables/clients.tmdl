@@ -1,0 +1,196 @@
+table clients
+	lineageTag: b167f76f-adf9-4a68-b702-5443414e1f75
+	sourceLineageTag: [dbo].[clients]
+
+	column ClientId
+		dataType: string
+		lineageTag: 80c584e1-53aa-4ec1-98ef-3f0c4fbb6787
+		sourceLineageTag: ClientId
+		summarizeBy: none
+		sourceColumn: ClientId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ea73e7b7-fc7f-48ac-a489-771201c7d4d0
+		sourceLineageTag: CreatedAt
+		summarizeBy: none
+		sourceColumn: CreatedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdatedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 57d5cf02-64b7-4105-84e1-73d6a4ff0727
+		sourceLineageTag: UpdatedAt
+		summarizeBy: none
+		sourceColumn: UpdatedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientType
+		dataType: string
+		lineageTag: d55cddac-0d1c-4b06-be28-f1e0e6cdc2b3
+		sourceLineageTag: ClientType
+		summarizeBy: none
+		sourceColumn: ClientType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 1cadc3da-4221-4d1b-9a0d-dfd2ad9e83cb
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: def6bb94-f736-4897-a767-8f2775d65cb9
+		sourceLineageTag: Email
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: b26acc05-3522-4497-bad4-b3f36dcb4597
+		sourceLineageTag: Phone
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone2
+		dataType: string
+		lineageTag: 9af4b7d2-f4c9-4641-89c4-efbdb4cdc4a3
+		sourceLineageTag: Phone2
+		summarizeBy: none
+		sourceColumn: Phone2
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		lineageTag: c51f8e99-597b-4fce-9683-6bf0166b0c09
+		sourceLineageTag: AddressLine1
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		lineageTag: d669281e-6a9f-4bf8-b8ff-0c09bfda2f68
+		sourceLineageTag: AddressLine2
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: b12d6f40-c430-4835-ba68-fb17c9891fde
+		sourceLineageTag: PostalCode
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 4f87912d-4cef-44c7-ac2c-68ea401fd5c3
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 5e6e1a1a-da4c-4cd9-9d51-921e7be5ff62
+		sourceLineageTag: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryId
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a3e7fe0-0bd1-459e-a12c-4e018736c04b
+		sourceLineageTag: CountryId
+		summarizeBy: count
+		sourceColumn: CountryId
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatNumber
+		dataType: string
+		lineageTag: 69aaa3a3-410e-4fda-81ad-f26ebdb3945e
+		sourceLineageTag: VatNumber
+		summarizeBy: none
+		sourceColumn: VatNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column CocNumber
+		dataType: string
+		lineageTag: b4d8df67-89bf-4ff5-92b2-a791feed630b
+		sourceLineageTag: CocNumber
+		summarizeBy: none
+		sourceColumn: CocNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Oin
+		dataType: string
+		lineageTag: 4f005c6e-666c-4d94-a99a-11cf5aed5273
+		sourceLineageTag: Oin
+		summarizeBy: none
+		sourceColumn: Oin
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reference
+		dataType: string
+		lineageTag: 0c427c8e-cd5d-4426-a673-3bb58167ac42
+		sourceLineageTag: Reference
+		summarizeBy: none
+		sourceColumn: Reference
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 842471b4-1a2f-464b-9278-ab92809f4737
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientIdInt
+		dataType: int64
+		formatString: 0
+		lineageTag: 2831f1f4-eb95-4e67-88c2-d37ad95350e6
+		sourceLineageTag: ClientIdInt
+		summarizeBy: sum
+		sourceColumn: ClientIdInt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition clients = entity
+		mode: directLake
+		source
+			entityName: clients
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

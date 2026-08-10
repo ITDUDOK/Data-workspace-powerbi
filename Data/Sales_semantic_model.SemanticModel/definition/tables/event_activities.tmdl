@@ -1,0 +1,152 @@
+table event_activities
+	lineageTag: 8f33f4c5-c96f-4376-a7be-699c239af495
+	sourceLineageTag: [dbo].[event_activities]
+
+	column ActivityId
+		dataType: string
+		lineageTag: 39f146b3-31a2-46d4-86d0-19eb8dbb4799
+		sourceLineageTag: ActivityId
+		summarizeBy: none
+		sourceColumn: ActivityId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventId
+		dataType: string
+		lineageTag: 1ced1d63-43e3-4da0-bd34-4ebe3f78ed62
+		sourceLineageTag: EventId
+		summarizeBy: none
+		sourceColumn: EventId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1869dafe-ec5a-4249-acfa-27d7731c13ff
+		sourceLineageTag: CreatedAt
+		summarizeBy: none
+		sourceColumn: CreatedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdatedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cb4171be-9e49-4aef-af17-c0d25b74a4dc
+		sourceLineageTag: UpdatedAt
+		summarizeBy: none
+		sourceColumn: UpdatedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventTimelineId
+		dataType: string
+		lineageTag: 2ff40e30-34d6-4fd8-ba5f-6cac6c476ade
+		sourceLineageTag: EventTimelineId
+		summarizeBy: none
+		sourceColumn: EventTimelineId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActivityName
+		dataType: string
+		lineageTag: 821edf54-22b1-4fb6-bd92-75185117361c
+		sourceLineageTag: ActivityName
+		summarizeBy: none
+		sourceColumn: ActivityName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: f189065e-f5f1-4771-8a06-62ea1a7c6fba
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Guests
+		dataType: int64
+		formatString: 0
+		lineageTag: 5009bc2c-8c41-4c99-90fa-49d4ca15a922
+		sourceLineageTag: Guests
+		summarizeBy: sum
+		sourceColumn: Guests
+
+		annotation SummarizationSetBy = Automatic
+
+	column Memo
+		dataType: string
+		lineageTag: 81e44520-0532-4efe-9749-4c6a03d299be
+		sourceLineageTag: Memo
+		summarizeBy: none
+		sourceColumn: Memo
+
+		annotation SummarizationSetBy = Automatic
+
+	column InternalMemo
+		dataType: string
+		lineageTag: e7faf5a4-afa9-4819-b53c-d91464b215b3
+		sourceLineageTag: InternalMemo
+		summarizeBy: none
+		sourceColumn: InternalMemo
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatetimeStart
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: aa88bf3d-9ff4-4cd4-9a91-e0c063b7dbcf
+		sourceLineageTag: DatetimeStart
+		summarizeBy: none
+		sourceColumn: DatetimeStart
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatetimeEnd
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8f8994cf-f9a2-46db-a34a-ffb9f4115265
+		sourceLineageTag: DatetimeEnd
+		summarizeBy: none
+		sourceColumn: DatetimeEnd
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpaceId
+		dataType: string
+		lineageTag: 23e914ac-dfe3-404c-8170-21bf36d248f1
+		sourceLineageTag: SpaceId
+		summarizeBy: none
+		sourceColumn: SpaceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpaceName
+		dataType: string
+		lineageTag: a8e130f8-ce76-4f07-ae22-42ee1481a28d
+		sourceLineageTag: SpaceName
+		summarizeBy: none
+		sourceColumn: SpaceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c0a2ee60-8616-4ba7-aa85-25235005c0e3
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition event_activities = entity
+		mode: directLake
+		source
+			entityName: event_activities
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

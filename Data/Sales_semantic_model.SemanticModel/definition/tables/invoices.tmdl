@@ -1,0 +1,130 @@
+table invoices
+	lineageTag: 6241310a-c4da-4ef4-8d74-f0cc2b25dfa6
+
+	column InvoiceId
+		dataType: string
+		lineageTag: d6a271bc-278b-4d15-907a-e3f7c88b47f8
+		sourceColumn: InvoiceId
+
+	column LocationName
+		dataType: string
+		lineageTag: ac60e6f8-8159-4495-84f5-8cd82954da07
+		sourceColumn: LocationName
+
+	column CompanyId
+		dataType: string
+		lineageTag: 32433359-4a0e-47fe-9ce4-be8aa21e7a3c
+		sourceColumn: CompanyId
+
+	column InvoiceType
+		dataType: string
+		lineageTag: ebe050cd-80da-4025-b8d4-3c68ec333c96
+		sourceColumn: InvoiceType
+
+	column Identifier
+		dataType: string
+		lineageTag: ecb1da24-d2d1-4f7c-b411-f11b9381db03
+		sourceColumn: Identifier
+
+	column InvoiceNumber
+		dataType: string
+		lineageTag: 4105c2bc-6c80-4f35-8b81-a620803b92b8
+		sourceColumn: InvoiceNumber
+
+	column ClientId
+		dataType: string
+		lineageTag: 9896c28c-199f-4019-a91c-48f1a6b2b740
+		sourceColumn: ClientId
+
+	column ClientName
+		dataType: string
+		lineageTag: a480215d-3782-4991-8f1d-6af8255ba164
+		sourceColumn: ClientName
+
+	column ClientEmail
+		dataType: string
+		lineageTag: 94f416eb-f303-4b17-9ff5-8d1333ddd130
+		sourceColumn: ClientEmail
+
+	column ClientCity
+		dataType: string
+		lineageTag: 6def5de7-3e0b-4a2b-ae47-da6d4d829106
+		sourceColumn: ClientCity
+
+	column Status
+		dataType: string
+		lineageTag: bb28253f-aae8-413e-87fd-7fe714c4f67b
+		sourceColumn: Status
+
+	column DateSent
+		dataType: dateTime
+		lineageTag: 3224e251-57b2-412c-b531-602877c68ed1
+		sourceColumn: DateSent
+
+	column DateDue
+		dataType: dateTime
+		lineageTag: eb4462ee-3396-41da-82bb-5370fa73960f
+		sourceColumn: DateDue
+
+	column Description
+		dataType: string
+		lineageTag: ddc36cb5-3419-489f-ab33-2ebfb740baaa
+		sourceColumn: Description
+
+	column TotalExclVat
+		dataType: decimal
+		lineageTag: 1a1cf8d1-bd74-4312-856c-96e24909a4a1
+		sourceColumn: TotalExclVat
+
+	column TotalVat
+		dataType: decimal
+		lineageTag: 049811cf-7f86-4a61-ac89-4e9445176f25
+		sourceColumn: TotalVat
+
+	column TotalDiscount
+		dataType: decimal
+		lineageTag: 20417124-2c41-4019-ae3a-bbd8a74b5f4f
+		sourceColumn: TotalDiscount
+
+	column TotalInclVat
+		dataType: decimal
+		lineageTag: 1ac5d4da-4f8a-4f90-b7e2-b3d7848f2091
+		sourceColumn: TotalInclVat
+
+	column ParentInvoiceId
+		dataType: string
+		lineageTag: 979e066b-bd5f-4c75-8b1c-dcac4570b0aa
+		sourceColumn: ParentInvoiceId
+
+	column Reference
+		dataType: string
+		lineageTag: 9bbaa85a-aee8-4a24-93c5-5944f418d41f
+		sourceColumn: Reference
+
+	column PaymentTermDays
+		dataType: int64
+		lineageTag: 3f527a47-a84a-461b-b256-7cf25ee94f96
+		sourceColumn: PaymentTermDays
+
+	column CreatedAt
+		dataType: dateTime
+		lineageTag: 48d681da-cde5-4028-876d-d2fd7c3974fe
+		sourceColumn: CreatedAt
+
+	column UpdatedAt
+		dataType: dateTime
+		lineageTag: de6d2f7e-72c6-4c82-9b90-4e5bc4ac4663
+		sourceColumn: UpdatedAt
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 788ea398-2903-41cb-ab89-444fc90a69f8
+		sourceColumn: ModifiedAt
+
+	partition 'invoices 1' = entity
+		mode: directLake
+		source
+			entityName: invoices
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

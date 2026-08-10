@@ -1,0 +1,85 @@
+table invoice_lines
+	lineageTag: 0488bd87-42c7-4345-ad76-c50e484654cc
+
+	column InvoiceId
+		dataType: string
+		lineageTag: 4d453e4a-9ad5-42ad-b765-0bb68712c7b1
+		sourceColumn: InvoiceId
+
+	column LineNumber
+		dataType: int64
+		lineageTag: 08ecec2c-7ef6-4177-9bc8-f2d6e99b9ff3
+		sourceColumn: LineNumber
+
+	column EventId
+		dataType: string
+		lineageTag: a924e13e-0bfa-4620-8b36-b5b77b8b0ca7
+		sourceColumn: EventId
+
+	column Description
+		dataType: string
+		lineageTag: 2cba8c0e-41a7-42ff-945d-7b1fa2bef892
+		sourceColumn: Description
+
+	column Amount
+		dataType: decimal
+		lineageTag: 4cc1a839-7637-445c-9742-651650fac379
+		sourceColumn: Amount
+
+	column VatRate
+		dataType: decimal
+		lineageTag: b53357ff-77d1-4629-b4eb-a1327c0fb6b5
+		sourceColumn: VatRate
+
+	column VatAmount
+		dataType: decimal
+		lineageTag: 3538ca0a-187d-4920-acbe-7d6867c2b79f
+		sourceColumn: VatAmount
+
+	column Price
+		dataType: decimal
+		lineageTag: f3940573-4036-4239-96a0-0734996aec14
+		sourceColumn: Price
+
+	column PriceExclVat
+		dataType: decimal
+		lineageTag: eecc9783-43c4-4bf4-9ba9-c7e4ac57a496
+		sourceColumn: PriceExclVat
+
+	column TotalPrice
+		dataType: decimal
+		lineageTag: fb2a8080-1ddc-4baf-a74f-eb69e1e8c7b7
+		sourceColumn: TotalPrice
+
+	column TotalPriceExclVat
+		dataType: decimal
+		lineageTag: b020c636-c40c-440a-9325-3bce093553f5
+		sourceColumn: TotalPriceExclVat
+
+	column TotalVat
+		dataType: decimal
+		lineageTag: 80b78e0b-b37b-4da7-bd72-ea5030377503
+		sourceColumn: TotalVat
+
+	column GeneralLedgerNumber
+		dataType: string
+		lineageTag: ba90b49e-e4e3-4728-809f-9d9eaea25420
+		sourceColumn: GeneralLedgerNumber
+
+	column CostCenter
+		dataType: string
+		lineageTag: f526234c-ea29-4228-86da-b70261896962
+		sourceColumn: CostCenter
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 27dd6a86-3ac6-4893-bb85-ab738aec60b9
+		sourceColumn: ModifiedAt
+
+	partition 'invoice_lines 1' = entity
+		mode: directLake
+		source
+			entityName: invoice_lines
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

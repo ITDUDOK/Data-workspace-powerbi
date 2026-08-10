@@ -1,0 +1,68 @@
+table bridge_location_office
+	lineageTag: fd452dc7-b58c-4323-b016-8323ce04dcd4
+	sourceLineageTag: [dbo].[bridge_location_office]
+
+	column LocationName
+		dataType: string
+		lineageTag: d230a297-3aff-41ca-b68d-0060ff223270
+		sourceLineageTag: LocationName
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 336d8515-2f0d-426d-93a8-474097c5a742
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: b1b40d4b-0cfc-436c-8aed-d9e990f8c146
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MatchConfidence
+		dataType: string
+		lineageTag: 189999ea-4abc-44ee-bed5-6f18431cd1e1
+		sourceLineageTag: MatchConfidence
+		summarizeBy: none
+		sourceColumn: MatchConfidence
+
+		annotation SummarizationSetBy = Automatic
+
+	column Confirmed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 24a07762-9727-49a2-8283-9d2ad94e12cb
+		sourceLineageTag: Confirmed
+		summarizeBy: none
+		sourceColumn: Confirmed
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 364edd0d-9dec-4293-8e73-4210000d8f48
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bridge_location_office = entity
+		mode: directLake
+		source
+			entityName: bridge_location_office
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

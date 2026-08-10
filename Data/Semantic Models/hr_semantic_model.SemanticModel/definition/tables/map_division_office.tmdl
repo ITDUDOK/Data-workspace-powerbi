@@ -1,27 +1,47 @@
 table map_division_office
-	lineageTag: 86288edb-f20a-4101-8b70-887c43c6a135
+	lineageTag: 879dee6c-5e89-4da2-9333-467f38b2c67e
+	sourceLineageTag: [dbo].[map_division_office]
 
 	column Division
 		dataType: int64
-		lineageTag: 3e61384a-5895-44a3-9a10-bbf50ef1c623
+		formatString: 0
+		lineageTag: 8cf013d6-da41-431b-9485-901879ed0d67
+		sourceLineageTag: Division
+		summarizeBy: sum
 		sourceColumn: Division
 
-	column OfficeID
-		dataType: int64
-		lineageTag: 6b3faea0-67c7-4739-a89f-a4ef7f039ecb
-		sourceColumn: OfficeID
+		annotation SummarizationSetBy = Automatic
 
 	column Administratie
 		dataType: string
-		lineageTag: 31e8ae33-0b45-4af6-a73b-eed86b104ee8
+		lineageTag: de2414c1-265f-48a6-b539-d146ddaf6cd2
+		sourceLineageTag: Administratie
+		summarizeBy: none
 		sourceColumn: Administratie
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeID
+		dataType: int64
+		formatString: 0
+		lineageTag: d052b10d-7010-4535-a808-e001b27ebcd9
+		sourceLineageTag: OfficeID
+		summarizeBy: count
+		sourceColumn: OfficeID
+
+		annotation SummarizationSetBy = Automatic
 
 	column ModifiedAt
 		dataType: dateTime
-		lineageTag: 396d281a-911d-4ca5-89bb-d81ab84952d4
+		formatString: General Date
+		lineageTag: 5c2d48b5-8460-4370-b2bd-583ec12327ad
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
 		sourceColumn: ModifiedAt
 
-	partition 'map_division_office 1' = entity
+		annotation SummarizationSetBy = Automatic
+
+	partition map_division_office = entity
 		mode: directLake
 		source
 			entityName: map_division_office
