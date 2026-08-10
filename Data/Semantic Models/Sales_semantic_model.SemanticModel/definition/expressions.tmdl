@@ -1,9 +1,0 @@
-expression 'DirectLake - lh_dudodata_gold_powerbi' =
-		let
-		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/1f90325e-1060-4c7d-adf4-ccf9fca8b287/097e8f82-835e-4936-a16d-9f6f886d5ef0", [HierarchicalNavigation=true])
-		in
-		    Source
-	lineageTag: 53ea2d39-3463-418f-8733-e91423aba818
-
-	annotation PBI_IncludeFutureArtifacts = False
-

@@ -2452,7 +2452,8 @@ table measurements
 		formatString: 0%;-0%;0%
 		lineageTag: 2f57f311-8c17-4726-b48c-97171bd46f89
 
-	measure 'VK Contracturen' =
+	measure 'VK Contracturen' = ```
+			
 			VAR MinDate = MIN(dates[Date])
 			VAR MaxDate = MAX(dates[Date])
 			VAR CurrentOffices = VALUES(offices[OfficeId])
@@ -2481,16 +2482,19 @@ table measurements
 			                )
 			            RETURN COALESCE(WeeklyHours, 0) * DIVIDE(OverlapDays, 7, 0)
 			        ),
-			        TREATAS(SourceOffices, employees_enriched[OfficeId]),
+			        TREATAS(SourceOffices, employee_business_line[EffectiveOfficeId]),
 			        REMOVEFILTERS(offices)
 			    )
 			)
+			
+			```
 		formatString: #,0
 		lineageTag: c40ae1d2-150d-47bc-aae2-aa2706075949
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
-	measure 'VK Ziekteuren' =
+	measure 'VK Ziekteuren' = ```
+			
 			VAR MinDate = MIN(dates[Date])
 			VAR MaxDate = MAX(dates[Date])
 			VAR CurrentOffices = VALUES(offices[OfficeId])
@@ -2502,7 +2506,7 @@ table measurements
 			VAR RelevantCardIDs =
 			    CALCULATETABLE(
 			        VALUES(employees_enriched[CardId]),
-			        TREATAS(SourceOffices, employees_enriched[OfficeId]),
+			        TREATAS(SourceOffices, employee_business_line[EffectiveOfficeId]),
 			        REMOVEFILTERS(offices)
 			    )
 			RETURN
@@ -2524,6 +2528,8 @@ table measurements
 			        REMOVEFILTERS(offices)
 			    )
 			)
+			
+			```
 		formatString: #,0
 		lineageTag: 8fd72edf-8b2b-41b6-9c89-8a9703cd82f6
 
@@ -2672,7 +2678,8 @@ table measurements
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 5693c00e-7a68-484d-b305-85c450d60483
 
-	measure 'VK Loonkosten Gewicht' =
+	measure 'VK Loonkosten Gewicht' = ```
+			
 			VAR MinDate = MIN(dates[Date])
 			VAR MaxDate = MAX(dates[Date])
 			VAR CurrentOffices = VALUES(offices[OfficeId])
@@ -2702,14 +2709,17 @@ table measurements
 			                )
 			            RETURN COALESCE(WeeklyHours, 0) * DIVIDE(OverlapDays, 7, 0) * COALESCE(HourlyRate, 0)
 			        ),
-			        TREATAS(SourceOffices, employees_enriched[OfficeId]),
+			        TREATAS(SourceOffices, employee_business_line[EffectiveOfficeId]),
 			        REMOVEFILTERS(offices)
 			    )
 			)
+			
+			```
 		isHidden
 		lineageTag: d91c1cf1-39d4-4cf2-8633-0c4855716a9d
 
-	measure 'VK Ziekte Gewicht' =
+	measure 'VK Ziekte Gewicht' = ```
+			
 			VAR MinDate = MIN(dates[Date])
 			VAR MaxDate = MAX(dates[Date])
 			VAR CurrentOffices = VALUES(offices[OfficeId])
@@ -2721,7 +2731,7 @@ table measurements
 			VAR RelevantCardIDs =
 			    CALCULATETABLE(
 			        VALUES(employees_enriched[CardId]),
-			        TREATAS(SourceOffices, employees_enriched[OfficeId]),
+			        TREATAS(SourceOffices, employee_business_line[EffectiveOfficeId]),
 			        REMOVEFILTERS(offices)
 			    )
 			RETURN
@@ -2750,6 +2760,8 @@ table measurements
 			        REMOVEFILTERS(offices)
 			    )
 			)
+			
+			```
 		isHidden
 		lineageTag: ee140865-ae90-4e95-8e20-f916cacfdd7b
 
