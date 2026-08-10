@@ -1,0 +1,857 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "6a4f7a7c870b500c1773",
+  "position": {
+    "x": 251.91489361702128,
+    "y": 81.702127659574472,
+    "z": 6000,
+    "height": 625.41033434650456,
+    "width": 1028.0851063829787,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "WorkCenter"
+                }
+              },
+              "queryRef": "hours_summary.WorkCenter",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "DepartmentName"
+                }
+              },
+              "queryRef": "hours_summary.DepartmentName",
+              "nativeQueryRef": "DepartmentName",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "CardName"
+                }
+              },
+              "queryRef": "hours_summary.CardName",
+              "nativeQueryRef": "CardName",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "Mdw_Vast_Bezetting"
+                }
+              },
+              "queryRef": "hours_summary.Aantal_Vast",
+              "nativeQueryRef": "Vast",
+              "displayName": "Vast"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "Uren_Vast_Bezetting"
+                }
+              },
+              "queryRef": "hours_summary.Netto_GewerktUren_Vast_new",
+              "nativeQueryRef": "Uren vast1",
+              "displayName": "Uren vast"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "Gem_Uurloon_Vast_Bezetting"
+                }
+              },
+              "queryRef": "hours_summary.Gem_Uurloon_Vast_Bezetting",
+              "nativeQueryRef": "Gem. uurloon vast",
+              "displayName": "Gem. uurloon vast"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "Mdw_Flex_Bezetting"
+                }
+              },
+              "queryRef": "hours_summary.Aantal_Flex",
+              "nativeQueryRef": "Flex",
+              "displayName": "Flex"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "Uren_Flex_Bezetting"
+                }
+              },
+              "queryRef": "hours_summary.Netto_GewerktUren_Flex_new",
+              "nativeQueryRef": "Uren flex",
+              "displayName": "Uren flex"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "Gem_Uurloon_Flex_Bezetting"
+                }
+              },
+              "queryRef": "hours_summary.Gem_Uurloon_Flex_Bezetting",
+              "nativeQueryRef": "Gem. uurloon flex",
+              "displayName": "Gem. uurloon flex"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "Totaal_Uren_Bezetting"
+                }
+              },
+              "queryRef": "hours_summary.Netto_GewerktUren_Total_new",
+              "nativeQueryRef": "Totaal uren",
+              "displayName": "Totaal uren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "Gem_Uurloon_Totaal_Bezetting"
+                }
+              },
+              "queryRef": "hours_summary.Gem_Uurloon_Totaal_Bezetting",
+              "nativeQueryRef": "Gem. uurloon totaal",
+              "displayName": "Gem. uurloon totaal"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "Pct_Uren_Vast_Bezetting"
+                }
+              },
+              "queryRef": "hours_summary.% uren vast",
+              "nativeQueryRef": "% uren vast",
+              "displayName": "% uren vast"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "Totaal_Mdw_Bezetting"
+                }
+              },
+              "queryRef": "hours_summary.Total_MdW",
+              "nativeQueryRef": "Totaal mdw",
+              "displayName": "Totaal mdw"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "hours_summary.WorkCenter"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "WorkCenter"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "hours_summary.DepartmentName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "DepartmentName"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "hours_summary.CardName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "CardName"
+                }
+              }
+            ],
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Trattoria Sophia'"
+                  }
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Dudok Patisserie BV'"
+                  }
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Dudok Patisserie Den Haag CS'"
+                  }
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Dudok Horeca Shared Services'"
+                  }
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Dudok Evenementen'"
+                  }
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Dudok Retail Holding B.V.'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Meent'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Rotterdam CS'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Winkel'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Dudok HAKA'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Bediening'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'MT'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Dudok Staffing'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Afwas / Schoonmaak - Staffing'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "60.91475250572973D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "hours_summary.Total_MdW"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "104.13369089920174D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "hours_summary.Netto_GewerktUren_Vast_new"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "224.26669367260354D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "hours_summary.WorkCenter"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "71.94082789648525D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "hours_summary.% uren vast"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86.51976728736561D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "hours_summary.Gem_Uurloon_Flex_Bezetting"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "84.97375307014732D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "hours_summary.Gem_Uurloon_Totaal_Bezetting"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.75030977979512D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "hours_summary.Gem_Uurloon_Vast_Bezetting"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bf512fcb04e5077d33a2",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Pct_Uren_Vast_Bezetting"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2c65296de52005fc2ba4",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Mdw_Vast_Bezetting"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6e41f4daf1a45f659eee",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "CardName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5b26471740d87d85eda4",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "FunctionName"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "5f8b9de784616cafe37b",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Gem_Uurloon_Flex_Bezetting"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "340d29dff03ab1c14926",
+        "ordinal": 5,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Mdw_Flex_Bezetting"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "733a54c45e910b8f7e5a",
+        "ordinal": 6,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Gem_Uurloon_Totaal_Bezetting"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d81a0cbe42f6f7fd1a6c",
+        "ordinal": 7,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Gem_Uurloon_Vast_Bezetting"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "155639d46c2551ad73f1",
+        "ordinal": 8,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Average Satisfaction"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "39769892c84571822757",
+        "ordinal": 9,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Totaal_Mdw_Bezetting"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "76f070b644021b7b4d21",
+        "ordinal": 10,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Totaal_Uren_Bezetting"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ec1e49252f142bcee849",
+        "ordinal": 11,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Uren_Flex_Bezetting"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4d4a2d56d4f4e67a4e68",
+        "ordinal": 12,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Uren_Vast_Bezetting"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "691180a95308d78d3306",
+        "ordinal": 13,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Mdw_Flex_Bezetting"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "20263487f3823ab12b2d",
+        "ordinal": 14,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "WorkCenter"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "419b6db009d921b85c5a",
+        "ordinal": 15,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Gem_Uurloon_Vast_Bezetting"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "0017ee80a0f1a2fc5980",
+        "ordinal": 16,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Gem_Uurloon_Flex_Bezetting"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "dc5978317b51e75b53ba",
+        "ordinal": 17,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "Gem_Uurloon_Totaal_Bezetting"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "19d3366292d5d501388f",
+        "ordinal": 18,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "DepartmentName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

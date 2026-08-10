@@ -1,0 +1,78 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "197672b7228607845bc8",
+  "position": {
+    "x": 0,
+    "y": 629.51932139491043,
+    "z": 5000,
+    "height": 90.480678605089537,
+    "width": 242.48821866163996,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "verzuimcategorieen"
+                    }
+                  },
+                  "Property": "Categorie"
+                }
+              },
+              "queryRef": "verzuimcategorieen.Categorie",
+              "nativeQueryRef": "Ontslagreden",
+              "active": true,
+              "displayName": "Ontslagreden"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5b8b7562c3c0c48020be",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "verzuimcategorieen"
+              }
+            },
+            "Property": "Categorie"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

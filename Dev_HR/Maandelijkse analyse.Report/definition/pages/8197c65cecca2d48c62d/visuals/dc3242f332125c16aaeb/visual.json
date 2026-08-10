@@ -1,0 +1,1008 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "dc3242f332125c16aaeb",
+  "position": {
+    "x": 194.05541561712846,
+    "y": 82.51889168765743,
+    "z": 3000,
+    "height": 617.53148614609563,
+    "width": 1084.5340050377833,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "FullName"
+                }
+              },
+              "queryRef": "employees_enriched.FullName",
+              "nativeQueryRef": "Medewerker",
+              "active": true,
+              "displayName": "Medewerker"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "employees_enriched"
+                        }
+                      },
+                      "Property": "FunctionName"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(employees_enriched.FunctionName)",
+              "nativeQueryRef": "Functie",
+              "displayName": "Functie"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "Gem. Leeftijd"
+                }
+              },
+              "queryRef": "BRIDGE EMPLOYEES.Gem. Leeftijd",
+              "nativeQueryRef": "Leeftijd",
+              "displayName": "Leeftijd"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Contractlocatie_MA"
+                }
+              },
+              "queryRef": "measurements.Contractlocatie_HourOfficeName",
+              "nativeQueryRef": "Contractlocatie",
+              "displayName": "Contractlocatie"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Werklocatie_MA"
+                }
+              },
+              "queryRef": "measurements.Werklocatie_MA",
+              "nativeQueryRef": "Werklocatie",
+              "displayName": "Werklocatie"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "ContractUren"
+                }
+              },
+              "queryRef": "measurements.ContractUren",
+              "nativeQueryRef": "Contract uren",
+              "displayName": "Contract uren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Ziekmeldingen_6M"
+                }
+              },
+              "queryRef": "measurements.Ziekmeldingen_6M",
+              "nativeQueryRef": "Aantal ziekmeldingen 6mnd",
+              "displayName": "Aantal ziekmeldingen 6mnd"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Gewerkte_Uren_MA"
+                }
+              },
+              "queryRef": "measurements.Gewerkte_Uren_MA",
+              "nativeQueryRef": "Gewerkte uren",
+              "displayName": "Gewerkte uren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Saldo_Overuren_maandelijkse_analyse"
+                }
+              },
+              "queryRef": "measurements.Saldo_Overuren_maandelijkse_analyse",
+              "nativeQueryRef": "Saldo overuren",
+              "displayName": "Saldo overuren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Saldo_Vakantieuren maandelijkse analyse"
+                }
+              },
+              "queryRef": "measurements.Saldo_Vakantieuren maandelijkse analyse",
+              "nativeQueryRef": "Saldo vakantieuren",
+              "displayName": "Saldo vakantieuren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Einddatum_Contract"
+                }
+              },
+              "queryRef": "measurements.Einddatum_Contract",
+              "nativeQueryRef": "Einddatum contract",
+              "displayName": "Einddatum contract"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "employees_enriched"
+                        }
+                      },
+                      "Property": "ManagerFullName"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(BRIDGE EMPLOYEES.ManagerFullName)",
+              "nativeQueryRef": "Manager",
+              "displayName": "Manager"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Tevredenheidscijfer_MA"
+                }
+              },
+              "queryRef": "measurements.Tevredenheidscijfer_MA",
+              "nativeQueryRef": "Tevredenheidscijfer",
+              "displayName": "Tevredenheidscijfer"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "measurements"
+                  }
+                },
+                "Property": "Gewerkte_Uren_MA"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "96.0168340962249D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Ziekmeldingen_6M"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "98.1073067234921D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Einddatum_Contract"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "93.41030542512242D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(BRIDGE EMPLOYEES.ManagerFullName)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "99.23628691983123D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Saldo_Vakantieuren maandelijkse analyse"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "76.23628691983123D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Saldo_Overuren_maandelijkse_analyse"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "157.19060179771645D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(BRIDGE EMPLOYEES.EmployeeFunctionDescription)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "58.13553227445056D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "BRIDGE EMPLOYEES.Gem. Leeftijd"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "97.38875169760645D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(BRIDGE EMPLOYEES.CardContractHours)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "107.33489454589929D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Gewerkte_Uren_MA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "130.906034959489D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Werklocatie_MA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "134.8181818181818D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Contractlocatie_HourOfficeName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "133.79482517946352D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(employees_enriched.FunctionName)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "91.03030303030303D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Tevredenheidscijfer_MA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "66.78787878787878D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.ContractUren"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "146.4848484848485D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "employees_enriched.FullName"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Einddatum_Contract"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(BRIDGE EMPLOYEES.ManagerFullName)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(BRIDGE EMPLOYEES.EmployeeFunctionDescription)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Contractlocatie_HourOfficeName"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Gewerkte_Uren_MA"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Saldo_Overuren_maandelijkse_analyse"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Saldo_Vakantieuren maandelijkse analyse"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Werklocatie_MA"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(employees_enriched.FunctionName)"
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Auto'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b767992c4075dcc35993",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Ziekmeldingen_6M"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9085ba4412723584c257",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Einddatum_Contract"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e4c087a969dd4a4c06b0",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Werklocatie_Filter_VorigeMaand_MA"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "measurements",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "m"
+                        }
+                      },
+                      "Property": "Werklocatie_Filter_VorigeMaand_MA"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "17ad164104cd00b10ea7",
+        "ordinal": 3,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "EndDatum_Actief_Filter_MA"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "measurements",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "m"
+                        }
+                      },
+                      "Property": "EndDatum_Actief_Filter_MA"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "bcfefbd2b490326ed797",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Saldo_Overuren_maandelijkse_analyse"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "56f5574765c1e5047d7c",
+        "ordinal": 5,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Saldo_Vakantieuren maandelijkse analyse"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2c0a0a0038031c304502",
+        "ordinal": 6,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "employees_enriched"
+                  }
+                },
+                "Property": "ManagerFullName"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8d6caa2d0b0a4e5eeeb1",
+        "ordinal": 7,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Contractlocatie_MA"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9afcc5e440005c10e6a7",
+        "ordinal": 8,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Gewerkte_Uren_MA"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ef33d9c0037e4152ae00",
+        "ordinal": 9,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "Gem. Leeftijd"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "348878b02cb3c41b3b20",
+        "ordinal": 10,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "FullName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "61568374b6575453e852",
+        "ordinal": 11,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "employees_enriched"
+                  }
+                },
+                "Property": "FunctionName"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a2179f48d1578078a343",
+        "ordinal": 12,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Werklocatie_MA"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "61fa684211206000234e",
+        "ordinal": 13,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "ContractUren"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "10e19b902a27a4e66504",
+        "ordinal": 14,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Tevredenheidscijfer_MA"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6b26de62a03c963ba4c0",
+        "ordinal": 15,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "IsCurrentContract"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

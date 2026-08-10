@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Verzuim kengetallen"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2bf29367-ee88-4e74-ad06-745636b66e5a"
+  }
+}

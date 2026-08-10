@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Verzuim"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "73a5d77e-0fb5-41bc-95de-0fb0fc51022a"
+  }
+}

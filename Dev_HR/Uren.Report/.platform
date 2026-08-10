@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Uren"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1e73855c-f35a-4d9a-a65a-eb00e0f12397"
+  }
+}
