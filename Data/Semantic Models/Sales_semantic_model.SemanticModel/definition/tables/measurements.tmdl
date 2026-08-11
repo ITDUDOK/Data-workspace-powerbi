@@ -98,6 +98,23 @@ table measurements
 
 		changedProperty = Name
 
+	measure 'Datum factuur' =
+			IF (
+			    NOT ISEMPTY ( 'invoices' ),
+			    IF (
+			        ISINSCOPE ( 'events'[EventLabel] ),
+			        FORMAT (
+			            CALCULATE (
+			                MAX ( 'invoices'[DateSentDate] ),
+			                TREATAS ( VALUES ( 'invoice_lines'[InvoiceId] ), 'invoices'[InvoiceId] )
+			            ),
+			            "ddd dd mmm yyyy",
+			            "nl-NL"
+			        )
+			    )
+			)
+		lineageTag: fa57f147-5199-46fb-894c-0557adf9a90f
+
 	column Column
 		dataType: string
 		lineageTag: 4668f553-0c39-49ab-9531-74c1482cbc47

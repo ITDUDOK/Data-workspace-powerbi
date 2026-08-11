@@ -325,17 +325,26 @@ table events
 
 	column EventDate
 		dataType: dateTime
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: dc6fc1b6-2bc6-4384-b025-36cebd38f5d1
 		sourceLineageTag: EventDate
 		summarizeBy: none
 		sourceColumn: EventDate
 
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
 
 	column EventLabel
 		dataType: string
-		lineageTag: 0d53b33a-d84d-474c-830b-edcfe0965724
+		lineageTag: a8d7c544-b987-4a9a-87f2-3a7660daf0c2
+		sourceLineageTag: EventLabel
 		summarizeBy: none
 		sourceColumn: EventLabel
 
@@ -343,9 +352,57 @@ table events
 
 	column Uitsluiten0Events
 		dataType: string
-		lineageTag: 3178d230-4061-41b9-9247-66b6ca73b246
+		lineageTag: fcde0b97-7940-4e20-b444-0ce734244066
+		sourceLineageTag: Uitsluiten0Events
 		summarizeBy: none
 		sourceColumn: Uitsluiten0Events
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b6088268-7f21-44ce-ab52-56da51ffa7de
+		sourceLineageTag: CreatedDate
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedYearISO
+		dataType: int64
+		formatString: 0
+		lineageTag: ba4cc6f8-58ec-4a13-87a5-49a5ee78c1e2
+		sourceLineageTag: CreatedYearISO
+		summarizeBy: sum
+		sourceColumn: CreatedYearISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedMonthName
+		dataType: string
+		lineageTag: cec249cd-61c7-49fc-88ee-a4343a6fde8a
+		sourceLineageTag: CreatedMonthName
+		summarizeBy: none
+		sourceColumn: CreatedMonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FormattedCreatedDate
+		dataType: string
+		lineageTag: 5a2d1e72-9764-4503-8626-71b8d062986d
+		sourceLineageTag: FormattedCreatedDate
+		summarizeBy: none
+		sourceColumn: FormattedCreatedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column FormattedEventDate
+		dataType: string
+		lineageTag: 4873276a-b016-42cd-9f48-8566483a6b3a
+		sourceLineageTag: FormattedEventDate
+		summarizeBy: none
+		sourceColumn: FormattedEventDate
 
 		annotation SummarizationSetBy = Automatic
 

@@ -1,0 +1,67 @@
+table product_categories
+	lineageTag: e657202e-e2fc-4c68-96d5-27f7b85cacd1
+	sourceLineageTag: [dbo].[product_categories]
+
+	column CategoryId
+		dataType: string
+		lineageTag: f07f64f9-ad2c-4ca8-8a1d-37982cb10770
+		sourceLineageTag: CategoryId
+		summarizeBy: none
+		sourceColumn: CategoryId
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationName
+		dataType: string
+		lineageTag: 6c4231c9-bb84-4fc5-87ef-dd57e565ea2d
+		sourceLineageTag: LocationName
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: 388dcd23-46b1-4723-a490-e98998555370
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryName
+		dataType: string
+		lineageTag: d498215c-8214-4f9c-a728-fa18ad41b231
+		sourceLineageTag: CategoryName
+		summarizeBy: none
+		sourceColumn: CategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c317443a-6090-44cf-8c82-6c0fbf12f1e6
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryIdInt
+		dataType: int64
+		formatString: 0
+		lineageTag: ed1ca913-3db5-4246-b24e-6b40aa10d82b
+		sourceLineageTag: CategoryIdInt
+		summarizeBy: sum
+		sourceColumn: CategoryIdInt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition product_categories = entity
+		mode: directLake
+		source
+			entityName: product_categories
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

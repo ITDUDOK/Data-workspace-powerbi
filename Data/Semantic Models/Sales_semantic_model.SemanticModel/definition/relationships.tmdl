@@ -30,35 +30,40 @@ relationship b12ae6c6-1ee6-47c1-81ff-00092ed3e562
 	fromColumn: events.EventDate
 	toColumn: dates.Date
 
-relationship 60742d2f-a332-475c-9722-55e6a2889f78
-	fromColumn: invoice_lines.InvoiceId
-	toColumn: invoices.InvoiceId
-
-relationship 799e9cd0-5d4b-46b5-8826-506668bd01c2
-	fromColumn: invoice_lines.EventId
-	toColumn: events.EventId
-
-relationship 91bc0c1a-c963-455b-8b32-e6f7495688ed
-	fromColumn: events.CompanyId
-	toColumn: mice_companies.MiceCompanyId
-
-relationship 7d3616e4-8b6b-4784-9147-1085a02e2014
-	fromColumn: products.CategoryId
-	toColumn: product_categories.CategoryId
-
-relationship 9a2bdf1f-4bbf-48e5-aefc-349b42e46e97
-	fromColumn: events.SpaceId
-	toColumn: spaces.SpaceId
-
-relationship d954e0dd-ca97-45cb-91fe-05e90e30ed51
+relationship bf8ff356-9654-4cac-9cc6-820fd5fdc03d
 	fromColumn: event_package_lines.EventId
 	toColumn: events.EventId
 
-relationship fff1c00b-8d17-48d1-97c0-e8cf73267890
+relationship a04f2a25-d903-48fe-998f-605f5b469d0c
 	fromColumn: event_product_lines.EventId
 	toColumn: events.EventId
 
-relationship 92c41cb0-4f83-4d41-b69e-29c403f9b456
+relationship 5b11e90a-45d5-465f-b378-3fcb3cc42f72
 	fromColumn: event_vat_rates.EventId
 	toColumn: events.EventId
+
+relationship 5a9b8af1-d403-45ea-a3fa-5b47a0e5fd6a
+	fromColumn: invoice_lines.InvoiceId
+	toColumn: invoices.InvoiceId
+
+relationship ed469e80-fb8e-4f6c-9c70-2c5440425738
+	fromColumn: invoice_lines.EventId
+	toColumn: events.EventId
+
+relationship c0dee8f0-f734-4426-9ec4-2aa2c788aa2b
+	fromColumn: events.CompanyId
+	toColumn: mice_companies.MiceCompanyId
+
+relationship 023ede3a-90e5-4e17-97c1-d56b2865ef9d
+	fromColumn: products.CategoryId
+	toColumn: product_categories.CategoryId
+
+relationship 0dd1ec5d-9349-42d9-be47-c03d830439d8
+	fromColumn: events.SpaceId
+	toColumn: spaces.SpaceId
+
+relationship 7806d2fa-9d32-40d6-97b0-ce702fe8d21c
+	isActive: false
+	fromColumn: invoices.DateSentDate
+	toColumn: dates.Date
 

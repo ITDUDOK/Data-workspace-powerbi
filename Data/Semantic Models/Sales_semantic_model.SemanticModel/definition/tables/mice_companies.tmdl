@@ -1,0 +1,58 @@
+table mice_companies
+	lineageTag: 546c1eb8-cc8f-4e17-a552-53ad7d897968
+	sourceLineageTag: [dbo].[mice_companies]
+
+	column MiceCompanyId
+		dataType: string
+		lineageTag: ed800d7b-dd40-4b68-a74b-c415d108e632
+		sourceLineageTag: MiceCompanyId
+		summarizeBy: none
+		sourceColumn: MiceCompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationName
+		dataType: string
+		lineageTag: 3235202e-9e4e-49ce-ba01-0f6a2787e47a
+		sourceLineageTag: LocationName
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: 814b3b44-42a0-4ee0-acc8-6f11f36f4d4b
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 760ca803-90de-4927-a32f-8e94b93a8a41
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiceCompanyIdInt
+		dataType: int64
+		formatString: 0
+		lineageTag: fafdff97-ba91-481d-8a1c-8825fbcbbb0e
+		sourceLineageTag: MiceCompanyIdInt
+		summarizeBy: sum
+		sourceColumn: MiceCompanyIdInt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mice_companies = entity
+		mode: directLake
+		source
+			entityName: mice_companies
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

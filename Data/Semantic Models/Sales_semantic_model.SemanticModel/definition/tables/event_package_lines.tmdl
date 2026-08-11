@@ -96,8 +96,12 @@ table event_package_lines
 
 	column EventId
 		dataType: string
-		lineageTag: 9b8ea619-96a0-4cc7-af1a-1a458b277c1d
+		lineageTag: 2a510abd-29a4-448a-aab1-5d4cd50d46a5
+		sourceLineageTag: EventId
+		summarizeBy: none
 		sourceColumn: EventId
+
+		annotation SummarizationSetBy = Automatic
 
 	partition event_package_lines = entity
 		mode: directLake

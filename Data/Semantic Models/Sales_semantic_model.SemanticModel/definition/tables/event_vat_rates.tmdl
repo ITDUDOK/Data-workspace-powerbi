@@ -116,8 +116,12 @@ table event_vat_rates
 
 	column EventId
 		dataType: string
-		lineageTag: 2c4b1a12-c852-48ba-9018-f71370835a80
+		lineageTag: ca88385f-537e-4528-9565-fdf4bd84d027
+		sourceLineageTag: EventId
+		summarizeBy: none
 		sourceColumn: EventId
+
+		annotation SummarizationSetBy = Automatic
 
 	partition event_vat_rates = entity
 		mode: directLake

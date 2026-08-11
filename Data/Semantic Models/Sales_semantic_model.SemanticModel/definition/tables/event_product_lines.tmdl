@@ -254,8 +254,12 @@ table event_product_lines
 
 	column EventId
 		dataType: string
-		lineageTag: 1f016414-df32-4794-9630-338eab768160
+		lineageTag: a5e28817-d222-4f08-b9fc-f4f8027a5ee2
+		sourceLineageTag: EventId
+		summarizeBy: none
 		sourceColumn: EventId
+
+		annotation SummarizationSetBy = Automatic
 
 	partition event_product_lines = entity
 		mode: directLake

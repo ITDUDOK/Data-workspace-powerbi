@@ -1,0 +1,180 @@
+table invoice_lines
+	lineageTag: 0488bd87-42c7-4345-ad76-c50e484654cc
+	sourceLineageTag: [dbo].[invoice_lines]
+
+	measure 'Gefactureerd (op factuurdatum)' =
+			CALCULATE(
+			    SUM(invoice_lines[TotalPriceExclVat]),
+			    USERELATIONSHIP(invoices[DateSentDate], dates[Date])
+			)
+		formatString: \€\ #,0.00
+		lineageTag: 12419604-f2af-4090-be0d-218d6b13febe
+
+	column InvoiceId
+		dataType: string
+		lineageTag: f69b867a-5910-4913-8061-c7ea53de5877
+		sourceLineageTag: InvoiceId
+		summarizeBy: none
+		sourceColumn: InvoiceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: fa15ba7a-6343-4808-88d7-f102af94f142
+		sourceLineageTag: LineNumber
+		summarizeBy: sum
+		sourceColumn: LineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventId
+		dataType: string
+		lineageTag: b4c644d2-8361-430d-a88b-829e09410a1d
+		sourceLineageTag: EventId
+		summarizeBy: none
+		sourceColumn: EventId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: c90e8497-6923-4e23-9fff-8612d9c56cae
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 06af1f51-308b-4397-8f5a-0d76e4c59138
+		sourceLineageTag: Amount
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column VatRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9da39f80-c5ce-4ebb-a7d4-467a7eb784e7
+		sourceLineageTag: VatRate
+		summarizeBy: sum
+		sourceColumn: VatRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column VatAmount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b8547936-fbd6-4570-b709-3fb30ceb7161
+		sourceLineageTag: VatAmount
+		summarizeBy: sum
+		sourceColumn: VatAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Price
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3ae8edd6-7f4f-4e83-80f0-b241f671db66
+		sourceLineageTag: Price
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column PriceExclVat
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 39f63f48-1926-47e3-808d-cf1d742bf662
+		sourceLineageTag: PriceExclVat
+		summarizeBy: sum
+		sourceColumn: PriceExclVat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TotalPrice
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ffc2f332-e093-4fd9-a0dc-ca57f8b230fb
+		sourceLineageTag: TotalPrice
+		summarizeBy: sum
+		sourceColumn: TotalPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TotalPriceExclVat
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ebd5cb28-92a3-41fb-ad07-c6b3d9e07614
+		sourceLineageTag: TotalPriceExclVat
+		summarizeBy: sum
+		sourceColumn: TotalPriceExclVat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TotalVat
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: bf3ca9f4-e17f-466d-a529-bd49b8bd2db7
+		sourceLineageTag: TotalVat
+		summarizeBy: sum
+		sourceColumn: TotalVat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column GeneralLedgerNumber
+		dataType: string
+		lineageTag: 77a9a46c-fd9b-46a4-87e3-3f50ad03890a
+		sourceLineageTag: GeneralLedgerNumber
+		summarizeBy: none
+		sourceColumn: GeneralLedgerNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostCenter
+		dataType: string
+		lineageTag: 14a1fc4d-a483-43a1-a8f3-34ec2901f7ee
+		sourceLineageTag: CostCenter
+		summarizeBy: none
+		sourceColumn: CostCenter
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 70fb6995-e533-48eb-97ea-c9150460bf59
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'invoice_lines 1' = entity
+		mode: directLake
+		source
+			entityName: invoice_lines
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

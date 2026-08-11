@@ -28,10 +28,10 @@ ref table event_types
 ref table bridge_location_office
 ref table event_custom_attributes
 ref table clients
-ref table invoices
 ref table invoice_lines
 ref table products
 ref table spaces
-ref table mice_companies
 ref table product_categories
+ref table mice_companies
+ref table invoices
 
