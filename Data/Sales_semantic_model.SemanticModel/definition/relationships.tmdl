@@ -58,3 +58,7 @@ relationship fff1c00b-8d17-48d1-97c0-e8cf73267890
 	fromColumn: event_product_lines.EventId
 	toColumn: events.EventId
 
+relationship 92c41cb0-4f83-4d41-b69e-29c403f9b456
+	fromColumn: event_vat_rates.EventId
+	toColumn: events.EventId
+

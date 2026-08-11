@@ -336,7 +336,18 @@ table events
 	column EventLabel
 		dataType: string
 		lineageTag: 0d53b33a-d84d-474c-830b-edcfe0965724
+		summarizeBy: none
 		sourceColumn: EventLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Uitsluiten0Events
+		dataType: string
+		lineageTag: 3178d230-4061-41b9-9247-66b6ca73b246
+		summarizeBy: none
+		sourceColumn: Uitsluiten0Events
+
+		annotation SummarizationSetBy = Automatic
 
 	partition events = entity
 		mode: directLake

@@ -17,7 +17,7 @@ table dates
 		formatString: 0
 		lineageTag: 00efac7b-32f2-4273-8368-bdea10d0187e
 		sourceLineageTag: DateKey
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: DateKey
 
 		annotation SummarizationSetBy = Automatic
@@ -27,7 +27,7 @@ table dates
 		formatString: 0
 		lineageTag: 637a63cf-87e5-4b48-9b55-a3ad614915e0
 		sourceLineageTag: Year
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Year
 
 		annotation SummarizationSetBy = Automatic
@@ -37,7 +37,7 @@ table dates
 		formatString: 0
 		lineageTag: 34ecb376-e142-4ee1-b2a8-e4eb352ae148
 		sourceLineageTag: Quarter
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Quarter
 
 		annotation SummarizationSetBy = Automatic
@@ -56,7 +56,7 @@ table dates
 		formatString: 0
 		lineageTag: 9632f1ae-4ebe-477a-b57a-3ff6211a23da
 		sourceLineageTag: Month
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Month
 
 		annotation SummarizationSetBy = Automatic
@@ -96,7 +96,7 @@ table dates
 		formatString: 0
 		lineageTag: c49c7fd0-315f-4597-9b57-18f114b4063b
 		sourceLineageTag: WeekISO
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: WeekISO
 
 		annotation SummarizationSetBy = Automatic
@@ -106,7 +106,7 @@ table dates
 		formatString: 0
 		lineageTag: b4c2e5a4-6a86-44fc-a951-0c25a37df8e4
 		sourceLineageTag: YearISO
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: YearISO
 
 		annotation SummarizationSetBy = Automatic
@@ -125,7 +125,7 @@ table dates
 		formatString: 0
 		lineageTag: 0973057d-5a35-42ff-acd7-e109feadc2f7
 		sourceLineageTag: DayOfMonth
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: DayOfMonth
 
 		annotation SummarizationSetBy = Automatic
@@ -135,7 +135,7 @@ table dates
 		formatString: 0
 		lineageTag: 3222f640-4b3c-4325-a9d7-b07c7bef380d
 		sourceLineageTag: DayOfYear
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: DayOfYear
 
 		annotation SummarizationSetBy = Automatic
@@ -145,7 +145,7 @@ table dates
 		formatString: 0
 		lineageTag: 6f33b440-6322-443d-ac72-39f19630c046
 		sourceLineageTag: DayOfWeekISO
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: DayOfWeekISO
 
 		annotation SummarizationSetBy = Automatic

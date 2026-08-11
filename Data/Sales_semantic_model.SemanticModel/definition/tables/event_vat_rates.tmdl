@@ -12,16 +12,6 @@ table event_vat_rates
 
 		annotation SummarizationSetBy = Automatic
 
-	column EventId
-		dataType: int64
-		formatString: 0
-		lineageTag: f95774be-b352-43b5-8e33-10f6989827ee
-		sourceLineageTag: EventId
-		summarizeBy: count
-		sourceColumn: EventId
-
-		annotation SummarizationSetBy = Automatic
-
 	column ActivityId
 		dataType: int64
 		formatString: 0
@@ -123,6 +113,11 @@ table event_vat_rates
 		sourceColumn: ModifiedAt
 
 		annotation SummarizationSetBy = Automatic
+
+	column EventId
+		dataType: string
+		lineageTag: 2c4b1a12-c852-48ba-9018-f71370835a80
+		sourceColumn: EventId
 
 	partition event_vat_rates = entity
 		mode: directLake
