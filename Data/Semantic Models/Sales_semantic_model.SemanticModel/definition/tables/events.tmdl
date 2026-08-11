@@ -466,6 +466,36 @@ table events
 		lineageTag: 6f3603cc-fee5-4a58-8497-8e911b3d341b
 		sourceColumn: CancellationNote
 
+	column CreatedWeekISO
+		dataType: int64
+		lineageTag: 4d585471-a852-472b-ab12-a9472b8b74a0
+		sourceColumn: CreatedWeekISO
+
+	column ConfirmedWeekISO
+		dataType: int64
+		lineageTag: 6ad57b1b-08e1-4f5e-8400-153ee7ae6eba
+		sourceColumn: ConfirmedWeekISO
+
+	column CancelledWeekISO
+		dataType: int64
+		lineageTag: 48e7426f-8847-4517-8dbb-404cdc1100f5
+		sourceColumn: CancelledWeekISO
+
+	column CreatedThisWeekISO
+		dataType: string
+		lineageTag: 96601200-4bb0-432b-80f6-70db61296dec
+		sourceColumn: CreatedThisWeekISO
+
+	column ConfirmedThisWeekISO
+		dataType: string
+		lineageTag: 17e4ddf8-aa06-455d-a864-db11fe2a3a55
+		sourceColumn: ConfirmedThisWeekISO
+
+	column CancelledThisWeekISO
+		dataType: string
+		lineageTag: 1d7fd737-e2a3-452b-8fee-828a3f4f5c57
+		sourceColumn: CancelledThisWeekISO
+
 	partition events = entity
 		mode: directLake
 		source
