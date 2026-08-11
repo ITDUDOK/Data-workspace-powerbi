@@ -414,6 +414,16 @@ table events
 		lineageTag: feaa5a17-a285-4f07-a4d3-cc93224e9098
 		sourceColumn: CreatedMonth
 
+	column ConfirmedTimestamp
+		dataType: dateTime
+		lineageTag: 033f0727-a2fa-484d-8997-3df645380ed8
+		sourceColumn: ConfirmedTimestamp
+
+	column CancelledTimestamp
+		dataType: dateTime
+		lineageTag: b708f238-5111-4fca-8926-fd301f74b8a2
+		sourceColumn: CancelledTimestamp
+
 	partition events = entity
 		mode: directLake
 		source
