@@ -456,6 +456,16 @@ table events
 		sourceColumn: CancelledMonthName
 		sortByColumn: CancelledMonth
 
+	column CancellationReason
+		dataType: string
+		lineageTag: f10c59ea-ba4c-4fd8-ae41-cfc54f7d623c
+		sourceColumn: CancellationReason
+
+	column CancellationNote
+		dataType: string
+		lineageTag: 6f3603cc-fee5-4a58-8497-8e911b3d341b
+		sourceColumn: CancellationNote
+
 	partition events = entity
 		mode: directLake
 		source
