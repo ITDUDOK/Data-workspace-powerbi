@@ -424,6 +424,38 @@ table events
 		lineageTag: b708f238-5111-4fca-8926-fd301f74b8a2
 		sourceColumn: CancelledTimestamp
 
+	column ConfirmedYearISO
+		dataType: int64
+		lineageTag: 99ed2e9e-e636-4972-b10c-607d70a4118f
+		sourceColumn: ConfirmedYearISO
+
+	column ConfirmedMonth
+		dataType: int64
+		lineageTag: dbbf962e-1f93-4294-a8d0-a5c6a4c8124a
+		sourceColumn: ConfirmedMonth
+
+	column ConfirmedMonthName
+		dataType: string
+		lineageTag: be917e58-a8e4-4106-9992-0d59a2e8738f
+		sourceColumn: ConfirmedMonthName
+		sortByColumn: ConfirmedMonth
+
+	column CancelledYearISO
+		dataType: int64
+		lineageTag: 9ec055bf-5086-4bc6-aeff-70eb984df10c
+		sourceColumn: CancelledYearISO
+
+	column CancelledMonth
+		dataType: int64
+		lineageTag: 86b02077-e0ff-4916-be5d-e2f282d0090c
+		sourceColumn: CancelledMonth
+
+	column CancelledMonthName
+		dataType: string
+		lineageTag: bddefec2-e3bb-486e-861d-d5132cf8e699
+		sourceColumn: CancelledMonthName
+		sortByColumn: CancelledMonth
+
 	partition events = entity
 		mode: directLake
 		source
