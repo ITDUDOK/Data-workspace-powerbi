@@ -385,6 +385,7 @@ table events
 		sourceLineageTag: CreatedMonthName
 		summarizeBy: none
 		sourceColumn: CreatedMonthName
+		sortByColumn: CreatedMonth
 
 		annotation SummarizationSetBy = Automatic
 
@@ -407,6 +408,11 @@ table events
 		sortByColumn: EventDate
 
 		annotation SummarizationSetBy = Automatic
+
+	column CreatedMonth
+		dataType: int64
+		lineageTag: feaa5a17-a285-4f07-a4d3-cc93224e9098
+		sourceColumn: CreatedMonth
 
 	partition events = entity
 		mode: directLake
