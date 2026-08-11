@@ -394,6 +394,7 @@ table events
 		sourceLineageTag: FormattedCreatedDate
 		summarizeBy: none
 		sourceColumn: FormattedCreatedDate
+		sortByColumn: CreatedDate
 
 		annotation SummarizationSetBy = Automatic
 
@@ -403,6 +404,7 @@ table events
 		sourceLineageTag: FormattedEventDate
 		summarizeBy: none
 		sourceColumn: FormattedEventDate
+		sortByColumn: EventDate
 
 		annotation SummarizationSetBy = Automatic
 
