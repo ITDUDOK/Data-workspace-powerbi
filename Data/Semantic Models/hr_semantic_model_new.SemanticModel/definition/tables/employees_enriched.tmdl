@@ -361,6 +361,27 @@ table employees_enriched
 			)
 		lineageTag: 23caa824-89fb-4804-8553-1d4537f7e4fd
 
+	measure IsUitDienstInPeriode = ```
+			
+			VAR SelectedStartDate = MIN(dates[Date])
+			VAR SelectedEndDate = MAX(dates[Date])
+			VAR RowEndDate = MIN(employees_enriched[FinalEndDate])
+			RETURN
+			IF(
+			    ISBLANK(SelectedStartDate) || ISBLANK(RowEndDate),
+			    BLANK(),
+			    IF(
+			        RowEndDate >= SelectedStartDate && RowEndDate <= SelectedEndDate,
+			        1,
+			        BLANK()
+			    )
+			)
+			
+			```
+		formatString: 0
+		isHidden
+		lineageTag: ba1f66f4-1bd1-437d-a323-216125ed9154
+
 	column EmployeeId
 		dataType: string
 		lineageTag: bfd877dd-65b7-4e09-896d-be22a22d8234
