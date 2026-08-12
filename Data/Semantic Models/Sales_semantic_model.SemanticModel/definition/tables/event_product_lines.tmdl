@@ -241,18 +241,24 @@ table event_product_lines
 
 		annotation SummarizationSetBy = Automatic
 
+	column ObjectId
+		dataType: int64
+		formatString: 0
+		lineageTag: 0aad7d51-777a-4cc8-82aa-1467c83a5a06
+		sourceLineageTag: ObjectId
+		summarizeBy: count
+		sourceColumn: ObjectId
+
+		annotation SummarizationSetBy = Automatic
+
 	column ProductId
 		dataType: string
-		lineageTag: 63a41794-52b3-4ba9-ba37-e7a68f5a149d
+		lineageTag: 8983cb4b-da89-4142-867e-8bcb173e4ef1
+		sourceLineageTag: ProductId
 		summarizeBy: none
 		sourceColumn: ProductId
 
 		annotation SummarizationSetBy = Automatic
-
-	column ObjectId
-		dataType: string
-		lineageTag: a7bb6dd8-12f8-4a3a-a0e6-d3b380159365
-		sourceColumn: ObjectId
 
 	partition event_product_lines = entity
 		mode: directLake

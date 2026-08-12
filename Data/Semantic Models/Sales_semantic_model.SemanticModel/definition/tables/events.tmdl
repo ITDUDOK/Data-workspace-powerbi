@@ -573,7 +573,8 @@ table events
 
 	column StatusLabel
 		dataType: string
-		lineageTag: a6af92a1-f98d-4245-b27f-35d78e377771
+		lineageTag: 02e755d4-4e07-4a77-90ef-ab686beb6c77
+		sourceLineageTag: StatusLabel
 		summarizeBy: none
 		sourceColumn: StatusLabel
 
@@ -581,7 +582,8 @@ table events
 
 	column PlannerFullName
 		dataType: string
-		lineageTag: 0c95c3a9-10bc-4a0a-b2d4-05b11cefa3cc
+		lineageTag: d0d9b288-53fc-41c9-8e0c-06e061859862
+		sourceLineageTag: PlannerFullName
 		summarizeBy: none
 		sourceColumn: PlannerFullName
 

@@ -1,0 +1,153 @@
+table Costcenters
+	lineageTag: 231b01c2-f148-494b-a257-86ca36f1d8f8
+	sourceLineageTag: [dbo].[Costcenters]
+
+	column ID
+		dataType: string
+		lineageTag: 1df5ed78-eaeb-45fe-a55a-ae3dfcd06420
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 30936fd4-d961-4810-92d5-9754418a18ea
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: 529cf8b6-e394-478c-bed6-83c069c9fe8e
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 587b59f4-9b88-49d3-824e-23576dc8be23
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d2140a9-40d5-4de5-8e76-c4009b69c630
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 48f26dd1-e1f1-4f05-86aa-03b3818ee31f
+		sourceLineageTag: Active
+		summarizeBy: none
+		sourceColumn: Active
+
+		annotation SummarizationSetBy = Automatic
+
+	column TopicParent
+		dataType: string
+		lineageTag: 48c1b7f7-4140-4ac7-9cfa-b86befc3acfc
+		sourceLineageTag: TopicParent
+		summarizeBy: none
+		sourceColumn: TopicParent
+
+		annotation SummarizationSetBy = Automatic
+
+	column TopicTime
+		dataType: int64
+		formatString: 0
+		lineageTag: b8bd4f83-b658-422d-9572-a39f18940c23
+		sourceLineageTag: TopicTime
+		summarizeBy: sum
+		sourceColumn: TopicTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 70e2fd47-58b1-4eef-a274-867a7d0a6b72
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: 3db8ed25-8419-4c54-897e-8fe3a1884423
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 769adb57-ec37-4fb0-9ee2-617dafe5be3e
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 6a345554-5456-4371-8bbc-2f29289c0fbb
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ca2fd61e-0f4e-425f-bca0-d13dc5c40338
+		sourceLineageTag: EndDate
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column DefaultApprover
+		dataType: string
+		lineageTag: 706be7a7-2c9d-4e13-ac21-5e12f57c0465
+		sourceLineageTag: DefaultApprover
+		summarizeBy: none
+		sourceColumn: DefaultApprover
+
+		annotation SummarizationSetBy = Automatic
+
+	column CmdmIndex
+		dataType: string
+		lineageTag: 990ecd7e-609e-435b-8c36-12b2ae88bdf1
+		sourceLineageTag: CmdmIndex
+		summarizeBy: none
+		sourceColumn: CmdmIndex
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Costcenters = entity
+		mode: directLake
+		source
+			entityName: Costcenters
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

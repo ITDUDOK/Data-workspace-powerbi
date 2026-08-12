@@ -69,7 +69,13 @@ relationship 591702cd-400b-9b72-cf5e-6f98e6863693
 	fromColumn: event_product_lines.EventId
 	toColumn: events.EventId
 
-relationship 868b6163-438a-4331-857e-61c7c76e0665
-	fromColumn: event_product_lines.ObjectId
-	toColumn: products.ProductId
+relationship dce50c9c-79ad-3b5c-8f9b-a274fbb41fc2
+	fromColumn: GLTransactions.Costcenter
+	toColumn: Costcenters.ID
+
+relationship 61f4cd10-1a7d-aed6-faf3-6f62ca96933b
+	crossFilteringBehavior: bothDirections
+	securityFilteringBehavior: bothDirections
+	fromColumn: events.EventId
+	toColumn: Costcenters.Code
 
