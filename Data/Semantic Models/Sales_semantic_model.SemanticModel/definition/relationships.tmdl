@@ -64,6 +64,7 @@ relationship 7806d2fa-9d32-40d6-97b0-ce702fe8d21c
 	toColumn: dates.Date
 
 relationship b7456b53-8f2e-3658-cdbc-0b7eabecc829
+	crossFilteringBehavior: bothDirections
 	toCardinality: many
 	fromColumn: events.EventId
 	toColumn: event_contacts.EventId

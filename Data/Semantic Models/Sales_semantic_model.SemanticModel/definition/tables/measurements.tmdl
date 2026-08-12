@@ -69,7 +69,8 @@ table measurements
 			)
 		lineageTag: da4eb976-695d-41e6-8464-20e65ec0e30d
 
-	measure Event_rows = COUNTROWS ( VALUES ( 'events'[EventId] ) )
+	measure Event_rows = COUNTROWS ( VALUES ( 'events'[EventLabel] ) )
+		formatString: 0
 		lineageTag: d2f0f6ef-75ae-4e85-b243-c651514085d8
 
 	measure 'Total Rows Only' =

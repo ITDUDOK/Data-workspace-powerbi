@@ -420,85 +420,161 @@ table events
 
 	column ConfirmedTimestamp
 		dataType: dateTime
-		lineageTag: 12962636-1cde-48ab-a709-ae76c2255e19
+		formatString: General Date
+		lineageTag: edc71ba1-6d7c-4faf-8c72-b7eb9a62ac60
+		sourceLineageTag: ConfirmedTimestamp
+		summarizeBy: none
 		sourceColumn: ConfirmedTimestamp
+
+		annotation SummarizationSetBy = Automatic
 
 	column CancelledTimestamp
 		dataType: dateTime
-		lineageTag: 6d3b124c-f4c6-4f54-8143-7d62396eb279
+		formatString: General Date
+		lineageTag: 8c03aa8a-d389-4a3a-ad97-aaadaf0b3546
+		sourceLineageTag: CancelledTimestamp
+		summarizeBy: none
 		sourceColumn: CancelledTimestamp
+
+		annotation SummarizationSetBy = Automatic
 
 	column ConfirmedYearISO
 		dataType: int64
-		lineageTag: d71ccbbf-1368-486b-82ae-6c4eed82a9fd
+		formatString: 0
+		lineageTag: ce422d89-ba8c-4115-96d7-902fad58aac0
+		sourceLineageTag: ConfirmedYearISO
+		summarizeBy: sum
 		sourceColumn: ConfirmedYearISO
+
+		annotation SummarizationSetBy = Automatic
 
 	column ConfirmedMonth
 		dataType: int64
-		lineageTag: c4a39718-e194-4125-aafd-4cb19cd211f5
+		formatString: 0
+		lineageTag: 466f9a95-e221-459d-bcf0-83e004cd2cd8
+		sourceLineageTag: ConfirmedMonth
+		summarizeBy: sum
 		sourceColumn: ConfirmedMonth
+
+		annotation SummarizationSetBy = Automatic
 
 	column ConfirmedMonthName
 		dataType: string
-		lineageTag: b9119e3f-717a-4598-ae0b-216cb3a7ee8d
+		lineageTag: 78c47036-065a-478d-bbfa-dc5aaa25f17b
+		sourceLineageTag: ConfirmedMonthName
+		summarizeBy: none
 		sourceColumn: ConfirmedMonthName
-		sortByColumn: ConfirmedMonth
+
+		annotation SummarizationSetBy = Automatic
 
 	column CancelledYearISO
 		dataType: int64
-		lineageTag: 362ea637-a9c1-4bf9-9371-0bb2c8470e9c
+		formatString: 0
+		lineageTag: 9603e67d-4678-4149-880e-23d2ffee97f8
+		sourceLineageTag: CancelledYearISO
+		summarizeBy: sum
 		sourceColumn: CancelledYearISO
+
+		annotation SummarizationSetBy = Automatic
 
 	column CancelledMonth
 		dataType: int64
-		lineageTag: f835f413-d0f5-4ffd-967b-956b00fd2cbd
+		formatString: 0
+		lineageTag: fd825faa-b1ee-46c4-b955-9e713e351c9f
+		sourceLineageTag: CancelledMonth
+		summarizeBy: sum
 		sourceColumn: CancelledMonth
+
+		annotation SummarizationSetBy = Automatic
 
 	column CancelledMonthName
 		dataType: string
-		lineageTag: 23cb3651-4639-4b94-8e27-3b3a3bbd8087
+		lineageTag: db25ca8f-1e16-4d9f-8d3f-f9121088f818
+		sourceLineageTag: CancelledMonthName
+		summarizeBy: none
 		sourceColumn: CancelledMonthName
-		sortByColumn: CancelledMonth
 
-	column CreatedWeekISO
-		dataType: int64
-		lineageTag: 2cf14f4f-ff5a-4698-89dd-05e249ea9f61
-		sourceColumn: CreatedWeekISO
-
-	column ConfirmedWeekISO
-		dataType: int64
-		lineageTag: d914d201-0935-404c-b323-622f9716d59c
-		sourceColumn: ConfirmedWeekISO
-
-	column CancelledWeekISO
-		dataType: int64
-		lineageTag: ace9b878-dc33-4847-af70-d8a2ef1bc3d7
-		sourceColumn: CancelledWeekISO
-
-	column CreatedThisWeekISO
-		dataType: string
-		lineageTag: 90fafb5e-0f22-4dd1-99d6-48c5628cfc2f
-		sourceColumn: CreatedThisWeekISO
-
-	column ConfirmedThisWeekISO
-		dataType: string
-		lineageTag: 66e3190c-f11e-415c-9f35-d3809f893889
-		sourceColumn: ConfirmedThisWeekISO
-
-	column CancelledThisWeekISO
-		dataType: string
-		lineageTag: 42d406d2-364f-4e02-b97e-29f4cd722944
-		sourceColumn: CancelledThisWeekISO
+		annotation SummarizationSetBy = Automatic
 
 	column CancellationReason
 		dataType: string
-		lineageTag: 3bd1ae9a-7c49-427d-92a2-bd3b947482e7
+		lineageTag: 878b42b5-24d0-4214-938d-33a41f95dae8
+		sourceLineageTag: CancellationReason
+		summarizeBy: none
 		sourceColumn: CancellationReason
+
+		annotation SummarizationSetBy = Automatic
 
 	column CancellationNote
 		dataType: string
-		lineageTag: a4c8a56e-188b-477a-ae57-23bd6caa7e83
+		lineageTag: 1266cd61-1fb8-4ad4-90cd-f9ea6f7a864a
+		sourceLineageTag: CancellationNote
+		summarizeBy: none
 		sourceColumn: CancellationNote
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedWeekISO
+		dataType: int64
+		formatString: 0
+		lineageTag: 43f315e3-0581-490e-8b6f-1d65c9bf5616
+		sourceLineageTag: CreatedWeekISO
+		summarizeBy: sum
+		sourceColumn: CreatedWeekISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConfirmedWeekISO
+		dataType: int64
+		formatString: 0
+		lineageTag: a10ca9b8-1578-4702-a153-368d0e39b561
+		sourceLineageTag: ConfirmedWeekISO
+		summarizeBy: sum
+		sourceColumn: ConfirmedWeekISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CancelledWeekISO
+		dataType: int64
+		formatString: 0
+		lineageTag: 7280f451-f145-49c8-8827-bb4c2a2b87ca
+		sourceLineageTag: CancelledWeekISO
+		summarizeBy: sum
+		sourceColumn: CancelledWeekISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedThisWeekISO
+		dataType: string
+		lineageTag: 59ec1c9a-f7c8-4335-acec-8ab4679fc007
+		sourceLineageTag: CreatedThisWeekISO
+		summarizeBy: none
+		sourceColumn: CreatedThisWeekISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConfirmedThisWeekISO
+		dataType: string
+		lineageTag: c6a38739-38bf-4a70-b201-94f3ca5aa821
+		sourceLineageTag: ConfirmedThisWeekISO
+		summarizeBy: none
+		sourceColumn: ConfirmedThisWeekISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CancelledThisWeekISO
+		dataType: string
+		lineageTag: 6f4da9e2-8ece-4b55-8ec4-46112feab03f
+		sourceLineageTag: CancelledThisWeekISO
+		summarizeBy: none
+		sourceColumn: CancelledThisWeekISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusLabel
+		dataType: string
+		lineageTag: a6af92a1-f98d-4245-b27f-35d78e377771
+		sourceColumn: StatusLabel
 
 	partition events = entity
 		mode: directLake
