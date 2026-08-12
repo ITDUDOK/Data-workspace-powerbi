@@ -78,3 +78,7 @@ relationship 908d665f-199a-4882-a10b-b2868b6403a0
 	fromColumn: GLTransactions.Costcenter
 	toColumn: events.EventId
 
+relationship d7da078b-5e7b-4164-b741-f6b920c8ac6a
+	fromColumn: GLTransactions.GLAccount
+	toColumn: GLAccounts.ID
+

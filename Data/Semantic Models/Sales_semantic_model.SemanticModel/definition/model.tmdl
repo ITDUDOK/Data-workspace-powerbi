@@ -36,4 +36,5 @@ ref table mice_companies
 ref table invoices
 ref table Costcenters
 ref table GLTransactions
+ref table GLAccounts
 

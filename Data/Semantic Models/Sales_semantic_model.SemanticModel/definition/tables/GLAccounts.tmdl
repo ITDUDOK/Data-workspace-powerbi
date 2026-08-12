@@ -1,0 +1,35 @@
+table GLAccounts
+	lineageTag: 8fc8ad48-2d6e-489d-9b32-bfa3a0ca2074
+
+	column ID
+		dataType: string
+		lineageTag: 504c8585-ad26-460b-bc6a-c66753ff8be7
+		sourceColumn: ID
+
+	column Code
+		dataType: string
+		lineageTag: 38a62dce-a63f-44d4-a612-00cc11fff1ba
+		sourceColumn: Code
+
+	column Description
+		dataType: string
+		lineageTag: 4faec6b1-4bfc-4ec2-a6c6-cdc3a8376187
+		sourceColumn: Description
+
+	column Type
+		dataType: int64
+		lineageTag: 434a0f14-fa2c-4a1b-be40-655ca148e61c
+		sourceColumn: Type
+
+	column BalanceType
+		dataType: string
+		lineageTag: 85d2779d-5ea3-4fe5-b1bd-1f1ad70c5e58
+		sourceColumn: BalanceType
+
+	partition 'GLAccounts 1' = entity
+		mode: directLake
+		source
+			entityName: GLAccounts
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+
