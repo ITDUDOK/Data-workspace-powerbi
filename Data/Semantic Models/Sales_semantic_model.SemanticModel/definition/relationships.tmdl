@@ -1,7 +1,3 @@
-relationship cb8eeb11-ec7a-486a-a373-1faeda39c8e7
-	fromColumn: event_contacts.EventId
-	toColumn: events.EventId
-
 relationship 9b17a65a-7d12-4f53-af46-d1fc5c251473
 	fromColumn: event_custom_attributes.EventId
 	toColumn: events.EventId
@@ -66,4 +62,9 @@ relationship 7806d2fa-9d32-40d6-97b0-ce702fe8d21c
 	isActive: false
 	fromColumn: invoices.DateSentDate
 	toColumn: dates.Date
+
+relationship b7456b53-8f2e-3658-cdbc-0b7eabecc829
+	toCardinality: many
+	fromColumn: events.EventId
+	toColumn: event_contacts.EventId
 
