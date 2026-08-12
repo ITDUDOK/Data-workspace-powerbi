@@ -30,10 +30,6 @@ relationship bf8ff356-9654-4cac-9cc6-820fd5fdc03d
 	fromColumn: event_package_lines.EventId
 	toColumn: events.EventId
 
-relationship a04f2a25-d903-48fe-998f-605f5b469d0c
-	fromColumn: event_product_lines.EventId
-	toColumn: events.EventId
-
 relationship 5b11e90a-45d5-465f-b378-3fcb3cc42f72
 	fromColumn: event_vat_rates.EventId
 	toColumn: events.EventId
@@ -68,4 +64,12 @@ relationship b7456b53-8f2e-3658-cdbc-0b7eabecc829
 	toCardinality: many
 	fromColumn: events.EventId
 	toColumn: event_contacts.EventId
+
+relationship 591702cd-400b-9b72-cf5e-6f98e6863693
+	fromColumn: event_product_lines.EventId
+	toColumn: events.EventId
+
+relationship 868b6163-438a-4331-857e-61c7c76e0665
+	fromColumn: event_product_lines.ObjectId
+	toColumn: products.ProductId
 

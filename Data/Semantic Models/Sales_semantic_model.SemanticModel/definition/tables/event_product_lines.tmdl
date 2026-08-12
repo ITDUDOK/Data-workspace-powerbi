@@ -40,32 +40,12 @@ table event_product_lines
 
 		annotation SummarizationSetBy = Automatic
 
-	column ProductId
-		dataType: int64
-		formatString: 0
-		lineageTag: ba2c0651-2e17-4094-b998-fd533f1fda1e
-		sourceLineageTag: ProductId
-		summarizeBy: count
-		sourceColumn: ProductId
-
-		annotation SummarizationSetBy = Automatic
-
 	column ObjectType
 		dataType: string
 		lineageTag: 2f04b009-e35f-4b01-aad3-9b8a9b569e8a
 		sourceLineageTag: ObjectType
 		summarizeBy: none
 		sourceColumn: ObjectType
-
-		annotation SummarizationSetBy = Automatic
-
-	column ObjectId
-		dataType: int64
-		formatString: 0
-		lineageTag: 97070640-3a4f-4667-8853-2d198286695a
-		sourceLineageTag: ObjectId
-		summarizeBy: count
-		sourceColumn: ObjectId
 
 		annotation SummarizationSetBy = Automatic
 
@@ -260,6 +240,19 @@ table event_product_lines
 		sourceColumn: EventId
 
 		annotation SummarizationSetBy = Automatic
+
+	column ProductId
+		dataType: string
+		lineageTag: 63a41794-52b3-4ba9-ba37-e7a68f5a149d
+		summarizeBy: none
+		sourceColumn: ProductId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ObjectId
+		dataType: string
+		lineageTag: a7bb6dd8-12f8-4a3a-a0e6-d3b380159365
+		sourceColumn: ObjectId
 
 	partition event_product_lines = entity
 		mode: directLake

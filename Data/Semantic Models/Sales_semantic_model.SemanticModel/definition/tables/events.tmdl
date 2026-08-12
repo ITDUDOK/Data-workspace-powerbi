@@ -574,12 +574,18 @@ table events
 	column StatusLabel
 		dataType: string
 		lineageTag: a6af92a1-f98d-4245-b27f-35d78e377771
+		summarizeBy: none
 		sourceColumn: StatusLabel
+
+		annotation SummarizationSetBy = Automatic
 
 	column PlannerFullName
 		dataType: string
 		lineageTag: 0c95c3a9-10bc-4a0a-b2d4-05b11cefa3cc
+		summarizeBy: none
 		sourceColumn: PlannerFullName
+
+		annotation SummarizationSetBy = Automatic
 
 	partition events = entity
 		mode: directLake
