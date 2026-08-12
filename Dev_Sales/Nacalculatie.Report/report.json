@@ -1,0 +1,76 @@
+{
+  "config": "{\"version\":\"5.70\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY26SU02\",\"version\":{\"visual\":\"2.6.0\",\"report\":\"3.1.0\",\"page\":\"2.3.0\"},\"type\":2},\"customTheme\":{\"name\":\"Accessible_Tidal4018863514996759.json\",\"version\":{\"visual\":\"2.6.0\",\"report\":\"3.1.0\",\"page\":\"2.3.0\"},\"type\":1}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY26SU02",
+            "path": "BaseThemes/CY26SU02.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "items": [
+          {
+            "name": "Accessible_Tidal4018863514996759.json",
+            "path": "Accessible_Tidal4018863514996759.json",
+            "type": 100
+          },
+          {
+            "name": "BEELDMERK_-_DUDOK_D42986470484759254.png",
+            "path": "BEELDMERK_-_DUDOK_D42986470484759254.png",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"objects\":{\"outspace\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]}}",
+      "displayName": "Pagina 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ff4732ea7e6e0c9206e0",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"48ad040ed99448c64072\",\"layouts\":[{\"id\":0,\"position\":{\"x\":80,\"y\":5.555555555555555,\"z\":0,\"height\":80,\"width\":1198.888888888889,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"text\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Nacalculatie'\"}}},\"horizontalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'left'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"rightMargin\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"leftMargin\":{\"expr\":{\"Literal\":{\"Value\":\"10L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"''\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "height": 80.00,
+          "width": 1198.89,
+          "x": 80.00,
+          "y": 5.56,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"5a3f46ddc073540ed707\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":706.9787511887695,\"z\":2,\"height\":12.790733985323131,\"width\":1280.236192530979,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "height": 12.79,
+          "width": 1280.24,
+          "x": 0.00,
+          "y": 706.98,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"a2bd52a0b2444eeb059b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":2.3255879973314784,\"y\":8.139557990660174,\"z\":1,\"height\":75.58160991327306,\"width\":77.90719791060452,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"BEELDMERK_-_DUDOK_D42986470484759254.png\"}}}}}]},\"vcObjects\":{\"padding\":[{\"properties\":{\"left\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"top\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"right\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"bottom\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "height": 75.58,
+          "width": 77.91,
+          "x": 2.33,
+          "y": 8.14,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "Accessible_Tidal4018863514996759.json"
+}

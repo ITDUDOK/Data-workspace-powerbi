@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Annuleringen"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "aec86e60-fef3-834a-4d5e-5260904e1ac3"
+  }
+}

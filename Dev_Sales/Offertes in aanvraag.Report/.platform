@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Offertes in aanvraag"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d3d5265d-022a-9725-4068-1b1b3ca99911"
+  }
+}

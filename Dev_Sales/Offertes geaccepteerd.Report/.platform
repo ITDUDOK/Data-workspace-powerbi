@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Offertes geaccepteerd"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cab70a6a-a137-a3b1-41f2-8d3a5d72a8cf"
+  }
+}
