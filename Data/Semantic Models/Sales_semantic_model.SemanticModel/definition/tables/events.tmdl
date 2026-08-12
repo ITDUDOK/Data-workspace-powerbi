@@ -5,7 +5,10 @@ table events
 	measure Event_url_formatted = SELECTEDVALUE('events'[Url])
 		lineageTag: 39b9d35a-75d1-47aa-9d7a-f2aa90fd44b9
 
-	measure 'Voorcalculatie Omzet' = SUM(event_product_lines[TotalPriceExclVat]) + SUM(event_package_lines[PackageTotalPriceExclVat])
+	measure 'Voorcalculatie Omzet' =
+			VAR ProductOmzet = SUM(event_product_lines[TotalPriceExclVat])
+			VAR PackageOmzet = IF(ISFILTERED(product_categories[CategoryName]), 0, SUM(event_package_lines[PackageTotalPriceExclVat]))
+			RETURN ProductOmzet + PackageOmzet
 		formatString: €#,##0.00
 		lineageTag: 6cc35c2c-be51-47e4-b3ae-e9f4f528c066
 

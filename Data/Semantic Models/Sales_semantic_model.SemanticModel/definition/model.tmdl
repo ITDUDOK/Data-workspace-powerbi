@@ -37,4 +37,5 @@ ref table invoices
 ref table Costcenters
 ref table GLTransactions
 ref table GLAccounts
+ref table map_glaccount_category
 

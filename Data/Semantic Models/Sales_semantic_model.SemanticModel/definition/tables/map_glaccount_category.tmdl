@@ -1,0 +1,20 @@
+table map_glaccount_category
+	lineageTag: c17c64f8-93dc-4b1a-8443-ea69b6fa2045
+
+	column Code
+		dataType: string
+		lineageTag: 78c828fd-d8b4-463a-b9fd-04042927d673
+		sourceColumn: Code
+
+	column CategoryName
+		dataType: string
+		lineageTag: 637be81e-1efa-4584-8190-7215954a2479
+		sourceColumn: CategoryName
+
+	partition 'map_glaccount_category 1' = entity
+		mode: directLake
+		source
+			entityName: map_glaccount_category
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+
