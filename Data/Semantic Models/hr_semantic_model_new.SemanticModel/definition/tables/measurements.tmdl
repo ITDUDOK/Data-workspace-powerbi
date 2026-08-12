@@ -6,7 +6,7 @@ table measurements
 		formatString: 0
 		lineageTag: 146f6a4d-881d-438d-9719-d5a78e96e06e
 
-	measure FTE =
+	measure FTE = ```
 			
 			VAR GekozenDatum = SELECTEDVALUE(dates[Date])
 			VAR GekozenMaand = SELECTEDVALUE(dates[Month])
@@ -75,31 +75,22 @@ table measurements
 			                (ISBLANK([CardEnd]) || [CardEnd] >= BeginPeriode) &&
 			                NOT ISBLANK([CardDateOfBirth])
 			            ),
-			            VAR CardID = staff[CardId]
-			
 			            VAR Profiel =
-			                CALCULATE(
-			                    MAX(contracts[Profile]),
-			                    FILTER(contracts, contracts[CardId] = CardID)
-			                )
+			                CALCULATE(MAX(contracts[Profile]))
 			
 			            VAR ContractUren =
-			                CALCULATE(
-			                    MAX(contracts[ContractWeekHours]),
-			                    FILTER(contracts, contracts[CardId] = CardID)
-			                )
+			                CALCULATE(MAX(contracts[ContractWeekHours]))
 			
 			            VAR UrenGewerkt =
-			                CALCULATE(
-			                    SUM(hours[HourHours]),
-			                    FILTER(hours, hours[CardId] = CardID)
-			                )
+			                CALCULATE(SUM(hours[HourHours]))
 			
 			            VAR UniekeWeken =
-			                DISTINCT(
-			                    SELECTCOLUMNS(
-			                        FILTER(hours, hours[CardId] = CardID),
-			                        "Week", WEEKNUM(hours[HourDate], 2) & "-" & YEAR(hours[HourDate])
+			                CALCULATETABLE(
+			                    DISTINCT(
+			                        SELECTCOLUMNS(
+			                            hours,
+			                            "Week", WEEKNUM(hours[HourDate], 2) & "-" & YEAR(hours[HourDate])
+			                        )
 			                    )
 			                )
 			
@@ -118,6 +109,8 @@ table measurements
 			    ),
 			    BLANK()
 			)
+			
+			```
 		lineageTag: 119671da-13a1-4585-9baf-b011bc3b42f6
 
 	measure Average_salary =
