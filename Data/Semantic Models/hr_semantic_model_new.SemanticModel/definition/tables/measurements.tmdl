@@ -2782,6 +2782,16 @@ table measurements
 		formatString: 0
 		lineageTag: 0a6daecc-602e-47c9-92f6-9616f2867131
 
+	measure 'Newest Contract Only' = ```
+			
+			VAR IsCurrent = SELECTEDVALUE(contracts_enriched[IsCurrentContract])
+			RETURN IF(IsCurrent = TRUE, 1, BLANK())
+			
+			```
+		formatString: 0
+		isHidden
+		lineageTag: cbf3e090-9e64-4422-98fa-b1ba01fc8295
+
 	column Column
 		lineageTag: cb79abd1-a66d-40b1-9de9-4efafec4d089
 		isNameInferred
