@@ -73,9 +73,9 @@ relationship dce50c9c-79ad-3b5c-8f9b-a274fbb41fc2
 	fromColumn: GLTransactions.Costcenter
 	toColumn: Costcenters.ID
 
-relationship 61f4cd10-1a7d-aed6-faf3-6f62ca96933b
+relationship ff46fc4e-41e7-686e-e8e4-8a7012899de7
 	crossFilteringBehavior: bothDirections
-	securityFilteringBehavior: bothDirections
+	toCardinality: many
 	fromColumn: events.EventId
 	toColumn: Costcenters.Code
 
