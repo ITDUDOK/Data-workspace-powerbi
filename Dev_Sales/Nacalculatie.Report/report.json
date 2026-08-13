@@ -45,6 +45,15 @@
       "name": "ff4732ea7e6e0c9206e0",
       "visualContainers": [
         {
+          "config": "{\"name\":\"25a5021add7da3dc8605\",\"layouts\":[{\"id\":0,\"position\":{\"x\":305.63734290843803,\"y\":83.87791741472172,\"z\":3,\"width\":973.2136445242369,\"height\":622.7648114901257,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"events.EventId\"},{\"queryRef\":\"GLTransactions.Costcenter\"},{\"queryRef\":\"events.EventName\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"GLTransactions\",\"Type\":0},{\"Name\":\"e\",\"Entity\":\"events\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Costcenter\"},\"Name\":\"GLTransactions.Costcenter\",\"NativeReferenceName\":\"Costcenter\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"EventName\"},\"Name\":\"events.EventName\",\"NativeReferenceName\":\"EventName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"EventId\"},\"Name\":\"events.EventId\",\"NativeReferenceName\":\"EventId\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 622.76,
+          "width": 973.21,
+          "x": 305.64,
+          "y": 83.88,
+          "z": 3.00
+        },
+        {
           "config": "{\"name\":\"48ad040ed99448c64072\",\"layouts\":[{\"id\":0,\"position\":{\"x\":80,\"y\":5.555555555555555,\"z\":0,\"height\":80,\"width\":1198.888888888889,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"text\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Nacalculatie'\"}}},\"horizontalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'left'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"rightMargin\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"leftMargin\":{\"expr\":{\"Literal\":{\"Value\":\"10L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"''\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
           "height": 80.00,
           "width": 1198.89,
