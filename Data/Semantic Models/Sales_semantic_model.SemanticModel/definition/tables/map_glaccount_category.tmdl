@@ -1,14 +1,14 @@
 table map_glaccount_category
-	lineageTag: c17c64f8-93dc-4b1a-8443-ea69b6fa2045
+	lineageTag: e19819da-2974-4d43-8872-8a242fddee4b
 
 	column Code
 		dataType: string
-		lineageTag: 78c828fd-d8b4-463a-b9fd-04042927d673
+		lineageTag: d0c7bdc5-d1e6-459f-b794-23f2ca6f1198
 		sourceColumn: Code
 
 	column CategoryName
 		dataType: string
-		lineageTag: 637be81e-1efa-4584-8190-7215954a2479
+		lineageTag: 0cc01ad3-6be5-4d92-b873-8f7294c7ece8
 		sourceColumn: CategoryName
 
 	partition 'map_glaccount_category 1' = entity

@@ -1,29 +1,29 @@
 table GLAccounts
-	lineageTag: 8fc8ad48-2d6e-489d-9b32-bfa3a0ca2074
+	lineageTag: 1be618e2-bcfd-4263-8606-88972a116a59
 
 	column ID
 		dataType: string
-		lineageTag: 504c8585-ad26-460b-bc6a-c66753ff8be7
+		lineageTag: bb229f83-07ee-419b-963d-6fc5509adb78
 		sourceColumn: ID
 
 	column Code
 		dataType: string
-		lineageTag: 38a62dce-a63f-44d4-a612-00cc11fff1ba
+		lineageTag: e941d725-461f-4880-a819-d5f7f5f1f213
 		sourceColumn: Code
 
 	column Description
 		dataType: string
-		lineageTag: 4faec6b1-4bfc-4ec2-a6c6-cdc3a8376187
+		lineageTag: ef69e30e-014e-4306-bc99-979649beb37d
 		sourceColumn: Description
 
 	column Type
 		dataType: int64
-		lineageTag: 434a0f14-fa2c-4a1b-be40-655ca148e61c
+		lineageTag: 6579c5aa-609e-43da-9b06-38d2623d3560
 		sourceColumn: Type
 
 	column BalanceType
 		dataType: string
-		lineageTag: 85d2779d-5ea3-4fe5-b1bd-1f1ad70c5e58
+		lineageTag: d519cae8-8fe7-43f8-8bef-7727774d0980
 		sourceColumn: BalanceType
 
 	partition 'GLAccounts 1' = entity
