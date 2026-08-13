@@ -40,6 +40,10 @@ table events
 		formatString: 0.0%
 		lineageTag: 683516ae-5659-4d3c-a743-95166fd3c7af
 
+	measure 'Heeft GL Registratie' = IF(ISBLANK(CALCULATE(COUNTROWS(GLTransactions))), 0, 1)
+		formatString: 0
+		lineageTag: 84e136a5-693c-4702-aa6c-df8df02f6572
+
 	column EventId
 		dataType: string
 		lineageTag: 90c710c1-94e9-4106-bd76-f541e81ce447
