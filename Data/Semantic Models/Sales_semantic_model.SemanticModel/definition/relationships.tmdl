@@ -90,3 +90,15 @@ relationship 929f0403-c047-4285-9df3-38fc0b537319
 	fromColumn: GLAccounts.Code
 	toColumn: map_glaccount_category.Code
 
+relationship 21807e29-4102-48ec-9b0b-44b95ee25050
+	fromColumn: product_categories.CategoryIdInt
+	toColumn: map_productcategory_category.CategoryIdInt
+
+relationship 3745cffc-df9d-46ca-8e4c-4a976f87ec41
+	fromColumn: map_glaccount_category.CategoryName
+	toColumn: Categories.CategoryName
+
+relationship aa87bd87-475b-4417-be9b-47f3cb990740
+	fromColumn: map_productcategory_category.TargetCategory
+	toColumn: Categories.CategoryName
+

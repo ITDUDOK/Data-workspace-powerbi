@@ -1,0 +1,25 @@
+table map_productcategory_category
+	lineageTag: fed7f915-b528-446f-8ad4-11440848903f
+
+	column CategoryIdInt
+		dataType: int64
+		lineageTag: 4b46db2c-a2e8-400b-a0a3-bc7d9a84fb71
+		sourceColumn: CategoryIdInt
+
+	column CategoryName
+		dataType: string
+		lineageTag: f14244ec-d7f5-4beb-8aa3-4705ca0a05e0
+		sourceColumn: CategoryName
+
+	column TargetCategory
+		dataType: string
+		lineageTag: f59f582a-4e3e-4b74-8a04-e1e5cbaef91b
+		sourceColumn: TargetCategory
+
+	partition 'map_productcategory_category 1' = entity
+		mode: directLake
+		source
+			entityName: map_productcategory_category
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

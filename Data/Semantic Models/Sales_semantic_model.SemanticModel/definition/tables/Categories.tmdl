@@ -1,0 +1,15 @@
+table Categories
+	lineageTag: 24b20160-8f2d-49be-be0a-f309b6973593
+
+	column CategoryName
+		dataType: string
+		lineageTag: e79fd0e1-afaf-4a79-8ef8-d599bedd45cf
+		sourceColumn: CategoryName
+
+	partition 'Categories 1' = entity
+		mode: directLake
+		source
+			entityName: dim_nacalculatie_category
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+
