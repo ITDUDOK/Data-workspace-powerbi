@@ -346,10 +346,17 @@ table employees_enriched
 			)
 		lineageTag: 23caa824-89fb-4804-8553-1d4537f7e4fd
 
-	measure IsUitDienstInPeriode = ```
+	measure IsUitDienstInPeriode =
 			
-			VAR SelectedStartDate = MIN(dates[Date])
-			VAR SelectedEndDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR SelectedStartDate = RawStartDate
+			VAR SelectedEndDate =
+			    IF(
+			        NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate),
+			        EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0),
+			        MAX(dates[Date])
+			    )
 			VAR RowEndDate = MIN(employees_enriched[FinalEndDate])
 			RETURN
 			IF(
@@ -361,8 +368,6 @@ table employees_enriched
 			        BLANK()
 			    )
 			)
-			
-			```
 		formatString: 0
 		lineageTag: ba1f66f4-1bd1-437d-a323-216125ed9154
 
