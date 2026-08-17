@@ -221,3 +221,7 @@ relationship 7c8fac81-9453-420c-9b2c-80a8e094c436
 	fromColumn: employee_business_line.BusinessLine
 	toColumn: business_line.BusinessLine
 
+relationship 88676375-0865-412d-be78-f10f8a97ba28
+	fromColumn: employees_enriched.VerzuimredenColumn
+	toColumn: verzuimcategorieen.Categorie
+
