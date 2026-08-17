@@ -323,14 +323,13 @@ table employees_enriched
 			    ISBLANK(SelectedStartDate),
 			    BLANK(),
 			    VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
-			    VAR AantalMeldingen =
-			        CALCULATE(
-			            DISTINCTCOUNT(sickness[MeldingId]),
-			            sickness[CardId] IN CurrentCardIDs,
-			            sickness[SicknessStart] <= SelectedEndDate,
-			            sickness[SicknessEnd] >= SelectedStartDate
-			        )
-			    RETURN AantalMeldingen
+			    RETURN
+			    CALCULATE(
+			        DISTINCTCOUNT(sickness[MeldingId]),
+			        TREATAS(CurrentCardIDs, sickness[CardId]),
+			        sickness[SicknessStart] <= SelectedEndDate,
+			        sickness[SicknessEnd] >= SelectedStartDate
+			    )
 			)
 		lineageTag: 5b363ee3-557b-4e8c-af95-5d8b53e51f6c
 
