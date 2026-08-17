@@ -364,7 +364,6 @@ table employees_enriched
 			
 			```
 		formatString: 0
-		isHidden
 		lineageTag: ba1f66f4-1bd1-437d-a323-216125ed9154
 
 	column EmployeeId
