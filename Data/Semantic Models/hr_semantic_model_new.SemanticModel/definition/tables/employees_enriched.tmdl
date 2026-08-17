@@ -57,15 +57,11 @@ table employees_enriched
 			    ISBLANK(SelectedStartDate),
 			    0,
 			    SUMX(
-			        SUMMARIZE(
-			            FILTER(
-			                employees_enriched,
-			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
-			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
-			                (ISBLANK(employees_enriched[EmployeeEndDate]) || employees_enriched[EmployeeEndDate] >= SelectedStartDate)
-			            ),
-			            employees_enriched[FullName],
-			            "MaxHours", MAX(employees_enriched[ContractHours])
+			        CALCULATETABLE(
+			            SUMMARIZE(employees_enriched, employees_enriched[FullName], "MaxHours", MAX(employees_enriched[ContractHours])),
+			            NOT(ISBLANK(employees_enriched[EmployeeStartDate])),
+			            employees_enriched[EmployeeStartDate] <= SelectedEndDate,
+			            OR(ISBLANK(employees_enriched[EmployeeEndDate]), employees_enriched[EmployeeEndDate] >= SelectedStartDate)
 			        ),
 			        DIVIDE([MaxHours], StandardHours, 0)
 			    )
@@ -81,16 +77,12 @@ table employees_enriched
 			    ISBLANK(SelectedStartDate),
 			    BLANK(),
 			    AVERAGEX(
-			        SUMMARIZE(
-			            FILTER(
-			                employees_enriched,
-			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
-			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
-			                (ISBLANK(employees_enriched[EmployeeEndDate]) || employees_enriched[EmployeeEndDate] >= SelectedStartDate) &&
-			                NOT(ISBLANK(employees_enriched[SalaryRate]))
-			            ),
-			            employees_enriched[FullName],
-			            "MaxSalaryRate", MAX(employees_enriched[SalaryRate])
+			        CALCULATETABLE(
+			            SUMMARIZE(employees_enriched, employees_enriched[FullName], "MaxSalaryRate", MAX(employees_enriched[SalaryRate])),
+			            NOT(ISBLANK(employees_enriched[EmployeeStartDate])),
+			            employees_enriched[EmployeeStartDate] <= SelectedEndDate,
+			            OR(ISBLANK(employees_enriched[EmployeeEndDate]), employees_enriched[EmployeeEndDate] >= SelectedStartDate),
+			            NOT(ISBLANK(employees_enriched[SalaryRate]))
 			        ),
 			        [MaxSalaryRate]
 			    )
@@ -107,16 +99,12 @@ table employees_enriched
 			    ISBLANK(SelectedStartDate),
 			    BLANK(),
 			    VAR ActiveEmployees =
-			        SUMMARIZE(
-			            FILTER(
-			                employees_enriched,
-			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
-			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
-			                (ISBLANK(employees_enriched[EmployeeEndDate]) || employees_enriched[EmployeeEndDate] >= SelectedStartDate) &&
-			                NOT(ISBLANK(employees_enriched[DateOfBirth]))
-			            ),
-			            employees_enriched[FullName],
-			            "DateOfBirth", MAX(employees_enriched[DateOfBirth])
+			        CALCULATETABLE(
+			            SUMMARIZE(employees_enriched, employees_enriched[FullName], "DateOfBirth", MAX(employees_enriched[DateOfBirth])),
+			            NOT(ISBLANK(employees_enriched[EmployeeStartDate])),
+			            employees_enriched[EmployeeStartDate] <= SelectedEndDate,
+			            OR(ISBLANK(employees_enriched[EmployeeEndDate]), employees_enriched[EmployeeEndDate] >= SelectedStartDate),
+			            NOT(ISBLANK(employees_enriched[DateOfBirth]))
 			        )
 			    VAR TotalAge =
 			        SUMX(
@@ -143,15 +131,16 @@ table employees_enriched
 			IF(
 			    ISBLANK(SelectedStartDate),
 			    BLANK(),
+			    VAR PreFiltered =
+			        CALCULATETABLE(
+			            employees_enriched,
+			            NOT(ISBLANK(employees_enriched[EmployeeStartDate])),
+			            employees_enriched[EmployeeStartDate] >= SelectedStartDate,
+			            employees_enriched[EmployeeStartDate] <= SelectedEndDate
+			        )
 			    VAR NewEmployees =
 			        SUMMARIZE(
-			            FILTER(
-			                employees_enriched,
-			                CALCULATE([Historical Employee Active]) = 1 &&
-			                employees_enriched[EmployeeStartDate] >= SelectedStartDate &&
-			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
-			                NOT(ISBLANK(employees_enriched[EmployeeStartDate]))
-			            ),
+			            FILTER(PreFiltered, CALCULATE([Historical Employee Active]) = 1),
 			            employees_enriched[FullName]
 			        )
 			    RETURN COUNTROWS(NewEmployees)
@@ -286,16 +275,12 @@ table employees_enriched
 			    ISBLANK(SelectedStartDate),
 			    BLANK(),
 			    VAR ActiveEmployees =
-			        SUMMARIZE(
-			            FILTER(
-			                employees_enriched,
-			                NOT(ISBLANK(employees_enriched[EmployeeStartDate])) &&
-			                employees_enriched[EmployeeStartDate] <= SelectedEndDate &&
-			                (ISBLANK(employees_enriched[EmployeeEndDate]) || employees_enriched[EmployeeEndDate] >= SelectedStartDate) &&
-			                NOT(ISBLANK(employees_enriched[HourlySalary]))
-			            ),
-			            employees_enriched[FullName],
-			            "MaxHourlySalary", MAX(employees_enriched[HourlySalary])
+			        CALCULATETABLE(
+			            SUMMARIZE(employees_enriched, employees_enriched[FullName], "MaxHourlySalary", MAX(employees_enriched[HourlySalary])),
+			            NOT(ISBLANK(employees_enriched[EmployeeStartDate])),
+			            employees_enriched[EmployeeStartDate] <= SelectedEndDate,
+			            OR(ISBLANK(employees_enriched[EmployeeEndDate]), employees_enriched[EmployeeEndDate] >= SelectedStartDate),
+			            NOT(ISBLANK(employees_enriched[HourlySalary]))
 			        )
 			    VAR TotalSalary = SUMX(ActiveEmployees, [MaxHourlySalary])
 			    VAR TotalPersons = COUNTROWS(ActiveEmployees)
