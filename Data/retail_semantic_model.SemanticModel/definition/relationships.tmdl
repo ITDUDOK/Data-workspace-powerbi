@@ -204,3 +204,11 @@ relationship 78a5c05c-dcbe-4fe8-92d8-7dddebd3b9a4
 	fromColumn: historic_cake_sales.CenterKey
 	toColumn: centers.CenterKey
 
+relationship 75e4d64c-cd19-49d4-9e73-f3653591485b
+	fromColumn: historic_cake_sales.CakeType
+	toColumn: dim_cake_type.CakeType
+
+relationship 721b30f4-f364-41b4-b080-b833be6514a0
+	fromColumn: predicted_cake_sales.CakeType
+	toColumn: dim_cake_type.CakeType
+
