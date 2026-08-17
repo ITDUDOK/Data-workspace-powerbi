@@ -50,6 +50,11 @@ table employee_business_line
 
 		annotation SummarizationSetBy = Automatic
 
+	column EffectiveOfficeName
+		dataType: string
+		lineageTag: 49589e32-eea7-4aa9-bb70-5dbd53b2ac3b
+		sourceColumn: EffectiveOfficeName
+
 	partition employee_business_line = entity
 		mode: directLake
 		source
