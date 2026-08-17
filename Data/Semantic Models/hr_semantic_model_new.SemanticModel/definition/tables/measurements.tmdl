@@ -6,11 +6,11 @@ table measurements
 		formatString: 0
 		lineageTag: 146f6a4d-881d-438d-9719-d5a78e96e06e
 
-	measure FTE = ```
+	measure FTE =
 			
 			VAR GekozenDatum = SELECTEDVALUE(dates[Date])
 			VAR GekozenMaand = SELECTEDVALUE(dates[Month])
-			VAR GekozenWeek = SELECTEDVALUE(dates[WeekISO])  -- Adjust column name if needed
+			VAR GekozenWeek = SELECTEDVALUE(dates[WeekISO])
 			VAR GekozenJaar = SELECTEDVALUE(dates[YearISO])
 			
 			VAR BeginPeriode =
@@ -22,7 +22,7 @@ table measurements
 			            CALCULATE(
 			                MIN(dates[Date]),
 			                dates[Month] = GekozenMaand,
-			                dates[YearISO] = GekozenJaar
+			                dates[Year] = GekozenJaar
 			            ),
 			            IF(
 			                NOT ISBLANK(GekozenWeek) && NOT ISBLANK(GekozenJaar),
@@ -45,7 +45,7 @@ table measurements
 			            CALCULATE(
 			                MAX(dates[Date]),
 			                dates[Month] = GekozenMaand,
-			                dates[YearISO] = GekozenJaar
+			                dates[Year] = GekozenJaar
 			            ),
 			            IF(
 			                NOT ISBLANK(GekozenWeek) && NOT ISBLANK(GekozenJaar),
@@ -109,15 +109,13 @@ table measurements
 			    ),
 			    BLANK()
 			)
-			
-			```
 		lineageTag: 119671da-13a1-4585-9baf-b011bc3b42f6
 
 	measure Average_salary =
 			
 			VAR GekozenDatum = SELECTEDVALUE(dates[Date])
 			VAR GekozenMaand = SELECTEDVALUE(dates[Month])
-			VAR GekozenWeek = SELECTEDVALUE(dates[WeekISO])  -- Adjust column name if needed
+			VAR GekozenWeek = SELECTEDVALUE(dates[WeekISO])
 			VAR GekozenJaar = SELECTEDVALUE(dates[YearISO])
 			
 			VAR BeginPeriode =
@@ -129,7 +127,7 @@ table measurements
 			            CALCULATE(
 			                MIN(dates[Date]),
 			                dates[Month] = GekozenMaand,
-			                dates[YearISO] = GekozenJaar
+			                dates[Year] = GekozenJaar
 			            ),
 			            IF(
 			                NOT ISBLANK(GekozenWeek) && NOT ISBLANK(GekozenJaar),
@@ -152,7 +150,7 @@ table measurements
 			            CALCULATE(
 			                MAX(dates[Date]),
 			                dates[Month] = GekozenMaand,
-			                dates[YearISO] = GekozenJaar
+			                dates[Year] = GekozenJaar
 			            ),
 			            IF(
 			                NOT ISBLANK(GekozenWeek) && NOT ISBLANK(GekozenJaar),
@@ -186,7 +184,7 @@ table measurements
 			
 			VAR GekozenDatum = SELECTEDVALUE(dates[Date])
 			VAR GekozenMaand = SELECTEDVALUE(dates[Month])
-			VAR GekozenWeek = SELECTEDVALUE(dates[WeekISO])  -- Adjust column name if needed
+			VAR GekozenWeek = SELECTEDVALUE(dates[WeekISO])
 			VAR GekozenJaar = SELECTEDVALUE(dates[YearISO])
 			
 			VAR BeginPeriode =
@@ -198,7 +196,7 @@ table measurements
 			            CALCULATE(
 			                MIN(dates[Date]),
 			                dates[Month] = GekozenMaand,
-			                dates[YearISO] = GekozenJaar
+			                dates[Year] = GekozenJaar
 			            ),
 			            IF(
 			                NOT ISBLANK(GekozenWeek) && NOT ISBLANK(GekozenJaar),
@@ -221,7 +219,7 @@ table measurements
 			            CALCULATE(
 			                MAX(dates[Date]),
 			                dates[Month] = GekozenMaand,
-			                dates[YearISO] = GekozenJaar
+			                dates[Year] = GekozenJaar
 			            ),
 			            IF(
 			                NOT ISBLANK(GekozenWeek) && NOT ISBLANK(GekozenJaar),
@@ -266,7 +264,7 @@ table measurements
 			
 			VAR GekozenDatum = SELECTEDVALUE(dates[Date])
 			VAR GekozenMaand = SELECTEDVALUE(dates[Month])
-			VAR GekozenWeek = SELECTEDVALUE(dates[WeekISO])  -- Adjust column name if needed
+			VAR GekozenWeek = SELECTEDVALUE(dates[WeekISO])
 			VAR GekozenJaar = SELECTEDVALUE(dates[YearISO])
 			
 			VAR BeginPeriode =
@@ -278,7 +276,7 @@ table measurements
 			            CALCULATE(
 			                MIN(dates[Date]),
 			                dates[Month] = GekozenMaand,
-			                dates[YearISO] = GekozenJaar
+			                dates[Year] = GekozenJaar
 			            ),
 			            IF(
 			                NOT ISBLANK(GekozenWeek) && NOT ISBLANK(GekozenJaar),
@@ -301,7 +299,7 @@ table measurements
 			            CALCULATE(
 			                MAX(dates[Date]),
 			                dates[Month] = GekozenMaand,
-			                dates[YearISO] = GekozenJaar
+			                dates[Year] = GekozenJaar
 			            ),
 			            IF(
 			                NOT ISBLANK(GekozenWeek) && NOT ISBLANK(GekozenJaar),
@@ -332,11 +330,11 @@ table measurements
 		formatString: 0
 		lineageTag: fd4aa140-7686-495d-94d8-289755044150
 
-	measure Aantal_InDienst_In_Periode = ```
+	measure Aantal_InDienst_In_Periode =
 			
 			VAR GekozenDatum = SELECTEDVALUE(dates[Date])
 			VAR GekozenMaand = SELECTEDVALUE(dates[Month])
-			VAR GekozenWeek = SELECTEDVALUE(dates[WeekISO])  -- Adjust column name if needed
+			VAR GekozenWeek = SELECTEDVALUE(dates[WeekISO])
 			VAR GekozenJaar = SELECTEDVALUE(dates[YearISO])
 			
 			VAR BeginPeriode =
@@ -348,7 +346,7 @@ table measurements
 			            CALCULATE(
 			                MIN(dates[Date]),
 			                dates[Month] = GekozenMaand,
-			                dates[YearISO] = GekozenJaar
+			                dates[Year] = GekozenJaar
 			            ),
 			            IF(
 			                NOT ISBLANK(GekozenWeek) && NOT ISBLANK(GekozenJaar),
@@ -371,7 +369,7 @@ table measurements
 			            CALCULATE(
 			                MAX(dates[Date]),
 			                dates[Month] = GekozenMaand,
-			                dates[YearISO] = GekozenJaar
+			                dates[Year] = GekozenJaar
 			            ),
 			            IF(
 			                NOT ISBLANK(GekozenWeek) && NOT ISBLANK(GekozenJaar),
@@ -396,8 +394,6 @@ table measurements
 			    ),
 			    BLANK()
 			)
-			
-			```
 		formatString: 0
 		lineageTag: 6673d876-c63d-440d-8b7e-aa125d2b2aaf
 
@@ -412,26 +408,24 @@ table measurements
 		formatString: 0
 		lineageTag: 67dbea93-5484-43af-9be2-cfe26a611f02
 
-	measure GemiddeldeDiensttijd = ```
+	measure GemiddeldeDiensttijd =
 			
-			VAR GekozenEindDatum = MAX(dates[Date])  -- laatste datum in selectie (einde van de periode)
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR GekozenEindDatum = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			RETURN
 			IF(
 			    ISBLANK(GekozenEindDatum),
 			    BLANK(),
 			    AVERAGEX(
 			        FILTER(
-			            employments,  -- vervang met de naam van je tabel met contracten
+			            employments,
 			            employments[endDate] <= GekozenEindDatum
 			            && (ISBLANK(employments[endDate]) || employments[endDate] >= GekozenEindDatum)
 			        ),
-			        -- Bereken diensttijd: verschil tussen gekozen einddatum en startdatum
-			        DATEDIFF(employments[startDate], GekozenEindDatum, YEAR)  
-			        -- Je kan DAY vervangen door YEAR als je gemiddelde in jaren wil
+			        DATEDIFF(employments[startDate], GekozenEindDatum, YEAR)
 			    )
 			)
-			
-			```
 		lineageTag: 1662f18b-b696-45a0-8dcf-cae8e05fe9b9
 
 	measure AantalLocatiesPerMedewerker = ```
@@ -1438,10 +1432,12 @@ table measurements
 			```
 		lineageTag: 53e318df-32e5-4f1a-bbb5-bba8b8d3688f
 
-	measure 'VK Diag Contracturen Bijdrage' = ```
+	measure 'VK Diag Contracturen Bijdrage' =
 			
-			VAR MinDate = MIN(dates[Date])
-			VAR MaxDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR MinDate = RawStartDate
+			VAR MaxDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			RETURN
 			SUMX(
 			    'employees_enriched',
@@ -1450,7 +1446,7 @@ table measurements
 			    VAR EmpEnd   = COALESCE(employees_enriched[EmployeeEndDate], MaxDate)
 			    VAR OverlapStart = MAX(EmpStart, MinDate)
 			    VAR OverlapEnd   = MIN(EmpEnd,   MaxDate)
-			    VAR OverlapDays  = 
+			    VAR OverlapDays  =
 			        IF(
 			            NOT ISBLANK(EmpStart) && OverlapStart <= OverlapEnd,
 			            OverlapEnd - OverlapStart + 1,
@@ -1458,13 +1454,14 @@ table measurements
 			        )
 			    RETURN COALESCE(WeeklyHours, 0) * DIVIDE(OverlapDays, 7, 0)
 			)
-			```
 		lineageTag: ee453f7b-4df6-4411-aa60-0bb07755994b
 
 	measure 'VK Diag Overlap Dagen' =
 			
-			VAR MinDate = MIN(dates[Date])
-			VAR MaxDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR MinDate = RawStartDate
+			VAR MaxDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			RETURN
 			SUMX(
 			    'employees_enriched',
@@ -2445,10 +2442,12 @@ table measurements
 		formatString: 0%;-0%;0%
 		lineageTag: 2f57f311-8c17-4726-b48c-97171bd46f89
 
-	measure 'VK Contracturen' = ```
+	measure 'VK Contracturen' =
 			
-			VAR MinDate = MIN(dates[Date])
-			VAR MaxDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR MinDate = RawStartDate
+			VAR MaxDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			VAR CurrentOffices = VALUES(offices[OfficeId])
 			VAR SourceOffices =
 			    CALCULATETABLE(
@@ -2479,17 +2478,17 @@ table measurements
 			        REMOVEFILTERS(offices)
 			    )
 			)
-			
-			```
 		formatString: #,0
 		lineageTag: c40ae1d2-150d-47bc-aae2-aa2706075949
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
-	measure 'VK Ziekteuren' = ```
+	measure 'VK Ziekteuren' =
 			
-			VAR MinDate = MIN(dates[Date])
-			VAR MaxDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR MinDate = RawStartDate
+			VAR MaxDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			VAR CurrentOffices = VALUES(offices[OfficeId])
 			VAR SourceOffices =
 			    CALCULATETABLE(
@@ -2521,8 +2520,6 @@ table measurements
 			        REMOVEFILTERS(offices)
 			    )
 			)
-			
-			```
 		formatString: #,0
 		lineageTag: 8fd72edf-8b2b-41b6-9c89-8a9703cd82f6
 
@@ -2671,10 +2668,12 @@ table measurements
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 5693c00e-7a68-484d-b305-85c450d60483
 
-	measure 'VK Loonkosten Gewicht' = ```
+	measure 'VK Loonkosten Gewicht' =
 			
-			VAR MinDate = MIN(dates[Date])
-			VAR MaxDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR MinDate = RawStartDate
+			VAR MaxDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			VAR CurrentOffices = VALUES(offices[OfficeId])
 			VAR SourceOffices =
 			    CALCULATETABLE(
@@ -2706,15 +2705,15 @@ table measurements
 			        REMOVEFILTERS(offices)
 			    )
 			)
-			
-			```
 		isHidden
 		lineageTag: d91c1cf1-39d4-4cf2-8633-0c4855716a9d
 
-	measure 'VK Ziekte Gewicht' = ```
+	measure 'VK Ziekte Gewicht' =
 			
-			VAR MinDate = MIN(dates[Date])
-			VAR MaxDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR MinDate = RawStartDate
+			VAR MaxDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			VAR CurrentOffices = VALUES(offices[OfficeId])
 			VAR SourceOffices =
 			    CALCULATETABLE(
@@ -2753,8 +2752,6 @@ table measurements
 			        REMOVEFILTERS(offices)
 			    )
 			)
-			
-			```
 		isHidden
 		lineageTag: ee140865-ae90-4e95-8e20-f916cacfdd7b
 

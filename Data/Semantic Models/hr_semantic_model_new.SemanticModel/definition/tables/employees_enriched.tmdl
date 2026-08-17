@@ -49,9 +49,11 @@ table employees_enriched
 
 	measure 'FTE EMPLOYEES' =
 			
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
 			VAR StandardHours = 38
-			VAR SelectedStartDate = MIN(dates[Date])
-			VAR SelectedEndDate = MAX(dates[Date])
+			VAR SelectedStartDate = RawStartDate
+			VAR SelectedEndDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			RETURN
 			IF(
 			    ISBLANK(SelectedStartDate),
@@ -70,8 +72,10 @@ table employees_enriched
 
 	measure 'Gem. Uurloon incl' =
 			
-			VAR SelectedStartDate = MIN(dates[Date])
-			VAR SelectedEndDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR SelectedStartDate = RawStartDate
+			VAR SelectedEndDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			RETURN
 			IF(
 			    ISBLANK(SelectedStartDate),
@@ -91,8 +95,10 @@ table employees_enriched
 
 	measure 'Gem. Leeftijd' =
 			
-			VAR SelectedStartDate = MIN(dates[Date])
-			VAR SelectedEndDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR SelectedStartDate = RawStartDate
+			VAR SelectedEndDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			VAR ReferenceDate = TODAY()
 			RETURN
 			IF(
@@ -125,8 +131,10 @@ table employees_enriched
 
 	measure 'In Dienst' =
 			
-			VAR SelectedStartDate = MIN(dates[Date])
-			VAR SelectedEndDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR SelectedStartDate = RawStartDate
+			VAR SelectedEndDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			RETURN
 			IF(
 			    ISBLANK(SelectedStartDate),
@@ -149,8 +157,10 @@ table employees_enriched
 
 	measure 'Uit Dienst' =
 			
-			VAR SelectedStartDate = MIN(dates[Date])
-			VAR SelectedEndDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR SelectedStartDate = RawStartDate
+			VAR SelectedEndDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			RETURN
 			IF(
 			    ISBLANK(SelectedStartDate),
@@ -268,8 +278,10 @@ table employees_enriched
 
 	measure 'Gem. Uurloon excl' =
 			
-			VAR SelectedStartDate = MIN(dates[Date])
-			VAR SelectedEndDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR SelectedStartDate = RawStartDate
+			VAR SelectedEndDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			RETURN
 			IF(
 			    ISBLANK(SelectedStartDate),
@@ -324,8 +336,10 @@ table employees_enriched
 
 	measure 'Actieve Medewerkers in Periode' =
 			
-			VAR SelectedStartDate = MIN(dates[Date])
-			VAR SelectedEndDate = MAX(dates[Date])
+			VAR RawStartDate = MIN(dates[Date])
+			VAR SelectedMonthName = SELECTEDVALUE(dates[MonthName])
+			VAR SelectedStartDate = RawStartDate
+			VAR SelectedEndDate = IF(NOT ISBLANK(SelectedMonthName) && NOT ISBLANK(RawStartDate), EOMONTH(DATE(YEAR(RawStartDate), MONTH(RawStartDate), 1), 0), MAX(dates[Date]))
 			RETURN
 			IF(
 			    ISBLANK(SelectedStartDate),
