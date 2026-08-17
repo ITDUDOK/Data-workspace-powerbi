@@ -155,10 +155,11 @@ table employees_enriched
 			IF(
 			    ISBLANK(SelectedStartDate),
 			    0,
+			    VAR RelevantEmployeeIds = VALUES(employees_enriched[EmployeeId])
 			    VAR LeftEmployeeIds =
 			        FILTER(
-			            ALL(employments[EmployeeId]),
-			            VAR CurrentEmpId = employments[EmployeeId]
+			            RelevantEmployeeIds,
+			            VAR CurrentEmpId = employees_enriched[EmployeeId]
 			            VAR HasEndInPeriod =
 			                CALCULATE(
 			                    COUNTROWS(employments),
@@ -167,8 +168,7 @@ table employees_enriched
 			                    employments[EndDate] >= SelectedStartDate,
 			                    employments[EndDate] <= SelectedEndDate
 			                ) > 0
-			            VAR IsCurrentCompanyEmployee = CurrentEmpId IN VALUES(employees_enriched[EmployeeId])
-			            RETURN HasEndInPeriod && IsCurrentCompanyEmployee
+			            RETURN HasEndInPeriod
 			        )
 			    RETURN COUNTROWS(LeftEmployeeIds)
 			)
