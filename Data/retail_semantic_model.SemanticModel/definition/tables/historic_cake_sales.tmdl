@@ -1,0 +1,50 @@
+table historic_cake_sales
+	lineageTag: 0231c90a-e04f-4c97-8ac9-6cbc6588c439
+
+	column HistoricCakeSaleId
+		dataType: int64
+		lineageTag: 5c4fb4f0-06d0-431d-b7b1-aa6892a90467
+		sourceColumn: HistoricCakeSaleId
+
+	column TicketDate
+		dataType: dateTime
+		lineageTag: 9ce1aa85-b66a-422d-afa1-2437ba6f294d
+		sourceColumn: TicketDate
+
+	column CenterKey
+		dataType: string
+		lineageTag: 83e6bd5e-a9e4-4900-b2a2-89c2ffb6737e
+		sourceColumn: CenterKey
+
+	column CenterName
+		dataType: string
+		lineageTag: 2ce9ff84-2c7b-4871-92f6-463b8eaac2fa
+		sourceColumn: CenterName
+
+	column CakeType
+		dataType: string
+		lineageTag: 7772d491-48a1-4bc9-9d79-97528b12dfd8
+		sourceColumn: CakeType
+
+	column SizeCategory
+		dataType: string
+		lineageTag: 68933b58-d56b-481e-8f81-eab3f02e7d59
+		sourceColumn: SizeCategory
+
+	column TotalQuantity
+		dataType: int64
+		lineageTag: 95c9d2a9-1e2c-4334-82a3-0e6d69b53f2c
+		sourceColumn: TotalQuantity
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: d0945177-099d-47ec-b5fa-747e7a34a15c
+		sourceColumn: ModifiedAt
+
+	partition 'historic_cake_sales 1' = entity
+		mode: directLake
+		source
+			entityName: historic_cake_sales
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

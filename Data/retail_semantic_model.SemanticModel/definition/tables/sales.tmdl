@@ -294,6 +294,11 @@ table sales
 
 		annotation SummarizationSetBy = Automatic
 
+	column ActionId
+		dataType: int64
+		lineageTag: 86f98637-3479-405e-bcdc-1f817d960c1f
+		sourceColumn: ActionId
+
 	partition sales = entity
 		mode: directLake
 		source

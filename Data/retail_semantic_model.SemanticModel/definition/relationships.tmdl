@@ -180,3 +180,27 @@ relationship 72b258dc-79f1-4fd4-a03d-fdfd60d812d4
 	fromColumn: sales.TicketKey
 	toColumn: tickets.TicketKey
 
+relationship 640562cb-033e-4ff9-b793-6b5aecd96237
+	fromColumn: centers.CenterKey
+	toColumn: bridge_center_office.CenterKey
+
+relationship 53a25a21-e1ca-47d8-921c-fc16b02de453
+	fromColumn: bridge_center_office.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 8eebaf04-1f5b-46a3-b5c1-1721fd06c718
+	fromColumn: employees_enriched.CardId
+	toColumn: staff.CardId
+
+relationship 48573f5d-dbc0-455c-90c1-d9894366ef73
+	fromColumn: contracts_enriched.EmployeeId
+	toColumn: employees_enriched.EmployeeId
+
+relationship 30a73668-a4ba-4ec3-b414-a8fa1329ba80
+	fromColumn: historic_cake_sales.TicketDate
+	toColumn: dates.Date
+
+relationship 78a5c05c-dcbe-4fe8-92d8-7dddebd3b9a4
+	fromColumn: historic_cake_sales.CenterKey
+	toColumn: centers.CenterKey
+

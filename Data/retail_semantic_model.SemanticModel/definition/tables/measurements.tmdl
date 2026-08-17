@@ -638,6 +638,18 @@ table measurements
 			)
 		lineageTag: 8bfde319-974b-4da1-bbf9-e9171a90f826
 
+	measure TotalRefund =
+			
+			CALCULATE(
+			    SUMX(
+			        DISTINCT(sales[TicketKey]),
+			        FIRSTNONBLANK(sales[TicketTotalPrice], 1)
+			    ),
+			    sales[ActionId] = 15
+			)
+		formatString: 0
+		lineageTag: cca3d46e-414b-4761-bba5-7d89180c2467
+
 	column Column
 		isNameInferred
 		sourceColumn: [Column]
