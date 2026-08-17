@@ -74,8 +74,9 @@ table measurements
 		lineageTag: d2f0f6ef-75ae-4e85-b243-c651514085d8
 
 	measure 'Total Rows Only' =
+			
 			IF (
-			    HASONEVALUE ( 'events'[EventName] ),
+			    HASONEVALUE ( 'events'[EventLabel] ),
 			    BLANK (),
 			    COUNTROWS ( 'events' )
 			)
