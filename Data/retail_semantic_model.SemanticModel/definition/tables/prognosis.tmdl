@@ -1,0 +1,95 @@
+table prognosis
+	lineageTag: 6994beac-0438-4709-ac96-dfc4843d1858
+	sourceLineageTag: [dbo].[prognosis]
+
+	column PrognosisId
+		dataType: int64
+		formatString: 0
+		lineageTag: 3423886c-ab1f-4453-9d52-5c8a6a6dcb53
+		sourceLineageTag: PrognosisId
+		summarizeBy: count
+		sourceColumn: PrognosisId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c484280-5aa4-4a1c-b9a8-f266c2d7c106
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrognosisDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2cbb5efd-31e3-46dc-849d-e1b1f8974800
+		sourceLineageTag: PrognosisDate
+		summarizeBy: none
+		sourceColumn: PrognosisDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column TypeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 065e691b-d62a-4ede-83aa-5d118c7e5018
+		sourceLineageTag: TypeId
+		summarizeBy: count
+		sourceColumn: TypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrognosisGuests
+		dataType: int64
+		formatString: 0
+		lineageTag: a214f392-3d5c-48c2-b9c3-55292d61691e
+		sourceLineageTag: PrognosisGuests
+		summarizeBy: sum
+		sourceColumn: PrognosisGuests
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrognosisSpending
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1f54e6af-fddc-44da-96ad-1241022bf828
+		sourceLineageTag: PrognosisSpending
+		summarizeBy: sum
+		sourceColumn: PrognosisSpending
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column PrognosisTurnover
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 34eded50-9c88-40a3-912c-e22580ad7e04
+		sourceLineageTag: PrognosisTurnover
+		summarizeBy: sum
+		sourceColumn: PrognosisTurnover
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6d4e461a-bc07-4ce0-9666-3a2a1a41f2bc
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition prognosis = entity
+		mode: directLake
+		source
+			entityName: prognosis
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

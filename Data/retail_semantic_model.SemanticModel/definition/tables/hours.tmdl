@@ -1,0 +1,327 @@
+table hours
+	lineageTag: d093e238-8254-460a-be85-1f8a576d17ef
+	sourceLineageTag: [dbo].[hours]
+
+	column HourId
+		dataType: int64
+		formatString: 0
+		lineageTag: 48210236-7c17-4fd8-906d-18c65f25daa0
+		sourceLineageTag: HourId
+		summarizeBy: count
+		sourceColumn: HourId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		lineageTag: 3409f197-005e-42d9-80e6-4a67d42e5553
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: 7d781e24-a106-4b68-87cb-914dfe5a5c32
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: 90123d2c-605d-432a-803d-4cc0536257d3
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardId
+		dataType: int64
+		formatString: 0
+		lineageTag: 570b905d-33b7-4eec-886e-5e77c621adda
+		sourceLineageTag: CardId
+		summarizeBy: count
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardName
+		dataType: string
+		lineageTag: ca88c327-0099-4bc5-b53b-d90dcb27edc7
+		sourceLineageTag: CardName
+		summarizeBy: none
+		sourceColumn: CardName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 303b7814-f6cb-4009-ad72-ca4e24832d37
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: f33ee9f2-97bf-48e9-91fd-8d5f05406aca
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourDepartmentId
+		dataType: int64
+		formatString: 0
+		lineageTag: 867e7611-e166-4ff7-af29-5c2b14f341c7
+		sourceLineageTag: HourDepartmentId
+		summarizeBy: count
+		sourceColumn: HourDepartmentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourTeamId
+		dataType: int64
+		formatString: 0
+		lineageTag: e7e5c7ab-5f4e-4431-88ad-1ef1153572f1
+		sourceLineageTag: HourTeamId
+		summarizeBy: count
+		sourceColumn: HourTeamId
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b6682877-26d5-46aa-bbd3-509cf83fcd26
+		sourceLineageTag: HourDate
+		summarizeBy: none
+		sourceColumn: HourDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2865ce02-5215-428a-9a4f-609fbc79b031
+		sourceLineageTag: HourHours
+		summarizeBy: sum
+		sourceColumn: HourHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column HourEnter
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7638905b-e332-4496-9944-2804c0488175
+		sourceLineageTag: HourEnter
+		summarizeBy: none
+		sourceColumn: HourEnter
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourExit
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 61b5f87f-b626-4162-a19c-fdfd8e5f1e39
+		sourceLineageTag: HourExit
+		summarizeBy: none
+		sourceColumn: HourExit
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourState
+		dataType: int64
+		formatString: 0
+		lineageTag: db4e3f16-e752-4b7e-a293-2f616a4b79ba
+		sourceLineageTag: HourState
+		summarizeBy: sum
+		sourceColumn: HourState
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourType
+		dataType: int64
+		formatString: 0
+		lineageTag: 71be5d40-76f7-4e74-9b3a-e86acb482afd
+		sourceLineageTag: HourType
+		summarizeBy: sum
+		sourceColumn: HourType
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourTypeName
+		dataType: string
+		lineageTag: bc45342e-e5cb-4bb0-ba8d-04d5995297f4
+		sourceLineageTag: HourTypeName
+		summarizeBy: none
+		sourceColumn: HourTypeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectId
+		dataType: string
+		lineageTag: 9be87988-bf0f-4172-8a02-b07ce2a97d25
+		sourceLineageTag: ProjectId
+		summarizeBy: none
+		sourceColumn: ProjectId
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourBreak
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8035671f-306b-4323-8907-4f8d00ba9864
+		sourceLineageTag: HourBreak
+		summarizeBy: sum
+		sourceColumn: HourBreak
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column IsFutureDated
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 26e692d5-0f15-43e7-ae99-3d36a8e0b881
+		sourceLineageTag: IsFutureDated
+		summarizeBy: none
+		sourceColumn: IsFutureDated
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 744e033d-f05b-4356-a2b2-80e88db2f29c
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsExternalLabor
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b6852cdc-3c1d-4b05-b593-6c8b1da1eb9c
+		sourceLineageTag: IsExternalLabor
+		summarizeBy: none
+		sourceColumn: IsExternalLabor
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsAnomalousHours
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 62d7c80f-3cea-4898-9820-d1fdaacabea7
+		sourceLineageTag: IsAnomalousHours
+		summarizeBy: none
+		sourceColumn: IsAnomalousHours
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnomalyReason
+		dataType: string
+		lineageTag: 1b4d63b4-bb35-4ac7-b497-77477be054e7
+		sourceLineageTag: AnomalyReason
+		summarizeBy: none
+		sourceColumn: AnomalyReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourDepartmentName
+		dataType: string
+		lineageTag: 75569b41-ec1f-48a7-aaf0-786dc03cc826
+		sourceLineageTag: HourDepartmentName
+		summarizeBy: none
+		sourceColumn: HourDepartmentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourOfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: a29e4665-f08c-4f5b-a557-a3cb923a280e
+		sourceLineageTag: HourOfficeId
+		summarizeBy: count
+		sourceColumn: HourOfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourEnterNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: cd2df9f5-1d30-47e7-984a-94dad775aece
+		sourceLineageTag: HourEnterNumber
+		summarizeBy: sum
+		sourceColumn: HourEnterNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourExitNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ec385ae-a9f9-446c-8818-5163cc01979b
+		sourceLineageTag: HourExitNumber
+		summarizeBy: sum
+		sourceColumn: HourExitNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourEnterDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8827e37e-b882-4991-9982-48f91aa2262a
+		sourceLineageTag: HourEnterDate
+		summarizeBy: none
+		sourceColumn: HourEnterDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourExitDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1ad49af0-2e14-4a26-b5ab-50041fb69ffe
+		sourceLineageTag: HourExitDate
+		summarizeBy: none
+		sourceColumn: HourExitDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalaryRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 844ec31e-416d-4c61-ad39-e5c7dc0cdb7f
+		sourceLineageTag: SalaryRate
+		summarizeBy: sum
+		sourceColumn: SalaryRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column HourOfficeName
+		dataType: string
+		lineageTag: 32ca5d48-6bd1-4d1c-a7bb-db0848f67a89
+		sourceLineageTag: HourOfficeName
+		summarizeBy: none
+		sourceColumn: HourOfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hours = entity
+		mode: directLake
+		source
+			entityName: hours
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

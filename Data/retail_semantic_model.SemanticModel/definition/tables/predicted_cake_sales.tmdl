@@ -1,0 +1,106 @@
+table predicted_cake_sales
+	lineageTag: 0840db60-b12a-48ba-9982-2c11c2c31923
+	sourceLineageTag: [dbo].[predicted_cake_sales]
+
+	column PredictedCakeSaleId
+		dataType: int64
+		formatString: 0
+		lineageTag: 4734723c-61d2-47ba-a0f6-71821cd59c08
+		sourceLineageTag: PredictedCakeSaleId
+		summarizeBy: count
+		sourceColumn: PredictedCakeSaleId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PredictionDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b2214820-e9cc-4e66-a4ab-c13a6df92032
+		sourceLineageTag: PredictionDate
+		summarizeBy: none
+		sourceColumn: PredictionDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column PredictedSales
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f530007-1e1b-4010-b3fe-19dd81181a8a
+		sourceLineageTag: PredictedSales
+		summarizeBy: sum
+		sourceColumn: PredictedSales
+
+		annotation SummarizationSetBy = Automatic
+
+	column CakeType
+		dataType: string
+		lineageTag: d691de3d-9cca-450c-892e-e7cd803143a5
+		sourceLineageTag: CakeType
+		summarizeBy: none
+		sourceColumn: CakeType
+
+		annotation SummarizationSetBy = Automatic
+
+	column SizeCategory
+		dataType: string
+		lineageTag: 2c37bfd4-ca62-4da5-acc1-0bcec66c4574
+		sourceLineageTag: SizeCategory
+		summarizeBy: none
+		sourceColumn: SizeCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: ccc01d61-ebb6-4c70-bdf9-1c92a355b92a
+		sourceLineageTag: Location
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column BatchId
+		dataType: string
+		lineageTag: 892e173d-531c-49a9-8f44-afcda7c3f48b
+		sourceLineageTag: BatchId
+		summarizeBy: none
+		sourceColumn: BatchId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 992a94ee-f3b2-4409-b645-cb695fc814cb
+		sourceLineageTag: CreatedDate
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModelType
+		dataType: string
+		lineageTag: 68a81a82-ebe4-4d6e-86d9-8ca9ccf41927
+		sourceLineageTag: ModelType
+		summarizeBy: none
+		sourceColumn: ModelType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f784d0af-06fd-49c7-9a29-6c2431f6fe51
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition predicted_cake_sales = entity
+		mode: directLake
+		source
+			entityName: predicted_cake_sales
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

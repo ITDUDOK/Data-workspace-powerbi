@@ -1,0 +1,171 @@
+table paymentmethod_dedup
+	lineageTag: a1bed871-1567-4bbe-a87b-54e2065ecd7f
+	sourceLineageTag: [dbo].[paymentmethod_dedup]
+
+	column PaymodeGroupKey
+		dataType: string
+		lineageTag: 8b0fc7f5-2dfb-47c2-b736-b0f9554a477c
+		sourceLineageTag: PaymodeGroupKey
+		summarizeBy: none
+		sourceColumn: PaymodeGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketKey
+		dataType: string
+		lineageTag: fc2e8e19-9c8c-4068-beb8-2affde739c09
+		sourceLineageTag: TicketKey
+		summarizeBy: none
+		sourceColumn: TicketKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeKey
+		dataType: string
+		lineageTag: 52a0d1bf-d7e3-4435-9b71-2ea9a696ab51
+		sourceLineageTag: PaymodeKey
+		summarizeBy: none
+		sourceColumn: PaymodeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeGroupName
+		dataType: string
+		lineageTag: f8ac5076-53c7-4769-9a9f-b5669f8d8de7
+		sourceLineageTag: PaymodeGroupName
+		summarizeBy: none
+		sourceColumn: PaymodeGroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodePaymodeKey
+		dataType: string
+		lineageTag: 02cb4cdc-0d36-4b93-a24a-240b06acc153
+		sourceLineageTag: PaymodePaymodeKey
+		summarizeBy: none
+		sourceColumn: PaymodePaymodeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodePaymodeName
+		dataType: string
+		lineageTag: b0d151c9-79b0-48ca-9b07-0f3962e93e20
+		sourceLineageTag: PaymodePaymodeName
+		summarizeBy: none
+		sourceColumn: PaymodePaymodeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodePaymodeNr
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ef7eaef-a400-4e7c-b9c1-8644ab582616
+		sourceLineageTag: PaymodePaymodeNr
+		summarizeBy: sum
+		sourceColumn: PaymodePaymodeNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodePaymodeType
+		dataType: string
+		lineageTag: 704ae996-ad0f-4470-8a74-547e7d9f102b
+		sourceLineageTag: PaymodePaymodeType
+		summarizeBy: none
+		sourceColumn: PaymodePaymodeType
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodePrice
+		dataType: double
+		lineageTag: 06d2d874-8056-46c1-a6b2-2dfec1115cca
+		sourceLineageTag: PaymodePrice
+		summarizeBy: sum
+		sourceColumn: PaymodePrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PaymodeQty
+		dataType: int64
+		formatString: 0
+		lineageTag: b97372d5-8580-4294-b9be-bc6a224b668a
+		sourceLineageTag: PaymodeQty
+		summarizeBy: sum
+		sourceColumn: PaymodeQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeTotal
+		dataType: double
+		lineageTag: c85bc45e-f82f-4a4a-9bab-e00f8f9d863b
+		sourceLineageTag: PaymodeTotal
+		summarizeBy: sum
+		sourceColumn: PaymodeTotal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PaymodeMemo
+		dataType: string
+		lineageTag: 885d7488-adbf-4cda-87c5-917d8502a8fb
+		sourceLineageTag: PaymodeMemo
+		summarizeBy: none
+		sourceColumn: PaymodeMemo
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeTerminalId
+		dataType: string
+		lineageTag: 69d35c5b-0ee5-412f-9f63-8e0945712b69
+		sourceLineageTag: PaymodeTerminalId
+		summarizeBy: none
+		sourceColumn: PaymodeTerminalId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeTransactionId
+		dataType: string
+		lineageTag: b99e25fd-bb24-4026-8402-b07e91f706ba
+		sourceLineageTag: PaymodeTransactionId
+		summarizeBy: none
+		sourceColumn: PaymodeTransactionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterKey
+		dataType: string
+		lineageTag: 4c7d484f-5460-4b3e-8034-98f46c91564a
+		sourceLineageTag: CenterKey
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterName
+		dataType: string
+		lineageTag: 1ccfa6c6-f945-4af3-a521-88e1f75e79de
+		sourceLineageTag: CenterName
+		summarizeBy: none
+		sourceColumn: CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 42a82f64-46e4-4fdf-b227-2c74553ba7a5
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition paymentmethod_dedup = entity
+		mode: directLake
+		source
+			entityName: paymentmethod_dedup
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

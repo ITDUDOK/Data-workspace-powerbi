@@ -1,0 +1,97 @@
+table product_dedup
+	lineageTag: 8e5729d0-48fa-48b5-ae5c-a1d838dc8512
+	sourceLineageTag: [dbo].[product_dedup]
+
+	column ProductKey
+		dataType: string
+		lineageTag: 7c2826bd-35c6-4136-b862-8df36fafd1bc
+		sourceLineageTag: ProductKey
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupKey
+		dataType: string
+		lineageTag: 636ce6eb-1c65-49aa-a34a-aad503994ee0
+		sourceLineageTag: GroupKey
+		summarizeBy: none
+		sourceColumn: GroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupName
+		dataType: string
+		lineageTag: 7313bc6c-16e6-4814-83de-f525f1dc2e09
+		sourceLineageTag: GroupName
+		summarizeBy: none
+		sourceColumn: GroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: aa63b681-117d-4c9b-93b0-0afc30c65469
+		sourceLineageTag: ProductName
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductNr
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d99d384-3a6a-431a-acae-767536d9eabc
+		sourceLineageTag: ProductNr
+		summarizeBy: sum
+		sourceColumn: ProductNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatPerc
+		dataType: int64
+		formatString: 0
+		lineageTag: 3cf0ac2f-b7b7-4186-90a7-dfb4d0c1e284
+		sourceLineageTag: VatPerc
+		summarizeBy: sum
+		sourceColumn: VatPerc
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsAddon
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: da647db4-549e-4ede-86aa-62fcb556b65b
+		sourceLineageTag: IsAddon
+		summarizeBy: none
+		sourceColumn: IsAddon
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineId
+		dataType: int64
+		formatString: 0
+		lineageTag: 37c06d57-7af7-4d58-a637-3ea0d8c2918f
+		sourceLineageTag: LineId
+		summarizeBy: count
+		sourceColumn: LineId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: feefced2-944b-411c-a3de-761e9f50273c
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition product_dedup = entity
+		mode: directLake
+		source
+			entityName: product_dedup
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

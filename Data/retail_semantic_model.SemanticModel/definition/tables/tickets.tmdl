@@ -1,0 +1,156 @@
+table tickets
+	lineageTag: 7dc95957-5475-46c1-96ef-9751abbae184
+	sourceLineageTag: [dbo].[tickets]
+
+	column TicketKey
+		dataType: string
+		lineageTag: a17a6cdd-e1ba-4b10-9305-77e1a010ba6a
+		sourceLineageTag: TicketKey
+		summarizeBy: none
+		sourceColumn: TicketKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 49978353-7aaa-4588-8abd-1cb1768524e5
+		sourceLineageTag: TicketDate
+		summarizeBy: none
+		sourceColumn: TicketDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketTime
+		dataType: string
+		lineageTag: c4e2115a-f94d-4da4-b997-ee866008c82c
+		sourceLineageTag: TicketTime
+		summarizeBy: none
+		sourceColumn: TicketTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketActualDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b272484d-6fad-4fbe-b371-0d396a0414d0
+		sourceLineageTag: TicketActualDate
+		summarizeBy: none
+		sourceColumn: TicketActualDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterKey
+		dataType: string
+		lineageTag: 5cbcfcff-8c78-44b3-b2bc-2545a710e667
+		sourceLineageTag: CenterKey
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterName
+		dataType: string
+		lineageTag: 5cbc0596-ca94-415d-a5de-a4333dd24d83
+		sourceLineageTag: CenterName
+		summarizeBy: none
+		sourceColumn: CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PcName
+		dataType: string
+		lineageTag: 4491aac2-098b-470e-ac3b-da2bb107e43e
+		sourceLineageTag: PcName
+		summarizeBy: none
+		sourceColumn: PcName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketNr
+		dataType: int64
+		formatString: 0
+		lineageTag: d2f87c18-0a52-4aa9-a3a6-7fa1b1360fb5
+		sourceLineageTag: TicketNr
+		summarizeBy: sum
+		sourceColumn: TicketNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalPrice
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9fa5ba12-4513-4b45-8793-e1cc5711c91e
+		sourceLineageTag: TotalPrice
+		summarizeBy: sum
+		sourceColumn: TotalPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TotalToPay
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: bab21f48-b5ee-449e-b3f4-b320c71cd236
+		sourceLineageTag: TotalToPay
+		summarizeBy: sum
+		sourceColumn: TotalToPay
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TicketUserName
+		dataType: string
+		lineageTag: 54766c2f-be1b-4ceb-98bd-1d3398ffaffe
+		sourceLineageTag: TicketUserName
+		summarizeBy: none
+		sourceColumn: TicketUserName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Internal
+		dataType: string
+		lineageTag: d5f6e439-a7a9-4a23-8822-77f96629b42d
+		sourceLineageTag: Internal
+		summarizeBy: none
+		sourceColumn: Internal
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableNr
+		dataType: string
+		lineageTag: c9e93646-206a-4024-9d29-02d3d9062774
+		sourceLineageTag: TableNr
+		summarizeBy: none
+		sourceColumn: TableNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column Covers
+		dataType: string
+		lineageTag: c8d33d3d-f92e-4629-94f4-f3b73f7b8018
+		sourceLineageTag: Covers
+		summarizeBy: none
+		sourceColumn: Covers
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 19e76b36-d2eb-4795-b36e-941d773665d6
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tickets = entity
+		mode: directLake
+		source
+			entityName: tickets
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

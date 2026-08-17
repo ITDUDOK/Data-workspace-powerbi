@@ -1,0 +1,268 @@
+table contracts_enriched
+	lineageTag: 4d784188-5f7d-4f74-9434-8f906a014ae3
+	sourceLineageTag: [dbo].[contracts_enriched]
+
+	column ContractId
+		dataType: string
+		lineageTag: 252938c9-ee81-4475-a960-510796f1cbe7
+		sourceLineageTag: ContractId
+		summarizeBy: none
+		sourceColumn: ContractId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		lineageTag: ed738e2c-59b3-444a-9eb0-5d9ea7b55ba1
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 89f7f723-4bb3-4873-aab1-b34b824f2c58
+		sourceLineageTag: StartDate
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e4fed6df-fdc0-4cbf-82ac-cae64751d936
+		sourceLineageTag: EndDate
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Indefinite
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 88e97bc6-4cf2-4604-9038-f106c3d5b2e8
+		sourceLineageTag: Indefinite
+		summarizeBy: none
+		sourceColumn: Indefinite
+
+		annotation SummarizationSetBy = Automatic
+
+	column HoursPerWeek
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5daad4fd-0ba5-4175-b43e-8d225fcbbddd
+		sourceLineageTag: HoursPerWeek
+		summarizeBy: sum
+		sourceColumn: HoursPerWeek
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column IsLatestContract
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 57ac0f25-17e9-4f04-8c4f-0da743b876b1
+		sourceLineageTag: IsLatestContract
+		summarizeBy: none
+		sourceColumn: IsLatestContract
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountContracts
+		dataType: int64
+		formatString: 0
+		lineageTag: f5943082-d14e-48de-95d9-e69c73ba43df
+		sourceLineageTag: CountContracts
+		summarizeBy: sum
+		sourceColumn: CountContracts
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullName
+		dataType: string
+		lineageTag: 0d766f62-dc80-4344-b925-143e30abd02f
+		sourceLineageTag: FullName
+		summarizeBy: none
+		sourceColumn: FullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerFullName
+		dataType: string
+		lineageTag: dedad365-3125-44d1-b256-b30bda9a71d2
+		sourceLineageTag: ManagerFullName
+		summarizeBy: none
+		sourceColumn: ManagerFullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentName
+		dataType: string
+		lineageTag: fb236fc5-1bc5-49af-ac94-f47b19343dc5
+		sourceLineageTag: DepartmentName
+		summarizeBy: none
+		sourceColumn: DepartmentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FunctionName
+		dataType: string
+		lineageTag: 67f32be1-0869-428b-a4d9-74f8139b1cd3
+		sourceLineageTag: FunctionName
+		summarizeBy: none
+		sourceColumn: FunctionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column HRFunctionName
+		dataType: string
+		lineageTag: af8f24fd-5ccf-4cf6-b685-4f50e96c8684
+		sourceLineageTag: HRFunctionName
+		summarizeBy: none
+		sourceColumn: HRFunctionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardStart
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dc82b9e7-29fa-4de9-a5f4-4518a23190a3
+		sourceLineageTag: CardStart
+		summarizeBy: none
+		sourceColumn: CardStart
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardContractHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d24ad962-f4d3-4170-a4a8-ed3600535fb2
+		sourceLineageTag: CardContractHours
+		summarizeBy: sum
+		sourceColumn: CardContractHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column UurloonExclusief
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 31838077-4dc2-4341-ac65-0207c75d83f1
+		sourceLineageTag: UurloonExclusief
+		summarizeBy: sum
+		sourceColumn: UurloonExclusief
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ActiveToday
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 661a86f6-6cb0-4d06-95e8-4c4601d9fbd0
+		sourceLineageTag: ActiveToday
+		summarizeBy: none
+		sourceColumn: ActiveToday
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinalEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 70f71ed0-64ea-45d8-a070-78e9ccb75203
+		sourceLineageTag: FinalEndDate
+		summarizeBy: none
+		sourceColumn: FinalEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractType
+		dataType: string
+		lineageTag: 3e1bd088-6527-4311-b92f-45852b5f3f6c
+		sourceLineageTag: ContractType
+		summarizeBy: none
+		sourceColumn: ContractType
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeAge
+		dataType: int64
+		formatString: 0
+		lineageTag: 43575501-0dea-4a0e-9152-60cd8664cece
+		sourceLineageTag: EmployeeAge
+		summarizeBy: sum
+		sourceColumn: EmployeeAge
+
+		annotation SummarizationSetBy = Automatic
+
+	column GemArbeidsduurJaren
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b3e6d531-95ab-4a80-99a2-59064618d5c7
+		sourceLineageTag: GemArbeidsduurJaren
+		summarizeBy: sum
+		sourceColumn: GemArbeidsduurJaren
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column VerzuimredenCode
+		dataType: string
+		lineageTag: 7b0c215c-4618-4340-898a-384abaf9e607
+		sourceLineageTag: VerzuimredenCode
+		summarizeBy: none
+		sourceColumn: VerzuimredenCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 91c4faec-1be4-4c5f-a735-bdea33f51d89
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: c3c2a34c-301a-4190-8dab-e35866197b1e
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContractLocatie
+		dataType: string
+		lineageTag: 873432a1-095c-4e35-858e-86d8b46bdce0
+		sourceLineageTag: ContractLocatie
+		summarizeBy: none
+		sourceColumn: ContractLocatie
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCurrentContract
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ab47e181-a9c9-4fab-a88f-8038925672b1
+		sourceLineageTag: IsCurrentContract
+		summarizeBy: none
+		sourceColumn: IsCurrentContract
+
+		annotation SummarizationSetBy = Automatic
+
+	partition contracts_enriched = entity
+		mode: directLake
+		source
+			entityName: contracts_enriched
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

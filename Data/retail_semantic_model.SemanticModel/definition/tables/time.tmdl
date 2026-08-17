@@ -1,0 +1,59 @@
+table time
+	lineageTag: 8c7bec99-eefc-4f95-8f5b-619be9c50793
+	sourceLineageTag: [dbo].[time]
+
+	column Dagdelen
+		dataType: string
+		lineageTag: dd641c24-39c9-44e2-adb4-e4be145c4a97
+		sourceLineageTag: Dagdelen
+		summarizeBy: none
+		sourceColumn: Dagdelen
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 247c17c4-112c-4928-aa2b-8d2e790a7aff
+		sourceLineageTag: HourNumber
+		summarizeBy: sum
+		sourceColumn: HourNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hour
+		dataType: string
+		lineageTag: e1209830-365c-45b3-ba5d-3bdc7744cc8a
+		sourceLineageTag: Hour
+		summarizeBy: none
+		sourceColumn: Hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index_Dagdelen
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e69c5f2-17db-4095-98cc-772d714b106f
+		sourceLineageTag: Index_Dagdelen
+		summarizeBy: sum
+		sourceColumn: Index_Dagdelen
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5f9fcb11-d250-42e8-9187-b7511b2dc9c0
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition time = entity
+		mode: directLake
+		source
+			entityName: time
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,182 @@
+relationship 8f42e5ba-c18c-4d68-bef6-5ffbefea835c
+	fromColumn: productgroups.VatCodeKey
+	toColumn: vat_rates.VatCodeKey
+
+relationship b5f3137e-c038-4227-86ce-a45a5e9f5cdf
+	fromColumn: product_dedup.GroupKey
+	toColumn: productgroups.ProductGroupKey
+
+relationship b6855a9a-0b10-4fcd-9219-22c51c56a82c
+	fromColumn: functions.DepartmentId
+	toColumn: departments.DepartmentId
+
+relationship 8a49a3f0-38b9-4a0c-bd75-4f6de0b4f06a
+	fromColumn: hours.HourDepartmentId
+	toColumn: departments.DepartmentId
+
+relationship 7f6d5669-895c-4368-852f-83d5cae56ff7
+	fromColumn: planning.DepartmentId
+	toColumn: departments.DepartmentId
+
+relationship 47807164-8e3c-4a28-a521-65c379b53f2a
+	fromColumn: teams.DepartmentId
+	toColumn: departments.DepartmentId
+
+relationship 0d29fb46-8599-4ff6-a7e6-5ddfa5e545a1
+	fromColumn: sickness.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 4ac12497-129a-41c7-ae81-4f0981782938
+	fromColumn: types.OfficeId
+	toColumn: offices.OfficeId
+
+relationship a8dd801a-bcef-4197-9d1c-a20368bafe61
+	fromColumn: freedays.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 766ba67e-077d-4459-b9c0-33f5b2c78a22
+	fromColumn: prognosis.OfficeId
+	toColumn: offices.OfficeId
+
+relationship fa8b5113-b68b-4fa1-a621-2f57a4580d9a
+	fromColumn: hourly_labour.HourOfficeId
+	toColumn: offices.OfficeId
+
+relationship 200c496f-9ad3-4e45-bb36-110bb5af675a
+	fromColumn: hours.HourOfficeId
+	toColumn: offices.OfficeId
+
+relationship d31b7b27-a7a0-4a1e-a32a-724e196b05bd
+	fromColumn: cumulative.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 7779ac1e-3be1-4f8b-a09a-fe9bfd34f0b4
+	fromColumn: planning.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 5181d4d5-74a0-4703-8bfb-1d87f0b128a7
+	fromColumn: teams.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 347aec30-7ae4-4025-8b7e-57d615ff9b50
+	isActive: false
+	fromColumn: staff.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 97bf2ab2-a401-429e-af29-6a0710a1e171
+	fromColumn: hours.CardId
+	toColumn: staff.CardId
+
+relationship b9bc484d-8d65-4cef-ad37-003c00d03500
+	fromColumn: planning.CardId
+	toColumn: staff.CardId
+
+relationship f4a33cea-1971-4c49-8a4b-f332352a3e23
+	fromColumn: sickness.CardId
+	toColumn: staff.CardId
+
+relationship c783c1c3-5f5a-441e-b237-ed186230c976
+	fromColumn: freedays.CardId
+	toColumn: staff.CardId
+
+relationship 5f2a7d77-df4a-4636-ad36-fb97b6133ca4
+	fromColumn: mutations.CardId
+	toColumn: staff.CardId
+
+relationship f96e24d6-0831-4a71-ac17-6d598f22beab
+	fromColumn: salary.CardId
+	toColumn: staff.CardId
+
+relationship f55e873b-f32a-4988-8302-fd2b09467d18
+	fromColumn: cumulative.CardId
+	toColumn: staff.CardId
+
+relationship 28226aa9-680c-48ef-a5dd-19b7d1c56b42
+	fromColumn: hourly_labour.CardId
+	toColumn: staff.CardId
+
+relationship 632a15f9-eb40-4bf7-bcf9-679bc3c43126
+	fromColumn: satisfaction.SurveyDate
+	toColumn: dates.Date
+
+relationship 7f4e9d59-4d47-447d-bf6c-20d9ff0abd9b
+	fromColumn: planning.PlanningDate
+	toColumn: dates.Date
+
+relationship 3fbe7946-f5ff-4f23-8418-3c62a3957fc9
+	fromColumn: hours.HourDate
+	toColumn: dates.Date
+
+relationship 5b0010ec-9688-4090-9942-812b055ad816
+	fromColumn: hours.HourEnterNumber
+	toColumn: time.HourNumber
+
+relationship 5d1f1b6a-3535-4c53-b9d2-fc31c0abe179
+	fromColumn: prognosis.PrognosisDate
+	toColumn: dates.Date
+
+relationship dc748a51-2c37-4b38-83de-aec42f935bcd
+	fromColumn: hourly_labour.HourDate
+	toColumn: dates.Date
+
+relationship 34d68fd5-b090-4141-b689-21d3d5d8023d
+	fromColumn: hourly_labour.WorkingHour
+	toColumn: time.HourNumber
+
+relationship 7717bd13-4d82-4016-9b82-f940f048c50d
+	fromColumn: predicted_cake_sales.PredictionDate
+	toColumn: dates.Date
+
+relationship 3d82f409-58a1-44ed-9180-53e77eb87e90
+	isActive: false
+	fromColumn: predicted_cake_sales.CreatedDate
+	toColumn: dates.Date
+
+relationship c13192fa-f7ca-4dff-bcaf-547f759387c0
+	fromColumn: predicted_cake_sales.Location
+	toColumn: centers.CenterName
+
+relationship abed3a69-78a0-42d3-b892-6ca969d71391
+	fromColumn: payments.PaymodeKey
+	toColumn: paymentmethod_dedup.PaymodeKey
+
+relationship 706e986c-ba47-48b5-8da4-cc82d25bfa93
+	fromColumn: sales.LineProductKey
+	toColumn: product_dedup.ProductKey
+
+relationship efe2f57b-ec21-4f33-8988-9c7a897cf734
+	fromColumn: payments.CenterKey
+	toColumn: centers.CenterKey
+
+relationship c09cec76-d409-4e87-91a5-ae0b493561aa
+	fromColumn: payments.HourNumber
+	toColumn: time.HourNumber
+
+relationship 77c304cf-11cc-4ea4-9cec-50330e3e0089
+	fromColumn: payments.ActualDate
+	toColumn: dates.Date
+
+relationship d7c0b3c1-64be-4b88-87f9-20481dcbf744
+	fromColumn: sales.HourNumber
+	toColumn: time.HourNumber
+
+relationship 23cec361-31bc-4136-96ea-b8c81d66fbf6
+	fromColumn: sales.OrderUserKey
+	toColumn: users.UserKey
+
+relationship 4cdb1fab-73ba-473c-9429-ea857901ea59
+	fromColumn: sales.CenterKey
+	toColumn: centers.CenterKey
+
+relationship 9c2d6c35-1dfe-4fd5-857c-abc55438c352
+	fromColumn: sales.ActualDate
+	toColumn: dates.Date
+
+relationship 144cb0e0-fe66-4a00-94c0-9a3d3a6f8024
+	fromColumn: payments.TicketKey
+	toColumn: tickets.TicketKey
+
+relationship 72b258dc-79f1-4fd4-a03d-fdfd60d812d4
+	fromColumn: sales.TicketKey
+	toColumn: tickets.TicketKey
+

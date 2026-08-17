@@ -1,0 +1,225 @@
+table salary
+	lineageTag: deb8730f-9740-4007-8756-8c0d06798255
+	sourceLineageTag: [dbo].[salary]
+
+	column SalaryId
+		dataType: int64
+		formatString: 0
+		lineageTag: 71bf27af-9eb8-4d71-b9ce-c4ce4baf5934
+		sourceLineageTag: SalaryId
+		summarizeBy: count
+		sourceColumn: SalaryId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardId
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b2d3fb2-4bc4-4dee-a4d8-34fb2265f3d5
+		sourceLineageTag: CardId
+		summarizeBy: count
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeId
+		dataType: string
+		lineageTag: ea88962c-df0d-4253-b2eb-1d386afd478d
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: 515486c6-f215-4059-9a99-d318ee00c112
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CoaId
+		dataType: int64
+		formatString: 0
+		lineageTag: d027d19c-f6b6-4d4d-b6a1-3037988ce850
+		sourceLineageTag: CoaId
+		summarizeBy: count
+		sourceColumn: CoaId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalaryStartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7a33bfaa-8238-46b1-8098-8e75c15d7748
+		sourceLineageTag: SalaryStartDate
+		summarizeBy: none
+		sourceColumn: SalaryStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalaryEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d3bbc0f3-d4e1-4269-9213-9065aa16d34e
+		sourceLineageTag: SalaryEndDate
+		summarizeBy: none
+		sourceColumn: SalaryEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalaryLevel
+		dataType: int64
+		formatString: 0
+		lineageTag: b14a599d-567e-4dd7-beb5-215b21e1253b
+		sourceLineageTag: SalaryLevel
+		summarizeBy: sum
+		sourceColumn: SalaryLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalaryWageGroup
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fdae409-37ce-4c36-9b9f-35e01e800338
+		sourceLineageTag: SalaryWageGroup
+		summarizeBy: sum
+		sourceColumn: SalaryWageGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalaryUseWage
+		dataType: int64
+		formatString: 0
+		lineageTag: 31574477-37fd-41af-8776-5702b2cbf298
+		sourceLineageTag: SalaryUseWage
+		summarizeBy: sum
+		sourceColumn: SalaryUseWage
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalaryBase
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 248a2b37-b91c-4064-a1a6-8a718da25d04
+		sourceLineageTag: SalaryBase
+		summarizeBy: sum
+		sourceColumn: SalaryBase
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalaryExtra
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f2ef6ac3-9682-4a71-b4fd-20f7bb7d7203
+		sourceLineageTag: SalaryExtra
+		summarizeBy: sum
+		sourceColumn: SalaryExtra
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalaryBonus
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 70441dc1-3aff-4834-a7b7-ed92ce38284e
+		sourceLineageTag: SalaryBonus
+		summarizeBy: sum
+		sourceColumn: SalaryBonus
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalaryTotal
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5d59dde2-1f61-44bc-bca0-eace38d4d642
+		sourceLineageTag: SalaryTotal
+		summarizeBy: sum
+		sourceColumn: SalaryTotal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalaryHolidayDaysPercentage
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 46f1d6ce-fbb3-4df7-a4c0-97cf84ef35f5
+		sourceLineageTag: SalaryHolidayDaysPercentage
+		summarizeBy: sum
+		sourceColumn: SalaryHolidayDaysPercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalaryHolidayLegalPercentage
+		dataType: double
+		lineageTag: 80a34804-242d-4559-bd29-8dbd9ee95571
+		sourceLineageTag: SalaryHolidayLegalPercentage
+		summarizeBy: sum
+		sourceColumn: SalaryHolidayLegalPercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SalaryHolidayExtralegalPercentage
+		dataType: double
+		lineageTag: ed480f98-1a5f-4451-8298-4e2e45d7cf06
+		sourceLineageTag: SalaryHolidayExtralegalPercentage
+		summarizeBy: sum
+		sourceColumn: SalaryHolidayExtralegalPercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SalaryHolidayMoneyPercentage
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2067a260-469e-4565-8c8f-965ca5f201b6
+		sourceLineageTag: SalaryHolidayMoneyPercentage
+		summarizeBy: sum
+		sourceColumn: SalaryHolidayMoneyPercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalaryRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b28ad78f-43dd-46f9-b742-311a1625b707
+		sourceLineageTag: SalaryRate
+		summarizeBy: sum
+		sourceColumn: SalaryRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c843b443-8b05-48b5-999a-36a8bcd8fe97
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition salary = entity
+		mode: directLake
+		source
+			entityName: salary
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

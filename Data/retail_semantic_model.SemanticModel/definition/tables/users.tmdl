@@ -1,0 +1,48 @@
+table users
+	lineageTag: 7c2da605-816c-44e9-b144-9bb2d67db792
+	sourceLineageTag: [dbo].[users]
+
+	column UserKey
+		dataType: string
+		lineageTag: 5daea5a9-734b-4ed0-84e5-07f8c149e4d8
+		sourceLineageTag: UserKey
+		summarizeBy: none
+		sourceColumn: UserKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserName
+		dataType: string
+		lineageTag: d381531c-0ba2-48a2-b3e2-979895c8c190
+		sourceLineageTag: UserName
+		summarizeBy: none
+		sourceColumn: UserName
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserId
+		dataType: string
+		lineageTag: 5fe6ddde-5ed1-4509-8b6f-e2720e983f1d
+		sourceLineageTag: UserId
+		summarizeBy: none
+		sourceColumn: UserId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d570e08f-7460-4509-b378-dee3d540fcc0
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition users = entity
+		mode: directLake
+		source
+			entityName: users
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

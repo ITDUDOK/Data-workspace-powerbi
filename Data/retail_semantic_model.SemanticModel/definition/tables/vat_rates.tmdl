@@ -1,0 +1,108 @@
+table vat_rates
+	lineageTag: c6cbc82e-03d1-426d-ac85-27995974895e
+	sourceLineageTag: [dbo].[vat_rates]
+
+	column VatRateId
+		dataType: int64
+		formatString: 0
+		lineageTag: 5dbc3ed8-9d6c-49fd-9b1a-9b60cfcd05d8
+		sourceLineageTag: VatRateId
+		summarizeBy: count
+		sourceColumn: VatRateId
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatCodeKey
+		dataType: string
+		lineageTag: 49076940-cbd7-411c-a056-892cfe5682c8
+		sourceLineageTag: VatCodeKey
+		summarizeBy: none
+		sourceColumn: VatCodeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatCode
+		dataType: string
+		lineageTag: 4c2ef1b3-abab-4773-8459-3bcfa0db5ab6
+		sourceLineageTag: VatCode
+		summarizeBy: none
+		sourceColumn: VatCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatCodeName
+		dataType: string
+		lineageTag: 59e91bf3-d397-41a8-a3cd-6a7515757488
+		sourceLineageTag: VatCodeName
+		summarizeBy: none
+		sourceColumn: VatCodeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatKey
+		dataType: string
+		lineageTag: 597eee2d-0c0b-4f5d-82f5-7b7990c0a48b
+		sourceLineageTag: VatKey
+		summarizeBy: none
+		sourceColumn: VatKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 53a40d8a-9411-4c7d-94ac-6bd2b0e97ee8
+		sourceLineageTag: VatRate
+		summarizeBy: sum
+		sourceColumn: VatRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column FromDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a40b52e5-7e5d-4c96-9215-40f6a88b198a
+		sourceLineageTag: FromDate
+		summarizeBy: none
+		sourceColumn: FromDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryCode
+		dataType: string
+		lineageTag: efdf8441-f032-4165-9ca8-1524e971097d
+		sourceLineageTag: CountryCode
+		summarizeBy: none
+		sourceColumn: CountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Confirmed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: efb8c598-641a-481f-86d5-9c1a5790f326
+		sourceLineageTag: Confirmed
+		summarizeBy: none
+		sourceColumn: Confirmed
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b0e03f14-68cf-488e-b3b4-f0d2f5107cb6
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vat_rates = entity
+		mode: directLake
+		source
+			entityName: vat_rates
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,48 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["DirectLake - lh_dudodata_gold_powerbi"]
+
+annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb"]
+
+annotation __TEdtr = 1
+
+ref table planning
+ref table mutations
+ref table predicted_cake_sales
+ref table offices
+ref table time
+ref table product_dedup
+ref table cumulative
+ref table prognosis
+ref table paymentmethod_dedup
+ref table functions
+ref table satisfaction
+ref table summaries
+ref table staff
+ref table productgroups
+ref table types
+ref table sales
+ref table centers
+ref table salary
+ref table users
+ref table payments
+ref table hourly_labour
+ref table tickets
+ref table departments
+ref table teams
+ref table contracts_enriched
+ref table sickness
+ref table freedays
+ref table dates
+ref table hours
+ref table vat_rates
+ref table measurements
+

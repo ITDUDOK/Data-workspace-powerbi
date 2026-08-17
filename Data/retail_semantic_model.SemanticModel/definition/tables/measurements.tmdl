@@ -1,0 +1,648 @@
+table measurements
+	isHidden
+	lineageTag: e53dab70-284a-4189-af5c-d32b2a0d09ca
+
+	measure TotaleOmzetincBTW = ```
+			
+			VAR ValidTickets = 
+			    INTERSECT(
+			        VALUES(sales[TicketKey]),
+			        VALUES(payments[TicketKey])
+			    )
+			RETURN
+			CALCULATE(
+			    SUM(sales[LineTotalInc]),
+			    sales[TicketKey] IN ValidTickets
+			)
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 17bb05ee-59f8-48df-a7f6-59fe290db1fe
+
+	measure TotaleOmzetExBTW =
+			
+			CALCULATE(
+			    SUM(sales[LineTotalEx]),
+			    sales[TicketKey] IN VALUES(payments[TicketKey])
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 98919520-8d03-47c4-b7e9-25ae7c0765dc
+
+	measure TotaleOmzetExBTW_PreviousWeek =
+			
+			CALCULATE(
+			    [TotaleOmzetExBTW],
+			    DATEADD(dates[Date], -7, DAY)
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 6f6fec2d-4ac3-417e-a9b1-86c29dd75f88
+
+	measure TotaleOmzetExBTW_PercentageChange =
+			VAR CurrentWeek = [TotaleOmzetExBTW]
+			VAR PreviousWeek = [TotaleOmzetExBTW_PreviousWeek]
+			VAR PercentChange = DIVIDE(CurrentWeek - PreviousWeek, PreviousWeek)
+			RETURN
+			IF(
+			    ISBLANK(PercentChange),
+			    BLANK(),
+			    PercentChange
+			)
+		formatString: 0%;-0%;0%
+		lineageTag: a734d1b2-b4dd-4566-bf21-bd82bef9d9a3
+
+	measure Netto_GewerktUren = ```
+			
+			VAR UniekeUren = 
+			    SUMMARIZE(
+			        hours,
+			        hours[HourId],
+			        "Uren", MAX(hours[HourHours])
+			    )
+			VAR Result = SUMX(UniekeUren, [Uren])
+			RETURN
+			    Result * 1.00
+			```
+		formatString: #,0
+		lineageTag: 5c77d38c-e03a-485c-b900-8f925345a2fa
+
+	measure LabourCost = ```
+			
+			VAR UniekeUren =
+			    SUMMARIZE(
+			        FILTER(
+			            hours,
+			            hours[HourHours] > 0
+			        ),
+			        hours[HourId],
+			        hours[CardId],
+			        hours[HourOfficeId],
+			        "Uren", MAX(hours[HourHours])
+			    )
+			VAR HoursWithRates = 
+			    ADDCOLUMNS(
+			        UniekeUren,
+			        "SalaryRate", 
+			        VAR CurrentOffice = [HourOfficeID]
+			        VAR CurrentCard = [CardID]
+			        RETURN
+			        MAXX(
+			            FILTER(
+			                staff,
+			                staff[OfficeId] = CurrentOffice &&
+			                staff[CardId] = CurrentCard
+			            ),
+			            staff[CardSalaryRate]
+			        )
+			    )
+			RETURN
+			    SUMX(
+			        HoursWithRates,
+			        [Uren] * MAX([SalaryRate], 0)
+			    )
+			```
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: b1956404-6447-4d28-9376-9fed7284f8d4
+
+	measure LabourCost_PercentageOfRevenue =
+			
+			DIVIDE([LabourCost], [TotaleOmzetExBTW])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: ba8bbf51-0ea9-4749-b50f-b553ad675e0f
+
+	measure LabourCost_Planning = ```
+			CALCULATE(SUM(planning[PlanningCosts]),planning[PlanningTypeId] in {"Gepland", "Pool dienst", "Ongeplande dienst"})
+			
+			```
+		lineageTag: 25e6160f-1204-49df-8e10-f3b3a5f68c9f
+
+	measure LabourCost_PreviousWeek = ```
+			
+			CALCULATE(
+			    SUMX( hours,
+			        VAR TotalWorkedHours = hours[HourHours]
+			        VAR NetHours = TotalWorkedHours
+			        VAR CurrentOffice = hours[HourOfficeId]
+			        VAR CurrentCard = hours[CardId]
+			        VAR HourlyRate = LOOKUPVALUE(
+			            staff[CardSalaryRate], 
+			            staff[OfficeId], CurrentOffice,
+			            staff[CardId], CurrentCard
+			            )
+			        RETURN
+			        NetHours * HourlyRate
+			    ),
+			    DATEADD(dates[Date], -7, DAY)
+			)
+			```
+		formatString: 0
+		lineageTag: 4ac7da4a-d833-4069-a4e8-81978cc62cc0
+
+	measure LabourCost_PercentageChange =
+			
+			VAR CurrentWeek = [LabourCost]
+			VAR PreviousWeek = [LabourCost_PreviousWeek]
+			Var PercentChange = DIVIDE(CurrentWeek - PreviousWeek, PreviousWeek)
+			
+			RETURN
+			IF(
+			    ISBLANK(PercentChange),
+			    BLANK(),
+			    PercentChange
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 88abddb6-8da6-4d58-a091-b6aac7c15e74
+
+	measure LabourCost_PercentageOfRevenue_PreviousWeek =
+			CALCULATE(
+			VAR Omzet = [TotaleOmzetExBTW]
+			VAR PersoneelsKosten = [LabourCost]
+			RETURN
+			DIVIDE(PersoneelsKosten, Omzet, 0), DATEADD(dates[Date], -7, DAY))
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 80468e6b-8794-4b9d-b0ad-d2dd39280874
+
+	measure TotalTickets = DISTINCTCOUNT(payments[TicketKey])
+		formatString: #,0
+		lineageTag: 8a5066fc-a661-4147-9b73-a910a29d76fe
+
+	measure AverageSpendingPerTicket =
+			
+			DIVIDE(
+			    SUM(sales[LineTotalEx]),
+			    DISTINCTCOUNT(sales[TicketKey])
+			)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 8ee93ac5-c6e5-44d3-8d9f-3ca940b5a865
+
+	measure LabourCost_Hourly_PreviousWeek = CALCULATE(SUM(hourly_labour[ProportionalCost]), DATEADD(dates[Date], -7, DAY))
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 1c615405-c638-4445-bb6e-cc0a58ea1e8a
+
+	measure LabourCost_Hourly = SUM(hourly_labour[ProportionalCost])
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 91a201bc-ecef-4064-a84e-ed4808561c99
+
+	measure LabourCost_HourlyPercentageChange =
+			
+			VAR CurrentWeek = [LabourCost_Hourly]
+			VAR PreviousWeek = [LabourCost_Hourly_PreviousWeek]
+			Var PercentChange = DIVIDE(CurrentWeek - PreviousWeek, PreviousWeek)
+			
+			RETURN
+			IF(
+			    ISBLANK(PercentChange),
+			    BLANK(),
+			    PercentChange
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2833c439-3a86-4191-b808-eb70a8a61056
+
+	measure LabourCost_HourlyPercentageOfRevenue = ```
+			
+			VAR Omzet = [TotaleOmzetExBTW]
+			VAR PersoneelsKosten = [LabourCost_Hourly]
+			RETURN
+			DIVIDE(PersoneelsKosten, Omzet, 0) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: bdbe8f12-473d-421f-b05b-251ae4a754e5
+
+	measure LabourCost_HourlyPercentageOfRevenue_PreviousWeek =
+			CALCULATE(
+			VAR Omzet = [TotaleOmzetExBTW]
+			VAR PersoneelsKosten = [LabourCost_Hourly]
+			RETURN
+			DIVIDE(PersoneelsKosten, Omzet, 0), DATEADD(dates[Date], -7, DAY))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f34e2ec5-f9d1-48ae-948a-2c1523e1186f
+
+	measure TotalPrognosis = SUM(prognosis[PrognosisTurnover])
+		lineageTag: 39463a78-8dab-4b0b-964a-f928f1b60f06
+
+	measure Totalplanned =
+			
+			CALCULATE(
+			    SUM(planning[PlanningHours]),
+			    planning[PlanningTypeId] IN {"Gepland", "Pool dienst", "Open dienst"},
+			    planning[CardId] <> BLANK()
+			)
+		formatString: 0
+		lineageTag: c21ca76f-2df8-4a39-9421-8ea81223cd15
+
+	measure TotalBudget = SUM(prognosis[PrognosisSpending])
+		lineageTag: c6a8fced-c04e-48f2-8d63-1abfbc5e78ee
+
+	measure TotalSicknessHours = SUM(sickness[SicknessHours])
+		lineageTag: 1ecd657e-81dc-4643-94a9-15e210f59a17
+
+	measure LabourCost_Planning_PercentageOfPrognosis =
+			
+			VAR prognosis = [TotalPrognosis]
+			VAR labourcost = [LabourCost_Planning]
+			RETURN
+			Divide(labourcost, prognosis)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4787ff19-0039-4372-876a-e9c2f14cea16
+
+	measure LabourCost_Hourly_Average = CALCULATE(AVERAGE(hourly_labour[ProportionalCost]))
+		lineageTag: 88acb995-32c7-47b8-90ea-f32c3140953c
+
+	measure LabourCost_Planning_Average = ```
+			
+			VAR Planningcost = CALCULATE(SUM(planning[PlanningCosts]))
+			VAR Planninghours = CALCULATE(SUM(planning[PlanningHours]))
+			RETURN 
+			DIVIDE(Planningcost, Planninghours)
+			
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: d5ec6c00-b407-4f48-a43d-008d9cb575c6
+
+	measure Product_Sum_Quantity =
+			
+			CALCULATE(
+			    SUM(sales[LineQty]),
+			    KEEPFILTERS(sales[TicketKey] IN VALUES(payments[TicketKey]))
+			)
+		formatString: #,0
+		lineageTag: 3a2a058f-0be5-4430-9aeb-f596c7d4f1a1
+
+	measure TotalLine_SUM = SUM(sales[LineTotalEx])
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: ca03adc0-fd0f-4276-adca-2a7ea8155990
+
+	measure TotalInternal_Percentage =
+			
+			VAR internal = CALCULATE([TotalLine_SUM], NOT ISBLANK(sales[TicketInternal]))
+			VAR TotalOmzet = [TotaleOmzetExBTW]
+			RETURN
+			    DIVIDE(internal, TotalOmzet, 0)
+		formatString: 0%;-0%;0%
+		lineageTag: a8d1c9fd-86c2-4e08-82b3-9e73fb848a82
+
+	measure Internal_Derving/Verlies = ```
+			CALCULATE(
+			    SUM(sales[LineTotalEx]), 
+			    sales[TicketInternal] = "Derving/verlies"
+			)
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: cce73f29-639b-4c46-94be-c3f44204ef47
+
+	measure Internal_EigenGebruik = ```
+			CALCULATE(
+			    SUM(sales[LineTotalEx]), 
+			    sales[TicketInternal] = "Eigen gebruik"
+			)
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 217a41ae-c6a9-4384-aa3b-5bf378a64220
+
+	measure Internal_Representatie = ```
+			CALCULATE(
+			    SUM(sales[LineTotalEx]), 
+			    sales[TicketInternal] = "Representatie"
+			)
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: bace82aa-c656-4290-91f5-a9e467d8fc70
+
+	measure Internal_TooGoodToGo = ```
+			CALCULATE(
+			    SUM(sales[LineTotalEx]), 
+			    sales[TicketInternal] = "Too Good To Go"
+			)
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 772881aa-9c78-4a83-89e3-2d8ed8a02161
+
+	measure Internal_TotalComped = ```
+			CALCULATE(
+			    SUM(sales[LineTotalEx]), 
+			    sales[TicketInternal] = "Derving/verlies" ||
+			    sales[TicketInternal] = "Eigen gebruik" ||
+			    sales[TicketInternal] = "Too Good To Go" ||
+			    sales[TicketInternal] = "Koffiekaart" || 
+			    sales[TicketInternal] = "Verjaardagskaart" ||
+			    sales[TicketInternal] = "Representatie"    
+			)
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 86793a73-5086-4974-bbf7-5a3672c3861b
+
+	measure Product_Sum_Quantity_Bake-off =
+			
+			CALCULATE(
+			    [Product_Sum_Quantity],
+			    product_dedup[GroupName] = "Bake off"
+			)
+		formatString: 0
+		lineageTag: ac856661-79a0-49e2-8b42-d10835c82aa9
+
+	measure Product_Sum_Quantity_IJs =
+			
+			CALCULATE(
+			    [Product_Sum_Quantity],
+			    product_dedup[GroupName] in {"Nagerechten", "Dudok Ijs", "Ijs Cafe"}
+			)
+		formatString: 0
+		lineageTag: 7a830502-e5f2-4882-9a91-515e56bb7b21
+
+	measure Product_Sum_Quantity_Klein =
+			
+			CALCULATE(
+			    [Product_Sum_Quantity],
+			    product_dedup[GroupName] = "Klein"
+			)
+		formatString: 0
+		lineageTag: 335cf799-7ad7-4912-862c-953fdea8c32f
+
+	measure Product_Sum_Quantity_KoudeDranken = ```
+			
+			CALCULATE(
+			    [Product_Sum_Quantity],
+			    ALL(product_dedup[GroupName]),
+			        product_dedup[GroupName] = "Bronwaters" || 
+			        product_dedup[GroupName] = "Fris, Vrucht, Zuivel" || 
+			        product_dedup[GroupName] = "Verse Sappen" 
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 981e7665-fbb4-44e7-8955-7ae424c95588
+
+	measure Product_Sum_Quantity_Overige = ```
+			
+			CALCULATE(
+			    [Product_Sum_Quantity],
+			    ALL(product_dedup[GroupName]),
+			        product_dedup[GroupName] = "NON-FOOD LAAG" || 
+			        product_dedup[GroupName] = "NON FOOD HOOG" || 
+			        product_dedup[GroupName] = "Voorgepakt"    ||
+			        product_dedup[GroupName] = "EMBALLAGE"
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 66879c05-e8b0-4feb-9e32-a659fbdb84d5
+
+	measure Product_Sum_Quantity_Punt =
+			
+			CALCULATE(
+			    [Product_Sum_Quantity],
+			    product_dedup[GroupName] = "Punt"
+			)
+		formatString: 0
+		lineageTag: e1ce1087-6966-4f30-b818-1feab4d5182e
+
+	measure Product_Sum_Quantity_Taart =
+			
+			CALCULATE(
+			    [Product_Sum_Quantity],
+			    product_dedup[GroupName] = "Taart"
+			)
+		formatString: 0
+		lineageTag: c0de3f4c-004f-4047-9f43-7083d858ff49
+
+	measure Product_Sum_Quantity_WarmeDranken = ```
+			
+			VAR ValidTickets = 
+			    INTERSECT(
+			        VALUES(sales[TicketKey]),
+			        VALUES(payments[TicketKey])
+			    )
+			RETURN
+			CALCULATE(
+			    SUM(sales[LineQty]),
+			    sales[TicketKey] IN ValidTickets,
+			        FILTER(
+			        ALL(product_dedup[GroupName]),
+			        product_dedup[GroupName] = "Koffie en Thee" || 
+			        product_dedup[GroupName] = "Toevoegingen drank" || 
+			        product_dedup[GroupName] = "Verse Thee" 
+			    )
+			)
+			```
+		formatString: 0
+		lineageTag: e8b732f1-2445-4f0a-945b-cb78f76f49cb
+
+	measure TotaleOmzetExBTWBake-off =
+			
+			CALCULATE(
+			    SUM(sales[LineTotalEx]),
+			    sales[TicketKey] IN VALUES(payments[TicketKey]),
+			    product_dedup[GroupName] = "Bake off"
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: b7895b45-00da-4921-88d8-e18250b63639
+
+	measure TotaleOmzetExBTWKoudeDranken =
+			
+			CALCULATE(
+			    SUM(sales[LineTotalEx]),
+			    KEEPFILTERS(sales[TicketKey] IN VALUES(payments[TicketKey])),
+			    product_dedup[GroupName] IN {"Bronwaters", "Fris, Vrucht, Zuivel", "Verse Sappen"}
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 6837f85f-91d0-4996-89b2-5acfba8ea2a5
+
+	measure TotaleOmzetExBTWPunt =
+			
+			CALCULATE(
+			    SUM(sales[LineTotalEx]),
+			    KEEPFILTERS(sales[TicketKey] IN VALUES(payments[TicketKey])),
+			    product_dedup[GroupName] = "Punt"
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 68899ad0-47f4-4128-a470-deac6a58dde4
+
+	measure TotaleOmzetExBTWTaart =
+			
+			CALCULATE(
+			    SUM(sales[LineTotalEx]),
+			    KEEPFILTERS(sales[TicketKey] IN VALUES(payments[TicketKey])),
+			    product_dedup[GroupName] = "Taart"
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 5bdf3bb9-7371-442f-8070-13aa93f9d43a
+
+	measure TotaleOmzetExBTWWarmeDranken =
+			
+			CALCULATE(
+			    SUM(sales[LineTotalEx]),
+			    KEEPFILTERS(sales[TicketKey] IN VALUES(payments[TicketKey])),
+			    product_dedup[GroupName] IN {"Koffie en Thee", "Toevoegingen drank", "Verse Thee"}
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: f4d0c3f1-8dc9-43e3-a18d-c001d797860e
+
+	measure TotaleOmzetExBTWOverige =
+			
+			CALCULATE(
+			    SUM(sales[LineTotalEx]),
+			    KEEPFILTERS(sales[TicketKey] IN VALUES(payments[TicketKey])),
+			    product_dedup[GroupName] IN {"NON-FOOD LAAG", "NON FOOD HOOG", "Voorgepakt", "EMBALLAGE"}
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 73931fef-4eac-4165-a668-45c90afd4921
+
+	measure TotaleOmzetExBTWIjs =
+			
+			CALCULATE(
+			    SUM(sales[LineTotalEx]),
+			    sales[TicketKey] IN VALUES(payments[TicketKey]),
+			    product_dedup[GroupName] IN {"Dudok ijs", "Ijs Cafe", "Nagerechten"}
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 0d481876-1581-4e66-98a3-3ab07a7d4b1d
+
+	measure TotaleOmzetExBTWKlein =
+			
+			CALCULATE(
+			    SUM(sales[LineTotalEx]),
+			    KEEPFILTERS(sales[TicketKey] IN VALUES(payments[TicketKey])),
+			    product_dedup[GroupName] = "Klein"
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: d00ee315-c5e5-420b-b891-69920ffd49b5
+
+	measure Internal_Derving/Verlies% = [Internal_Derving/Verlies] / ([Internal_Derving/Verlies] + [TotaleOmzetExBTW])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2c5ab504-d008-4ad3-9cd3-e238caa02057
+
+	measure Internal_EigenGebruik% = ```
+			[Internal_EigenGebruik] / ([Internal_EigenGebruik] + [TotaleOmzetExBTW])
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: fb6bda5b-a438-4493-beb9-f4d3e2d909d4
+
+	measure Internal_Representatie% = ```
+			[Internal_Representatie] / ([Internal_Representatie] + [TotaleOmzetExBTW])
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ac192c6b-3ff9-4587-9ee6-37e05c54898a
+
+	measure Internal_TooGoodToGo% = [Internal_TooGoodToGo] / ([Internal_TooGoodToGo] + [TotaleOmzetExBTW])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f599b2c7-3326-43d0-ad86-e98ba0027e2d
+
+	measure Internal_TotalComped% = [Internal_TotalComped] / ([Internal_TotalComped] + [TotaleOmzetExBTW])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d23b6e93-e543-4224-808c-cbe500f61836
+
+	measure LabourHours =
+			SUMX(
+			    SUMMARIZE(hourly_labour, hourly_labour[CardId]),
+			    CALCULATE(SUM(hourly_labour[TotalHours]))
+			)
+		lineageTag: bb23b5d1-8a52-4d6e-91c6-83f55a17ab3f
+
+	measure Productiviteit = DIVIDE([TotaleOmzetExBTW], [LabourHours], 0)
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: bbac7c70-5cad-4215-a926-ecc783f1d660
+
+	measure TotaleOmzetExBTW_Cumulative =
+			
+			IF(NOT(ISBLANK([TotaleOmzetExBTW])),
+			    CALCULATE([TotaleOmzetExBTW],
+			        FILTER(ALLSELECTED(time), time[Hour] <= MAX(time[Hour]))
+			    )
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 85fd6ccf-a87d-4fa2-915e-9a85ef991635
+
+	measure LabourCost_Hourly_Cumulative =
+			
+			IF(NOT(ISBLANK([LabourCost_Hourly])),
+			    CALCULATE([LabourCost_Hourly],
+			        FILTER(ALLSELECTED(time), time[Hour] <= MAX(time[Hour]))
+			    )
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 148e1743-a52f-45c5-92db-ad0e26d0ca9d
+
+	measure LabourCost_HourlyPercentageOfRevenue_Cumulative =
+			
+			VAR Omzet = [TotaleOmzetExBTW_Cumulative]
+			VAR PersoneelsKosten = [LabourCost_Hourly_Cumulative]
+			RETURN
+			DIVIDE(PersoneelsKosten, Omzet, 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2146fdc7-ad8e-40d3-82c6-c24281a04711
+
+	measure TotaleOmzetExBTW_Bediening = ```
+			
+			VAR ValidTickets = 
+			    INTERSECT(
+			        VALUES(sales[TicketKey]),
+			        VALUES(payments[TicketKey])
+			    )
+			RETURN
+			CALCULATE(
+			    SUM(sales[LineTotalEx]),
+			    sales[TicketKey] IN ValidTickets,
+			    FILTER(
+			        ALL(product_dedup[GroupKey]),
+			        product_dedup[GroupKey] = "3300845575733255" ||  -- DRANKEN HOOG
+			        product_dedup[GroupKey] = "3300738201550851" ||  -- DRANKEN LAAG  
+			        product_dedup[GroupKey] = "3300845575733258" ||  -- GEBAK
+			        product_dedup[GroupKey] = "3300845575733257" ||  -- PATISSERIE
+			        product_dedup[GroupKey] = "3300832690831364" ||  -- NON FOOD HOOG
+			        -- Wine subcategories
+			        product_dedup[GroupKey] = "3300738201550868" ||  -- Mousserend
+			        product_dedup[GroupKey] = "3300738201550866" ||  -- Rode wijn
+			        product_dedup[GroupKey] = "3300738201550867" ||  -- Rose wijn  
+			        product_dedup[GroupKey] = "3300738201550865" ||  -- Witte wijn
+			        -- Spirits subcategories
+			        product_dedup[GroupKey] = "3300738201550872" ||  -- Aperitieven
+			        product_dedup[GroupKey] = "3300738201550875" ||  -- Binnenlands Gedestilleerd
+			        product_dedup[GroupKey] = "3300738201550876" ||  -- Buitenlands Gedestilleerd
+			        product_dedup[GroupKey] = "3300738201550879" ||  -- Digestieven
+			        product_dedup[GroupKey] = "3300738201550878" ||  -- Likeuren
+			        product_dedup[GroupKey] = "3300738201550877"     -- Whisky
+			    )
+			)
+			```
+		lineageTag: 7c73c6b2-94b6-4cbd-a116-89c73bcc60f1
+
+	measure TotaleOmzetExBTWChocolade =
+			
+			CALCULATE(
+			    SUM(sales[LineTotalEx]),
+			    KEEPFILTERS(sales[TicketKey] IN VALUES(payments[TicketKey])),
+			    product_dedup[GroupName] = "Chocolade"
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 433bc81f-c573-40e8-9755-b0f9057b2ca9
+
+	measure Product_Sum_Quantity_Chocolade =
+			
+			CALCULATE(
+			    [Product_Sum_Quantity],
+			    product_dedup[GroupName] = "Chocolade"
+			)
+		formatString: 0
+		lineageTag: f17bd039-e49e-4c94-b687-ae6b066bb3b0
+
+	measure Debug_AllHours =
+			
+			SUM(planning[PlanningHours])
+		lineageTag: 9f8db110-d10d-4c85-b772-f66c21552b34
+
+	measure Gerealiseerd =
+			
+			FORMAT(
+			    [Netto_GewerktUren],
+			    "#,##0.00"
+			)
+		lineageTag: 8bfde319-974b-4da1-bbf9-e9171a90f826
+
+	column Column
+		isNameInferred
+		sourceColumn: [Column]
+
+	partition measurements = calculated
+		mode: import
+		source = ROW("Column", 1)
+

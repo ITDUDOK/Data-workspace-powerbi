@@ -1,0 +1,160 @@
+table freedays
+	lineageTag: 6292b02d-6716-423a-bac7-32a4f26297d5
+	sourceLineageTag: [dbo].[freedays]
+
+	column EmployeeId
+		dataType: string
+		lineageTag: 4bd1c613-51d3-4f1a-b298-a3675d3db0d5
+		sourceLineageTag: EmployeeId
+		summarizeBy: none
+		sourceColumn: EmployeeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyId
+		dataType: string
+		lineageTag: fd3d93cf-bf78-48de-98a8-bfd797c891f5
+		sourceLineageTag: CompanyId
+		summarizeBy: none
+		sourceColumn: CompanyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: 92fd9a8d-568a-4caa-b188-a33556f1980d
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardId
+		dataType: int64
+		formatString: 0
+		lineageTag: d8a77ce8-d6e3-4f50-90b3-492d89770519
+		sourceLineageTag: CardId
+		summarizeBy: count
+		sourceColumn: CardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 245b2e35-b558-4782-a0cf-ef80c8f126db
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: 2918b46b-0ad3-474f-b900-6a4c922b5015
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FreedayId
+		dataType: int64
+		formatString: 0
+		lineageTag: c72a2658-236c-4f36-88cc-f7ef67ceb47b
+		sourceLineageTag: FreedayId
+		summarizeBy: count
+		sourceColumn: FreedayId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FreedayStart
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1f18bcae-9ee0-4c1f-a74c-42fe339bbc80
+		sourceLineageTag: FreedayStart
+		summarizeBy: none
+		sourceColumn: FreedayStart
+
+		annotation SummarizationSetBy = Automatic
+
+	column FreedayEnd
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c51e1f17-a66b-4c53-865e-14cc58dea35f
+		sourceLineageTag: FreedayEnd
+		summarizeBy: none
+		sourceColumn: FreedayEnd
+
+		annotation SummarizationSetBy = Automatic
+
+	column FreedayDays
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2cba6574-7bb3-424d-aabf-c9d4c9679710
+		sourceLineageTag: FreedayDays
+		summarizeBy: sum
+		sourceColumn: FreedayDays
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column FreedayType
+		dataType: int64
+		formatString: 0
+		lineageTag: 83e17895-3d2f-486e-b5cb-708fb3724624
+		sourceLineageTag: FreedayType
+		summarizeBy: sum
+		sourceColumn: FreedayType
+
+		annotation SummarizationSetBy = Automatic
+
+	column FreedayHours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 30f2502a-596b-4438-b618-f2dbd0fc562c
+		sourceLineageTag: FreedayHours
+		summarizeBy: sum
+		sourceColumn: FreedayHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column FreedayRemarks
+		dataType: string
+		lineageTag: 2c4cb974-213d-48f3-91bd-518011a4009c
+		sourceLineageTag: FreedayRemarks
+		summarizeBy: none
+		sourceColumn: FreedayRemarks
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f1df7309-d17b-4add-9c33-4f2f53c01095
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsAnomalousFreeday
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b72b3f01-1692-405b-8dc9-49064a20f2f1
+		sourceLineageTag: IsAnomalousFreeday
+		summarizeBy: none
+		sourceColumn: IsAnomalousFreeday
+
+		annotation SummarizationSetBy = Automatic
+
+	partition freedays = entity
+		mode: directLake
+		source
+			entityName: freedays
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

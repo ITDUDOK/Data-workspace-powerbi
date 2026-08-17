@@ -1,0 +1,83 @@
+table summaries
+	lineageTag: 62cd8959-1a21-4ad3-9bea-10ddde96d508
+	sourceLineageTag: [dbo].[summaries]
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: d65ca798-cbda-476f-ad8f-7b8568c784a5
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SummaryDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 517cee3b-1ff7-484d-b8d4-a96f25cbf229
+		sourceLineageTag: SummaryDate
+		summarizeBy: none
+		sourceColumn: SummaryDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column GuestsTurnover
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e5c70bc3-e6a5-4ef8-99e4-3f851518f167
+		sourceLineageTag: GuestsTurnover
+		summarizeBy: sum
+		sourceColumn: GuestsTurnover
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column GuestsArriving
+		dataType: int64
+		formatString: 0
+		lineageTag: 457b6834-7857-4c24-9f6c-f721450afc8d
+		sourceLineageTag: GuestsArriving
+		summarizeBy: sum
+		sourceColumn: GuestsArriving
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfTheWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: 60ec00da-c7f1-4d39-9c29-9d1f3e9c39bd
+		sourceLineageTag: DayOfTheWeek
+		summarizeBy: sum
+		sourceColumn: DayOfTheWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekOfTheYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 52d46038-612c-48bd-b164-004612959a83
+		sourceLineageTag: WeekOfTheYear
+		summarizeBy: sum
+		sourceColumn: WeekOfTheYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 60218e09-f410-4c13-9aaf-f839f7d63a35
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition summaries = entity
+		mode: directLake
+		source
+			entityName: summaries
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

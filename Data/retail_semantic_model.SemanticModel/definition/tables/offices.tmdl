@@ -1,0 +1,50 @@
+table offices
+	lineageTag: 1a313174-25df-497c-aa2b-e3cd773f44f9
+	sourceLineageTag: [dbo].[offices]
+
+	column OfficeId
+		dataType: int64
+		formatString: 0
+		lineageTag: d330622f-01a9-492b-9c2e-691217a153fd
+		sourceLineageTag: OfficeId
+		summarizeBy: count
+		sourceColumn: OfficeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: 9332c704-e236-4acc-a3af-08beb23060a7
+		sourceLineageTag: OfficeName
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeIdAccountant
+		dataType: int64
+		formatString: 0
+		lineageTag: 56e628eb-0a42-485e-873d-d91cad1c195c
+		sourceLineageTag: OfficeIdAccountant
+		summarizeBy: sum
+		sourceColumn: OfficeIdAccountant
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3d4fdc65-dc0d-4008-b8aa-4fa6bd613f68
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition offices = entity
+		mode: directLake
+		source
+			entityName: offices
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

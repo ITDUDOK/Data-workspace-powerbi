@@ -1,0 +1,303 @@
+table sales
+	lineageTag: 160a9cb1-4f0b-42f0-8bac-8ded351b9c62
+	sourceLineageTag: [dbo].[sales]
+
+	column TicketKey
+		dataType: string
+		lineageTag: d333b8bc-9a0b-4779-af6c-340393f81e61
+		sourceLineageTag: TicketKey
+		summarizeBy: none
+		sourceColumn: TicketKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineKey
+		dataType: string
+		lineageTag: 5b3fb378-1be9-48ec-b01a-4b18298e4a79
+		sourceLineageTag: LineKey
+		summarizeBy: none
+		sourceColumn: LineKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderKey
+		dataType: string
+		lineageTag: 8add20e4-82ea-4a14-8c58-24320987f74d
+		sourceLineageTag: OrderKey
+		summarizeBy: none
+		sourceColumn: OrderKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineGroupKey
+		dataType: string
+		lineageTag: 3df7db6d-597a-49e4-826c-245f7a3f0289
+		sourceLineageTag: LineGroupKey
+		summarizeBy: none
+		sourceColumn: LineGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineGroupName
+		dataType: string
+		lineageTag: 458a41a9-790c-4165-9a12-11fe48253f53
+		sourceLineageTag: LineGroupName
+		summarizeBy: none
+		sourceColumn: LineGroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LinePrice
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ecb40913-fbee-41a6-b73c-fddda225c569
+		sourceLineageTag: LinePrice
+		summarizeBy: sum
+		sourceColumn: LinePrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column LineProductKey
+		dataType: string
+		lineageTag: 1a315871-870b-47c5-954e-fe492a84d8d1
+		sourceLineageTag: LineProductKey
+		summarizeBy: none
+		sourceColumn: LineProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineProductName
+		dataType: string
+		lineageTag: a66c1afb-3b3a-4d33-8baf-b040483982cf
+		sourceLineageTag: LineProductName
+		summarizeBy: none
+		sourceColumn: LineProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineProductNr
+		dataType: int64
+		formatString: 0
+		lineageTag: 9873ee55-84a7-430c-86a9-e4c08c699ab7
+		sourceLineageTag: LineProductNr
+		summarizeBy: sum
+		sourceColumn: LineProductNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineQty
+		dataType: int64
+		formatString: 0
+		lineageTag: dbfcc9b9-1a83-43e7-bfb8-2dace179fc1b
+		sourceLineageTag: LineQty
+		summarizeBy: sum
+		sourceColumn: LineQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineTotalEx
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1715539a-a4e1-4949-9d24-ea3a2a4795e1
+		sourceLineageTag: LineTotalEx
+		summarizeBy: sum
+		sourceColumn: LineTotalEx
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column LineTotalInc
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 84579035-3af9-4d14-8370-8c69e602b4c5
+		sourceLineageTag: LineTotalInc
+		summarizeBy: sum
+		sourceColumn: LineTotalInc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column LineVatPerc
+		dataType: int64
+		formatString: 0
+		lineageTag: f12e6c6b-fa53-473b-a810-39966ae309ed
+		sourceLineageTag: LineVatPerc
+		summarizeBy: sum
+		sourceColumn: LineVatPerc
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterKey
+		dataType: string
+		lineageTag: 95d6e640-3087-4eff-ab09-e31f075d6bfa
+		sourceLineageTag: CenterKey
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterName
+		dataType: string
+		lineageTag: 574250cc-3f66-4f88-b954-57a35d29d3a8
+		sourceLineageTag: CenterName
+		summarizeBy: none
+		sourceColumn: CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsAddon
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8d1a6fab-75bf-4f93-877a-60b3002105f0
+		sourceLineageTag: IsAddon
+		summarizeBy: none
+		sourceColumn: IsAddon
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentLineKey
+		dataType: string
+		lineageTag: eb1ddc06-ebd2-4580-8246-dbb2dc55d5b9
+		sourceLineageTag: ParentLineKey
+		summarizeBy: none
+		sourceColumn: ParentLineKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderUserName
+		dataType: string
+		lineageTag: 37e7bc60-e553-4dd3-9e64-2b5e2d525cbb
+		sourceLineageTag: OrderUserName
+		summarizeBy: none
+		sourceColumn: OrderUserName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderUserKey
+		dataType: string
+		lineageTag: bfea40b1-4d69-4c90-90f2-e4fbf49e8d25
+		sourceLineageTag: OrderUserKey
+		summarizeBy: none
+		sourceColumn: OrderUserKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2c820d35-0f5c-4fd2-83bf-a2302d88e3c8
+		sourceLineageTag: TicketDate
+		summarizeBy: none
+		sourceColumn: TicketDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketTime
+		dataType: string
+		lineageTag: 139d137a-0c29-47b7-8691-f75b39273e78
+		sourceLineageTag: TicketTime
+		summarizeBy: none
+		sourceColumn: TicketTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketTotalPrice
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 4a40b3b2-09bd-4347-a2d5-f4f7e8bcc16f
+		sourceLineageTag: TicketTotalPrice
+		summarizeBy: sum
+		sourceColumn: TicketTotalPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TicketInternal
+		dataType: string
+		lineageTag: 0cbb6ae3-1c19-459a-87f9-6efec699af65
+		sourceLineageTag: TicketInternal
+		summarizeBy: none
+		sourceColumn: TicketInternal
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 64687c78-7e0e-4fa0-a33e-a1529b353702
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesId
+		dataType: int64
+		formatString: 0
+		lineageTag: 18452cc2-9121-4242-b0b9-0417d231a9bf
+		sourceLineageTag: SalesId
+		summarizeBy: count
+		sourceColumn: SalesId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableNr
+		dataType: string
+		lineageTag: 609eca8b-563c-4f0b-8844-b152f106974d
+		sourceLineageTag: TableNr
+		summarizeBy: none
+		sourceColumn: TableNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column Covers
+		dataType: string
+		lineageTag: ceb3fc3f-e21f-4f91-a0a1-1be81e0e1f51
+		sourceLineageTag: Covers
+		summarizeBy: none
+		sourceColumn: Covers
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 24e0aa2a-44fd-4cb9-8517-dcc145e678f6
+		sourceLineageTag: ActualDate
+		summarizeBy: none
+		sourceColumn: ActualDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e5f99df1-bd4f-4cfb-8664-78f003812fb2
+		sourceLineageTag: Time
+		summarizeBy: none
+		sourceColumn: Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 94113182-e3c6-45c2-9a34-52330f279701
+		sourceLineageTag: HourNumber
+		summarizeBy: sum
+		sourceColumn: HourNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sales = entity
+		mode: directLake
+		source
+			entityName: sales
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+
