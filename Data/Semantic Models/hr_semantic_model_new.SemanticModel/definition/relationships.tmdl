@@ -141,10 +141,6 @@ relationship c2da8645-637d-0aa0-6d05-507f95d9b51f
 	fromColumn: satisfaction.SurveyDate
 	toColumn: dates.Date
 
-relationship 8d943ac2-54ff-80d3-a571-3df0037639cb
-	fromColumn: satisfaction.EmployeeId
-	toColumn: employees_enriched.EmployeeId
-
 relationship 50ec14fa-3203-425d-94d4-4530ddb5700b
 	fromColumn: hours_summary.HourDate
 	toColumn: dates.Date
@@ -224,4 +220,8 @@ relationship 7c8fac81-9453-420c-9b2c-80a8e094c436
 relationship 88676375-0865-412d-be78-f10f8a97ba28
 	fromColumn: employees_enriched.VerzuimredenColumn
 	toColumn: verzuimcategorieen.Categorie
+
+relationship 680a504a-086d-42e1-b728-624862e368c9
+	fromColumn: satisfaction.EmployeeId
+	toColumn: employees_enriched.EmployeeId
 

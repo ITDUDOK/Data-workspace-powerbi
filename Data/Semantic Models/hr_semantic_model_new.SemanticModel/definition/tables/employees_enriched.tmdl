@@ -384,6 +384,30 @@ table employees_enriched
 		formatString: 0
 		lineageTag: ba1f66f4-1bd1-437d-a323-216125ed9154
 
+	measure IsActiefInPeriode =
+			
+			VAR RawStartDate = MIN ( dates[Date] )
+			VAR SelectedMonthName = SELECTEDVALUE ( dates[MonthName] )
+			VAR SelectedEndDate =
+			    IF (
+			        NOT ISBLANK ( SelectedMonthName ) && NOT ISBLANK ( RawStartDate ),
+			        EOMONTH ( DATE ( YEAR ( RawStartDate ), MONTH ( RawStartDate ), 1 ), 0 ),
+			        MAX ( dates[Date] )
+			    )
+			VAR RowEndDate =
+			    CALCULATE (
+			        MIN ( employees_enriched[FinalEndDate] ),
+			        TREATAS ( VALUES ( satisfaction[EmployeeId] ), employees_enriched[EmployeeId] )
+			    )
+			RETURN
+			IF (
+			    ISBLANK ( SelectedEndDate ),
+			    BLANK (),
+			    IF ( ISBLANK ( RowEndDate ) || RowEndDate > SelectedEndDate, 1, 0 )
+			)
+		formatString: 0
+		lineageTag: 40764efe-0f3f-42df-83fe-21f138b1d3bc
+
 	column EmployeeId
 		dataType: string
 		lineageTag: bfd877dd-65b7-4e09-896d-be22a22d8234
