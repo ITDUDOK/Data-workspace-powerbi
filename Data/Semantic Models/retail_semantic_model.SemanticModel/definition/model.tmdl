@@ -49,4 +49,5 @@ ref table bridge_center_office
 ref table employees_enriched
 ref table historic_cake_sales
 ref table dim_cake_type
+ref table bridge_cake_location
 

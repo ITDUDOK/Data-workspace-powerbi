@@ -206,6 +206,7 @@ relationship 721b30f4-f364-41b4-b080-b833be6514a0
 	toColumn: dim_cake_type.CakeType
 
 relationship 6b13069d-2b1a-40f5-a00c-f33dc44e7132
+	isActive: false
 	fromColumn: predicted_cake_sales.CenterKey
 	toColumn: centers.CenterKey
 
@@ -216,4 +217,12 @@ relationship 982d7aa7-d6d1-4ad0-8dec-b9ee5d7169d1
 relationship 98b72023-c4de-491b-a3aa-461988ce8eb3
 	fromColumn: sickness.SicknessStart
 	toColumn: dates.Date
+
+relationship cb542730-719f-4c30-bfed-e71f3e5bdb91
+	fromColumn: predicted_cake_sales.Location
+	toColumn: bridge_cake_location.Location
+
+relationship a9976cc6-6fa1-41a0-9b7a-e0e396759d0d
+	fromColumn: bridge_cake_location.CenterKey
+	toColumn: centers.CenterKey
 
