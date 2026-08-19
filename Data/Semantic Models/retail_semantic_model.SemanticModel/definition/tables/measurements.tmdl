@@ -650,7 +650,56 @@ table measurements
 		formatString: 0
 		lineageTag: cca3d46e-414b-4761-bba5-7d89180c2467
 
+	measure HeleTaarten_Per_Ticket =
+			DIVIDE(
+			    CALCULATE(
+			        [Product_Sum_Quantity],
+			        product_dedup[GroupName] = "TAART"
+			    ),
+			    [TotalTickets],
+			    0
+			)
+		formatString: 0.00
+		lineageTag: 689f4b12-081a-4845-9bc5-915bdca47ff3
+
+	measure Drankjes_Per_Ticket =
+			DIVIDE(
+			    CALCULATE(
+			        [Product_Sum_Quantity],
+			        product_dedup[GroupName] IN {"Bronwaters", "Fris, Vrucht, Zuivel", "Koffie en Thee", "Verse Thee"}
+			    ),
+			    [TotalTickets],
+			    0
+			)
+		formatString: 0.00
+		lineageTag: 9cc70273-03dc-413a-9b57-ea2c12d3cb88
+
+	measure Impuls_Per_Ticket =
+			DIVIDE(
+			    CALCULATE(
+			        [Product_Sum_Quantity],
+			        product_dedup[GroupName] IN {"CHOCOLADE", "VOORGEPAKT"}
+			    ),
+			    [TotalTickets],
+			    0
+			)
+		formatString: 0.00
+		lineageTag: 3390ad98-92c8-43d4-b5e8-6c06792b3dc7
+
+	measure Patisserie_Per_Ticket =
+			DIVIDE(
+			    CALCULATE(
+			        [Product_Sum_Quantity],
+			        product_dedup[GroupName] IN {"BAKE OFF", "KLEIN", "PUNT"}
+			    ),
+			    [TotalTickets],
+			    0
+			)
+		formatString: 0.00
+		lineageTag: 7d8c4039-d0e4-44f2-a683-800cbdcfc298
+
 	column Column
+		lineageTag: 1af5134a-8612-4197-a805-4e19f28423b7
 		isNameInferred
 		sourceColumn: [Column]
 

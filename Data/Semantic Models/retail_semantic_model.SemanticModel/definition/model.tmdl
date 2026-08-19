@@ -10,7 +10,7 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_QueryOrder = ["DirectLake - lh_dudodata_gold_powerbi"]
 
-annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb"]
+annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb","WebModelingEdit","DaxQueryView_Desktop"]
 
 annotation __TEdtr = 1
 

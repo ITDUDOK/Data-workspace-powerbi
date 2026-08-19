@@ -97,6 +97,11 @@ table predicted_cake_sales
 
 		annotation SummarizationSetBy = Automatic
 
+	column CenterKey
+		dataType: string
+		lineageTag: 55aa2ac0-93a5-4e5f-b878-4f2aebe7f616
+		sourceColumn: CenterKey
+
 	partition predicted_cake_sales = entity
 		mode: directLake
 		source

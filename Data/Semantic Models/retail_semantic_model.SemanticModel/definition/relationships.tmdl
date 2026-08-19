@@ -132,10 +132,6 @@ relationship 3d82f409-58a1-44ed-9180-53e77eb87e90
 	fromColumn: predicted_cake_sales.CreatedDate
 	toColumn: dates.Date
 
-relationship c13192fa-f7ca-4dff-bcaf-547f759387c0
-	fromColumn: predicted_cake_sales.Location
-	toColumn: centers.CenterName
-
 relationship abed3a69-78a0-42d3-b892-6ca969d71391
 	fromColumn: payments.PaymodeKey
 	toColumn: paymentmethod_dedup.PaymodeKey
@@ -211,4 +207,8 @@ relationship 75e4d64c-cd19-49d4-9e73-f3653591485b
 relationship 721b30f4-f364-41b4-b080-b833be6514a0
 	fromColumn: predicted_cake_sales.CakeType
 	toColumn: dim_cake_type.CakeType
+
+relationship 6b13069d-2b1a-40f5-a00c-f33dc44e7132
+	fromColumn: predicted_cake_sales.CenterKey
+	toColumn: centers.CenterKey
 

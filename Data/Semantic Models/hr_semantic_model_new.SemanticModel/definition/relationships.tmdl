@@ -213,7 +213,6 @@ relationship 674ca3c5-8263-410d-a3ae-7812bdbd0a7a
 	toColumn: employees_enriched.EmployeeId
 
 relationship 7c8fac81-9453-420c-9b2c-80a8e094c436
-	crossFilteringBehavior: bothDirections
 	fromColumn: employee_business_line.BusinessLine
 	toColumn: business_line.BusinessLine
 
