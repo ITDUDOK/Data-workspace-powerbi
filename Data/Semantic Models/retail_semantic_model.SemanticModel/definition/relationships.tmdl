@@ -176,11 +176,8 @@ relationship 72b258dc-79f1-4fd4-a03d-fdfd60d812d4
 	fromColumn: sales.TicketKey
 	toColumn: tickets.TicketKey
 
-relationship 640562cb-033e-4ff9-b793-6b5aecd96237
-	fromColumn: centers.CenterKey
-	toColumn: bridge_center_office.CenterKey
-
 relationship 53a25a21-e1ca-47d8-921c-fc16b02de453
+	crossFilteringBehavior: bothDirections
 	fromColumn: bridge_center_office.OfficeId
 	toColumn: offices.OfficeId
 
@@ -210,5 +207,9 @@ relationship 721b30f4-f364-41b4-b080-b833be6514a0
 
 relationship 6b13069d-2b1a-40f5-a00c-f33dc44e7132
 	fromColumn: predicted_cake_sales.CenterKey
+	toColumn: centers.CenterKey
+
+relationship 982d7aa7-d6d1-4ad0-8dec-b9ee5d7169d1
+	fromColumn: bridge_center_office.CenterKey
 	toColumn: centers.CenterKey
 
