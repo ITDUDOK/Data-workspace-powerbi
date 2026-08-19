@@ -213,3 +213,7 @@ relationship 982d7aa7-d6d1-4ad0-8dec-b9ee5d7169d1
 	fromColumn: bridge_center_office.CenterKey
 	toColumn: centers.CenterKey
 
+relationship 98b72023-c4de-491b-a3aa-461988ce8eb3
+	fromColumn: sickness.SicknessStart
+	toColumn: dates.Date
+
