@@ -102,6 +102,11 @@ table predicted_cake_sales
 		lineageTag: 55aa2ac0-93a5-4e5f-b878-4f2aebe7f616
 		sourceColumn: CenterKey
 
+	column CakeLocationKey
+		dataType: string
+		lineageTag: 8c0388ad-d538-4b6c-9535-d02cc22b1dd3
+		sourceColumn: CakeLocationKey
+
 	partition predicted_cake_sales = entity
 		mode: directLake
 		source

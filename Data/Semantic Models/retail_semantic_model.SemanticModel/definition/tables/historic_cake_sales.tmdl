@@ -41,6 +41,11 @@ table historic_cake_sales
 		lineageTag: d0945177-099d-47ec-b5fa-747e7a34a15c
 		sourceColumn: ModifiedAt
 
+	column CakeLocationKey
+		dataType: string
+		lineageTag: 894a2039-f512-4464-a576-ed8b6a539d61
+		sourceColumn: CakeLocationKey
+
 	partition 'historic_cake_sales 1' = entity
 		mode: directLake
 		source

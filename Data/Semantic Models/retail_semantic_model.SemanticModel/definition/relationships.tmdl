@@ -226,3 +226,11 @@ relationship a9976cc6-6fa1-41a0-9b7a-e0e396759d0d
 	fromColumn: bridge_cake_location.CenterKey
 	toColumn: centers.CenterKey
 
+relationship 1686ea18-0cc9-404c-970a-0a6ba3cca3b7
+	fromColumn: historic_cake_sales.CakeLocationKey
+	toColumn: bridge_cake_forecast.CakeLocationKey
+
+relationship f0966b7d-c41d-4918-9a7f-2f179a69782f
+	fromColumn: predicted_cake_sales.CakeLocationKey
+	toColumn: bridge_cake_forecast.CakeLocationKey
+
