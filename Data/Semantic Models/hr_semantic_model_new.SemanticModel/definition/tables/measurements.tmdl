@@ -1260,9 +1260,10 @@ table measurements
 		lineageTag: 87ce8db0-0307-4b73-b835-c592e1d05972
 
 	measure Saldo_Overuren =
-			
 			VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
-			VAR VorigeMaand = EDATE(TODAY(), -1)
+			VAR SelectedYear = IF(HASONEVALUE(dates[Year]), VALUES(dates[Year]), YEAR(TODAY()))
+			VAR SelectedMonth = IF(HASONEVALUE(dates[Month]), VALUES(dates[Month]), MONTH(TODAY()))
+			VAR VorigeMaand = EDATE(DATE(SelectedYear, SelectedMonth, 1), -1)
 			VAR HuidigYearMonth = DATE(YEAR(VorigeMaand), MONTH(VorigeMaand), 1)
 			RETURN
 			    CALCULATE(
@@ -1274,9 +1275,10 @@ table measurements
 		lineageTag: 8f020d61-8cf3-450a-8a22-3cf2b46430f6
 
 	measure Saldo_Vakantieuren =
-			
 			VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
-			VAR VorigeMaand = EDATE(TODAY(), -1)
+			VAR SelectedYear = IF(HASONEVALUE(dates[Year]), VALUES(dates[Year]), YEAR(TODAY()))
+			VAR SelectedMonth = IF(HASONEVALUE(dates[Month]), VALUES(dates[Month]), MONTH(TODAY()))
+			VAR VorigeMaand = EDATE(DATE(SelectedYear, SelectedMonth, 1), -1)
 			VAR HuidigYearMonth = DATE(YEAR(VorigeMaand), MONTH(VorigeMaand), 1)
 			RETURN
 			    CALCULATE(
@@ -2185,9 +2187,10 @@ table measurements
 		lineageTag: 90c820ae-c043-4189-99a1-1ca4dca328fe
 
 	measure Saldo_Compensatieuren =
-			
 			VAR CurrentCardIDs = VALUES(employees_enriched[CardId])
-			VAR VorigeMaand = EDATE(TODAY(), -1)
+			VAR SelectedYear = IF(HASONEVALUE(dates[Year]), VALUES(dates[Year]), YEAR(TODAY()))
+			VAR SelectedMonth = IF(HASONEVALUE(dates[Month]), VALUES(dates[Month]), MONTH(TODAY()))
+			VAR VorigeMaand = EDATE(DATE(SelectedYear, SelectedMonth, 1), -1)
 			VAR HuidigYearMonth = DATE(YEAR(VorigeMaand), MONTH(VorigeMaand), 1)
 			RETURN
 			    CALCULATE(
