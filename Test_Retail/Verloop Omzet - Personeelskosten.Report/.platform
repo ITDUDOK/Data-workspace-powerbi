@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Verloop Omzet - Personeelskosten"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "165a9d12-da5c-4c75-b8c8-7d417504d146"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Detail - omzet"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4ecf5a91-6c66-4cf3-9362-53a783883dea"
+  }
+}
