@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Verloop omzet"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2a67ec93-c7c3-49f5-a988-3d9c885e4266"
+  }
+}
