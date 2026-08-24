@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Medewerkerstevredenheid"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "74c4fef1-f9da-419f-93d5-347c68c365c4"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Personeelsverloop"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7dc2de5b-7347-4cb3-9542-dd692ae3eac0"
+  }
+}

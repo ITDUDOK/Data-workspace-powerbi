@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Jubilea"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "09cc8cb0-4510-499f-88d7-627c635c11ce"
+  }
+}
