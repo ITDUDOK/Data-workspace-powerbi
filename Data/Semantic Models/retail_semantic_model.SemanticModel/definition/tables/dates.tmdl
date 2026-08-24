@@ -153,6 +153,7 @@ table dates
 		sourceLineageTag: DayName
 		summarizeBy: none
 		sourceColumn: DayName
+		sortByColumn: DayOfWeekISO
 
 		annotation SummarizationSetBy = Automatic
 
@@ -162,6 +163,7 @@ table dates
 		sourceLineageTag: DayNameShort
 		summarizeBy: none
 		sourceColumn: DayNameShort
+		sortByColumn: DayOfWeekISO
 
 		annotation SummarizationSetBy = Automatic
 

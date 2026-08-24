@@ -2,6 +2,9 @@ table predicted_cake_sales
 	lineageTag: 0840db60-b12a-48ba-9982-2c11c2c31923
 	sourceLineageTag: [dbo].[predicted_cake_sales]
 
+	measure 'Voorspelde Cake Verkoop' = CALCULATE(SUM(predicted_cake_sales[PredictedSales]), predicted_cake_sales[IsLatestBatch] = TRUE)
+		lineageTag: 17ad1bed-e7fe-4e2e-b424-ba8aececa65f
+
 	column PredictedCakeSaleId
 		dataType: int64
 		formatString: 0
@@ -106,6 +109,11 @@ table predicted_cake_sales
 		dataType: string
 		lineageTag: 8c0388ad-d538-4b6c-9535-d02cc22b1dd3
 		sourceColumn: CakeLocationKey
+
+	column IsLatestBatch
+		dataType: boolean
+		lineageTag: 163e67fd-7578-455a-8bfc-5319bc6b9949
+		sourceColumn: IsLatestBatch
 
 	partition predicted_cake_sales = entity
 		mode: directLake
