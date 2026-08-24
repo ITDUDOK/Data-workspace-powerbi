@@ -1,0 +1,166 @@
+{
+  "config": "{\"version\":\"5.70\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY26SU02\",\"type\":2,\"version\":{\"visual\":\"2.6.0\",\"report\":\"3.1.0\",\"page\":\"2.3.0\"}},\"customTheme\":{\"name\":\"Accessible_Tidal4018863514996759.json\",\"type\":1,\"version\":{\"visual\":\"2.6.0\",\"report\":\"3.1.0\",\"page\":\"2.3.0\"}}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY26SU02",
+            "path": "BaseThemes/CY26SU02.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "items": [
+          {
+            "name": "Accessible_Tidal4018863514996759.json",
+            "path": "Accessible_Tidal4018863514996759.json",
+            "type": 100
+          },
+          {
+            "name": "BEELDMERK_-_DUDOK_D42986470484759254.png",
+            "path": "BEELDMERK_-_DUDOK_D42986470484759254.png",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"objects\":{\"outspace\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]}}",
+      "displayName": "Pagina 1",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"f66299f08a92ad68c930\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"Status\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"events\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Status\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'confirmed'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"0863514dcb092d365cda\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"LocationName\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"events\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"LocationName\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Cruise Terminal Rotterdam'\"}}],[{\"Literal\":{\"Value\":\"'HAKA Events'\"}}],[{\"Literal\":{\"Value\":\"'Schiecentrale Events'\"}}],[{\"Literal\":{\"Value\":\"'Van Nelle Fabriek Events'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ff4732ea7e6e0c9206e0",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"21508528780301c17451\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":150.76923076923077,\"z\":3004,\"width\":214.6153846153846,\"height\":66.92307692307692,\"tabOrder\":3004}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dates.MonthName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dates\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MonthName\"},\"Name\":\"dates.MonthName\",\"NativeReferenceName\":\"Maand\"}]},\"columnProperties\":{\"dates.MonthName\":{\"displayName\":\"Maand\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 66.92,
+          "queryBinary": "H4sIAAAAAAAEAL2UTU/jQAyG/0o1Fy7RqhSJQ2/QDR+iZdkGtUKrHszE0IHMTOTMAFWV/772NGwrJFY9IG4T+/XrJ3YmazXy1oIrGzX8s1YF8jkY/TsirX5CgGIJNXYSNVyrlJDDDKkx3qnhIFNn5G0qvwaLaqhKlamcbcJKHiBgw4HbVc25fpv9k+GuDF/QhV3dImOaCnVIziNfReukcf5WEzab3gzsI2mc4sP2IQG0baZuyNdIyX3iXVimthx/pxSwH9uMJIJ5ETMkdBo73QTk3YVnvuREh+NKEzqGyw9czVcQ3yHQZfGLw9x4BlVEsWXfsQlIUKUdSJi1g/7geCzKRdvKfL+cDj/SFQFCbPaCO9DePRiyWB58K+LYa5AGm63vAzqiaBrs3SJZ46DqTX1gUQk2gWefVF2cXJ308vT1/ldX6KVBzTJO4D4FM3C9a6xYfAb3ZPB5t0jGuOAXPjU8R/cohTdkLGwu5zn5WHN4M0geyhPfo26w/UUqlMs9xTLq9yVIYCYj5+ZH2a7bnHv4Vz7J6nhZuool5rYOq9SHTQNFzLa/hEOW5W+oo3hPMJDRzZWRH8ihUP8FyICGxXQEAAA=",
+          "width": 214.62,
+          "x": 0.00,
+          "y": 150.77,
+          "z": 3004.00
+        },
+        {
+          "config": "{\"name\":\"25a5021add7da3dc8605\",\"layouts\":[{\"id\":0,\"position\":{\"x\":216.44635193133047,\"y\":83.50214592274678,\"z\":3000,\"width\":1062.4549356223176,\"height\":622.9699570815451,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Rows\":[{\"queryRef\":\"events.LocationName\",\"active\":true},{\"queryRef\":\"events.EventLabel\",\"active\":true},{\"queryRef\":\"product_categories.CategoryName\"}],\"Values\":[{\"queryRef\":\"events.Voorcalculatie Omzet\"},{\"queryRef\":\"events.Nacalculatie Omzet\"},{\"queryRef\":\"events.Voorcalculatie Kosten\"},{\"queryRef\":\"events.Nacalculatie Kosten\"},{\"queryRef\":\"events.Voorcalculatie Marge %\"},{\"queryRef\":\"events.Nacalculatie Marge %\"},{\"queryRef\":\"events.Verschil €\"},{\"queryRef\":\"events.Verschil %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"events\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"product_categories\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Voorcalculatie Omzet\"},\"Name\":\"events.Voorcalculatie Omzet\",\"NativeReferenceName\":\"Voorcalculatie Omzet\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Nacalculatie Omzet\"},\"Name\":\"events.Nacalculatie Omzet\",\"NativeReferenceName\":\"Nacalculatie Omzet\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Voorcalculatie Kosten\"},\"Name\":\"events.Voorcalculatie Kosten\",\"NativeReferenceName\":\"Voorcalculatie Kosten\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Nacalculatie Kosten\"},\"Name\":\"events.Nacalculatie Kosten\",\"NativeReferenceName\":\"Nacalculatie Kosten\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Voorcalculatie Marge %\"},\"Name\":\"events.Voorcalculatie Marge %\",\"NativeReferenceName\":\"Voorcalculatie Marge %\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Nacalculatie Marge %\"},\"Name\":\"events.Nacalculatie Marge %\",\"NativeReferenceName\":\"Nacalculatie Marge %\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Verschil €\"},\"Name\":\"events.Verschil €\",\"NativeReferenceName\":\"Verschil €\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Verschil %\"},\"Name\":\"events.Verschil %\",\"NativeReferenceName\":\"Verschil %\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"CategoryName\"},\"Name\":\"product_categories.CategoryName\",\"NativeReferenceName\":\"CategoryName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"LocationName\"},\"Name\":\"events.LocationName\",\"NativeReferenceName\":\"Locatie\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"EventLabel\"},\"Name\":\"events.EventLabel\",\"NativeReferenceName\":\"EventLabel\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Verschil €\"}}}]},\"expansionStates\":[{\"roles\":[\"Rows\"],\"levels\":[{\"queryRefs\":[\"events.LocationName\"],\"isCollapsed\":true,\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"LocationName\"}}],\"isPinned\":true},{\"queryRefs\":[\"events.EventLabel\"],\"isCollapsed\":true,\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"EventLabel\"}}],\"isPinned\":true},{\"queryRefs\":[\"product_categories.CategoryName\"],\"isCollapsed\":true,\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"product_categories\"}},\"Property\":\"CategoryName\"}}],\"isPinned\":true}],\"root\":{\"identityValues\":null,\"children\":[{\"identityValues\":[{\"Literal\":{\"Value\":\"'Schiecentrale Events'\"}}],\"isToggled\":true},{\"identityValues\":[{\"Literal\":{\"Value\":\"'Cruise Terminal Rotterdam'\"}}],\"isToggled\":true},{\"identityValues\":[{\"Literal\":{\"Value\":\"'Van Nelle Fabriek Events'\"}}],\"isToggled\":true}]}}],\"columnProperties\":{\"events.LocationName\":{\"displayName\":\"Locatie\"}},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"91.39484978540773D\"}}}},\"selector\":{\"metadata\":\"events.Verschil €\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"88.48154606074344D\"}}}},\"selector\":{\"metadata\":\"events.Nacalculatie Marge %\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"111.5450643776824D\"}}}},\"selector\":{\"metadata\":\"events.Voorcalculatie Marge %\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"105.12446351931331D\"}}}},\"selector\":{\"metadata\":\"events.Nacalculatie Kosten\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"115.02575107296137D\"}}}},\"selector\":{\"metadata\":\"events.Voorcalculatie Kosten\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"109.61802575107296D\"}}}},\"selector\":{\"metadata\":\"events.Nacalculatie Omzet\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"121.71673819742489D\"}}}},\"selector\":{\"metadata\":\"events.Voorcalculatie Omzet\"}}]}}}",
+          "filters": "[{\"name\":\"e5606b36d31101cac558\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"product_categories\"}},\"Property\":\"CategoryName\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":0},{\"name\":\"e4e839c961a420e9a433\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"GLTransactions\"}},\"Property\":\"Costcenter\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"GLTransactions\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Costcenter\"}},\"Right\":{\"Literal\":{\"Value\":\"''\"}}}}}}}]},\"type\":\"Advanced\",\"howCreated\":1,\"isHiddenInViewMode\":false,\"ordinal\":1},{\"name\":\"fb36e63509bc2c971153\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"EventLabel\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":2},{\"name\":\"dc628484c4a193a71090\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"EventName\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"events\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"EventName\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false,\"ordinal\":3},{\"name\":\"ec8dfec1ec80085820b6\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"LocationName\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4},{\"name\":\"1047950a2aa26ebae295\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"Nacalculatie Kosten\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":5},{\"name\":\"465d64b3e50e9ab417bc\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"Nacalculatie Marge %\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":6},{\"name\":\"cbd117588a81424d10b7\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"Nacalculatie Omzet\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":7},{\"name\":\"b39b935c983c2057aee2\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"Verschil %\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":8},{\"name\":\"8e2d2d55325040d7c355\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"Verschil €\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":9},{\"name\":\"e061d0cc5830e37ab800\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"Voorcalculatie Kosten\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"events\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Voorcalculatie Kosten\"}},\"Right\":{\"Literal\":{\"Value\":\"0L\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":10},{\"name\":\"084fe4b5e58eb6490205\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"Voorcalculatie Marge %\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":11},{\"name\":\"84945e59a707726a700b\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"events\"}},\"Property\":\"Voorcalculatie Omzet\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":12}]",
+          "height": 622.97,
+          "queryBinary": "H4sIAAAAAAAEAL1Y227aQBD9FbRSxcsqMqRJVd4ScmkUQlKIiCqEqo09wLa211qv01LES7+nX9Uv6ezagDE2GMUpT9hzZvbM8Xhm13PSFp7HfCckreGc9AH/K25/jkDOLphi/SkLIIGQ1pwYg/4zABly4ZNWk5IrKTzj3mUekBYBQsklhlEzffECvgrxzuMsQKO1oCtckMYFUjiRrb7aTMFESA75PpO0z3XnUTI/ZLZCKvl4J413MHYaNqKYsQu2MuzvgIWRBJ3d5c9AQhgniKqISNrQg/H6wmS5WFDyIEUA0kQfCCFt5tqRyxSH2r33CxRByFIVI8RRLkqDFH/Ra4AE34bEpyDk67l22X6mOZginrnhKlf0VoQK/L2SJrCSmq6CVixqEdk8UClZKySakeCOyQnU3u0Vdokrqew6bMXSFvLNRZUSt0quujXaU+7W/v7+k6Np2lqo5GaICjnlPeW1bS+fWKG2cCPPL0smyJJpxy1+ZoKv6WxPgKMNZBG5TLhD6W1p1RHIAF0y9BK1NqxFlGJQJWwu9bId9gzuNpeUrYhJ2h3H3dMUdBUNNS3f4Srh0hVqmyCO/YBJHmavbrneC1iUdGCsYtMhGU62ygEbm40sQRpLj0+mJmyH4y3mmt0GcyPtW68jxPxomQxuMqTCJPPXP5C4NrSihpoOPMxl7Eeuq4GjXNa7JW6sJX6jSbpHbqtj5MYNk26Pqgr1Nl+uit+PynvTYrT1yKqoKSe76hdg8qZ/X6qimlbztLMsqbdgtyVxXzEVhaXI1W3hj7n0wKn/V4qZsipBtC0jHkLtEaTHfebWekIhyGGeIU4LvD6d3Z7VTMmFO3F9nJagmxoaoIzDgPm1LrgIvmLPOPu+p520jJjSvXRAns+MXhdcgq2WJ7BNzardwJiXgJxjR+L+RDs+SO6x+BR4LUUU4O34GWKIb5CcxVrDj/p0FT0roXSqDV0HmwCLNmiTHtP39ISe0g+0YWU8RiYxPOAl9A87Z45093wBN+b25vV2AWMWuSpZ+cYPFcMpHJq+jlo6OJTNwqu6PLBwtH57fHeXdIkAO4twYV5mor8K9EBv1BLF9I2BVhNDHNN0dTxhzYgf8WSLfJTmxLJMjNXHA6wK1B/sSAe7AyW5HSazT6/4D/cY3FqeEAAA",
+          "width": 1062.45,
+          "x": 216.45,
+          "y": 83.50,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"356ad2c23dda1252c6b2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":485.38461538461536,\"z\":3006,\"width\":216.15384615384616,\"height\":66.92307692307692,\"tabOrder\":3006}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"events.PlannerFullName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"events\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"PlannerFullName\"},\"Name\":\"events.PlannerFullName\",\"NativeReferenceName\":\"Planner\"}]},\"columnProperties\":{\"events.PlannerFullName\":{\"displayName\":\"Planner\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 66.92,
+          "queryBinary": "H4sIAAAAAAAEAL1UTU8bMRD9K5EvXFZVSCUOuUHYtIgUQhYFoSoH1x6IwR+rWRuIov3vzDhLiVKBoqrqzZ55897zjO21GAXnpNeNGP5ciwpoHY26SoCrUxlltZQ1dBAxXIuc4MUcsDHBi+GgEGMMLpdfSAdiKEAUoiSauOLNE/jYUOR6VVOy3xa/cXobp2WEbdiiIDcWVMzMo2CT8yxcvtQIzUabDIeECmZw977JBtq2EFMMNWAmn1rpPeA4WZu1KfvmNdv7sgvgfDRPzAwIXkEH73CC7d0sKdW589rEztLZjs3mLw6gdw9wCxLPqksKk/Bc2gRMS7wTEwGlzSPhMGEH/cHRhJGLtuVu/3N3f7S3ijKmZi9zByr4O4MO9MF/tTgJSrLAZvz7GB1hMg30rgGd8dL2ZiESSEuXjRcfVH0/Pj/ulflSfYqr1NKAIhglYJ+CufS9C7AEHstfaOBxu4jbuKADnxjqo7/nwikaJzdv9RuGVFN400hqygM9q66x/UUu5Lc+A53U2xA4MOeWk/jXYpvthjTCM614dDQsZZOG0tVxlXWINGKC4v2HOCRY+QIqMfcPiGhUc274Pzlk169wFwAbgwQAAA==",
+          "width": 216.15,
+          "x": 0.00,
+          "y": 485.38,
+          "z": 3006.00
+        },
+        {
+          "config": "{\"name\":\"48ad040ed99448c64072\",\"layouts\":[{\"id\":0,\"position\":{\"x\":80,\"y\":5.555555555555555,\"z\":0,\"height\":80,\"width\":1198.888888888889,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"text\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Nacalculatie'\"}}},\"horizontalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'left'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"rightMargin\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"leftMargin\":{\"expr\":{\"Literal\":{\"Value\":\"10L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"''\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "height": 80.00,
+          "width": 1198.89,
+          "x": 80.00,
+          "y": 5.56,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"5a3f46ddc073540ed707\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":706.9787511887695,\"z\":2000,\"height\":12.790733985323131,\"width\":1280.236192530979,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "height": 12.79,
+          "width": 1280.24,
+          "x": 0.00,
+          "y": 706.98,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"5f1068470d6d8370c463\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":83.84615384615384,\"z\":3003,\"width\":214.6153846153846,\"height\":66.92307692307692,\"tabOrder\":3003}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dates.YearISO\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dates\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"YearISO\"},\"Name\":\"dates.YearISO\",\"NativeReferenceName\":\"Jaar\"}]},\"columnProperties\":{\"dates.YearISO\":{\"displayName\":\"Jaar\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dates\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"YearISO\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2026L\"}}]]}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 66.92,
+          "queryBinary": "H4sIAAAAAAAEALVTy07DMBD8lcoXLhHicesNSniVZ4OKEOphcbbUENvRxgaqKv/OrptChQRCSNyc8ezMZGwv1MBbC65sVP9+oQrkdTD6OiLNDyBAMYMaO4rqL1TakMUYqTHeqf5Opg7J2zR+ARZVX5UqUznLhLl8QMCGgZt5zXtbbfZBw3UavqAL67xJxmkq1CEpD3wVrRPj/K0mbJbeHNhH0jjC6edHCtC2mboiXyMl9TsEOikuFaOrjBJrc4ULHMyLCCGh09ixTgFISZTbGeNdElea0NmffInU/CEsfg1bBAixYZR9x1BFFFWWPTMBCarUvsBM3dDeTQ1ZLDeEP2lb6ff/I555DWKQavpV0AFF02DvBskaB1Vv5AOTSrApePbN1PHecK+Xp6vxI6/QM4OaabyBvxkYg+tdYMXkQ3ggg8/rQ1LjhH9433CP7lEGr8hYWN78I/KxZnhZJJfyxJe0K3Zrkgbl5YywjHp1CAKMpXI2383W1W7Zw7/ySo6OD0tXscTc1mGefFg0UMTs871tMy1/Qx1F+xwDGd0MjbzObUn9Dq7Xob7RAwAA",
+          "width": 214.62,
+          "x": 0.00,
+          "y": 83.85,
+          "z": 3003.00
+        },
+        {
+          "config": "{\"name\":\"6161bf506bbebc702e7e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":217.69230769230768,\"z\":3005,\"width\":214.6153846153846,\"height\":66.92307692307692,\"tabOrder\":3005}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dates.ThisWeekISO\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dates\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"ThisWeekISO\"},\"Name\":\"dates.ThisWeekISO\",\"NativeReferenceName\":\"Week\"}]},\"columnProperties\":{\"dates.ThisWeekISO\":{\"displayName\":\"Week\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 66.92,
+          "queryBinary": "H4sIAAAAAAAEAL2UT2/bMAzFv0qgSy/GkGbADrl1mdsVzbouDhIUQw6a/LpotSRDf7oGgb/7SMVdjQIbcih6k8nHx59Jy3sxc8ZIWwcx/b4XFegctfqW4HefZJTVVrboJWK6FznBhxV80M6K6aQQ596ZXH4tDcRU1KIQJdnEHT/IiECB5a6l3Lgr/sowlOEBNg51m4JoGqiYnWeuScZy4/Kx9QiH3gTskldY4O75IQN0XSFuvGvhs/tyq8MauL+svgrKPHEy2rthjlNRP7AhPKxCr+S8YKT1luI9ka117DEuX6CF14C+hfQZmBuvZJPAtuQ71xFeNnkNHCbtZDz5MGflput4xK9Oh5d0VZQxhaPgTpSzd9ob1Cdvijh3SnKDvMSjQGc+6YDREt5oK5vRwkUS1dJk8OIfVZ/Prs5GZf6A/6ur1FZDkYwSOKZgJe3oGg2Jz+UPr3E/LOIxbuiFP2qao/3JhTdeG3m4nxfepZbCh0HSUH7RVeoHO97kQr7fC9RJPS2BAyseOTV/Xwzd1tTD/aYTr46WpZpUozRt3OU+ZBp9QvH8VzglWfkIldj7C6LXKlxp/oecMvUfR1m2L3cEAAA=",
+          "width": 214.62,
+          "x": 0.00,
+          "y": 217.69,
+          "z": 3005.00
+        },
+        {
+          "config": "{\"name\":\"65aa5488a30e55c9a0e9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":418.46153846153845,\"z\":3007,\"width\":216.15384615384616,\"height\":66.92307692307692,\"tabOrder\":3007}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"events.ClientName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"events\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"ClientName\"},\"Name\":\"events.ClientName\",\"NativeReferenceName\":\"Klant\"}]},\"columnProperties\":{\"events.ClientName\":{\"displayName\":\"Klant\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 66.92,
+          "queryBinary": "H4sIAAAAAAAEAL2UTU/bQBCG/0q0Fy5WFVKJQ24QTIuS8hGjIIRy2O4OZNv9sMa7QBT5vzOzMWBRtYoqxG098847j2e83ohJcE563Yjx7UZUQOdo1GUCXB/LKKuVrKGTiPFG5AQfFoCNCV6MR4U4weBy+Zl0IMYCRCFKsolrfngAHxuKXK1rSg7b4lWn+zotI/Rly4JoLKiYnSfBJue5cflUIzTb3gQcEiqYw93bQwZo20JcYKgBs/nEGqLIbSnxgpnJvvRynIrmgf0AwSvolFNLUxGMdL2iREfktYkdxuk7tOY/oPV76BuQeFqdU5gaL6RNwLbkOzMRUNq8Bg6TdjQcHcxYuWxbnvCH0/0x0irKmJqd4PZU8HcGHei9T0WcBSW5wXbvu4BOMJkGBleAznhpB/MQSaSly+DFX6q+H04PB2X+mv6pq9TKgCIZJWCXgoX0gzOwJD6RP9HA734Rj3FJL3xkaI7+ngsv0Di5vZ/fMKSawttB0lB+0VXqBjtc5kK+33PQSb0sgQMLHjk1/1r03a6pR3ikE6+OlqVs0lC6Oq5zHzKNmKB4+yvsk6x8ApXY+wdENKqZGv6H7DP1M8e7mzF3BAAA",
+          "width": 216.15,
+          "x": 0.00,
+          "y": 418.46,
+          "z": 3007.00
+        },
+        {
+          "config": "{\"name\":\"7a47c34185ddd2730b85\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":552.3076923076923,\"z\":3008,\"width\":216.15384615384616,\"height\":66.92307692307692,\"tabOrder\":3008}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"events.EventId\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"events\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"EventId\"},\"Name\":\"events.EventId\",\"NativeReferenceName\":\"Event ID\"}]},\"columnProperties\":{\"events.EventId\":{\"displayName\":\"Event ID\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 66.92,
+          "queryBinary": "H4sIAAAAAAAEAL2UUU/bMBDHv0rkF16iqRSJh76xElhFx1iDiibUB2Mf1Cy2o7PNqKp899256ahAoGqa9ubc/e9/v9zFWYuxt1Y6HcTodi1qoHM06nsCXJ3KKOulbKGXiNFa5AQf5oDBeCdGw1Kcobe5/FJaECMBohQV2cQVPzyBi4Ei16uWkoOu/KPTuzotI+zKFiXRNKBidh77JlnHjavnFiFsehOwT6hgBvcvDxmg60pxhb4FzOYVQ0y0oOiWMWN92iY4Hs0TOwGCU9DLcr6YnArmuVlSrsdx2sSeYfKKK/wFsX5N/AMkTupvFKbGc9kkYFvynZoIKJu8Aw6TdjgYHk9Zueg6Hu8/p3szzzrKmMJecAfKu3uDFvTBf0WceiW5QV7kXqBjTCZAcQ1ojZNNMfORRFraDF6+U/Xl5OKkyJ9J+FBXq6UBRTJKwD4Fc+mKS2hIfCbv0MDP3SIe44Je+LOhOboHLrxCY+Xmcp6jTy2FN4OkoTzSPeoHO1jkQr7cM9BJbZfAgTmPnJoflbtuN9TD/6ITr46WpZqkobJtXOU+ZBoxQfnySzgkWfUMKrH3V4hoVLgw/AM5ZOrfmKaYhHQEAAA=",
+          "width": 216.15,
+          "x": 0.00,
+          "y": 552.31,
+          "z": 3008.00
+        },
+        {
+          "config": "{\"name\":\"a2bd52a0b2444eeb059b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":2.3255879973314784,\"y\":8.139557990660174,\"z\":1000,\"height\":75.58160991327306,\"width\":77.90719791060452,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"BEELDMERK_-_DUDOK_D42986470484759254.png\"}}}}}]},\"vcObjects\":{\"padding\":[{\"properties\":{\"left\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"top\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"right\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"bottom\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "height": 75.58,
+          "width": 77.91,
+          "x": 2.33,
+          "y": 8.14,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"ac47cc285b7010c638c0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":284.6153846153846,\"z\":3001,\"width\":216.15384615384616,\"height\":66.92307692307692,\"tabOrder\":3001}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"events.LocationName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"events\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"LocationName\"},\"Name\":\"events.LocationName\",\"NativeReferenceName\":\"Locatie\"}]},\"columnProperties\":{\"events.LocationName\":{\"displayName\":\"Locatie\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 66.92,
+          "queryBinary": "H4sIAAAAAAAEAL2UTU/DMAyG/8qUC5cKjSFx2A1G+RDja0VDCO0QEsMCTVK5CTBN/e/YWYEBAk0IcUvt16+f2k3nYuCtlU7Xon89FwXQORh1HgFnuzLIYioraCWiPxcpwYcxYG28E/1eJvbQ21R+Ii2IvgCRiZxswowfHsGFmiIXs4qS3SZ70+llnZYBlmWTjGhKUCE5D3wZrePG+XOFUC96E7CPqGAEt+8PCaBpMnGGvgJM5kOvZKCS1JhSr6CJbf1DlpPBPLInIDgFrXYhomoCu5xSquVy2oQW5vATYP0LdP0Z/QokHhanFKbGY1lGYFvyHZoAKMu0DA6TttftbQ1ZOWkanvOf030ZbBFkiPVKcGvKu1uDFvTavyJ+3P0qoAOMpobOBaA1TpadkQ8k0tIm8OybqoPto+1Onr6oH3WFmhpQJKMErFIwlq5zAiWJ9+QNGnhYLuIxTuiFdwzN0d1x4RkaKxe3dB99rCi8GCQN5Z4uVDvY7iQV8i0fgY7qdQkcGPPIqflmtux2ST38E514dbQsVUYNua3CLPUh04ARsvd/wwbJ8mdQkb2PIaBR9ZHhP8kGU78AZjzOUX0EAAA=",
+          "width": 216.15,
+          "x": 0.00,
+          "y": 284.62,
+          "z": 3001.00
+        },
+        {
+          "config": "{\"name\":\"fa7994400d9b5eb6ce42\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":351.53846153846155,\"z\":3002,\"width\":216.15384615384616,\"height\":66.92307692307692,\"tabOrder\":3002}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"events.EventTypeName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"events\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"EventTypeName\"},\"Name\":\"events.EventTypeName\",\"NativeReferenceName\":\"Event type\"}]},\"columnProperties\":{\"events.EventTypeName\":{\"displayName\":\"Event type\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 66.92,
+          "queryBinary": "H4sIAAAAAAAEAL2UTU8bMRCG/8rKFy6rKqRSD7lBWCgi5SOLglCVg7EH4nZtr8Y2EEX735lxFkhBRRGqevPOvPPOszPrXYmxt1Y6HcTo50rUQOdo1EUCXB7IKOuFbKGXiNFK5AQfZoDBeCdGw1Icore5/FRaECMBohQV2cQlP9yDi4Eil8uWkoOufNHpTZ2WETZl85JoGlAxO499k6zjxtVjixDWvQnYJ1QwhdvXhwzQdaU4R98CZvOKIdg5d6bcM2mG+/JnmrPR3LMrIDgFvTirish8THe1oGwP57SJPdHxG8rwCX79lv8aJB7XZxSmxjPZJGBb8p2YCCibvBEOk3Y4GH6bsHLedTzsf073brp1lDGFreB2lHe3Bi3onf+KOPFKcoP1/rcBHWMyAYpLQGucbIqpjyTS0mbw8i9V3/dO9or8oYQPdbVaGFAkowRsUzCTrjiFhsSH8gYN/N4s4jHO6YX3Dc3R3XHhORor11f1CH1qKbweJA3lF92qfrCDeS7kqz4FndTzEjgw45FT86/lptsV9fAPdOLV0bJUkzRUto3L3IdMIyYoX38QuySrHkEl9v4BEY0KJ4Z/J7tM/QTzKQzXggQAAA==",
+          "width": 216.15,
+          "x": 0.00,
+          "y": 351.54,
+          "z": 3002.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "Accessible_Tidal4018863514996759.json"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Facturatie"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9e312016-0de4-a67c-4887-a708f184af9a"
+  }
+}
