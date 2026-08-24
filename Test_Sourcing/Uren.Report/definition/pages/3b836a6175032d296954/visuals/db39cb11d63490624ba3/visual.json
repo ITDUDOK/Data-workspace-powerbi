@@ -1,0 +1,657 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "db39cb11d63490624ba3",
+  "position": {
+    "x": 239.85790408525756,
+    "y": 82.984014209591479,
+    "z": 0,
+    "height": 624.08525754884545,
+    "width": 1040.1420959147424,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "FullName"
+                }
+              },
+              "queryRef": "employees_enriched.FullName",
+              "nativeQueryRef": "Medewerker",
+              "displayName": "Medewerker"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "OfficeName"
+                }
+              },
+              "queryRef": "employees_enriched.OfficeName",
+              "nativeQueryRef": "Locatie",
+              "displayName": "Locatie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "FunctionName"
+                }
+              },
+              "queryRef": "employees_enriched.FunctionName",
+              "nativeQueryRef": "Functie",
+              "displayName": "Functie"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Saldo_Overuren"
+                }
+              },
+              "queryRef": "measurements.Saldo_Overuren",
+              "nativeQueryRef": "Saldo overuren",
+              "displayName": "Saldo overuren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Saldo_Vakantieuren"
+                }
+              },
+              "queryRef": "measurements.Saldo_Vakantieuren",
+              "nativeQueryRef": "Saldo vakantieuren",
+              "displayName": "Saldo vakantieuren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Saldo_Compensatieuren"
+                }
+              },
+              "queryRef": "measurements.Saldo_Compensatieuren",
+              "nativeQueryRef": "Saldo compensatieuren",
+              "displayName": "Saldo compensatieuren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Netto_GewerktUren"
+                }
+              },
+              "queryRef": "measurements.Netto_GewerktUren",
+              "nativeQueryRef": "Gewerkte uren",
+              "displayName": "Gewerkte uren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "SicknessHourSom"
+                }
+              },
+              "queryRef": "measurements.SicknessHourSom",
+              "nativeQueryRef": "Ziekte uren",
+              "displayName": "Ziekte uren"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "ContractHours"
+                }
+              },
+              "queryRef": "Sum(employees_enriched.ContractHours)",
+              "nativeQueryRef": "Contract uren",
+              "displayName": "Contract uren"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "measurements"
+                  }
+                },
+                "Property": "Saldo_Overuren"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "172.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Avg(FACT_Sickness.SicknessHours)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "251.33333493416018D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Avg(FACT_Contracts.ContractPeriodHours)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "70.68551163407537D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.SicknessHourSom"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "81.3433805405986D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Saldo_Overuren"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "134.11054487260316D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "employees_enriched.FunctionName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "98.83919276719084D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Saldo_Vakantieuren"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "122.62310678767324D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Saldo_Compensatieuren"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "79.41543136037953D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Netto_GewerktUren"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80.91959365113628D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(employees_enriched.ContractHours)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "141.48743898230362D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "employees_enriched.FullName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "190.54156171284635D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "employees_enriched.OfficeName"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.SicknessHourSom"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e0c03f4b5e4623f1f2ed",
+        "ordinal": 0,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "staff"
+                  }
+                },
+                "Property": "CardContractHours"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "9956b94eaee4d01e4b37",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "functions"
+              }
+            },
+            "Property": "FunctionName"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "aa9b272efb7d5f20ce20",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Hours_by_HourOffice"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "60bb811d37ac5efb5d4f",
+        "ordinal": 3,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Manager_Filter"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "measurements",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "m"
+                            }
+                          },
+                          "Property": "Manager_Filter"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "789282d1326939b55669",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "staff"
+              }
+            },
+            "Property": "CardName"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "32cf17943c204a11ed22",
+        "ordinal": 5,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "SicknessHourSom"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "98f66f06c760a7471a63",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Saldo_Overuren"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "058d4d3676bbbc701876",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Saldo_Vakantieuren"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "61d110d5abc7e60a0cb3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "FullName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cbec336ac72e48d0076c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Netto_GewerktUren"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2d63f56042c65d180418",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "FunctionName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "74c0cf66d613dcc5c323",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "ContractHours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b431c3643055758eb131",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Saldo_Compensatieuren"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9b4422a80b800095c179",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "OfficeName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

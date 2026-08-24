@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Werklocatie"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1858adac-f602-4ffc-bb7a-8d24bc9e5a6e"
+  }
+}

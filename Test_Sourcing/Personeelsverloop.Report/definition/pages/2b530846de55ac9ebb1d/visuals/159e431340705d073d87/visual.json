@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "159e431340705d073d87",
+  "position": {
+    "x": 0,
+    "y": 318.01857585139322,
+    "z": 2000,
+    "height": 76.284829721362229,
+    "width": 268.48297213622294,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "ManagerFullName"
+                }
+              },
+              "queryRef": "employees_enriched.ManagerFullName",
+              "nativeQueryRef": "Manager",
+              "active": true,
+              "displayName": "Manager"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d0431aace9d144e465ca",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "ManagerFullName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

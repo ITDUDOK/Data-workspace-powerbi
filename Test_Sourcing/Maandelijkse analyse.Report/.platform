@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Maandelijkse analyse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ad1c962e-8aa3-40cd-933c-2dd06cd248d4"
+  }
+}
