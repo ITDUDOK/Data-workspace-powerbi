@@ -1,0 +1,76 @@
+table Accounts
+	lineageTag: 03ce9359-ce84-402f-a16c-9d4dd3d5860f
+	sourceLineageTag: [dbo].[Accounts]
+
+	column ID
+		dataType: string
+		lineageTag: 4e4f87b2-77e4-46a3-aa25-232987c9f5ef
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountName
+		dataType: string
+		lineageTag: a6273584-6e82-4a2d-b66a-24eb346912c5
+		sourceLineageTag: AccountName
+		summarizeBy: none
+		sourceColumn: AccountName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: f6098d0c-de1c-4200-a3ec-ec3dcb12f613
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 929f94f5-40e1-497c-9041-3bc1714a2c71
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSupplier
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a8114d26-e215-40dd-ac9f-16ee2305f0bd
+		sourceLineageTag: IsSupplier
+		summarizeBy: none
+		sourceColumn: IsSupplier
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification_01
+		dataType: string
+		lineageTag: 5304e28f-1490-4b60-b08e-f22aef025e82
+		sourceLineageTag: Classification_01
+		summarizeBy: none
+		sourceColumn: Classification_01
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification_02
+		dataType: string
+		lineageTag: 0de38f98-c33c-4ea8-ad75-70956096868d
+		sourceLineageTag: Classification_02
+		summarizeBy: none
+		sourceColumn: Classification_02
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Accounts = entity
+		mode: directLake
+		source
+			entityName: Accounts
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

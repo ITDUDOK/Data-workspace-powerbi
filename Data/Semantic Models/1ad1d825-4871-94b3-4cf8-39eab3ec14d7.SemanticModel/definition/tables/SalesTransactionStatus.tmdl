@@ -1,0 +1,40 @@
+table SalesTransactionStatus
+	lineageTag: 95a00a13-f714-46be-9039-8858c9618e9e
+	sourceLineageTag: [dbo].[SalesTransactionStatus]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: bb459b9e-1784-41c2-9cc2-29d14de02b91
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 1a833469-df1e-4e17-a3bb-ffe56f629174
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 84b61194-be90-4b93-b138-0ad706884eb9
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesTransactionStatus = entity
+		mode: directLake
+		source
+			entityName: SalesTransactionStatus
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

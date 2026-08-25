@@ -1,0 +1,59 @@
+table PurchaseOrderTypes
+	lineageTag: 1fcc81ca-8ccc-44f3-893e-c8ccdb23b02b
+	sourceLineageTag: [dbo].[PurchaseOrderTypes]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: f515082e-e3a3-4d38-bd62-e8a448e8be39
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: c8f9faa5-8bdd-4708-aebb-630478ba9e18
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: cbf649b8-8f9d-479f-bdd0-bb91a8896079
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionSuffix
+		dataType: string
+		lineageTag: 94c2bf58-26e6-40b1-aab7-16e1fae4dd04
+		sourceLineageTag: DescriptionSuffix
+		summarizeBy: none
+		sourceColumn: DescriptionSuffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionSuffixTermId
+		dataType: int64
+		formatString: 0
+		lineageTag: f39a93a1-445d-417c-8b49-f25b2f0ccc12
+		sourceLineageTag: DescriptionSuffixTermId
+		summarizeBy: count
+		sourceColumn: DescriptionSuffixTermId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PurchaseOrderTypes = entity
+		mode: directLake
+		source
+			entityName: PurchaseOrderTypes
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

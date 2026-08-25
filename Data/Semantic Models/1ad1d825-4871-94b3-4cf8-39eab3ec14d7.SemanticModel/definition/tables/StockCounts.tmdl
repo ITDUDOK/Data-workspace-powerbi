@@ -1,0 +1,261 @@
+table StockCounts
+	lineageTag: 3127cbaf-02e5-402c-b432-93e935c8aad9
+	sourceLineageTag: [dbo].[StockCounts]
+
+	column ID
+		dataType: string
+		lineageTag: 4f939bfd-0043-4d5b-8f14-69b1b9528abb
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 7dc2bb6a-b742-4dac-91dd-998a29be4818
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column EntryID
+		dataType: string
+		lineageTag: cc788d45-d665-46ff-9779-138464c85210
+		sourceLineageTag: EntryID
+		summarizeBy: none
+		sourceColumn: EntryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 77f1b874-03a8-477d-8827-40ef77f27ac9
+		sourceLineageTag: LineNumber
+		summarizeBy: sum
+		sourceColumn: LineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: a0a6abca-03bf-4e5b-a0bb-a2de3710b78e
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column StockCountNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: d3c6c47c-e3d0-4b1b-b06e-5f60476aa634
+		sourceLineageTag: StockCountNumber
+		summarizeBy: sum
+		sourceColumn: StockCountNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notes
+		dataType: string
+		lineageTag: 089e592f-dce7-4a93-ad94-d15922583b43
+		sourceLineageTag: Notes
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransactionDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6f0e3a8b-4003-4185-97a1-bdd641510410
+		sourceLineageTag: TransactionDate
+		summarizeBy: none
+		sourceColumn: TransactionDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: 6efb430d-af4b-43d5-91bb-78d680ce0edc
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: double
+		lineageTag: 5336aa0b-1ce3-40a6-968e-7ad69a9c9c6f
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NewQuantity
+		dataType: double
+		lineageTag: 626435be-f08e-47a6-9ef9-dae328492fce
+		sourceLineageTag: NewQuantity
+		summarizeBy: sum
+		sourceColumn: NewQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Unit
+		dataType: string
+		lineageTag: 5450ba7e-5e1c-4180-a6fe-46321a174c66
+		sourceLineageTag: Unit
+		summarizeBy: none
+		sourceColumn: Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostPrice
+		dataType: double
+		lineageTag: f965660d-9d84-4d43-8c20-d40744eae624
+		sourceLineageTag: CostPrice
+		summarizeBy: sum
+		sourceColumn: CostPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Warehouse
+		dataType: string
+		lineageTag: 5db3422a-5ca9-4c9f-b4ff-ec1369a47f22
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLAccount
+		dataType: string
+		lineageTag: ee0831ad-d687-4079-9e47-0ffa48dbdd31
+		sourceLineageTag: GLAccount
+		summarizeBy: none
+		sourceColumn: GLAccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ce60bb6-4f9f-46b7-aabd-61b4dad4b3d7
+		sourceLineageTag: Status
+		summarizeBy: sum
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: int64
+		formatString: 0
+		lineageTag: ef7870e2-affb-474a-8c76-c7b63eade5c0
+		sourceLineageTag: Source
+		summarizeBy: sum
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column CopyEntryID
+		dataType: string
+		lineageTag: 1fedb962-7d25-44af-84f7-a01af0ceed22
+		sourceLineageTag: CopyEntryID
+		summarizeBy: none
+		sourceColumn: CopyEntryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 94ff517a-7e00-4015-a7b5-99d28730dd65
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: c4622c6a-89f3-46cc-92b0-f7a8e9b8b5f8
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1aef58b7-de26-4d3f-8e71-30aaff9141e4
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: d54dca4a-7bca-4fb5-a2aa-68bee2e5b1db
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column StorageLocation
+		dataType: string
+		lineageTag: 9fbf085b-40b2-4b84-8412-fc20be03b42f
+		sourceLineageTag: StorageLocation
+		summarizeBy: none
+		sourceColumn: StorageLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderByLocation
+		dataType: double
+		lineageTag: 7d21277c-3bc9-4049-9644-3a29168904e8
+		sourceLineageTag: OrderByLocation
+		summarizeBy: sum
+		sourceColumn: OrderByLocation
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CountedBy
+		dataType: string
+		lineageTag: 85c98a3d-03cf-47f6-8f18-a12fa8001a7f
+		sourceLineageTag: CountedBy
+		summarizeBy: none
+		sourceColumn: CountedBy
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReasonCodeID
+		dataType: string
+		lineageTag: 43fe5173-d525-4df6-a0c9-442c50b70e30
+		sourceLineageTag: ReasonCodeID
+		summarizeBy: none
+		sourceColumn: ReasonCodeID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StockCounts = entity
+		mode: directLake
+		source
+			entityName: StockCounts
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

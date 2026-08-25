@@ -1,0 +1,86 @@
+table SalesForecastItems
+	lineageTag: 2728dbf3-d324-4c7a-9425-deb34443ec18
+	sourceLineageTag: [dbo].[SalesForecastItems]
+
+	column ID
+		dataType: string
+		lineageTag: 3928b76a-5371-4dd5-9bf1-24f4c25151ef
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 798016bd-3a17-46e0-b98a-a96d838dfbc5
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesForecast
+		dataType: string
+		lineageTag: cc6422eb-dc26-4755-b7f7-651dfaa71cfe
+		sourceLineageTag: SalesForecast
+		summarizeBy: none
+		sourceColumn: SalesForecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: 4ad17be1-b22f-4723-82cc-f56bbd1b891c
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c0980033-c036-4250-b308-1463573a3070
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: 24fc7be3-3bbc-48c3-b476-28d708c04869
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 529ddd6d-5929-452a-9fa2-bb79addb5c7c
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 348bcc15-7383-429d-b14f-c8ccd19c650a
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesForecastItems = entity
+		mode: directLake
+		source
+			entityName: SalesForecastItems
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

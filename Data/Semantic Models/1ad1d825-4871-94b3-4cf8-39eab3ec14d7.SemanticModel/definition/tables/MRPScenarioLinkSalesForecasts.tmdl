@@ -1,0 +1,86 @@
+table MRPScenarioLinkSalesForecasts
+	lineageTag: bfedc02f-2d2f-4293-9269-58b9a939c94a
+	sourceLineageTag: [dbo].[MRPScenarioLinkSalesForecasts]
+
+	column ID
+		dataType: string
+		lineageTag: 43ac67b9-250b-4337-9050-d496af5b3688
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 30998330-065b-4e0b-8d9c-581a99af288e
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column MRPScenario
+		dataType: string
+		lineageTag: 0b11a3a1-8f36-4c33-bb40-be73dfafa263
+		sourceLineageTag: MRPScenario
+		summarizeBy: none
+		sourceColumn: MRPScenario
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesForecast
+		dataType: string
+		lineageTag: 91d35af0-35db-4526-9a00-8b95c110c6bc
+		sourceLineageTag: SalesForecast
+		summarizeBy: none
+		sourceColumn: SalesForecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d056f2e7-d95c-4675-a5ef-845c398eb154
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: 1efdbbde-8abb-4d98-99cf-d3dad35cc06e
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 391768c8-776d-4581-87c8-a2fe4bdaafda
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 84f10704-e848-43ea-86d2-140427bc3951
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MRPScenarioLinkSalesForecasts = entity
+		mode: directLake
+		source
+			entityName: MRPScenarioLinkSalesForecasts
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

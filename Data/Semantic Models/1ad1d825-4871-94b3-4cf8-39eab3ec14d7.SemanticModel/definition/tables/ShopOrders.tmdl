@@ -1,0 +1,196 @@
+table ShopOrders
+	lineageTag: dfc7aff5-7995-4339-83c0-b11461efa981
+	sourceLineageTag: [dbo].[ShopOrders]
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: e72acfe2-f339-4e7a-b6ab-efea4a60348a
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID
+		dataType: string
+		lineageTag: 33583b3b-4316-4bbb-8699-c7cc65b9dcd9
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShopOrderNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a63cb35-1964-4881-b8ac-b1b58cad518d
+		sourceLineageTag: ShopOrderNumber
+		summarizeBy: sum
+		sourceColumn: ShopOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 70720a46-5107-465c-8ec9-fee62880893c
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: 6ebf690f-6d23-49cd-aad8-d357b64c55c9
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		lineageTag: 64b6d226-fafd-4d96-b120-fd2adb2183b1
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: int64
+		formatString: 0
+		lineageTag: fcb87c3e-8804-41de-b113-4d03bb32718b
+		sourceLineageTag: Status
+		summarizeBy: sum
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusDescription
+		dataType: string
+		lineageTag: 8900826e-43e5-4f28-a007-73c116f52f26
+		sourceLineageTag: StatusDescription
+		summarizeBy: none
+		sourceColumn: StatusDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column EntryDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b4d12b3f-7762-4c81-98e2-cecbcd46698f
+		sourceLineageTag: EntryDate
+		summarizeBy: none
+		sourceColumn: EntryDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d0fef146-9175-4532-8f5f-c7ef6aa5f193
+		sourceLineageTag: PlannedDate
+		summarizeBy: none
+		sourceColumn: PlannedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5f47a173-8141-4201-9618-953ac7b88923
+		sourceLineageTag: PlannedEndDate
+		summarizeBy: none
+		sourceColumn: PlannedEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedQuantity
+		dataType: double
+		lineageTag: fd846bc0-f0aa-4d89-b641-48781ee3f777
+		sourceLineageTag: PlannedQuantity
+		summarizeBy: sum
+		sourceColumn: PlannedQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IsOnHold
+		dataType: int64
+		formatString: 0
+		lineageTag: 0a38d1e7-7ca6-4cb9-9c9b-e906d4824800
+		sourceLineageTag: IsOnHold
+		summarizeBy: sum
+		sourceColumn: IsOnHold
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsReleased
+		dataType: int64
+		formatString: 0
+		lineageTag: d276a52c-3f7f-4b3c-9bb9-cfaff4333a51
+		sourceLineageTag: IsReleased
+		summarizeBy: sum
+		sourceColumn: IsReleased
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuantityProduced
+		dataType: double
+		lineageTag: 3e7ffbd9-1e6e-4dca-be50-5af9384f0993
+		sourceLineageTag: QuantityProduced
+		summarizeBy: sum
+		sourceColumn: QuantityProduced
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LinkedToSalesOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: 29163a60-2987-4b40-8118-447399539703
+		sourceLineageTag: LinkedToSalesOrder
+		summarizeBy: sum
+		sourceColumn: LinkedToSalesOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column LinkedToQuotation
+		dataType: int64
+		formatString: 0
+		lineageTag: c2aef167-ff9e-4cfe-a84c-b15d2fac6150
+		sourceLineageTag: LinkedToQuotation
+		summarizeBy: sum
+		sourceColumn: LinkedToQuotation
+
+		annotation SummarizationSetBy = Automatic
+
+	column EntryDateWeekNr
+		dataType: string
+		lineageTag: 90c77c04-5ee2-41c2-b42f-b7f12130775c
+		sourceLineageTag: EntryDateWeekNr
+		summarizeBy: none
+		sourceColumn: EntryDateWeekNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedEndDateWeekNr
+		dataType: string
+		lineageTag: cdf2117f-decc-4a09-89d2-5d753052d116
+		sourceLineageTag: PlannedEndDateWeekNr
+		summarizeBy: none
+		sourceColumn: PlannedEndDateWeekNr
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ShopOrders = entity
+		mode: directLake
+		source
+			entityName: ShopOrders
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

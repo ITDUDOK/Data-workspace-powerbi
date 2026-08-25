@@ -1,0 +1,50 @@
+table referentieperiode
+	lineageTag: c0ecad5a-ee5d-46dc-8ca6-358c91b46dd5
+	sourceLineageTag: [dbo].[referentieperiode]
+
+	column ReferentieId
+		dataType: int64
+		formatString: 0
+		lineageTag: b586cb84-de5f-4d65-8e33-4f98c857d3a1
+		sourceLineageTag: ReferentieId
+		summarizeBy: count
+		sourceColumn: ReferentieId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferentieNaam
+		dataType: string
+		lineageTag: c7311fee-9db4-48fd-a848-65fd267f9e42
+		sourceLineageTag: ReferentieNaam
+		summarizeBy: none
+		sourceColumn: ReferentieNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weken
+		dataType: int64
+		formatString: 0
+		lineageTag: abeb4230-4f75-4fa5-8b52-781641ed1335
+		sourceLineageTag: Weken
+		summarizeBy: sum
+		sourceColumn: Weken
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a156b30c-7dce-42f8-96af-0242fcff6a54
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition referentieperiode = entity
+		mode: directLake
+		source
+			entityName: referentieperiode
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

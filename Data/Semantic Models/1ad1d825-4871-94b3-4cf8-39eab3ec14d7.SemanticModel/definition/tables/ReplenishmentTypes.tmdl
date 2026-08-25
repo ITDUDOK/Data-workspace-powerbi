@@ -1,0 +1,40 @@
+table ReplenishmentTypes
+	lineageTag: 6c195b9b-e07c-42d4-a823-bae5676a2671
+	sourceLineageTag: [dbo].[ReplenishmentTypes]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 42dd846b-0a30-4e44-8fc7-ec9b3259fa41
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: cb514fe4-049f-4820-b304-c392482fa24e
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 67aa9ddd-bd1d-4108-bf37-cc2d82bdb881
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ReplenishmentTypes = entity
+		mode: directLake
+		source
+			entityName: ReplenishmentTypes
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

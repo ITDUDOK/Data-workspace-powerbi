@@ -1,0 +1,40 @@
+table SalesTransactionTypes
+	lineageTag: 510921b8-ad4e-49e8-a8f1-ca85369ca723
+	sourceLineageTag: [dbo].[SalesTransactionTypes]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: e9443aa7-1032-486c-8acc-26bc85001e12
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 5de930be-4de3-455b-8b2b-351567a9b13b
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 931894e7-56b4-43d3-a2b7-0e33905a2197
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesTransactionTypes = entity
+		mode: directLake
+		source
+			entityName: SalesTransactionTypes
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

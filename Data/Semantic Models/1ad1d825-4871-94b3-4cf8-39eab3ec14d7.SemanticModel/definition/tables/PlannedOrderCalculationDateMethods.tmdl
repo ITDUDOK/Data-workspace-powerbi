@@ -1,0 +1,40 @@
+table PlannedOrderCalculationDateMethods
+	lineageTag: 016a2a75-bea2-48a9-8813-081859500504
+	sourceLineageTag: [dbo].[PlannedOrderCalculationDateMethods]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: ac28f06f-5c86-4e8b-9e0d-d62a02139ddc
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 9089884a-49ba-43ee-b5d5-3c33c0f872a5
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: a991723b-d9a7-4ee0-bc8b-1cdd696ef1b7
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PlannedOrderCalculationDateMethods = entity
+		mode: directLake
+		source
+			entityName: PlannedOrderCalculationDateMethods
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

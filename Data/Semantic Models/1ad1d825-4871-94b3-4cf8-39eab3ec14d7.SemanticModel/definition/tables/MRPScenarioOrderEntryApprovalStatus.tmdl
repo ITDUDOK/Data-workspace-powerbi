@@ -1,0 +1,40 @@
+table MRPScenarioOrderEntryApprovalStatus
+	lineageTag: b0ce15b8-3d66-43f4-8848-b344a0c43aca
+	sourceLineageTag: [dbo].[MRPScenarioOrderEntryApprovalStatus]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 64315632-bdec-4a65-8908-a9f843849a9c
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 46765f1b-e238-4669-8176-2934d5d6af9a
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: befbccbe-4ac7-4abe-8ca3-1788d15b0695
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MRPScenarioOrderEntryApprovalStatus = entity
+		mode: directLake
+		source
+			entityName: MRPScenarioOrderEntryApprovalStatus
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

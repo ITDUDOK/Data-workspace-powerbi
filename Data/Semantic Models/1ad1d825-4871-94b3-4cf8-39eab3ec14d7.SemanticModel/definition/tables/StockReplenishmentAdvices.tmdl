@@ -1,0 +1,193 @@
+table StockReplenishmentAdvices
+	lineageTag: 83074408-2a2d-4ea6-81b1-8b2533413e05
+	sourceLineageTag: [dbo].[StockReplenishmentAdvices]
+
+	column ID
+		dataType: string
+		lineageTag: 345f1c9c-1770-4ece-bb94-c3003ddf0cd9
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: fe36e0ee-820b-4fa4-8fa0-cea4c6ae7ca0
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: a07d9c1f-30d2-44e7-a0e3-57502d75286c
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column MRPScenario
+		dataType: string
+		lineageTag: c4bafc71-be4d-4d39-b8a9-b552bd69881c
+		sourceLineageTag: MRPScenario
+		summarizeBy: none
+		sourceColumn: MRPScenario
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3241f06c-eea3-45f5-8bdf-bfb4b34f8f6f
+		sourceLineageTag: OrderDate
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedOrderType
+		dataType: int64
+		formatString: 0
+		lineageTag: bf33bacd-b008-4a5e-9a2b-0f392d4305cb
+		sourceLineageTag: PlannedOrderType
+		summarizeBy: sum
+		sourceColumn: PlannedOrderType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: double
+		lineageTag: 315b900c-cfa4-45b0-a31b-bb28ad1ed0d1
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ReceiptDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2d76fcb6-a392-4524-8746-4dc8cef76488
+		sourceLineageTag: ReceiptDate
+		summarizeBy: none
+		sourceColumn: ReceiptDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReplenishmentType
+		dataType: int64
+		formatString: 0
+		lineageTag: 1fc7df55-5099-4397-a994-ff73522c2314
+		sourceLineageTag: ReplenishmentType
+		summarizeBy: sum
+		sourceColumn: ReplenishmentType
+
+		annotation SummarizationSetBy = Automatic
+
+	column RequirementDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 86fa8b09-a078-4c47-8cd8-a4dd665dc8bf
+		sourceLineageTag: RequirementDate
+		summarizeBy: none
+		sourceColumn: RequirementDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Supplier
+		dataType: string
+		lineageTag: 51ca9394-bb75-4877-9137-bb7f48199765
+		sourceLineageTag: Supplier
+		summarizeBy: none
+		sourceColumn: Supplier
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		lineageTag: 63ae7707-b4cb-41e6-b43c-b9aeee6d5fc1
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column WarningType
+		dataType: int64
+		formatString: 0
+		lineageTag: f15a87d1-2fdb-4bde-931e-8a803f60d2f7
+		sourceLineageTag: WarningType
+		summarizeBy: sum
+		sourceColumn: WarningType
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b2a0981e-6574-4859-83f6-e6f9321468a6
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: 6c90f4c1-fdce-4d16-8f49-010fab490a4a
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fb784be2-8bba-4759-956f-f5f2dac4a387
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 66b514fb-6c39-4d6c-9d11-6a0c303b7b4d
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column WarehouseTo
+		dataType: string
+		lineageTag: c6d8f8af-694b-41ea-8d29-935d4340e2c2
+		sourceLineageTag: WarehouseTo
+		summarizeBy: none
+		sourceColumn: WarehouseTo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unitcode
+		dataType: string
+		lineageTag: fdd6e3d7-115a-4042-bec1-1450118dca5f
+		sourceLineageTag: Unitcode
+		summarizeBy: none
+		sourceColumn: Unitcode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StockReplenishmentAdvices = entity
+		mode: directLake
+		source
+			entityName: StockReplenishmentAdvices
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

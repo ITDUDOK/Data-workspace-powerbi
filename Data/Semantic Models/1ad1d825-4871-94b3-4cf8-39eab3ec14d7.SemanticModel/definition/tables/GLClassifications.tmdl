@@ -1,0 +1,123 @@
+table GLClassifications
+	lineageTag: 0c6ae90e-813a-4792-9f0f-11c8cf648c1d
+	sourceLineageTag: [dbo].[GLClassifications]
+
+	column ID
+		dataType: string
+		lineageTag: 65f0a44b-66ac-4ed6-80bd-4bc3d9358c2a
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 037a51d8-69bb-45dd-8049-6cd74f6a3cd0
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: d78aa801-c64d-4aa7-a8a2-408d998e00dc
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: d6754f2c-9d9c-49bc-976e-fd4cbfbfe517
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b6ffae1-58be-40ed-9b5f-8a5da04b34b2
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BalanceType
+		dataType: string
+		lineageTag: 2af5e58e-0383-4cba-8da7-cef661699b6e
+		sourceLineageTag: BalanceType
+		summarizeBy: none
+		sourceColumn: BalanceType
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLScheme
+		dataType: string
+		lineageTag: e97456db-d27c-4646-9ccc-3387a9534b41
+		sourceLineageTag: GLScheme
+		summarizeBy: none
+		sourceColumn: GLScheme
+
+		annotation SummarizationSetBy = Automatic
+
+	column Parent
+		dataType: string
+		lineageTag: abc8ce77-048d-4094-94b5-3ef98e74fa2e
+		sourceLineageTag: Parent
+		summarizeBy: none
+		sourceColumn: Parent
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f4897be0-bafc-43e5-9eca-fd9e3af81199
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: 61a57448-5ddf-436f-acc9-cd031345c4cf
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5b8a56a7-3eb4-48a6-8839-65fdf962fd48
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 342f47de-35ee-4522-b436-a1490a3ea67a
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition GLClassifications = entity
+		mode: directLake
+		source
+			entityName: GLClassifications
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,144 @@
+table MaterialRequirements
+	lineageTag: abb54a93-fff0-41f9-a5d9-1ed70a70dac0
+	sourceLineageTag: [dbo].[MaterialRequirements]
+
+	column ID
+		dataType: string
+		lineageTag: f06c5295-cada-4303-9a5b-29a045f77e05
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: df313b55-023f-4e5e-9943-89d4976b13f7
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		lineageTag: d46411c1-c2a2-4eca-80ed-940c824b1b8f
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: double
+		lineageTag: c0e95e3b-8d9f-459b-8a6d-91a15fffdce2
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RequiredDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 31a7c5aa-58e3-49a1-a31f-03a7cf457de6
+		sourceLineageTag: RequiredDate
+		summarizeBy: none
+		sourceColumn: RequiredDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedOrderId
+		dataType: string
+		lineageTag: 1616e90b-c9b0-44fe-9a9a-89538f45a810
+		sourceLineageTag: PlannedOrderId
+		summarizeBy: none
+		sourceColumn: PlannedOrderId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedOrderType
+		dataType: int64
+		formatString: 0
+		lineageTag: 2da96830-6611-43ff-abac-18947ebbac77
+		sourceLineageTag: PlannedOrderType
+		summarizeBy: sum
+		sourceColumn: PlannedOrderType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a7b10a2-90c5-456e-a45b-7189eebb1ce2
+		sourceLineageTag: Type
+		summarizeBy: sum
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentID
+		dataType: string
+		lineageTag: 81828325-0165-42ef-b1c6-e1b11b053411
+		sourceLineageTag: ParentID
+		summarizeBy: none
+		sourceColumn: ParentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BatchProcessId
+		dataType: string
+		lineageTag: d5dce1db-d294-4755-97da-7a82a879d05b
+		sourceLineageTag: BatchProcessId
+		summarizeBy: none
+		sourceColumn: BatchProcessId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 711238a3-4ba5-4be2-ba5a-bafb2386ae37
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e003f520-b697-485d-a53a-ab58f5cff5e9
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column MRPScenario
+		dataType: string
+		lineageTag: 9b73d4d4-fa49-48ad-bdb6-3c495bd40894
+		sourceLineageTag: MRPScenario
+		summarizeBy: none
+		sourceColumn: MRPScenario
+
+		annotation SummarizationSetBy = Automatic
+
+	column StockReplenishmentAdvicesParentId
+		dataType: string
+		lineageTag: a5ec4569-b985-4dc3-9f61-578522118c03
+		sourceLineageTag: StockReplenishmentAdvicesParentId
+		summarizeBy: none
+		sourceColumn: StockReplenishmentAdvicesParentId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MaterialRequirements = entity
+		mode: directLake
+		source
+			entityName: MaterialRequirements
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

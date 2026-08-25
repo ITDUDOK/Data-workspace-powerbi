@@ -1,0 +1,422 @@
+table Administratie
+	lineageTag: 8562ce74-d9c4-4f95-874b-8258457906e2
+	sourceLineageTag: [dbo].[Administratie]
+
+	column Code
+		dataType: int64
+		formatString: 0
+		lineageTag: 7958cd18-61d0-4b53-8953-ff7260260270
+		sourceLineageTag: Code
+		summarizeBy: count
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column HID
+		dataType: int64
+		formatString: 0
+		lineageTag: 38aa3851-6bb3-4f2e-bc1e-1bece38045d5
+		sourceLineageTag: HID
+		summarizeBy: count
+		sourceColumn: HID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 89a473ac-10f0-4fc8-b174-75049fd8f349
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer
+		dataType: string
+		lineageTag: 04344ae6-aba2-4b69-a25f-0ec3d9153834
+		sourceLineageTag: Customer
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 2b3b9d12-026f-4094-8dce-62ec77d66141
+		sourceLineageTag: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column VATNumber
+		dataType: string
+		lineageTag: e36ffe76-a3e1-45f1-ab18-231afbf10a91
+		sourceLineageTag: VATNumber
+		summarizeBy: none
+		sourceColumn: VATNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		lineageTag: f9301b0f-5789-4c34-bca6-f6bbc5f963d6
+		sourceLineageTag: Currency
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column Main
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3447cd67-1105-4c2d-a573-32cbd1216772
+		sourceLineageTag: Main
+		summarizeBy: none
+		sourceColumn: Main
+
+		annotation SummarizationSetBy = Automatic
+
+	column Website
+		dataType: string
+		lineageTag: d9d86f28-745b-470b-abff-dcd40bbdeeda
+		sourceLineageTag: Website
+		summarizeBy: none
+		sourceColumn: Website
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 35b72020-531e-4fbf-a699-3fe8de1ee875
+		sourceLineageTag: StartDate
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ee1088e0-0dc8-4fe9-99d4-f071a0d0f2e6
+		sourceLineageTag: EndDate
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Account
+		dataType: string
+		lineageTag: 1e56679d-1269-4783-8b58-17d8ef617bd0
+		sourceLineageTag: Account
+		summarizeBy: none
+		sourceColumn: Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerPortal
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 91d491be-88fa-4996-9250-07bfa695c4cb
+		sourceLineageTag: CustomerPortal
+		summarizeBy: none
+		sourceColumn: CustomerPortal
+
+		annotation SummarizationSetBy = Automatic
+
+	column BlockingStatus
+		dataType: int64
+		formatString: 0
+		lineageTag: 4730dfaa-501b-43bc-bee8-3660ca7144b1
+		sourceLineageTag: BlockingStatus
+		summarizeBy: sum
+		sourceColumn: BlockingStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a3a3d98-05f2-4390-88b8-a3d0d080cf08
+		sourceLineageTag: Status
+		summarizeBy: sum
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column LinkedDivision
+		dataType: int64
+		formatString: 0
+		lineageTag: f54daebd-df04-41e7-b59c-11909f2c9653
+		sourceLineageTag: LinkedDivision
+		summarizeBy: sum
+		sourceColumn: LinkedDivision
+
+		annotation SummarizationSetBy = Automatic
+
+	column TaxReferenceNumber
+		dataType: string
+		lineageTag: 8d63035a-b12c-4ba7-b011-0c763981a19c
+		sourceLineageTag: TaxReferenceNumber
+		summarizeBy: none
+		sourceColumn: TaxReferenceNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column LegislationCode
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b09463c-11fc-4d0a-b454-94c99bd18125
+		sourceLineageTag: LegislationCode
+		summarizeBy: count
+		sourceColumn: LegislationCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Deleted
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: db002989-cea0-42c9-8807-670c542a9906
+		sourceLineageTag: Deleted
+		summarizeBy: none
+		sourceColumn: Deleted
+
+		annotation SummarizationSetBy = Automatic
+
+	column Deleter
+		dataType: string
+		lineageTag: 8079b8cf-8444-41b6-8044-b7b6ba24f6d9
+		sourceLineageTag: Deleter
+		summarizeBy: none
+		sourceColumn: Deleter
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 659a2371-d49c-424a-aaa9-da2cb7b03e62
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: b68baf2f-ce7e-444b-9e67-7f35b45de20e
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d6948f30-17da-4ec5-8a34-fb3d989b926d
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 341ccb26-ee8c-4b02-971b-fcb47f68d102
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column TemplateCode
+		dataType: string
+		lineageTag: 36286302-074c-4b9c-8034-437cf504f673
+		sourceLineageTag: TemplateCode
+		summarizeBy: none
+		sourceColumn: TemplateCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column TaxOfficeNumber
+		dataType: string
+		lineageTag: 2c3956fd-887d-428d-8811-23aabae63e6e
+		sourceLineageTag: TaxOfficeNumber
+		summarizeBy: none
+		sourceColumn: TaxOfficeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatevAccountantNumber
+		dataType: string
+		lineageTag: a5f8aed4-9863-4f8c-bce7-b4901e2d111b
+		sourceLineageTag: DatevAccountantNumber
+		summarizeBy: none
+		sourceColumn: DatevAccountantNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatevClientNumber
+		dataType: string
+		lineageTag: 1177e255-be53-488e-827d-b1fa55f55b32
+		sourceLineageTag: DatevClientNumber
+		summarizeBy: none
+		sourceColumn: DatevClientNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShareCapital
+		dataType: double
+		lineageTag: 043d45a0-be11-47ad-b480-886d77aae426
+		sourceLineageTag: ShareCapital
+		summarizeBy: sum
+		sourceColumn: ShareCapital
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EncryptionSeed
+		dataType: string
+		lineageTag: aace75f4-e826-45c9-aca7-e2269fc01459
+		sourceLineageTag: EncryptionSeed
+		summarizeBy: none
+		sourceColumn: EncryptionSeed
+
+		annotation SummarizationSetBy = Automatic
+
+	column Origin
+		dataType: int64
+		formatString: 0
+		lineageTag: 08f8e3f6-aa1c-4798-989c-6a290199b5ce
+		sourceLineageTag: Origin
+		summarizeBy: sum
+		sourceColumn: Origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailValidationID
+		dataType: string
+		lineageTag: 4e43b2a6-9a8d-419a-8b62-90552dd42674
+		sourceLineageTag: EmailValidationID
+		summarizeBy: none
+		sourceColumn: EmailValidationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailValidationDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6303bd06-3d9e-4b9d-b979-688aaf5f8d26
+		sourceLineageTag: EmailValidationDate
+		summarizeBy: none
+		sourceColumn: EmailValidationDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column AllowDataSharing
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a23b71a7-373c-4bf2-8664-2271de1d453d
+		sourceLineageTag: AllowDataSharing
+		summarizeBy: none
+		sourceColumn: AllowDataSharing
+
+		annotation SummarizationSetBy = Automatic
+
+	column AllowDataSharingChangedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0b9b4f24-6370-44a8-a25c-5501b271b5f7
+		sourceLineageTag: AllowDataSharingChangedDate
+		summarizeBy: none
+		sourceColumn: AllowDataSharingChangedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column OBNumber
+		dataType: string
+		lineageTag: 500a65f6-afba-4328-b073-e1d075e4a18c
+		sourceLineageTag: OBNumber
+		summarizeBy: none
+		sourceColumn: OBNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ElasticRolloutStatus
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d060f4c-5f89-42ce-8d48-f16a9479d740
+		sourceLineageTag: ElasticRolloutStatus
+		summarizeBy: sum
+		sourceColumn: ElasticRolloutStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column LogoBlobID
+		dataType: string
+		lineageTag: a948c104-36ac-4a17-80a3-a3d78aa3dc8e
+		sourceLineageTag: LogoBlobID
+		summarizeBy: none
+		sourceColumn: LogoBlobID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LogoFileName
+		dataType: string
+		lineageTag: 59b8b165-f4f0-4ace-9ff2-5f17ee4e0ffc
+		sourceLineageTag: LogoFileName
+		summarizeBy: none
+		sourceColumn: LogoFileName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ArchiveDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bee455b1-4c3d-4c07-b404-79ff4776c3fd
+		sourceLineageTag: ArchiveDate
+		summarizeBy: none
+		sourceColumn: ArchiveDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column DossierDivision
+		dataType: int64
+		formatString: 0
+		lineageTag: 269876af-c5bc-40d1-a2fe-29f2a48e56ea
+		sourceLineageTag: DossierDivision
+		summarizeBy: sum
+		sourceColumn: DossierDivision
+
+		annotation SummarizationSetBy = Automatic
+
+	column EssDivisionId
+		dataType: int64
+		formatString: 0
+		lineageTag: e5e5f3a1-0286-492a-b584-953e21b24037
+		sourceLineageTag: EssDivisionId
+		summarizeBy: count
+		sourceColumn: EssDivisionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionHRLinkUnlinkDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: eeea4e31-1990-492b-aa23-bad0d02b21da
+		sourceLineageTag: DivisionHRLinkUnlinkDate
+		summarizeBy: none
+		sourceColumn: DivisionHRLinkUnlinkDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Administratie = entity
+		mode: directLake
+		source
+			entityName: Administratie
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

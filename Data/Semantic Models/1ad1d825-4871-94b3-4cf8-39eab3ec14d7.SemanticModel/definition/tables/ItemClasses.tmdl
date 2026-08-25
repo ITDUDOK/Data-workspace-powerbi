@@ -1,0 +1,77 @@
+table ItemClasses
+	lineageTag: 025c2f2a-72bb-4804-aace-559508c847d8
+	sourceLineageTag: [dbo].[ItemClasses]
+
+	column ID
+		dataType: string
+		lineageTag: 2ed9a882-d8b9-45f2-a29b-7317d8df0f8c
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c2e2b82-105d-4e5e-9e5b-4a76ad51c3a2
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassID
+		dataType: int64
+		formatString: 0
+		lineageTag: 07f9994f-f8f2-4017-ac57-dc2ceeee1673
+		sourceLineageTag: ClassID
+		summarizeBy: count
+		sourceColumn: ClassID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: fdb7981e-2c89-4596-9201-ba2014654982
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: daa666d1-beb8-413d-bca6-5ad95d405d22
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 20374599-6231-437d-8e18-02b77ed256c6
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notes
+		dataType: string
+		lineageTag: 97b28e04-161b-4dd2-9135-b8bdebf20507
+		sourceLineageTag: Notes
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ItemClasses = entity
+		mode: directLake
+		source
+			entityName: ItemClasses
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,29 @@
+table kengetallen
+	lineageTag: 4d5dc7da-12d8-4de3-9225-b8a5b9dcc176
+	sourceLineageTag: [dbo].[kengetallen]
+
+	column Kengetal
+		dataType: string
+		lineageTag: a1eba55d-6d93-47bd-9d4b-90d5d362c541
+		sourceLineageTag: Kengetal
+		summarizeBy: none
+		sourceColumn: Kengetal
+
+		annotation SummarizationSetBy = Automatic
+
+	column SortOrder
+		dataType: string
+		lineageTag: bb1f4ff7-1f6b-499f-943f-4262fe70afe1
+		sourceLineageTag: SortOrder
+		summarizeBy: none
+		sourceColumn: SortOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	partition kengetallen = entity
+		mode: directLake
+		source
+			entityName: kengetallen
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

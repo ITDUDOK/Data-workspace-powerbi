@@ -1,0 +1,50 @@
+table map_division_office
+	lineageTag: 146f7274-eeda-490a-a999-70c9ecd72ad8
+	sourceLineageTag: [dbo].[map_division_office]
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 18bd4d30-1e6e-4f89-901f-50bc9055e2ab
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Administratie
+		dataType: string
+		lineageTag: c6f471bf-70e7-4d49-b7c2-a15add4813f6
+		sourceLineageTag: Administratie
+		summarizeBy: none
+		sourceColumn: Administratie
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeID
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c82706e-a4cd-4559-b444-80ff8873e2a8
+		sourceLineageTag: OfficeID
+		summarizeBy: count
+		sourceColumn: OfficeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f90d106a-5782-449e-8f06-0c28504a6759
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition map_division_office = entity
+		mode: directLake
+		source
+			entityName: map_division_office
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

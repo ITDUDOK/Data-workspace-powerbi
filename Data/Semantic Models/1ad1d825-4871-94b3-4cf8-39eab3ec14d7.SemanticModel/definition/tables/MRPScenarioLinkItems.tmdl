@@ -1,0 +1,86 @@
+table MRPScenarioLinkItems
+	lineageTag: b9b419fd-eec5-47f2-833d-def62c593004
+	sourceLineageTag: [dbo].[MRPScenarioLinkItems]
+
+	column ID
+		dataType: string
+		lineageTag: 4ff5e367-55ed-48c4-81f7-19090a400c0b
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 56c26f58-ceed-42bd-9742-f827763433cb
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column MRPScenario
+		dataType: string
+		lineageTag: 01363a80-330f-4be7-86d8-a1065453ba00
+		sourceLineageTag: MRPScenario
+		summarizeBy: none
+		sourceColumn: MRPScenario
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: 5dde388d-7650-458e-9c26-f6030864ad87
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 225c9df4-ce0b-43fb-bff6-7fe621dfc235
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: c3dbef61-ef3a-4639-b502-bf0172c05058
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 987f369a-e765-43f5-8f0b-a95d9997f948
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: b7b1800e-8c2e-4d42-8454-4a3bc5ae71d3
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MRPScenarioLinkItems = entity
+		mode: directLake
+		source
+			entityName: MRPScenarioLinkItems
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

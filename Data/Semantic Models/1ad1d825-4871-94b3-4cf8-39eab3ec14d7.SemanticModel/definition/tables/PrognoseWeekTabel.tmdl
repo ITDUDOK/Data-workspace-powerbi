@@ -1,0 +1,70 @@
+table PrognoseWeekTabel
+	lineageTag: 19e3bafa-0874-4891-8f7b-9a07c616bbab
+	sourceLineageTag: [dbo].[PrognoseWeekTabel]
+
+	column Value
+		dataType: int64
+		formatString: 0
+		lineageTag: f9b7734b-acd5-46e6-ad03-b3b17306fa00
+		sourceLineageTag: Value
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekNr
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a3241d5-e9a5-44ed-b519-17b9d1dc2263
+		sourceLineageTag: WeekNr
+		summarizeBy: sum
+		sourceColumn: WeekNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekLabel
+		dataType: string
+		lineageTag: ab5088ae-88c2-4c49-8fad-9f475431444a
+		sourceLineageTag: WeekLabel
+		summarizeBy: none
+		sourceColumn: WeekLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b24d9be1-5c5a-4704-839d-1bfe6bde956c
+		sourceLineageTag: StartDatum
+		summarizeBy: none
+		sourceColumn: StartDatum
+
+		annotation SummarizationSetBy = Automatic
+
+	column EindDatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f6275835-ddd8-43da-b926-31aaae0d6475
+		sourceLineageTag: EindDatum
+		summarizeBy: none
+		sourceColumn: EindDatum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jaar
+		dataType: int64
+		formatString: 0
+		lineageTag: b91fb73a-28eb-4e9e-b5b2-47d593ea0d1d
+		sourceLineageTag: Jaar
+		summarizeBy: sum
+		sourceColumn: Jaar
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PrognoseWeekTabel = entity
+		mode: directLake
+		source
+			entityName: PrognoseWeekTabel
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

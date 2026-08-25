@@ -1,0 +1,98 @@
+table productgroups
+	lineageTag: 99f549c0-7898-4855-a9f3-9433066a5d03
+	sourceLineageTag: [dbo].[productgroups]
+
+	column ProductGroupKey
+		dataType: string
+		lineageTag: e9a37922-d11f-4b58-9f41-6bbdb1edb732
+		sourceLineageTag: ProductGroupKey
+		summarizeBy: none
+		sourceColumn: ProductGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductGroupName
+		dataType: string
+		lineageTag: 63284e36-2b46-40c8-9f7d-c602935f3c39
+		sourceLineageTag: ProductGroupName
+		summarizeBy: none
+		sourceColumn: ProductGroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductGroupNr
+		dataType: double
+		lineageTag: 2793234a-5bd5-4af0-ae2e-56fcf4ce173d
+		sourceLineageTag: ProductGroupNr
+		summarizeBy: sum
+		sourceColumn: ProductGroupNr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4d3cfd15-9154-42c3-90aa-4eea91fa75b8
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupLevel
+		dataType: int64
+		formatString: 0
+		lineageTag: 8788c4ce-11fc-4c4c-9875-a9b88d52e4a1
+		sourceLineageTag: GroupLevel
+		summarizeBy: sum
+		sourceColumn: GroupLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeftNr
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a37e789-af01-4b2c-ab71-a51ea6af35bb
+		sourceLineageTag: LeftNr
+		summarizeBy: sum
+		sourceColumn: LeftNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column RightNr
+		dataType: int64
+		formatString: 0
+		lineageTag: 65887780-6a51-47a6-9b32-d3e7beaf1ac4
+		sourceLineageTag: RightNr
+		summarizeBy: sum
+		sourceColumn: RightNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatCodeKey
+		dataType: string
+		lineageTag: c32c46bd-5738-42cc-85ff-7c4dbfa830ed
+		sourceLineageTag: VatCodeKey
+		summarizeBy: none
+		sourceColumn: VatCodeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentProductGroup
+		dataType: string
+		lineageTag: b79aa19c-fbac-4640-bd68-0f38d015513f
+		sourceLineageTag: ParentProductGroup
+		summarizeBy: none
+		sourceColumn: ParentProductGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	partition productgroups = entity
+		mode: directLake
+		source
+			entityName: productgroups
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

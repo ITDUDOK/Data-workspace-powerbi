@@ -1,0 +1,102 @@
+table StockOverview
+	lineageTag: 54a57c2a-a4ec-43cb-919d-fdfa1556b83d
+	sourceLineageTag: [dbo].[StockOverview]
+
+	column Item
+		dataType: string
+		lineageTag: 3736be63-a7da-4e2c-a620-3d3ff54b016d
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		lineageTag: 9a078aee-457f-49c4-a6b1-72c13f252ce4
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemCode
+		dataType: string
+		lineageTag: 732574f2-7ebc-4ce0-bd1f-354df3a14f48
+		sourceLineageTag: ItemCode
+		summarizeBy: none
+		sourceColumn: ItemCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemDescription
+		dataType: string
+		lineageTag: db69984a-5ed7-4d22-bfe6-f695abddd2ce
+		sourceLineageTag: ItemDescription
+		summarizeBy: none
+		sourceColumn: ItemDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemClassDescription
+		dataType: string
+		lineageTag: 2b977c3a-09fc-43b5-a209-b217035ea5e7
+		sourceLineageTag: ItemClassDescription
+		summarizeBy: none
+		sourceColumn: ItemClassDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemGroupID
+		dataType: string
+		lineageTag: b4bcecd9-3525-4339-ae3c-1c5f42be2fdd
+		sourceLineageTag: ItemGroupID
+		summarizeBy: none
+		sourceColumn: ItemGroupID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemGroupDescription
+		dataType: string
+		lineageTag: 56b8bf29-f3a9-4c37-9555-817822ad50c3
+		sourceLineageTag: ItemGroupDescription
+		summarizeBy: none
+		sourceColumn: ItemGroupDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unit
+		dataType: string
+		lineageTag: acf5e957-fd98-4a0e-969c-71d6bf7f74bb
+		sourceLineageTag: Unit
+		summarizeBy: none
+		sourceColumn: Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemNameCode
+		dataType: string
+		lineageTag: c2b7f4a9-8347-430b-a24f-feb8b42ddfbb
+		sourceLineageTag: ItemNameCode
+		summarizeBy: none
+		sourceColumn: ItemNameCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4cf69e51-8d04-460d-9bd1-ef84930d0033
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StockOverview = entity
+		mode: directLake
+		source
+			entityName: StockOverview
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

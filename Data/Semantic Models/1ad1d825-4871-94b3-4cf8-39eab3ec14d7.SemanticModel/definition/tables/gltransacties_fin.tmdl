@@ -1,0 +1,81 @@
+table gltransacties_fin
+	lineageTag: e14cf7a2-38cb-4126-86f8-429b69691ced
+	sourceLineageTag: [dbo].[gltransacties_fin]
+
+	column EntryDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 032b7db2-50b1-4f37-95ab-2bbd0f6ab8f2
+		sourceLineageTag: EntryDate
+		summarizeBy: none
+		sourceColumn: EntryDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLAccount
+		dataType: string
+		lineageTag: 134ef04c-783f-431c-8fb1-c94a7e131b1f
+		sourceLineageTag: GLAccount
+		summarizeBy: none
+		sourceColumn: GLAccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column AmountFC
+		dataType: double
+		lineageTag: a91316a3-6137-4dcb-948a-927dc565287c
+		sourceLineageTag: AmountFC
+		summarizeBy: sum
+		sourceColumn: AmountFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 41ffc480-5a09-479b-9e1f-958c35b2460f
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingPeriod
+		dataType: int64
+		formatString: 0
+		lineageTag: a0099f7f-4625-4618-846b-0e164d9ace7b
+		sourceLineageTag: ReportingPeriod
+		summarizeBy: sum
+		sourceColumn: ReportingPeriod
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: int64
+		formatString: 0
+		lineageTag: c99d6221-9a87-46c0-8160-c2260349b764
+		sourceLineageTag: Status
+		summarizeBy: sum
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsPeriodeZichtbaar
+		dataType: int64
+		formatString: 0
+		lineageTag: ab35d3e0-f151-4433-bace-6f66ee3335cc
+		sourceLineageTag: IsPeriodeZichtbaar
+		summarizeBy: sum
+		sourceColumn: IsPeriodeZichtbaar
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gltransacties_fin = entity
+		mode: directLake
+		source
+			entityName: gltransacties_fin
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

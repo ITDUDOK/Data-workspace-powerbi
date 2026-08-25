@@ -1,0 +1,105 @@
+table AccountClassifications
+	lineageTag: fa78263d-1ddb-4753-9602-f559f23bb75d
+	sourceLineageTag: [dbo].[AccountClassifications]
+
+	column ID
+		dataType: string
+		lineageTag: d6b6d600-c693-4dad-aae5-6aef0038a6c1
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: a873912d-489b-46a3-87de-b4d6e757d0fe
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: b5a244ff-098c-4d64-84ab-b5174dff5bb4
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 716375dc-d271-423a-9373-a7a2828b11c0
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 69860089-0de4-41a8-a314-77ee324fb110
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountClassificationName
+		dataType: string
+		lineageTag: 6525ce96-f34c-493e-81e9-7889b87e56aa
+		sourceLineageTag: AccountClassificationName
+		summarizeBy: none
+		sourceColumn: AccountClassificationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a4aa3a17-c810-49f4-b1e0-44c910b0fc9f
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: e3a6797e-836f-4ce5-8efe-82e2b47fa2f6
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 70715921-737a-443b-ba46-cf8511d002c4
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: c7cdee3b-be72-4091-9b3a-cdc9736bd775
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AccountClassifications = entity
+		mode: directLake
+		source
+			entityName: AccountClassifications
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

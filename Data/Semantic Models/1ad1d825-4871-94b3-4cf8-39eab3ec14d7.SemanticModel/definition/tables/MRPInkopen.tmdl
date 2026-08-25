@@ -1,0 +1,40 @@
+table MRPInkopen
+	lineageTag: a5c3f9d5-a36c-4f75-b9e0-a6a2e825fddc
+	sourceLineageTag: [dbo].[MRPInkopen]
+
+	column Item
+		dataType: string
+		lineageTag: bed0ba48-a2fb-4e07-ab62-8572b57ba10a
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: double
+		lineageTag: 615e339c-0d24-42e7-9aae-f9b36f93c3e8
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Type
+		dataType: string
+		lineageTag: 54ff9b8e-07fa-403c-a738-7dcdee38db7d
+		sourceLineageTag: Type
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MRPInkopen = entity
+		mode: directLake
+		source
+			entityName: MRPInkopen
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

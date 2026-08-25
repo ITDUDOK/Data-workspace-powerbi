@@ -1,0 +1,86 @@
+table MRPScenarioLinkWarehouses
+	lineageTag: 6fe6ffc0-ebf3-4e8c-95b7-c386cbae7a29
+	sourceLineageTag: [dbo].[MRPScenarioLinkWarehouses]
+
+	column ID
+		dataType: string
+		lineageTag: d5d2e148-296e-43f8-a47e-3b531a553ba8
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b072954-3ca1-4420-a84f-495a1a572cfe
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column MRPScenario
+		dataType: string
+		lineageTag: 5ef7f810-7203-4d8f-af08-171f6c63b7d2
+		sourceLineageTag: MRPScenario
+		summarizeBy: none
+		sourceColumn: MRPScenario
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		lineageTag: def5787a-7445-42dc-a901-f9321fc0689f
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5924c72a-ae58-4b17-a298-7113f78c4c42
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: 4a291b7d-ede9-4080-947d-d58a4261a72b
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d7f008e7-f618-4217-bcc8-0b100200f294
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 5b5aad59-85de-4f2f-a87e-75244bfd1865
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MRPScenarioLinkWarehouses = entity
+		mode: directLake
+		source
+			entityName: MRPScenarioLinkWarehouses
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

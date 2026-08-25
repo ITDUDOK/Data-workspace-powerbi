@@ -1,0 +1,40 @@
+table datumgeldigfilter
+	lineageTag: 79e589d4-3412-4c8c-aa32-9f25cedec93e
+	sourceLineageTag: [dbo].[datumgeldigfilter]
+
+	column Label
+		dataType: string
+		lineageTag: cf9eb289-a9aa-4478-817a-52847ce6f7de
+		sourceLineageTag: Label
+		summarizeBy: none
+		sourceColumn: Label
+
+		annotation SummarizationSetBy = Automatic
+
+	column Waarde
+		dataType: int64
+		formatString: 0
+		lineageTag: 7aa66f09-b966-4d99-9f35-0fca3b243449
+		sourceLineageTag: Waarde
+		summarizeBy: sum
+		sourceColumn: Waarde
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cb95ea4f-8b6d-4147-b3eb-c5906babb182
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition datumgeldigfilter = entity
+		mode: directLake
+		source
+			entityName: datumgeldigfilter
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

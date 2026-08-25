@@ -1,0 +1,179 @@
+table StockPositions
+	lineageTag: d4eff2ef-b58a-4cb6-a11e-f5be496c56ab
+	sourceLineageTag: [dbo].[StockPositions]
+
+	column ID
+		dataType: string
+		lineageTag: 14078740-79ee-4057-a5db-fbf22d0b5831
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f87a796-6483-4896-9691-bf10f9342752
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		lineageTag: a6a61552-98cd-4e08-900d-044fb9cc3bfc
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: d0eddf22-1d16-471b-ae37-8b4490793a87
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stock
+		dataType: double
+		lineageTag: 11eb2731-c4b7-4b15-afa8-c3049992ea86
+		sourceLineageTag: Stock
+		summarizeBy: sum
+		sourceColumn: Stock
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ReservedStock
+		dataType: double
+		lineageTag: 4eb69594-cb9b-483a-b852-619f21ec28e3
+		sourceLineageTag: ReservedStock
+		summarizeBy: sum
+		sourceColumn: ReservedStock
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QuantityToBeDelivered
+		dataType: double
+		lineageTag: 506459d9-5b88-4e2e-8e49-b0ddf9e87edc
+		sourceLineageTag: QuantityToBeDelivered
+		summarizeBy: sum
+		sourceColumn: QuantityToBeDelivered
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QuantityToBeReceived
+		dataType: double
+		lineageTag: 5f71f6b2-0c53-4790-801a-4d58dcec588f
+		sourceLineageTag: QuantityToBeReceived
+		summarizeBy: sum
+		sourceColumn: QuantityToBeReceived
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QuantityToBeProduced
+		dataType: double
+		lineageTag: 7e0a316c-f367-42b8-9ebb-08b9d9322f58
+		sourceLineageTag: QuantityToBeProduced
+		summarizeBy: sum
+		sourceColumn: QuantityToBeProduced
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QuantityToBeConsumed
+		dataType: double
+		lineageTag: d4500075-347f-4e22-8856-535013c5841e
+		sourceLineageTag: QuantityToBeConsumed
+		summarizeBy: sum
+		sourceColumn: QuantityToBeConsumed
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QuantityToBeDropShipped
+		dataType: double
+		lineageTag: 4cdb730c-a750-42fc-a6a2-2d3d1c353a77
+		sourceLineageTag: QuantityToBeDropShipped
+		summarizeBy: sum
+		sourceColumn: QuantityToBeDropShipped
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QuantityAllocated
+		dataType: double
+		lineageTag: 85b1972f-4de0-463f-bf67-43a0e0a8007e
+		sourceLineageTag: QuantityAllocated
+		summarizeBy: sum
+		sourceColumn: QuantityAllocated
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TimestampAsBigInt
+		dataType: int64
+		formatString: 0
+		lineageTag: d388ca1c-78e1-490d-81ea-5ea9a465e7f6
+		sourceLineageTag: TimestampAsBigInt
+		summarizeBy: sum
+		sourceColumn: TimestampAsBigInt
+
+		annotation SummarizationSetBy = Automatic
+
+	column SerialBatchReservedStock
+		dataType: double
+		lineageTag: e54c72a0-81d0-4b48-9d33-c9f20018e6bc
+		sourceLineageTag: SerialBatchReservedStock
+		summarizeBy: sum
+		sourceColumn: SerialBatchReservedStock
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QuantityToPicked
+		dataType: double
+		lineageTag: 326f1159-c72c-41ce-b28b-5ea21a68f37d
+		sourceLineageTag: QuantityToPicked
+		summarizeBy: sum
+		sourceColumn: QuantityToPicked
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ReservedPick
+		dataType: double
+		lineageTag: 64f3165d-3b97-4ed4-ad0d-eba48dfb225c
+		sourceLineageTag: ReservedPick
+		summarizeBy: sum
+		sourceColumn: ReservedPick
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition StockPositions = entity
+		mode: directLake
+		source
+			entityName: StockPositions
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

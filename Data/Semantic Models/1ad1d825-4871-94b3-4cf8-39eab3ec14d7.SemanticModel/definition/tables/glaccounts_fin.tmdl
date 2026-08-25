@@ -1,0 +1,57 @@
+table glaccounts_fin
+	lineageTag: 9b1d3013-634b-4e78-b0bf-0d03f80dbbcc
+	sourceLineageTag: [dbo].[glaccounts_fin]
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 0244387e-1751-4f6b-9cd9-9f660ef52e6d
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID
+		dataType: string
+		lineageTag: d1c668be-ef34-469e-9071-e1a6d891244a
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: f9c10797-8e8e-42e3-91ca-b1eec6b0b75a
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: a722b34e-6587-43ee-a496-502e05fd81dc
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassificatieCode
+		dataType: string
+		lineageTag: 26d03a1a-593a-4e31-9023-9c98058e00e0
+		sourceLineageTag: ClassificatieCode
+		summarizeBy: none
+		sourceColumn: ClassificatieCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition glaccounts_fin = entity
+		mode: directLake
+		source
+			entityName: glaccounts_fin
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,40 @@
+table StockPlanningTypes
+	lineageTag: dae44f56-c5e5-40c4-bcd8-8e0c416bee70
+	sourceLineageTag: [dbo].[StockPlanningTypes]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9cf5b844-63b2-4eec-bdaa-40a3a9de33e5
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: efa97792-03c8-4987-9ba4-e2fe99ad2d5f
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: b083b0ea-eca6-460a-b85d-53232c70fe57
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StockPlanningTypes = entity
+		mode: directLake
+		source
+			entityName: StockPlanningTypes
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

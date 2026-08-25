@@ -1,0 +1,359 @@
+table StockPlanning
+	lineageTag: 2197b09d-ce88-4c41-9b55-eb260ceadc37
+	sourceLineageTag: [dbo].[StockPlanning]
+
+	column ID
+		dataType: string
+		lineageTag: b4eacbd9-8529-49f4-ab9a-5ca335a4113a
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 68cecf03-383d-4f11-b191-c9cb2089a4a6
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: 8a32225a-c3ab-4d15-b6b9-957da276045b
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		lineageTag: 69eb9f49-5b29-4833-af44-680e8c5a42c1
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderID
+		dataType: string
+		lineageTag: adf5f8c5-92da-42da-9c65-8e2ae4c10baa
+		sourceLineageTag: SalesOrderID
+		summarizeBy: none
+		sourceColumn: SalesOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PurchaseOrderID
+		dataType: string
+		lineageTag: 87147687-e02b-454e-a2fd-01d0bf48f564
+		sourceLineageTag: PurchaseOrderID
+		summarizeBy: none
+		sourceColumn: PurchaseOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StockTransaction
+		dataType: string
+		lineageTag: 3957302f-e4fd-4b91-a9b0-b5ea7156e2e3
+		sourceLineageTag: StockTransaction
+		summarizeBy: none
+		sourceColumn: StockTransaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column LinkedSalesOrderID
+		dataType: string
+		lineageTag: 9ed1f7f7-f62f-46e7-8dfa-e451281f9158
+		sourceLineageTag: LinkedSalesOrderID
+		summarizeBy: none
+		sourceColumn: LinkedSalesOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LinkedPurchaseOrderID
+		dataType: string
+		lineageTag: ab230d45-48bc-4e54-8337-38c97e6578ca
+		sourceLineageTag: LinkedPurchaseOrderID
+		summarizeBy: none
+		sourceColumn: LinkedPurchaseOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Job
+		dataType: string
+		lineageTag: af945807-1a09-44e9-bfeb-e0160ecac11e
+		sourceLineageTag: Job
+		summarizeBy: none
+		sourceColumn: Job
+
+		annotation SummarizationSetBy = Automatic
+
+	column DueDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7121d12f-e726-4ced-9570-dd5804fa9110
+		sourceLineageTag: DueDate
+		summarizeBy: none
+		sourceColumn: DueDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderQuantity
+		dataType: double
+		lineageTag: b67af0e8-c51c-46c9-be6e-42ecc91be79d
+		sourceLineageTag: OrderQuantity
+		summarizeBy: sum
+		sourceColumn: OrderQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column StockQuantity
+		dataType: double
+		lineageTag: bd8de5f1-046c-492b-b5c6-28a54aebbaf7
+		sourceLineageTag: StockQuantity
+		summarizeBy: sum
+		sourceColumn: StockQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Status
+		dataType: int64
+		formatString: 0
+		lineageTag: a0b4577f-473e-4534-8530-86d384d5e267
+		sourceLineageTag: Status
+		summarizeBy: sum
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: int64
+		formatString: 0
+		lineageTag: 03c3880f-ae14-49f6-b485-431a18cd08ba
+		sourceLineageTag: Type
+		summarizeBy: sum
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsPending
+		dataType: int64
+		formatString: 0
+		lineageTag: edc3bf96-0cfb-47d5-bf52-d773d0adbac3
+		sourceLineageTag: IsPending
+		summarizeBy: sum
+		sourceColumn: IsPending
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreateCredit
+		dataType: int64
+		formatString: 0
+		lineageTag: c7fc1484-17f1-4d04-8fcb-c08a15929de0
+		sourceLineageTag: CreateCredit
+		summarizeBy: sum
+		sourceColumn: CreateCredit
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsFaulty
+		dataType: int64
+		formatString: 0
+		lineageTag: d23fba7c-b456-4d65-b6cc-19eeaafd8281
+		sourceLineageTag: IsFaulty
+		summarizeBy: sum
+		sourceColumn: IsFaulty
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bbc5c714-4262-4d05-9578-3c888e98df2c
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: 7c141dff-e888-40e8-a00d-e58344074146
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 33d8a9e6-b4aa-4af0-8bb4-ebef2ff6a3f9
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsDropShipment
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d871b73-1be8-450f-bf0a-71286970869c
+		sourceLineageTag: IsDropShipment
+		summarizeBy: sum
+		sourceColumn: IsDropShipment
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShopOrder
+		dataType: string
+		lineageTag: bbe4c976-bfc3-4b0b-97f5-5b2a6bb4156e
+		sourceLineageTag: ShopOrder
+		summarizeBy: none
+		sourceColumn: ShopOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShopOrderMaterialPlan
+		dataType: string
+		lineageTag: e2431ae8-95db-4d24-a791-fafa30cadb53
+		sourceLineageTag: ShopOrderMaterialPlan
+		summarizeBy: none
+		sourceColumn: ShopOrderMaterialPlan
+
+		annotation SummarizationSetBy = Automatic
+
+	column CancelAction
+		dataType: int64
+		formatString: 0
+		lineageTag: db0c18e0-6404-4fc9-9e1f-e3343eb43782
+		sourceLineageTag: CancelAction
+		summarizeBy: sum
+		sourceColumn: CancelAction
+
+		annotation SummarizationSetBy = Automatic
+
+	column BatchFactor
+		dataType: double
+		lineageTag: 2b44028d-1ef2-4c7a-a143-fc2a3e78df85
+		sourceLineageTag: BatchFactor
+		summarizeBy: sum
+		sourceColumn: BatchFactor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UseExplosion
+		dataType: int64
+		formatString: 0
+		lineageTag: eaec422e-d9ca-45ed-901d-c27167dc1376
+		sourceLineageTag: UseExplosion
+		summarizeBy: sum
+		sourceColumn: UseExplosion
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssemblyOrder
+		dataType: string
+		lineageTag: 1680ee38-3f91-40dc-8fd9-cc4e772dc242
+		sourceLineageTag: AssemblyOrder
+		summarizeBy: none
+		sourceColumn: AssemblyOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column WarehouseTransferLine
+		dataType: string
+		lineageTag: fdf375c9-9cb1-43ee-8ac7-3bef4b478f71
+		sourceLineageTag: WarehouseTransferLine
+		summarizeBy: none
+		sourceColumn: WarehouseTransferLine
+
+		annotation SummarizationSetBy = Automatic
+
+	column PicklistLine
+		dataType: string
+		lineageTag: c48b36ed-0c15-4c80-b7e7-7f8b76e2f605
+		sourceLineageTag: PicklistLine
+		summarizeBy: none
+		sourceColumn: PicklistLine
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuantityAllocated
+		dataType: double
+		lineageTag: b03572d2-d4f0-4553-bc6c-d883d4b57e39
+		sourceLineageTag: QuantityAllocated
+		summarizeBy: sum
+		sourceColumn: QuantityAllocated
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QuantityToPicked
+		dataType: double
+		lineageTag: 91e4a655-871e-44e1-9679-e3e90124df94
+		sourceLineageTag: QuantityToPicked
+		summarizeBy: sum
+		sourceColumn: QuantityToPicked
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ReservedPick
+		dataType: double
+		lineageTag: 73673edb-2e20-4274-b759-efd549e3c1ff
+		sourceLineageTag: ReservedPick
+		summarizeBy: sum
+		sourceColumn: ReservedPick
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Items.Code'
+		dataType: string
+		lineageTag: c43211f4-f274-4624-a2d5-48e82a4ca850
+		sourceLineageTag: Items.Code
+		summarizeBy: none
+		sourceColumn: Items.Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Items.Description'
+		dataType: string
+		lineageTag: de049950-5120-4af8-b6bc-1390f47ed334
+		sourceLineageTag: Items.Description
+		summarizeBy: none
+		sourceColumn: Items.Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 31e03f64-29d0-4911-80ce-b70de27120bd
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StockPlanning = entity
+		mode: directLake
+		source
+			entityName: StockPlanning
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

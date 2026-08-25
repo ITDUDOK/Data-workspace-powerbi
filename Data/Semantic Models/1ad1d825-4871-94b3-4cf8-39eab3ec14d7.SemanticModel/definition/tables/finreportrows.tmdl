@@ -1,0 +1,68 @@
+table finreportrows
+	lineageTag: 3401da8b-4250-40e3-b6fd-e12f290b75c7
+	sourceLineageTag: [dbo].[finreportrows]
+
+	column ClassificatieCode
+		dataType: string
+		lineageTag: 8cc54b64-712a-47c8-b1f0-74e04d3c7208
+		sourceLineageTag: ClassificatieCode
+		summarizeBy: none
+		sourceColumn: ClassificatieCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hoofdgroep
+		dataType: string
+		lineageTag: c0a4076b-1a04-4c06-b7c6-32b2c71030bb
+		sourceLineageTag: Hoofdgroep
+		summarizeBy: none
+		sourceColumn: Hoofdgroep
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subrij
+		dataType: string
+		lineageTag: 31bd41d1-c0a2-4226-a1c7-5f5c41d5a85a
+		sourceLineageTag: Subrij
+		summarizeBy: none
+		sourceColumn: Subrij
+
+		annotation SummarizationSetBy = Automatic
+
+	column SortHoofd
+		dataType: int64
+		formatString: 0
+		lineageTag: c8f5deac-2ac2-4e1c-a586-e8edb66e4345
+		sourceLineageTag: SortHoofd
+		summarizeBy: sum
+		sourceColumn: SortHoofd
+
+		annotation SummarizationSetBy = Automatic
+
+	column SortSub
+		dataType: int64
+		formatString: 0
+		lineageTag: 5bfb8f86-1419-4610-8a19-73c8a2ebc2c4
+		sourceLineageTag: SortSub
+		summarizeBy: sum
+		sourceColumn: SortSub
+
+		annotation SummarizationSetBy = Automatic
+
+	column Teken
+		dataType: int64
+		formatString: 0
+		lineageTag: 01d7453b-cdd1-409c-bace-102829648848
+		sourceLineageTag: Teken
+		summarizeBy: sum
+		sourceColumn: Teken
+
+		annotation SummarizationSetBy = Automatic
+
+	partition finreportrows = entity
+		mode: directLake
+		source
+			entityName: finreportrows
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

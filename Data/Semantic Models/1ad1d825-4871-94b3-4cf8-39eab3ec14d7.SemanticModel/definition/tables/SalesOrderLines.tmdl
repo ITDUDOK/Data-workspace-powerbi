@@ -1,0 +1,294 @@
+table SalesOrderLines
+	lineageTag: 71a0f070-693b-4307-998c-612ac8955130
+	sourceLineageTag: [dbo].[SalesOrderLines]
+
+	column ID
+		dataType: string
+		lineageTag: e661dbf0-8595-4b37-b8a9-772352805b79
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 0f996b17-64d7-4a7d-8e34-2c139ec96e7d
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: afcf812f-de3a-48dc-aab4-8cd9598332c5
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: int64
+		formatString: 0
+		lineageTag: e1c931d2-8bc1-4d32-b7ce-37d943c2386e
+		sourceLineageTag: Type
+		summarizeBy: sum
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: adf6246f-19e1-42da-9808-c13596eb94f9
+		sourceLineageTag: LineNumber
+		summarizeBy: sum
+		sourceColumn: LineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notes
+		dataType: string
+		lineageTag: 43c60b41-b187-4ffc-9205-8590e3b39c71
+		sourceLineageTag: Notes
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: fc8130a5-5c6c-4d72-80cc-480170b6ec98
+		sourceLineageTag: SalesOrderNumber
+		summarizeBy: sum
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d6d60b14-be7d-49a2-a46a-15992d1e780e
+		sourceLineageTag: DeliveryDate
+		summarizeBy: none
+		sourceColumn: DeliveryDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column AmountFC
+		dataType: double
+		lineageTag: e5a49d35-f8ba-4fa2-89fa-65e5606aef86
+		sourceLineageTag: AmountFC
+		summarizeBy: sum
+		sourceColumn: AmountFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AmountDC
+		dataType: double
+		lineageTag: 3266f5f5-35d0-4119-b617-1ba467e1caa0
+		sourceLineageTag: AmountDC
+		summarizeBy: sum
+		sourceColumn: AmountDC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Quantity
+		dataType: double
+		lineageTag: d04422b7-33e5-4d18-bd6a-f0159eb27d54
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceFC
+		dataType: double
+		lineageTag: 11c9e363-ead7-47fc-9b9b-0052090af724
+		sourceLineageTag: PriceFC
+		summarizeBy: sum
+		sourceColumn: PriceFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceEntryFC
+		dataType: double
+		lineageTag: 26d12278-ee00-4786-ae90-e528833fd15d
+		sourceLineageTag: PriceEntryFC
+		summarizeBy: sum
+		sourceColumn: PriceEntryFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Discount
+		dataType: double
+		lineageTag: 3c86e303-c740-4ae0-916f-df00a31b2f5b
+		sourceLineageTag: Discount
+		summarizeBy: sum
+		sourceColumn: Discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DiscountAmountFC
+		dataType: double
+		lineageTag: 40f508ed-1b6f-4a7e-8acd-66503b021760
+		sourceLineageTag: DiscountAmountFC
+		summarizeBy: sum
+		sourceColumn: DiscountAmountFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DiscountAmountDC
+		dataType: double
+		lineageTag: ec21bf62-b06f-48b7-ae77-77fb416757b3
+		sourceLineageTag: DiscountAmountDC
+		summarizeBy: sum
+		sourceColumn: DiscountAmountDC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DiscountMode
+		dataType: int64
+		formatString: 0
+		lineageTag: fb777e43-4007-484e-acbe-bfa1053caacc
+		sourceLineageTag: DiscountMode
+		summarizeBy: sum
+		sourceColumn: DiscountMode
+
+		annotation SummarizationSetBy = Automatic
+
+	column AmountDiscountFC
+		dataType: double
+		lineageTag: 9ceb3b59-0167-48bb-b749-7f932f46d616
+		sourceLineageTag: AmountDiscountFC
+		summarizeBy: sum
+		sourceColumn: AmountDiscountFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AmountVATDiscountFC
+		dataType: double
+		lineageTag: f61aeb65-c20f-448f-be51-fc3ace42c930
+		sourceLineageTag: AmountVATDiscountFC
+		summarizeBy: sum
+		sourceColumn: AmountVATDiscountFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EntryID
+		dataType: string
+		lineageTag: e461d026-2d1e-44e6-ad7c-8ca4142f59c1
+		sourceLineageTag: EntryID
+		summarizeBy: none
+		sourceColumn: EntryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: c881ae8f-c2a3-4194-b985-07ca6dd03443
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unitcode
+		dataType: string
+		lineageTag: fa663ab4-6bec-4ae7-a9ea-42b21f14b76a
+		sourceLineageTag: Unitcode
+		summarizeBy: none
+		sourceColumn: Unitcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitFactor
+		dataType: double
+		lineageTag: 50317fc0-f585-4ca0-8162-ded709f73fa6
+		sourceLineageTag: UnitFactor
+		summarizeBy: sum
+		sourceColumn: UnitFactor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Items.Code'
+		dataType: string
+		lineageTag: e5a012e0-f50c-4d6e-98ce-7b5e52e23a1f
+		sourceLineageTag: Items.Code
+		summarizeBy: none
+		sourceColumn: Items.Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Items.Description'
+		dataType: string
+		lineageTag: 8faf2d1f-98e4-4119-99aa-e4cc5c169117
+		sourceLineageTag: Items.Description
+		summarizeBy: none
+		sourceColumn: Items.Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column AmountSoldPositive
+		dataType: double
+		lineageTag: 778f38d4-5532-4a05-a0c1-675b723efb15
+		sourceLineageTag: AmountSoldPositive
+		summarizeBy: sum
+		sourceColumn: AmountSoldPositive
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ItemNameCode
+		dataType: string
+		lineageTag: 2865b5a4-972b-4297-8675-9861955d44b0
+		sourceLineageTag: ItemNameCode
+		summarizeBy: none
+		sourceColumn: ItemNameCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 56140f15-35fe-4eb7-84d7-ee610a01edc0
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesOrderLines = entity
+		mode: directLake
+		source
+			entityName: SalesOrderLines
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

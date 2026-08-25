@@ -1,0 +1,60 @@
+table divisionperiodstatus
+	lineageTag: 120e79cc-f17f-4d8f-981e-bb2b5e86c80d
+	sourceLineageTag: [dbo].[divisionperiodstatus]
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 49effce9-8d72-47d7-b7c6-2dffd9ab453a
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinYear
+		dataType: int64
+		formatString: 0
+		lineageTag: b2f83354-9ff1-49ab-b5ec-38fe2237379c
+		sourceLineageTag: FinYear
+		summarizeBy: sum
+		sourceColumn: FinYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinPeriod
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e0050ba-7c54-4d05-abd2-fba2afddaa36
+		sourceLineageTag: FinPeriod
+		summarizeBy: sum
+		sourceColumn: FinPeriod
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearPeriodStatus
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c1399f2-401f-4eeb-9d97-7ae06315a425
+		sourceLineageTag: YearPeriodStatus
+		summarizeBy: sum
+		sourceColumn: YearPeriodStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Journal
+		dataType: string
+		lineageTag: 9d5c6921-0f37-4fc9-997d-077715b2b575
+		sourceLineageTag: Journal
+		summarizeBy: none
+		sourceColumn: Journal
+
+		annotation SummarizationSetBy = Automatic
+
+	partition divisionperiodstatus = entity
+		mode: directLake
+		source
+			entityName: divisionperiodstatus
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

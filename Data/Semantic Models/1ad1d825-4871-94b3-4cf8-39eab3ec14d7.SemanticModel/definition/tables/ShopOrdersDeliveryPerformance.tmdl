@@ -1,0 +1,31 @@
+table ShopOrdersDeliveryPerformance
+	lineageTag: 922281db-8bc8-40af-b4c2-9e02c15e5bd8
+	sourceLineageTag: [dbo].[ShopOrdersDeliveryPerformance]
+
+	column DeliveredQuantity
+		dataType: double
+		lineageTag: 9d520d24-a796-4515-b3ac-a51f67385acc
+		sourceLineageTag: DeliveredQuantity
+		summarizeBy: sum
+		sourceColumn: DeliveredQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ShopOrder
+		dataType: string
+		lineageTag: 5c746a37-e023-46d0-9c75-3d9ae554be83
+		sourceLineageTag: ShopOrder
+		summarizeBy: none
+		sourceColumn: ShopOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ShopOrdersDeliveryPerformance = entity
+		mode: directLake
+		source
+			entityName: ShopOrdersDeliveryPerformance
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,238 @@
+table Items
+	lineageTag: 5596004c-a160-43ee-a9c7-2664a9ee0383
+	sourceLineageTag: [dbo].[Items]
+
+	column ItemID
+		dataType: string
+		lineageTag: 0ba67834-7a65-4fae-924d-bd5d67553b9b
+		sourceLineageTag: ItemID
+		summarizeBy: none
+		sourceColumn: ItemID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: c8c956ad-e8f7-453a-80e4-3e9bc205c045
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: 520707d2-da1e-44b9-89fb-31fd20e0f292
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: ee0a6051-e4ad-49fd-8962-d371283c33d4
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemGroup
+		dataType: string
+		lineageTag: 0af5095b-3239-49e2-8cf6-9d9657d63fba
+		sourceLineageTag: ItemGroup
+		summarizeBy: none
+		sourceColumn: ItemGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class_01
+		dataType: string
+		lineageTag: 88d1852f-2e76-49c0-94b5-3a9273d8197b
+		sourceLineageTag: Class_01
+		summarizeBy: none
+		sourceColumn: Class_01
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostPriceStandard
+		dataType: double
+		lineageTag: d864591b-852c-426d-a311-d7812931efd8
+		sourceLineageTag: CostPriceStandard
+		summarizeBy: sum
+		sourceColumn: CostPriceStandard
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Unit
+		dataType: string
+		lineageTag: fde08634-985d-454e-bdaf-9ee018fca9e5
+		sourceLineageTag: Unit
+		summarizeBy: none
+		sourceColumn: Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7f3f6e6b-f17a-4781-bbd7-5042563e0e70
+		sourceLineageTag: StartDate
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7d920623-3adf-41c1-8fbd-8b59a0f2436c
+		sourceLineageTag: EndDate
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 729ddc12-8626-4ac1-a61f-64efa8b2b423
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: 46a6bad9-c0f2-408d-afe0-07394260a066
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dd5fb01c-1f62-4f7e-8819-abd9044aec73
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 527279a1-53f4-4c0b-b692-eaed78cb2ed9
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeightUnit
+		dataType: string
+		lineageTag: df90ef52-2fa1-4128-8bc2-eef90b3db1b3
+		sourceLineageTag: WeightUnit
+		summarizeBy: none
+		sourceColumn: WeightUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column AverageCost
+		dataType: double
+		lineageTag: 16297168-3ea3-44c3-91b3-165ea1b35c65
+		sourceLineageTag: AverageCost
+		summarizeBy: sum
+		sourceColumn: AverageCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NetWeight
+		dataType: double
+		lineageTag: 2c0fefaf-233b-49d2-94fc-040aa08f7f0b
+		sourceLineageTag: NetWeight
+		summarizeBy: sum
+		sourceColumn: NetWeight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Extension
+		dataType: string
+		lineageTag: 6fdce1a4-d9b9-4888-a3d5-fe487049cd91
+		sourceLineageTag: Extension
+		summarizeBy: none
+		sourceColumn: Extension
+
+		annotation SummarizationSetBy = Automatic
+
+	column Barcode
+		dataType: string
+		lineageTag: 5d6545ea-0ec1-4a23-bd60-03f88f70a4d0
+		sourceLineageTag: Barcode
+		summarizeBy: none
+		sourceColumn: Barcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column NetWeightUnit
+		dataType: string
+		lineageTag: b7220e6e-433d-4829-9c19-43800267a6a3
+		sourceLineageTag: NetWeightUnit
+		summarizeBy: none
+		sourceColumn: NetWeightUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ItemGroup.Description'
+		dataType: string
+		lineageTag: a3298cf9-7e4d-479b-9c45-4b1d37c8ec8b
+		sourceLineageTag: ItemGroup.Description
+		summarizeBy: none
+		sourceColumn: ItemGroup.Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemNameCode
+		dataType: string
+		lineageTag: 41ba4639-b258-4ab5-aad2-80ab1e0f160d
+		sourceLineageTag: ItemNameCode
+		summarizeBy: none
+		sourceColumn: ItemNameCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Actief
+		dataType: string
+		lineageTag: 2d5b2384-4ff8-4998-8311-fb7ed1e3a9a5
+		sourceLineageTag: Actief
+		summarizeBy: none
+		sourceColumn: Actief
+
+		annotation SummarizationSetBy = Automatic
+
+	column Leverancier
+		dataType: string
+		lineageTag: ae20bbcc-3cb0-40cf-af86-ca7e47969054
+		sourceLineageTag: Leverancier
+		summarizeBy: none
+		sourceColumn: Leverancier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Items = entity
+		mode: directLake
+		source
+			entityName: Items
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,40 @@
+table StockTransactionStatus
+	lineageTag: ee8fe363-27c4-4085-902f-585bc6b77caa
+	sourceLineageTag: [dbo].[StockTransactionStatus]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: a35f55f8-e25e-4d9b-a1c7-9e37f0ed2f4c
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 827e6388-e593-42bd-8838-c79ade0608de
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f8edf10-ef4b-4f3f-9801-98a4c7150bfe
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StockTransactionStatus = entity
+		mode: directLake
+		source
+			entityName: StockTransactionStatus
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

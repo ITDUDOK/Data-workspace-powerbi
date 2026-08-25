@@ -1,0 +1,190 @@
+table MRPPlanning
+	lineageTag: 6b7c9f78-15f9-4c3a-b28c-0477113188bc
+	sourceLineageTag: [dbo].[MRPPlanning]
+
+	column Artikelcode
+		dataType: string
+		lineageTag: d377f293-4d92-4665-98b6-96a36052e77b
+		sourceLineageTag: Artikelcode
+		summarizeBy: none
+		sourceColumn: Artikelcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Artikelnaam
+		dataType: string
+		lineageTag: 4360954f-c11a-43b9-a427-df5ddcfc21e9
+		sourceLineageTag: Artikelnaam
+		summarizeBy: none
+		sourceColumn: Artikelnaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column ArtikelgroepID
+		dataType: string
+		lineageTag: 5afc7f59-ec1a-4b7d-90a5-efeb9ffc92d8
+		sourceLineageTag: ArtikelgroepID
+		summarizeBy: none
+		sourceColumn: ArtikelgroepID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Producttype
+		dataType: string
+		lineageTag: d7b60941-3b52-46b1-bb1d-363b1805f8b5
+		sourceLineageTag: Producttype
+		summarizeBy: none
+		sourceColumn: Producttype
+
+		annotation SummarizationSetBy = Automatic
+
+	column Artikelgroep
+		dataType: string
+		lineageTag: c10a2695-d376-4e55-a140-295a158ea596
+		sourceLineageTag: Artikelgroep
+		summarizeBy: none
+		sourceColumn: Artikelgroep
+
+		annotation SummarizationSetBy = Automatic
+
+	column ArtikelcodeNaam
+		dataType: string
+		lineageTag: e7fe89ec-a8a5-4bbf-9534-4cc127ab1309
+		sourceLineageTag: ArtikelcodeNaam
+		summarizeBy: none
+		sourceColumn: ArtikelcodeNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column Waarde
+		dataType: double
+		lineageTag: 29622923-f510-40a2-a3b7-596414fd9bbb
+		sourceLineageTag: Waarde
+		summarizeBy: sum
+		sourceColumn: Waarde
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ShopOrderNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 35ddbb06-a794-4a0a-a335-8629395dc28f
+		sourceLineageTag: ShopOrderNumber
+		summarizeBy: sum
+		sourceColumn: ShopOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShopOrderURL
+		dataType: string
+		lineageTag: 441dc864-9ba6-44a1-a597-907beea6a8fa
+		sourceLineageTag: ShopOrderURL
+		summarizeBy: none
+		sourceColumn: ShopOrderURL
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jaar
+		dataType: int64
+		formatString: 0
+		lineageTag: 42178930-99b8-44f5-be69-a4f80a5ad449
+		sourceLineageTag: Jaar
+		summarizeBy: sum
+		sourceColumn: Jaar
+
+		annotation SummarizationSetBy = Automatic
+
+	column Maand
+		dataType: int64
+		formatString: 0
+		lineageTag: 701fa502-2ab7-4a40-8a74-ed804a2b75cd
+		sourceLineageTag: Maand
+		summarizeBy: sum
+		sourceColumn: Maand
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaandNaam
+		dataType: string
+		lineageTag: 8de80dc3-8e43-413f-af93-83b9833cd5f1
+		sourceLineageTag: MaandNaam
+		summarizeBy: none
+		sourceColumn: MaandNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weeknummer
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a0ea9e0-b34d-4811-9c67-1a98937189c6
+		sourceLineageTag: Weeknummer
+		summarizeBy: sum
+		sourceColumn: Weeknummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column JaarMaand
+		dataType: string
+		lineageTag: bca4d949-af16-443f-b663-1c89ec96af9d
+		sourceLineageTag: JaarMaand
+		summarizeBy: none
+		sourceColumn: JaarMaand
+
+		annotation SummarizationSetBy = Automatic
+
+	column JaarWeek
+		dataType: string
+		lineageTag: 52c4a942-108e-4f12-a5d1-3adb668ad947
+		sourceLineageTag: JaarWeek
+		summarizeBy: none
+		sourceColumn: JaarWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kwartaal
+		dataType: string
+		lineageTag: 5b28a1d7-37fb-4634-879c-a7b3ca91a88a
+		sourceLineageTag: Kwartaal
+		summarizeBy: none
+		sourceColumn: Kwartaal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: c785239b-fcda-41d9-b26e-fd5fe0e0e099
+		sourceLineageTag: Status
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column VraagAanbod
+		dataType: string
+		lineageTag: 777a4289-97cc-4e23-9c8f-b92327cbe613
+		sourceLineageTag: VraagAanbod
+		summarizeBy: none
+		sourceColumn: VraagAanbod
+
+		annotation SummarizationSetBy = Automatic
+
+	column HoeveelheidAbs
+		dataType: double
+		lineageTag: 62c2a7ff-d501-474b-8662-d476d4e63759
+		sourceLineageTag: HoeveelheidAbs
+		summarizeBy: sum
+		sourceColumn: HoeveelheidAbs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition MRPPlanning = entity
+		mode: directLake
+		source
+			entityName: MRPPlanning
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

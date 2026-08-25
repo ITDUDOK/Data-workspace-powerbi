@@ -1,0 +1,40 @@
+table PlannedOrderTypes
+	lineageTag: 78d03b63-4c1d-4c4b-a6b8-4a30c183816f
+	sourceLineageTag: [dbo].[PlannedOrderTypes]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 3603e83f-7529-4258-a0ed-e9d385c586a0
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 6650bb41-3dc2-46d5-964d-0fcb6e56b4f5
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: f893b700-8416-4e4d-84c6-13632bf31d7d
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PlannedOrderTypes = entity
+		mode: directLake
+		source
+			entityName: PlannedOrderTypes
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

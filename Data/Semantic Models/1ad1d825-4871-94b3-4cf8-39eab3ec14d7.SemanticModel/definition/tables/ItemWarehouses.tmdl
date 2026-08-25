@@ -1,0 +1,210 @@
+table ItemWarehouses
+	lineageTag: bb40a672-c84b-48b3-a8e5-504f5625619d
+	sourceLineageTag: [dbo].[ItemWarehouses]
+
+	column ID
+		dataType: string
+		lineageTag: 87983cd4-2d4e-4b14-9878-cf508b088fa3
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: dbe71bbd-4bda-480f-b66f-4d981e86e6ce
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: 25483b5c-a14b-4790-9f30-8cd8a02305e4
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		lineageTag: 706cc4cd-de5b-46ab-b372-a2b833c30bc0
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReorderPoint
+		dataType: double
+		lineageTag: 4fc5cceb-1498-4195-837c-af6a6936d573
+		sourceLineageTag: ReorderPoint
+		summarizeBy: sum
+		sourceColumn: ReorderPoint
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SafetyStock
+		dataType: double
+		lineageTag: a4b61b77-913c-4a93-a2d8-871f66e8f8bc
+		sourceLineageTag: SafetyStock
+		summarizeBy: sum
+		sourceColumn: SafetyStock
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MaximumStock
+		dataType: double
+		lineageTag: 49c8a98f-efea-45bd-846b-338141c225b3
+		sourceLineageTag: MaximumStock
+		summarizeBy: sum
+		sourceColumn: MaximumStock
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AverageUsageDuringDeliveryTime
+		dataType: double
+		lineageTag: 32e40d2d-46eb-4dfc-adb8-fa0b63d4901b
+		sourceLineageTag: AverageUsageDuringDeliveryTime
+		summarizeBy: sum
+		sourceColumn: AverageUsageDuringDeliveryTime
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dbc5ef13-8235-4854-8220-a8250ae50c5e
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: e74eefd7-90b9-4aee-97bd-7e2cb8cbec32
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dc9d94a8-211e-4301-ab10-a8f2802bedc0
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 0bd619d2-9de9-4da3-9cf6-0dddb62e148f
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column DefaultStorageLocation
+		dataType: string
+		lineageTag: f5cb2f25-a7a6-4112-8093-ce30a2aa1ab9
+		sourceLineageTag: DefaultStorageLocation
+		summarizeBy: none
+		sourceColumn: DefaultStorageLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountingCycle
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c9ff223-d204-4f69-aa03-6cc07247eabe
+		sourceLineageTag: CountingCycle
+		summarizeBy: sum
+		sourceColumn: CountingCycle
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastStockCountDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b91ede27-09ac-483b-8ac8-c564b0e6368b
+		sourceLineageTag: LastStockCountDate
+		summarizeBy: none
+		sourceColumn: LastStockCountDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReplenishmentType
+		dataType: int64
+		formatString: 0
+		lineageTag: d27038ab-9832-4b08-821c-71ae098ef0cf
+		sourceLineageTag: ReplenishmentType
+		summarizeBy: sum
+		sourceColumn: ReplenishmentType
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderPolicy
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ebc5c79-5bfe-4744-b0c8-f838457cfc6c
+		sourceLineageTag: OrderPolicy
+		summarizeBy: sum
+		sourceColumn: OrderPolicy
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReorderQuantity
+		dataType: double
+		lineageTag: 617da976-31ba-4a84-9350-69f2b10474a4
+		sourceLineageTag: ReorderQuantity
+		summarizeBy: sum
+		sourceColumn: ReorderQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Period
+		dataType: int64
+		formatString: 0
+		lineageTag: 5dcea1ca-b423-4309-bc1f-eba49cd34a9e
+		sourceLineageTag: Period
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimestampAsBigInt
+		dataType: int64
+		formatString: 0
+		lineageTag: e6da1f4f-1603-4b3f-a97e-51bf79c4dbe1
+		sourceLineageTag: TimestampAsBigInt
+		summarizeBy: sum
+		sourceColumn: TimestampAsBigInt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ItemWarehouses = entity
+		mode: directLake
+		source
+			entityName: ItemWarehouses
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

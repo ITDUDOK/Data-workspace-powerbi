@@ -1,0 +1,243 @@
+table ItemGroups
+	lineageTag: 4d9513ca-f7ce-443e-9e48-71e4bb5b112b
+	sourceLineageTag: [dbo].[ItemGroups]
+
+	column ID
+		dataType: string
+		lineageTag: 5529245f-0a2d-4baf-8e2f-6928b1d4a211
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 07217720-83b1-4b2f-ae39-19a6c04d6ce4
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: 9eedd3f5-6421-4fb2-b878-7039ef287cff
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 51437576-896a-4d13-bbc4-a177c4e03a0a
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 27329084-078b-4e74-af01-f8aa049579dc
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notes
+		dataType: string
+		lineageTag: 1160cd9d-79b3-4b11-99d4-bbecfdd179f0
+		sourceLineageTag: Notes
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsDefault
+		dataType: int64
+		formatString: 0
+		lineageTag: 77a26207-e8e4-4a46-8fd1-800409e0c8c6
+		sourceLineageTag: IsDefault
+		summarizeBy: sum
+		sourceColumn: IsDefault
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatNumber
+		dataType: string
+		lineageTag: d7dce5ee-f1a7-4039-92f2-024e616db314
+		sourceLineageTag: StatNumber
+		summarizeBy: none
+		sourceColumn: StatNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLRevenue
+		dataType: string
+		lineageTag: 556b0ddf-f31f-427e-adb9-8ba2dec2d809
+		sourceLineageTag: GLRevenue
+		summarizeBy: none
+		sourceColumn: GLRevenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLCosts
+		dataType: string
+		lineageTag: f5c674f0-12f9-4cfd-8343-257cf3c4efc3
+		sourceLineageTag: GLCosts
+		summarizeBy: none
+		sourceColumn: GLCosts
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLStock
+		dataType: string
+		lineageTag: 3c5fbbf7-6061-464f-9e08-c205921e1a56
+		sourceLineageTag: GLStock
+		summarizeBy: none
+		sourceColumn: GLStock
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLStockVariance
+		dataType: string
+		lineageTag: 6e8e3955-b5bd-4a0c-8017-ef32921c42d8
+		sourceLineageTag: GLStockVariance
+		summarizeBy: none
+		sourceColumn: GLStockVariance
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLPurchaseAccount
+		dataType: string
+		lineageTag: f0a6897d-f5e4-4bc2-a1b6-2328a023c708
+		sourceLineageTag: GLPurchaseAccount
+		summarizeBy: none
+		sourceColumn: GLPurchaseAccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLPurchasePriceDifference
+		dataType: string
+		lineageTag: 0c22de3c-66a2-43a5-8be8-18ea4bf4db32
+		sourceLineageTag: GLPurchasePriceDifference
+		summarizeBy: none
+		sourceColumn: GLPurchasePriceDifference
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 778dd8d5-cab1-45d5-ab1e-937930e6f3a4
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: 51f11e56-2229-4a26-947b-8bf543ba0586
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ee794de9-cda7-432e-9d58-4e35e8f0c167
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 6efa19a8-e328-4261-aa97-7bf110a44e13
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column LicenseKeyType
+		dataType: string
+		lineageTag: e3940c79-99be-475c-8f3b-bc6b7aa87d4b
+		sourceLineageTag: LicenseKeyType
+		summarizeBy: none
+		sourceColumn: LicenseKeyType
+
+		annotation SummarizationSetBy = Automatic
+
+	column LicenseKeyDistribution
+		dataType: int64
+		formatString: 0
+		lineageTag: 30e8d197-7489-4e30-98ba-cc3f202e5b0f
+		sourceLineageTag: LicenseKeyDistribution
+		summarizeBy: sum
+		sourceColumn: LicenseKeyDistribution
+
+		annotation SummarizationSetBy = Automatic
+
+	column PackageCode
+		dataType: string
+		lineageTag: 4d17fec7-b728-49c6-a4f8-3262ba0d35bf
+		sourceLineageTag: PackageCode
+		summarizeBy: none
+		sourceColumn: PackageCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductVersionID
+		dataType: string
+		lineageTag: 92c1d26b-f262-4ab4-9687-9491fdb43a41
+		sourceLineageTag: ProductVersionID
+		summarizeBy: none
+		sourceColumn: ProductVersionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLRevenueWorkInProgress
+		dataType: string
+		lineageTag: e2099121-465c-4622-b229-031a257a9d03
+		sourceLineageTag: GLRevenueWorkInProgress
+		summarizeBy: none
+		sourceColumn: GLRevenueWorkInProgress
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLCostsWorkInProgress
+		dataType: string
+		lineageTag: 8802e096-447f-4f34-b22a-076445fd789a
+		sourceLineageTag: GLCostsWorkInProgress
+		summarizeBy: none
+		sourceColumn: GLCostsWorkInProgress
+
+		annotation SummarizationSetBy = Automatic
+
+	column DbModified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a9959b30-2a82-4746-a01c-d5006dfa9cb4
+		sourceLineageTag: DbModified
+		summarizeBy: none
+		sourceColumn: DbModified
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ItemGroups = entity
+		mode: directLake
+		source
+			entityName: ItemGroups
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

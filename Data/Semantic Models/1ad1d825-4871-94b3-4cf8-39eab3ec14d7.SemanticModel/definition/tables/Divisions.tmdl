@@ -1,0 +1,96 @@
+table Divisions
+	lineageTag: b9366cf2-ad3b-4c73-bbc6-1214cfb6b4df
+	sourceLineageTag: [dbo].[Divisions]
+
+	column Code
+		dataType: int64
+		formatString: 0
+		lineageTag: 86f0c6bd-e3d1-49d5-8143-c141c3a145d5
+		sourceLineageTag: Code
+		summarizeBy: count
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column HID
+		dataType: int64
+		formatString: 0
+		lineageTag: d86c31b8-bc6e-42d3-98f9-00c96fbafc14
+		sourceLineageTag: HID
+		summarizeBy: count
+		sourceColumn: HID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: e947a172-d890-4383-9d58-f11aad8c486d
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: b3cfa56a-01e5-40c0-8844-0f63eb1be26c
+		sourceLineageTag: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column VATNumber
+		dataType: string
+		lineageTag: a539cc44-6d3f-444e-a17e-cdd64d7732a3
+		sourceLineageTag: VATNumber
+		summarizeBy: none
+		sourceColumn: VATNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		lineageTag: 489dca8c-f94b-48b7-afd1-6b2b7e6c5258
+		sourceLineageTag: Currency
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column BlockingStatus
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fc84aae-48c2-44ab-854a-6702fceec92d
+		sourceLineageTag: BlockingStatus
+		summarizeBy: sum
+		sourceColumn: BlockingStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: int64
+		formatString: 0
+		lineageTag: 308a95ac-bca9-474a-978d-f1753d1527d5
+		sourceLineageTag: Status
+		summarizeBy: sum
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompaniesName
+		dataType: string
+		lineageTag: 487dedf3-2e62-45ec-957d-43281ec45b77
+		sourceLineageTag: CompaniesName
+		summarizeBy: none
+		sourceColumn: CompaniesName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Divisions = entity
+		mode: directLake
+		source
+			entityName: Divisions
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

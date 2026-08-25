@@ -1,0 +1,40 @@
+table MRPScenarioReorderPolicies
+	lineageTag: bc0ace83-6e2d-4f71-ae89-8a90f851c3c1
+	sourceLineageTag: [dbo].[MRPScenarioReorderPolicies]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: d53a4b1b-70e4-4ddd-b80a-d5b8f87daa63
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 0702e9dc-0f9d-41ce-9d54-5efdf52f4285
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 2daa802e-91ce-45c8-aeb9-d42e47afcd62
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MRPScenarioReorderPolicies = entity
+		mode: directLake
+		source
+			entityName: MRPScenarioReorderPolicies
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

@@ -1,0 +1,40 @@
+table MRPScenarioWarningTypes
+	lineageTag: bd3abc6b-af19-4b24-b688-520d80f72758
+	sourceLineageTag: [dbo].[MRPScenarioWarningTypes]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: d325cab9-7c35-410e-b1aa-2cb019d84a45
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 67b7ba57-a3b1-42c1-a31f-333edfe9f0eb
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 4220d5b8-2482-4381-b6ec-2c927e9afc09
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MRPScenarioWarningTypes = entity
+		mode: directLake
+		source
+			entityName: MRPScenarioWarningTypes
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

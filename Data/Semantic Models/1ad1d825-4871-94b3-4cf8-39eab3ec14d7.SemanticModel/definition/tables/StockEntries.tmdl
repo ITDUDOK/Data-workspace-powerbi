@@ -1,0 +1,303 @@
+table StockEntries
+	lineageTag: 619ef9b0-22b6-4d9c-9908-aaa92900e5ac
+	sourceLineageTag: [dbo].[StockEntries]
+
+	column ID
+		dataType: string
+		lineageTag: 67b2e572-199d-4e09-89ba-f95c7f576bf6
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 4517d8e1-e68e-47cf-bef3-baf14a50fe31
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column StockEntryNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: b11366e9-0d38-4eda-840b-7961df28067c
+		sourceLineageTag: StockEntryNumber
+		summarizeBy: sum
+		sourceColumn: StockEntryNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrackingNumber
+		dataType: string
+		lineageTag: 4335b1d4-f5e9-4c34-a0e4-ace7c0cff9d8
+		sourceLineageTag: TrackingNumber
+		summarizeBy: none
+		sourceColumn: TrackingNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: int64
+		formatString: 0
+		lineageTag: f7938e98-c4bf-4646-a091-1fbf610b74a0
+		sourceLineageTag: Type
+		summarizeBy: sum
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		lineageTag: 24f54ad3-7094-46b6-991c-5daac9596dbe
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column EntryDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c979e69a-0285-4887-b58b-206ac9039915
+		sourceLineageTag: EntryDate
+		summarizeBy: none
+		sourceColumn: EntryDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Account
+		dataType: string
+		lineageTag: 499c7184-ea8a-48ea-8b11-5eb68ceb6c35
+		sourceLineageTag: Account
+		summarizeBy: none
+		sourceColumn: Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column Contact
+		dataType: string
+		lineageTag: 94596fdd-9798-488f-a32e-dc658899d033
+		sourceLineageTag: Contact
+		summarizeBy: none
+		sourceColumn: Contact
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceAccount
+		dataType: string
+		lineageTag: ed8b7af4-9f55-477a-b88a-a8f11ae9fb8d
+		sourceLineageTag: InvoiceAccount
+		summarizeBy: none
+		sourceColumn: InvoiceAccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceContact
+		dataType: string
+		lineageTag: 343935cd-5ade-4407-b477-bb0e283a199d
+		sourceLineageTag: InvoiceContact
+		summarizeBy: none
+		sourceColumn: InvoiceContact
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShippingAddress
+		dataType: string
+		lineageTag: a20bdd76-9e15-4cd8-aaa5-82d55aa2f89f
+		sourceLineageTag: ShippingAddress
+		summarizeBy: none
+		sourceColumn: ShippingAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShippingMethod
+		dataType: string
+		lineageTag: 10acc6f3-b53a-4f9a-9ea6-edeca565eda3
+		sourceLineageTag: ShippingMethod
+		summarizeBy: none
+		sourceColumn: ShippingMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column Document
+		dataType: string
+		lineageTag: b62050b8-61c1-474a-9ac8-2bd5ac3ba1ea
+		sourceLineageTag: Document
+		summarizeBy: none
+		sourceColumn: Document
+
+		annotation SummarizationSetBy = Automatic
+
+	column EntryID
+		dataType: string
+		lineageTag: e162ede7-d753-4c16-94ac-d46393d0867b
+		sourceLineageTag: EntryID
+		summarizeBy: none
+		sourceColumn: EntryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notes
+		dataType: string
+		lineageTag: a344fcac-efdb-4f7f-a948-a8ac8206c743
+		sourceLineageTag: Notes
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comment
+		dataType: string
+		lineageTag: d66edf5f-3431-4549-9db2-c1caa6a1a848
+		sourceLineageTag: Comment
+		summarizeBy: none
+		sourceColumn: Comment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: int64
+		formatString: 0
+		lineageTag: efe95b7b-6876-4376-bff3-3d1ddab88afb
+		sourceLineageTag: Status
+		summarizeBy: sum
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 73678c7e-4994-4677-8eb6-19df2f384e32
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column YourRef
+		dataType: string
+		lineageTag: 12716329-4c40-4f34-b5f9-7816dc3915c0
+		sourceLineageTag: YourRef
+		summarizeBy: none
+		sourceColumn: YourRef
+
+		annotation SummarizationSetBy = Automatic
+
+	column CertificationRequired
+		dataType: int64
+		formatString: 0
+		lineageTag: d5612b26-2cfd-4b9b-a18c-bdde13d3e170
+		sourceLineageTag: CertificationRequired
+		summarizeBy: sum
+		sourceColumn: CertificationRequired
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLEntryID
+		dataType: string
+		lineageTag: e651445f-67c0-4801-8cad-a7cee2efbbb3
+		sourceLineageTag: GLEntryID
+		summarizeBy: none
+		sourceColumn: GLEntryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLEntryNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: e19c1e3a-ab79-45ef-83a8-4d3ad2bc3092
+		sourceLineageTag: GLEntryNumber
+		summarizeBy: sum
+		sourceColumn: GLEntryNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column HID
+		dataType: int64
+		formatString: 0
+		lineageTag: ce93d5a0-04a6-45cd-a251-48332b459236
+		sourceLineageTag: HID
+		summarizeBy: count
+		sourceColumn: HID
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 192b827f-e710-41d0-8095-995939dab70a
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: 1c7de8bf-3cbb-46e8-b70f-95f7e736c042
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 96515143-07f4-440c-a028-d56dfa89239a
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 69c9df31-8ee9-4062-a28c-7668a42e22a2
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column TranssmartID
+		dataType: int64
+		formatString: 0
+		lineageTag: ded83dc3-ffae-4ef2-8a92-1a301638f4bf
+		sourceLineageTag: TranssmartID
+		summarizeBy: count
+		sourceColumn: TranssmartID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RunNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d73554d-f815-44f3-a35c-ecfc4671b110
+		sourceLineageTag: RunNumber
+		summarizeBy: sum
+		sourceColumn: RunNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimestampAsBigInt
+		dataType: int64
+		formatString: 0
+		lineageTag: 5cd9d4e2-62c1-4524-80e2-5f91fb0562d0
+		sourceLineageTag: TimestampAsBigInt
+		summarizeBy: sum
+		sourceColumn: TimestampAsBigInt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StockEntries = entity
+		mode: directLake
+		source
+			entityName: StockEntries
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

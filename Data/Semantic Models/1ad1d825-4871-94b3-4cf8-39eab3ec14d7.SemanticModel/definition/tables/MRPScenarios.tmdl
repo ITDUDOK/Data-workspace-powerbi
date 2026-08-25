@@ -1,0 +1,327 @@
+table MRPScenarios
+	lineageTag: caf6e31f-6af3-4de9-8efb-5212584bb7f6
+	sourceLineageTag: [dbo].[MRPScenarios]
+
+	column ID
+		dataType: string
+		lineageTag: 173aaccf-a5c3-4afc-94ba-89984abd56de
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: c38e2343-2a65-4e50-9b85-34ff34ced8b2
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 97442b29-d5c1-4f64-8253-21c838739f14
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5431f4d5-82d0-40c7-b65a-381965296cc3
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 70f0e804-7774-4e4a-9a74-763e1131b3a0
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlanningOrderType
+		dataType: int64
+		formatString: 0
+		lineageTag: 230f0bcb-9a1e-4453-83b1-34be42f1e805
+		sourceLineageTag: PlanningOrderType
+		summarizeBy: sum
+		sourceColumn: PlanningOrderType
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberOfPeriod
+		dataType: int64
+		formatString: 0
+		lineageTag: 04c47501-f668-4cb0-8424-cc8714b9d665
+		sourceLineageTag: NumberOfPeriod
+		summarizeBy: sum
+		sourceColumn: NumberOfPeriod
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReplenishmentType
+		dataType: int64
+		formatString: 0
+		lineageTag: ec905307-3530-4c66-b560-bf53b8b26067
+		sourceLineageTag: ReplenishmentType
+		summarizeBy: sum
+		sourceColumn: ReplenishmentType
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberOfSafetyDay
+		dataType: int64
+		formatString: 0
+		lineageTag: 198d6410-56f8-464e-8d15-d2de1fedcd3e
+		sourceLineageTag: NumberOfSafetyDay
+		summarizeBy: sum
+		sourceColumn: NumberOfSafetyDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedOrderCalculationDateMethod
+		dataType: int64
+		formatString: 0
+		lineageTag: a7c05e63-98e3-4a99-9ada-ab0605f360e9
+		sourceLineageTag: PlannedOrderCalculationDateMethod
+		summarizeBy: sum
+		sourceColumn: PlannedOrderCalculationDateMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column AllItem
+		dataType: int64
+		formatString: 0
+		lineageTag: ecc23c63-8e93-4bff-84c9-eaf5cd5d746a
+		sourceLineageTag: AllItem
+		summarizeBy: sum
+		sourceColumn: AllItem
+
+		annotation SummarizationSetBy = Automatic
+
+	column AllWarehouse
+		dataType: int64
+		formatString: 0
+		lineageTag: 45049ad9-73d8-4efb-91e7-3d0b134cc759
+		sourceLineageTag: AllWarehouse
+		summarizeBy: sum
+		sourceColumn: AllWarehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column UseForecast
+		dataType: int64
+		formatString: 0
+		lineageTag: fe2199c4-eb81-4e14-8aa5-2fdfd189813d
+		sourceLineageTag: UseForecast
+		summarizeBy: sum
+		sourceColumn: UseForecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class_01
+		dataType: string
+		lineageTag: 03dfb136-e1a5-47a0-86e7-66b9ed7d6d6b
+		sourceLineageTag: Class_01
+		summarizeBy: none
+		sourceColumn: Class_01
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class_02
+		dataType: string
+		lineageTag: 638190c3-15d5-415b-9540-ec8eef61d602
+		sourceLineageTag: Class_02
+		summarizeBy: none
+		sourceColumn: Class_02
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class_03
+		dataType: string
+		lineageTag: ea8ef2b9-d8ce-4193-b88f-153f7253128e
+		sourceLineageTag: Class_03
+		summarizeBy: none
+		sourceColumn: Class_03
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class_04
+		dataType: string
+		lineageTag: a79a0ce8-42be-4e0b-9bed-b732f56239b4
+		sourceLineageTag: Class_04
+		summarizeBy: none
+		sourceColumn: Class_04
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class_05
+		dataType: string
+		lineageTag: b5608456-c14a-498d-bde4-0c2060c762ee
+		sourceLineageTag: Class_05
+		summarizeBy: none
+		sourceColumn: Class_05
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class_06
+		dataType: string
+		lineageTag: 66329724-7887-4386-b698-687c47948e9a
+		sourceLineageTag: Class_06
+		summarizeBy: none
+		sourceColumn: Class_06
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class_07
+		dataType: string
+		lineageTag: 552543d5-6773-40e6-88f8-34ec6c8e5ef5
+		sourceLineageTag: Class_07
+		summarizeBy: none
+		sourceColumn: Class_07
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class_08
+		dataType: string
+		lineageTag: 1971caa5-5ec4-4720-bb92-0e81b5d5132f
+		sourceLineageTag: Class_08
+		summarizeBy: none
+		sourceColumn: Class_08
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class_09
+		dataType: string
+		lineageTag: 93860d5c-5710-46d7-a4d6-24d433ed2809
+		sourceLineageTag: Class_09
+		summarizeBy: none
+		sourceColumn: Class_09
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class_10
+		dataType: string
+		lineageTag: f6776ce3-58fd-4b03-92b8-37a82c0a2c2c
+		sourceLineageTag: Class_10
+		summarizeBy: none
+		sourceColumn: Class_10
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 71b73276-4cea-4de7-a850-0f342466feaa
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7c6ed532-a3c7-43b7-9b1c-69927fbc2a6c
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: d09764ac-25d9-46b4-bc67-f285e5cebfc1
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column MakeSafetyDay
+		dataType: int64
+		formatString: 0
+		lineageTag: e0ec31e7-d791-4e85-be21-269efca93343
+		sourceLineageTag: MakeSafetyDay
+		summarizeBy: sum
+		sourceColumn: MakeSafetyDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssembleSafetyDay
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d7ab6d7-829f-4ea7-9056-80c69fba7cf6
+		sourceLineageTag: AssembleSafetyDay
+		summarizeBy: sum
+		sourceColumn: AssembleSafetyDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransferSafetyDay
+		dataType: int64
+		formatString: 0
+		lineageTag: ed2b3a1e-0226-4ea3-af44-964ce0e384ab
+		sourceLineageTag: TransferSafetyDay
+		summarizeBy: sum
+		sourceColumn: TransferSafetyDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column PurchaseSafetyDay
+		dataType: int64
+		formatString: 0
+		lineageTag: da9f0b68-8b60-4930-b4cc-df00fd34b6dc
+		sourceLineageTag: PurchaseSafetyDay
+		summarizeBy: sum
+		sourceColumn: PurchaseSafetyDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderApprovalStatus
+		dataType: int64
+		formatString: 0
+		lineageTag: 56f04cc0-a2a9-4dc5-a8c5-22707a150540
+		sourceLineageTag: SalesOrderApprovalStatus
+		summarizeBy: sum
+		sourceColumn: SalesOrderApprovalStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column PurchaseOrderApprovalStatus
+		dataType: int64
+		formatString: 0
+		lineageTag: c1316c61-202e-47dc-9a08-a8d5d90aa69b
+		sourceLineageTag: PurchaseOrderApprovalStatus
+		summarizeBy: sum
+		sourceColumn: PurchaseOrderApprovalStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReorderPolicy
+		dataType: int64
+		formatString: 0
+		lineageTag: 8237da37-ccf5-494a-83c3-dcf4396ec532
+		sourceLineageTag: ReorderPolicy
+		summarizeBy: sum
+		sourceColumn: ReorderPolicy
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MRPScenarios = entity
+		mode: directLake
+		source
+			entityName: MRPScenarios
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

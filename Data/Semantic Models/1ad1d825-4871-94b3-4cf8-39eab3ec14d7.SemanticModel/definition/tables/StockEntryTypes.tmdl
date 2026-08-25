@@ -1,0 +1,40 @@
+table StockEntryTypes
+	lineageTag: 5d67d723-78ac-4033-a144-cf7c7f49edc7
+	sourceLineageTag: [dbo].[StockEntryTypes]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ec4cb93-86dc-4cd1-8e45-eadbc92c413d
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 565435be-3f63-4faa-86f5-a5b224caac0a
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 313d2f31-20ab-4147-a769-0488f93c569d
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StockEntryTypes = entity
+		mode: directLake
+		source
+			entityName: StockEntryTypes
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

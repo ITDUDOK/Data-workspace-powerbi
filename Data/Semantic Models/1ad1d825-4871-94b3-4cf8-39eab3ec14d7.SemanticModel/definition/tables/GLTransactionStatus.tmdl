@@ -1,0 +1,40 @@
+table GLTransactionStatus
+	lineageTag: ffee200d-4539-4b1d-813c-17be1ce51acd
+	sourceLineageTag: [dbo].[GLTransactionStatus]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: e70ecbde-fd5f-49c3-b267-79ea5a02a12e
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 08fc3a7a-cf1b-4a3c-8cf4-50f039eca796
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		lineageTag: 42a45307-4a1b-4ef0-9352-2f084cf6b32b
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition GLTransactionStatus = entity
+		mode: directLake
+		source
+			entityName: GLTransactionStatus
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

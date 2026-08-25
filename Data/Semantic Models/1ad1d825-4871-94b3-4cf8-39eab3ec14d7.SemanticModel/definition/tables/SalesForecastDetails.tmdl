@@ -1,0 +1,117 @@
+table SalesForecastDetails
+	lineageTag: 01d5c591-9989-4b10-ba6f-2b42e5dfdc21
+	sourceLineageTag: [dbo].[SalesForecastDetails]
+
+	column ID
+		dataType: string
+		lineageTag: d0361ed3-2e64-4a70-aac4-284e7fed3d25
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		lineageTag: 28bb091c-4367-4f12-b915-c0bb789d938d
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesForecast
+		dataType: string
+		lineageTag: 3444390b-8a43-4ed3-b085-ff4c54881845
+		sourceLineageTag: SalesForecast
+		summarizeBy: none
+		sourceColumn: SalesForecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: 183dcf5b-e04f-4a35-ab2e-9b5a18a9227f
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 24594b6d-fce3-4776-8f1a-bcfabd48b783
+		sourceLineageTag: Year
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e649c30-78c5-43cc-a3a4-76f019448e20
+		sourceLineageTag: Period
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: double
+		lineageTag: 5a670b47-08e3-40a4-8ab2-6e717a747c52
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 04810473-a17c-474d-99cd-a9447ee2481c
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		lineageTag: cdec1541-47eb-4cdf-b50b-1fb69eac4d3c
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e3150064-46c6-4d22-b639-4c240d95812a
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		lineageTag: 17ddd7b8-346a-431b-9283-3ff3eeb19e7c
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesForecastDetails = entity
+		mode: directLake
+		source
+			entityName: SalesForecastDetails
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+
