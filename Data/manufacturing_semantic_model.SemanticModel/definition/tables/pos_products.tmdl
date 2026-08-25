@@ -1,0 +1,86 @@
+table pos_products
+	lineageTag: ff4fccb6-fe76-4f9d-b7e2-190be4b560c9
+	sourceLineageTag: [dbo].[pos_products]
+
+	column ProductKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 56bc0ebd-ab50-4f86-b066-4d57ae453979
+		sourceLineageTag: ProductKey
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8b68f536-c16a-4bde-83c8-10becf5c14aa
+		sourceLineageTag: ProductName
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductNr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 1b209eb3-095b-41c4-b0e2-18c8074c6994
+		sourceLineageTag: ProductNr
+		summarizeBy: sum
+		sourceColumn: ProductNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 752c9605-1b51-4668-ad1b-8f7164e1d8cc
+		sourceLineageTag: GroupKey
+		summarizeBy: none
+		sourceColumn: GroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 870a62a0-0c15-45ba-b017-41d90af11565
+		sourceLineageTag: GroupName
+		summarizeBy: none
+		sourceColumn: GroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column VatPerc
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ab46061b-3f6a-4460-b5fe-50f3da395b42
+		sourceLineageTag: VatPerc
+		summarizeBy: sum
+		sourceColumn: VatPerc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f5323893-545b-401e-8cbe-6a38336d5f12
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition pos_products = entity
+		mode: directLake
+		source
+			entityName: pos_products
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

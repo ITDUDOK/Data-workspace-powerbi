@@ -1,0 +1,64 @@
+table glaccounts_fin
+	lineageTag: cba7fce0-b0f9-412c-afec-c61c1bc2398f
+	sourceLineageTag: [dbo].[glaccounts_fin]
+
+	column Division
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d3def773-a0d9-4f2d-a71f-e1db50e4dbd5
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ff52f3c8-4b38-4845-8e63-27271fa6c045
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5911fa8a-91df-419e-b4b3-ed3bb9683001
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3820052a-39d7-40d1-bdd0-088e46083a2d
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassificatieCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2b153d81-d062-4165-8a03-9f55791af50f
+		sourceLineageTag: ClassificatieCode
+		summarizeBy: none
+		sourceColumn: ClassificatieCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition glaccounts_fin = entity
+		mode: directLake
+		source
+			entityName: glaccounts_fin
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

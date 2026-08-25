@@ -1,0 +1,801 @@
+table ShopOrderRoutingStepPlans
+	lineageTag: e7763de3-4779-4cda-bda9-51c86134fc0c
+	sourceLineageTag: [dbo].[ShopOrderRoutingStepPlans]
+
+	column ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fd946548-866d-40b2-8ee1-a24ebfff2bd1
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f326bbc0-3ccd-4ebd-b8f0-2b7f70f07571
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0bb12006-05e0-4675-a5d5-5473af4e171a
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShopOrder
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ac1426d8-6fff-4bec-a6e8-59f9e949dd96
+		sourceLineageTag: ShopOrder
+		summarizeBy: none
+		sourceColumn: ShopOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineNumber
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1e852219-1caa-4bf2-92e6-31fbc10347ae
+		sourceLineageTag: LineNumber
+		summarizeBy: sum
+		sourceColumn: LineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Workcenter
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: aed28d8f-a08d-400a-937e-3efae3264062
+		sourceLineageTag: Workcenter
+		summarizeBy: none
+		sourceColumn: Workcenter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6c668dba-547c-423c-86e2-1e14f7b79799
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column OperationDescription
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f78a30ee-6278-4350-8f75-1c811eeeff69
+		sourceLineageTag: OperationDescription
+		summarizeBy: none
+		sourceColumn: OperationDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 2008b6f3-2ee4-4640-8e8a-948610631159
+		sourceLineageTag: Status
+		summarizeBy: sum
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Account
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 045c0409-9084-45e8-b10a-2b7f945744cf
+		sourceLineageTag: Account
+		summarizeBy: none
+		sourceColumn: Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column Setup
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 0b454217-c85a-4857-9660-cd604aa0b058
+		sourceLineageTag: Setup
+		summarizeBy: sum
+		sourceColumn: Setup
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SetupCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 310ec331-e5c5-457a-9567-ee422b304974
+		sourceLineageTag: SetupCount
+		summarizeBy: sum
+		sourceColumn: SetupCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column RunMethod
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 780e4531-d34d-4543-bb42-10c698d33a58
+		sourceLineageTag: RunMethod
+		summarizeBy: sum
+		sourceColumn: RunMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column Run
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 4371824a-922a-4ca1-9f9a-10e3f6518797
+		sourceLineageTag: Run
+		summarizeBy: sum
+		sourceColumn: Run
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EfficiencyPercentage
+		dataType: double
+		sourceProviderType: float
+		lineageTag: b101b60d-9478-4ce6-8bc1-3c3d1ddf8fd1
+		sourceLineageTag: EfficiencyPercentage
+		summarizeBy: sum
+		sourceColumn: EfficiencyPercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AttendedPercentage
+		dataType: double
+		sourceProviderType: float
+		lineageTag: e9674475-529c-45fa-9d19-1d6384c93835
+		sourceLineageTag: AttendedPercentage
+		summarizeBy: sum
+		sourceColumn: AttendedPercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SetupLaborBurdenRate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 7686d140-e215-484f-aca4-73b8ed28c696
+		sourceLineageTag: SetupLaborBurdenRate
+		summarizeBy: sum
+		sourceColumn: SetupLaborBurdenRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SetupLaborRate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 59655284-d2e5-4886-a408-36a39458da0d
+		sourceLineageTag: SetupLaborRate
+		summarizeBy: sum
+		sourceColumn: SetupLaborRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlannedRunHours
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 437a0372-12fd-4c67-bdf3-5cb54e83a900
+		sourceLineageTag: PlannedRunHours
+		summarizeBy: sum
+		sourceColumn: PlannedRunHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlannedSetupHours
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 790a8590-ad42-46b1-b55a-388c49a4df97
+		sourceLineageTag: PlannedSetupHours
+		summarizeBy: sum
+		sourceColumn: PlannedSetupHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlannedTotalHours
+		dataType: double
+		sourceProviderType: float
+		lineageTag: a8178b48-0699-4334-8d96-11a44e9c6c72
+		sourceLineageTag: PlannedTotalHours
+		summarizeBy: sum
+		sourceColumn: PlannedTotalHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RunLaborBurdenRate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: fd8e7ca1-0072-4091-926a-e092e4b43d9c
+		sourceLineageTag: RunLaborBurdenRate
+		summarizeBy: sum
+		sourceColumn: RunLaborBurdenRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RunLaborRate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: f2306356-608b-4900-84ce-302f02a0a179
+		sourceLineageTag: RunLaborRate
+		summarizeBy: sum
+		sourceColumn: RunLaborRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MachineBurdenRate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: c5719de3-0884-42e7-b54e-1d3949d0fc8e
+		sourceLineageTag: MachineBurdenRate
+		summarizeBy: sum
+		sourceColumn: MachineBurdenRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GeneralBurdenRate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 74c0770b-26dc-442e-b5ec-15ac8eb3b980
+		sourceLineageTag: GeneralBurdenRate
+		summarizeBy: sum
+		sourceColumn: GeneralBurdenRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Currency
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fe1e93fb-1599-43c3-bc38-d4e97497bb46
+		sourceLineageTag: Currency
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column RateFC
+		dataType: double
+		sourceProviderType: float
+		lineageTag: b6e42a35-3c01-4cf8-b1dd-bbb26d6fb30e
+		sourceLineageTag: RateFC
+		summarizeBy: sum
+		sourceColumn: RateFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PurchaseUnitPriceDC
+		dataType: double
+		sourceProviderType: float
+		lineageTag: ea58f049-0d99-4cf7-ad5d-cd8bae768326
+		sourceLineageTag: PurchaseUnitPriceDC
+		summarizeBy: sum
+		sourceColumn: PurchaseUnitPriceDC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PurchaseUnitPriceFC
+		dataType: double
+		sourceProviderType: float
+		lineageTag: c1cff34b-3b83-4415-8c5a-09b099a45625
+		sourceLineageTag: PurchaseUnitPriceFC
+		summarizeBy: sum
+		sourceColumn: PurchaseUnitPriceFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PurchaseUnit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 78733183-aef5-4411-bd4b-8f9950071471
+		sourceLineageTag: PurchaseUnit
+		summarizeBy: none
+		sourceColumn: PurchaseUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column PurchaseUnitFactor
+		dataType: double
+		sourceProviderType: float
+		lineageTag: ba10480b-8e0d-4000-9bab-1bf05cf94e7d
+		sourceLineageTag: PurchaseUnitFactor
+		summarizeBy: sum
+		sourceColumn: PurchaseUnitFactor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlannedCostDC
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 50e0042a-a7b9-44f1-a14b-8909c8486076
+		sourceLineageTag: PlannedCostDC
+		summarizeBy: sum
+		sourceColumn: PlannedCostDC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlannedCostFC
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 5ac6dfa7-8823-4196-b16e-87c625fe0669
+		sourceLineageTag: PlannedCostFC
+		summarizeBy: sum
+		sourceColumn: PlannedCostFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MinimumChargeDC
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 4571b316-93c8-481c-8d91-0f1f435e6a10
+		sourceLineageTag: MinimumChargeDC
+		summarizeBy: sum
+		sourceColumn: MinimumChargeDC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MinimumChargeFC
+		dataType: double
+		sourceProviderType: float
+		lineageTag: efb6e13b-8adb-4245-ad7b-0c266ca47458
+		sourceLineageTag: MinimumChargeFC
+		summarizeBy: sum
+		sourceColumn: MinimumChargeFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IsPlannedMinimumChargeApplied
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 218f309a-3945-484f-87b2-57a8ad6fa163
+		sourceLineageTag: IsPlannedMinimumChargeApplied
+		summarizeBy: sum
+		sourceColumn: IsPlannedMinimumChargeApplied
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubcontractedLeadDays
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 387bade8-375b-4921-b68d-d5fd1dfd5b9d
+		sourceLineageTag: SubcontractedLeadDays
+		summarizeBy: sum
+		sourceColumn: SubcontractedLeadDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notes
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 248b209a-d794-4ce9-9b03-dac89a0c41a3
+		sourceLineageTag: Notes
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: db2c25bb-349c-468b-812c-198305c76423
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 70b77e85-f469-4fb8-8fd3-9df83ca14d01
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: d7133dfe-1800-4b49-9818-f9a95d50a22f
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2762e017-9b93-49ad-9e5b-d770498a1d32
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column Operation
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e653ce73-2c27-473e-95c5-d7399f5a7d00
+		sourceLineageTag: Operation
+		summarizeBy: none
+		sourceColumn: Operation
+
+		annotation SummarizationSetBy = Automatic
+
+	column RelatedShopOrderRoutingStepPlan
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 210f35e1-3a39-47eb-853e-cfcef2251a96
+		sourceLineageTag: RelatedShopOrderRoutingStepPlan
+		summarizeBy: none
+		sourceColumn: RelatedShopOrderRoutingStepPlan
+
+		annotation SummarizationSetBy = Automatic
+
+	column RoutingStepType
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 5e24b50c-042c-4370-84db-bb6909b1c1c4
+		sourceLineageTag: RoutingStepType
+		summarizeBy: sum
+		sourceColumn: RoutingStepType
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsReworkStep
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: da3d399c-66d4-40b1-b494-6b3ae4ac9331
+		sourceLineageTag: IsReworkStep
+		summarizeBy: sum
+		sourceColumn: IsReworkStep
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCommunicationStep
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 24d24328-f356-46aa-8934-7050fdb2bdfb
+		sourceLineageTag: IsCommunicationStep
+		summarizeBy: sum
+		sourceColumn: IsCommunicationStep
+
+		annotation SummarizationSetBy = Automatic
+
+	column SetupLabor
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 4f4b1197-1642-4e1e-ac74-54f8657b4219
+		sourceLineageTag: SetupLabor
+		summarizeBy: sum
+		sourceColumn: SetupLabor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RunLabor
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 216103ba-6018-443c-ad17-0ec189589623
+		sourceLineageTag: RunLabor
+		summarizeBy: sum
+		sourceColumn: RunLabor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RunLaborBurden
+		dataType: double
+		sourceProviderType: float
+		lineageTag: da17e47d-8f39-469a-a66f-54617fb92144
+		sourceLineageTag: RunLaborBurden
+		summarizeBy: sum
+		sourceColumn: RunLaborBurden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MachineBurden
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 6b7fdd08-3250-4a95-99e1-a48c0c96f304
+		sourceLineageTag: MachineBurden
+		summarizeBy: sum
+		sourceColumn: MachineBurden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GeneralBurden
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 5fa94c4f-fec6-4eb2-9bb6-765bbb4ae333
+		sourceLineageTag: GeneralBurden
+		summarizeBy: sum
+		sourceColumn: GeneralBurden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PurchaseUnitQuantity
+		dataType: double
+		sourceProviderType: float
+		lineageTag: cd8804fc-b585-4b61-a1dc-628ee0fd04c7
+		sourceLineageTag: PurchaseUnitQuantity
+		summarizeBy: sum
+		sourceColumn: PurchaseUnitQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SetupLaborBurden
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 9bda6212-50d7-4f45-9cef-a4de723b75f7
+		sourceLineageTag: SetupLaborBurden
+		summarizeBy: sum
+		sourceColumn: SetupLaborBurden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SetupUnit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fb333744-c3c9-4547-b562-db5df8009637
+		sourceLineageTag: SetupUnit
+		summarizeBy: none
+		sourceColumn: SetupUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalCostDC
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 39c95cc3-ce7e-4a74-a845-742c61c585ca
+		sourceLineageTag: TotalCostDC
+		summarizeBy: sum
+		sourceColumn: TotalCostDC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CostPerItem
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 8d9ba652-3998-4de9-af48-e6601ccc5d40
+		sourceLineageTag: CostPerItem
+		summarizeBy: sum
+		sourceColumn: CostPerItem
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OperationResource
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 43a34054-45d2-48c5-81df-06dcd53b42cb
+		sourceLineageTag: OperationResource
+		summarizeBy: none
+		sourceColumn: OperationResource
+
+		annotation SummarizationSetBy = Automatic
+
+	column FactorType
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 6acda5bb-a872-4218-8d36-a2440c5b68ff
+		sourceLineageTag: FactorType
+		summarizeBy: sum
+		sourceColumn: FactorType
+
+		annotation SummarizationSetBy = Automatic
+
+	column RemainingEstimatedSetupHours
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 0f1e4516-74a4-4381-93b0-ad3c77991316
+		sourceLineageTag: RemainingEstimatedSetupHours
+		summarizeBy: sum
+		sourceColumn: RemainingEstimatedSetupHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RemainingEstimatedRunHours
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 4116d916-12e2-4454-a789-d0a2c2bc0f88
+		sourceLineageTag: RemainingEstimatedRunHours
+		summarizeBy: sum
+		sourceColumn: RemainingEstimatedRunHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RemainingCalculatedRunHours
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 11786418-24fd-4010-9573-36f35b7e13f7
+		sourceLineageTag: RemainingCalculatedRunHours
+		summarizeBy: sum
+		sourceColumn: RemainingCalculatedRunHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RemainingActualSetupHours
+		dataType: double
+		sourceProviderType: float
+		lineageTag: e2a09444-cf1e-4676-8d36-e1c1181d3fb0
+		sourceLineageTag: RemainingActualSetupHours
+		summarizeBy: sum
+		sourceColumn: RemainingActualSetupHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RemainingActualRunHours
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 235b8599-2aa7-45c3-9821-06cb2a4dd6ec
+		sourceLineageTag: RemainingActualRunHours
+		summarizeBy: sum
+		sourceColumn: RemainingActualRunHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlannedStartDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c105e5d1-870a-4f9a-bb05-58b24563e6da
+		sourceLineageTag: PlannedStartDate
+		summarizeBy: none
+		sourceColumn: PlannedStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedEndDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ca37476c-506d-4181-8d4e-ba5f5a6fb3b2
+		sourceLineageTag: PlannedEndDate
+		summarizeBy: none
+		sourceColumn: PlannedEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column DueDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 3b1c840e-67f4-4eda-a2dc-66c0bd2579da
+		sourceLineageTag: DueDate
+		summarizeBy: none
+		sourceColumn: DueDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Backflush
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: b72f4d1e-8867-43e1-b8e2-89b067842c99
+		sourceLineageTag: Backflush
+		summarizeBy: sum
+		sourceColumn: Backflush
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemRoutingStep
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2cab84cc-7691-4659-b197-d0dd283659ba
+		sourceLineageTag: ItemRoutingStep
+		summarizeBy: none
+		sourceColumn: ItemRoutingStep
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimestampAsBigInt
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: dfc9fe8d-9905-419d-bc0b-2d1cc700458e
+		sourceLineageTag: TimestampAsBigInt
+		summarizeBy: sum
+		sourceColumn: TimestampAsBigInt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ShopOrderRoutingStepPlans = entity
+		mode: directLake
+		source
+			entityName: ShopOrderRoutingStepPlans
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

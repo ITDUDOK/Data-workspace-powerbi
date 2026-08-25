@@ -1,0 +1,56 @@
+table vw_MRPInkopen
+	lineageTag: abc66bae-6f0f-44c9-9bef-1ed4b74d54f5
+	sourceLineageTag: [dbo].[vw_MRPInkopen]
+
+	column Item
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 63b1b9d7-062c-4fbe-8e30-e1c9ce414710
+		sourceLineageTag: Item
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 70a95e2e-527a-4bc1-96e9-139b514c3e11
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: double
+		sourceProviderType: float
+		lineageTag: ae9b5450-f41a-4c90-80b2-e05e36f762a1
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Type
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 2ceb3533-1d5e-4ae0-953b-78eee3c2c3fe
+		sourceLineageTag: Type
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vw_MRPInkopen = entity
+		mode: directLake
+		source
+			entityName: vw_MRPInkopen
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

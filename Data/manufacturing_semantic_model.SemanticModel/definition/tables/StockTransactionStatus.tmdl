@@ -1,0 +1,45 @@
+table StockTransactionStatus
+	lineageTag: 38afae3f-34c1-4dc8-8e8e-d0c6d5ef6d1e
+	sourceLineageTag: [dbo].[StockTransactionStatus]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: aa6e42c1-5755-4ce4-9471-082c0fa6627d
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4a19e9db-20c1-4b18-8458-17c9511fa0bd
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 848a89a7-1f55-4f44-a462-afaf1a602484
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StockTransactionStatus = entity
+		mode: directLake
+		source
+			entityName: StockTransactionStatus
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,193 @@
+table SalesForecasts
+	lineageTag: cb0b3908-0356-4adb-ac38-88a32157d13a
+	sourceLineageTag: [dbo].[SalesForecasts]
+
+	column ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 229089d6-f3e2-4cd5-8047-2f6529a065d8
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5c3de27e-31d4-4524-91c9-b14470561521
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 81fd53b8-1d31-4498-b086-0c8ff21103c7
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 97c34b36-909d-4916-a332-90af2932de8b
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fdcb6be0-0b3c-49d4-9d2d-14828df31487
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notes
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8d140e93-3e19-4ba8-a3ff-16aed13955bf
+		sourceLineageTag: Notes
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4f1a261d-4c46-4986-808e-52ddb09728b1
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column PeriodType
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: bfa843ed-9ac7-40b0-a18d-ed50978b32ca
+		sourceLineageTag: PeriodType
+		summarizeBy: sum
+		sourceColumn: PeriodType
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearFrom
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 8e756e8e-c921-49bc-b491-477e4679b04e
+		sourceLineageTag: YearFrom
+		summarizeBy: sum
+		sourceColumn: YearFrom
+
+		annotation SummarizationSetBy = Automatic
+
+	column PeriodFrom
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 47088507-fbe4-42c5-a041-4a3f4c48787d
+		sourceLineageTag: PeriodFrom
+		summarizeBy: sum
+		sourceColumn: PeriodFrom
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearTo
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 3a59633d-c5b2-4e3c-8e40-34db89755881
+		sourceLineageTag: YearTo
+		summarizeBy: sum
+		sourceColumn: YearTo
+
+		annotation SummarizationSetBy = Automatic
+
+	column PeriodTo
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: f9498576-1ad6-491f-a086-2504cf1d4c02
+		sourceLineageTag: PeriodTo
+		summarizeBy: sum
+		sourceColumn: PeriodTo
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsActive
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: b38d0d9d-007e-4f7d-8dea-5c685c712924
+		sourceLineageTag: IsActive
+		summarizeBy: sum
+		sourceColumn: IsActive
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 7a8febcf-d1f2-4393-b99d-99a247148170
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9f5ab945-611d-4bd4-9f6a-682daf4ada74
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c6c36051-ea57-41f0-b294-cebc66d02fb8
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 53ac1c93-bfb9-4013-af2b-8f329a6060d6
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesForecasts = entity
+		mode: directLake
+		source
+			entityName: SalesForecasts
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

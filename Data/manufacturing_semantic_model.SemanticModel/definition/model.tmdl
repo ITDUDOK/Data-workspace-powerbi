@@ -1,0 +1,95 @@
+model Model
+	culture: en-US
+	collation: Latin1_General_100_BIN2_UTF8
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["DatabaseQuery"]
+
+annotation __TEdtr = 1
+
+ref table vw_MRPInkopen
+ref table vw_MRP_Planning
+ref table PrognoseWeekTabel
+ref table GLTransacties_Fin
+ref table ItemClasses
+ref table glaccounts_fin
+ref table SalesForecastItems
+ref table FinReportRows
+ref table StockEntries
+ref table voorraadfilter
+ref table SalesTransactionStatus
+ref table PlannedOrderCalculationDateMethods
+ref table AccountAccountClassifications_Table
+ref table offices
+ref table DivisionPeriodStatus
+ref table ShopOrders
+ref table PlannedOrderTypes
+ref table kengetallen
+ref table Warehouses
+ref table referentieperiode
+ref table StockCounts
+ref table ItemMaterials
+ref table sales
+ref table SalesTransactionTypes
+ref table StockPlanning
+ref table Accounts
+ref table StockEntryTypes
+ref table ShopOrderStatus
+ref table ShopOrderRoutingStepPlans
+ref table payments
+ref table dates
+ref table PurchaseOrderTypes
+ref table SalesOrders
+ref table AccountClassificationNames
+ref table GLTransactionStatus
+ref table ItemGroups
+ref table StockCountStatus
+ref table StockOverview
+ref table StockTransactions
+ref table GLTransactions
+ref table centers
+ref table Items
+ref table GLAccounts
+ref table GLClassifications
+ref table Divisions
+ref table StockReplenishmentAdvices
+ref table productgroups
+ref table ItemPrices
+ref table correctiefactor
+ref table MRPScenarioLinkItems
+ref table pos_products
+ref table ItemWarehouses
+ref table MRPScenarioLinkSalesForecasts
+ref table MRPScenarioWarningTypes
+ref table StockTransactionSources
+ref table MRPScenarioReorderPolicies
+ref table MaterialRequirements
+ref table SalesForecasts
+ref table StockPositions
+ref table Administratie
+ref table SalesTransactions
+ref table AccountClassifications
+ref table ShopOrdersDeliveryPerformance
+ref table PurchaseOrders
+ref table SalesOrderLines
+ref table StockTransactionStatus
+ref table StockPlanningTypes
+ref table StockPlanningStatus
+ref table MRPScenarios
+ref table ReplenishmentTypes
+ref table StockTransactionTypes
+ref table datumgeldigfilter
+ref table MRPScenarioOrderEntryApprovalStatus
+ref table ShopOrderMaterialPlans
+ref table SalesForecastDetails
+ref table PurchaseTransactions
+ref table StockEntryStatus
+ref table MRPScenarioLinkWarehouses
+ref table StockCountSources
+

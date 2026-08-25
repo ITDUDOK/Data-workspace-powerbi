@@ -1,0 +1,45 @@
+table MRPScenarioWarningTypes
+	lineageTag: 66809d8a-6d26-4f40-88eb-6d3dd251173c
+	sourceLineageTag: [dbo].[MRPScenarioWarningTypes]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: d1a3b2f6-3e27-4cc4-8c0e-34942519f22c
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bb7806be-0a1f-4ea9-a3f5-e51cbceb295f
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 187de562-6b28-4b20-948b-0e7e8c26238e
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MRPScenarioWarningTypes = entity
+		mode: directLake
+		source
+			entityName: MRPScenarioWarningTypes
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

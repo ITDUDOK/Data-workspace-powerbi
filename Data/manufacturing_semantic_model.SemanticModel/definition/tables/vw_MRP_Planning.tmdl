@@ -1,0 +1,434 @@
+table vw_MRP_Planning
+	lineageTag: 0859e0ee-821f-43fd-8c74-d4f15aef8072
+	sourceLineageTag: [dbo].[vw_MRP_Planning]
+
+	column BronTabel
+		dataType: string
+		sourceProviderType: varchar(24)
+		lineageTag: c12922e5-f87d-4a6e-9071-587af52511f7
+		sourceLineageTag: BronTabel
+		summarizeBy: none
+		sourceColumn: BronTabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderType
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: 9fd02f86-1e05-4199-81ff-fd05335e8962
+		sourceLineageTag: OrderType
+		summarizeBy: none
+		sourceColumn: OrderType
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6c160a70-8382-4a1e-9ce7-2ff7a5d456a0
+		sourceLineageTag: OrderID
+		summarizeBy: none
+		sourceColumn: OrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDatum
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 71389d95-0bb9-4d04-a5d1-a0e21bc8f179
+		sourceLineageTag: OrderDatum
+		summarizeBy: none
+		sourceColumn: OrderDatum
+
+		annotation SummarizationSetBy = Automatic
+
+	column OntvangstDatum
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime
+		lineageTag: d50d35bb-849d-42f3-a9ea-2c386986dcfa
+		sourceLineageTag: OntvangstDatum
+		summarizeBy: none
+		sourceColumn: OntvangstDatum
+
+		annotation SummarizationSetBy = Automatic
+
+	column BehoefteDatum
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5a6ec6a2-66d7-4024-8282-95747792ad51
+		sourceLineageTag: BehoefteDatum
+		summarizeBy: none
+		sourceColumn: BehoefteDatum
+
+		annotation SummarizationSetBy = Automatic
+
+	column ArtikelID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9dc21af5-54db-48c1-ab0b-15a38ced5144
+		sourceLineageTag: ArtikelID
+		summarizeBy: none
+		sourceColumn: ArtikelID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MagazijnID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e60c6843-d2a8-477a-bf4f-6f06a801fcfc
+		sourceLineageTag: MagazijnID
+		summarizeBy: none
+		sourceColumn: MagazijnID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeverancierID
+		dataType: string
+		sourceProviderType: nvarchar(8000)
+		lineageTag: be0ebba1-bb65-44f4-b813-55afe6a525b7
+		sourceLineageTag: LeverancierID
+		summarizeBy: none
+		sourceColumn: LeverancierID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hoeveelheid
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 4525abc9-2d20-4126-b744-8e3a1bcd1479
+		sourceLineageTag: Hoeveelheid
+		summarizeBy: sum
+		sourceColumn: Hoeveelheid
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Geproduceerd
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 0b62f133-b6a7-4b85-8bab-d46eeda314e8
+		sourceLineageTag: Geproduceerd
+		summarizeBy: sum
+		sourceColumn: Geproduceerd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column StatusCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: be5d7f31-9aca-4091-b13b-e4bc66a17309
+		sourceLineageTag: StatusCode
+		summarizeBy: count
+		sourceColumn: StatusCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column WaarschuwingType
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7a8fa0a0-14df-484f-bc98-28353ccf07b7
+		sourceLineageTag: WaarschuwingType
+		summarizeBy: sum
+		sourceColumn: WaarschuwingType
+
+		annotation SummarizationSetBy = Automatic
+
+	column AanvulType
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 602063ce-fe6b-4f72-85da-c68f490078f8
+		sourceLineageTag: AanvulType
+		summarizeBy: sum
+		sourceColumn: AanvulType
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderLink
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f0cc93eb-ecdb-4f02-b43d-b9a75fb4d93d
+		sourceLineageTag: SalesOrderLink
+		summarizeBy: none
+		sourceColumn: SalesOrderLink
+
+		annotation SummarizationSetBy = Automatic
+
+	column PurchaseOrderLink
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 721f2731-3db6-433c-a6d6-b0417f514ac5
+		sourceLineageTag: PurchaseOrderLink
+		summarizeBy: none
+		sourceColumn: PurchaseOrderLink
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShopOrderLink
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c969a4c7-2795-4c5b-8a9d-6ea8a33578e1
+		sourceLineageTag: ShopOrderLink
+		summarizeBy: none
+		sourceColumn: ShopOrderLink
+
+		annotation SummarizationSetBy = Automatic
+
+	column MRPScenarioLink
+		dataType: string
+		sourceProviderType: nvarchar(8000)
+		lineageTag: 0107eb31-9d37-4e1f-85c2-7f7c13176c9c
+		sourceLineageTag: MRPScenarioLink
+		summarizeBy: none
+		sourceColumn: MRPScenarioLink
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 57038cc4-eb1e-4ff3-9944-fb641ab023b7
+		sourceLineageTag: DivisionCode
+		summarizeBy: count
+		sourceColumn: DivisionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Artikelcode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7c678eff-db52-4751-a819-0c735dc2dcae
+		sourceLineageTag: Artikelcode
+		summarizeBy: none
+		sourceColumn: Artikelcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Artikelnaam
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c6b49ac4-389a-4035-8feb-e606367b9ca4
+		sourceLineageTag: Artikelnaam
+		summarizeBy: none
+		sourceColumn: Artikelnaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column ArtikelgroepID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e4d0186f-45f7-4926-ba58-3ef819c455f7
+		sourceLineageTag: ArtikelgroepID
+		summarizeBy: none
+		sourceColumn: ArtikelgroepID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Artikelgroep
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d3f05456-4e12-49f2-bfc4-4ffc31c8d87f
+		sourceLineageTag: Artikelgroep
+		summarizeBy: none
+		sourceColumn: Artikelgroep
+
+		annotation SummarizationSetBy = Automatic
+
+	column Producttype
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9d148e0a-314c-49fb-b7a1-f9d98ef091f0
+		sourceLineageTag: Producttype
+		summarizeBy: none
+		sourceColumn: Producttype
+
+		annotation SummarizationSetBy = Automatic
+
+	column ArtikelcodeNaam
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0c997f8c-bafe-4709-a386-3a85cd09df12
+		sourceLineageTag: ArtikelcodeNaam
+		summarizeBy: none
+		sourceColumn: ArtikelcodeNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column Eenheid
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 73f3d5a0-0479-457b-af3c-e437025fd6f9
+		sourceLineageTag: Eenheid
+		summarizeBy: none
+		sourceColumn: Eenheid
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prijs
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 44d612a2-5879-4234-ac95-4a159bd2a69d
+		sourceLineageTag: Prijs
+		summarizeBy: sum
+		sourceColumn: Prijs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Waarde
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 05bcacb3-6c9e-490a-a66a-b887bec332ba
+		sourceLineageTag: Waarde
+		summarizeBy: sum
+		sourceColumn: Waarde
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ShopOrderNumber
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bb0c5e5c-985a-44c7-a037-5a4a6843a17d
+		sourceLineageTag: ShopOrderNumber
+		summarizeBy: sum
+		sourceColumn: ShopOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShopOrderURL
+		dataType: string
+		sourceProviderType: nvarchar(8000)
+		lineageTag: 2159e860-5ad5-49bc-8ccd-43d141b6c2ad
+		sourceLineageTag: ShopOrderURL
+		summarizeBy: none
+		sourceColumn: ShopOrderURL
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jaar
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 85d9283b-3ac6-4503-815e-2efbe266ca5b
+		sourceLineageTag: Jaar
+		summarizeBy: sum
+		sourceColumn: Jaar
+
+		annotation SummarizationSetBy = Automatic
+
+	column Maand
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d6816ff8-fbf5-4629-99b9-8df4d09636cc
+		sourceLineageTag: Maand
+		summarizeBy: sum
+		sourceColumn: Maand
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaandNaam
+		dataType: string
+		sourceProviderType: nvarchar(8000)
+		lineageTag: d2023aed-f9ae-467c-8272-38b48cf62f93
+		sourceLineageTag: MaandNaam
+		summarizeBy: none
+		sourceColumn: MaandNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weeknummer
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0d1556d9-3920-4af1-81d0-26b222dd0f4f
+		sourceLineageTag: Weeknummer
+		summarizeBy: sum
+		sourceColumn: Weeknummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column JaarMaand
+		dataType: string
+		sourceProviderType: nvarchar(8000)
+		lineageTag: 87b96dec-87e6-49e7-ad57-6ac1fa221829
+		sourceLineageTag: JaarMaand
+		summarizeBy: none
+		sourceColumn: JaarMaand
+
+		annotation SummarizationSetBy = Automatic
+
+	column JaarWeek
+		dataType: string
+		sourceProviderType: varchar(30)
+		lineageTag: b19f25bc-4ce9-4aeb-b7a8-cafea5c045e7
+		sourceLineageTag: JaarWeek
+		summarizeBy: none
+		sourceColumn: JaarWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kwartaal
+		dataType: string
+		sourceProviderType: varchar(24)
+		lineageTag: bc0b3ea9-3be6-4204-a1f8-ccecc411cc7a
+		sourceLineageTag: Kwartaal
+		summarizeBy: none
+		sourceColumn: Kwartaal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: f1174c65-217d-4199-b970-602a0668a352
+		sourceLineageTag: Status
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column VraagAanbod
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: 89ddf8ec-5954-4c8a-80d7-26615504e5a2
+		sourceLineageTag: VraagAanbod
+		summarizeBy: none
+		sourceColumn: VraagAanbod
+
+		annotation SummarizationSetBy = Automatic
+
+	column HoeveelheidAbs
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 8f2af5cf-08f7-436e-a7a0-6d4187eaf33d
+		sourceLineageTag: HoeveelheidAbs
+		summarizeBy: sum
+		sourceColumn: HoeveelheidAbs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition vw_MRP_Planning = entity
+		mode: directLake
+		source
+			entityName: vw_MRP_Planning
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

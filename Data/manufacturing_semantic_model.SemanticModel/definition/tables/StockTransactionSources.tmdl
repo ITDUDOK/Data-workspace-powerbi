@@ -1,0 +1,45 @@
+table StockTransactionSources
+	lineageTag: 0c68670c-eda0-4d81-b3e6-9c1860353156
+	sourceLineageTag: [dbo].[StockTransactionSources]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f03bd6da-772a-44ef-996a-e884b7c08392
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 84bed2b6-0a96-4d8e-acc3-007128655475
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 371c3aab-db79-42a1-aa05-93efc2dab430
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StockTransactionSources = entity
+		mode: directLake
+		source
+			entityName: StockTransactionSources
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

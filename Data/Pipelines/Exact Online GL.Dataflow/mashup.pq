@@ -84,6 +84,15 @@ shared Costcenters = let
     GL_Filtered = Table.Combine(PerDivisionTables)
 in
     GL_Filtered;
+[BindToDefaultDestination = true]
+shared gltransacties_fin = let
+    LH = Lakehouse.Contents(null),
+    WS = LH{[workspaceId = "1f90325e-1060-4c7d-adf4-ccf9fca8b287"]}[Data],
+    LHData = WS{[lakehouseId = "097e8f82-835e-4936-a16d-9f6f886d5ef0"]}[Data],
+    Source = LHData{[Id = "gltransacties_fin", ItemKind = "Table"]}[Data],
+    #"Added Custom" = Table.AddColumn(Source, "IsPeriodeZichtbaar", each if [EntryDate] <> null and [EntryDate] <= DateTime.LocalNow() then 1 else 0, Int64.Type)
+in
+    #"Added Custom";
 shared fnGetExactOnlineTable = (TableName as text, optional FilterCondition as function) =>
 let
     Source = ExactOnlinePremium.Contents(),

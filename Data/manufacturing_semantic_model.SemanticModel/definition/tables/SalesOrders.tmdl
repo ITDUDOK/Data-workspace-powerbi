@@ -1,0 +1,296 @@
+table SalesOrders
+	lineageTag: c673f971-cf98-4a1a-99d0-07efca5f683e
+	sourceLineageTag: [dbo].[SalesOrders]
+
+	column ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 73147543-5c63-477c-bea7-fa44be0519e6
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 81d64c53-5ab9-4a88-960a-d5b5d0f196d6
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 79f9221d-037b-467b-b6d9-0e1fe1236306
+		sourceLineageTag: Type
+		summarizeBy: sum
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderNumber
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f34ca0a1-3e86-48a1-813b-37e82bffa4dd
+		sourceLineageTag: SalesOrderNumber
+		summarizeBy: sum
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ce2f1327-1055-467c-9293-12accb348838
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notes
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 00bd11b3-1882-4f9d-ad41-a5f29a096045
+		sourceLineageTag: Notes
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column EntryDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 0a630df7-78f0-4ab7-959c-1916665a2d85
+		sourceLineageTag: EntryDate
+		summarizeBy: none
+		sourceColumn: EntryDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: e4f4804c-2e0f-4d96-9830-78c7df3936f6
+		sourceLineageTag: DeliveryDate
+		summarizeBy: none
+		sourceColumn: DeliveryDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 57599b4f-a80f-41d9-89a7-30e2aee50c1f
+		sourceLineageTag: Currency
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column AmountFC
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 518b1ad5-44b0-464c-b1f3-dc74758d7e94
+		sourceLineageTag: AmountFC
+		summarizeBy: sum
+		sourceColumn: AmountFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AmountDC
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 7f30de11-a3f2-42ee-b31f-5100f8e2826a
+		sourceLineageTag: AmountDC
+		summarizeBy: sum
+		sourceColumn: AmountDC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RateFC
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 005aacbf-85ea-4698-9cef-d227e6f5df4c
+		sourceLineageTag: RateFC
+		summarizeBy: sum
+		sourceColumn: RateFC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ExchangeRateType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6a5d6985-ef1e-4cbf-bec8-430e26cc2bcb
+		sourceLineageTag: ExchangeRateType
+		summarizeBy: none
+		sourceColumn: ExchangeRateType
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentCondition
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4dd60ce2-f107-4fa5-97bf-8fc8f99ef6e4
+		sourceLineageTag: PaymentCondition
+		summarizeBy: none
+		sourceColumn: PaymentCondition
+
+		annotation SummarizationSetBy = Automatic
+
+	column EntryID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0294e68c-7458-4099-972b-b8018c499437
+		sourceLineageTag: EntryID
+		summarizeBy: none
+		sourceColumn: EntryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderAccount
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b0321fad-c2d5-45d6-a47a-05c73503500b
+		sourceLineageTag: OrderAccount
+		summarizeBy: none
+		sourceColumn: OrderAccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderAccountContact
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7b3bd120-a0e5-4c3a-a5aa-ce7d27abc66a
+		sourceLineageTag: OrderAccountContact
+		summarizeBy: none
+		sourceColumn: OrderAccountContact
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceAccount
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4babc8b6-ee06-4560-95b4-86f20a25331a
+		sourceLineageTag: InvoiceAccount
+		summarizeBy: none
+		sourceColumn: InvoiceAccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceAccountContact
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 77c1a4ff-539b-429d-bff7-cd19eaebbda2
+		sourceLineageTag: InvoiceAccountContact
+		summarizeBy: none
+		sourceColumn: InvoiceAccountContact
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryAccount
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 748f9215-07af-4b9f-83de-14b3f6b768cc
+		sourceLineageTag: DeliveryAccount
+		summarizeBy: none
+		sourceColumn: DeliveryAccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryAccountContact
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: db49ede7-cb29-4c0d-8b70-f2b7bae8d378
+		sourceLineageTag: DeliveryAccountContact
+		summarizeBy: none
+		sourceColumn: DeliveryAccountContact
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryAddress
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 79675615-5c22-410a-99ad-d6f81753354e
+		sourceLineageTag: DeliveryAddress
+		summarizeBy: none
+		sourceColumn: DeliveryAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShippingMethod
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c818c6c5-c945-4b56-8764-f95213b7d5d9
+		sourceLineageTag: ShippingMethod
+		summarizeBy: none
+		sourceColumn: ShippingMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a5c22ac0-8197-4b85-8495-c976ce245312
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: bef10a00-3dbb-4bc5-970a-6f99c170f022
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 8b9f41e1-60a8-450a-a650-9728a1dac744
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServicePoint
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1df213dd-6bc9-449f-b2cc-8b914687ca37
+		sourceLineageTag: ServicePoint
+		summarizeBy: none
+		sourceColumn: ServicePoint
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesOrders = entity
+		mode: directLake
+		source
+			entityName: SalesOrders
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

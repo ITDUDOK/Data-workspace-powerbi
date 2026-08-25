@@ -1,0 +1,232 @@
+table payments
+	lineageTag: f1e6dc6a-59da-48d4-a2d9-b61631618519
+	sourceLineageTag: [dbo].[payments]
+
+	column TicketKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cd47b5c4-bd36-4553-a668-21280fea21aa
+		sourceLineageTag: TicketKey
+		summarizeBy: none
+		sourceColumn: TicketKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bbbc173f-de5f-4829-b02d-63ea4e9ee0c6
+		sourceLineageTag: PaymodeKey
+		summarizeBy: none
+		sourceColumn: PaymodeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeGroupKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 163238d6-0836-43c3-b657-ed605b48f2c4
+		sourceLineageTag: PaymodeGroupKey
+		summarizeBy: none
+		sourceColumn: PaymodeGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeGroupName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 76fcc800-b44d-461f-aad5-02f2fea33341
+		sourceLineageTag: PaymodeGroupName
+		summarizeBy: none
+		sourceColumn: PaymodeGroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodePaymodeKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: baed9313-db64-438c-b8ea-0e56b495d2e5
+		sourceLineageTag: PaymodePaymodeKey
+		summarizeBy: none
+		sourceColumn: PaymodePaymodeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d98fa511-f524-42f1-81c6-8980638c4d77
+		sourceLineageTag: CenterKey
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cdcd4ff6-d9da-49fb-afb8-5250f521ac9b
+		sourceLineageTag: CenterName
+		summarizeBy: none
+		sourceColumn: CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeTotal
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(14, 2)
+		lineageTag: 8ec57b10-319f-4a09-859d-61f9e446d055
+		sourceLineageTag: PaymodeTotal
+		summarizeBy: sum
+		sourceColumn: PaymodeTotal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column PaymodeQty
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c2485623-708f-43ce-be61-ed3579bfb78c
+		sourceLineageTag: PaymodeQty
+		summarizeBy: sum
+		sourceColumn: PaymodeQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeMemo
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 00987c6d-8363-4693-8782-e6984f4a122c
+		sourceLineageTag: PaymodeMemo
+		summarizeBy: none
+		sourceColumn: PaymodeMemo
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeTerminalId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a78fe924-9416-4efd-ad83-1686c87609e4
+		sourceLineageTag: PaymodeTerminalId
+		summarizeBy: none
+		sourceColumn: PaymodeTerminalId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymodeTransactionId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 365184e8-49fc-4d8c-8827-fb39372716c7
+		sourceLineageTag: PaymodeTransactionId
+		summarizeBy: none
+		sourceColumn: PaymodeTransactionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 6aeb2f5d-c8fe-4637-b6bc-3ff6e7fc7ea8
+		sourceLineageTag: TicketDate
+		summarizeBy: none
+		sourceColumn: TicketDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketTime
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 607a262c-1fb7-4474-9ccf-0eae99dd0f87
+		sourceLineageTag: TicketTime
+		summarizeBy: none
+		sourceColumn: TicketTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 63504da4-7b13-4cd7-81d6-f53ede67d7c0
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketTable_CenterKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6484ef7b-c4a9-4628-8c06-6c07ef3bd523
+		sourceLineageTag: TicketTable_CenterKey
+		summarizeBy: none
+		sourceColumn: TicketTable_CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TicketTable_CenterName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6f29e982-4dba-43c7-bcde-1e638f0f2303
+		sourceLineageTag: TicketTable_CenterName
+		summarizeBy: none
+		sourceColumn: TicketTable_CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 0d30f108-bb27-4025-8ae1-59e7741f02fb
+		sourceLineageTag: ActualDate
+		summarizeBy: none
+		sourceColumn: ActualDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Time
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 15d64490-63bd-4801-8f43-173b44c1449e
+		sourceLineageTag: Time
+		summarizeBy: none
+		sourceColumn: Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourNumber
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2dbb73dc-4bef-45aa-a4d3-425fd6e334d2
+		sourceLineageTag: HourNumber
+		summarizeBy: sum
+		sourceColumn: HourNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 22ac8f01-1fff-493e-90bc-80fd2837e38a
+		sourceLineageTag: OrderKey
+		summarizeBy: none
+		sourceColumn: OrderKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition payments = entity
+		mode: directLake
+		source
+			entityName: payments
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

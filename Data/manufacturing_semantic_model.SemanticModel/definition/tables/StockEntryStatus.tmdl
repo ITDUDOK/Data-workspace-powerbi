@@ -1,0 +1,45 @@
+table StockEntryStatus
+	lineageTag: 1b3c19c7-9294-490a-ad54-1bd006a8c0dc
+	sourceLineageTag: [dbo].[StockEntryStatus]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 08fae06f-abbc-40d1-bc38-a71c2945ad7f
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4a2c674a-f942-4205-be79-96b30a38dbd2
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6060d098-9b31-4b96-b9d2-ab636d06d937
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StockEntryStatus = entity
+		mode: directLake
+		source
+			entityName: StockEntryStatus
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

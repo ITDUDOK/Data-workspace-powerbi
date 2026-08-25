@@ -43,6 +43,11 @@
       "queryName": "MRPScenarioWarningTypes",
       "loadEnabled": false
     },
+    "PrognoseWeekTabel": {
+      "queryId": "8d531803-a434-49e3-a34f-c244c8474b45",
+      "queryName": "PrognoseWeekTabel",
+      "loadEnabled": false
+    },
     "fnGetExactOnlineTable": {
       "queryId": "73b2339d-c03f-4c1c-a959-7b4c51420fde",
       "queryName": "fnGetExactOnlineTable",

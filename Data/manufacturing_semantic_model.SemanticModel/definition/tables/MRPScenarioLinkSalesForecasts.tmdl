@@ -1,0 +1,96 @@
+table MRPScenarioLinkSalesForecasts
+	lineageTag: 9936065a-bbf7-4363-80df-9eed4b58e53a
+	sourceLineageTag: [dbo].[MRPScenarioLinkSalesForecasts]
+
+	column ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cf17d625-28de-4bf1-b7cb-df1390f22fb9
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: aa7ec158-dbee-49c1-854d-ee895569d632
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column MRPScenario
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8434ae52-a89a-49ad-b326-cd0e7eea306f
+		sourceLineageTag: MRPScenario
+		summarizeBy: none
+		sourceColumn: MRPScenario
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesForecast
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ed8b2e03-8cc4-443b-8645-3a61b4c89599
+		sourceLineageTag: SalesForecast
+		summarizeBy: none
+		sourceColumn: SalesForecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ff7e920a-1b72-49ce-85ff-3daa8af45541
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 172881ec-3f57-4e71-8bba-65638484fbf5
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ff6808db-dd1f-4283-b794-a6529e6a8da9
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 29d03f10-3b15-489c-b1ab-208d8583e98c
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MRPScenarioLinkSalesForecasts = entity
+		mode: directLake
+		source
+			entityName: MRPScenarioLinkSalesForecasts
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

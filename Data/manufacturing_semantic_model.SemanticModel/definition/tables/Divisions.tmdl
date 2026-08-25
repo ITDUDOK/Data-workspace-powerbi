@@ -1,0 +1,107 @@
+table Divisions
+	lineageTag: 891c6c92-1a1e-4add-9e2b-43972b87bc33
+	sourceLineageTag: [dbo].[Divisions]
+
+	column Code
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5651e935-a9b4-496f-aeb3-969abe362983
+		sourceLineageTag: Code
+		summarizeBy: count
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column HID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 224b9258-1e34-460d-be37-46a1d6d25c52
+		sourceLineageTag: HID
+		summarizeBy: count
+		sourceColumn: HID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8de8a32e-5e10-42fc-81c0-8f4d64add678
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a36c08ad-cb89-4a0a-88ed-3f90b19b0943
+		sourceLineageTag: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column VATNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3b3e6001-19eb-4691-a783-673da04d1c24
+		sourceLineageTag: VATNumber
+		summarizeBy: none
+		sourceColumn: VATNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2c6b33c6-6be8-46c2-a7b1-aae83cd222f8
+		sourceLineageTag: Currency
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column BlockingStatus
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9d19163a-5b87-42c4-a2fd-375309602cc9
+		sourceLineageTag: BlockingStatus
+		summarizeBy: sum
+		sourceColumn: BlockingStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: b9d11dd5-1a2d-4473-8d98-4cb8f8bfdcdc
+		sourceLineageTag: Status
+		summarizeBy: sum
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompaniesName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8644bad2-1c4b-42d0-b966-0482ce2c89d2
+		sourceLineageTag: CompaniesName
+		summarizeBy: none
+		sourceColumn: CompaniesName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Divisions = entity
+		mode: directLake
+		source
+			entityName: Divisions
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

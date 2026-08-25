@@ -53,6 +53,11 @@
       "queryName": "Costcenters",
       "loadEnabled": false
     },
+    "gltransacties_fin": {
+      "queryId": "87abc91a-259d-4317-9e4e-4eb8652653a9",
+      "queryName": "gltransacties_fin",
+      "loadEnabled": false
+    },
     "fnGetExactOnlineTable": {
       "queryId": "dc01723a-23d1-4fc8-b5cc-ca2a2d984613",
       "queryName": "fnGetExactOnlineTable",

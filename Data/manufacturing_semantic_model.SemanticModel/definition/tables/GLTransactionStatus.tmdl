@@ -1,0 +1,45 @@
+table GLTransactionStatus
+	lineageTag: c83cac4a-ecaf-4639-be90-a5fc37f6f364
+	sourceLineageTag: [dbo].[GLTransactionStatus]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: f5d9fe70-e190-4d75-a2e4-657bb9427025
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 74d4cbd6-14ca-4233-9d0d-9a479c50220e
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e47077ba-36ea-4785-80a1-101fb598ec2a
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition GLTransactionStatus = entity
+		mode: directLake
+		source
+			entityName: GLTransactionStatus
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

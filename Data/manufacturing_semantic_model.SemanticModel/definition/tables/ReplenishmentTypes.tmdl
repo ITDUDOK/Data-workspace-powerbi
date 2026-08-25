@@ -1,0 +1,45 @@
+table ReplenishmentTypes
+	lineageTag: bc9464b7-8a67-4d8e-aabb-d6f032e38da3
+	sourceLineageTag: [dbo].[ReplenishmentTypes]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 8fec0d97-459e-42dc-8b0c-734da25fbef0
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 293ff905-fb05-4625-a144-e3de4ab858ae
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e6d46eab-49ea-41b9-96f1-8a8f0f56e12b
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ReplenishmentTypes = entity
+		mode: directLake
+		source
+			entityName: ReplenishmentTypes
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

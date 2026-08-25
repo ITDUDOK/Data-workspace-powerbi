@@ -1,5 +1,18 @@
 [
   {
+    "name": "PrognoseWeekTabel",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/PrognoseWeekTabel",
+        "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  },
+  {
     "name": "Warehouses",
     "path": "/Tables/dbo",
     "target": {

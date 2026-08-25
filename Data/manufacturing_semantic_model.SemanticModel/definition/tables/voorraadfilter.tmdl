@@ -1,0 +1,45 @@
+table voorraadfilter
+	lineageTag: c76c5664-cb1c-4b47-89b6-b131d66fe0dd
+	sourceLineageTag: [dbo].[voorraadfilter]
+
+	column Label
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 71f3c1fb-311f-4a1d-a307-2e3ae5dd45f2
+		sourceLineageTag: Label
+		summarizeBy: none
+		sourceColumn: Label
+
+		annotation SummarizationSetBy = Automatic
+
+	column Waarde
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: dd40a224-ca6b-48d4-80cd-c78a20ed1a07
+		sourceLineageTag: Waarde
+		summarizeBy: sum
+		sourceColumn: Waarde
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: cc4dea16-71b5-49a1-ab0a-c1946afc4c0c
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition voorraadfilter = entity
+		mode: directLake
+		source
+			entityName: voorraadfilter
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

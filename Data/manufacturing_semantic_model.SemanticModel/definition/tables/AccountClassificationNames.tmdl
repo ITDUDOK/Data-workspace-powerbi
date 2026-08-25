@@ -1,0 +1,108 @@
+table AccountClassificationNames
+	lineageTag: 530f4f25-9e78-4a34-9172-d78b04f8943f
+	sourceLineageTag: [dbo].[AccountClassificationNames]
+
+	column ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 943428b1-48b5-4f98-8779-5b5bd56093c0
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bc402640-22fd-4b70-8786-e6951c547c7f
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column SequenceNumber
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 066e101f-94f2-4f0b-a1c0-c27228fb0ccb
+		sourceLineageTag: SequenceNumber
+		summarizeBy: sum
+		sourceColumn: SequenceNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 636e3698-e0ec-489f-b1b8-81b8d03ccec2
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3b5b7a05-f373-473f-8fe1-b44bdd525e07
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: fee8ccf8-9dcb-4739-886f-ba1791a63c3a
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b20fe058-704e-418c-b996-405f27de99ba
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 445d234c-13d0-419f-b673-f2e0fa520ed8
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d8775399-8f8b-4c27-8241-87bb4f1d3e8a
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AccountClassificationNames = entity
+		mode: directLake
+		source
+			entityName: AccountClassificationNames
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

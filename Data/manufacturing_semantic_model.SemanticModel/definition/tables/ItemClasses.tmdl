@@ -1,0 +1,86 @@
+table ItemClasses
+	lineageTag: f170e3a2-015c-4103-a4c4-86d60102136e
+	sourceLineageTag: [dbo].[ItemClasses]
+
+	column ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3b1c08eb-d173-4ed8-bf58-be8e1668b6ff
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d01e131c-2695-4107-8e8c-ba52a473458d
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: af70e97b-d501-43d9-ac3c-089ef868c393
+		sourceLineageTag: ClassID
+		summarizeBy: count
+		sourceColumn: ClassID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 36d88f75-c3c0-4af3-ac84-11d4798e7fa8
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ed717eee-1437-4f37-8a12-5e1bfa4e358f
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fa98dba2-a846-470d-aea0-5c7dfb0a3cbf
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notes
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c30f7eb2-8a80-4e65-9796-02d953b9ab6f
+		sourceLineageTag: Notes
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ItemClasses = entity
+		mode: directLake
+		source
+			entityName: ItemClasses
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

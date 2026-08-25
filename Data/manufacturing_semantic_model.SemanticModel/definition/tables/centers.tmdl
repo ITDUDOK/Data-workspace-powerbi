@@ -1,0 +1,150 @@
+table centers
+	lineageTag: f5db707e-7beb-48fa-a5d0-4210905286c1
+	sourceLineageTag: [dbo].[centers]
+
+	column CenterKey
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 97ae3683-f4d1-4cde-a6d1-87ad328b3d06
+		sourceLineageTag: CenterKey
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 47a5ed2e-1bbe-4b78-93d9-ce4c847b3575
+		sourceLineageTag: CenterName
+		summarizeBy: none
+		sourceColumn: CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterNr
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: dff8952f-7bcf-4df3-ae14-75a96e6e87b6
+		sourceLineageTag: CenterNr
+		summarizeBy: none
+		sourceColumn: CenterNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 1d648219-8194-4124-aff8-9d472b2c6595
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 391e1154-a44a-42ac-84df-7562c07001cd
+		sourceLineageTag: Level
+		summarizeBy: sum
+		sourceColumn: Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeftNr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 054bca8c-a51c-4795-9f81-bfc057066c20
+		sourceLineageTag: LeftNr
+		summarizeBy: sum
+		sourceColumn: LeftNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column RightNr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b68ebc6f-5911-4e90-9837-1e787a3eb543
+		sourceLineageTag: RightNr
+		summarizeBy: sum
+		sourceColumn: RightNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column SiteNr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 99391c69-3ce0-4f59-8ad5-86a8928b30bc
+		sourceLineageTag: SiteNr
+		summarizeBy: sum
+		sourceColumn: SiteNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubCenter
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8e77dad9-8bb9-488f-a656-eb433088f609
+		sourceLineageTag: SubCenter
+		summarizeBy: sum
+		sourceColumn: SubCenter
+
+		annotation SummarizationSetBy = Automatic
+
+	column RevenueCenter
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 81ac8bd8-423c-45ca-b6b6-7dd800cb7eb0
+		sourceLineageTag: RevenueCenter
+		summarizeBy: none
+		sourceColumn: RevenueCenter
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdatedName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e02be5f7-4cfd-459b-9d69-33d8b009467a
+		sourceLineageTag: UpdatedName
+		summarizeBy: none
+		sourceColumn: UpdatedName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c7f5da80-2fe2-4aed-9e9d-c4272d064ece
+		sourceLineageTag: Location
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3d0c4bbf-06e8-4840-a345-4c51bdedb9c7
+		sourceLineageTag: Classification
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	partition centers = entity
+		mode: directLake
+		source
+			entityName: centers
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

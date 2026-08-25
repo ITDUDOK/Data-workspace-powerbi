@@ -1,0 +1,67 @@
+table DivisionPeriodStatus
+	lineageTag: 62ab8da3-98ed-486f-b1de-c80d3003c2f7
+	sourceLineageTag: [dbo].[DivisionPeriodStatus]
+
+	column Division
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c9963d09-7b59-4ca6-bf17-b6da6c844438
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 74ab10b6-4f72-48ec-a08f-94bc73ee28bd
+		sourceLineageTag: FinYear
+		summarizeBy: sum
+		sourceColumn: FinYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinPeriod
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 4a223966-ee5e-4e6b-96dc-b8e16508971d
+		sourceLineageTag: FinPeriod
+		summarizeBy: sum
+		sourceColumn: FinPeriod
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearPeriodStatus
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3953a39b-ce70-4e37-8b6b-57c584056ef8
+		sourceLineageTag: YearPeriodStatus
+		summarizeBy: sum
+		sourceColumn: YearPeriodStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Journal
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ce9676af-6321-478b-a49b-c6f2bebbf16d
+		sourceLineageTag: Journal
+		summarizeBy: none
+		sourceColumn: Journal
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dbo DivisionPeriodStatus' = entity
+		mode: directLake
+		source
+			entityName: DivisionPeriodStatus
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

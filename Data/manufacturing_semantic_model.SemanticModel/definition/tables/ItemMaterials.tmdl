@@ -1,0 +1,641 @@
+table ItemMaterials
+	lineageTag: 49f8b4d8-8468-47ed-ba83-92ffc54f2160
+	sourceLineageTag: [dbo].[ItemMaterials]
+
+	column ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cb474eef-59ed-4ba2-a999-7157b8836c75
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5e11ba34-7833-4c81-ac19-8c61daedb04b
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Notes
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 67f8ddcd-666a-4cc8-9180-ff6b6a2c6cd9
+		sourceLineageTag: Notes
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssembledItem
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6265811a-7cc3-41c2-89a9-f346e314eb6b
+		sourceLineageTag: AssembledItem
+		summarizeBy: none
+		sourceColumn: AssembledItem
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineNumber
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 92bad6a0-d71a-49c1-88ee-1e3845f48daf
+		sourceLineageTag: LineNumber
+		summarizeBy: sum
+		sourceColumn: LineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartItem
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 52c82142-873b-490d-8560-605a31034814
+		sourceLineageTag: PartItem
+		summarizeBy: none
+		sourceColumn: PartItem
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: double
+		sourceProviderType: float
+		lineageTag: edbd3cee-0861-4266-88b7-ebf4678dde0d
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QuantityBatch
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 70b822d7-b216-4053-bcd7-abd63bfca891
+		sourceLineageTag: QuantityBatch
+		summarizeBy: sum
+		sourceColumn: QuantityBatch
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 6fb9a5dc-584b-4791-95d7-09d7c95def0e
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cc4cbf6d-732a-4021-ae28-a394bb351c49
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 844e955f-7339-4052-8857-3eab1ea5350c
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 388356af-691b-4924-8acf-9c6cff50896c
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemVersion
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0e8dff41-4733-4224-856a-1fd469e282d4
+		sourceLineageTag: ItemVersion
+		summarizeBy: none
+		sourceColumn: ItemVersion
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalculatorType
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: b5634174-bb6e-492e-8f20-754c34bf29e5
+		sourceLineageTag: CalculatorType
+		summarizeBy: sum
+		sourceColumn: CalculatorType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Backflush
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 8cdd894b-2750-4698-a238-35929f4a1a71
+		sourceLineageTag: Backflush
+		summarizeBy: sum
+		sourceColumn: Backflush
+
+		annotation SummarizationSetBy = Automatic
+
+	column DetailDrawing
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f153cbb0-8e1c-4414-a30c-0702667338cd
+		sourceLineageTag: DetailDrawing
+		summarizeBy: none
+		sourceColumn: DetailDrawing
+
+		annotation SummarizationSetBy = Automatic
+
+	column Costcenter
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3902e75c-664a-48d4-91de-a89811fa8b88
+		sourceLineageTag: Costcenter
+		summarizeBy: none
+		sourceColumn: Costcenter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Costunit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c0774c20-03db-4498-8866-5f6d41e9529b
+		sourceLineageTag: Costunit
+		summarizeBy: none
+		sourceColumn: Costunit
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalCostDC
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 8eef0ffc-a546-48d9-b50e-dde675db504b
+		sourceLineageTag: TotalCostDC
+		summarizeBy: sum
+		sourceColumn: TotalCostDC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CalculatorUnitFactor
+		dataType: double
+		sourceProviderType: float
+		lineageTag: c2af34d9-e114-4904-80b9-e3964de94184
+		sourceLineageTag: CalculatorUnitFactor
+		summarizeBy: sum
+		sourceColumn: CalculatorUnitFactor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CalculatorUnitFactorType
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 72a370fa-6d07-4793-9b3c-9474623fe1da
+		sourceLineageTag: CalculatorUnitFactorType
+		summarizeBy: sum
+		sourceColumn: CalculatorUnitFactorType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Length
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 098e5c7f-0420-47c0-9c3e-72b5a238dd8f
+		sourceLineageTag: Length
+		summarizeBy: sum
+		sourceColumn: Length
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Width
+		dataType: double
+		sourceProviderType: float
+		lineageTag: deaa7551-4aab-4337-83c2-14e5341e1c5a
+		sourceLineageTag: Width
+		summarizeBy: sum
+		sourceColumn: Width
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Depth
+		dataType: double
+		sourceProviderType: float
+		lineageTag: f3d36ab6-0269-4404-b59a-c915d33cd808
+		sourceLineageTag: Depth
+		summarizeBy: sum
+		sourceColumn: Depth
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Margin
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 758ee7d0-71f9-46db-ac5f-b247482f113a
+		sourceLineageTag: Margin
+		summarizeBy: sum
+		sourceColumn: Margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WeightFactor
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 56da2438-f675-4e28-add6-35a8ba722802
+		sourceLineageTag: WeightFactor
+		summarizeBy: sum
+		sourceColumn: WeightFactor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PieceLength
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 453e0153-d311-4417-a576-17e52ed30035
+		sourceLineageTag: PieceLength
+		summarizeBy: sum
+		sourceColumn: PieceLength
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PieceWidth
+		dataType: double
+		sourceProviderType: float
+		lineageTag: d24149b8-348f-40a3-b43b-21041f8d8e64
+		sourceLineageTag: PieceWidth
+		summarizeBy: sum
+		sourceColumn: PieceWidth
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PieceWeight
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 131267c6-7fd3-409e-af93-43f8737b2ac7
+		sourceLineageTag: PieceWeight
+		summarizeBy: sum
+		sourceColumn: PieceWeight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PieceInsideMargin
+		dataType: double
+		sourceProviderType: float
+		lineageTag: d7828aae-1872-4a63-91b8-15f6c3e0a81d
+		sourceLineageTag: PieceInsideMargin
+		summarizeBy: sum
+		sourceColumn: PieceInsideMargin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PieceInsideMargin2
+		dataType: double
+		sourceProviderType: float
+		lineageTag: c06649c4-8d77-4b58-9899-fdd68d06be01
+		sourceLineageTag: PieceInsideMargin2
+		summarizeBy: sum
+		sourceColumn: PieceInsideMargin2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PiecesAcross
+		dataType: double
+		sourceProviderType: float
+		lineageTag: c08cdaaa-7032-40f6-be7d-370f2159f0ba
+		sourceLineageTag: PiecesAcross
+		summarizeBy: sum
+		sourceColumn: PiecesAcross
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PiecesPerMultiplier
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 08c0ea6b-ccc1-4af4-94d8-8bf67c0ae44e
+		sourceLineageTag: PiecesPerMultiplier
+		summarizeBy: sum
+		sourceColumn: PiecesPerMultiplier
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RoundEach
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: bbeae2b7-c3b1-4ba1-bb48-adacd5237d1e
+		sourceLineageTag: RoundEach
+		summarizeBy: sum
+		sourceColumn: RoundEach
+
+		annotation SummarizationSetBy = Automatic
+
+	column RoundPlannedQuantityFactor
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 390e5bf8-4a81-48d3-881a-b4465068116a
+		sourceLineageTag: RoundPlannedQuantityFactor
+		summarizeBy: sum
+		sourceColumn: RoundPlannedQuantityFactor
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedLength
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 3e51c111-5cb7-4ba3-9cc6-f78e06d500b9
+		sourceLineageTag: PlannedLength
+		summarizeBy: sum
+		sourceColumn: PlannedLength
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlannedArea
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 18b806bc-47f5-4edd-ad74-f430c0920059
+		sourceLineageTag: PlannedArea
+		summarizeBy: sum
+		sourceColumn: PlannedArea
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlannedWeight
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 6a909cb1-83da-4426-a940-3761efe3a463
+		sourceLineageTag: PlannedWeight
+		summarizeBy: sum
+		sourceColumn: PlannedWeight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlannedVolume
+		dataType: double
+		sourceProviderType: float
+		lineageTag: b9917f03-65c0-44bf-b7f4-46d30c8a476b
+		sourceLineageTag: PlannedVolume
+		summarizeBy: sum
+		sourceColumn: PlannedVolume
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlannedEach
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 4bd57137-aec9-412c-9c99-09c71b380180
+		sourceLineageTag: PlannedEach
+		summarizeBy: sum
+		sourceColumn: PlannedEach
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CalculatorUnit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b00624ce-038b-402b-804b-8cff4cf5712a
+		sourceLineageTag: CalculatorUnit
+		summarizeBy: none
+		sourceColumn: CalculatorUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column LengthUnit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 853280c8-384a-4246-bf0f-0af1d323bee1
+		sourceLineageTag: LengthUnit
+		summarizeBy: none
+		sourceColumn: LengthUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeightPerUnit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 90fe9d20-96a8-41f6-b5db-947d90551ee1
+		sourceLineageTag: WeightPerUnit
+		summarizeBy: none
+		sourceColumn: WeightPerUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeightUnit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 55fc1682-e851-4ad3-b408-5d80ffb71ee8
+		sourceLineageTag: WeightUnit
+		summarizeBy: none
+		sourceColumn: WeightUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedLengthUnit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b3489431-83ec-4afd-a92f-bbac06a9e177
+		sourceLineageTag: PlannedLengthUnit
+		summarizeBy: none
+		sourceColumn: PlannedLengthUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedAreaUnit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2c40d765-6f71-460a-9cbb-891cb8f23c98
+		sourceLineageTag: PlannedAreaUnit
+		summarizeBy: none
+		sourceColumn: PlannedAreaUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedWeightUnit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 55d60d50-76c4-43a8-ae39-4797c32d971e
+		sourceLineageTag: PlannedWeightUnit
+		summarizeBy: none
+		sourceColumn: PlannedWeightUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedVolumeUnit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0adaf6d8-19b7-4702-b60e-856891493992
+		sourceLineageTag: PlannedVolumeUnit
+		summarizeBy: none
+		sourceColumn: PlannedVolumeUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ef0e5c0a-ab57-493d-b4b7-3d45ae8620e7
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column HID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 72e1df21-4831-4c9f-9bdd-4264c3cf70e2
+		sourceLineageTag: HID
+		summarizeBy: count
+		sourceColumn: HID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: c775ca6e-04f7-45fe-bad6-2fe203915ef2
+		sourceLineageTag: Type
+		summarizeBy: sum
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalculatorDisplayUnit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4589f8a8-ece5-4f80-8387-6d65cc81901d
+		sourceLineageTag: CalculatorDisplayUnit
+		summarizeBy: none
+		sourceColumn: CalculatorDisplayUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column NetWeight
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 059dbaf8-9b5f-4878-95cb-d16d9dd90901
+		sourceLineageTag: NetWeight
+		summarizeBy: sum
+		sourceColumn: NetWeight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NetWeightUnit
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7d175b81-32f8-45ba-9158-5a53066b2f79
+		sourceLineageTag: NetWeightUnit
+		summarizeBy: none
+		sourceColumn: NetWeightUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column WastePercentage
+		dataType: double
+		sourceProviderType: float
+		lineageTag: ab95577a-c125-4198-b093-32bb445d36d7
+		sourceLineageTag: WastePercentage
+		summarizeBy: sum
+		sourceColumn: WastePercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RoutingStepID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4f04e7f2-85db-4b2f-84c6-333422f4c449
+		sourceLineageTag: RoutingStepID
+		summarizeBy: none
+		sourceColumn: RoutingStepID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimestampAsBigInt
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 63cb7323-d21f-4e01-8928-cb9d4e8db3a8
+		sourceLineageTag: TimestampAsBigInt
+		summarizeBy: sum
+		sourceColumn: TimestampAsBigInt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ItemMaterials = entity
+		mode: directLake
+		source
+			entityName: ItemMaterials
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

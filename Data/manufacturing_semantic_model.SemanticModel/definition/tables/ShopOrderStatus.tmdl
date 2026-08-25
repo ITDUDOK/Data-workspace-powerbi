@@ -1,0 +1,45 @@
+table ShopOrderStatus
+	lineageTag: 3fedc4ee-04d5-4579-be3f-d001c4cc289d
+	sourceLineageTag: [dbo].[ShopOrderStatus]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 995878f9-95b6-4ce6-b519-8e7f13f98d68
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ed9e3cdb-c2b3-4a25-8531-49dd892600bb
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0ab6cede-eae9-4841-a75d-5128f14016a8
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ShopOrderStatus = entity
+		mode: directLake
+		source
+			entityName: ShopOrderStatus
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

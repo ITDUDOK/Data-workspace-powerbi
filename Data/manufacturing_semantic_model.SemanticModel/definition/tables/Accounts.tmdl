@@ -1,0 +1,85 @@
+table Accounts
+	lineageTag: 8ec78a94-adf2-4bea-8728-1bc3fecb0b90
+	sourceLineageTag: [dbo].[Accounts]
+
+	column ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ef2c44f3-628a-4a44-916d-088083599726
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 79939582-fded-457c-823a-7a7b3bd84645
+		sourceLineageTag: AccountName
+		summarizeBy: none
+		sourceColumn: AccountName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ef7e0043-0683-454c-803f-36e7b3d6dbae
+		sourceLineageTag: Code
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8d5ef0d1-67b4-43db-8211-4b496ab7ae9f
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSupplier
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: cfe64e3f-5e70-4e5b-82fc-4bc778d59fac
+		sourceLineageTag: IsSupplier
+		summarizeBy: none
+		sourceColumn: IsSupplier
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification_01
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 63e03f5e-e400-46e2-a0b9-3f51526995e3
+		sourceLineageTag: Classification_01
+		summarizeBy: none
+		sourceColumn: Classification_01
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification_02
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 61c10919-1143-44c8-b77e-eb4ebc644f0f
+		sourceLineageTag: Classification_02
+		summarizeBy: none
+		sourceColumn: Classification_02
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Accounts = entity
+		mode: directLake
+		source
+			entityName: Accounts
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

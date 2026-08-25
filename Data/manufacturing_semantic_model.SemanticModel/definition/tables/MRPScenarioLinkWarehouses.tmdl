@@ -1,0 +1,96 @@
+table MRPScenarioLinkWarehouses
+	lineageTag: cdca942f-2bd3-43ce-bd74-3eabbac036ad
+	sourceLineageTag: [dbo].[MRPScenarioLinkWarehouses]
+
+	column ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 548d39f0-4596-4181-a6f3-6a272e19c816
+		sourceLineageTag: ID
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3da380cb-79d2-4238-9b9f-8b1eb42530dc
+		sourceLineageTag: Division
+		summarizeBy: sum
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column MRPScenario
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7e17c013-9d68-47a6-88df-91258f57bb77
+		sourceLineageTag: MRPScenario
+		summarizeBy: none
+		sourceColumn: MRPScenario
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6da3a0a4-29ce-4ee5-b1b9-14a4781e4728
+		sourceLineageTag: Warehouse
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreated
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 8ef3c595-5168-4842-8e8e-03cdc2c40b4b
+		sourceLineageTag: syscreated
+		summarizeBy: none
+		sourceColumn: syscreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column syscreator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5d2de2fc-b1cb-4c56-a904-409afbedd75e
+		sourceLineageTag: syscreator
+		summarizeBy: none
+		sourceColumn: syscreator
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodified
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2d91b5d7-5b84-47d2-af4f-9318416f7f4b
+		sourceLineageTag: sysmodified
+		summarizeBy: none
+		sourceColumn: sysmodified
+
+		annotation SummarizationSetBy = Automatic
+
+	column sysmodifier
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 022b4aa6-b3dd-48fe-8b7f-0ca8dc7dea95
+		sourceLineageTag: sysmodifier
+		summarizeBy: none
+		sourceColumn: sysmodifier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MRPScenarioLinkWarehouses = entity
+		mode: directLake
+		source
+			entityName: MRPScenarioLinkWarehouses
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

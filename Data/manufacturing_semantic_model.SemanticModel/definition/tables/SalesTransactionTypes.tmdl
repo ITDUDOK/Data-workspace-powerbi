@@ -1,0 +1,45 @@
+table SalesTransactionTypes
+	lineageTag: 6ef60d8f-84b4-467b-8e70-7be48dccfce2
+	sourceLineageTag: [dbo].[SalesTransactionTypes]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 9883e9eb-093a-4b30-b21d-3c20018d1745
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9b706943-78d5-421f-bc1d-a6187a88ab8f
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriptionTermID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b5a247c4-88f4-4fe4-ba2b-cf98e8562b1c
+		sourceLineageTag: DescriptionTermID
+		summarizeBy: count
+		sourceColumn: DescriptionTermID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesTransactionTypes = entity
+		mode: directLake
+		source
+			entityName: SalesTransactionTypes
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

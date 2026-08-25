@@ -1,0 +1,35 @@
+table correctiefactor
+	lineageTag: 788c1853-15d0-4447-8554-1fa0eed25aa3
+	sourceLineageTag: [dbo].[correctiefactor]
+
+	column CorrPercent
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 52cc3cf5-b3a1-4c54-81b9-c8d35dd67075
+		sourceLineageTag: CorrPercent
+		summarizeBy: sum
+		sourceColumn: CorrPercent
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: e2c84f3e-48b1-40f8-9f0a-90b6345434e7
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition correctiefactor = entity
+		mode: directLake
+		source
+			entityName: correctiefactor
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
