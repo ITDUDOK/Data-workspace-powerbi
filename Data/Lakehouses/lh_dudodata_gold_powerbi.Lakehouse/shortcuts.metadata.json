@@ -455,6 +455,19 @@
     }
   },
   {
+    "name": "PrognoseWeekTabel",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/PrognoseWeekTabel",
+        "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  },
+  {
     "name": "PlannedOrderTypes",
     "path": "/Tables/dbo",
     "target": {
@@ -695,6 +708,19 @@
       "type": "OneLake",
       "oneLake": {
         "path": "Tables/GLTransactions",
+        "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  },
+  {
+    "name": "gltransacties_fin_2",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/gltransacties_fin",
         "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
         "workspaceId": "00000000-0000-0000-0000-000000000000",
         "artifactType": "Lakehouse"
