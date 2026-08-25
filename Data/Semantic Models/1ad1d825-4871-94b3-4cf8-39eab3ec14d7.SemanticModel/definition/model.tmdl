@@ -12,6 +12,8 @@ annotation PBI_QueryOrder = ["DirectLake - lh_dudodata_gold_powerbi"]
 
 annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb"]
 
+annotation __TEdtr = 1
+
 ref table MRPInkopen
 ref table MRPPlanning
 ref table ItemClasses
@@ -89,4 +91,11 @@ ref table PurchaseTransactions
 ref table StockEntryStatus
 ref table MRPScenarioLinkWarehouses
 ref table StockCountSources
+ref table Recepturen
+ref table ArtikelKostprijsSplit
+ref table InkoopTransacties
+ref table OmzetTransacties
+ref table pos_products
+ref table Warehouses
+ref table voorraadfilter
 

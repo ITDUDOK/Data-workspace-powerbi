@@ -1,0 +1,303 @@
+relationship 13fc28bc-2911-4cd3-bc0e-a3f75afd90d3
+	fromColumn: Items.ItemGroup
+	toColumn: ItemGroups.ID
+
+relationship 039c3f8c-b504-4650-88d2-8c5df074c240
+	fromColumn: ItemWarehouses.Item
+	toColumn: Items.ItemID
+
+relationship f3d928f4-7b2e-4cf6-8c23-dcfb9682257c
+	fromColumn: ItemWarehouses.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship c6ec9bd8-636f-450f-8cd9-49c419fb8981
+	fromColumn: ItemPrices.Item
+	toColumn: Items.ItemID
+
+relationship e4004e78-bb18-4f5a-a10e-19094c2f2d56
+	fromColumn: ItemPrices.Account
+	toColumn: Accounts.ID
+
+relationship f497c548-1bad-417b-8975-47646e66c595
+	fromColumn: pos_products.GroupKey
+	toColumn: productgroups.ProductGroupKey
+
+relationship b14f5805-893d-4b5a-ab22-4b6177caaeff
+	fromColumn: GLTransactions.GLAccount
+	toColumn: GLAccounts.ID
+
+relationship 7351d760-f9a0-4a36-b45b-6236cc02d4f5
+	fromColumn: GLTransactions.EntryDate
+	toColumn: dates.Date
+
+relationship dedf1a3a-966c-4e9a-a38f-d9d22b6d9d65
+	isActive: false
+	fromColumn: GLTransactions.Item
+	toColumn: Items.ItemID
+
+relationship e190a928-a173-4c5c-98a0-b609c034545b
+	crossFilteringBehavior: bothDirections
+	fromColumn: gltransacties_fin.Division
+	toColumn: Administratie.Code
+
+relationship dd5fd315-d840-4018-a14a-58a17c863e29
+	fromColumn: gltransacties_fin.EntryDate
+	toColumn: dates.Date
+
+relationship 67f57b7c-0375-4575-a0cb-eff1e2705a66
+	fromColumn: gltransacties_fin.GLAccount
+	toColumn: glaccounts_fin.ID
+
+relationship 23ee15f9-c812-49a9-9b38-fa03e71f1387
+	fromColumn: gltransacties_fin.Status
+	toColumn: GLTransactionStatus.ID
+
+relationship 91265f72-be31-433c-9cf3-be0f175315c0
+	fromColumn: glaccounts_fin.ClassificatieCode
+	toColumn: finreportrows.ClassificatieCode
+
+relationship 68efc921-3ef2-435f-9ad8-553630ec5473
+	fromColumn: AccountAccountClassifications_Table.Waarde
+	toColumn: AccountClassifications.ID
+
+relationship 28eaeb18-85ef-4cd3-a266-081f7d9a1007
+	fromColumn: sales.CenterKey
+	toColumn: centers.CenterKey
+
+relationship cae32a80-10ad-4df9-992a-ca6ae06aa71c
+	fromColumn: sales.ActualDate
+	toColumn: dates.Date
+
+relationship 395d21b5-6d04-46a4-9b6d-e6b3eadb2f98
+	fromColumn: sales.LineProductKey
+	toColumn: pos_products.ProductKey
+
+relationship 18d71f55-366f-4558-b8e1-2ae17ada70ac
+	fromColumn: payments.ActualDate
+	toColumn: dates.Date
+
+relationship 4962fa59-4668-4edc-8928-bbf788d88e84
+	fromColumn: payments.TicketTable_CenterKey
+	toColumn: centers.CenterKey
+
+relationship 691adbb0-0f4c-40ea-89df-37ee22defb13
+	fromColumn: InkoopTransacties.InvoiceDate
+	toColumn: dates.Date
+
+relationship 1fb5027b-5589-4013-b604-573f79186305
+	fromColumn: OmzetTransacties.EntryDate
+	toColumn: dates.Date
+
+relationship d81c424d-eb11-4cd5-9490-c26550a5f205
+	fromColumn: SalesTransactions.InvoiceDate
+	toColumn: dates.Date
+
+relationship a9888be2-7260-44c7-885d-c9439c908293
+	fromColumn: SalesTransactions.Item
+	toColumn: Items.ItemID
+
+relationship 2f68578a-5e43-4a3a-bbea-7b4155095d52
+	isActive: false
+	fromColumn: SalesTransactions.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 61d58842-0dcc-4e23-b9a3-05e091533a73
+	fromColumn: SalesOrderLines.Item
+	toColumn: Items.ItemID
+
+relationship 9121edc5-7903-499d-8ede-8ca5f059d0d6
+	fromColumn: SalesForecastDetails.Item
+	toColumn: Items.ItemID
+
+relationship d6b693a0-16bd-464b-8f1c-9a20e7993b22
+	fromColumn: SalesForecastItems.Item
+	toColumn: Items.ItemID
+
+relationship b2ce1b87-3d2f-41db-b399-8448e5967a99
+	isActive: false
+	fromColumn: SalesForecasts.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship d21e8764-9058-4342-827c-84c56aae2891
+	isActive: false
+	fromColumn: PurchaseOrders.Item
+	toColumn: Items.ItemID
+
+relationship b770c805-75f1-4de3-9669-f94814798aed
+	isActive: false
+	fromColumn: PurchaseOrders.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 12e10296-6eaf-4a1d-9995-be128ecd923c
+	isActive: false
+	fromColumn: PurchaseOrders.Currency
+	toColumn: Divisions.Currency
+
+relationship 1cc27ac8-d01d-4aca-b538-127d07c6d030
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: PurchaseOrders.HID
+	toColumn: SalesTransactions.HID
+
+relationship 84f945f0-115d-453c-b1af-08f0dea443e8
+	isActive: false
+	fromColumn: PurchaseTransactions.Item
+	toColumn: Items.ItemID
+
+relationship 9ebbe112-156c-4aa8-8ba7-5b4fef499b9e
+	isActive: false
+	fromColumn: PurchaseTransactions.Currency
+	toColumn: Divisions.Currency
+
+relationship 0a17a83a-5e8b-478e-8c38-9e9fe8ca604e
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: PurchaseTransactions.HID
+	toColumn: SalesTransactions.HID
+
+relationship 1910a749-d8d3-452f-b3f0-810903ff2579
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: Divisions.HID
+	toColumn: SalesTransactions.HID
+
+relationship 1424e41a-8f4c-4ca5-a930-3e612935266f
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: ItemMaterials.HID
+	toColumn: SalesTransactions.HID
+
+relationship def25106-0549-4679-8d0b-45873165346a
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: StockEntries.HID
+	toColumn: SalesTransactions.HID
+
+relationship a2d38877-5c08-4e99-b023-0656c8de81b7
+	fromColumn: StockTransactions.Item
+	toColumn: Items.ItemID
+
+relationship 01ce640b-578e-4711-84ba-d8f60c9c2e37
+	fromColumn: StockTransactions.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 0e985141-d6f6-4b7e-b3be-5f6060d78d69
+	fromColumn: StockTransactions.TransactionDate
+	toColumn: dates.Date
+
+relationship 7c5629f4-bee0-466d-abe6-b9e9af91e13c
+	isActive: false
+	fromColumn: StockPlanning.Item
+	toColumn: Items.ItemID
+
+relationship 67cf8f31-bfda-430e-827b-12f0606121e9
+	isActive: false
+	fromColumn: StockPlanning.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 6b88f1c7-a279-4555-8056-da4c86643018
+	fromColumn: StockPlanning.ShopOrder
+	toColumn: ShopOrders.ID
+
+relationship ca5ea8b9-4061-49c2-8682-7212cdd0dfd0
+	fromColumn: StockPositions.Item
+	toColumn: Items.ItemID
+
+relationship 88e9e0f6-73e7-4388-bdfe-a5a630f43dd9
+	fromColumn: StockPositions.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 0aac0676-6ce4-4cc2-bd66-04eee56c7e77
+	fromColumn: StockOverview.Item
+	toColumn: Items.ItemID
+
+relationship 1fffabcd-7a33-48ef-8fbb-39af8946820f
+	fromColumn: StockOverview.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship f2d78726-169a-47ad-9e59-2e09ca10bc8f
+	crossFilteringBehavior: bothDirections
+	fromColumn: StockCounts.Item
+	toColumn: Items.ItemID
+
+relationship 7d08b7bb-4df8-48a1-88cb-301e06919f1c
+	isActive: false
+	fromColumn: StockEntries.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 6faf29d0-338b-41a5-b1e5-d95027f5d5e4
+	fromColumn: StockReplenishmentAdvices.Item
+	toColumn: Items.ItemID
+
+relationship 9b1d2b28-82f9-4006-b737-118c6d6743ab
+	fromColumn: StockReplenishmentAdvices.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 50d23087-9e50-4bcc-9849-471bf7d83e75
+	fromColumn: ShopOrders.Item
+	toColumn: Items.ItemID
+
+relationship 665886df-3b3b-4cf0-b6bb-0abccd465f54
+	fromColumn: ShopOrders.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 1ef187ad-9adb-4277-a944-ee21ae2a1b6b
+	fromColumn: ShopOrders.Division
+	toColumn: Divisions.Code
+
+relationship ab910012-138f-42f6-9211-7df1096c20fd
+	fromColumn: ShopOrders.PlannedDate
+	toColumn: dates.Date
+
+relationship 2bc0b352-1c2c-4a16-b6e5-b7fdaa3e03fd
+	crossFilteringBehavior: bothDirections
+	fromColumn: ShopOrders.ID
+	toColumn: ShopOrdersDeliveryPerformance.ShopOrder
+
+relationship 66004dc9-f9fc-427b-acd0-b0d70f3448e1
+	fromColumn: ShopOrderMaterialPlans.Item
+	toColumn: Items.ItemID
+
+relationship 3b74aefe-5a34-4800-aba1-d2da4a66ee29
+	fromColumn: ShopOrderMaterialPlans.Currency
+	toColumn: Divisions.Currency
+
+relationship 1835c37a-a2ee-417e-b166-80fe68abc740
+	isActive: false
+	fromColumn: ShopOrderMaterialPlans.ShopOrder
+	toColumn: ShopOrders.ID
+
+relationship 7e38d9ad-1122-4ce8-8c85-ad923c84da2b
+	fromColumn: ShopOrderRoutingStepPlans.ShopOrder
+	toColumn: ShopOrders.ID
+
+relationship b4d58afc-fd70-49df-ba1c-10ea9e1ebbd2
+	isActive: false
+	fromColumn: ShopOrderRoutingStepPlans.Currency
+	toColumn: Divisions.Currency
+
+relationship 24f69983-9998-4000-8e2d-f4b856e8f16a
+	fromColumn: MaterialRequirements.Item
+	toColumn: Items.ItemID
+
+relationship 7769924a-ad86-422c-87e3-bfb187b0d8f1
+	fromColumn: MaterialRequirements.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 45a8ea5f-65b6-4aeb-8582-03b37fab01a2
+	fromColumn: MRPInkopen.Item
+	toColumn: Items.ItemID
+
+relationship dd827368-640d-4e7b-a0ab-12075224707d
+	fromColumn: Recepturen.Item
+	toColumn: Items.ItemID
+
+relationship 605b1f72-6389-488f-a803-478be6a8e48c
+	isActive: false
+	fromColumn: Recepturen.EindproductID
+	toColumn: Items.ItemID
+
+relationship f5c6e2c4-877f-4809-a660-eaf70e684f41
+	fromColumn: Recepturen.EindproductID
+	toColumn: ArtikelKostprijsSplit.EindproductID
+

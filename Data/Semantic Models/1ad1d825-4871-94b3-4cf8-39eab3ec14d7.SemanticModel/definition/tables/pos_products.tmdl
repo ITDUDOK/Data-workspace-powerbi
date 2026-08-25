@@ -1,0 +1,45 @@
+table pos_products
+	lineageTag: 238e724b-8f8c-4a07-94bc-bf7aabe56a89
+
+	column ProductKey
+		dataType: string
+		lineageTag: 7ac695e9-263d-4021-9500-4d120924c0a5
+		sourceColumn: ProductKey
+
+	column ProductName
+		dataType: string
+		lineageTag: c0e79bcb-3d60-4096-b269-83580668af4b
+		sourceColumn: ProductName
+
+	column ProductNr
+		dataType: int64
+		lineageTag: 06ffb904-b9b9-4c8c-ae78-9ccc4b616f94
+		sourceColumn: ProductNr
+
+	column GroupKey
+		dataType: string
+		lineageTag: 7fc5eba9-28e8-46e2-b7c9-e81629dbadb6
+		sourceColumn: GroupKey
+
+	column GroupName
+		dataType: string
+		lineageTag: 3fa9bfce-e63f-4b62-96f9-9208a3336f3f
+		sourceColumn: GroupName
+
+	column VatPerc
+		dataType: int64
+		lineageTag: 9a2e3f40-1a7c-4a76-9dc4-57d197d88d7e
+		sourceColumn: VatPerc
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: af9bc7ff-0f71-4af9-b805-670858df2549
+		sourceColumn: ModifiedAt
+
+	partition 'pos_products 1' = entity
+		mode: directLake
+		source
+			entityName: pos_products
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

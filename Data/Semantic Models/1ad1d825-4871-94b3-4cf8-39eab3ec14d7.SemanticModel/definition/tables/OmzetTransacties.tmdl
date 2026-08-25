@@ -1,0 +1,80 @@
+table OmzetTransacties
+	lineageTag: 637618ed-9524-45c5-a021-eaeb1465bf00
+
+	column EntryDate
+		dataType: dateTime
+		lineageTag: 99dc1e0d-2b49-4f54-af27-fe5a7ea2a2de
+		sourceColumn: EntryDate
+
+	column AmountFC
+		dataType: double
+		lineageTag: 169d3d30-07a1-4fc9-b70a-95df1972e09e
+		sourceColumn: AmountFC
+
+	column Quantity
+		dataType: double
+		lineageTag: 555112d8-9f41-40a6-9dc3-7234076b12bb
+		sourceColumn: Quantity
+
+	column Item
+		dataType: string
+		lineageTag: 4716a2f0-2606-463a-8f82-2d30b825f3e7
+		sourceColumn: Item
+
+	column Account
+		dataType: string
+		lineageTag: f11399e0-f19a-44f9-93b5-199c9ba8b5fa
+		sourceColumn: Account
+
+	column Journal
+		dataType: string
+		lineageTag: b56257b5-0280-403e-9e0f-3dd59b3941bc
+		sourceColumn: Journal
+
+	column AccountName
+		dataType: string
+		lineageTag: 7ab47c87-d6e2-4d69-9cb6-b799f5b72088
+		sourceColumn: AccountName
+
+	column Classification_01
+		dataType: string
+		lineageTag: 274f779d-1a16-4d82-9811-9cae04296257
+		sourceColumn: Classification_01
+
+	column ItemCode
+		dataType: string
+		lineageTag: f21130bd-30c0-4b08-a562-941272db9d68
+		sourceColumn: ItemCode
+
+	column ItemDescription
+		dataType: string
+		lineageTag: 51185f7c-44f4-4cd3-ba53-49a7cf8d18fb
+		sourceColumn: ItemDescription
+
+	column ItemNameCode
+		dataType: string
+		lineageTag: 5cd29098-6ba2-446e-9a7d-affb0c52a981
+		sourceColumn: ItemNameCode
+
+	column ItemClass_01
+		dataType: string
+		lineageTag: f0a8ff7b-aabe-4b61-be02-f8d0942e487c
+		sourceColumn: ItemClass_01
+
+	column ItemGroup
+		dataType: string
+		lineageTag: 4f440b2c-723f-4ab3-8b46-e4bd22931d37
+		sourceColumn: ItemGroup
+
+	column sysmodified
+		dataType: dateTime
+		lineageTag: e7782ef1-c1c3-4f6a-913a-fc82758c715a
+		sourceColumn: sysmodified
+
+	partition 'OmzetTransacties 1' = entity
+		mode: directLake
+		source
+			entityName: OmzetTransacties
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+
