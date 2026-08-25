@@ -43,6 +43,11 @@
       "queryName": "MaterialRequirements",
       "loadEnabled": false
     },
+    "Recepturen": {
+      "queryId": "9ab14730-e695-4666-b6d9-7c3c3532f5ae",
+      "queryName": "Recepturen",
+      "loadEnabled": false
+    },
     "fnGetExactOnlineTable": {
       "queryId": "aefc6361-96e1-4c6d-a940-c1f0bc3f5dab",
       "queryName": "fnGetExactOnlineTable",

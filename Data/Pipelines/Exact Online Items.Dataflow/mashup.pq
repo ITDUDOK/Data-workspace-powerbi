@@ -1,42 +1,31 @@
 [DefaultOutputDestinationSettings = [DestinationDefinition = [Kind = "Reference", QueryName = "DefaultDestination", IsNewTarget = true], UpdateMethod = [Kind = "Replace"], DestinationTypeSettings = [Kind = "Table"]], StagingDefinition = [Kind = "FastCopy"]]
-
 section Section1;
-
 [BindToDefaultDestination = true]
-
 shared ItemClasses = let
     ItemClasses = fnGetExactOnlineTable("ItemClasses", each true),
 
   #"Removed columns" = Table.RemoveColumns(ItemClasses, {"timestamp"})
 in
     #"Removed columns";
-
 [BindToDefaultDestination = true]
-
 shared ItemGroups = let
     ItemGroups_Table = fnGetExactOnlineTable("ItemGroups"),
     #"Rijen gefilterd" = Table.SelectRows(ItemGroups_Table, each (true))
 in
     #"Rijen gefilterd";
-
 [BindToDefaultDestination = true]
-
 shared ItemMaterials = let
     ItemMaterials_Table = fnGetExactOnlineTable("ItemMaterials"),
     #"Rijen gefilterd" = Table.SelectRows(ItemMaterials_Table, each true)
 in
     #"Rijen gefilterd";
-
 [BindToDefaultDestination = true]
-
 shared ItemPrices = let
     ItemPrices_Table = fnGetExactOnlineTable("ItemPrices"),
     #"Rijen gefilterd" = Table.SelectRows(ItemPrices_Table, each (true))
 in
     #"Rijen gefilterd";
-
 [BindToDefaultDestination = true]
-
 shared Items = let
     // Haal de Items-tabel op
     Items_Table = fnGetExactOnlineTable("Items"),
@@ -133,21 +122,95 @@ shared Items = let
     ExpandLeverancier = Table.ExpandTableColumn(MergeLeverancier, "lev", {"Leverancier"}, {"Leverancier"})
 in
     ExpandLeverancier;
-
 [BindToDefaultDestination = true]
-
 shared ItemWarehouses = let
     ItemWarehouses = fnGetExactOnlineTable("ItemWarehouses", each true)
 in
     ItemWarehouses;
-
 [BindToDefaultDestination = true]
-
 shared MaterialRequirements = let
     MaterialRequirements = fnGetExactOnlineTable("MaterialRequirements", each true)
 in
     MaterialRequirements;
+[BindToDefaultDestination = true]
+shared Recepturen = let
+    // === Brontabellen ===
+    IM = fnGetExactOnlineTable("ItemMaterials"),
+    IM_Filtered = Table.SelectRows(IM, each [Division] = 2875061),
+    IM_Cols = Table.SelectColumns(IM_Filtered, {
+        "AssembledItem", "PartItem", "Quantity", "QuantityBatch", "sysmodified"
+    }),
 
+    ItemsTable = fnGetExactOnlineTable("Items"),
+    Items_Filtered = Table.SelectRows(ItemsTable, each [Division] = 2875061),
+    Items_Cols = Table.SelectColumns(Items_Filtered, {"ID", "Code", "Description", "CostPriceStandard", "Unit"}),
+    Items_WithDates = Table.SelectColumns(Items_Filtered, {"ID", "Code", "Description", "CostPriceStandard", "Unit", "StartDate", "EndDate"}),
+
+    // === Verrijking: Ingredient info ===
+    JoinIngredient = Table.NestedJoin(IM_Cols, {"PartItem"}, Items_Cols, {"ID"}, "Ingredient", JoinKind.LeftOuter),
+    ExpandIngredient = Table.ExpandTableColumn(JoinIngredient, "Ingredient", 
+        {"Code", "Description", "CostPriceStandard", "Unit"}, 
+        {"IngredientCode", "IngredientOmschrijving", "IngredientKostprijs", "IngredientEenheid"}),
+
+    // === Verrijking: Eindproduct info (met datums) ===
+    JoinEindproduct = Table.NestedJoin(ExpandIngredient, {"AssembledItem"}, Items_WithDates, {"ID"}, "Eindproduct", JoinKind.LeftOuter),
+    ExpandEindproduct = Table.ExpandTableColumn(JoinEindproduct, "Eindproduct", 
+        {"Code", "Description", "CostPriceStandard", "StartDate", "EndDate"}, 
+        {"EindproductCode", "EindproductOmschrijving", "EindproductKostprijs", "EindproductStartDate", "EindproductEndDate"}),
+
+    Renamed = Table.RenameColumns(ExpandEindproduct, {
+        {"AssembledItem", "EindproductID"},
+        {"PartItem", "Item"},
+        {"QuantityBatch", "GeplandAantal"}
+    }),
+
+    // === Berekeningen ===
+    MetRatio = Table.AddColumn(Renamed, "HoeveelheidPer1", 
+        each if [GeplandAantal] = null or [GeplandAantal] = 0 
+             then null 
+             else [Quantity] / [GeplandAantal], type number),
+
+    MetIngredientKostenPer1 = Table.AddColumn(MetRatio, "IngredientKostenPer1",
+        each if [HoeveelheidPer1] = null or [IngredientKostprijs] = null
+             then null
+             else [IngredientKostprijs] * [HoeveelheidPer1], type number),
+
+    MetTotaleKosten = Table.AddColumn(MetIngredientKostenPer1, "TotaleIngredientKosten",
+        each if [IngredientKostprijs] = null or [Quantity] = null
+             then null
+             else [IngredientKostprijs] * [Quantity], type number),
+
+    Gegroepeerd = Table.Group(MetTotaleKosten, {"EindproductID"}, {
+        {"BerekendeKostprijs", each List.Sum([IngredientKostenPer1]), type number}
+    }),
+
+    MetBerekend = Table.NestedJoin(MetTotaleKosten, {"EindproductID"}, Gegroepeerd, {"EindproductID"}, "Berekend", JoinKind.LeftOuter),
+    ExpandBerekend = Table.ExpandTableColumn(MetBerekend, "Berekend", {"BerekendeKostprijs"}, {"BerekendeKostprijsEindproduct"}),
+
+    MetVerschil = Table.AddColumn(ExpandBerekend, "KostprijsVerschil",
+        each if [EindproductKostprijs] = null or [BerekendeKostprijsEindproduct] = null
+             then null
+             else [EindproductKostprijs] - [BerekendeKostprijsEindproduct], type number),
+
+    Resultaat = Table.SelectColumns(MetVerschil, {
+        "EindproductID", "EindproductCode", "EindproductOmschrijving", "EindproductKostprijs",
+        "EindproductStartDate", "EindproductEndDate", "BerekendeKostprijsEindproduct", "KostprijsVerschil",
+        "Item", "IngredientCode", "IngredientOmschrijving", "IngredientKostprijs", "IngredientEenheid",
+        "Quantity", "GeplandAantal", "HoeveelheidPer1", "IngredientKostenPer1", "TotaleIngredientKosten",
+        "sysmodified"
+    }),
+    #"Type gewijzigd" = Table.TransformColumnTypes(Resultaat,{
+        {"HoeveelheidPer1", Currency.Type},
+        {"EindproductStartDate", type datetime},
+        {"EindproductEndDate", type datetime}
+    }),
+
+    IngredientNameCode = Table.AddColumn(#"Type gewijzigd", "IngredientNameCode", 
+        each [IngredientCode] & " - " & [IngredientOmschrijving], type text),
+    EindproductNameCode = Table.AddColumn(IngredientNameCode, "EindproductNameCode", 
+        each [EindproductCode] & " - " & [EindproductOmschrijving], type text)
+in
+    EindproductNameCode;
 shared fnGetExactOnlineTable = (TableName as text, optional FilterCondition as function) =>
 let
     Source = ExactOnlinePremium.Contents(),
@@ -157,6 +220,4 @@ let
     FilteredData = if FilterCondition <> null then Table.SelectRows(TableData, FilterCondition) else TableData
 in
     FilteredData;
-
 shared DefaultDestination = Lakehouse.Contents([EnableFolding = false]){[workspaceId = "1f90325e-1060-4c7d-adf4-ccf9fca8b287"]}[Data]{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data];
-

@@ -23,6 +23,16 @@
       "queryName": "PurchaseTransactions",
       "loadEnabled": false
     },
+    "InkoopTransacties": {
+      "queryId": "e5648b9e-794c-4557-a745-a1719e2015a3",
+      "queryName": "InkoopTransacties",
+      "loadEnabled": false
+    },
+    "ArtikelKostprijsSplit": {
+      "queryId": "3796627b-ea21-45db-beef-6a5d608307a1",
+      "queryName": "ArtikelKostprijsSplit",
+      "loadEnabled": false
+    },
     "fnGetExactOnlineTable": {
       "queryId": "349f1cd5-1377-4d5c-a3b1-b905c6ca4e6c",
       "queryName": "fnGetExactOnlineTable",
