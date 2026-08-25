@@ -403,6 +403,19 @@
     }
   },
   {
+    "name": "Recepturen",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/Recepturen",
+        "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  },
+  {
     "name": "PurchaseTransactions",
     "path": "/Tables/dbo",
     "target": {
@@ -474,6 +487,19 @@
       "type": "OneLake",
       "oneLake": {
         "path": "Tables/PlannedOrderCalculationDateMethods",
+        "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  },
+  {
+    "name": "OmzetTransacties",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/OmzetTransacties",
         "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
         "workspaceId": "00000000-0000-0000-0000-000000000000",
         "artifactType": "Lakehouse"
@@ -689,6 +715,19 @@
     }
   },
   {
+    "name": "InkoopTransacties",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/InkoopTransacties",
+        "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  },
+  {
     "name": "GLTransactionStatus",
     "path": "/Tables/dbo",
     "target": {
@@ -825,6 +864,19 @@
       "type": "OneLake",
       "oneLake": {
         "path": "Tables/Costcenters",
+        "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  },
+  {
+    "name": "ArtikelKostprijsSplit",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/ArtikelKostprijsSplit",
         "itemId": "ab5bea0d-2b4a-b3f0-4ef6-5d18380445e2",
         "workspaceId": "00000000-0000-0000-0000-000000000000",
         "artifactType": "Lakehouse"
