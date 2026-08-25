@@ -82,6 +82,11 @@
       "queryName": "SalesOrders_DataDestination",
       "isHidden": true,
       "loadEnabled": false
+    },
+    "OmzetTransacties": {
+      "queryId": "6d47ce20-0ac3-48c5-a0ee-07242e3708c0",
+      "queryName": "OmzetTransacties",
+      "loadEnabled": false
     }
   },
   "connections": [
