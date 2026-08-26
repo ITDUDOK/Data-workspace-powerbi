@@ -1,0 +1,2782 @@
+table Measure
+	isHidden
+	lineageTag: b7e094f4-3ffd-429d-aba7-35ceedeb1810
+
+	measure 'Planned Item By Endate' = ```
+			
+			 VAR        _ItemsByEndDate          =    CALCULATE(SUM(ShopOrders[PlannedQuantity])
+			                                            ,FILTER(ShopOrders, ShopOrders[EntryDateWeekNr] <> ShopOrders[PlannedEndDateWeekNr]))                                           
+			VAR         _If             =       IF(_ItemsByEndDate = -0, BLANK(),  _ItemsByEndDate)
+			VAR         _Result         =        _If
+			
+			RETURN
+			_Result
+			```
+		displayFolder: ShopOrder
+		lineageTag: a5888d80-cf3d-49d2-b85d-e22d2de653e2
+
+	measure 'Planned Item By EntryDate' = ```
+			
+			VAR        _ItemsByEntryDate          =    SUM(ShopOrders[PlannedQuantity])                              
+			VAR         _If             =       IF(_ItemsByEntryDate = -0, BLANK(),  _ItemsByEntryDate)
+			VAR         _Result         =        _If
+			
+			RETURN
+			_Result
+			```
+		displayFolder: ShopOrder
+		lineageTag: ca61fea5-8a6a-4911-89bd-d29a7bbe0c2e
+
+	measure 'Total Planned Item Of Week' = [Planned Item By Endate] + [Planned Item By EntryDate]
+		formatString: 0
+		displayFolder: ShopOrder
+		lineageTag: 9a9f92c7-4d37-424f-aeee-20b8193a6549
+
+	measure 'Finished Item By EntryDate' = ```
+			
+			 VAR        _ItemsByEntryDate          =    SUM(ShopOrders[QuantityProduced])                                    
+			VAR         _If             =       IF(_ItemsByEntryDate = -0, BLANK(),  _ItemsByEntryDate)
+			VAR         _Result         =        _If
+			
+			RETURN
+			_Result
+			```
+		displayFolder: ShopOrder
+		lineageTag: 91299b2d-5b74-4bea-a208-3ec2a360a877
+
+	measure 'Finished Item By Endate' = ```
+			
+			 VAR        _ItemsByEndDate          =    CALCULATE(SUM(ShopOrders[QuantityProduced])
+			                                            ,FILTER(ShopOrders, ShopOrders[EntryDateWeekNr] <> ShopOrders[PlannedEndDateWeekNr]))                                           
+			VAR         _If             =       IF(_ItemsByEndDate = -0, BLANK(),  _ItemsByEndDate)
+			VAR         _Result         =        _If
+			
+			RETURN
+			_Result
+			```
+		displayFolder: ShopOrder
+		lineageTag: 363565da-ec10-48d1-971e-33f83b43dcc5
+
+	measure 'Total Finished Item Of Week' = [Finished Item By EntryDate]  + [Finished Item By Endate]
+		displayFolder: ShopOrder
+		lineageTag: abd4b991-7610-40a2-a883-afd65c0e8862
+
+	measure TotalBespokePartsOrder = CALCULATE(COUNTROWS(ShopOrders), ShopOrders[LinkedToQuotation] == 1)
+		formatString: 0
+		displayFolder: ShopOrder
+		lineageTag: 9fdd1ebe-9a45-4c18-8f3b-00f20858a021
+
+	measure TotalBespokePartsDeliverdOrder = ```
+			
+			
+			VAR _DeliveredOrder = CALCULATE(COUNTROWS(ShopOrders), FILTER(ShopOrders, ShopOrders[PlannedQuantity]=RELATED(ShopOrdersDeliveryPerformance[DeliveredQuantity])),ShopOrders[LinkedToQuotation]=1)
+			
+			VAR _TotalBespokePartsOrder = CALCULATE(COUNTROWS(ShopOrders), ShopOrders[LinkedToQuotation] == 1)
+			
+			
+			VAR         _If             =       IF(_DeliveredOrder =  BLANK(), 0,  _DeliveredOrder)
+			VAR         _Result         =        _If   
+			RETURN 
+			 _If   
+			```
+		formatString: 0
+		displayFolder: ShopOrder
+		lineageTag: 432e3b6b-3d26-4770-93b0-e8fb13289a6f
+
+	measure 'BespokePartsDeliveryPerformance %' = DIVIDE([TotalBespokePartsDeliverdOrder],[TotalBespokePartsOrder])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: ShopOrder
+		lineageTag: 3f1f2fa9-4ae8-4b83-9560-ff6010895e81
+
+	measure TotalStandardPartsOnOrderOrder = CALCULATE(COUNTROWS(ShopOrders), ShopOrders[LinkedToQuotation] == 0, ShopOrders[LinkedToSalesOrder] == 1)
+		formatString: 0
+		displayFolder: ShopOrder
+		lineageTag: 0f96f040-6bad-47a5-b37e-575008a38f3b
+
+	measure TotalStandardPartsOnStockOrder = CALCULATE(COUNTROWS(ShopOrders), ShopOrders[LinkedToQuotation] == 0, ShopOrders[LinkedToSalesOrder] == 0)
+		formatString: 0
+		displayFolder: ShopOrder
+		lineageTag: 934a2e59-1ad3-4181-a0aa-d911e5b4472d
+
+	measure TotalStandardPartsOnOrderDeliverdOrder = ```
+			
+			
+			VAR _DeliveredOrder = CALCULATE(COUNTROWS(ShopOrders), FILTER(ShopOrders, ShopOrders[PlannedQuantity]=RELATED(ShopOrdersDeliveryPerformance[DeliveredQuantity])),ShopOrders[LinkedToQuotation]=0, ShopOrders[LinkedToSalesOrder] = 1)
+			
+			VAR         _If             =       IF(_DeliveredOrder =  BLANK(), 0,  _DeliveredOrder)
+			VAR         _Result         =        _If   
+			RETURN 
+			 _If   
+			```
+		formatString: 0
+		displayFolder: ShopOrder
+		lineageTag: dc34972d-8371-4df7-a61c-bdb4c2a8e211
+
+	measure TotalStandardPartsOnStockDeliverdOrder = ```
+			
+			
+			VAR _DeliveredOrder = CALCULATE(COUNTROWS(ShopOrders), FILTER(ShopOrders, ShopOrders[PlannedQuantity]=RELATED(ShopOrdersDeliveryPerformance[DeliveredQuantity])),ShopOrders[LinkedToQuotation]=0, ShopOrders[LinkedToSalesOrder] = 0)
+			
+			VAR         _If             =       IF(_DeliveredOrder =  BLANK(), 0,  _DeliveredOrder)
+			VAR         _Result         =        _If   
+			RETURN 
+			 _If   
+			```
+		formatString: 0
+		displayFolder: ShopOrder
+		lineageTag: af2ee7ee-3793-4ef5-8607-5322b1b09f5b
+
+	measure 'StandardPartsOnOrderDeliveryPerformance %' = DIVIDE([TotalStandardPartsOnOrderDeliverdOrder],[TotalStandardPartsOnOrderOrder])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: ShopOrder
+		lineageTag: fe0cf771-9a30-4331-a7e3-026f22940a1b
+
+	measure 'StandardPartsOnStockDeliveryPerformance %' = DIVIDE([TotalStandardPartsOnStockDeliverdOrder],[TotalStandardPartsOnStockOrder])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: ShopOrder
+		lineageTag: 3846c758-71ca-42ab-8da4-830384118d43
+
+	measure 'Stock At Date' =
+			
+			VAR SelectedDate = MAX( PeilDatum[Date] )
+			VAR ValidTypes = {
+			    120, 121, 122, 123, 124, 125, 130, 131, 132, 133, 134, 135,
+			    140, 141, 147, 148, 150, 151, 155, 156, 160, 161, 165, 166,
+			    196, 197
+			}
+			VAR HuidigeStock =
+			    CALCULATE(
+			        SUM( StockPositions[Stock] ),
+			        StockPositions[Item]      IN VALUES( StockOverview[Item] ),
+			        StockPositions[Warehouse] IN VALUES( StockOverview[Warehouse] )
+			    )
+			VAR MutatiesNaDatum =
+			    CALCULATE(
+			        SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item]            IN VALUES( StockOverview[Item] ),
+			        StockTransactions[Warehouse]       IN VALUES( StockOverview[Warehouse] ),
+			        StockTransactions[Status]          = 21,
+			        StockTransactions[Type]            IN ValidTypes,
+			        StockTransactions[TransactionDate] > SelectedDate
+			    )
+			RETURN
+			    IF( NOT ISBLANK( SelectedDate ), HuidigeStock - MutatiesNaDatum, BLANK() )
+		formatString: #,0
+		lineageTag: 2021bc0b-81a9-4ffd-b69d-47f02db30f9b
+
+	measure 'Stock Value At Date' = ```
+			
+			VAR SelectedDate = MAX(PeilDatum[Date])
+			VAR Today = TODAY()
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(SelectedDate),
+			    SUMX(
+			        StockOverview,
+			        VAR ThisItem = StockOverview[Item]
+			        VAR ThisWarehouse = StockOverview[Warehouse]
+			        VAR CurrentStock = [Stock op Peildatum]
+			        
+			        // Bewegingen NA de geselecteerde datum
+			        VAR MovementsAfterDate = 
+			            CALCULATE(
+			                SUM('StockTransactions'[Quantity]),
+			                REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] = ThisItem,
+			        'StockTransactions'[Warehouse] = ThisWarehouse,
+			        'StockTransactions'[TransactionDate] > SelectedDate,
+			        'StockTransactions'[TransactionDate] <= Today,
+			        'StockTransactions'[Status] = 21
+			            )
+			        
+			        // Voorraad op datum
+			        VAR StockOnDate = CurrentStock - MovementsAfterDate
+			        
+			        // Laatste transactie datum TOT geselecteerde datum
+			        VAR LastTxDate = 
+			            CALCULATE(
+			                MAX('StockTransactions'[TransactionDate]),
+			                REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] = ThisItem,
+			        'StockTransactions'[Warehouse] = ThisWarehouse,
+			        'StockTransactions'[TransactionDate] <= SelectedDate,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[CostPrice] <> 0
+			            )
+			        
+			        // Laatste kostprijs op die datum
+			        VAR LastCostPrice = 
+			            CALCULATE(
+			                SELECTEDVALUE('StockTransactions'[CostPrice]),
+			                REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] = ThisItem,
+			        'StockTransactions'[Warehouse] = ThisWarehouse,
+			        'StockTransactions'[TransactionDate] = LastTxDate,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[CostPrice] <> 0
+			            )
+			        
+			        RETURN StockOnDate * LastCostPrice
+			    ),
+			    BLANK()
+			)
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: e14cd645-c8ee-4e07-894e-8486a466ee1e
+
+	measure 'MRP Actuele Voorraad' = ```
+			
+			VAR SelectedItem = MAX( Items[ItemID] )
+			VAR SelectedDate = CALCULATE( MAX( dates[Date] ), ALL( MRPInkopen ) )
+			VAR Today        = TODAY()
+			VAR ValidTypes   = {
+			    120, 121, 122, 123, 124, 125, 130, 131, 132, 133, 134, 135,
+			    140, 141, 147, 148, 150, 151, 155, 156, 160, 161, 165, 166,
+			    196, 197
+			}
+			VAR CurrentStock = 
+			    CALCULATE(
+			        SUM( StockPositions[Stock] ),
+			        REMOVEFILTERS( StockPositions ),
+			        StockPositions[Item] = SelectedItem
+			    )
+			RETURN
+			    IF(
+			        ISBLANK( SelectedDate ) || SelectedDate >= Today,
+			        CurrentStock + 0,
+			        VAR MovementsAfterDate = 
+			            CALCULATE(
+			                SUM( StockTransactions[Quantity] ),
+			                REMOVEFILTERS( StockTransactions ),
+			                REMOVEFILTERS( dates ),
+			                StockTransactions[Item]            = SelectedItem,
+			                StockTransactions[TransactionDate] > SelectedDate,
+			                StockTransactions[TransactionDate] <= Today,
+			                StockTransactions[Status]          = 21,
+			                StockTransactions[Type]            IN ValidTypes
+			            )
+			        RETURN CurrentStock - MovementsAfterDate + 0
+			    )
+			```
+		formatString: #,0
+		lineageTag: eba861ef-5984-4b1f-832d-352e46a959f5
+
+	measure 'Forecast Quantity' =
+			
+			VAR SelectedDate = MAX(dates[Date])
+			VAR SelectedYear = YEAR(SelectedDate)
+			VAR SelectedWeek = MAX(dates[WeekNr])
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(SelectedDate),
+			    SUMX(
+			        StockOverview,
+			        VAR ThisItem = StockOverview[Item]
+			        RETURN
+			        CALCULATE(
+			            SUM('SalesForecastDetails'[Quantity]),
+			            REMOVEFILTERS( 'SalesForecastDetails' ),
+			        'SalesForecastDetails'[Item] = ThisItem,
+			        'SalesForecastDetails'[Year] = SelectedYear,
+			        'SalesForecastDetails'[Period] = SelectedWeek
+			        )
+			    ),
+			    BLANK()
+			)
+		lineageTag: 43530b01-acc0-4be6-a470-ada29959f937
+
+	measure 'Correctie %' =
+			
+			SELECTEDVALUE('correctiefactor'[CorrPercent], 0)
+		formatString: 0
+		lineageTag: f062b955-99ad-474a-8ba6-1afc0a3d4084
+
+	measure 'Verkocht Aantal' =
+			
+			ABS( SUM( SalesOrderLines[Quantity] ) )
+		lineageTag: 935f0c0e-b1a2-49a0-97f8-4e4b4927dc5b
+
+	measure 'Prognose Deze Week' =
+			
+			VAR refKeuze     = SELECTEDVALUE( referentieperiode[ReferentieID], 2 )
+			VAR correctie    = DIVIDE( [Correctie %], 100, 0 )
+			VAR huidigItem   = SELECTEDVALUE( StockOverview[Item] )
+			VAR selWeekStart = MIN( dates[Date] )
+			VAR selWeekEind  = MAX( dates[Date] )
+			
+			// OPTIE 1: Vorig jaar ±2 weken (5 weken totaal)
+			VAR anker   = selWeekStart - 364
+			VAR start5w = anker - 14
+			VAR eind5w  = anker + 14 + ( selWeekEind - selWeekStart )
+			VAR verkoop5w =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type] IN {120, 122},
+			        dates[Date] >= start5w,
+			        dates[Date] <= eind5w
+			    )
+			VAR gem5w = DIVIDE( verkoop5w, 5 )
+			
+			// OPTIE 2: Gemiddelde laatste 4 weken
+			VAR start4w = selWeekStart - 28
+			VAR eind4w  = selWeekStart - 1
+			VAR verkoop4w =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type] IN {120, 122},
+			        dates[Date] >= start4w,
+			        dates[Date] <= eind4w
+			    )
+			VAR gem4w = DIVIDE( verkoop4w, 4 )
+			
+			// OPTIE 3: Gemiddelde laatste 10 weken
+			VAR start10w = selWeekStart - 70
+			VAR eind10w  = selWeekStart - 1
+			VAR verkoop10w =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type] IN {120, 122},
+			        dates[Date] >= start10w,
+			        dates[Date] <= eind10w
+			    )
+			VAR gem10w = DIVIDE( verkoop10w, 10 )
+			
+			VAR basis =
+			    SWITCH(
+			        refKeuze,
+			        1, gem5w,
+			        2, gem4w,
+			        3, gem10w,
+			        gem4w  // fallback naar 4 weken ipv BLANK
+			    )
+			
+			RETURN
+			    ROUND( basis * ( 1 + correctie ), 0 )
+		lineageTag: 14b6cd8c-c900-4138-8c73-78981c412c10
+
+	measure 'Weken Voorraad' =
+			
+			VAR prognose = [Prognose Deze Week]
+			VAR voorraad = [Stock At Date]
+			RETURN
+			    IF( prognose > 0, ROUND( DIVIDE( voorraad, prognose ), 1 ), BLANK() )
+		lineageTag: 4a5d6e69-8a36-41f2-bd21-60859ab1726a
+
+	measure Tekort =
+			
+			VAR prognose = [Prognose Deze Week]
+			VAR voorraad = [MRP Actuele Voorraad]
+			RETURN
+			    IF( voorraad < prognose, prognose - voorraad, 0 )
+		lineageTag: 542a1f17-1453-4cbd-92d2-6326ac045ef5
+
+	measure 'Debug Prognose' = ```
+			
+			VAR huidigItem      = SELECTEDVALUE( StockOverview[Item] )
+			VAR huidigWarehouse = SELECTEDVALUE( StockOverview[Warehouse] )
+			VAR selWeekStart    = MIN( dates[Date] )
+			
+			RETURN
+			    "Start=" & FORMAT(selWeekStart, "DD-MM-YYYY")
+			    & " | 4w=" & FORMAT(selWeekStart - 28, "DD-MM-YYYY")
+			    & " | Item=" & LEFT(huidigItem, 8)
+			    & " | Qty=" & 
+			    CALCULATE(
+			        ABS( SUM( StockTransactions[Quantity] ) ),
+			        REMOVEFILTERS( StockTransactions ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Warehouse] = huidigWarehouse,
+			        StockTransactions[Type] IN {120, 122, 124, 125, 131, 133, 141, 148, 150, 155, 161, 165, 196},
+			        StockTransactions[Status] = 21,
+			        StockTransactions[TransactionDate] >= selWeekStart - 28,
+			        StockTransactions[TransactionDate] <= selWeekStart - 1
+			    )
+			```
+		lineageTag: ed2c5ea5-6316-419f-b2d8-2679fbda55fa
+
+	measure 'Prognose Deze Week Totaal' =
+			
+			IF(
+			    HASONEVALUE( StockOverview[Item] ),
+			    [Prognose Deze Week],
+			    SUMX(
+			        VALUES( StockOverview[Item] ),
+			        [Prognose Deze Week]
+			    )
+			)
+		formatString: #,0
+		lineageTag: af20969f-ca80-4922-9f78-1e15ba13d53d
+
+	measure 'Weken voorraad totaal' =
+			
+			IF(
+			    HASONEVALUE( StockOverview[Item] ),
+			    [Weken Voorraad],
+			    AVERAGEX(
+			        VALUES( StockOverview[Item] ),
+			        [Weken Voorraad]
+			    )
+			)
+		lineageTag: 23014a27-3cfe-459b-b520-0f7973f0f845
+
+	measure 'Prognose Volgende Week' =
+			
+			VAR refKeuze     = SELECTEDVALUE( referentieperiode[ReferentieID], 2 )
+			VAR correctie    = DIVIDE( [Correctie %], 100, 0 )
+			VAR huidigItem   = SELECTEDVALUE( StockOverview[Item] )
+			VAR selWeekStart = MIN( dates[Date] ) + 7
+			VAR selWeekEind  = MAX( dates[Date] ) + 7
+			
+			// OPTIE 1: Vorig jaar zelfde week
+			VAR vjStart = selWeekStart - 364
+			VAR vjEind  = selWeekEind - 364
+			VAR verkoopVorigJaar =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type] IN {120, 122},
+			        dates[Date] >= vjStart,
+			        dates[Date] <= vjEind
+			    )
+			
+			// OPTIE 2: Laatste 4 weken
+			VAR start4w = selWeekStart - 28
+			VAR eind4w  = selWeekStart - 1
+			VAR verkoop4w =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type] IN {120, 122},
+			        dates[Date] >= start4w,
+			        dates[Date] <= eind4w
+			    )
+			VAR gem4w = DIVIDE( verkoop4w, 4 )
+			
+			// OPTIE 3: Laatste 10 weken
+			VAR start10w = selWeekStart - 70
+			VAR eind10w  = selWeekStart - 1
+			VAR verkoop10w =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type] IN {120, 122},
+			        dates[Date] >= start10w,
+			        dates[Date] <= eind10w
+			    )
+			VAR gem10w = DIVIDE( verkoop10w, 10 )
+			
+			VAR basis =
+			    SWITCH(
+			        refKeuze,
+			        1, verkoopVorigJaar,
+			        2, gem4w,
+			        3, gem10w,
+			        gem4w
+			    )
+			
+			RETURN
+			    ROUND( basis * ( 1 + correctie ), 0 )
+		lineageTag: 4fdd2ed5-940d-4f03-b1ff-8d4afe8dec0d
+
+	measure 'Prognose Volgende Week Totaal' =
+			
+			IF(
+			    HASONEVALUE( StockOverview[Item] ),
+			    [Prognose Volgende Week],
+			    SUMX(
+			        VALUES( StockOverview[Item] ),
+			        [Prognose Volgende Week]
+			    )
+			)
+		formatString: #,0
+		lineageTag: 27a428d4-0a83-4814-b3fe-e963539c6132
+
+	measure 'Prognose Over Twee Weken' =
+			
+			VAR refKeuze     = SELECTEDVALUE( referentieperiode[ReferentieID], 2 )
+			VAR correctie    = DIVIDE( [Correctie %], 100, 0 )
+			VAR huidigItem   = SELECTEDVALUE( StockOverview[Item] )
+			VAR selWeekStart = MIN( dates[Date] ) + 14
+			VAR selWeekEind  = MAX( dates[Date] ) + 14
+			
+			VAR vjStart = selWeekStart - 364
+			VAR vjEind  = selWeekEind - 364
+			VAR verkoopVorigJaar =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type] IN {120, 122},
+			        dates[Date] >= vjStart,
+			        dates[Date] <= vjEind
+			    )
+			
+			VAR start4w = selWeekStart - 28
+			VAR eind4w  = selWeekStart - 1
+			VAR verkoop4w =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type] IN {120, 122},
+			        dates[Date] >= start4w,
+			        dates[Date] <= eind4w
+			    )
+			VAR gem4w = DIVIDE( verkoop4w, 4 )
+			
+			VAR start10w = selWeekStart - 70
+			VAR eind10w  = selWeekStart - 1
+			VAR verkoop10w =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type] IN {120, 122},
+			        dates[Date] >= start10w,
+			        dates[Date] <= eind10w
+			    )
+			VAR gem10w = DIVIDE( verkoop10w, 10 )
+			
+			VAR basis =
+			    SWITCH(
+			        refKeuze,
+			        1, verkoopVorigJaar,
+			        2, gem4w,
+			        3, gem10w,
+			        gem4w
+			    )
+			
+			RETURN
+			    ROUND( basis * ( 1 + correctie ), 0 )
+		lineageTag: e9d4afa9-36a6-4390-a8fd-c8089e04dd9a
+
+	measure 'Prognose Over Twee Weken Totaal' =
+			
+			IF(
+			    HASONEVALUE( StockOverview[Item] ),
+			    [Prognose Over Twee Weken],
+			    SUMX(
+			        VALUES( StockOverview[Item] ),
+			        [Prognose Over Twee Weken]
+			    )
+			)
+		formatString: #,0
+		lineageTag: d380bcd1-cb88-46e6-b98f-a861e80f7be2
+
+	measure 'Test Zonder Datum' =
+			
+			VAR huidigItem = SELECTEDVALUE( StockOverview[Item] )
+			RETURN
+			CALCULATE(
+			    SUM( StockPlanning[OrderQuantity] ),
+			    REMOVEFILTERS( StockPlanning ),
+			        StockPlanning[Item] = huidigItem,
+			        StockPlanning[Type] = 130,
+			        StockPlanning[Status] = 12
+			)
+		lineageTag: 30b90cf3-26d3-469a-9112-a082f365465b
+
+	measure 'Test SP Formaat' =
+			
+			CONCATENATEX(
+			    TOPN(1, ALL(StockPlanning), StockPlanning[DueDate], DESC),
+			    StockPlanning[Item],
+			    ""
+			)
+		lineageTag: 0d50f59b-e926-490e-8f5e-05ce3e57861b
+
+	measure 'Test ST Formaat' =
+			
+			CONCATENATEX(
+			    TOPN(1, ALL(StockTransactions), StockTransactions[TransactionDate], DESC),
+			    StockTransactions[Item],
+			    ""
+			)
+		lineageTag: c67e6a58-ea24-4423-a85a-c4bbe3caf77e
+
+	measure 'Test Item Type' =
+			
+			VAR huidigItem = SELECTEDVALUE( StockOverview[Item] )
+			RETURN
+			    "SO: " & huidigItem & " | SP: " & FIRSTNONBLANK( StockPlanning[Item], 1 )
+		lineageTag: 1916b6c4-1949-4a0d-9eb2-7a4992b670e3
+
+	measure 'MRP Prognose Deze Week' =
+			
+			VAR WeekStart = TODAY() - WEEKDAY(TODAY(), 2) + 1
+			VAR WeekEnd = WeekStart + 6
+			VAR SelectedItem = MAX(Items[ItemID])
+			RETURN
+			CALCULATE(
+			    SUM(MRPInkopen[Quantity]),
+			    ALL(MRPInkopen),
+			    MRPInkopen[Type] = "Prognose",
+			    MRPInkopen[Date] >= WeekStart,
+			    MRPInkopen[Date] <= WeekEnd,
+			    MRPInkopen[Item] = SelectedItem
+			)
+		formatString: #,0
+		lineageTag: e6949875-ada7-4098-9aa7-0bab8ee90ad7
+
+	measure 'MRP Bestelling Deze Week' =
+			
+			VAR WeekStart = TODAY() - WEEKDAY(TODAY(), 2) + 1
+			VAR WeekEnd = WeekStart + 6
+			VAR SelectedItem = SELECTEDVALUE(Items[ItemID])
+			RETURN
+			CALCULATE(
+			    SUM(MRPInkopen[Quantity]),
+			    ALL(MRPInkopen),
+			    MRPInkopen[Type] = "Bestelling",
+			    MRPInkopen[Date] >= WeekStart,
+			    MRPInkopen[Date] <= WeekEnd,
+			    MRPInkopen[Item] = SelectedItem
+			)
+		formatString: #,0
+		lineageTag: c882ebee-ad25-4e7e-b779-37ee4bc7484c
+
+	measure 'MRP Prognose Wk1' = ```
+			
+			VAR WeekStart = TODAY() - WEEKDAY(TODAY(), 2) + 8
+			VAR WeekEnd = WeekStart + 6
+			VAR SelectedItem = MAX(Items[ItemID])
+			VAR Result = 
+			    CALCULATE(
+			        SUM(MRPInkopen[Quantity]),
+			        ALL(MRPInkopen),
+			        MRPInkopen[Type] = "Prognose",
+			        MRPInkopen[Date] >= WeekStart,
+			        MRPInkopen[Date] <= WeekEnd,
+			        MRPInkopen[Item] = SelectedItem
+			    )
+			RETURN Result + 0
+			```
+		formatString: 0
+		lineageTag: 81cedb51-7a57-40e2-a081-931d650b066e
+
+	measure 'MRP Prognose Wk2' =
+			
+			VAR WeekStart = TODAY() - WEEKDAY(TODAY(), 2) + 15
+			VAR WeekEnd = WeekStart + 6
+			VAR SelectedItem = SELECTEDVALUE(Items[ItemID])
+			RETURN
+			CALCULATE(
+			    SUM(MRPInkopen[Quantity]),
+			    ALL(MRPInkopen),
+			    MRPInkopen[Type] = "Prognose",
+			    MRPInkopen[Date] >= WeekStart,
+			    MRPInkopen[Date] <= WeekEnd,
+			    MRPInkopen[Item] = SelectedItem
+			)
+		formatString: 0
+		lineageTag: d3e05c17-44e2-4c7b-81f7-d4924434542b
+
+	measure 'MRP Levering Wk1' =
+			
+			VAR WeekStart = TODAY() - WEEKDAY(TODAY(), 2) + 8
+			VAR WeekEnd = WeekStart + 6
+			VAR SelectedItem = SELECTEDVALUE(Items[ItemID])
+			RETURN
+			CALCULATE(
+			    SUM(MRPInkopen[Quantity]),
+			    ALL(MRPInkopen),
+			    MRPInkopen[Type] = "Bestelling",
+			    MRPInkopen[Date] >= WeekStart,
+			    MRPInkopen[Date] <= WeekEnd,
+			    MRPInkopen[Item] = SelectedItem
+			)
+		formatString: 0
+		lineageTag: 1b53cf21-a97f-4288-bd2b-798b91a8e8cc
+
+	measure 'MRP Item Test' = MAX(Items[ItemID])
+		lineageTag: d0a34974-72f5-4bc8-895a-20abfe5a9e41
+
+	measure 'MRP StockOverview Item Test' =
+			
+			CALCULATE(
+			    MAX(StockOverview[Item]),
+			    ALL(StockOverview),
+			    StockOverview[ItemCode] = "1006"
+			)
+		lineageTag: 824900d7-27b9-4910-877e-8547639c9b8f
+
+	measure 'MRP StockPositions Item Test' =
+			
+			CALCULATE(
+			    MAX(StockPositions[Item]),
+			    ALL(StockPositions),
+			    StockPositions[Item] = "{681DFFF1-D88A-4C31-84C2-65F0A7311150}"
+			)
+		lineageTag: b5a11578-4772-43d2-9828-86b2a303b9b7
+
+	measure 'MRP Prognose Test' =
+			
+			VAR SelectedItem = MAX(Items[ItemID])
+			RETURN
+			CALCULATE(
+			    SUM(MRPInkopen[Quantity]),
+			    ALL(MRPInkopen),
+			    MRPInkopen[Type] = "Prognose",
+			    MRPInkopen[Item] = SelectedItem
+			)
+		lineageTag: 4d0b6f52-173e-4eb5-9f64-186d6c2fe6da
+
+	measure 'Stock At Date Weergave' =
+			
+			IF(
+			    ISINSCOPE(StockOverview[ItemNameCode])
+			    || NOT HASONEVALUE(StockOverview[Warehouse]),
+			    [Stock At Date],
+			    BLANK()
+			)
+		lineageTag: 93fa3018-7962-4ba6-9882-0b1f8a1730f9
+
+	measure 'Eenheid Weergave' =
+			
+			IF(
+			    ISINSCOPE(StockOverview[ItemNameCode])
+			    && COUNTROWS(VALUES(StockOverview[ItemNameCode])) = 1
+			    && COUNTROWS(ALLSELECTED(StockOverview[ItemNameCode])) > COUNTROWS(VALUES(StockOverview[ItemNameCode])),
+			    MAX(StockOverview[Unit]),
+			    IF(
+			        ISINSCOPE(StockOverview[ItemNameCode])
+			        && COUNTROWS(ALLSELECTED(StockOverview[ItemNameCode])) = 1,
+			        MAX(StockOverview[Unit]),
+			        BLANK()
+			    )
+			)
+		lineageTag: a4355f56-095d-4ce8-a227-f025b534766d
+
+	measure 'Sales Unit Weergave' =
+			
+			IF(
+			    ISINSCOPE(Items[ItemNameCode]),
+			    MAX(SalesOrderLines[Unitcode]),
+			    BLANK()
+			)
+		lineageTag: 1a67a704-86a5-43c0-83fb-5aec35a41402
+
+	measure 'WO Weergave' =
+			
+			IF(
+			    ISINSCOPE(Items[ItemNameCode]),
+			    MAX(ShopOrders[ShopOrderNumber]),
+			    BLANK()
+			)
+		lineageTag: 1a40ac4c-852c-49ad-b56b-1f6af97a5cce
+
+	measure 'Start datum Weergave' =
+			
+			IF(
+			    ISINSCOPE(Items[ItemNameCode]),
+			    MAX(ShopOrders[PlannedDate]),
+			    BLANK()
+			)
+		formatString: Short Date
+		lineageTag: d3d8af65-4c66-4c80-8d82-f2d8cd037dc7
+
+	measure 'Eind datum Weergave' =
+			
+			IF(
+			    ISINSCOPE(ShopOrders[Description]),
+			    MAX(ShopOrders[PlannedEndDate]),
+			    BLANK()
+			)
+		formatString: Short Date
+		lineageTag: 95096686-0694-4a7d-862a-0aaafef47e8b
+
+	measure 'Status Weergave' =
+			
+			IF(
+			    ISINSCOPE(ShopOrders[Description]),
+			    MAX(ShopOrders[StatusDescription]),
+			    BLANK()
+			)
+		lineageTag: 3f9a7159-4a0f-481d-af6a-5822861bb8ae
+
+	measure 'Artikelcode Weergave' =
+			
+			IF(
+			    ISINSCOPE(MRPPlanning[Artikelnaam]),
+			    MAX(MRPPlanning[Artikelcode]),
+			    BLANK()
+			)
+		lineageTag: 8b996afa-fc0d-44f2-83ab-2c2200e5a0ac
+
+	measure 'Werkordernummer Weergave' =
+			
+			IF(
+			    ISINSCOPE(MRPPlanning[Artikelnaam]),
+			    MAX(MRPPlanning[ShopOrderNumber]),
+			    BLANK()
+			)
+		lineageTag: 5581a09b-fe71-421b-aea5-c8593c10d4c5
+
+	measure 'Behoeftedatum Weergave' =
+			
+			IF(
+			    ISINSCOPE(MRPPlanning[ShopOrderNumber]),
+			    MAX(MRPPlanning[BehoefteDatum]),
+			    BLANK()
+			)
+		formatString: Short Date
+		lineageTag: 3b0952cd-23cd-49bb-bc0e-37526b560440
+
+	measure 'Ontvangstdatum Weergave' =
+			
+			IF(
+			    ISINSCOPE(MRPPlanning[ShopOrderNumber]),
+			    MAX(MRPPlanning[OntvangstDatum]),
+			    BLANK()
+			)
+		formatString: Short Date
+		lineageTag: ea7132ab-2626-4f31-a9c7-2e8e7095563c
+
+	measure 'MRP Eenheid Weergave' =
+			
+			IF(
+			    ISINSCOPE(MRPPlanning[ShopOrderNumber]),
+			    MAX(MRPPlanning[Eenheid]),
+			    BLANK()
+			)
+		lineageTag: 4e2e6530-943f-4d8c-8895-849a0e12cd22
+
+	measure 'Unit prijs Weergave' =
+			
+			IF(
+			    ISINSCOPE(MRPPlanning[ShopOrderNumber]),
+			    AVERAGE(MRPPlanning[Prijs]),
+			    BLANK()
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 3738e4a4-caa9-4181-9775-b53bab797d7d
+
+	measure 'Aanvultype omschrijving Weergave' =
+			
+			IF(
+			    ISINSCOPE(MRPPlanning[ShopOrderNumber]),
+			    MAX(MRPPlanning[AanvulTypeOmschrijving]),
+			    BLANK()
+			)
+		lineageTag: cab6eb8a-5fb4-4636-a7e3-7df3d3845c54
+
+	measure 'MRP Status Weergave' =
+			
+			IF(
+			    ISINSCOPE(MRPPlanning[ShopOrderNumber]),
+			    MAX(MRPPlanning[Status]),
+			    BLANK()
+			)
+		lineageTag: c13a2271-1484-4521-9760-f4b7532fe263
+
+	measure 'MRP Levering Wk2' =
+			
+			VAR WeekStart = TODAY() - WEEKDAY(TODAY(), 2) + 15
+			VAR WeekEnd = WeekStart + 6
+			VAR SelectedItem = SELECTEDVALUE(Items[ItemID])
+			RETURN
+			CALCULATE(
+			    SUM(MRPInkopen[Quantity]),
+			    ALL(MRPInkopen),
+			    MRPInkopen[Type] = "Bestelling",
+			    MRPInkopen[Date] >= WeekStart,
+			    MRPInkopen[Date] <= WeekEnd,
+			    MRPInkopen[Item] = SelectedItem
+			)
+		formatString: 0
+		lineageTag: 8ad8905d-7633-423f-a7cf-55a04797e50e
+
+	measure 'Stock op Peildatum' =
+			
+			VAR Datum = SELECTEDVALUE( PeilDatum[Date], TODAY() )
+			VAR ValidTypes = {
+			    120, 121, 122, 123, 124, 125, 130, 131, 132, 133, 134, 135,
+			    140, 141, 147, 148, 150, 151, 155, 156, 160, 161, 165, 166,
+			    196, 197
+			}
+			VAR HuidigeStock =
+			    CALCULATE(
+			        SUM( StockPositions[Stock] ),
+			        StockPositions[Item]      IN VALUES( StockOverview[Item] ),
+			        StockPositions[Warehouse] IN VALUES( StockOverview[Warehouse] )
+			    )
+			VAR MutatiesNaDatum =
+			    CALCULATE(
+			        SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item]            IN VALUES( StockOverview[Item] ),
+			        StockTransactions[Warehouse]       IN VALUES( StockOverview[Warehouse] ),
+			        StockTransactions[Status]          = 21,
+			        StockTransactions[Type]            IN ValidTypes,
+			        StockTransactions[TransactionDate] > Datum
+			    )
+			RETURN
+			    HuidigeStock - MutatiesNaDatum
+		formatString: #,0
+		lineageTag: 589aeaae-114b-41e1-9337-e9de79428b90
+
+	measure 'Kostprijs op Peildatum' =
+			
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			VAR CurrentItem = SELECTEDVALUE(StockOverview[Item])
+			VAR CurrentWarehouse = SELECTEDVALUE(StockOverview[Warehouse])
+			VAR LatestDate = CALCULATE(
+			    MAX('StockTransactions'[TransactionDate]),
+			    REMOVEFILTERS('StockTransactions'),
+			    'StockTransactions'[Item] = CurrentItem,
+			    'StockTransactions'[Warehouse] = CurrentWarehouse,
+			    'StockTransactions'[TransactionDate] <= Datum,
+			    'StockTransactions'[Status] = 21
+			)
+			VAR TxCost = CALCULATE(
+			    AVERAGE('StockTransactions'[CostPrice]),
+			    REMOVEFILTERS('StockTransactions'),
+			    'StockTransactions'[Item] = CurrentItem,
+			    'StockTransactions'[Warehouse] = CurrentWarehouse,
+			    'StockTransactions'[TransactionDate] = LatestDate,
+			    'StockTransactions'[Status] = 21
+			)
+			VAR ItemCost = LOOKUPVALUE(Items[CostPriceStandard], Items[ItemID], CurrentItem)
+			VAR Result = IF(NOT ISBLANK(TxCost), TxCost, ItemCost)
+			RETURN
+			IF(
+			    ISINSCOPE(StockOverview[ItemNameCode])
+			    && COUNTROWS(VALUES(StockOverview[ItemNameCode])) = 1
+			    && COUNTROWS(ALLSELECTED(StockOverview[ItemNameCode])) > COUNTROWS(VALUES(StockOverview[ItemNameCode])),
+			    Result,
+			    IF(
+			        ISINSCOPE(StockOverview[ItemNameCode])
+			        && COUNTROWS(ALLSELECTED(StockOverview[ItemNameCode])) = 1,
+			        Result,
+			        BLANK()
+			    )
+			)
+		formatString: €#,##0.00
+		lineageTag: 8a916750-0001-4ac1-9276-cd6e0f6f468d
+
+	measure 'Voorraadwaarde op Peildatum' =
+			
+			VAR Datum = SELECTEDVALUE( PeilDatum[Date], TODAY() )
+			RETURN
+			SUMX(
+			    SUMMARIZE( StockOverview, StockOverview[Item], StockOverview[Warehouse] ),
+			    VAR CurItem = StockOverview[Item]
+			    VAR CurWH   = StockOverview[Warehouse]
+			
+			    VAR Stk = [Stock op Peildatum]   // hergebruikt de gefixte logica per (Item, Warehouse)
+			
+			    VAR LatestDate = CALCULATE(
+			        MAX( StockTransactions[TransactionDate] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item]            = CurItem,
+			        StockTransactions[Warehouse]       = CurWH,
+			        StockTransactions[TransactionDate] <= Datum,
+			        StockTransactions[Status]          = 21,
+			        StockTransactions[CostPrice]       <> 0
+			    )
+			    VAR TxCost = CALCULATE(
+			        AVERAGE( StockTransactions[CostPrice] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item]            = CurItem,
+			        StockTransactions[Warehouse]       = CurWH,
+			        StockTransactions[TransactionDate] = LatestDate,
+			        StockTransactions[Status]          = 21,
+			        StockTransactions[CostPrice]       <> 0
+			    )
+			    VAR ItemCost = LOOKUPVALUE( Items[CostPriceStandard], Items[ItemID], CurItem )
+			    VAR Kost     = COALESCE( TxCost, ItemCost )
+			
+			    RETURN IF( Stk <> 0 && NOT ISBLANK( Kost ), Stk * Kost, 0 )
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 810eeea5-46e4-44e5-8a86-eb6945763c0f
+
+	measure 'Beschikbare Voorraad' =
+			VAR StockQty = [Stock op Peildatum]
+			VAR Reserved = CALCULATE(SUM(StockPositions[ReservedStock]), REMOVEFILTERS( StockPositions ),
+			        StockPositions[Item] IN VALUES(StockOverview[Item]),
+			        StockPositions[Warehouse] IN VALUES(StockOverview[Warehouse]))
+			RETURN StockQty - COALESCE(Reserved, 0)
+		formatString: #,##0.00
+		lineageTag: f3493b61-0714-453a-9e52-71cc8c4402f8
+
+	measure 'Geprojecteerde Voorraad' =
+			VAR StockQty = [Stock op Peildatum]
+			VAR Reserved = COALESCE(CALCULATE(SUM(StockPositions[ReservedStock]), REMOVEFILTERS( StockPositions ),
+			        StockPositions[Item] IN VALUES(StockOverview[Item]),
+			        StockPositions[Warehouse] IN VALUES(StockOverview[Warehouse])), 0)
+			VAR ToBeReceived = COALESCE(CALCULATE(SUM(StockPositions[QuantityToBeReceived]), REMOVEFILTERS( StockPositions ),
+			        StockPositions[Item] IN VALUES(StockOverview[Item]),
+			        StockPositions[Warehouse] IN VALUES(StockOverview[Warehouse])), 0)
+			VAR ToBeProduced = COALESCE(CALCULATE(SUM(StockPositions[QuantityToBeProduced]), REMOVEFILTERS( StockPositions ),
+			        StockPositions[Item] IN VALUES(StockOverview[Item]),
+			        StockPositions[Warehouse] IN VALUES(StockOverview[Warehouse])), 0)
+			VAR ToBeDelivered = COALESCE(CALCULATE(SUM(StockPositions[QuantityToBeDelivered]), REMOVEFILTERS( StockPositions ),
+			        StockPositions[Item] IN VALUES(StockOverview[Item]),
+			        StockPositions[Warehouse] IN VALUES(StockOverview[Warehouse])), 0)
+			VAR ToBeConsumed = COALESCE(CALCULATE(SUM(StockPositions[QuantityToBeConsumed]), REMOVEFILTERS( StockPositions ),
+			        StockPositions[Item] IN VALUES(StockOverview[Item]),
+			        StockPositions[Warehouse] IN VALUES(StockOverview[Warehouse])), 0)
+			RETURN StockQty + ToBeReceived + ToBeProduced - ToBeDelivered - ToBeConsumed - Reserved
+		formatString: #,##0.00
+		lineageTag: 582a6630-0c09-4d91-ae58-0a12b98b2cd7
+
+	measure 'Verkoop Aantal' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(ABS(SUM('StockTransactions'[Quantity])), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] = 120)
+		formatString: #,##0.00
+		lineageTag: 90fa40af-8a01-449a-89dd-86a60b0eedcc
+
+	measure 'Verkoop Leveringen' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(COUNTROWS('StockTransactions'), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] = 120)
+		formatString: #,##0
+		lineageTag: 3fce8e1d-4860-4f77-8542-4dbf275d866a
+
+	measure 'Verkoop Retouren Aantal' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(ABS(SUM('StockTransactions'[Quantity])), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {121, 123})
+		formatString: #,##0.00
+		lineageTag: 8ee6272f-126b-4417-979f-b82f5d7e89a0
+
+	measure 'Inkoop Aantal' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(SUM('StockTransactions'[Quantity]), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {130, 132})
+		formatString: #,##0.00
+		lineageTag: 8c0cf0e5-0edf-43f1-a201-ef119dc899ab
+
+	measure 'Inkoop Ontvangsten' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(COUNTROWS('StockTransactions'), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {130, 132})
+		formatString: #,##0
+		lineageTag: 55180b87-f382-4f89-9507-3bda075071d4
+
+	measure 'Inkoop Retouren Aantal' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(ABS(SUM('StockTransactions'[Quantity])), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {131, 133})
+		formatString: #,##0.00
+		lineageTag: dde19ef5-cae5-4a05-bde6-cdbfeb18fbaa
+
+	measure 'Productie Aantal' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(SUM('StockTransactions'[Quantity]), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {140, 147})
+		formatString: #,##0.00
+		lineageTag: c88ace24-7750-4fc3-a4b9-a579f4a89bf0
+
+	measure 'Productie Terugboekingen' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(ABS(SUM('StockTransactions'[Quantity])), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {141, 148})
+		formatString: #,##0.00
+		lineageTag: 5d489515-1a0e-4e59-8e98-870aa43f020c
+
+	measure 'Verbruik Aantal' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(ABS(SUM('StockTransactions'[Quantity])), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {150, 155, 165})
+		formatString: #,##0.00
+		lineageTag: 29368e1e-a582-4099-af3a-2adeac84d106
+
+	measure 'Verbruik Terugboekingen' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(ABS(SUM('StockTransactions'[Quantity])), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {151, 156, 166})
+		formatString: #,##0.00
+		lineageTag: 5027c437-0b0f-4a9a-bb44-39a587f58997
+
+	measure 'Transfer Uit Aantal' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(ABS(SUM('StockTransactions'[Quantity])), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {124, 125})
+		formatString: #,##0.00
+		lineageTag: 809703b1-fe07-485f-8308-d267ee1c7be3
+
+	measure 'Transfer In Aantal' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(SUM('StockTransactions'[Quantity]), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {134, 135})
+		formatString: #,##0.00
+		lineageTag: f1c05691-ef2b-4c8d-a705-481de0fd207c
+
+	measure 'Drop Shipment Aantal' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(ABS(SUM('StockTransactions'[Quantity])), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] = 122)
+		formatString: #,##0.00
+		lineageTag: 57f7888b-2fc3-4800-bdb1-90d42485b6d4
+
+	measure 'Correctie Uit' =
+			
+			VAR Datum = SELECTEDVALUE( PeilDatum[Date], TODAY() )
+			RETURN
+			CALCULATE(
+			    ABS( SUM( StockTransactions[Quantity] ) ),
+			    REMOVEFILTERS( StockTransactions ),
+			    REMOVEFILTERS( dates ),
+			    StockTransactions[Item] IN VALUES( StockOverview[Item] ),
+			    StockTransactions[Warehouse] IN VALUES( StockOverview[Warehouse] ),
+			    StockTransactions[Status] = 21,
+			    StockTransactions[Type] = 196,
+			    StockTransactions[TransactionDate] <= Datum
+			)
+		formatString: #,##0.00
+		lineageTag: e085a979-e87a-485d-8dc5-203a836760a3
+
+	measure 'Correctie In' =
+			
+			VAR Datum = SELECTEDVALUE( PeilDatum[Date], TODAY() )
+			RETURN
+			CALCULATE(
+			    SUM( StockTransactions[Quantity] ),
+			    REMOVEFILTERS( StockTransactions ),
+			    REMOVEFILTERS( dates ),
+			    StockTransactions[Item] IN VALUES( StockOverview[Item] ),
+			    StockTransactions[Warehouse] IN VALUES( StockOverview[Warehouse] ),
+			    StockTransactions[Status] = 21,
+			    StockTransactions[Type] = 197,
+			    StockTransactions[TransactionDate] <= Datum
+			)
+		formatString: #,##0.00
+		lineageTag: e7735803-0cec-4fc4-b415-e0ec903a9d6c
+
+	measure 'Totaal Uitgaand' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(ABS(SUM('StockTransactions'[Quantity])), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {120, 122, 124, 125, 131, 133, 141, 148, 150, 155, 161, 165, 196})
+		formatString: #,##0.00
+		lineageTag: 316df3e6-7ccf-4de7-8427-0ef67851ada3
+
+	measure 'Totaal Inkomend' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(SUM('StockTransactions'[Quantity]), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {121, 123, 130, 132, 134, 135, 140, 147, 151, 156, 160, 166, 197})
+		formatString: #,##0.00
+		lineageTag: c7f6d48f-0022-4ff7-a53d-f5ed07c732af
+
+	measure 'Laatste Verkoopdatum' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(MAX('StockTransactions'[TransactionDate]), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] = 120)
+		formatString: dd-MM-yyyy
+		lineageTag: 1795c792-ae71-4054-baef-e9fae80d4fb9
+
+	measure 'Laatste Ontvangstdatum' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(MAX('StockTransactions'[TransactionDate]), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {130, 132})
+		formatString: dd-MM-yyyy
+		lineageTag: 1cb20369-b9f1-4d80-ab24-6556fd736b26
+
+	measure 'Laatste Productiedatum' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(MAX('StockTransactions'[TransactionDate]), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Type] IN {140, 147})
+		formatString: dd-MM-yyyy
+		lineageTag: 525e5a89-c814-4f43-b272-9e3d0aa36ad9
+
+	measure 'Laatste Bewegingsdatum' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(MAX('StockTransactions'[TransactionDate]), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21)
+		formatString: dd-MM-yyyy
+		lineageTag: b148f79d-2893-426f-9f72-8261256ada78
+
+	measure 'Laatste Tellingdatum' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(MAX('StockCounts'[TransactionDate]), REMOVEFILTERS( 'StockCounts' ),
+			        'StockCounts'[Item] IN VALUES(StockOverview[Item]),
+			        'StockCounts'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockCounts'[TransactionDate] <= Datum,
+			        'StockCounts'[Status] = 21)
+		formatString: dd-MM-yyyy
+		lineageTag: e6cd193f-5015-4152-8979-81001f150353
+
+	measure 'Dagen Sinds Laatste Beweging' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			VAR LastTx = [Laatste Bewegingsdatum]
+			RETURN IF(ISBLANK(LastTx), BLANK(), DATEDIFF(LastTx, Datum, DAY))
+		formatString: #,##0
+		lineageTag: 8554458d-6132-4fad-add3-502d4cb65e6a
+
+	measure 'Dagen Sinds Laatste Telling' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			VAR LastCount = [Laatste Tellingdatum]
+			RETURN IF(ISBLANK(LastCount), BLANK(), DATEDIFF(LastCount, Datum, DAY))
+		formatString: #,##0
+		lineageTag: f5cc765f-e0ed-4b69-8ba1-8a197e08663a
+
+	measure 'Is Uitverkocht' = IF([Stock op Peildatum] <= 0, 1, 0)
+		formatString: 0
+		lineageTag: 8d5260d8-7911-4b3e-96f4-a241fbf41801
+
+	measure 'Is Lage Voorraad' =
+			VAR StockQty = [Stock op Peildatum]
+			VAR Reserved = CALCULATE(SUM(StockPositions[ReservedStock]), REMOVEFILTERS( StockPositions ),
+			        StockPositions[Item] IN VALUES(StockOverview[Item]),
+			        StockPositions[Warehouse] IN VALUES(StockOverview[Warehouse]))
+			RETURN IF(StockQty > 0 && StockQty < COALESCE(Reserved, 0), 1, 0)
+		formatString: 0
+		lineageTag: f1bfbecc-c92e-4799-9b89-d90a64b54d8b
+
+	measure 'Is Langzaam Bewegend' = IF([Dagen Sinds Laatste Beweging] > 90, 1, 0)
+		formatString: 0
+		lineageTag: 92b401e1-3c3a-4211-b8e2-f4d022ab01bd
+
+	measure 'Openstaande Verkoop Aantal' =
+			CALCULATE(ABS(SUM('StockPlanning'[OrderQuantity])), REMOVEFILTERS( 'StockPlanning' ),
+			        'StockPlanning'[Item] IN VALUES(StockOverview[Item]),
+			        'StockPlanning'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockPlanning'[Type] = 120,
+			        'StockPlanning'[Status] = 12,
+			        'StockPlanning'[IsPending] = 1)
+		formatString: #,##0.00
+		lineageTag: 5200963c-1347-409a-bf05-53dae919d1a0
+
+	measure 'Openstaande Inkoop Aantal' =
+			CALCULATE(SUM('StockPlanning'[OrderQuantity]), REMOVEFILTERS( 'StockPlanning' ),
+			        'StockPlanning'[Item] IN VALUES(StockOverview[Item]),
+			        'StockPlanning'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockPlanning'[Type] = 130,
+			        'StockPlanning'[Status] = 12,
+			        'StockPlanning'[IsPending] = 1)
+		formatString: #,##0.00
+		lineageTag: ee95d703-b990-4aa6-b694-f460d6bc0a12
+
+	measure 'Openstaande Productieorders' =
+			CALCULATE(COUNTROWS('StockPlanning'), REMOVEFILTERS( 'StockPlanning' ),
+			        'StockPlanning'[Item] IN VALUES(StockOverview[Item]),
+			        'StockPlanning'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockPlanning'[Type] IN {140, 147},
+			        'StockPlanning'[Status] = 12,
+			        'StockPlanning'[IsPending] = 1)
+		formatString: #,##0
+		lineageTag: c689c122-8bd7-4b7a-a761-d31bc091debf
+
+	measure 'Transacties vanuit Verkooporders' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(COUNTROWS('StockTransactions'), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Source] = 5)
+		formatString: #,##0
+		lineageTag: 78a510b8-3856-4747-a081-6234ab3acfed
+
+	measure 'Transacties vanuit Inkooporders' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(COUNTROWS('StockTransactions'), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Source] = 6)
+		formatString: #,##0
+		lineageTag: 3f339098-60dc-4053-b92e-1cdb085f07f7
+
+	measure 'Transacties vanuit Productieorders' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(COUNTROWS('StockTransactions'), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Source] IN {11, 13, 18})
+		formatString: #,##0
+		lineageTag: 6b7915c1-e9bf-4948-8e4f-84e6e5b727fd
+
+	measure 'Transacties Handmatig' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(COUNTROWS('StockTransactions'), REMOVEFILTERS( 'StockTransactions' ),
+			        'StockTransactions'[Item] IN VALUES(StockOverview[Item]),
+			        'StockTransactions'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockTransactions'[TransactionDate] <= Datum,
+			        'StockTransactions'[Status] = 21,
+			        'StockTransactions'[Source] = 20)
+		formatString: #,##0
+		lineageTag: e18c225f-d35d-4cc5-bedb-0fa2f20aaff7
+
+	measure 'Aantal Tellingen' =
+			VAR Datum = SELECTEDVALUE(PeilDatum[Date], TODAY())
+			RETURN CALCULATE(COUNTROWS('StockCounts'), REMOVEFILTERS( 'StockCounts' ),
+			        'StockCounts'[Item] IN VALUES(StockOverview[Item]),
+			        'StockCounts'[Warehouse] IN VALUES(StockOverview[Warehouse]),
+			        'StockCounts'[TransactionDate] <= Datum,
+			        'StockCounts'[Status] = 21)
+		formatString: #,##0
+		lineageTag: 71014040-f089-4afc-bbf8-306c83f38207
+
+	measure Omzet = SUM(SalesTransactions[AmountSoldPositive])
+		lineageTag: 8c0b8b06-abb9-40a4-868f-9bb871851a06
+
+	measure 'Netto Omzet' = SUM( OmzetTransacties[AmountFC] ) * -1
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: c7cda613-6463-4513-95f7-96d6bfd2a487
+
+	measure 'Omzet Correcties' =
+			
+			CALCULATE(
+			    SUM(GLTransactions[AmountFC]) * -1,
+			    GLAccounts[Type] = 110,
+			    GLTransactions[Journal] <> "32"
+			)
+		lineageTag: c14ea898-2f33-49f1-9dc9-8dc735057b67
+
+	measure 'Productie Deze Week' = ```
+			
+			
+			VAR huidigItem    = SELECTEDVALUE( StockOverview[Item] )
+			VAR selWeekStart  = MIN( dates[Date] )
+			VAR selWeekEind   = MAX( dates[Date] )
+			
+			VAR result =
+			    CALCULATE(
+			        SUM( ShopOrders[PlannedQuantity] ),
+			        REMOVEFILTERS( ShopOrders ),
+			        ShopOrders[Item] = huidigItem,
+			        ShopOrders[PlannedEndDate] >= selWeekStart,   
+			        ShopOrders[PlannedEndDate] <= selWeekEind,
+			        ShopOrders[Status] IN { 10, 20 }
+			    )
+			
+			RETURN
+			    IF( ISBLANK( result ), 0, result )
+			```
+		lineageTag: 2bee6c98-f043-4ca6-ae94-265e1b201e2c
+
+	measure 'Productie Deze Week Totaal' =
+			
+			IF(
+			    HASONEVALUE( StockOverview[Item] ),
+			    [Productie Deze Week],
+			    SUMX(
+			        VALUES( StockOverview[Item] ),
+			        [Productie Deze Week]
+			    )
+			)
+		formatString: #,0
+		lineageTag: c6792d6a-b63c-4580-ae2f-8b77c8735033
+
+	measure 'Verwachte voorraad' = ```
+			CALCULATE([Stock At Date] - [Prognose Deze Week] + [Productie Deze Week]) 
+			```
+		formatString: #,0
+		lineageTag: 6d5e54dc-250f-4568-a854-68cbe456bc7c
+
+	measure 'Verwachte voorraad Totaal' =
+			
+			IF(
+			    HASONEVALUE( StockOverview[Item] ),
+			    [Verwachte voorraad],
+			    SUMX(
+			        VALUES( StockOverview[Item] ),
+			        [Verwachte voorraad]
+			    )
+			)
+		formatString: #,0
+		lineageTag: 3878e9bf-73c9-4b46-a3d0-abc555e4b904
+
+	measure Veiligheidsvoorraad =
+			
+			
+			VAR huidigItem      = SELECTEDVALUE( StockOverview[Item] )
+			VAR huidigWarehouse = SELECTEDVALUE( StockOverview[Warehouse] )
+			RETURN
+			    CALCULATE(
+			        SUM( ItemWarehouses[SafetyStock] ),
+			        REMOVEFILTERS( ItemWarehouses ),
+			        ItemWarehouses[Item] = huidigItem
+			    )
+		formatString: #,0
+		lineageTag: f05a5849-dc8d-4a74-a246-66a7d787b996
+
+	measure Behoefte =
+			
+			VAR veiligheid = [Veiligheidsvoorraad]
+			VAR verwacht   = [Verwachte voorraad]
+			VAR tekort     = verwacht - veiligheid
+			
+			RETURN
+			    IF( tekort < 0, ABS( tekort ), 0 )
+		formatString: #,0
+		lineageTag: be1d6b15-ecb2-4dc0-9ca0-9e3ab38d1fcc
+
+	measure 'Behoefte Totaal' =
+			
+			IF(
+			    HASONEVALUE( StockOverview[Item] ),
+			    [Behoefte],
+			    SUMX(
+			        VALUES( StockOverview[Item] ),
+			        [Behoefte]
+			    )
+			)
+		formatString: #,0
+		lineageTag: d8120b09-d971-4373-b9b2-a86f1ed05371
+
+	measure 'Verwachte voorraad 2 weken' = ```
+			CALCULATE([Stock At Date] - [Prognose Deze Week] + [Productie Deze Week] - [Prognose Volgende Week] + [Productie Volgende Week]) 
+			```
+		lineageTag: fb80678e-78a9-417e-abe4-311f0e841f5e
+
+	measure 'Verwachte voorraad 2 weken Totaal' =
+			
+			IF(
+			    HASONEVALUE( StockOverview[Item] ),
+			    [Verwachte voorraad 2 weken],
+			    SUMX(
+			        VALUES( StockOverview[Item] ),
+			        [Verwachte voorraad 2 weken]
+			    )
+			)
+		formatString: #,0
+		lineageTag: df80be8c-3cf6-456f-b607-c4c9d6a9cc7b
+
+	measure 'Behoefte 3 weken' =
+			
+			VAR veiligheid = [Veiligheidsvoorraad]
+			VAR verwacht   = [Verwachte voorraad 2 weken]
+			VAR tekort     = verwacht - veiligheid
+			
+			RETURN
+			    IF( tekort < 0, ABS( tekort ), 0 )
+		formatString: #,0
+		lineageTag: 35551b45-50b4-482b-9506-a1ac3e4fae6a
+
+	measure 'Behoefte 3 weken Totaal' =
+			
+			IF(
+			    HASONEVALUE( StockOverview[Item] ),
+			    [Behoefte 3 weken],
+			    SUMX(
+			        VALUES( StockOverview[Item] ),
+			        [Behoefte 3 weken]
+			    )
+			)
+		formatString: #,0
+		lineageTag: 9ffb95be-47a9-42a1-b7f3-35b75f993393
+
+	measure 'Behoefte Voorraadprognose' =
+			
+			
+			VAR huidigItem = COALESCE(
+			    SELECTEDVALUE( StockOverview[Item] ),
+			    SELECTEDVALUE( Items[ItemID] )
+			)
+			
+			VAR verwachteVoorraad =
+			    CALCULATE(
+			        [Stock At Date] - [Prognose Deze Week] + [Productie Deze Week],
+			        TREATAS( { huidigItem }, StockOverview[Item] )
+			    )
+			
+			RETURN
+			    IF( verwachteVoorraad < 0, verwachteVoorraad, BLANK() )
+		lineageTag: 5241ab0a-ecda-4989-a6c3-b391dd6f1ab1
+
+	measure 'Inkoopprognose verwachte Voorraadprognose' =
+			
+			
+			VAR verwacht      = [Inkoop Prognose Deze Week]
+			VAR mrpPrognose   = [MRP Prognose Deze Week]
+			VAR actueel       = [MRP Actuele Voorraad]
+			VAR besteld       = [MRP Bestelling Deze Week]
+			VAR nettobehoefte = actueel + besteld - verwacht - mrpPrognose
+			
+			RETURN
+			    nettobehoefte
+		formatString: #,0
+		lineageTag: 86e2b90f-57e5-42e3-be99-c0c455e3043f
+
+	measure 'Is Datum Geldig today' = ```
+			
+			VAR Datum1    = SELECTEDVALUE( dates[Date],TODAY() )
+			VAR huidigItem = SELECTEDVALUE( StockOverview[Item] )
+			VAR Datum2    = CALCULATE( 
+			    MAX( Items[EndDate] ), 
+			    REMOVEFILTERS( Items ),
+			        Items[ItemID] = huidigItem 
+			)
+			RETURN
+			    IF(
+			        ISBLANK( Datum2 ),
+			        1,
+			        IF( Datum1 < Datum2, 1, 0 )
+			    )
+			```
+		formatString: 0
+		lineageTag: 88269a18-0e53-4183-82af-4b8890b3e930
+
+	measure 'Is Datum Geldig' = ```
+			
+			VAR Datum1    = SELECTEDVALUE( PeilDatum[Date])
+			VAR huidigItem = SELECTEDVALUE( StockOverview[Item] )
+			VAR Datum2    = CALCULATE( 
+			    MAX( Items[EndDate] ), 
+			    REMOVEFILTERS( Items ),
+			        Items[ItemID] = huidigItem 
+			)
+			RETURN
+			    IF(
+			        ISBLANK( Datum2 ),
+			        1,
+			        IF( Datum1 < Datum2, 1, 0 )
+			    )
+			```
+		formatString: 0
+		lineageTag: 02940153-9d86-4c00-aad1-46bb4ce20bf3
+
+	measure 'Inkoopprognose Behoefte Voorraadprognose' =
+			
+			
+			VAR verwacht      = [Behoefte Voorraadprognose]
+			VAR mrpPrognose   = [MRP Prognose Deze Week]
+			VAR veiligheid    = [Veiligheidsvoorraad]
+			VAR actueel       = [MRP Actuele Voorraad]
+			VAR nettobehoefte = verwacht - mrpPrognose - veiligheid + actueel
+			
+			RETURN
+			    nettobehoefte
+		lineageTag: 845dbf90-10f1-4bf4-b456-58a04ec0057e
+
+	measure 'Is Datum Geldig Item Today' =
+			
+			VAR Datum1     = SELECTEDVALUE(dates[Date], TODAY())
+			VAR huidigItem = SELECTEDVALUE(Items[ItemID])
+			VAR keuze      = SELECTEDVALUE(datumgeldigfilter[Waarde], 0)
+			VAR Datum2     = CALCULATE(
+			    MAX(Items[EndDate]),
+			    REMOVEFILTERS( Items ),
+			        Items[ItemID] = huidigItem
+			)
+			VAR isGeldig   =
+			    IF(
+			        ISBLANK(Datum2),
+			        1,
+			        IF(Datum1 < Datum2, 1, 0)
+			    )
+			RETURN
+			    IF(keuze = 0, 1, isGeldig)
+		formatString: 0
+		lineageTag: 17217571-09ac-47f0-a526-e41d1185b75e
+
+	measure 'Behoefte Inkoop' =
+			
+			VAR veiligheid = [Veiligheidsvoorraad]
+			VAR verwacht   = [Inkoopprognose verwachte Voorraadprognose]
+			VAR tekort     = verwacht - veiligheid
+			
+			RETURN
+			    IF( tekort < 0, ABS( tekort ), 0 )
+		formatString: #,0
+		lineageTag: 346a6733-847c-4f14-ac57-39701ac17741
+
+	measure 'Uitsluiten 0 voorraad' =
+			
+			VAR keuze = SELECTEDVALUE( voorraadfilter[Waarde], 0 )
+			RETURN
+			    IF( keuze = 0, 1, IF( [Stock At Date] > 0, 1, 0 ) )
+		formatString: 0
+		lineageTag: 629dc716-bfe4-46ba-9027-c3ad692c2416
+
+	measure 'Inkoop Prognose Deze Week' =
+			
+			VAR refKeuze     = SELECTEDVALUE( referentieperiode[ReferentieID], 2 )
+			VAR correctie    = DIVIDE( [Correctie %], 100, 0 )
+			VAR huidigItem   = COALESCE( SELECTEDVALUE( StockOverview[Item] ), MAX( Items[ItemID] ) )
+			VAR selWeekStart = TODAY() - WEEKDAY( TODAY(), 2 ) + 1
+			
+			// OPTIE 1: Vorig jaar ±2 weken
+			VAR anker   = selWeekStart - 364
+			VAR start5w = anker - 14
+			VAR eind5w  = anker + 20
+			VAR qty5w =
+			    CALCULATE(
+			        ABS( SUM( StockTransactions[Quantity] ) ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type] IN { 150, 155, 165 },
+			        dates[Date] >= start5w,
+			        dates[Date] <= eind5w
+			    )
+			VAR gem5w = DIVIDE( qty5w, 5 )
+			
+			// OPTIE 2: Laatste 4 weken
+			VAR start4w = selWeekStart - 28
+			VAR eind4w  = selWeekStart - 1
+			VAR qty4w =
+			    CALCULATE(
+			        ABS( SUM( StockTransactions[Quantity] ) ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type] IN { 150, 155, 165 },
+			        dates[Date] >= start4w,
+			        dates[Date] <= eind4w
+			    )
+			VAR gem4w = DIVIDE( qty4w, 4 )
+			
+			// OPTIE 3: Laatste 10 weken
+			VAR start10w = selWeekStart - 70
+			VAR eind10w  = selWeekStart - 1
+			VAR qty10w =
+			    CALCULATE(
+			        ABS( SUM( StockTransactions[Quantity] ) ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item] = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type] IN { 150, 155, 165 },
+			        dates[Date] >= start10w,
+			        dates[Date] <= eind10w
+			    )
+			VAR gem10w = DIVIDE( qty10w, 10 )
+			
+			VAR basis =
+			    SWITCH(
+			        refKeuze,
+			        1, gem5w,
+			        2, gem4w,
+			        3, gem10w,
+			        gem4w
+			    )
+			
+			RETURN
+			    ROUND( basis * ( 1 + correctie ), 0 )
+		formatString: #,0
+		lineageTag: 75e1a6fe-baa4-4831-8e82-1022411d6ee9
+
+	measure 'Debug Inkoop Prognose' = ```
+			
+			VAR huidigItem   = COALESCE( SELECTEDVALUE( StockOverview[Item] ), MAX( Items[ItemID] ) )
+			VAR selWeekStart = COALESCE( MIN( dates[Date] ), TODAY() - WEEKDAY( TODAY(), 2 ) + 1 )
+			RETURN
+			    "Item=" & LEFT( huidigItem, 8 ) 
+			    & " | WeekStart=" & FORMAT( selWeekStart, "DD-MM-YYYY" )
+			    & " | Start4w=" & FORMAT( selWeekStart - 28, "DD-MM-YYYY" )
+			```
+		lineageTag: 4d75dc0d-f826-4e8b-b15f-1f2e01575eb4
+
+	measure 'Voorraad Verschil' =
+			
+			VAR selStart   = MIN( dates[Date] )
+			VAR selEind    = MAX( dates[Date] )
+			VAR huidigItem = COALESCE( SELECTEDVALUE( StockOverview[Item] ), MAX( Items[ItemID] ) )
+			VAR huidigCount = SELECTEDVALUE( StockCounts[StockCountNumber] )
+			VAR _result =
+			    IF(
+			        ISINSCOPE( StockCounts[StockCountNumber] ),
+			        CALCULATE(
+			            ABS( SUM( StockCounts[Quantity] ) ),
+			            REMOVEFILTERS( StockCounts ),
+			            StockCounts[Item] = huidigItem,
+			            StockCounts[StockCountNumber] = huidigCount,
+			            StockCounts[TransactionDate] >= selStart,
+			            StockCounts[TransactionDate] <= selEind
+			        ),
+			        CALCULATE(
+			            ABS( SUM( StockCounts[Quantity] ) ),
+			            REMOVEFILTERS( StockCounts ),
+			            StockCounts[Item] = huidigItem,
+			            StockCounts[TransactionDate] >= selStart,
+			            StockCounts[TransactionDate] <= selEind
+			        )
+			    )
+			RETURN
+			IF( _result <> 0, _result )
+		formatString: #,0
+		lineageTag: 7c7296d2-ca5e-4847-8485-a5cd1ef3842a
+
+	measure 'Voorraad Verschil Waarde' =
+			
+			VAR selStart   = MIN( dates[Date] )
+			VAR selEind    = MAX( dates[Date] )
+			VAR huidigItem = COALESCE( SELECTEDVALUE( StockOverview[Item] ), MAX( Items[ItemID] ) )
+			VAR huidigCount = SELECTEDVALUE( StockCounts[StockCountNumber] )
+			VAR _result =
+			    IF(
+			        ISINSCOPE( StockCounts[StockCountNumber] ),
+			        CALCULATE(
+			            ABS( SUMX( StockCounts, StockCounts[Quantity] * StockCounts[CostPrice] ) ),
+			            REMOVEFILTERS( StockCounts ),
+			            StockCounts[Item] = huidigItem,
+			            StockCounts[StockCountNumber] = huidigCount,
+			            StockCounts[TransactionDate] >= selStart,
+			            StockCounts[TransactionDate] <= selEind
+			        ),
+			        CALCULATE(
+			            ABS( SUMX( StockCounts, StockCounts[Quantity] * StockCounts[CostPrice] ) ),
+			            REMOVEFILTERS( StockCounts ),
+			            StockCounts[Item] = huidigItem,
+			            StockCounts[TransactionDate] >= selStart,
+			            StockCounts[TransactionDate] <= selEind
+			        )
+			    )
+			RETURN
+			IF( _result <> 0, _result )
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 4b6cb034-2458-4f6d-aa8e-e8d1736040bb
+
+	measure 'Voorraad verschil totaal' =
+			
+			IF(
+			    HASONEVALUE( Items[ItemID] ),
+			    [Voorraad Verschil],
+			    SUMX(
+			        VALUES( Items[ItemID] ),
+			        [Voorraad Verschil]
+			    )
+			)
+		formatString: #,0
+		lineageTag: 3af9004b-76c8-45ad-b6c5-3e493f54eb2d
+
+	measure 'Voorraad verschil waarde totaal' =
+			
+			IF(
+			    HASONEVALUE( Items[ItemID] ),
+			    [Voorraad Verschil Waarde],
+			    SUMX(
+			        VALUES( Items[ItemID] ),
+			        [Voorraad Verschil Waarde]
+			    )
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: ead5e821-40f0-4f59-a2fd-6074206eb078
+
+	measure 'debug week' = MIN(dates[Date])
+		formatString: General Date
+		lineageTag: 6e2a8254-8f06-4a08-acc6-899b4527180b
+
+	measure 'Hoeveelheid per 1 Totaal' =
+			
+			IF(
+			    HASONEVALUE( Recepturen[IngredientNameCode] ),
+			    AVERAGE( Recepturen[HoeveelheidPer1] ),
+			    BLANK()
+			)
+		formatString: 0.0000
+		lineageTag: bfa27574-d2ab-4ed9-a0ea-164b59e1b6ad
+
+	measure 'Netto Omzet Vorige Maand' =
+			
+			CALCULATE(
+			    [Netto Omzet Klant],
+			    DATEADD(dates[Date], -1, MONTH)
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 3aecd4fc-fba7-4f38-8a80-01515833d08e
+
+	measure 'Netto Omzet Vorig Jaar' =
+			
+			CALCULATE(
+			    [Netto Omzet Klant],
+			    DATEADD(dates[Date], -1, YEAR)
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: e3629517-989c-463e-8ad4-c3af4b0a5f10
+
+	measure 'MRP Shopordernumber weergave' =
+			
+			IF(
+			    ISINSCOPE(MRPPlanning[ShopOrderNumber]),
+			    MAX(MRPPlanning[ShopOrderNumber]),
+			    BLANK()
+			)
+		lineageTag: 9d36cc90-832d-4e4c-92d5-f37099de5f2d
+
+	measure 'Inactief 3 Maanden' = ```
+			
+			VAR DrieMandenGeleden = TODAY() - 90
+			VAR LaatsteTransactie = 
+			    CALCULATE(
+			        MAX(StockTransactions[TransactionDate]),
+			        StockTransactions[Status] = 21
+			    )
+			RETURN
+			IF(
+			    ISBLANK(LaatsteTransactie) || LaatsteTransactie < DrieMandenGeleden,
+			    1,
+			    0
+			)
+			```
+		formatString: 0
+		lineageTag: 7a69c777-ddad-4fb6-9212-a2385064e7dc
+
+	measure 'Laatste Transactie Datum' =
+			
+			CALCULATE(
+			    MAX(StockTransactions[TransactionDate]),
+			    StockTransactions[Status] = 21
+			)
+		formatString: Short Date
+		lineageTag: ba770741-46c8-4f8d-91a7-cd971d16e6f9
+
+	measure 'Netto Omzet Klant' =
+			
+			VAR HuidigAccount = SELECTEDVALUE( OmzetTransacties[Account] )
+			RETURN
+			IF(
+			    NOT ISBLANK( HuidigAccount ),
+			    CALCULATE(
+			        SUM( OmzetTransacties[AmountFC] ) * -1,
+			        OmzetTransacties[Account] = HuidigAccount
+			    ),
+			    SUM( OmzetTransacties[AmountFC] ) * -1
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: fc22b4d3-8214-45f3-a394-011a91a6db65
+
+	measure 'Test Omzet Unfiltered' =
+			
+			CALCULATE(
+			    SUM( OmzetTransacties[AmountFC] ) * -1,
+			    REMOVEFILTERS( OmzetTransacties )
+			)
+		lineageTag: 91b311c3-3de5-48a3-b11c-5f2f36320c07
+
+	measure 'Aantal Omzet transactions' = ```
+			ABS( SUM( OmzetTransacties[Quantity] ) )
+			
+			```
+		formatString: #,0
+		lineageTag: b47d51e4-92d3-4383-adf5-be9fcac5edf7
+
+	measure 'Item URL' = ```
+			
+			"https://start.exactonline.nl/docs/LogItemCard.aspx?Mode=0&Item=" 
+			    & SUBSTITUTE( SUBSTITUTE( SELECTEDVALUE( Items[ItemID] ), "{", "%7b" ), "}", "%7d" ) 
+			    & "&_Division_=2875061"
+			```
+		lineageTag: 9e212251-873a-4168-a22d-138fbabf9c93
+
+	measure 'StockCount URL' = ```
+			
+			"https://start.exactonline.nl/docs/InvStockCount.aspx?Action=Edit&EntryID=" 
+			    & SUBSTITUTE( SUBSTITUTE( SELECTEDVALUE( StockCounts[EntryID] ), "{", "%7b" ), "}", "%7d" ) 
+			    & "&_Division_=2875061"
+			```
+		lineageTag: c53d5fb6-79af-42a1-9fd1-d786a2b0ab0d
+
+	measure 'StockCount Nr' =
+			
+			IF(
+			    ISINSCOPE( StockCounts[StockCountNumber] )
+			        && [Voorraad Verschil] <> 0,
+			    SELECTEDVALUE( StockCounts[StockCountNumber] )
+			)
+		formatString: 0
+		lineageTag: 29e6f777-f61b-4663-bfb5-c5b79676ef15
+
+	measure 'Productie Volgende Week' = ```
+			
+			
+			VAR huidigItem    = SELECTEDVALUE( StockOverview[Item] )
+			VAR selWeekStart  = MIN( dates[Date] ) + 7
+			VAR selWeekEind   = MAX( dates[Date] ) + 7
+			
+			VAR result =
+			    CALCULATE(
+			        SUM( ShopOrders[PlannedQuantity] ),
+			        REMOVEFILTERS( ShopOrders ),
+			        ShopOrders[Item] = huidigItem,
+			        ShopOrders[PlannedEndDate] >= selWeekStart, 
+			        ShopOrders[PlannedEndDate] <= selWeekEind,
+			        ShopOrders[Status] IN { 10, 20 }
+			    )
+			
+			RETURN
+			    IF( ISBLANK( result ), 0, result )
+			```
+		lineageTag: d439a49e-7abe-4a16-8a74-ca6245fa4113
+
+	measure 'Productie Volgende Week Totaal' =
+			
+			IF(
+			    HASONEVALUE( StockOverview[Item] ),
+			    [Productie Volgende Week],
+			    SUMX(
+			        VALUES( StockOverview[Item] ),
+			        [Productie Volgende Week]
+			    )
+			)
+		formatString: 0
+		lineageTag: a5535ecf-34e0-487b-bac7-c923b93bacf6
+
+	measure 'Kostprijs €' = ```
+			
+			SUMX(
+			    OmzetTransacties,
+			    VAR NormID = "{" & UPPER(OmzetTransacties[Item]) & "}"
+			    RETURN
+			    LOOKUPVALUE(
+			        Items[CostPriceStandard], 
+			        Items[ItemID], NormID,
+			        0
+			    ) * ABS(OmzetTransacties[Quantity])
+			)
+			```
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 193ca728-55a0-4c83-935f-bf5165ee61e9
+
+	measure 'Debug Format' = ```
+			
+			"OT: " & FIRSTNONBLANK(OmzetTransacties[Item], 1) 
+			& " | Items: " & FIRSTNONBLANK(Items[ItemID], 1)
+			```
+		lineageTag: fefe38a1-3c10-4ee1-b000-e9688be2b3af
+
+	measure 'Kostprijs Grondstof' = ```
+			
+			SUMX(
+			    OmzetTransacties,
+			    LOOKUPVALUE(
+			        ArtikelKostprijsSplit[Grondstof], 
+			        ArtikelKostprijsSplit[EindproductID], OmzetTransacties[Item],
+			        0
+			    ) * ABS(OmzetTransacties[Quantity])
+			)
+			```
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 8db2134e-c68c-4005-9ed3-71b29210b31f
+
+	measure 'Kostprijs Verpakking' = ```
+			
+			SUMX(
+			    OmzetTransacties,
+			    LOOKUPVALUE(
+			        ArtikelKostprijsSplit[Verpakking], 
+			        ArtikelKostprijsSplit[EindproductID], OmzetTransacties[Item],
+			        0
+			    ) * ABS(OmzetTransacties[Quantity])
+			)
+			```
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: fe8495b8-4f20-43c1-8584-7bc8e16a390f
+
+	measure 'Marge €' = [Netto Omzet] - [Kostprijs €]
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 0c5f0257-e11f-45a3-9a8c-4a2e7a16ca91
+
+	measure 'Marge %' = DIVIDE([Marge €], [Netto Omzet], BLANK())
+		formatString: 0%;-0%;0%
+		lineageTag: 7834f6c9-505c-4534-a5c7-84d1edef7dc9
+
+	measure 'Inkoop €' =
+			
+			SUM(InkoopTransacties[AmountFC])
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: 4d4a59e9-d0e5-4f1e-8f90-ebe4dd3be8fd
+
+	measure 'Inkoop Aantal inkooptransacties' =
+			
+			SUM(InkoopTransacties[Quantity])
+		formatString: #,0
+		lineageTag: 3e10bf02-17fe-4578-9a22-e92da2223543
+
+	measure 'Gemiddelde inkoop prijs' = [Inkoop €] /  [Inkoop Aantal inkooptransacties]
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 28dd9fd4-7374-45b5-af9c-4a4c85efb04c
+
+	measure 'Gem. verbruik afgelopen 4 weken' = ```
+			
+			VAR Today      = TODAY() 
+			VAR StartDate  = Today - 28 
+			RETURN 
+			DIVIDE( 
+			    CALCULATE( 
+			        ABS( SUM( 'StockTransactions'[Quantity] ) ), 
+			        FILTER( 
+			            ALL( 'StockTransactions' ), 
+			            'StockTransactions'[Item]            IN VALUES( Items[ItemID] ) && 
+			            'StockTransactions'[TransactionDate] >= StartDate && 
+			            'StockTransactions'[TransactionDate] <= Today && 
+			            'StockTransactions'[Status]          = 21 && 
+			            'StockTransactions'[Type]            IN { 150, 155, 165 } 
+			        ) 
+			    ), 
+			    4 
+			) 
+			
+			```
+		formatString: 0
+		lineageTag: 7fc4f7af-3eb9-4d62-abb2-30f1dcc29bd0
+
+	measure 'Is Datum Geldig Data Quality' =
+			
+			VAR huidigItem = SELECTEDVALUE( Items[ItemID] )
+			VAR Datum2 = CALCULATE( MAX( Items[EndDate] ), ALL( Items ), Items[ItemID] = huidigItem )
+			RETURN
+			    INT( ISBLANK( Datum2 ) || Datum2 > TODAY() )
+		formatString: 0
+		lineageTag: db5938d9-1e34-4de0-8420-acefb6500969
+
+	measure 'Bedrag P&L' =
+			
+			VAR IsGrandTotal = NOT ISINSCOPE(finreportrows[Hoofdgroep])
+			RETURN
+			IF(
+			    IsGrandTotal,
+			    -1 * SUMX(
+			        FILTER(
+			            GLTransacties_Fin,
+			            NOT ISBLANK(RELATED(finreportrows[ClassificatieCode]))
+			        ),
+			        gltransacties_fin[AmountFC]
+			    ),
+			    SUMX(
+			        GLTransacties_Fin,
+			        gltransacties_fin[AmountFC] * RELATED(finreportrows[Teken])
+			    )
+			)
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: cffc4994-3c28-4a4e-86d1-2d36e7409405
+
+	measure 'Artikelcode Weergave URL' =
+			
+			IF(
+			    ISINSCOPE( StockOverview[ItemNameCode] ),
+			    "https://start.exactonline.nl/docs/MenuPortal.aspx?_Division_=2875061&gopage=LogItemCard.aspx%3FMode%3D0%26Item%3D%257b"
+			        & LOWER( SUBSTITUTE( SUBSTITUTE( MAX( StockOverview[Item] ), "{", "" ), "}", "" ) )
+			        & "%257d&_from_csx_=662746611",
+			    BLANK()
+			)
+		lineageTag: 2705b706-ab96-4aa6-80c9-2876e056b231
+
+	measure 'Artikelcode weergave stockoverview' =
+			
+			IF(
+			    ISINSCOPE( StockOverview[ItemNameCode] ),
+			     MAX( StockOverview[ItemCode]),
+			    BLANK()
+			)
+		lineageTag: 204f0cd5-27ff-493f-a11a-59893f9390c3
+
+	measure Aantal =
+			
+			CALCULATE(
+			    SUMX( OmzetTransacties, ABS( OmzetTransacties[Quantity] ) )
+			)
+		formatString: #,0
+		lineageTag: 98445d28-fdfc-46dd-b492-c9812f1d152c
+
+	measure 'Omzet GL' =
+			
+			CALCULATE(
+			    SUMX(GLTransacties_Fin, gltransacties_fin[AmountFC] * RELATED(finreportrows[Teken])),
+			    finreportrows[Hoofdgroep] = "Omzet"
+			)
+		lineageTag: 38da5290-3243-49a2-8092-7efa97ab7a49
+
+	measure Inkoopwaarde =
+			
+			CALCULATE(
+			    SUMX(GLTransacties_Fin, gltransacties_fin[AmountFC] * RELATED(finreportrows[Teken])),
+			    finreportrows[Hoofdgroep] = "Inkoopwaarde"
+			)
+		lineageTag: 63e6cc95-f133-450d-bc91-1a61c5ed4636
+
+	measure Personeelskosten =
+			
+			CALCULATE(
+			    SUMX(GLTransacties_Fin, gltransacties_fin[AmountFC] * RELATED(finreportrows[Teken])),
+			    finreportrows[Hoofdgroep] = "Personeelskosten"
+			)
+		lineageTag: 47a5bc39-e258-4127-aab7-b5b1143d3b32
+
+	measure Kengetal = ```
+			
+			VAR Sel = SELECTEDVALUE(kengetallen[Kengetal])
+			VAR SelPeriod = SELECTEDVALUE(gltransacties_fin[ReportingPeriod])
+			VAR SelYear = MAX(dates[Year])
+			VAR IsToekomst = 
+			    ISBLANK(SelPeriod) 
+			    || (SelYear = YEAR(TODAY()) && SelPeriod > MONTH(TODAY()))
+			    || SelYear > YEAR(TODAY())
+			VAR MinStatus =
+			    IF(
+			        NOT IsToekomst,
+			        IF(
+			            NOT ISBLANK(SelPeriod),
+			            CALCULATE(
+			                MIN(divisionperiodstatus[YearPeriodStatus]),
+			                divisionperiodstatus[FinPeriod] = SelPeriod,
+			                divisionperiodstatus[FinYear] = SelYear
+			            ),
+			            CALCULATE(
+			                MIN(divisionperiodstatus[YearPeriodStatus]),
+			                divisionperiodstatus[FinYear] = SelYear
+			            )
+			        )
+			    )
+			VAR PeriodStatus = IF(MinStatus = 1, "Definitief", "Concept")
+			RETURN
+			IF(
+			    IsToekomst && Sel = "Status",
+			    BLANK(),
+			    SWITCH(
+			        Sel,
+			        "Personeelskosten %", REPT(UNICHAR(160), 10) & FORMAT(DIVIDE([Personeelskosten], [Omzet GL]), "0%"),
+			        "Bruto marge %",      REPT(UNICHAR(160), 10) & FORMAT(DIVIDE([Omzet GL] - [Inkoopwaarde], [Omzet GL]), "0%"),
+			        "Resultaat %",        REPT(UNICHAR(160), 10) & FORMAT(DIVIDE([Bedrag P&L], [Omzet GL]), "0%"),
+			        "Status",             PeriodStatus
+			    )
+			)
+			```
+		lineageTag: 884f7f06-7c73-42c7-bff7-189be98e6752
+
+	measure Diag =
+			
+			"Sel: " & COALESCE(SELECTEDVALUE(kengetallen[Kengetal]), "[blank]") &
+			" | Omzet: " & FORMAT([Omzet], "#,0") &
+			" | Personeel: " & FORMAT([Personeelskosten], "#,0")
+		lineageTag: ed5050ae-3425-4606-b31f-34501af2a14f
+
+	measure 'Kengetal Status' = ```
+			
+			VAR SelPeriod = SELECTEDVALUE(gltransacties_fin[ReportingPeriod])
+			VAR SelYear = MAX(dates[Year])
+			VAR IsToekomst = 
+			    ISBLANK(SelPeriod) 
+			    || (SelYear = YEAR(TODAY()) && SelPeriod > MONTH(TODAY()))
+			    || SelYear > YEAR(TODAY())
+			VAR MinStatus =
+			    IF(
+			        NOT IsToekomst,
+			        IF(
+			            NOT ISBLANK(SelPeriod),
+			            CALCULATE(
+			                MIN(divisionperiodstatus[YearPeriodStatus]),
+			                divisionperiodstatus[FinPeriod] = SelPeriod,
+			                divisionperiodstatus[FinYear] = SelYear
+			            ),
+			            CALCULATE(
+			                MIN(divisionperiodstatus[YearPeriodStatus]),
+			                divisionperiodstatus[FinYear] = SelYear
+			            )
+			        )
+			    )
+			RETURN
+			IF(IsToekomst, BLANK(), IF(MinStatus = 1, "Definitief", "Concept"))
+			```
+		lineageTag: 38cd41f5-b824-4090-a619-48551a558065
+
+	measure 'Productie Openstaand Aantal' = ```
+			
+			// Aantal openstaande werkorders per artikel (StockOverview-context).
+			// Gebruikt de live StockPositions-snapshot uit Exact.
+			CALCULATE(
+			    SUM( StockPositions[QuantityToBeProduced] ),
+			    REMOVEFILTERS( StockPositions ),
+			    StockPositions[Item]      IN VALUES( StockOverview[Item] ),
+			    StockPositions[Warehouse] IN VALUES( StockOverview[Warehouse] )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 65bcbe4c-99d2-4626-accd-8c70ab30fafb
+
+	measure 'Bestelling Openstaand Aantal' = ```
+			
+			// Aantal openstaande inkoopbestellingen per artikel (StockOverview-context).
+			// Gebruikt de live StockPositions-snapshot uit Exact.
+			CALCULATE(
+			    SUM( StockPositions[QuantityToBeReceived] ),
+			    REMOVEFILTERS( StockPositions ),
+			    StockPositions[Item]      IN VALUES( StockOverview[Item] ),
+			    StockPositions[Warehouse] IN VALUES( StockOverview[Warehouse] )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 0f742666-aef6-449c-8a49-8a3b66bab126
+
+	measure 'Werkorder URL' = ```
+			
+			// Bouwt de directe link naar de werkorderkaart in Exact Online.
+			"https://start.exactonline.nl/docs/MfgShopOrderCard.aspx?ID="
+			    & SUBSTITUTE( SUBSTITUTE( SELECTEDVALUE( ShopOrders[ID] ), "{", "%7b" ), "}", "%7d" )
+			    & "&_Division_=2875061"
+			
+			```
+		lineageTag: ffe57d16-9352-4526-a018-749cc436b329
+
+	measure 'Verkopen Vorige Week' = ```
+			
+			// Daadwerkelijke verkopen in week -1, geanker aan TODAY().
+			// Bron: StockTransactions Type 120/122 (verkoop + verkoop-retour),
+			// status 21 (geboekt). Negatie omdat uitgaande mutaties negatief zijn.
+			VAR Vandaag    = TODAY()
+			VAR WeekStart  = Vandaag - WEEKDAY( Vandaag, 2 ) + 1 - 7
+			VAR WeekEind   = WeekStart + 6
+			VAR HuidigItem = SELECTEDVALUE( StockOverview[Item] )
+			RETURN
+			CALCULATE(
+			    -SUM( StockTransactions[Quantity] ),
+			    REMOVEFILTERS( StockTransactions ),
+			    REMOVEFILTERS( dates ),
+			    StockTransactions[Item]   = HuidigItem,
+			    StockTransactions[Status] = 21,
+			    StockTransactions[Type]   IN { 120, 122 },
+			    dates[Date] >= WeekStart,
+			    dates[Date] <= WeekEind
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 69dae21d-fb2f-409e-9d70-973750398202
+
+	measure 'Verkopen 2 Weken Terug' = ```
+			
+			// Daadwerkelijke verkopen in week -2, geanker aan TODAY().
+			// Bron: StockTransactions Type 120/122 (verkoop + verkoop-retour),
+			// status 21 (geboekt). Negatie omdat uitgaande mutaties negatief zijn.
+			VAR Vandaag    = TODAY()
+			VAR WeekStart  = Vandaag - WEEKDAY( Vandaag, 2 ) + 1 - 14
+			VAR WeekEind   = WeekStart + 6
+			VAR HuidigItem = SELECTEDVALUE( StockOverview[Item] )
+			RETURN
+			CALCULATE(
+			    -SUM( StockTransactions[Quantity] ),
+			    REMOVEFILTERS( StockTransactions ),
+			    REMOVEFILTERS( dates ),
+			    StockTransactions[Item]   = HuidigItem,
+			    StockTransactions[Status] = 21,
+			    StockTransactions[Type]   IN { 120, 122 },
+			    dates[Date] >= WeekStart,
+			    dates[Date] <= WeekEind
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 0cc2b47f-869b-4581-8c0d-9db2cb650f62
+
+	measure 'Verkopen 3 Weken Terug' = ```
+			
+			// Daadwerkelijke verkopen in week -3, geanker aan TODAY().
+			// Bron: StockTransactions Type 120/122 (verkoop + verkoop-retour),
+			// status 21 (geboekt). Negatie omdat uitgaande mutaties negatief zijn.
+			VAR Vandaag    = TODAY()
+			VAR WeekStart  = Vandaag - WEEKDAY( Vandaag, 2 ) + 1 - 21
+			VAR WeekEind   = WeekStart + 6
+			VAR HuidigItem = SELECTEDVALUE( StockOverview[Item] )
+			RETURN
+			CALCULATE(
+			    -SUM( StockTransactions[Quantity] ),
+			    REMOVEFILTERS( StockTransactions ),
+			    REMOVEFILTERS( dates ),
+			    StockTransactions[Item]   = HuidigItem,
+			    StockTransactions[Status] = 21,
+			    StockTransactions[Type]   IN { 120, 122 },
+			    dates[Date] >= WeekStart,
+			    dates[Date] <= WeekEind
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 5be909bc-6b4f-4754-9a00-9b1905f45bd7
+
+	measure 'Orders Deze Week (Open)' = ```
+			
+			// Openstaande verkooporders met afleverdatum in de huidige (kalender)week.
+			// Geanker aan TODAY(); negeert PeilDatum-slicer.
+			// Patroon: gelijk aan 'Openstaande Verkoop Aantal', met datumvenster.
+			VAR Vandaag   = TODAY()
+			VAR WeekStart = Vandaag - WEEKDAY( Vandaag, 2 ) + 1
+			VAR WeekEind  = WeekStart + 6
+			RETURN
+			CALCULATE(
+			    ABS( SUM( StockPlanning[OrderQuantity] ) ),
+			    REMOVEFILTERS( StockPlanning ),
+			    StockPlanning[Item]      IN VALUES( StockOverview[Item] ),
+			    StockPlanning[Warehouse] IN VALUES( StockOverview[Warehouse] ),
+			    StockPlanning[Type]      = 120,
+			    StockPlanning[Status]    = 12,
+			    StockPlanning[IsPending] = 1,
+			    StockPlanning[DueDate]  >= WeekStart,
+			    StockPlanning[DueDate]  <= WeekEind
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 49365962-5fc7-410d-b2f8-faa014e62b7e
+
+	measure 'Prognose Choco Deze Week' = ```
+			
+			// Identieke berekening als [Prognose Deze Week] uit Voorraadprognose,
+			// maar geanker aan de huidige kalenderweek (TODAY()) i.p.v. dates-context.
+			// Zo werkt de Chocolade-pagina zonder week-slicer.
+			
+			VAR Vandaag      = TODAY()
+			VAR selWeekStart = Vandaag - WEEKDAY( Vandaag, 2 ) + 1
+			VAR selWeekEind  = selWeekStart + 6
+			VAR refKeuze     = SELECTEDVALUE( referentieperiode[ReferentieID], 2 )
+			VAR correctie    = DIVIDE( [Correctie %], 100, 0 )
+			VAR huidigItem   = SELECTEDVALUE( StockOverview[Item] )
+			
+			// OPTIE 1: Vorig jaar +/- 2 weken (5 weken totaal)
+			VAR anker   = selWeekStart - 364
+			VAR start5w = anker - 14
+			VAR eind5w  = anker + 14 + ( selWeekEind - selWeekStart )
+			VAR verkoop5w =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item]   = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type]   IN { 120, 122 },
+			        dates[Date] >= start5w,
+			        dates[Date] <= eind5w
+			    )
+			VAR gem5w = DIVIDE( verkoop5w, 5 )
+			
+			// OPTIE 2: Gemiddelde laatste 4 weken
+			VAR start4w = selWeekStart - 28
+			VAR eind4w  = selWeekStart - 1
+			VAR verkoop4w =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item]   = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type]   IN { 120, 122 },
+			        dates[Date] >= start4w,
+			        dates[Date] <= eind4w
+			    )
+			VAR gem4w = DIVIDE( verkoop4w, 4 )
+			
+			// OPTIE 3: Gemiddelde laatste 10 weken
+			VAR start10w = selWeekStart - 70
+			VAR eind10w  = selWeekStart - 1
+			VAR verkoop10w =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item]   = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type]   IN { 120, 122 },
+			        dates[Date] >= start10w,
+			        dates[Date] <= eind10w
+			    )
+			VAR gem10w = DIVIDE( verkoop10w, 10 )
+			
+			VAR basis =
+			    SWITCH(
+			        refKeuze,
+			        1, gem5w,
+			        2, gem4w,
+			        3, gem10w,
+			        gem4w
+			    )
+			
+			RETURN
+			    ROUND( basis * ( 1 + correctie ), 0 )
+			
+			```
+		lineageTag: df6a9edc-aad2-49f6-8091-af20f9360ba4
+
+	measure 'Prognose Choco Volgende Week' = ```
+			
+			// Identieke berekening als [Prognose Volgende Week] uit Voorraadprognose,
+			// maar geanker aan TODAY()'s eerstvolgende kalenderweek.
+			
+			VAR Vandaag      = TODAY()
+			VAR selWeekStart = Vandaag - WEEKDAY( Vandaag, 2 ) + 1 + 7
+			VAR selWeekEind  = selWeekStart + 6
+			VAR refKeuze     = SELECTEDVALUE( referentieperiode[ReferentieID], 2 )
+			VAR correctie    = DIVIDE( [Correctie %], 100, 0 )
+			VAR huidigItem   = SELECTEDVALUE( StockOverview[Item] )
+			
+			// OPTIE 1: Vorig jaar zelfde week
+			VAR vjStart = selWeekStart - 364
+			VAR vjEind  = selWeekEind  - 364
+			VAR verkoopVorigJaar =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item]   = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type]   IN { 120, 122 },
+			        dates[Date] >= vjStart,
+			        dates[Date] <= vjEind
+			    )
+			
+			// OPTIE 2: Laatste 4 weken
+			VAR start4w = selWeekStart - 28
+			VAR eind4w  = selWeekStart - 1
+			VAR verkoop4w =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item]   = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type]   IN { 120, 122 },
+			        dates[Date] >= start4w,
+			        dates[Date] <= eind4w
+			    )
+			VAR gem4w = DIVIDE( verkoop4w, 4 )
+			
+			// OPTIE 3: Laatste 10 weken
+			VAR start10w = selWeekStart - 70
+			VAR eind10w  = selWeekStart - 1
+			VAR verkoop10w =
+			    CALCULATE(
+			        -SUM( StockTransactions[Quantity] ),
+			        REMOVEFILTERS( StockTransactions ),
+			        REMOVEFILTERS( dates ),
+			        StockTransactions[Item]   = huidigItem,
+			        StockTransactions[Status] = 21,
+			        StockTransactions[Type]   IN { 120, 122 },
+			        dates[Date] >= start10w,
+			        dates[Date] <= eind10w
+			    )
+			VAR gem10w = DIVIDE( verkoop10w, 10 )
+			
+			VAR basis =
+			    SWITCH(
+			        refKeuze,
+			        1, verkoopVorigJaar,
+			        2, gem4w,
+			        3, gem10w,
+			        gem4w
+			    )
+			
+			RETURN
+			    ROUND( basis * ( 1 + correctie ), 0 )
+			
+			```
+		formatString: #,0
+		lineageTag: 56b7aa3b-a1ac-40ed-b26d-eb9ee72168de
+
+	measure 'Prognose Choco Deze Week min Orders' = ```
+			
+			// Resterende prognose voor deze week, na aftrek van reeds openstaande orders.
+			// Bodem op 0: nooit negatief tonen.
+			VAR Resterend = [Prognose Choco Deze Week] - [Orders Deze Week (Open)]
+			RETURN
+			    IF( Resterend < 0, 0, Resterend )
+			
+			```
+		formatString: #,0
+		lineageTag: 39414539-cf72-4c31-b125-2658e64f5c41
+
+	measure 'Uitsluiten 0 voorraad Peildatum' = ```
+			
+			// Variant van [Uitsluiten 0 voorraad] voor pagina's waar de datum-slicer
+			// op PeilDatum staat (i.p.v. StockDateTable). Gebruikt [Stock op Peildatum]
+			// dat default TODAY() teruggeeft als er niets geselecteerd is.
+			VAR keuze = SELECTEDVALUE( voorraadfilter[Waarde], 0 )
+			RETURN
+			    IF( keuze = 0, 1, IF( [Stock op Peildatum] > 0, 1, 0 ) )
+			
+			```
+		lineageTag: 44b00027-e0c0-405b-8240-3ddaa25b4994
+
+	measure Product_Sum_Quantity =
+			
+			CALCULATE(
+			    SUM(sales[LineQty]),
+			    KEEPFILTERS(
+			        INTERSECT(
+			            VALUES(sales[TicketKey]),
+			            VALUES(payments[TicketKey])
+			        )
+			    )
+			)
+		formatString: #,0
+		lineageTag: 85e11920-54e1-4e14-8cd3-052786b18e2c
+
+	measure TotaleOmzetExBtw =
+			
+			CALCULATE(
+			    SUM(sales[LineTotalEx]),
+			    KEEPFILTERS(
+			        sales[TicketKey] IN VALUES(payments[TicketKey])
+			    )
+			)
+		formatString: \€#,0.00;-\€#,0.00;\€#,0.00
+		lineageTag: fc04b4d6-31fc-4a22-bb1b-b2077c8291bd
+
+	measure TotaleOmzetincBTW = ```
+			
+			VAR ValidTickets = 
+			    INTERSECT(
+			        VALUES(sales[TicketKey]),
+			        VALUES(payments[TicketKey])
+			    )
+			RETURN
+			CALCULATE(
+			    SUM(sales[LineTotalInc]),
+			    sales[TicketKey] IN ValidTickets
+			)
+			```
+		formatString: \€#,0.00;-\€#,0.00;\€#,0.00
+		lineageTag: 118191e4-46a8-4b59-9ca7-51b8fee96222
+
+	measure 'Behoefte inkoop Totaal' =
+			
+			IF(
+			    HASONEVALUE( StockOverview[Item] ),
+			    [Behoefte Inkoop],
+			    SUMX(
+			        VALUES( StockOverview[Item] ),
+			        [Behoefte Inkoop]
+			    )
+			)
+		formatString: #,0
+		lineageTag: da9a4bb3-861e-47ef-8849-6a6b17b2c36c
+
+	measure 'Behoefte Openstaande Werkorders' =
+			
+			VAR OpenShopOrderIDs =
+			    CALCULATETABLE(
+			        VALUES( ShopOrders[ID] ),
+			        REMOVEFILTERS( ShopOrders ),
+			        ShopOrders[Status] IN { 10, 20 }
+			    )
+			VAR Result =
+			    CALCULATE(
+			        SUM( ShopOrderMaterialPlans[PlannedQuantity] ),
+			        REMOVEFILTERS( ShopOrderMaterialPlans ),
+			        ShopOrderMaterialPlans[Item]      IN VALUES( StockOverview[Item] ),
+			        ShopOrderMaterialPlans[ShopOrder] IN OpenShopOrderIDs
+			    )
+			RETURN IF( ISBLANK( Result ), 0, Result )
+		formatString: #,0
+		lineageTag: a3ad3f9b-908a-41d3-a18d-0a7125a9852a
+
+	measure 'Web URL totaal' =
+			
+			IF(
+			    HASONEVALUE( MRPPlanning[ShopOrderNumber] )
+			        && HASONEVALUE( MRPPlanning[ShopOrderURL] ),
+			    SELECTEDVALUE( MRPPlanning[ShopOrderURL] ),
+			    BLANK()
+			)
+		lineageTag: 5240d48b-ad40-4204-9866-694e2f477082
+
+	measure Gepland =
+			
+			SUM(MRPPlanning[HoeveelheidAbsoluut])
+		formatString: #,0
+		lineageTag: f2ce75de-2606-4bd7-a15e-3a55f1fc7daa
+
+	measure Ontvangen =
+			
+			SUM(MRPPlanning[Geproduceerd])
+		formatString: #,0
+		lineageTag: 09e45e74-5b97-49f2-8f8f-30a4ba0a8125
+
+	measure Verschil =
+			
+			[Ontvangen] - [Gepland]
+		formatString: #,0
+		lineageTag: 2397ea92-f8dc-44db-af09-f7b40f2f653b
+
+	measure 'Verschil %' =
+			
+			DIVIDE([Verschil], [Gepland], BLANK())
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5dd1ec90-a4da-4a9a-92be-1701898ac225
+
+	measure 'Ontvangen Weergave' =
+			
+			IF(
+			    ISINSCOPE(MRPPlanning[ShopOrderNumber]),
+			    SUM(MRPPlanning[Geproduceerd]),
+			    BLANK()
+			)
+		lineageTag: e19fdf1e-5d0e-42f2-ac21-98fea67f547d
+
+	measure Revenue = CALCULATE(SUM(SalesOrderLines[PriceFC]) * SUM(SalesOrderLines[Quantity]))
+		lineageTag: e62db3db-8ea3-483b-8c5f-d2a896ded9ee
+
+	measure 'Absolute quantity' = CALCULATE(SUM(SalesTransactions[Quantity]))
+		lineageTag: fbac5416-d83b-4287-baf9-489c6802b329
+
+	measure 'Is Datum Geldig Receptuur' = ```
+			
+			VAR keuze = SELECTEDVALUE(datumgeldigfilter[Waarde], 0)
+			VAR EndDate = MAX(Recepturen[EindproductEndDate])
+			VAR isGeldig = 
+			    IF(
+			        ISBLANK(EndDate),
+			        1,
+			        IF(TODAY() <= EndDate, 1, 0)
+			    )
+			RETURN
+			    IF(keuze = 0, 1, isGeldig)
+			```
+		formatString: 0
+		lineageTag: 13bb85b8-4ed0-4668-9bec-2654b2b2fc75
+
+	measure 'HoeveelheidPer1 Weergave' =
+			
+			IF(
+			    ISINSCOPE(Recepturen[IngredientNameCode]),
+			    MAX(Recepturen[HoeveelheidPer1]),
+			    BLANK()
+			)
+		lineageTag: ea76ac8a-f18f-47f2-9634-d370ddabe82e
+
+	measure ExactOnlineURL = ```
+			
+			IF(
+			    ISINSCOPE(Items[ItemNameCode]),
+			    VAR WONummer = MAX(ShopOrders[ShopOrderNumber])
+			    VAR WO_ID = 
+			        MAXX(
+			            FILTER(ALL(ShopOrders), ShopOrders[ShopOrderNumber] = WONummer),
+			            ShopOrders[ID]
+			        )
+			    VAR WO_Division = 
+			        MAXX(
+			            FILTER(ALL(ShopOrders), ShopOrders[ShopOrderNumber] = WONummer),
+			            ShopOrders[Division]
+			        )
+			    RETURN
+			        "https://start.exactonline.nl/docs/MfgShopOrderCard.aspx?ID=" 
+			            & SUBSTITUTE(SUBSTITUTE(WO_ID, "{", "%7b"), "}", "%7d")
+			            & "&_Division_=" 
+			            & FORMAT(WO_Division, "0"),
+			    BLANK()
+			)
+			```
+		lineageTag: c1366724-14c4-4a08-a513-79f1495119da
+
+	measure 'Correctiefactor waarde' = SELECTEDVALUE('correctiefactor'[CorrPercent])
+		formatString: 0
+		lineageTag: f8eded1c-dcc8-421b-8708-5b21d57ae3e3
+
+	column Value
+		lineageTag: 9c953da0-422f-460e-8fae-ad58394885a8
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition Measure = calculated
+		mode: import
+		source = {1}
+

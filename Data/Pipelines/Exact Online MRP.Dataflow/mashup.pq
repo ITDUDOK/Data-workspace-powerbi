@@ -215,6 +215,25 @@ shared MRPPlanning = let
     J17 = Table.AddColumn(J16, "HoeveelheidAbs", each if [Hoeveelheid] = null then null else Number.Abs([Hoeveelheid]), type number)
 in
     J17;
+[BindToDefaultDestination = true]
+shared PeilDatum = let
+    StartDate = #datetime(2020, 1, 1, 0, 0, 0),
+    EndDate = DateTime.From(DateTime.Date(DateTime.LocalNow())),
+    DayCount = Number.From(Duration.Days(EndDate - StartDate)) + 1,
+    Dates = List.DateTimes(StartDate, DayCount, #duration(1,0,0,0)),
+    Base = Table.FromList(Dates, Splitter.SplitByNothing(), {"Date"}),
+    #"Changed Type" = Table.TransformColumnTypes(Base, {{"Date", type datetime}}),
+    WeekdayOf = (d as date) as number => Number.Mod(Date.DayOfWeek(d, Day.Sunday), 7) + 1,
+    WeekNrOf = (d as date) as number =>
+        let j1 = #date(Date.Year(d), 1, 1) in Number.RoundUp((Date.DayOfYear(d) + WeekdayOf(j1) - 1) / 7),
+    #"Added Jaar" = Table.AddColumn(#"Changed Type", "Jaar", each Date.Year(DateTime.Date([Date])), Int64.Type),
+    #"Added Maand" = Table.AddColumn(#"Added Jaar", "Maand", each Date.Month(DateTime.Date([Date])), Int64.Type),
+    #"Added MaandNaam" = Table.AddColumn(#"Added Maand", "MaandNaam", each Date.MonthName(DateTime.Date([Date]), "en-US"), type text),
+    #"Added WeekNr" = Table.AddColumn(#"Added MaandNaam", "WeekNr", each WeekNrOf(DateTime.Date([Date])), Int64.Type),
+    #"Added JaarMaand" = Table.AddColumn(#"Added WeekNr", "JaarMaand", each Date.ToText(DateTime.Date([Date]), "yyyy-MM"), type text),
+    #"Added JaarWeek" = Table.AddColumn(#"Added JaarMaand", "JaarWeek", each Text.From([Jaar]) & "-W" & Text.PadStart(Text.From([WeekNr]), 2, "0"), type text)
+in
+    #"Added JaarWeek";
 shared fnGetExactOnlineTable = (TableName as text, optional FilterCondition as function) =>
 let
     Source = ExactOnlinePremium.Contents(),

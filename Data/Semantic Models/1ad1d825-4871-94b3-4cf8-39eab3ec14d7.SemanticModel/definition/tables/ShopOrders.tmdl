@@ -7,7 +7,7 @@ table ShopOrders
 		formatString: 0
 		lineageTag: e72acfe2-f339-4e7a-b6ab-efea4a60348a
 		sourceLineageTag: Division
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Division
 
 		annotation SummarizationSetBy = Automatic

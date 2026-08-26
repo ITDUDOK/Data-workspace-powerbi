@@ -50,13 +50,11 @@
     },
     "MRPInkopen": {
       "queryId": "8b471807-5ec4-41b6-a7c5-27da21cb90d3",
-      "queryName": "MRPInkopen",
-      "loadEnabled": false
+      "queryName": "MRPInkopen"
     },
     "MRPPlanning": {
       "queryId": "3e28b9bd-3123-46cc-a2b8-71f2cd90b37f",
-      "queryName": "MRPPlanning",
-      "loadEnabled": false
+      "queryName": "MRPPlanning"
     },
     "fnGetExactOnlineTable": {
       "queryId": "73b2339d-c03f-4c1c-a959-7b4c51420fde",
@@ -68,6 +66,10 @@
       "queryName": "DefaultDestination",
       "isHidden": true,
       "loadEnabled": false
+    },
+    "PeilDatum": {
+      "queryId": "b2f4c1a0-1234-4abc-9def-000000000001",
+      "queryName": "PeilDatum"
     }
   },
   "connections": [

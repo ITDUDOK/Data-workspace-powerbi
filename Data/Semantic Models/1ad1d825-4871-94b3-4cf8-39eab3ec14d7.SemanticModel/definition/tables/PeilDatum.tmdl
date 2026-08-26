@@ -1,0 +1,78 @@
+table PeilDatum
+	lineageTag: fbb07cb6-2dec-4095-811b-b6c1410eb367
+	sourceLineageTag: [dbo].[PeilDatum]
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d9e38dcb-46ce-4344-9be5-27b12b21b05d
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jaar
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ef24e07-cf3c-4d1a-9a63-56842c223cc4
+		sourceLineageTag: Jaar
+		summarizeBy: sum
+		sourceColumn: Jaar
+
+		annotation SummarizationSetBy = Automatic
+
+	column Maand
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c64c697-c905-48e0-92e5-48a6488b8d22
+		sourceLineageTag: Maand
+		summarizeBy: sum
+		sourceColumn: Maand
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaandNaam
+		dataType: string
+		lineageTag: bad24a30-6842-4b6a-9337-634ac728c31e
+		sourceLineageTag: MaandNaam
+		summarizeBy: none
+		sourceColumn: MaandNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekNr
+		dataType: int64
+		formatString: 0
+		lineageTag: 839bcc83-8f64-40a3-9c84-3635d7d6b133
+		sourceLineageTag: WeekNr
+		summarizeBy: sum
+		sourceColumn: WeekNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column JaarMaand
+		dataType: string
+		lineageTag: 283077e4-be0f-4e85-bae3-4778467340dc
+		sourceLineageTag: JaarMaand
+		summarizeBy: none
+		sourceColumn: JaarMaand
+
+		annotation SummarizationSetBy = Automatic
+
+	column JaarWeek
+		dataType: string
+		lineageTag: d76464b2-c7cb-4dc3-8c94-f4ad260fb04f
+		sourceLineageTag: JaarWeek
+		summarizeBy: none
+		sourceColumn: JaarWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PeilDatum = entity
+		mode: directLake
+		source
+			entityName: PeilDatum
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+
