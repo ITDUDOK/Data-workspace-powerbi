@@ -219,3 +219,97 @@ relationship 45a8ea5f-65b6-4aeb-8582-03b37fab01a2
 	fromColumn: MRPInkopen.Item
 	toColumn: Items.ItemID
 
+relationship 22af1596-dcb6-49ad-b95b-73728a0cb055
+	fromColumn: ItemWarehouses.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 96978072-c48e-42ab-b4ce-4e32c1ca7d63
+	fromColumn: pos_products.GroupKey
+	toColumn: productgroups.ProductGroupKey
+
+relationship 9860825c-0562-4e5b-be58-0ff3d6c05de5
+	fromColumn: sales.LineProductKey
+	toColumn: pos_products.ProductKey
+
+relationship daa0f5e5-1900-4365-92b7-060d9503fa04
+	fromColumn: InkoopTransacties.InvoiceDate
+	toColumn: dates.Date
+
+relationship 75d7b6c1-2ae9-4fd8-b66d-eed7699cc2fc
+	fromColumn: OmzetTransacties.EntryDate
+	toColumn: dates.Date
+
+relationship a6e5e538-e551-45df-8e59-e5c5a7cf1a2c
+	isActive: false
+	fromColumn: SalesTransactions.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 94ec0d16-7cf9-48ba-aa51-4ab12f984ed8
+	isActive: false
+	fromColumn: SalesForecasts.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship d1d33e08-996f-437b-9ce7-031d2237b0e1
+	isActive: false
+	fromColumn: PurchaseOrders.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 61a9595d-5761-48e8-8092-f9cf359a6192
+	fromColumn: StockTransactions.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 300062b8-3d6b-4acb-9a66-4ba155933965
+	isActive: false
+	fromColumn: StockPlanning.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 86c78c7a-3e18-48cf-a7b9-795548b7c9f1
+	fromColumn: StockPositions.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship f909ec2b-6432-4a72-a8b3-7ea3ea91c31b
+	fromColumn: StockOverview.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 3ddcf92e-6191-4d87-b54f-116d3fce669c
+	isActive: false
+	fromColumn: StockEntries.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 0168e4d7-e00c-489e-85f8-2666dd930355
+	fromColumn: StockReplenishmentAdvices.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 13c10f45-9e83-40e4-b8b8-1e47c669389d
+	fromColumn: ShopOrders.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 6f24a34e-ba5e-44b0-af88-f47c0ca5d3b9
+	fromColumn: MaterialRequirements.Warehouse
+	toColumn: Warehouses.WarehouseID
+
+relationship 89c22f82-2799-4775-ae6c-32e77c53f4af
+	fromColumn: Recepturen.Item
+	toColumn: Items.ItemID
+
+relationship fdf649fb-3011-4a4a-997a-9203f90e70e3
+	isActive: false
+	fromColumn: Recepturen.EindproductID
+	toColumn: Items.ItemID
+
+relationship af5484b6-2e0a-4321-b093-8def6dc1b97e
+	fromColumn: Recepturen.EindproductID
+	toColumn: ArtikelKostprijsSplit.EindproductID
+
+relationship a90f1f34-c95a-4077-b5bd-d67de9fa9968
+	fromColumn: MRPInkopen.Date
+	toColumn: dates.Date
+
+relationship 319f92e8-d354-4668-9c61-0bfc52bb3e7a
+	fromColumn: MRPPlanning.BehoefteDatum
+	toColumn: dates.Date
+
+relationship 39db17af-4685-476e-97fd-e05ceb0346e0
+	fromColumn: MRPPlanning.ArtikelID
+	toColumn: Items.ItemID
+

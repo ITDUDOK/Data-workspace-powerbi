@@ -181,6 +181,111 @@ table MRPPlanning
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column BronTabel
+		dataType: string
+		lineageTag: 2928b04a-397e-4f5a-af6e-a6270575211a
+		sourceColumn: BronTabel
+
+	column OrderType
+		dataType: string
+		lineageTag: 03c62ce1-0c01-4e71-91c0-9e4740b4c537
+		sourceColumn: OrderType
+
+	column OrderID
+		dataType: string
+		lineageTag: 35d23c05-2615-47ea-b26a-6e2622a6b61c
+		sourceColumn: OrderID
+
+	column OrderDatum
+		dataType: dateTime
+		lineageTag: c08e2ae1-7710-4437-b903-52d53d1c79e3
+		sourceColumn: OrderDatum
+
+	column OntvangstDatum
+		dataType: dateTime
+		lineageTag: 2b15a606-6c7e-4810-b04e-5c08632b0fd5
+		sourceColumn: OntvangstDatum
+
+	column BehoefteDatum
+		dataType: dateTime
+		lineageTag: 4769085e-d1ca-4dc8-ba21-43de39839b24
+		sourceColumn: BehoefteDatum
+
+	column ArtikelID
+		dataType: string
+		lineageTag: 0a25c1cd-4297-4b08-a588-c99b8f9741d8
+		sourceColumn: ArtikelID
+
+	column MagazijnID
+		dataType: string
+		lineageTag: 10d654cb-6f2f-4f3c-9e26-4b0d7a1520b2
+		sourceColumn: MagazijnID
+
+	column LeverancierID
+		dataType: string
+		lineageTag: 7c793440-f39e-41cf-8dab-e05ad2953ab1
+		sourceColumn: LeverancierID
+
+	column Hoeveelheid
+		dataType: double
+		lineageTag: ceb495f2-dfe2-4575-8191-56005734a2a9
+		sourceColumn: Hoeveelheid
+
+	column Geproduceerd
+		dataType: double
+		lineageTag: 82e1568d-5d3b-44ae-9ace-312d77c4000b
+		sourceColumn: Geproduceerd
+
+	column StatusCode
+		dataType: int64
+		lineageTag: a67def86-1b86-4861-9ec9-e0f010ac700b
+		sourceColumn: StatusCode
+
+	column WaarschuwingType
+		dataType: int64
+		lineageTag: 4618e740-9080-4123-a178-24bdc5438438
+		sourceColumn: WaarschuwingType
+
+	column AanvulType
+		dataType: int64
+		lineageTag: 6ce029c3-8819-4b89-8926-0f7ceca2185c
+		sourceColumn: AanvulType
+
+	column SalesOrderLink
+		dataType: string
+		lineageTag: ae11c616-7316-4f20-a4e7-60dedb5f1b07
+		sourceColumn: SalesOrderLink
+
+	column PurchaseOrderLink
+		dataType: string
+		lineageTag: 328f3ca9-1c64-4301-b42f-8ad8ca7e3007
+		sourceColumn: PurchaseOrderLink
+
+	column ShopOrderLink
+		dataType: string
+		lineageTag: fbfb5c6f-6c6f-4211-a48b-e59dbb9fa515
+		sourceColumn: ShopOrderLink
+
+	column MRPScenarioLink
+		dataType: string
+		lineageTag: 0f6e1de2-8167-4478-96b3-34fec3ac3a86
+		sourceColumn: MRPScenarioLink
+
+	column DivisionCode
+		dataType: int64
+		lineageTag: b16b3097-717f-477d-9855-dc7d0f0c29da
+		sourceColumn: DivisionCode
+
+	column Eenheid
+		dataType: string
+		lineageTag: 4894b425-ef57-45b4-ad9f-e9882f0f1533
+		sourceColumn: Eenheid
+
+	column Prijs
+		dataType: double
+		lineageTag: 8b7e3226-a620-447f-a7e9-acccbff3aa17
+		sourceColumn: Prijs
+
 	partition MRPPlanning = entity
 		mode: directLake
 		source

@@ -1,0 +1,115 @@
+table Recepturen
+	lineageTag: 20388ca4-a9a9-497b-9c40-40f25af86aee
+
+	column EindproductID
+		dataType: string
+		lineageTag: 67feafa7-793a-4200-bf44-fe934b5526b5
+		sourceColumn: EindproductID
+
+	column EindproductCode
+		dataType: string
+		lineageTag: bfcde5eb-cbf0-4377-8d25-2d0b457a3573
+		sourceColumn: EindproductCode
+
+	column EindproductOmschrijving
+		dataType: string
+		lineageTag: 7c9c80b1-1896-464f-8a8b-a0bf8fd74231
+		sourceColumn: EindproductOmschrijving
+
+	column EindproductKostprijs
+		dataType: double
+		lineageTag: 42c199c0-a19f-43da-8d56-d29c6b19f602
+		sourceColumn: EindproductKostprijs
+
+	column EindproductStartDate
+		dataType: dateTime
+		lineageTag: a4b9f48d-b0f8-4ab5-87a1-21a3a21aa94b
+		sourceColumn: EindproductStartDate
+
+	column EindproductEndDate
+		dataType: dateTime
+		lineageTag: e113093d-22e0-44ca-b93f-2a89f8d48ec9
+		sourceColumn: EindproductEndDate
+
+	column BerekendeKostprijsEindproduct
+		dataType: double
+		lineageTag: 95d94c12-f9a7-4f73-b603-bfb293210f4c
+		sourceColumn: BerekendeKostprijsEindproduct
+
+	column KostprijsVerschil
+		dataType: double
+		lineageTag: 7876ff98-f6e1-48fc-8feb-843b777c4412
+		sourceColumn: KostprijsVerschil
+
+	column Item
+		dataType: string
+		lineageTag: 9f432b50-585b-48b6-a184-13f214ad4d7b
+		sourceColumn: Item
+
+	column IngredientCode
+		dataType: string
+		lineageTag: 9b482271-c3a3-4093-b092-42813021d018
+		sourceColumn: IngredientCode
+
+	column IngredientOmschrijving
+		dataType: string
+		lineageTag: 2d09c5ab-83d1-430c-9b40-b918a4fe02a3
+		sourceColumn: IngredientOmschrijving
+
+	column IngredientKostprijs
+		dataType: double
+		lineageTag: 823b0a06-5b88-4044-933a-479a97b5191a
+		sourceColumn: IngredientKostprijs
+
+	column IngredientEenheid
+		dataType: string
+		lineageTag: 300a1e34-0a28-43e0-b2f1-d59b70e1b5d3
+		sourceColumn: IngredientEenheid
+
+	column Quantity
+		dataType: double
+		lineageTag: 1f5a43b7-3a1b-40cb-bc8d-5526a5b93a6f
+		sourceColumn: Quantity
+
+	column GeplandAantal
+		dataType: double
+		lineageTag: 8aab8015-7c23-4a98-a094-cf1f776df323
+		sourceColumn: GeplandAantal
+
+	column HoeveelheidPer1
+		dataType: decimal
+		lineageTag: cb1584d2-356f-4b30-ad7b-d053bfd2320c
+		sourceColumn: HoeveelheidPer1
+
+	column IngredientKostenPer1
+		dataType: double
+		lineageTag: 01e8f28c-57da-4892-ae01-e6d7f9b8bd56
+		sourceColumn: IngredientKostenPer1
+
+	column TotaleIngredientKosten
+		dataType: double
+		lineageTag: e75709f8-4f8d-475a-80bf-1406d1e45865
+		sourceColumn: TotaleIngredientKosten
+
+	column sysmodified
+		dataType: dateTime
+		lineageTag: 34e67ab3-8420-4351-830f-f7ccf24ecc5c
+		sourceColumn: sysmodified
+
+	column IngredientNameCode
+		dataType: string
+		lineageTag: 626e76f9-a499-4336-99d6-d871b1f82f6c
+		sourceColumn: IngredientNameCode
+
+	column EindproductNameCode
+		dataType: string
+		lineageTag: e910446f-31a8-4d12-b18e-fe717603a686
+		sourceColumn: EindproductNameCode
+
+	partition 'Recepturen 1' = entity
+		mode: directLake
+		source
+			entityName: Recepturen
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

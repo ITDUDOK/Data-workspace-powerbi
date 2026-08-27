@@ -31,6 +31,11 @@ table MRPInkopen
 
 		annotation SummarizationSetBy = Automatic
 
+	column Date
+		dataType: dateTime
+		lineageTag: 2586983d-7441-490a-be8c-de9851e77ee1
+		sourceColumn: Date
+
 	partition MRPInkopen = entity
 		mode: directLake
 		source

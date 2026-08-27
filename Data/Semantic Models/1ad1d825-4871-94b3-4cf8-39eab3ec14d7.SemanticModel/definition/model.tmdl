@@ -92,5 +92,12 @@ ref table StockEntryStatus
 ref table MRPScenarioLinkWarehouses
 ref table StockCountSources
 ref table Measure
+ref table Recepturen
+ref table ArtikelKostprijsSplit
+ref table InkoopTransacties
+ref table OmzetTransacties
+ref table pos_products
+ref table Warehouses
+ref table voorraadfilter
 ref table PeilDatum
 

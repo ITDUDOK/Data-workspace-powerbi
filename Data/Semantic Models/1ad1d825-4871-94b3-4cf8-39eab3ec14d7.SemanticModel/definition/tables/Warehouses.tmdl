@@ -1,0 +1,30 @@
+table Warehouses
+	lineageTag: d29f6a91-c635-4db4-ba35-759578b617f1
+
+	column WarehouseID
+		dataType: string
+		lineageTag: 69eba196-9aaf-414f-a343-829398a77d07
+		sourceColumn: WarehouseID
+
+	column Code
+		dataType: string
+		lineageTag: 887f256b-e6e5-4c41-b6e9-2514224af651
+		sourceColumn: Code
+
+	column Description
+		dataType: string
+		lineageTag: e438d2dd-276b-4077-a767-90f7125e044c
+		sourceColumn: Description
+
+	column Division
+		dataType: int64
+		lineageTag: 6dedc7b5-5824-4fed-99a5-18fb8a0ce06b
+		sourceColumn: Division
+
+	partition 'Warehouses 1' = entity
+		mode: directLake
+		source
+			entityName: Warehouses
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

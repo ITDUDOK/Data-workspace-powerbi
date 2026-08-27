@@ -1,0 +1,80 @@
+table InkoopTransacties
+	lineageTag: a95c370e-1fb5-43c5-bdae-0afc99a57603
+
+	column InvoiceDate
+		dataType: dateTime
+		lineageTag: e23b06e3-26f0-418c-8ee5-b67351c192cb
+		sourceColumn: InvoiceDate
+
+	column AmountFC
+		dataType: double
+		lineageTag: b7720b9b-323c-449a-9f56-46b3668ffca5
+		sourceColumn: AmountFC
+
+	column Quantity
+		dataType: double
+		lineageTag: 9e1449be-3966-4301-8d5b-7add8da75c52
+		sourceColumn: Quantity
+
+	column Item
+		dataType: string
+		lineageTag: f7fa2c01-0e53-4e97-bbb2-c1bd24dfc586
+		sourceColumn: Item
+
+	column Account
+		dataType: string
+		lineageTag: 9d06c62b-5fae-4705-bfd9-3bd3ce805dc8
+		sourceColumn: Account
+
+	column AccountName
+		dataType: string
+		lineageTag: 1b74d245-ecca-4253-8587-9b33bedd5437
+		sourceColumn: AccountName
+
+	column Classification_01
+		dataType: string
+		lineageTag: 44334a36-d6a0-4c8c-8a01-2d03e6c2a7ed
+		sourceColumn: Classification_01
+
+	column ItemCode
+		dataType: string
+		lineageTag: 9df08d62-40f6-4bbe-9c28-f7a95bba6853
+		sourceColumn: ItemCode
+
+	column ItemDescription
+		dataType: string
+		lineageTag: 642ac5dd-df77-448d-b3f8-ec07802071ea
+		sourceColumn: ItemDescription
+
+	column ItemNameCode
+		dataType: string
+		lineageTag: bcd9dc03-1ea1-491c-a689-e47ed5509783
+		sourceColumn: ItemNameCode
+
+	column Producttype
+		dataType: string
+		lineageTag: ecb7f6fc-5db3-41ae-909f-b3dbd716e02f
+		sourceColumn: Producttype
+
+	column ItemGroup
+		dataType: string
+		lineageTag: 66dbdb35-376a-45ed-938f-67b88ebd1cd2
+		sourceColumn: ItemGroup
+
+	column CostPriceStandard
+		dataType: double
+		lineageTag: 525c27fd-002c-4e4b-baf5-5f967a708c76
+		sourceColumn: CostPriceStandard
+
+	column sysmodified
+		dataType: dateTime
+		lineageTag: f5e8031c-05e2-48cc-a9f7-909cac41a0df
+		sourceColumn: sysmodified
+
+	partition 'InkoopTransacties 1' = entity
+		mode: directLake
+		source
+			entityName: InkoopTransacties
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

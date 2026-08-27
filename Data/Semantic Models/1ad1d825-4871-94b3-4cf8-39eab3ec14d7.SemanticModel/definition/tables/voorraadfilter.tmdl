@@ -1,0 +1,25 @@
+table voorraadfilter
+	lineageTag: c6ac870f-c5ce-47d6-8a5b-44d3cb531177
+
+	column Label
+		dataType: string
+		lineageTag: 32929880-cfd1-4520-8128-5f0e981919de
+		sourceColumn: Label
+
+	column Waarde
+		dataType: int64
+		lineageTag: 50452e59-55c6-43c5-8133-a3e2db5cc976
+		sourceColumn: Waarde
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 65baadde-433b-4c86-9edf-742978972ea8
+		sourceColumn: ModifiedAt
+
+	partition 'voorraadfilter 1' = entity
+		mode: directLake
+		source
+			entityName: voorraadfilter
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

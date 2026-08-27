@@ -268,7 +268,7 @@ table Measure
 			
 			VAR SelectedDate = MAX(dates[Date])
 			VAR SelectedYear = YEAR(SelectedDate)
-			VAR SelectedWeek = MAX(dates[WeekNr])
+			VAR SelectedWeek = MAX(dates[WeekISO])
 			
 			RETURN
 			IF(
@@ -883,10 +883,9 @@ table Measure
 		lineageTag: 3738e4a4-caa9-4181-9775-b53bab797d7d
 
 	measure 'Aanvultype omschrijving Weergave' =
-			
 			IF(
 			    ISINSCOPE(MRPPlanning[ShopOrderNumber]),
-			    MAX(MRPPlanning[AanvulTypeOmschrijving]),
+			    MAX(MRPPlanning[OrderType]),
 			    BLANK()
 			)
 		lineageTag: cab6eb8a-5fb4-4636-a7e3-7df3d3845c54
@@ -2678,9 +2677,7 @@ table Measure
 			)
 		lineageTag: 5240d48b-ad40-4204-9866-694e2f477082
 
-	measure Gepland =
-			
-			SUM(MRPPlanning[HoeveelheidAbsoluut])
+	measure Gepland = SUM(MRPPlanning[HoeveelheidAbs])
 		formatString: #,0
 		lineageTag: f2ce75de-2606-4bd7-a15e-3a55f1fc7daa
 

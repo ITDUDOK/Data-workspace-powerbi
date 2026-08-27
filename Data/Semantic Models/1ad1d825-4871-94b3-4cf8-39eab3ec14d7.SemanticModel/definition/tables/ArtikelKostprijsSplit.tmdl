@@ -1,0 +1,30 @@
+table ArtikelKostprijsSplit
+	lineageTag: 8a40ca59-8757-4b96-b871-c0435399c49d
+
+	column EindproductID
+		dataType: string
+		lineageTag: 5545f2fd-b511-4640-997c-6f4f7875b219
+		sourceColumn: EindproductID
+
+	column Grondstof
+		dataType: double
+		lineageTag: 69789f65-41d4-42fd-beb0-5cca1cfd0985
+		sourceColumn: Grondstof
+
+	column Verpakking
+		dataType: double
+		lineageTag: d4b688f9-70be-48d0-9236-7a7c10a575f5
+		sourceColumn: Verpakking
+
+	column sysmodified
+		dataType: dateTime
+		lineageTag: ce3e53d0-b6f7-4cc0-a043-f83911ac7dfc
+		sourceColumn: sysmodified
+
+	partition 'ArtikelKostprijsSplit 1' = entity
+		mode: directLake
+		source
+			entityName: ArtikelKostprijsSplit
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

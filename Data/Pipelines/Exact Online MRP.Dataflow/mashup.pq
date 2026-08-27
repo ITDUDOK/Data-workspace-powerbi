@@ -1,43 +1,60 @@
 [DefaultOutputDestinationSettings = [DestinationDefinition = [Kind = "Reference", QueryName = "DefaultDestination", IsNewTarget = true], UpdateMethod = [Kind = "Replace"], DestinationTypeSettings = [Kind = "Table"]], StagingDefinition = [Kind = "FastCopy"]]
+
 section Section1;
+
 [BindToDefaultDestination = true]
+
 shared MRPScenarioLinkItems = let
     MRPScenarioLinkItems_Table = fnGetExactOnlineTable("MRPScenarioLinkItems"),
     #"Rijen gefilterd" = Table.SelectRows(MRPScenarioLinkItems_Table, each true)
 in
     #"Rijen gefilterd";
+
 [BindToDefaultDestination = true]
+
 shared MRPScenarioLinkSalesForecasts = let
    MRPScenarioLinkSalesForecasts_Table = fnGetExactOnlineTable("MRPScenarioLinkSalesForecasts")
 in
     MRPScenarioLinkSalesForecasts_Table;
+
 [BindToDefaultDestination = true]
+
 shared MRPScenarioLinkWarehouses = let
     MRPScenarioLinkWarehouses_Table = fnGetExactOnlineTable("MRPScenarioLinkWarehouses")
 in
     MRPScenarioLinkWarehouses_Table;
+
 [BindToDefaultDestination = true]
+
 shared MRPScenarioOrderEntryApprovalStatus = let
     MRPScenarioOrderEntryApprovalStatus_Table = fnGetExactOnlineTable("MRPScenarioOrderEntryApprovalStatus")
 in
     MRPScenarioOrderEntryApprovalStatus_Table;
+
 [BindToDefaultDestination = true]
+
 shared MRPScenarioReorderPolicies = let
     MRPScenarioReorderPolicies_Table = fnGetExactOnlineTable("MRPScenarioReorderPolicies")
 in
     MRPScenarioReorderPolicies_Table;
+
 [BindToDefaultDestination = true]
+
 shared MRPScenarios = let
     MRPScenarios_Table = fnGetExactOnlineTable("MRPScenarios"),
     #"Kolommen verwijderd" = Table.RemoveColumns(MRPScenarios_Table,{"syscreator"})
 in
     #"Kolommen verwijderd";
+
 [BindToDefaultDestination = true]
+
 shared MRPScenarioWarningTypes = let
     MRPScenarioWarningTypes_Table = fnGetExactOnlineTable("MRPScenarioWarningTypes")
 in
     MRPScenarioWarningTypes_Table;
+
 [BindToDefaultDestination = true]
+
 shared PrognoseWeekTabel = let
     Today = DateTime.Date(DateTime.LocalNow()),
     Jan1 = #date(Date.Year(Today), 1, 1),
@@ -55,6 +72,28 @@ shared PrognoseWeekTabel = let
     #"Added Jaar" = Table.AddColumn(#"Added EindDatum", "Jaar", each Date.Year(Today), Int64.Type)
 in
     #"Added Jaar";
+
+[BindToDefaultDestination = true]
+
+shared PeilDatum = let
+    StartDate = #datetime(2020, 1, 1, 0, 0, 0),
+    EndDate = DateTime.From(DateTime.Date(DateTime.LocalNow())),
+    DayCount = Number.From(Duration.Days(EndDate - StartDate)) + 1,
+    Dates = List.DateTimes(StartDate, DayCount, #duration(1,0,0,0)),
+    Base = Table.FromList(Dates, Splitter.SplitByNothing(), {"Date"}),
+    #"Changed Type" = Table.TransformColumnTypes(Base, {{"Date", type datetime}}),
+    WeekdayOf = (d as date) as number => Number.Mod(Date.DayOfWeek(d, Day.Sunday), 7) + 1,
+    WeekNrOf = (d as date) as number =>
+        let j1 = #date(Date.Year(d), 1, 1) in Number.RoundUp((Date.DayOfYear(d) + WeekdayOf(j1) - 1) / 7),
+    #"Added Jaar" = Table.AddColumn(#"Changed Type", "Jaar", each Date.Year(DateTime.Date([Date])), Int64.Type),
+    #"Added Maand" = Table.AddColumn(#"Added Jaar", "Maand", each Date.Month(DateTime.Date([Date])), Int64.Type),
+    #"Added MaandNaam" = Table.AddColumn(#"Added Maand", "MaandNaam", each Date.MonthName(DateTime.Date([Date]), "en-US"), type text),
+    #"Added WeekNr" = Table.AddColumn(#"Added MaandNaam", "WeekNr", each WeekNrOf(DateTime.Date([Date])), Int64.Type),
+    #"Added JaarMaand" = Table.AddColumn(#"Added WeekNr", "JaarMaand", each Date.ToText(DateTime.Date([Date]), "yyyy-MM"), type text),
+    #"Added JaarWeek" = Table.AddColumn(#"Added JaarMaand", "JaarWeek", each Text.From([Jaar]) & "-W" & Text.PadStart(Text.From([WeekNr]), 2, "0"), type text)
+in
+    #"Added JaarWeek";
+
 [BindToDefaultDestination = true]
 shared MRPInkopen = let
     LH = Lakehouse.Contents(null),
@@ -87,9 +126,16 @@ shared MRPInkopen = let
     ),
 
     Combined = Table.Combine({Prognose, Bestelling, Gerealiseerd}),
-    #"Reordered Columns" = Table.ReorderColumns(Combined, {"Item", "Date", "Quantity", "Type"})
+    #"Reordered Columns" = Table.ReorderColumns(Combined, {"Item", "Date", "Quantity", "Type"}),
+    #"Typed Columns" = Table.TransformColumnTypes(#"Reordered Columns", {
+        {"Item", type text},
+        {"Date", type datetime},
+        {"Quantity", type number},
+        {"Type", type text}
+    })
 in
-    #"Reordered Columns";
+    #"Typed Columns";
+
 [BindToDefaultDestination = true]
 shared MRPPlanning = let
     LH = Lakehouse.Contents(null),
@@ -166,7 +212,17 @@ shared MRPPlanning = let
 
     AllOrders = Table.Combine({AllOrders1, AllOrders2, AllOrders3, AllOrders4}),
 
-    J1 = Table.NestedJoin(AllOrders, {"ArtikelID"}, ItemsT, {"ItemID"}, "ItemsMatch", JoinKind.LeftOuter),
+    AllOrdersTyped = Table.TransformColumnTypes(AllOrders, {
+        {"BronTabel", type text}, {"OrderType", type text}, {"OrderID", type text},
+        {"OrderDatum", type datetime}, {"OntvangstDatum", type datetime}, {"BehoefteDatum", type datetime},
+        {"ArtikelID", type text}, {"MagazijnID", type text}, {"LeverancierID", type text},
+        {"Hoeveelheid", type number}, {"Geproduceerd", type number},
+        {"StatusCode", Int64.Type}, {"WaarschuwingType", Int64.Type}, {"AanvulType", Int64.Type},
+        {"SalesOrderLink", type text}, {"PurchaseOrderLink", type text}, {"ShopOrderLink", type text},
+        {"MRPScenarioLink", type text}, {"DivisionCode", Int64.Type}
+    }),
+
+    J1 = Table.NestedJoin(AllOrdersTyped, {"ArtikelID"}, ItemsT, {"ItemID"}, "ItemsMatch", JoinKind.LeftOuter),
     J1Exp = Table.ExpandTableColumn(J1, "ItemsMatch", {"Code","Description","ItemGroup","Class_01"}, {"Artikelcode","Artikelnaam","ArtikelgroepID","Producttype"}),
 
     J2 = Table.NestedJoin(J1Exp, {"ArtikelgroepID"}, ItemGroupsT, {"ID"}, "IGMatch", JoinKind.LeftOuter),
@@ -177,8 +233,9 @@ shared MRPPlanning = let
     ItemPricesSorted = Table.Sort(ItemPricesT, {{"syscreated", Order.Descending}}),
     ItemPricesLatest = Table.Group(ItemPricesSorted, {"Item"}, {{"Latest", each Table.FirstN(_,1){0}, type record}}),
     ItemPricesExp = Table.ExpandRecordColumn(ItemPricesLatest, "Latest", {"Unit","Price"}, {"Eenheid","Prijs"}),
+    ItemPricesTyped = Table.TransformColumnTypes(ItemPricesExp, {{"Eenheid", type text}, {"Prijs", type number}}),
 
-    J4 = Table.NestedJoin(J3, {"ArtikelID"}, ItemPricesExp, {"Item"}, "IPMatch", JoinKind.LeftOuter),
+    J4 = Table.NestedJoin(J3, {"ArtikelID"}, ItemPricesTyped, {"Item"}, "IPMatch", JoinKind.LeftOuter),
     J4Exp = Table.ExpandTableColumn(J4, "IPMatch", {"Eenheid","Prijs"}, {"Eenheid","Prijs"}),
 
     J5 = Table.AddColumn(J4Exp, "Waarde", each [Hoeveelheid] * (if [Prijs] = null then 0 else [Prijs]), type number),
@@ -215,25 +272,7 @@ shared MRPPlanning = let
     J17 = Table.AddColumn(J16, "HoeveelheidAbs", each if [Hoeveelheid] = null then null else Number.Abs([Hoeveelheid]), type number)
 in
     J17;
-[BindToDefaultDestination = true]
-shared PeilDatum = let
-    StartDate = #datetime(2020, 1, 1, 0, 0, 0),
-    EndDate = DateTime.From(DateTime.Date(DateTime.LocalNow())),
-    DayCount = Number.From(Duration.Days(EndDate - StartDate)) + 1,
-    Dates = List.DateTimes(StartDate, DayCount, #duration(1,0,0,0)),
-    Base = Table.FromList(Dates, Splitter.SplitByNothing(), {"Date"}),
-    #"Changed Type" = Table.TransformColumnTypes(Base, {{"Date", type datetime}}),
-    WeekdayOf = (d as date) as number => Number.Mod(Date.DayOfWeek(d, Day.Sunday), 7) + 1,
-    WeekNrOf = (d as date) as number =>
-        let j1 = #date(Date.Year(d), 1, 1) in Number.RoundUp((Date.DayOfYear(d) + WeekdayOf(j1) - 1) / 7),
-    #"Added Jaar" = Table.AddColumn(#"Changed Type", "Jaar", each Date.Year(DateTime.Date([Date])), Int64.Type),
-    #"Added Maand" = Table.AddColumn(#"Added Jaar", "Maand", each Date.Month(DateTime.Date([Date])), Int64.Type),
-    #"Added MaandNaam" = Table.AddColumn(#"Added Maand", "MaandNaam", each Date.MonthName(DateTime.Date([Date]), "en-US"), type text),
-    #"Added WeekNr" = Table.AddColumn(#"Added MaandNaam", "WeekNr", each WeekNrOf(DateTime.Date([Date])), Int64.Type),
-    #"Added JaarMaand" = Table.AddColumn(#"Added WeekNr", "JaarMaand", each Date.ToText(DateTime.Date([Date]), "yyyy-MM"), type text),
-    #"Added JaarWeek" = Table.AddColumn(#"Added JaarMaand", "JaarWeek", each Text.From([Jaar]) & "-W" & Text.PadStart(Text.From([WeekNr]), 2, "0"), type text)
-in
-    #"Added JaarWeek";
+
 shared fnGetExactOnlineTable = (TableName as text, optional FilterCondition as function) =>
 let
     Source = ExactOnlinePremium.Contents(),
@@ -243,4 +282,6 @@ let
     FilteredData = if FilterCondition <> null then Table.SelectRows(TableData, FilterCondition) else TableData
 in
     FilteredData;
+
 shared DefaultDestination = Lakehouse.Contents([EnableFolding = false]){[workspaceId = "1f90325e-1060-4c7d-adf4-ccf9fca8b287"]}[Data]{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data];
+
