@@ -32,9 +32,17 @@ table historic_cake_sales
 		sourceColumn: SizeCategory
 
 	column TotalQuantity
-		dataType: int64
+		dataType: double
+		formatString: 0.00
 		lineageTag: 95c9d2a9-1e2c-4334-82a3-0e6d69b53f2c
+		summarizeBy: sum
 		sourceColumn: TotalQuantity
+
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
 
 	column ModifiedAt
 		dataType: dateTime

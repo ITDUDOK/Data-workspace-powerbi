@@ -1959,20 +1959,18 @@ table Measure
 		formatString: #,0
 		lineageTag: b47d51e4-92d3-4383-adf5-be9fcac5edf7
 
-	measure 'Item URL' = ```
+	measure 'Item URL' =
 			
-			"https://start.exactonline.nl/docs/LogItemCard.aspx?Mode=0&Item=" 
-			    & SUBSTITUTE( SUBSTITUTE( SELECTEDVALUE( Items[ItemID] ), "{", "%7b" ), "}", "%7d" ) 
+			"https://start.exactonline.nl/docs/LogItemCard.aspx?Mode=0&Item="
+			    & "%7b" & UPPER( SELECTEDVALUE( Items[ItemID] ) ) & "%7d"
 			    & "&_Division_=2875061"
-			```
 		lineageTag: 9e212251-873a-4168-a22d-138fbabf9c93
 
-	measure 'StockCount URL' = ```
+	measure 'StockCount URL' =
 			
-			"https://start.exactonline.nl/docs/InvStockCount.aspx?Action=Edit&EntryID=" 
-			    & SUBSTITUTE( SUBSTITUTE( SELECTEDVALUE( StockCounts[EntryID] ), "{", "%7b" ), "}", "%7d" ) 
+			"https://start.exactonline.nl/docs/InvStockCount.aspx?Action=Edit&EntryID="
+			    & "%7b" & UPPER( SELECTEDVALUE( StockCounts[EntryID] ) ) & "%7d"
 			    & "&_Division_=2875061"
-			```
 		lineageTag: c53d5fb6-79af-42a1-9fd1-d786a2b0ab0d
 
 	measure 'StockCount Nr' =
@@ -2020,19 +2018,16 @@ table Measure
 		formatString: 0
 		lineageTag: a5535ecf-34e0-487b-bac7-c923b93bacf6
 
-	measure 'Kostprijs €' = ```
+	measure 'Kostprijs €' =
 			
 			SUMX(
 			    OmzetTransacties,
-			    VAR NormID = "{" & UPPER(OmzetTransacties[Item]) & "}"
-			    RETURN
 			    LOOKUPVALUE(
-			        Items[CostPriceStandard], 
-			        Items[ItemID], NormID,
+			        Items[CostPriceStandard],
+			        Items[ItemID], OmzetTransacties[Item],
 			        0
 			    ) * ABS(OmzetTransacties[Quantity])
 			)
-			```
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 193ca728-55a0-4c83-935f-bf5165ee61e9
 
@@ -2308,14 +2303,12 @@ table Measure
 		formatString: 0
 		lineageTag: 0f742666-aef6-449c-8a49-8a3b66bab126
 
-	measure 'Werkorder URL' = ```
+	measure 'Werkorder URL' =
 			
 			// Bouwt de directe link naar de werkorderkaart in Exact Online.
 			"https://start.exactonline.nl/docs/MfgShopOrderCard.aspx?ID="
-			    & SUBSTITUTE( SUBSTITUTE( SELECTEDVALUE( ShopOrders[ID] ), "{", "%7b" ), "}", "%7d" )
+			    & "%7b" & UPPER( SELECTEDVALUE( ShopOrders[ID] ) ) & "%7d"
 			    & "&_Division_=2875061"
-			
-			```
 		lineageTag: ffe57d16-9352-4526-a018-749cc436b329
 
 	measure 'Verkopen Vorige Week' = ```
@@ -2739,29 +2732,28 @@ table Measure
 			)
 		lineageTag: ea76ac8a-f18f-47f2-9634-d370ddabe82e
 
-	measure ExactOnlineURL = ```
+	measure ExactOnlineURL =
 			
 			IF(
 			    ISINSCOPE(Items[ItemNameCode]),
 			    VAR WONummer = MAX(ShopOrders[ShopOrderNumber])
-			    VAR WO_ID = 
+			    VAR WO_ID =
 			        MAXX(
 			            FILTER(ALL(ShopOrders), ShopOrders[ShopOrderNumber] = WONummer),
 			            ShopOrders[ID]
 			        )
-			    VAR WO_Division = 
+			    VAR WO_Division =
 			        MAXX(
 			            FILTER(ALL(ShopOrders), ShopOrders[ShopOrderNumber] = WONummer),
 			            ShopOrders[Division]
 			        )
 			    RETURN
-			        "https://start.exactonline.nl/docs/MfgShopOrderCard.aspx?ID=" 
-			            & SUBSTITUTE(SUBSTITUTE(WO_ID, "{", "%7b"), "}", "%7d")
-			            & "&_Division_=" 
+			        "https://start.exactonline.nl/docs/MfgShopOrderCard.aspx?ID="
+			            & "%7b" & UPPER(WO_ID) & "%7d"
+			            & "&_Division_="
 			            & FORMAT(WO_Division, "0"),
 			    BLANK()
 			)
-			```
 		lineageTag: c1366724-14c4-4a08-a513-79f1495119da
 
 	measure 'Correctiefactor waarde' = SELECTEDVALUE('correctiefactor'[CorrPercent])

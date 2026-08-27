@@ -26,12 +26,16 @@ table predicted_cake_sales
 		annotation SummarizationSetBy = Automatic
 
 	column PredictedSales
-		dataType: int64
-		formatString: 0
+		dataType: double
+		formatString: 0.00
 		lineageTag: 7f530007-1e1b-4010-b3fe-19dd81181a8a
 		sourceLineageTag: PredictedSales
 		summarizeBy: sum
 		sourceColumn: PredictedSales
+
+		changedProperty = DataType
+
+		changedProperty = FormatString
 
 		annotation SummarizationSetBy = Automatic
 
