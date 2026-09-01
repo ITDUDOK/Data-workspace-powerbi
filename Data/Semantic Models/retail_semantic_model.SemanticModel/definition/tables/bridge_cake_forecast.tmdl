@@ -1,40 +1,39 @@
 table bridge_cake_forecast
-	lineageTag: be013799-e2f6-4720-b892-6150787f428d
+	lineageTag: 8c9bba33-d86b-4372-8893-31aaf53eee22
 
 	column CakeType
 		dataType: string
-		lineageTag: 7bf2d719-4dc5-49b9-92f0-14ab112fa075
+		lineageTag: 2ad85cd6-cbb5-497d-85d3-d4aa128833c8
 		sourceColumn: CakeType
 
 	column SizeCategory
 		dataType: string
-		lineageTag: 21467f4c-ac2d-44cd-98aa-ebc30f09a0d6
+		lineageTag: 4f2a78af-f6fe-4f34-abe8-a62d28683183
 		sourceColumn: SizeCategory
 
 	column Location
 		dataType: string
-		lineageTag: 993de028-bad3-4320-aca0-44aeb4198d9b
+		lineageTag: 98c70e92-1993-4c66-8dce-576765309fc0
 		sourceColumn: Location
 
 	column CenterKey
 		dataType: string
-		lineageTag: a2b208f6-cb68-4ae8-9152-53e7a6953d03
+		lineageTag: ad9de113-640d-4a7d-925c-e9805d723d8a
 		sourceColumn: CenterKey
 
 	column CakeLocationKey
 		dataType: string
-		lineageTag: 5d582320-b753-459e-a99e-8f886bc79c33
+		lineageTag: 043b5c94-69b2-4397-bad4-b96ca2ae6736
 		sourceColumn: CakeLocationKey
 
 	column ModifiedAt
 		dataType: dateTime
-		lineageTag: fcd3bfb1-8178-415c-a4e5-151ba1a3cee4
+		lineageTag: 2c5f804d-17d3-462b-bf42-1caf6081f28e
 		sourceColumn: ModifiedAt
 
 	partition 'bridge_cake_forecast 1' = entity
 		mode: directLake
 		source
 			entityName: bridge_cake_forecast
-			schemaName: dbo
 			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
 

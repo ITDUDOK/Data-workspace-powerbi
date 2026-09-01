@@ -1,20 +1,19 @@
 table dim_cake_type
-	lineageTag: 6bc9da40-54a7-4d0c-bd4a-55f383377dda
+	lineageTag: 828ddcf5-32af-4a60-a645-e8e126c2f131
 
 	column CakeType
 		dataType: string
-		lineageTag: b5b19c11-60fb-407e-af51-38fdb3e8327e
+		lineageTag: f1a169b1-82f5-47ef-9f0c-21d8c7fbc3c6
 		sourceColumn: CakeType
 
 	column ModifiedAt
 		dataType: dateTime
-		lineageTag: 58370d7b-4ece-4145-9611-a1b16fcc87bd
+		lineageTag: 5ee45077-15cc-4bb5-bd6d-389d9b5a1dc1
 		sourceColumn: ModifiedAt
 
 	partition 'dim_cake_type 1' = entity
 		mode: directLake
 		source
 			entityName: dim_cake_type
-			schemaName: dbo
 			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
 

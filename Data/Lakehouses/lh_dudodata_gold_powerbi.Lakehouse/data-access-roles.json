@@ -42,7 +42,7 @@
           {
             "attributeName": "Path",
             "attributeValueIncludedIn": [
-              "*"
+              "/Tables/dbo"
             ]
           }
         ]

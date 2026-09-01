@@ -224,6 +224,36 @@
             ]
           }
         ]
+      },
+      {
+        "type": "PBISemanticModelRefresh",
+        "typeProperties": {
+          "method": "POST",
+          "groupId": "1f90325e-1060-4c7d-adf4-ccf9fca8b287",
+          "datasetId": "b3ec14d7-39ea-4cf8-94b3-48711ad1d825",
+          "commitMode": "Transactional",
+          "waitOnCompletion": true,
+          "operationType": "SemanticModelRefresh"
+        },
+        "externalReferences": {
+          "connection": "890a193d-5523-4c17-a718-9b8201772d66"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Manufacturing",
+        "dependsOn": [
+          {
+            "activity": "DedupIncremental",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
       }
     ]
   }

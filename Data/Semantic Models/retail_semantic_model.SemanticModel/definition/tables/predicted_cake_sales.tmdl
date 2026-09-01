@@ -106,18 +106,41 @@ table predicted_cake_sales
 
 	column CenterKey
 		dataType: string
-		lineageTag: 55aa2ac0-93a5-4e5f-b878-4f2aebe7f616
+		lineageTag: f1a6efcc-4610-4f1a-8a47-dd5c11519855
+		sourceLineageTag: CenterKey
+		summarizeBy: none
 		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
 
 	column CakeLocationKey
 		dataType: string
-		lineageTag: 8c0388ad-d538-4b6c-9535-d02cc22b1dd3
+		lineageTag: 2ee25376-f1b1-4a41-8e7d-07ad52ef3884
+		sourceLineageTag: CakeLocationKey
+		summarizeBy: none
 		sourceColumn: CakeLocationKey
+
+		annotation SummarizationSetBy = Automatic
 
 	column IsLatestBatch
 		dataType: boolean
-		lineageTag: 163e67fd-7578-455a-8bfc-5319bc6b9949
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 59352288-5407-46aa-a826-36856411221e
+		sourceLineageTag: IsLatestBatch
+		summarizeBy: none
 		sourceColumn: IsLatestBatch
+
+		annotation SummarizationSetBy = Automatic
+
+	column PredictedSalesPunten
+		dataType: int64
+		formatString: 0
+		lineageTag: a930cc6d-e61f-40f6-a007-66f4763e08b3
+		sourceLineageTag: PredictedSalesPunten
+		summarizeBy: sum
+		sourceColumn: PredictedSalesPunten
+
+		annotation SummarizationSetBy = Automatic
 
 	partition predicted_cake_sales = entity
 		mode: directLake

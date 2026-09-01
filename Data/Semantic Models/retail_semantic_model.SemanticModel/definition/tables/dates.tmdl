@@ -211,6 +211,9 @@ table dates
 		sourceLineageTag: ThisWeekISO
 		summarizeBy: none
 		sourceColumn: ThisWeekISO
+		sortByColumn: WeekISO
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 

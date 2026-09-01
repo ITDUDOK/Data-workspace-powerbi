@@ -7,7 +7,7 @@ table offices
 		formatString: 0
 		lineageTag: d330622f-01a9-492b-9c2e-691217a153fd
 		sourceLineageTag: OfficeId
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: OfficeId
 
 		annotation SummarizationSetBy = Automatic

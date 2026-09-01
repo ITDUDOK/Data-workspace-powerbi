@@ -7,7 +7,7 @@ table staff
 		formatString: 0
 		lineageTag: 0b8d9e82-c1ab-4593-a470-5cba436293da
 		sourceLineageTag: CardId
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: CardId
 
 		annotation SummarizationSetBy = Automatic

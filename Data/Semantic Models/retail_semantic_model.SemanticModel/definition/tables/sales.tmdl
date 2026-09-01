@@ -296,8 +296,13 @@ table sales
 
 	column ActionId
 		dataType: int64
-		lineageTag: 86f98637-3479-405e-bcdc-1f817d960c1f
+		formatString: 0
+		lineageTag: aa7b0975-1bfc-4f05-a639-aed47766d552
+		sourceLineageTag: ActionId
+		summarizeBy: count
 		sourceColumn: ActionId
+
+		annotation SummarizationSetBy = Automatic
 
 	partition sales = entity
 		mode: directLake

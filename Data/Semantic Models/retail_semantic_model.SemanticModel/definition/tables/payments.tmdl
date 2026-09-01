@@ -191,6 +191,15 @@ table payments
 
 		annotation SummarizationSetBy = Automatic
 
+	column OrderKey
+		dataType: string
+		lineageTag: c9e92c05-3ff8-44c2-9258-0fc93c013020
+		sourceLineageTag: OrderKey
+		summarizeBy: none
+		sourceColumn: OrderKey
+
+		annotation SummarizationSetBy = Automatic
+
 	partition payments = entity
 		mode: directLake
 		source
