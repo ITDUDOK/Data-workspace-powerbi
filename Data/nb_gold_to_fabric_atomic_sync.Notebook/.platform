@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "nb_gold_to_fabric_atomic_sync"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fc50605e-e57e-ae04-4986-d4902ccddc3a"
+  }
+}
