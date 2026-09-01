@@ -1,0 +1,48 @@
+table bridge_cake_location
+	lineageTag: b8e9372e-bf50-4690-ada1-8bd81280eb70
+	sourceLineageTag: [dbo].[bridge_cake_location]
+
+	column Location
+		dataType: string
+		lineageTag: 2b14e97d-80ba-49eb-8327-fd29fc41c884
+		sourceLineageTag: Location
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterKey
+		dataType: string
+		lineageTag: 920332a1-2326-4af7-bdd2-882c6a4f5876
+		sourceLineageTag: CenterKey
+		summarizeBy: none
+		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CenterName
+		dataType: string
+		lineageTag: ebb76640-bfcf-4737-aca5-15dcda3ed5a1
+		sourceLineageTag: CenterName
+		summarizeBy: none
+		sourceColumn: CenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7248f795-f683-4eef-bd7a-22119d3b327c
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bridge_cake_location = entity
+		mode: directLake
+		source
+			entityName: bridge_cake_location
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

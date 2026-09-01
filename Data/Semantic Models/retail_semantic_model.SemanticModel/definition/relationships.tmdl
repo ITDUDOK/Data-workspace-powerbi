@@ -180,19 +180,3 @@ relationship 98b72023-c4de-491b-a3aa-461988ce8eb3
 	fromColumn: sickness.SicknessStart
 	toColumn: dates.Date
 
-relationship 9e9eb3c7-b50a-47e1-9ffa-380d8761aed8
-	fromColumn: historic_cake_sales.CakeType
-	toColumn: dim_cake_type.CakeType
-
-relationship ac1d0a59-ae74-47cd-9b75-abefb0ec9f20
-	fromColumn: predicted_cake_sales.CakeType
-	toColumn: dim_cake_type.CakeType
-
-relationship ae0a78bb-403b-4652-92fe-a1cac5c24fb3
-	fromColumn: historic_cake_sales.CakeLocationKey
-	toColumn: bridge_cake_forecast.CakeLocationKey
-
-relationship f4ebd42a-3bf6-4110-880a-f60c4a1933dd
-	fromColumn: predicted_cake_sales.CakeLocationKey
-	toColumn: bridge_cake_forecast.CakeLocationKey
-

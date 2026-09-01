@@ -1,54 +1,96 @@
 table historic_cake_sales
-	lineageTag: 13a17d75-ed25-474b-8168-f97aa39a1386
+	lineageTag: 170d15c4-0b71-4ad8-be9b-9e8bdbb6257f
+	sourceLineageTag: [dbo].[historic_cake_sales]
 
 	column HistoricCakeSaleId
 		dataType: int64
-		lineageTag: 8913c2da-5026-4fc3-b94e-3e01342c8fff
+		formatString: 0
+		lineageTag: 6bde24d2-ae02-4acb-b491-e29a16a6546f
+		sourceLineageTag: HistoricCakeSaleId
+		summarizeBy: count
 		sourceColumn: HistoricCakeSaleId
+
+		annotation SummarizationSetBy = Automatic
 
 	column TicketDate
 		dataType: dateTime
-		lineageTag: caded5d2-5e96-4052-9fb2-25b7f78d1a15
+		formatString: General Date
+		lineageTag: c6c957a2-ad88-4821-aefa-d6b93a127051
+		sourceLineageTag: TicketDate
+		summarizeBy: none
 		sourceColumn: TicketDate
+
+		annotation SummarizationSetBy = Automatic
 
 	column CenterKey
 		dataType: string
-		lineageTag: 3dae8af9-ae75-4d45-a97f-fe737f269ed1
+		lineageTag: 4d3cf752-5fbf-4fe5-bf37-c1a9534545cb
+		sourceLineageTag: CenterKey
+		summarizeBy: none
 		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
 
 	column CenterName
 		dataType: string
-		lineageTag: d0da3d21-269f-4257-9e94-3d8c5d85e59e
+		lineageTag: 65ba95c7-e8fd-4981-b324-b581e86e9651
+		sourceLineageTag: CenterName
+		summarizeBy: none
 		sourceColumn: CenterName
+
+		annotation SummarizationSetBy = Automatic
 
 	column CakeType
 		dataType: string
-		lineageTag: 5b634027-f0f1-4099-bf13-84acc34ce8fb
+		lineageTag: 87edbc4f-2f67-444c-835b-02a1f538ae45
+		sourceLineageTag: CakeType
+		summarizeBy: none
 		sourceColumn: CakeType
+
+		annotation SummarizationSetBy = Automatic
 
 	column SizeCategory
 		dataType: string
-		lineageTag: 5a3df16d-ef01-490d-bb9e-403451b86c15
+		lineageTag: 30a95f22-42a4-48a3-89e4-7da623dd881c
+		sourceLineageTag: SizeCategory
+		summarizeBy: none
 		sourceColumn: SizeCategory
+
+		annotation SummarizationSetBy = Automatic
 
 	column TotalQuantity
 		dataType: int64
-		lineageTag: 6f7bf16c-3af6-4972-9e9d-e568209b6475
+		formatString: 0
+		lineageTag: 3b4386b6-8edc-47ad-9a1b-fea357e62dbd
+		sourceLineageTag: TotalQuantity
+		summarizeBy: sum
 		sourceColumn: TotalQuantity
+
+		annotation SummarizationSetBy = Automatic
 
 	column ModifiedAt
 		dataType: dateTime
-		lineageTag: f6330323-116e-473d-9011-5a8f24121b60
+		formatString: General Date
+		lineageTag: 169066ec-ecaf-412c-a026-bded934aa453
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
 		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
 
 	column CakeLocationKey
 		dataType: string
-		lineageTag: 6057e42b-cfe6-4e53-9c71-3abb250b3fdd
+		lineageTag: e4531886-bd7e-49e6-ab76-729cf01b9046
+		sourceLineageTag: CakeLocationKey
+		summarizeBy: none
 		sourceColumn: CakeLocationKey
 
-	partition 'historic_cake_sales 1' = entity
+		annotation SummarizationSetBy = Automatic
+
+	partition historic_cake_sales = entity
 		mode: directLake
 		source
 			entityName: historic_cake_sales
+			schemaName: dbo
 			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
 

@@ -1,39 +1,66 @@
 table bridge_cake_forecast
-	lineageTag: 8c9bba33-d86b-4372-8893-31aaf53eee22
+	lineageTag: 17e9e421-be7f-4e4d-95b9-06ced6107d30
+	sourceLineageTag: [dbo].[bridge_cake_forecast]
 
 	column CakeType
 		dataType: string
-		lineageTag: 2ad85cd6-cbb5-497d-85d3-d4aa128833c8
+		lineageTag: e732c33d-14bd-43f5-b552-81b177eafa72
+		sourceLineageTag: CakeType
+		summarizeBy: none
 		sourceColumn: CakeType
+
+		annotation SummarizationSetBy = Automatic
 
 	column SizeCategory
 		dataType: string
-		lineageTag: 4f2a78af-f6fe-4f34-abe8-a62d28683183
+		lineageTag: 6b420266-978f-48ac-8f2c-10d5f705d32f
+		sourceLineageTag: SizeCategory
+		summarizeBy: none
 		sourceColumn: SizeCategory
+
+		annotation SummarizationSetBy = Automatic
 
 	column Location
 		dataType: string
-		lineageTag: 98c70e92-1993-4c66-8dce-576765309fc0
+		lineageTag: ca80fbb0-6887-4c8e-838d-a3a81f82baa2
+		sourceLineageTag: Location
+		summarizeBy: none
 		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
 
 	column CenterKey
 		dataType: string
-		lineageTag: ad9de113-640d-4a7d-925c-e9805d723d8a
+		lineageTag: 5fc7d7db-5b29-458d-8fd8-c669371f9d5c
+		sourceLineageTag: CenterKey
+		summarizeBy: none
 		sourceColumn: CenterKey
+
+		annotation SummarizationSetBy = Automatic
 
 	column CakeLocationKey
 		dataType: string
-		lineageTag: 043b5c94-69b2-4397-bad4-b96ca2ae6736
+		lineageTag: 0dd951f9-27ad-43f7-808c-cb87781b4e3e
+		sourceLineageTag: CakeLocationKey
+		summarizeBy: none
 		sourceColumn: CakeLocationKey
+
+		annotation SummarizationSetBy = Automatic
 
 	column ModifiedAt
 		dataType: dateTime
-		lineageTag: 2c5f804d-17d3-462b-bf42-1caf6081f28e
+		formatString: General Date
+		lineageTag: d7122b2b-e8e1-4ed2-ada9-96cc393aaf40
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
 		sourceColumn: ModifiedAt
 
-	partition 'bridge_cake_forecast 1' = entity
+		annotation SummarizationSetBy = Automatic
+
+	partition bridge_cake_forecast = entity
 		mode: directLake
 		source
 			entityName: bridge_cake_forecast
+			schemaName: dbo
 			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
 

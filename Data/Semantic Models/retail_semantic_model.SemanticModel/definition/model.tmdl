@@ -47,5 +47,6 @@ ref table vat_rates
 ref table measurements
 ref table dim_cake_type
 ref table historic_cake_sales
+ref table bridge_cake_location
 ref table bridge_cake_forecast
 

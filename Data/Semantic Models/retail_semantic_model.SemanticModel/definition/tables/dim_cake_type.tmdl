@@ -1,19 +1,30 @@
 table dim_cake_type
-	lineageTag: 828ddcf5-32af-4a60-a645-e8e126c2f131
+	lineageTag: 64fdd2ec-7f91-40b5-95d4-901368bd9c6d
+	sourceLineageTag: [dbo].[dim_cake_type]
 
 	column CakeType
 		dataType: string
-		lineageTag: f1a169b1-82f5-47ef-9f0c-21d8c7fbc3c6
+		lineageTag: 1df76110-f0ea-4aa8-8e18-f956d22aa9db
+		sourceLineageTag: CakeType
+		summarizeBy: none
 		sourceColumn: CakeType
+
+		annotation SummarizationSetBy = Automatic
 
 	column ModifiedAt
 		dataType: dateTime
-		lineageTag: 5ee45077-15cc-4bb5-bd6d-389d9b5a1dc1
+		formatString: General Date
+		lineageTag: a2beea6e-a5f0-4538-8f92-346a23c8dccc
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
 		sourceColumn: ModifiedAt
 
-	partition 'dim_cake_type 1' = entity
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_cake_type = entity
 		mode: directLake
 		source
 			entityName: dim_cake_type
+			schemaName: dbo
 			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
 
