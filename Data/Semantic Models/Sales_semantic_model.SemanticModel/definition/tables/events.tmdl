@@ -5,11 +5,17 @@ table events
 	measure Event_url_formatted = SELECTEDVALUE('events'[Url])
 		lineageTag: 39b9d35a-75d1-47aa-9d7a-f2aa90fd44b9
 
-	measure 'Voorcalculatie Omzet' = CALCULATE(    VAR ProductOmzet = SUM(event_product_lines[TotalPriceExclVat])    VAR PackageOmzet = IF(ISFILTERED(product_categories[CategoryName]), 0, SUM(event_package_lines[PackageTotalPriceExclVat]))    RETURN ProductOmzet + PackageOmzet,    FILTER(events, events[HeeftGLRegistratie] = TRUE()))
+	measure 'Voorcalculatie Omzet' =
+			IF(ISINSCOPE(GLTransactions[InvoiceNumber]) || ISINSCOPE(GLTransactions[Description]) || ISINSCOPE(GLTransactions[Document]) || ISINSCOPE(GLTransactions[OfficialInvoiceNumber]), BLANK(),
+			CALCULATE(    VAR ProductOmzet = SUM(event_product_lines[TotalPriceExclVat])    VAR PackageOmzet = IF(ISFILTERED(product_categories[CategoryName]), 0, SUM(event_package_lines[PackageTotalPriceExclVat]))    RETURN ProductOmzet + PackageOmzet,    FILTER(events, events[HeeftGLRegistratie] = TRUE()))
+			)
 		formatString: €#,##0
 		lineageTag: 6cc35c2c-be51-47e4-b3ae-e9f4f528c066
 
-	measure 'Voorcalculatie Kosten' = CALCULATE(    SUMX(event_product_lines, event_product_lines[CostPrice] * event_product_lines[Amount]),    FILTER(events, events[HeeftGLRegistratie] = TRUE()))
+	measure 'Voorcalculatie Kosten' =
+			IF(ISINSCOPE(GLTransactions[InvoiceNumber]) || ISINSCOPE(GLTransactions[Description]) || ISINSCOPE(GLTransactions[Document]) || ISINSCOPE(GLTransactions[OfficialInvoiceNumber]), BLANK(),
+			CALCULATE(    SUMX(event_product_lines, event_product_lines[CostPrice] * event_product_lines[Amount]),    FILTER(events, events[HeeftGLRegistratie] = TRUE()))
+			)
 		formatString: €#,##0
 		lineageTag: 39297a0a-254c-42a6-a596-bf6609efe125
 
