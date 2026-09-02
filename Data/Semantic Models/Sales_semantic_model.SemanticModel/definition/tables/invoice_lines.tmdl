@@ -7,7 +7,7 @@ table invoice_lines
 			    SUM(invoice_lines[TotalPriceExclVat]),
 			    USERELATIONSHIP(invoices[DateSentDate], dates[Date])
 			)
-		formatString: \€\ #,0.00
+		formatString: \€\ #,0
 		lineageTag: 12419604-f2af-4090-be0d-218d6b13febe
 
 	column InvoiceId
