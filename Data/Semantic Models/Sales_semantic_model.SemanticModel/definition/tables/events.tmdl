@@ -5,11 +5,11 @@ table events
 	measure Event_url_formatted = SELECTEDVALUE('events'[Url])
 		lineageTag: 39b9d35a-75d1-47aa-9d7a-f2aa90fd44b9
 
-	measure 'Voorcalculatie Omzet' = CALCULATE(    VAR ProductOmzet = SUM(event_product_lines[TotalPriceExclVat])    VAR PackageOmzet = IF(ISFILTERED(product_categories[CategoryName]), 0, SUM(event_package_lines[PackageTotalPriceExclVat]))    RETURN ProductOmzet + PackageOmzet,    FILTER(events, events[HeeftGLRegistratie] = 1))
+	measure 'Voorcalculatie Omzet' = CALCULATE(    VAR ProductOmzet = SUM(event_product_lines[TotalPriceExclVat])    VAR PackageOmzet = IF(ISFILTERED(product_categories[CategoryName]), 0, SUM(event_package_lines[PackageTotalPriceExclVat]))    RETURN ProductOmzet + PackageOmzet,    FILTER(events, events[HeeftGLRegistratie] = TRUE()))
 		formatString: €#,##0
 		lineageTag: 6cc35c2c-be51-47e4-b3ae-e9f4f528c066
 
-	measure 'Voorcalculatie Kosten' = CALCULATE(    SUMX(event_product_lines, event_product_lines[CostPrice] * event_product_lines[Amount]),    FILTER(events, events[HeeftGLRegistratie] = 1))
+	measure 'Voorcalculatie Kosten' = CALCULATE(    SUMX(event_product_lines, event_product_lines[CostPrice] * event_product_lines[Amount]),    FILTER(events, events[HeeftGLRegistratie] = TRUE()))
 		formatString: €#,##0
 		lineageTag: 39297a0a-254c-42a6-a596-bf6609efe125
 
@@ -19,14 +19,14 @@ table events
 
 	measure 'Nacalculatie Omzet' =
 			IF(ISFILTERED(event_product_lines[ProductName]), BLANK(),
-			CALCULATE(    -SUM(GLTransactions[AmountDC]),    GLAccounts[Type] = 110,    FILTER(events, events[HeeftGLRegistratie] = 1))
+			CALCULATE(    -SUM(GLTransactions[AmountDC]),    GLAccounts[Type] = 110,    FILTER(events, events[HeeftGLRegistratie] = TRUE()))
 			)
 		formatString: €#,##0
 		lineageTag: 2897bdc6-1076-4163-92b7-d413893d4ec7
 
 	measure 'Nacalculatie Kosten' =
 			IF(ISFILTERED(event_product_lines[ProductName]), BLANK(),
-			CALCULATE(    SUM(GLTransactions[AmountDC]),    GLAccounts[Type] IN {111, 121, 122, 125},    FILTER(events, events[HeeftGLRegistratie] = 1))
+			CALCULATE(    SUM(GLTransactions[AmountDC]),    GLAccounts[Type] IN {111, 121, 122, 125},    FILTER(events, events[HeeftGLRegistratie] = TRUE()))
 			)
 		formatString: €#,##0
 		lineageTag: 971c611d-5285-4a62-8d21-b287ea043b22
