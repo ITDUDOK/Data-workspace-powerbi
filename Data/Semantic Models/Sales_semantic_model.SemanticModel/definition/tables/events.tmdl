@@ -17,17 +17,11 @@ table events
 		formatString: 0.0%
 		lineageTag: 70c2b5d0-7137-442b-987f-983d319ab9b9
 
-	measure 'Nacalculatie Omzet' =
-			IF(ISFILTERED(event_product_lines[ProductName]), BLANK(),
-			CALCULATE(    -SUM(GLTransactions[AmountDC]),    GLAccounts[Type] = 110,    FILTER(events, events[HeeftGLRegistratie] = TRUE()))
-			)
+	measure 'Nacalculatie Omzet' = CALCULATE(    -SUM(GLTransactions[AmountDC]),    GLAccounts[Type] = 110,    FILTER(events, events[HeeftGLRegistratie] = TRUE()))
 		formatString: €#,##0
 		lineageTag: 2897bdc6-1076-4163-92b7-d413893d4ec7
 
-	measure 'Nacalculatie Kosten' =
-			IF(ISFILTERED(event_product_lines[ProductName]), BLANK(),
-			CALCULATE(    SUM(GLTransactions[AmountDC]),    GLAccounts[Type] IN {111, 121, 122, 125},    FILTER(events, events[HeeftGLRegistratie] = TRUE()))
-			)
+	measure 'Nacalculatie Kosten' = CALCULATE(    SUM(GLTransactions[AmountDC]),    GLAccounts[Type] IN {111, 121, 122, 125},    FILTER(events, events[HeeftGLRegistratie] = TRUE()))
 		formatString: €#,##0
 		lineageTag: 971c611d-5285-4a62-8d21-b287ea043b22
 
