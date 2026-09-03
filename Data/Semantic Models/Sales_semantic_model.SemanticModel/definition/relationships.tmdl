@@ -70,6 +70,7 @@ relationship 591702cd-400b-9b72-cf5e-6f98e6863693
 	toColumn: events.EventId
 
 relationship 2a4e9a2a-49e8-d656-5076-06cc2eeff3d0
+	isActive: false
 	crossFilteringBehavior: bothDirections
 	fromColumn: events.EventId
 	toColumn: Costcenters.Code
