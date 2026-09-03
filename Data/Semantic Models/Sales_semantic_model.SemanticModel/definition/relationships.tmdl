@@ -83,23 +83,27 @@ relationship 83ba37ec-4b24-481d-9933-839efae30064
 	fromColumn: event_product_lines.ObjectCategoryId
 	toColumn: product_categories.CategoryIdInt
 
-relationship a880ef27-5e4c-48ee-b8c0-dd8b1b8df37f
+relationship 446d3b8e-f6db-4a30-8d0a-1ba04e5c3c4a
 	fromColumn: GLTransactions.GLAccount
 	toColumn: GLAccounts.ID
 
-relationship 929f0403-c047-4285-9df3-38fc0b537319
+relationship 48a66df5-605f-4b68-bd26-a1c128b99ce8
 	fromColumn: GLAccounts.Code
 	toColumn: map_glaccount_category.Code
 
-relationship 21807e29-4102-48ec-9b0b-44b95ee25050
+relationship 415df857-7263-4b36-8492-04f3ddca65b4
 	fromColumn: product_categories.CategoryIdInt
 	toColumn: map_productcategory_category.CategoryIdInt
 
-relationship 3745cffc-df9d-46ca-8e4c-4a976f87ec41
+relationship 7a0c7687-f7e6-4755-a2f8-50ffdd819614
 	fromColumn: map_glaccount_category.CategoryName
 	toColumn: Categories.CategoryName
 
-relationship aa87bd87-475b-4417-be9b-47f3cb990740
+relationship af0d0d56-7413-4356-a1bd-a3ac337ad37c
 	fromColumn: map_productcategory_category.TargetCategory
 	toColumn: Categories.CategoryName
+
+relationship b0c6e7ea-411a-4358-b564-f99894f5fb6d
+	fromColumn: GLTransactions.GLAccount
+	toColumn: map_glaccountid_category.GLAccountID
 

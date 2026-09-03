@@ -1,22 +1,46 @@
 table map_productcategory_category
-	lineageTag: fed7f915-b528-446f-8ad4-11440848903f
+	lineageTag: d766857e-f2f0-46c9-ad39-c9a96e77258b
+	sourceLineageTag: [dbo].[map_productcategory_category]
 
 	column CategoryIdInt
 		dataType: int64
-		lineageTag: 4b46db2c-a2e8-400b-a0a3-bc7d9a84fb71
+		formatString: 0
+		lineageTag: c5f5ce4c-6fcb-475b-a3e6-50814ce7762c
+		sourceLineageTag: CategoryIdInt
+		summarizeBy: sum
 		sourceColumn: CategoryIdInt
+
+		annotation SummarizationSetBy = Automatic
 
 	column CategoryName
 		dataType: string
-		lineageTag: f14244ec-d7f5-4beb-8aa3-4705ca0a05e0
+		lineageTag: 7557cb26-a479-46cb-8605-711bdeaa7b20
+		sourceLineageTag: CategoryName
+		summarizeBy: none
 		sourceColumn: CategoryName
+
+		annotation SummarizationSetBy = Automatic
 
 	column TargetCategory
 		dataType: string
-		lineageTag: f59f582a-4e3e-4b74-8a04-e1e5cbaef91b
+		lineageTag: 4f3cb574-accb-47fa-b964-50d774760e0e
+		sourceLineageTag: TargetCategory
+		summarizeBy: none
 		sourceColumn: TargetCategory
 
-	partition 'map_productcategory_category 1' = entity
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ba9a4886-341c-4335-9132-69168fac959e
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition map_productcategory_category = entity
 		mode: directLake
 		source
 			entityName: map_productcategory_category

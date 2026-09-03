@@ -1,12 +1,27 @@
 table Categories
-	lineageTag: 24b20160-8f2d-49be-be0a-f309b6973593
+	lineageTag: 721c36f3-599f-4873-911d-460b3219a751
+	sourceLineageTag: [dbo].[dim_nacalculatie_category]
 
 	column CategoryName
 		dataType: string
-		lineageTag: e79fd0e1-afaf-4a79-8ef8-d599bedd45cf
+		lineageTag: 3bedff95-e943-48a5-9127-8001427073b6
+		sourceLineageTag: CategoryName
+		summarizeBy: none
 		sourceColumn: CategoryName
 
-	partition 'Categories 1' = entity
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: aba9635a-b40a-471d-8bed-4af22d0c6297
+		sourceLineageTag: ModifiedAt
+		summarizeBy: none
+		sourceColumn: ModifiedAt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_nacalculatie_category = entity
 		mode: directLake
 		source
 			entityName: dim_nacalculatie_category

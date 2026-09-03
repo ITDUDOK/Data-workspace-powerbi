@@ -625,10 +625,25 @@ table events
 
 		annotation SummarizationSetBy = Automatic
 
+	column CancellationReasonCheckedAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7bd4fbf2-3ba1-47a6-a453-f7d8e15ca712
+		sourceLineageTag: CancellationReasonCheckedAt
+		summarizeBy: none
+		sourceColumn: CancellationReasonCheckedAt
+
+		annotation SummarizationSetBy = Automatic
+
 	column HeeftGLRegistratie
 		dataType: boolean
-		lineageTag: 17c7a363-5c47-424c-a682-31da9e39f706
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 706f161b-67e4-4e25-92f6-bfc8e2fbe391
+		sourceLineageTag: HeeftGLRegistratie
+		summarizeBy: none
 		sourceColumn: HeeftGLRegistratie
+
+		annotation SummarizationSetBy = Automatic
 
 	partition events = entity
 		mode: directLake

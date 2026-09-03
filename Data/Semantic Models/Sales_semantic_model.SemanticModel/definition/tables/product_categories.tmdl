@@ -53,7 +53,7 @@ table product_categories
 		formatString: 0
 		lineageTag: ed1ca913-3db5-4246-b24e-6b40aa10d82b
 		sourceLineageTag: CategoryIdInt
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CategoryIdInt
 
 		annotation SummarizationSetBy = Automatic

@@ -36,8 +36,9 @@ ref table mice_companies
 ref table invoices
 ref table Costcenters
 ref table GLTransactions
-ref table GLAccounts
-ref table map_glaccount_category
+ref table map_glaccountid_category
 ref table map_productcategory_category
 ref table Categories
+ref table map_glaccount_category
+ref table GLAccounts
 

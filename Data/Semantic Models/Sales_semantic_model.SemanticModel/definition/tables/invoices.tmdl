@@ -246,6 +246,16 @@ table invoices
 
 		annotation SummarizationSetBy = Automatic
 
+	column InclVat
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e80d4cd7-3c05-4f02-90fc-bcde47765490
+		sourceLineageTag: InclVat
+		summarizeBy: none
+		sourceColumn: InclVat
+
+		annotation SummarizationSetBy = Automatic
+
 	partition invoices = entity
 		mode: directLake
 		source

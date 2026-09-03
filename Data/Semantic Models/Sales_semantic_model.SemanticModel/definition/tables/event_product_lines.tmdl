@@ -262,8 +262,14 @@ table event_product_lines
 
 	column LineCostPrice
 		dataType: double
-		lineageTag: ed9b21bb-b5d3-4e47-80bb-b18e77b00cdc
+		lineageTag: 81cec61e-62cc-4a26-9f75-8649cf9f4df2
+		sourceLineageTag: LineCostPrice
+		summarizeBy: sum
 		sourceColumn: LineCostPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition event_product_lines = entity
 		mode: directLake

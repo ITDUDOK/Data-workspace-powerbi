@@ -1,19 +1,19 @@
-table map_glaccount_category
-	lineageTag: f6fca40d-4877-42cc-a541-b2c89cced15f
-	sourceLineageTag: [dbo].[map_glaccount_category]
+table map_glaccountid_category
+	lineageTag: bb8000ad-a3ee-485b-aab6-0c4b8cc83837
+	sourceLineageTag: [dbo].[map_glaccountid_category]
 
-	column Code
+	column GLAccountID
 		dataType: string
-		lineageTag: 3b83f017-93f9-4d44-9535-d9ed792d1f37
-		sourceLineageTag: Code
+		lineageTag: 6f10c8f3-d0e7-44f2-baae-ee8ca3e4e1b8
+		sourceLineageTag: GLAccountID
 		summarizeBy: none
-		sourceColumn: Code
+		sourceColumn: GLAccountID
 
 		annotation SummarizationSetBy = Automatic
 
 	column CategoryName
 		dataType: string
-		lineageTag: 6cab96c4-6da7-4206-951b-44dea3260682
+		lineageTag: 49dba15d-d015-468d-8cad-5ce1acd37831
 		sourceLineageTag: CategoryName
 		summarizeBy: none
 		sourceColumn: CategoryName
@@ -23,17 +23,17 @@ table map_glaccount_category
 	column ModifiedAt
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 4d55a06d-a7a2-4f3f-9aee-9f6625853e7e
+		lineageTag: 76178c96-a968-48e7-84c8-79e5b6c7b1ee
 		sourceLineageTag: ModifiedAt
 		summarizeBy: none
 		sourceColumn: ModifiedAt
 
 		annotation SummarizationSetBy = Automatic
 
-	partition map_glaccount_category = entity
+	partition map_glaccountid_category = entity
 		mode: directLake
 		source
-			entityName: map_glaccount_category
+			entityName: map_glaccountid_category
 			schemaName: dbo
 			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
 
