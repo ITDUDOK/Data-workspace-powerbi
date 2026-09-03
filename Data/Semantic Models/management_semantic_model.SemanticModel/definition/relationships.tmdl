@@ -173,3 +173,7 @@ relationship c9949607-d2c2-4204-9feb-d7219860487f
 	fromColumn: fact_hours.HourOfficeId
 	toColumn: offices.OfficeId
 
+relationship efb57373-49d1-4155-9508-b3112123f265
+	fromColumn: fact_hours.HourDepartmentId
+	toColumn: dim_departments.DepartmentId
+
