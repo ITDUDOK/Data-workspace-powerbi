@@ -260,6 +260,11 @@ table event_product_lines
 
 		annotation SummarizationSetBy = Automatic
 
+	column LineCostPrice
+		dataType: double
+		lineageTag: ed9b21bb-b5d3-4e47-80bb-b18e77b00cdc
+		sourceColumn: LineCostPrice
+
 	partition event_product_lines = entity
 		mode: directLake
 		source
