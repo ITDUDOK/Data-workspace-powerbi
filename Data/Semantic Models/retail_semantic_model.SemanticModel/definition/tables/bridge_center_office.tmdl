@@ -1,0 +1,45 @@
+table bridge_center_office
+	lineageTag: aa1cde24-8ea1-44c3-81a1-caac6bda4798
+
+	column CenterKey
+		dataType: string
+		lineageTag: d7cb71b8-2f78-48eb-9123-fe5bbc669f4a
+		sourceColumn: CenterKey
+
+	column CenterName
+		dataType: string
+		lineageTag: b860977d-63e0-444c-aa60-72298167c1c6
+		sourceColumn: CenterName
+
+	column OfficeId
+		dataType: int64
+		lineageTag: 28274d05-7034-4543-b0b0-2d1a3175fcf0
+		sourceColumn: OfficeId
+
+	column OfficeName
+		dataType: string
+		lineageTag: a51397c0-0181-4552-8d28-b1ffb8eaafe3
+		sourceColumn: OfficeName
+
+	column MatchConfidence
+		dataType: string
+		lineageTag: dc07352a-67ea-4619-80cf-c6548a89ec20
+		sourceColumn: MatchConfidence
+
+	column Confirmed
+		dataType: boolean
+		lineageTag: b2abc829-0c33-47a2-bde3-9df162b1df5a
+		sourceColumn: Confirmed
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: d247ed5b-bf81-410d-a766-9064b28bd4b3
+		sourceColumn: ModifiedAt
+
+	partition 'bridge_center_office 1' = entity
+		mode: directLake
+		source
+			entityName: bridge_center_office
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

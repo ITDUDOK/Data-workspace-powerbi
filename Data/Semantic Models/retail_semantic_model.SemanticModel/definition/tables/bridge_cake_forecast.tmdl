@@ -1,0 +1,40 @@
+table bridge_cake_forecast
+	lineageTag: fae83289-b796-4a79-bc8e-92116dd984ee
+
+	column CakeType
+		dataType: string
+		lineageTag: 939941a8-2cd4-4dc6-9070-7df6e1675241
+		sourceColumn: CakeType
+
+	column SizeCategory
+		dataType: string
+		lineageTag: 26422ecf-727a-4976-ba03-474733956da6
+		sourceColumn: SizeCategory
+
+	column Location
+		dataType: string
+		lineageTag: 1e73e4ee-663a-44a2-ad9f-692fdc5579bf
+		sourceColumn: Location
+
+	column CenterKey
+		dataType: string
+		lineageTag: 59f5c095-8559-47a4-848c-496a740771e9
+		sourceColumn: CenterKey
+
+	column CakeLocationKey
+		dataType: string
+		lineageTag: 875b8a2f-3ee2-4079-b8d8-961c0cf25cd2
+		sourceColumn: CakeLocationKey
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: a5cddb9c-d864-4c16-b078-310ffc88e0b8
+		sourceColumn: ModifiedAt
+
+	partition 'bridge_cake_forecast 1' = entity
+		mode: directLake
+		source
+			entityName: bridge_cake_forecast
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

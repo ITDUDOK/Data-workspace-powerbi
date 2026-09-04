@@ -180,3 +180,57 @@ relationship 98b72023-c4de-491b-a3aa-461988ce8eb3
 	fromColumn: sickness.SicknessStart
 	toColumn: dates.Date
 
+relationship 153748fd-5eff-42fb-8737-0ed7cfde2f7c
+	crossFilteringBehavior: bothDirections
+	fromColumn: bridge_center_office.OfficeId
+	toColumn: offices.OfficeId
+
+relationship 1898e9f5-b6d5-440f-ba62-223459fb81ab
+	fromColumn: employees_enriched.CardId
+	toColumn: staff.CardId
+
+relationship 10dc29a9-258a-4ceb-a2ef-9736bf85e5df
+	fromColumn: contracts_enriched.EmployeeId
+	toColumn: employees_enriched.EmployeeId
+
+relationship f070edcd-88e7-4fa6-be40-2eb94df2d3a2
+	fromColumn: historic_cake_sales.TicketDate
+	toColumn: dates.Date
+
+relationship baff1371-a6ee-421f-956e-f40fb2c824f0
+	fromColumn: historic_cake_sales.CenterKey
+	toColumn: centers.CenterKey
+
+relationship 59c00ea6-373f-4288-9727-8e071c7e21a4
+	fromColumn: historic_cake_sales.CakeType
+	toColumn: dim_cake_type.CakeType
+
+relationship ed838e6f-118c-4615-a765-ab9fa6088f6a
+	fromColumn: predicted_cake_sales.CakeType
+	toColumn: dim_cake_type.CakeType
+
+relationship e513855d-d44d-4d4b-b099-96224928130f
+	isActive: false
+	fromColumn: predicted_cake_sales.CenterKey
+	toColumn: centers.CenterKey
+
+relationship 48c9d299-0535-4cc4-8c88-85682e5471b5
+	fromColumn: bridge_center_office.CenterKey
+	toColumn: centers.CenterKey
+
+relationship ad7478a3-99ff-401e-bef5-16fcf63ea2fc
+	fromColumn: predicted_cake_sales.Location
+	toColumn: bridge_cake_location.Location
+
+relationship f036d0c7-fdfa-45ba-9363-6ef8dbe5561f
+	fromColumn: bridge_cake_location.CenterKey
+	toColumn: centers.CenterKey
+
+relationship 855f1a6e-dc0e-43b0-b094-7c0e5f4c6147
+	fromColumn: historic_cake_sales.CakeLocationKey
+	toColumn: bridge_cake_forecast.CakeLocationKey
+
+relationship 18c7c8a8-8091-4dc5-82f2-857c488a21fb
+	fromColumn: predicted_cake_sales.CakeLocationKey
+	toColumn: bridge_cake_forecast.CakeLocationKey
+

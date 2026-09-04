@@ -1,0 +1,235 @@
+table employees_enriched
+	lineageTag: 3f3064aa-e3b8-4e06-9576-dd7d6e9b49c8
+
+	column EmployeeId
+		dataType: string
+		lineageTag: 7a686ccc-09fd-412e-8711-8174a07da166
+		sourceColumn: EmployeeId
+
+	column CompanyId
+		dataType: string
+		lineageTag: ee6c953e-d477-4add-b8ce-d86e42ea24f7
+		sourceColumn: CompanyId
+
+	column CompanyName
+		dataType: string
+		lineageTag: cb584c33-54b8-4793-b963-0b0d2fb6546b
+		sourceColumn: CompanyName
+
+	column EmployeeNumber
+		dataType: int64
+		lineageTag: 396e4b86-7413-49cb-b8e8-925445784174
+		sourceColumn: EmployeeNumber
+
+	column FullName
+		dataType: string
+		lineageTag: 9aa4be72-b07f-4d73-8ca4-e68fbcdf1783
+		sourceColumn: FullName
+
+	column EmployeeType
+		dataType: string
+		lineageTag: f5024921-2d5a-441b-987f-6dc1ae53aebe
+		sourceColumn: EmployeeType
+
+	column CardId
+		dataType: int64
+		lineageTag: f67fcb61-9b35-4537-8d3c-475e7b2e162b
+		sourceColumn: CardId
+
+	column OfficeId
+		dataType: int64
+		lineageTag: 55c5a907-68cb-471c-82ad-9bf0f511c99a
+		sourceColumn: OfficeId
+
+	column NameMatchConfidence
+		dataType: string
+		lineageTag: 4893a3f5-afa4-418e-bfd5-7cf2a7cf18ba
+		sourceColumn: NameMatchConfidence
+
+	column MatchScope
+		dataType: string
+		lineageTag: de7201c3-e493-4ae3-bb3b-b5ffa8067d58
+		sourceColumn: MatchScope
+
+	column Department
+		dataType: string
+		lineageTag: 8423af49-4637-457c-a313-c12ccfe0addd
+		sourceColumn: Department
+
+	column Function
+		dataType: string
+		lineageTag: 54930330-8157-4a48-9564-7f18e431618e
+		sourceColumn: Function
+
+	column ContractHours
+		dataType: decimal
+		lineageTag: 3e195482-c28e-4141-9558-ed5e3025917e
+		sourceColumn: ContractHours
+
+	column HourlySalary
+		dataType: decimal
+		lineageTag: cd2646f6-d290-4b9d-9ebc-50ef8c9a30db
+		sourceColumn: HourlySalary
+
+	column SalaryRate
+		dataType: decimal
+		lineageTag: 31d17660-9a92-4581-a8da-6717c0503ecc
+		sourceColumn: SalaryRate
+
+	column CardStart
+		dataType: dateTime
+		lineageTag: b2f40bf2-120a-4aa0-86bf-74fed2a0adcf
+		sourceColumn: CardStart
+
+	column CardEnd
+		dataType: dateTime
+		lineageTag: be91f4a5-c13b-4d52-92b7-08e62de7c78d
+		sourceColumn: CardEnd
+
+	column DateOfBirth
+		dataType: dateTime
+		lineageTag: a65933da-150b-45c7-a666-4aecf6f568c4
+		sourceColumn: DateOfBirth
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: d01cd972-c4b6-47d1-9c8b-ce244359757c
+		sourceColumn: ModifiedAt
+
+	column ManagerFullName
+		dataType: string
+		lineageTag: 3004f263-c819-4b59-8e49-86f12d8938fb
+		sourceColumn: ManagerFullName
+
+	column NmbrsFunctionCode
+		dataType: string
+		lineageTag: 1be8731d-6c22-46a8-88b2-67880959f953
+		sourceColumn: NmbrsFunctionCode
+
+	column NmbrsFunctionDescription
+		dataType: string
+		lineageTag: d9b19023-d0a7-46f9-b21c-e75d4fb3ddc4
+		sourceColumn: NmbrsFunctionDescription
+
+	column ContractStartDate
+		dataType: dateTime
+		lineageTag: 179bf6f7-01a6-4071-8ca0-667465b8bdc9
+		sourceColumn: ContractStartDate
+
+	column ContractEndDate
+		dataType: dateTime
+		lineageTag: cda9c8ac-db79-4c1d-85af-17210619a520
+		sourceColumn: ContractEndDate
+
+	column IsIndefiniteContract
+		dataType: boolean
+		lineageTag: fa87c8c4-d0f0-43ef-877b-6722fe9ff771
+		sourceColumn: IsIndefiniteContract
+
+	column EmploymentEndDate
+		dataType: dateTime
+		lineageTag: 7cde32db-53fc-4f50-a463-72b3ae51abdc
+		sourceColumn: EmploymentEndDate
+
+	column EndContractReason
+		dataType: string
+		lineageTag: e0b27b94-243f-4506-895e-e9aed0cb8a8c
+		sourceColumn: EndContractReason
+
+	column EmployeeStartDate
+		dataType: dateTime
+		lineageTag: d7813444-19ad-4f5e-8d5f-298e9c04651e
+		sourceColumn: EmployeeStartDate
+
+	column EmployeeEndDate
+		dataType: dateTime
+		lineageTag: 6346b9aa-b529-4565-bbe5-b4574fb11edb
+		sourceColumn: EmployeeEndDate
+
+	column IsActief
+		dataType: boolean
+		lineageTag: a6c828f1-a08c-46e9-aa33-e50a8d8ac1a4
+		sourceColumn: IsActief
+
+	column VerzuimredenColumn
+		dataType: string
+		lineageTag: ea1482c7-0603-43bd-9171-7caa2d752787
+		sourceColumn: VerzuimredenColumn
+
+	column EndDateEmployment
+		dataType: dateTime
+		lineageTag: 4705753f-3beb-4a55-829b-128bf730c28f
+		sourceColumn: EndDateEmployment
+
+	column FinalEndDate
+		dataType: dateTime
+		lineageTag: ee508c6d-97de-4daf-a94e-009de452ee65
+		sourceColumn: FinalEndDate
+
+	column FinalEndDateFormatted
+		dataType: string
+		lineageTag: 6dc1cb78-f989-4549-a2d3-10a3e25af6ce
+		sourceColumn: FinalEndDateFormatted
+
+	column DepartmentName
+		dataType: string
+		lineageTag: 7d3fe213-9a0d-487e-ae40-178e0cc4f143
+		sourceColumn: DepartmentName
+
+	column FunctionName
+		dataType: string
+		lineageTag: 40fa9a65-cc4e-4135-853c-c5f70cdbd205
+		sourceColumn: FunctionName
+
+	column BirthdayDayMonth
+		dataType: string
+		lineageTag: f2c3f53f-dfc9-42e2-866b-fea4416b6226
+		sourceColumn: BirthdayDayMonth
+
+	column BirthdaySortKey
+		dataType: int64
+		lineageTag: 8b516411-6993-4fe9-b0b2-0cb69be16e59
+		sourceColumn: BirthdaySortKey
+
+	column BirthYear
+		dataType: int64
+		lineageTag: 10e373d2-149f-406e-a65b-209f4d175025
+		sourceColumn: BirthYear
+
+	column BirthQuarter
+		dataType: int64
+		lineageTag: 4915f760-1332-4ddb-ae34-1789880683ae
+		sourceColumn: BirthQuarter
+
+	column BirthQuarterName
+		dataType: string
+		lineageTag: a26e4e31-5a0e-440d-b483-ce3c028e033f
+		sourceColumn: BirthQuarterName
+
+	column BirthMonth
+		dataType: int64
+		lineageTag: 380e642c-5bea-447f-809d-8024c0399373
+		sourceColumn: BirthMonth
+
+	column BirthMonthName
+		dataType: string
+		lineageTag: 0502c285-1e53-46fb-8455-e557490a7911
+		sourceColumn: BirthMonthName
+
+	column BirthDay
+		dataType: int64
+		lineageTag: 0435f2b1-9d7c-4318-8eb8-75d5a604678b
+		sourceColumn: BirthDay
+
+	column OfficeName
+		dataType: string
+		lineageTag: b2209058-b1b1-4f1c-ae82-1ffa1650b4f4
+		sourceColumn: OfficeName
+
+	partition 'employees_enriched 1' = entity
+		mode: directLake
+		source
+			entityName: employees_enriched
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+
