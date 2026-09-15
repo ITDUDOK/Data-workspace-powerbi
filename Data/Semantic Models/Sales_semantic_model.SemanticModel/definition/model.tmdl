@@ -41,4 +41,5 @@ ref table map_productcategory_category
 ref table Categories
 ref table map_glaccount_category
 ref table GLAccounts
+ref table office_classification
 

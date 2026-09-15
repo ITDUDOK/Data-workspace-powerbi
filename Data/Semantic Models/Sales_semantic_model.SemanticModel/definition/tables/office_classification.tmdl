@@ -1,0 +1,25 @@
+table office_classification
+	lineageTag: ad13f2a6-05ec-4a17-8830-1a3a9445c531
+
+	column OfficeId
+		dataType: int64
+		lineageTag: dbc0410c-c201-48ed-9c79-d6a7b67704d1
+		sourceColumn: OfficeId
+
+	column Classification
+		dataType: string
+		lineageTag: 4cbc8a28-525e-4ada-ac2d-a3ace10ec35e
+		sourceColumn: Classification
+
+	column ModifiedAt
+		dataType: dateTime
+		lineageTag: 5735ae81-02ab-4a42-a6fa-3ad6eedf06e7
+		sourceColumn: ModifiedAt
+
+	partition 'office_classification 1' = entity
+		mode: directLake
+		source
+			entityName: office_classification
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
+

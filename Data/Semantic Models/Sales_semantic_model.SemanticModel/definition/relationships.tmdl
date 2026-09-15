@@ -107,3 +107,7 @@ relationship b0c6e7ea-411a-4358-b564-f99894f5fb6d
 	fromColumn: GLTransactions.GLAccount
 	toColumn: map_glaccountid_category.GLAccountID
 
+relationship 7488404a-c177-4112-aaa0-2c1f18c19e6c
+	fromColumn: bridge_location_office.OfficeId
+	toColumn: office_classification.OfficeId
+

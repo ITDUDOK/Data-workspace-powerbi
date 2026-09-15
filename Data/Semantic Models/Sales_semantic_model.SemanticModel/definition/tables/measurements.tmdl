@@ -117,6 +117,42 @@ table measurements
 			)
 		lineageTag: fa57f147-5199-46fb-894c-0557adf9a90f
 
+	measure 'Aantal aanvragen' = COUNTROWS('events')
+		formatString: #,##0
+		lineageTag: c13c7584-fa67-4b89-82eb-9f673b8c8ea9
+
+	measure 'Aantal confirmed' = CALCULATE([Aantal aanvragen], events[Status] = "confirmed")
+		formatString: #,##0
+		lineageTag: 3a65b64e-3450-4a08-afed-a106dcdd554c
+
+	measure 'Aantal cancelled' = CALCULATE([Aantal aanvragen], events[Status] = "cancelled")
+		formatString: #,##0
+		lineageTag: 36cd2f5d-9f8c-4e71-8d48-dc1caf3cb669
+
+	measure 'Conversie #' = DIVIDE([Aantal confirmed], [Aantal confirmed] + [Aantal cancelled])
+		formatString: 0%
+		lineageTag: 121e3968-b536-460d-82a2-5b31701e4b9e
+
+	measure Gegund = [Aantal confirmed]
+		formatString: #,##0
+		lineageTag: e212c2ac-272c-4b5d-8117-85b97bd2f123
+
+	measure 'Gem. Omzet' = CALCULATE(AVERAGE(events[TotalPriceExclVat]), events[Status] = "confirmed")
+		formatString: € #,##0
+		lineageTag: a4074622-87ad-458b-bddb-01b6c84d182f
+
+	measure 'Totaal omzet (confirmed)' = CALCULATE(SUM(events[TotalPriceExclVat]), events[Status] = "confirmed")
+		formatString: € #,##0
+		lineageTag: 59d1263b-d9a2-428d-a587-5763422e1cae
+
+	measure 'Omzet ex BTW' = SUM(events[TotalPriceExclVat])
+		formatString: € #,##0
+		lineageTag: 0d09a763-b1fe-4ada-ad18-ae676d97a6d5
+
+	measure 'Tijd per aanvraag (uur)' = IF([Aantal aanvragen] = 0, BLANK(), ROUND(DIVIDE(1700, [Aantal aanvragen]), 0))
+		formatString: #,##0
+		lineageTag: d50f1aff-96ba-4aab-b6be-f6a0c3f214a8
+
 	column Column
 		dataType: string
 		lineageTag: 4668f553-0c39-49ab-9531-74c1482cbc47
