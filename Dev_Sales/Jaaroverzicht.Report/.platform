@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Jaaroverzicht"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ba33111d-2b57-8a84-4bd9-40951f86e46e"
+  }
+}

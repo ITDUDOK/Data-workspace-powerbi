@@ -1,0 +1,203 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "7747ef2417a860afa9f3",
+  "position": {
+    "x": 640,
+    "y": 455.19756838905778,
+    "z": 2000,
+    "height": 259.69604863221883,
+    "width": 640,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "events"
+                    }
+                  },
+                  "Property": "PlannerFullName"
+                }
+              },
+              "queryRef": "events.PlannerFullName",
+              "nativeQueryRef": "Accountmanager",
+              "active": true,
+              "displayName": "Accountmanager"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "event_types"
+                    }
+                  },
+                  "Property": "EventTypeName"
+                }
+              },
+              "queryRef": "event_types.EventTypeName",
+              "nativeQueryRef": "Event type",
+              "active": true,
+              "displayName": "Event type"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Aantal aanvragen"
+                }
+              },
+              "queryRef": "measurements.Aantal aanvragen",
+              "nativeQueryRef": "Aantal aanvragen",
+              "active": true,
+              "displayName": "Aantal aanvragen"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Tijd per aanvraag (uur)"
+                }
+              },
+              "queryRef": "measurements.Tijd per aanvraag (uur)",
+              "nativeQueryRef": "Tijd per aanvraag (uur)",
+              "active": true,
+              "displayName": "Tijd per aanvraag (uur)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sales team'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "58fe5b261c0446b96269",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "events"
+              }
+            },
+            "Property": "PlannerFullName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5f32dd80282ca23097de",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "event_types"
+              }
+            },
+            "Property": "EventTypeName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a515650e50d0b3cae09e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Aantal aanvragen"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3090d3634b8911bd9259",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Tijd per aanvraag (uur)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

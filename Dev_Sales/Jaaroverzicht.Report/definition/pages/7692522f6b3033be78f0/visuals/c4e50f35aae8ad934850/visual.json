@@ -1,0 +1,263 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "c4e50f35aae8ad934850",
+  "position": {
+    "x": 0,
+    "y": 455.19756838905778,
+    "z": 2000,
+    "height": 259.69604863221883,
+    "width": 640,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "event_types"
+                    }
+                  },
+                  "Property": "EventTypeName"
+                }
+              },
+              "queryRef": "event_types.EventTypeName",
+              "nativeQueryRef": "Event type",
+              "active": true,
+              "displayName": "Event type"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Aantal aanvragen"
+                }
+              },
+              "queryRef": "measurements.Aantal aanvragen",
+              "nativeQueryRef": "Aantal aanvragen",
+              "active": true,
+              "displayName": "Aantal aanvragen"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Conversie #"
+                }
+              },
+              "queryRef": "measurements.Conversie #",
+              "nativeQueryRef": "Conversie #",
+              "active": true,
+              "displayName": "Conversie #"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Gegund"
+                }
+              },
+              "queryRef": "measurements.Gegund",
+              "nativeQueryRef": "Gegund",
+              "active": true,
+              "displayName": "Gegund"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Gem. Omzet"
+                }
+              },
+              "queryRef": "measurements.Gem. Omzet",
+              "nativeQueryRef": "Gem. Omzet",
+              "active": true,
+              "displayName": "Gem. Omzet"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Totaal omzet (confirmed)"
+                }
+              },
+              "queryRef": "measurements.Totaal omzet (confirmed)",
+              "nativeQueryRef": "Totaal omzet (confirmed)",
+              "active": true,
+              "displayName": "Totaal omzet"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Conversie'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d90d60787eb03e802b75",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "event_types"
+              }
+            },
+            "Property": "EventTypeName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "392191d7077e595dea0a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Aantal aanvragen"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b942a44dd304e002818e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Conversie #"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cdeb55d314cbbad2b816",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Gegund"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0814b6d05b74cd4a0109",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Gem. Omzet"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2b27cab12c1475074b30",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Totaal omzet (confirmed)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
