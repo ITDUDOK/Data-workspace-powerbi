@@ -1,0 +1,13 @@
+role PowerBIHREvents
+	modelPermission: read
+
+	tablePermission hr_contracts = [CompanyId] = "d5aba45c-8c7a-4b59-b466-66b4832ba5d0" || [CompanyId] = "6b3d1416-cdc9-4e49-a275-3d3677bbb746" || [CompanyId] = "1faaa21e-e229-4a5d-aefb-16befaa8ad29" || [CompanyId] = "bd34eb00-f095-4f21-abb4-9fb105d2df3f" || [CompanyId] = "0cab073d-c956-48b1-b010-f444e682c54a" || [CompanyId] = "a165ca49-0a5a-421b-8104-091422fb63e1"
+
+	tablePermission contracts = [CompanyId] = "d5aba45c-8c7a-4b59-b466-66b4832ba5d0" || [CompanyId] = "6b3d1416-cdc9-4e49-a275-3d3677bbb746" || [CompanyId] = "1faaa21e-e229-4a5d-aefb-16befaa8ad29" || [CompanyId] = "bd34eb00-f095-4f21-abb4-9fb105d2df3f" || [CompanyId] = "0cab073d-c956-48b1-b010-f444e682c54a" || [CompanyId] = "a165ca49-0a5a-421b-8104-091422fb63e1"
+
+	tablePermission employees_enriched = [OfficeId] = 24 || [OfficeId] = 23 || [OfficeId] = 11 || [OfficeId] = 43 || [OfficeId] = 44 || [OfficeId] = 38 || [CompanyId] = "d5aba45c-8c7a-4b59-b466-66b4832ba5d0" || [CompanyId] = "6b3d1416-cdc9-4e49-a275-3d3677bbb746" || [CompanyId] = "1faaa21e-e229-4a5d-aefb-16befaa8ad29" || [CompanyId] = "bd34eb00-f095-4f21-abb4-9fb105d2df3f" || [CompanyId] = "0cab073d-c956-48b1-b010-f444e682c54a" || [CompanyId] = "a165ca49-0a5a-421b-8104-091422fb63e1"
+
+	tablePermission offices = [OfficeId] = 24 || [OfficeId] = 23 || [OfficeId] = 11 || [OfficeId] = 43 || [OfficeId] = 44 || [OfficeId] = 38
+
+	tablePermission satisfaction = [Office] = "Dudok Staffing B.V." || [Office] = "Dudok in het Park B.V." || [Office] = "Dudok aan de Maas B.V" || [Office] = "Dudok RDM B.V." || [Office] = "Dudok Banqueting" || [Office] = "Dudok Schiecentrale Events B.V." || [Office] = "Van Nelle Fabriek"
+

@@ -66,3 +66,22 @@ ref table GLAccounts
 ref table map_division_office
 ref table employee_business_line
 
+ref role PowerBIAdmin
+ref role PowerBIEventsAll
+ref role PowerBIHorecaAanhetIJ
+ref role PowerBIHorecaAll
+ref role PowerBIHorecaArnhem
+ref role PowerBIHorecaDudokDenHaag
+ref role PowerBIHorecaDudokRotterdam
+ref role PowerBIHorecaTrattoriaSophia
+ref role PowerBIHRAll
+ref role PowerBIHREvents
+ref role PowerBIHRHoreca
+ref role PowerBIHRPatisserie
+ref role PowerBIPatisserieAll
+ref role PowerBIPatisserieDenHaagCS
+ref role PowerBIPatisserieLeidenCS
+ref role PowerBIPatisserieMeent
+ref role PowerBIPatisserieRotterdamCS
+ref role PowerBIPatisserieUtrechtCS
+

@@ -1,0 +1,7 @@
+role PowerBIHorecaAanhetIJ
+	modelPermission: read
+
+	tablePermission centers = [SiteNr] = 45
+
+	tablePermission offices = [OfficeId] = 19
+
