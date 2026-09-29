@@ -1,0 +1,7 @@
+role PowerBIHorecaDudokRotterdam
+	modelPermission: read
+
+	tablePermission centers = [SiteNr] = 1
+
+	tablePermission offices = [OfficeId] = 1
+

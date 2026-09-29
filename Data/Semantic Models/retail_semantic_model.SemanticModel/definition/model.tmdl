@@ -60,4 +60,15 @@ ref role PowerBIPatisserieLeidenCS
 ref role PowerBIPatisserieMeent
 ref role PowerBIPatisserieRotterdamCS
 ref role PowerBIPatisserieUtrechtCS
+ref role PowerBIHorecaAanhetIJ
+ref role PowerBIHorecaDudokDenHaag
+ref role PowerBIHorecaAll
+ref role PowerBIHorecaArnhem
+ref role PowerBIHorecaDudokRotterdam
+ref role PowerBIHorecaTrattoriaSophia
+ref role PowerBIEventsAll
+ref role PowerBIHRAll
+ref role PowerBIHRHoreca
+ref role PowerBIHRPatisserie
+ref role PowerBIHREvents
 
