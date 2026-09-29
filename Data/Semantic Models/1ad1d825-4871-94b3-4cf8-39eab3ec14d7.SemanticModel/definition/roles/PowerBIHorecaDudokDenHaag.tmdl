@@ -1,7 +1,0 @@
-role PowerBIHorecaDudokDenHaag
-	modelPermission: read
-
-	tablePermission centers = [SiteNr] = 2
-
-	tablePermission offices = [OfficeId] = 6
-

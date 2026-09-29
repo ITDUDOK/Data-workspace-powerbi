@@ -1,7 +1,0 @@
-role PowerBIPatisserieDenHaagCS
-	modelPermission: read
-
-	tablePermission centers = [SiteNr] = 58
-
-	tablePermission offices = [OfficeId] = 46
-

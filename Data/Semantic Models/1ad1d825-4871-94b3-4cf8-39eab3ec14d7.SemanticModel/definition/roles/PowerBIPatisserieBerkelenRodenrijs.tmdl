@@ -1,7 +1,0 @@
-role PowerBIPatisserieBerkelenRodenrijs
-	modelPermission: read
-
-	tablePermission centers = [SiteNr] = 55
-
-	tablePermission offices = [OfficeId] = 42
-
