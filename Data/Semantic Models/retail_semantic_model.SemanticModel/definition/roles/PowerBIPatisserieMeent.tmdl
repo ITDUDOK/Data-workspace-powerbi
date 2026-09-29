@@ -1,0 +1,5 @@
+role PowerBIPatisserieMeent
+	modelPermission: read
+
+	tablePermission centers = [SiteNr] = 53
+

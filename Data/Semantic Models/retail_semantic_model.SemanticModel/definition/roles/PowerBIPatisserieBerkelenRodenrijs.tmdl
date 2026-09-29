@@ -1,0 +1,5 @@
+role PowerBIPatisserieBerkelenRodenrijs
+	modelPermission: read
+
+	tablePermission centers = [SiteNr] = 55
+

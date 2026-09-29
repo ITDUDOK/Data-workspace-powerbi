@@ -1,0 +1,5 @@
+role PowerBIPatisserieUtrechtCS
+	modelPermission: read
+
+	tablePermission centers = [SiteNr] = 56
+

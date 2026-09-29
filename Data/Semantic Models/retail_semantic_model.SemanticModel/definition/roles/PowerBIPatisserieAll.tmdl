@@ -1,0 +1,9 @@
+role PowerBIPatisserieAll
+	modelPermission: read
+
+	tablePermission centers
+
+	tablePermission historic_cake_sales
+
+	tablePermission predicted_cake_sales
+

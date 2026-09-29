@@ -1,0 +1,5 @@
+role PowerBIPatisserieLeidenCS
+	modelPermission: read
+
+	tablePermission centers = [SiteNr] = 57
+

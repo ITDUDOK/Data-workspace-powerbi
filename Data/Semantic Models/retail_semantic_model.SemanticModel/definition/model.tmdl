@@ -52,3 +52,12 @@ ref table bridge_center_office
 ref table employees_enriched
 ref table historic_cake_sales
 
+ref role PowerBIAdmin
+ref role PowerBIPatisserieAll
+ref role PowerBIPatisserieBerkelenRodenrijs
+ref role PowerBIPatisserieDenHaagCS
+ref role PowerBIPatisserieLeidenCS
+ref role PowerBIPatisserieMeent
+ref role PowerBIPatisserieRotterdamCS
+ref role PowerBIPatisserieUtrechtCS
+

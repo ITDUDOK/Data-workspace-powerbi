@@ -1,0 +1,5 @@
+role PowerBIPatisserieDenHaagCS
+	modelPermission: read
+
+	tablePermission centers = [SiteNr] = 58
+
