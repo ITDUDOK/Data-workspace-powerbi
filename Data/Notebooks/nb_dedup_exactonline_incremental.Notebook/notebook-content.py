@@ -57,6 +57,7 @@ TABLES = [
     "ShopOrderRoutingStepPlans",
     "ShopOrderMaterialPlans",
     "GLTransactions",
+    "OmzetTransacties",
 ]
 
 results = []

@@ -184,7 +184,7 @@ shared OmzetTransacties = let
     LHData = WS{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data],
     Existing = try LHData{[Id = "OmzetTransacties", ItemKind = "Table"]}[Data] otherwise #table({"sysmodified"}, {}),
     WM = List.Max(Existing[sysmodified]),
-    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM,
+    SafeWM = #datetime(2020, 1, 1, 0, 0, 0), // PHASE A: one-off full reload, revert via phase B
 
     // === GLTransactions: filter + watermark ===
     GL = fnGetExactOnlineTable("GLTransactions"),
@@ -192,7 +192,7 @@ shared OmzetTransacties = let
         Table.SelectRows(GL, each [Division] = Div 
             and [EntryDate] >= #datetime(2024, 1, 1, 0, 0, 0)
             and [sysmodified] > SafeWM),
-        {"EntryDate", "AmountFC", "Quantity", "Item", "Account", "Journal", "GLAccount", "sysmodified"}
+        {"ID", "EntryDate", "AmountFC", "Quantity", "Item", "Account", "Journal", "GLAccount", "sysmodified"}
     ),
 
     GLA = fnGetExactOnlineTable("GLAccounts"),
@@ -285,7 +285,8 @@ shared OmzetTransacties = let
         "EntryDate", "AmountFC", "Quantity", "Item", "Account", "Journal",
         "AccountName", "Classification_01",
         "ItemCode", "ItemDescription", "ItemNameCode", "ItemClass_01", "ItemGroup",
-        "sysmodified"
-    })
+        "sysmodified", "ID"
+    }),
+    Typed = Table.TransformColumnTypes(Result, {{"ID", type text}})
 in
-    Result;
+    Typed;
