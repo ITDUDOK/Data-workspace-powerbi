@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Verkopen  analyse horecawinkels"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8800d15a-df98-40de-a061-35da8cb6807a"
+  }
+}

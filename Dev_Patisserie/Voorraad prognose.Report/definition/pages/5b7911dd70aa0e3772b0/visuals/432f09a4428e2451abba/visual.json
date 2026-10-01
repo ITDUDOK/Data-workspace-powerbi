@@ -1,0 +1,500 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "432f09a4428e2451abba",
+  "position": {
+    "x": 221.25,
+    "y": 467.5,
+    "z": 11000,
+    "height": 412.5,
+    "width": 1058.75,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Items"
+                    }
+                  },
+                  "Property": "Code"
+                }
+              },
+              "queryRef": "Items.Code",
+              "nativeQueryRef": "Artikelcode",
+              "displayName": "Artikelcode"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Items"
+                    }
+                  },
+                  "Property": "Description"
+                }
+              },
+              "queryRef": "Items.Description",
+              "nativeQueryRef": "Artikelomschrijving",
+              "displayName": "Artikelomschrijving"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure"
+                    }
+                  },
+                  "Property": "Stock At Date"
+                }
+              },
+              "queryRef": "Measure.Stock At Date",
+              "nativeQueryRef": "Actuele voorraad",
+              "displayName": "Actuele voorraad"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure"
+                    }
+                  },
+                  "Property": "Prognose Deze Week Totaal"
+                }
+              },
+              "queryRef": "Measure.Prognose Deze Week Totaal",
+              "nativeQueryRef": "Verkoop prognose deze Week ",
+              "displayName": "Verkoop prognose deze Week "
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure"
+                    }
+                  },
+                  "Property": "Productie Deze Week Totaal"
+                }
+              },
+              "queryRef": "Measure.Productie Deze Week Totaal",
+              "nativeQueryRef": "Productie deze Week",
+              "displayName": "Productie deze Week"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure"
+                    }
+                  },
+                  "Property": "Prognose Volgende Week Totaal"
+                }
+              },
+              "queryRef": "Measure.Prognose Volgende Week Totaal",
+              "nativeQueryRef": "Prognose volgende week",
+              "displayName": "Prognose volgende week"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure"
+                    }
+                  },
+                  "Property": "Productie Volgende Week Totaal"
+                }
+              },
+              "queryRef": "Measure.Productie Volgende Week Totaal",
+              "nativeQueryRef": "Productie volgende week",
+              "displayName": "Productie volgende week"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure"
+                    }
+                  },
+                  "Property": "Verwachte voorraad 2 weken Totaal"
+                }
+              },
+              "queryRef": "Measure.Verwachte voorraad 3 weken Totaal",
+              "nativeQueryRef": "Verwachte voorraad",
+              "displayName": "Verwachte voorraad"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure"
+                    }
+                  },
+                  "Property": "Veiligheidsvoorraad"
+                }
+              },
+              "queryRef": "Measure.Veiligheidsvoorraad",
+              "nativeQueryRef": "Veiligheidsvoorraad"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure"
+                    }
+                  },
+                  "Property": "Behoefte 3 weken Totaal"
+                }
+              },
+              "queryRef": "Measure.Behoefte 3 weken Totaal",
+              "nativeQueryRef": "Behoefte",
+              "displayName": "Behoefte"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measure"
+                  }
+                },
+                "Property": "Behoefte 3 weken Totaal"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86.62715013917364D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measure.Prognose Volgende Week Totaal"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "127.2177933199041D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measure.Prognose Deze Week Totaal"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "84.00000448787856D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measure.Stock At Date"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.68031311460363D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measure.Productie Deze Week Totaal"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "78.39027398183495D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measure.Veiligheidsvoorraad"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "84.50001754203265D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measure.Verwachte voorraad 3 weken Totaal"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "76.79344312982315D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measure.Behoefte 3 weken Totaal"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "217.96284127144554D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Items.Description"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86.29157056125017D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measure.Productie Volgende Week Totaal"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Items.Code"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Items.Description"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "webURL": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure"
+                    }
+                  },
+                  "Property": "Item URL"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Items.Code"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Voorraad prognose 2 weken'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1b903d52570d0d9dc0c0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure"
+              }
+            },
+            "Property": "Is Datum Geldig today"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "Measure",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "m"
+                        }
+                      },
+                      "Property": "Is Datum Geldig today"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
+}
