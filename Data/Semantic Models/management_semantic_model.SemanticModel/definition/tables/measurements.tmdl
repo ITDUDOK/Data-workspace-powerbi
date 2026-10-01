@@ -218,13 +218,11 @@ table measurements
 	measure TotalPrognosis = SUM('fact_prognosis'[PrognosisTurnover])
 		lineageTag: 0e68050e-6bca-4852-8a15-2b214507ac54
 
-	measure Totalplanned = ```
+	measure Totalplanned =
 			CALCULATE(
-			    SUM('fact_planning'[PlanningHours]), 
-			    'fact_planning'[PlanningTypeId] IN {"Gepland", "Pool dienst", "Open dienst"}, 
-			    NOT(ISBLANK('fact_planning'[CardId]))
+			    SUM('fact_planning'[PlanningHours]),
+			    'fact_planning'[PlanningTypeId] IN {"Gepland", "Pool dienst", "Ongeplande dienst"}
 			)
-			```
 		formatString: #,0
 		lineageTag: 8c000c71-a63c-4ebf-82a6-466d879c0d27
 
