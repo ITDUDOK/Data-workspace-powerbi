@@ -88,7 +88,7 @@ table measurements
 		formatString: 0.0%;-0.0%;0.0%
 		lineageTag: e6972f7f-0342-49e9-beee-4ee1c6383462
 
-	measure LabourCost_Planning = CALCULATE(SUM('fact_planning'[PlanningCosts]),'fact_planning'[PlanningTypeId] in {"Gepland", "Pool dienst", "Ongeplande dienst"})
+	measure LabourCost_Planning = SUM('fact_planning'[PlanningCosts])
 		lineageTag: eb8a0ef3-3add-4ed8-8770-dba7279b2652
 
 	measure LabourCost_PreviousWeek =
@@ -218,11 +218,7 @@ table measurements
 	measure TotalPrognosis = SUM('fact_prognosis'[PrognosisTurnover])
 		lineageTag: 0e68050e-6bca-4852-8a15-2b214507ac54
 
-	measure Totalplanned =
-			CALCULATE(
-			    SUM('fact_planning'[PlanningHours]),
-			    'fact_planning'[PlanningTypeId] IN {"Gepland", "Pool dienst", "Ongeplande dienst"}
-			)
+	measure Totalplanned = SUM('fact_planning'[PlanningHours])
 		formatString: #,0
 		lineageTag: 8c000c71-a63c-4ebf-82a6-466d879c0d27
 
