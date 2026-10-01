@@ -174,7 +174,7 @@ shared SalesOrders_DataDestination = let
 in
 
   TableNavigation;
-[BindToDefaultDestination = true]
+[DataDestinations = {[Definition = [Kind = "Reference", QueryName = "OmzetTransacties_DataDestination", IsNewTarget = false], Settings = [Kind = "Manual", AllowCreation = true, ColumnSettings = [Mappings = {[SourceColumnName = "EntryDate", DestinationColumnName = "EntryDate"], [SourceColumnName = "AmountFC", DestinationColumnName = "AmountFC"], [SourceColumnName = "Quantity", DestinationColumnName = "Quantity"], [SourceColumnName = "Item", DestinationColumnName = "Item"], [SourceColumnName = "Account", DestinationColumnName = "Account"], [SourceColumnName = "Journal", DestinationColumnName = "Journal"], [SourceColumnName = "AccountName", DestinationColumnName = "AccountName"], [SourceColumnName = "Classification_01", DestinationColumnName = "Classification_01"], [SourceColumnName = "ItemCode", DestinationColumnName = "ItemCode"], [SourceColumnName = "ItemDescription", DestinationColumnName = "ItemDescription"], [SourceColumnName = "ItemNameCode", DestinationColumnName = "ItemNameCode"], [SourceColumnName = "ItemClass_01", DestinationColumnName = "ItemClass_01"], [SourceColumnName = "ItemGroup", DestinationColumnName = "ItemGroup"], [SourceColumnName = "sysmodified", DestinationColumnName = "sysmodified"], [SourceColumnName = "ID", DestinationColumnName = "ID"]}], DynamicSchema = false, UpdateMethod = [Kind = "Append"], TypeSettings = [Kind = "Table"]]]}]
 shared OmzetTransacties = let
     Div = 2875061,
 
@@ -184,7 +184,7 @@ shared OmzetTransacties = let
     LHData = WS{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data],
     Existing = try LHData{[Id = "OmzetTransacties", ItemKind = "Table"]}[Data] otherwise #table({"sysmodified"}, {}),
     WM = List.Max(Existing[sysmodified]),
-    SafeWM = #datetime(2020, 1, 1, 0, 0, 0), // PHASE A: one-off full reload, revert via phase B
+    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM,
 
     // === GLTransactions: filter + watermark ===
     GL = fnGetExactOnlineTable("GLTransactions"),
