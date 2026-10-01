@@ -11,6 +11,7 @@
 
 # PARAMETERS CELL ********************
 
+SourceSchema = "dbo"
 SourceTable = ""
 TargetTable = ""
 TablePairsJson = "[]"
@@ -54,7 +55,8 @@ import json
 
 WORKSPACE_ID = "1f90325e-1060-4c7d-adf4-ccf9fca8b287"
 LAKEHOUSE_ID = "097e8f82-835e-4936-a16d-9f6f886d5ef0"
-BASE_PATH = f"abfss://{WORKSPACE_ID}@onelake.dfs.fabric.microsoft.com/{LAKEHOUSE_ID}/Tables/dbo"
+LAKEHOUSE_ROOT = f"abfss://{WORKSPACE_ID}@onelake.dfs.fabric.microsoft.com/{LAKEHOUSE_ID}"
+BASE_PATH = f"{LAKEHOUSE_ROOT}/Tables/dbo"
 FILES_PATH = f"abfss://{WORKSPACE_ID}@onelake.dfs.fabric.microsoft.com/{LAKEHOUSE_ID}/Files"
 
 pairs = json.loads(TablePairsJson) if TablePairsJson and TablePairsJson != "[]" else []
@@ -65,7 +67,11 @@ results = []
 for pair in pairs:
     src = pair["SourceTable"]
     tgt = pair["TargetTable"]
-    source_path = f"{BASE_PATH}/{src}"
+    # Source may live in another schema (e.g. "stg") than the dbo target.
+    # Pairs without SourceSchema keep the old behaviour (dbo), so the
+    # prod pipelines that still use dbo.stg_<table> are unaffected.
+    src_schema = pair.get("SourceSchema", SourceSchema or "dbo")
+    source_path = f"{LAKEHOUSE_ROOT}/Tables/{src_schema}/{src}"
     target_path = f"{BASE_PATH}/{tgt}"
     try:
         print(f"[{tgt}] reading {src} from {source_path}")
@@ -73,6 +79,17 @@ for pair in pairs:
         row_count = df.count()
         df.write.format("delta").mode("overwrite").option("overwriteSchema", "true").save(target_path)
         print(f"[{tgt}] atomic overwrite complete ({row_count} rows)")
+        # Staging copies in schema "stg" are disposable: drop the one just published, plus any
+        # "<src>_backup_<guid>" leftovers ADF's sink leaves behind there (it only cleans up in dbo).
+        # Cleanup failures must never fail the publish. Only ever touches the stg schema.
+        if src_schema == "stg":
+            try:
+                mssparkutils.fs.rm(source_path, True)
+                for f in mssparkutils.fs.ls(f"{LAKEHOUSE_ROOT}/Tables/stg"):
+                    if f.name.startswith(f"{src}_backup_"):
+                        mssparkutils.fs.rm(f.path, True)
+            except Exception as ce:
+                print(f"[{tgt}] stg cleanup warning: {type(ce).__name__}: {ce}")
         results.append({"TableName": tgt, "Status": "Success", "RowsProcessed": row_count, "Error": None})
     except Exception as e:
         print(f"[{tgt}] FAILED: {type(e).__name__}: {e}")
