@@ -1,0 +1,367 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "040b62f7a0e863404bbb",
+  "position": {
+    "x": 181.46010186757215,
+    "y": 79.320882852292016,
+    "z": 3000,
+    "height": 620.44142614601026,
+    "width": 1098.5398981324279,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "CompanyName"
+                }
+              },
+              "queryRef": "employees_enriched.CompanyName",
+              "nativeQueryRef": "Locatie",
+              "displayName": "Locatie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "DepartmentName"
+                }
+              },
+              "queryRef": "employees_enriched.DepartmentName",
+              "nativeQueryRef": "Afdeling",
+              "displayName": "Afdeling"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "FullName"
+                }
+              },
+              "queryRef": "employees_enriched.FullName",
+              "nativeQueryRef": "Medewerker",
+              "displayName": "Medewerker"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "FunctionName"
+                }
+              },
+              "queryRef": "employees_enriched.FunctionName",
+              "nativeQueryRef": "Functie",
+              "displayName": "Functie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "BirthdayDayMonth"
+                }
+              },
+              "queryRef": "employees_enriched.BirthdayDayMonth",
+              "nativeQueryRef": "Verjaardag",
+              "displayName": "Verjaardag"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "BirthYear"
+                }
+              },
+              "queryRef": "Sum(employees_enriched.BirthYear)",
+              "nativeQueryRef": "Jaar",
+              "displayName": "Jaar"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "Gem. Leeftijd"
+                }
+              },
+              "queryRef": "BRIDGE EMPLOYEES.Gem. Leeftijd",
+              "nativeQueryRef": "Leeftijd",
+              "displayName": "Leeftijd"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "employees_enriched"
+                  }
+                },
+                "Property": "BirthdayDayMonth"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.71732241747904D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(FACT_HRContracts.hoursPerWeek)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.61032093934948D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Functie Concat"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "133.24100046030702D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "employments.endDate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "133.36009221706544D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "employees_enriched.FunctionName"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "49eb318e53638cde5aa3",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "DepartmentName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "bd5f4ee89d78cadf2380",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "FullName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "55260f9e797d3f8cd9e4",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "FunctionName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "704e24bb3a6669364cd7",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "BirthdayDayMonth"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3514d86b6b9c7f1a0700",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "Gem. Leeftijd"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c983902d0ab38553b9a2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "CompanyName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7dedd7c09e32011bae70",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "BirthYear"
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

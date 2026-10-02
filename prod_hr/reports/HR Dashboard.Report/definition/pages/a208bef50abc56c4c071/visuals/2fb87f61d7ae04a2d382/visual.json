@@ -1,0 +1,698 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "2fb87f61d7ae04a2d382",
+  "position": {
+    "x": 241.15942028985506,
+    "y": 82.764771460423631,
+    "z": 1000,
+    "height": 623.58974358974353,
+    "width": 1037.4136008918617,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "CompanyName"
+                }
+              },
+              "queryRef": "employees_enriched.CompanyName",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "DepartmentName"
+                }
+              },
+              "queryRef": "employees_enriched.DepartmentName",
+              "nativeQueryRef": "Afdeling",
+              "active": false,
+              "displayName": "Afdeling"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "FullName"
+                }
+              },
+              "queryRef": "employees_enriched.FullName",
+              "nativeQueryRef": "Medewerker",
+              "active": false,
+              "displayName": "Medewerker"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "Actieve Medewerkers in Periode"
+                }
+              },
+              "queryRef": "employees_enriched.Actieve Medewerkers in Periode",
+              "nativeQueryRef": "Actieve Medewerkers in Periode",
+              "displayName": "Aantal Medewerkers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "FTE EMPLOYEES"
+                }
+              },
+              "queryRef": "employees_enriched.FTE BRIDGE EMPLOYEES",
+              "nativeQueryRef": "FTE ",
+              "displayName": "FTE "
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "Gem. Uurloon incl"
+                }
+              },
+              "queryRef": "BRIDGE EMPLOYEES.Gem. Uurloon",
+              "nativeQueryRef": "Uurloon Incl",
+              "displayName": "Uurloon Incl"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "Gem. Uurloon excl"
+                }
+              },
+              "queryRef": "BRIDGE EMPLOYEES.Gem. Uurloon excl",
+              "nativeQueryRef": "Uurloon Excl",
+              "displayName": "Uurloon Excl"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "Gem. Leeftijd"
+                }
+              },
+              "queryRef": "BRIDGE EMPLOYEES.Gem. Leeftijd",
+              "nativeQueryRef": "Leeftijd",
+              "displayName": "Leeftijd"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "In Dienst"
+                }
+              },
+              "queryRef": "employees_enriched.In Dienst",
+              "nativeQueryRef": "In Dienst"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "Uit Dienst"
+                }
+              },
+              "queryRef": "employees_enriched.Uit Dienst",
+              "nativeQueryRef": "Uit Dienst"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "Gem. Arbeidsduur (jaren)"
+                }
+              },
+              "queryRef": "BRIDGE EMPLOYEES.Gem. Arbeidsduur (jaren)",
+              "nativeQueryRef": "Gem. Arbeidsduur (jaren)",
+              "displayName": "Arbeidsjaren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "Aantal Ziektemeldingen"
+                }
+              },
+              "queryRef": "employees_enriched.Aantal Ziektemeldingen",
+              "nativeQueryRef": "Aantal Verzuimmeldingen",
+              "displayName": "Aantal Verzuimmeldingen"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "employees_enriched"
+                  }
+                },
+                "Property": "DepartmentName"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "employees_enriched"
+                  }
+                },
+                "Property": "FullName"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "employees_enriched.CompanyName"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "employees_enriched.DepartmentName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "DepartmentName"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "employees_enriched.FullName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "FullName"
+                }
+              }
+            ],
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "48.900786948513804D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "BRIDGE EMPLOYEES.Gem. Arbeidsduur (jaren)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "73.21416454870013D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "BRIDGE EMPLOYEES.Gem. Uurloon"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "52.52853262943781D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "BRIDGE EMPLOYEES.Gem. Leeftijd"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "78.7409475890674D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "BRIDGE EMPLOYEES.Gem. Uurloon excl"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "111.5951995363607D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "employees_enriched.Aantal Ziektemeldingen"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "51.798179059180576D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "employees_enriched.FTE BRIDGE EMPLOYEES"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "1L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "employees_enriched.FTE BRIDGE EMPLOYEES"
+          }
+        },
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "BRIDGE EMPLOYEES.Gem. Leeftijd"
+          }
+        },
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "BRIDGE EMPLOYEES.Gem. Arbeidsduur (jaren)"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "dc7c40651a07630adcf9",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "Aantal Ziektemeldingen"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0885773ad84ae2fb002b",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "DepartmentName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "90fcec18051c0a6fa975",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "Gem. Arbeidsduur (jaren)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "45d28545518d4dead088",
+        "ordinal": 3,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "FTE EMPLOYEES"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f7fb8e727d247cfeeb56",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "Actieve Medewerkers in Periode"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "e",
+              "Entity": "employees_enriched",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "e"
+                            }
+                          },
+                          "Property": "Actieve Medewerkers in Periode"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "4730c94988c99e8c6368",
+        "ordinal": 5,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "In Dienst"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "619688a7c2b08c59a171",
+        "ordinal": 6,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "Gem. Leeftijd"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8e137aa46035def5fc98",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "FullName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d8cc2e54c40297210b99",
+        "ordinal": 8,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "Uit Dienst"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e25bdcefa4df0760df76",
+        "ordinal": 9,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "Gem. Uurloon excl"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4a957b85645ab2acb868",
+        "ordinal": 10,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "Gem. Uurloon incl"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "61ef4e22630c4b524341",
+        "ordinal": 11,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "OfficeName"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "1f93f9ae3aafb8952e7c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "CompanyName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

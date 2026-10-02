@@ -1,0 +1,490 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "3748c31e01e9d38337ad",
+  "position": {
+    "x": 216.49874055415617,
+    "y": 83.879093198992436,
+    "z": 3000,
+    "height": 794.58438287153649,
+    "width": 1063.2241813602016,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "offices"
+                    }
+                  },
+                  "Property": "OfficeName"
+                }
+              },
+              "queryRef": "offices.OfficeName",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "employees_enriched"
+                    }
+                  },
+                  "Property": "FullName"
+                }
+              },
+              "queryRef": "employees_enriched.FullName",
+              "nativeQueryRef": "FullName",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "VK Contracturen"
+                }
+              },
+              "queryRef": "measurements.VK Contracturen",
+              "nativeQueryRef": "Contract uren",
+              "displayName": "Contract uren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "VK Ziekteuren"
+                }
+              },
+              "queryRef": "measurements.VK Ziekteuren",
+              "nativeQueryRef": "VK Ziekteuren",
+              "displayName": "Ziekte uren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "VK Verzuim Uren %"
+                }
+              },
+              "queryRef": "measurements.VK Verzuim Uren %",
+              "nativeQueryRef": "VK Verzuim Uren %",
+              "displayName": "Verzuim uren"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "VK Bruto Loonkosten"
+                }
+              },
+              "queryRef": "measurements.VK Bruto Loonkosten",
+              "nativeQueryRef": "Bruto Loonkosten",
+              "displayName": "Bruto Loonkosten"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "VK Betaald Ziekengeld"
+                }
+              },
+              "queryRef": "measurements.VK Betaald Ziekengeld",
+              "nativeQueryRef": "Betaald Ziekengeld",
+              "displayName": "Betaald Ziekengeld"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "VK Verzuim Financieel %"
+                }
+              },
+              "queryRef": "measurements.VK Verzuim Financieel %",
+              "nativeQueryRef": "Verzuim Financieel %",
+              "displayName": "Verzuim Financieel %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "VK Ontvangen Ziekengeld"
+                }
+              },
+              "queryRef": "measurements.VK Ontvangen Ziekengeld",
+              "nativeQueryRef": "Ontvangen Ziekengeld",
+              "displayName": "Ontvangen Ziekengeld"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "VK Netto Verzuim %"
+                }
+              },
+              "queryRef": "measurements.VK Netto Verzuim %",
+              "nativeQueryRef": "Netto Verzuim %",
+              "displayName": "Netto Verzuim %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "measurements"
+                  }
+                },
+                "Property": "VK Betaald Ziekengeld"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "offices.OfficeName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "offices"
+                    }
+                  },
+                  "Property": "OfficeName"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "employees_enriched.FullName"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "108.25758961351461D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.VK Bruto Loonkosten"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "92.0471945806539D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.VK Betaald Ziekengeld"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.702565231086D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.VK Verzuim Financieel %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "98.82947998605782D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.VK Ontvangen Ziekengeld"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "afd2b27b156bb806b6aa",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "IsActief"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "724dbbd7995c8084408d",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "offices"
+              }
+            },
+            "Property": "OfficeName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "bf1f79410aa79e065da8",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "staff"
+              }
+            },
+            "Property": "CardName"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "7d283978c74b11612b65",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "VK Contracturen"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "39717b64cc6b00bde39b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "VK Ziekteuren"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a3c488c3a22c8680ab06",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "VK Verzuim Uren %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4383f052cb7b04abe294",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "VK Bruto Loonkosten"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "29cea00e80040b98700b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "VK Betaald Ziekengeld"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "240fe59ab2809d2ae1ce",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "VK Verzuim Financieel %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "51907620147d00863455",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "VK Ontvangen Ziekengeld"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "922301f28b93c0c09305",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "VK Netto Verzuim %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "152892627100ed30e195",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "FullName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

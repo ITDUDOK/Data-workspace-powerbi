@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Personeelsbezetting"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1edd4338-00d3-42b7-8f60-29c7c703ae70"
+  }
+}

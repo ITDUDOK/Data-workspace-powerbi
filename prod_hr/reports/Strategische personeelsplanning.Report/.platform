@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Strategische personeelsplanning"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a8bbe465-bb02-43d1-a41a-2708bb7dd344"
+  }
+}

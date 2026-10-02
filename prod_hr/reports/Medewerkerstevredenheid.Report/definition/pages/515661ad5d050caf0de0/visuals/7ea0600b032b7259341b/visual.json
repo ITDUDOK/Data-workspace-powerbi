@@ -1,0 +1,462 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "7ea0600b032b7259341b",
+  "position": {
+    "x": 195.27336860670192,
+    "y": 80.14109347442681,
+    "z": 13001,
+    "height": 700.952380952381,
+    "width": 1084.726631393298,
+    "tabOrder": 13001
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "satisfaction"
+                    }
+                  },
+                  "Property": "Office"
+                }
+              },
+              "queryRef": "satisfaction.Office",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "satisfaction"
+                    }
+                  },
+                  "Property": "StaffName"
+                }
+              },
+              "queryRef": "satisfaction.StaffName",
+              "nativeQueryRef": "StaffName",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "satisfaction"
+                    }
+                  },
+                  "Property": "Werklocatie"
+                }
+              },
+              "queryRef": "satisfaction.Werklocatie",
+              "nativeQueryRef": "Werklocatie",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Department Display"
+                }
+              },
+              "queryRef": "measurements.Department Display",
+              "nativeQueryRef": "Afdeling",
+              "displayName": "Afdeling"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Heel onprettig"
+                }
+              },
+              "queryRef": "measurements.Heel onprettig",
+              "nativeQueryRef": "Heel onprettig"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Onprettig"
+                }
+              },
+              "queryRef": "measurements.Onprettig",
+              "nativeQueryRef": "Onprettig"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Normaal"
+                }
+              },
+              "queryRef": "measurements.Normaal",
+              "nativeQueryRef": "Normaal"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Prettig"
+                }
+              },
+              "queryRef": "measurements.Prettig",
+              "nativeQueryRef": "Prettig"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Heel prettig"
+                }
+              },
+              "queryRef": "measurements.Heel prettig",
+              "nativeQueryRef": "Heel prettig"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "satisfaction.Office"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "satisfaction"
+                    }
+                  },
+                  "Property": "Office"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "satisfaction.StaffName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "satisfaction"
+                    }
+                  },
+                  "Property": "StaffName"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "satisfaction.Werklocatie"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7c266bb9920096b7031b",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Department Display"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b98dc3964b6bc5d0990c",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Heel onprettig"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3d680f54c1acdc3ea77e",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Heel prettig"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8b98e540e78186ce89e0",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "satisfaction"
+              }
+            },
+            "Property": "Office"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "03f99b2bdeb08ae74e01",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Normaal"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0eb9bd06a36337cfd7ad",
+        "ordinal": 5,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "IsActiefInPeriode"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "e",
+              "Entity": "employees_enriched",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "e"
+                        }
+                      },
+                      "Property": "IsActiefInPeriode"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "cebdf796aa07ec0c6b80",
+        "ordinal": 6,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Onprettig"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "de972da5566e2c6b6e62",
+        "ordinal": 7,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Prettig"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "704344ed01a5a8d62b1a",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "satisfaction"
+              }
+            },
+            "Property": "StaffName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3c54dc0ed20e4a9a4690",
+        "ordinal": 9,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "satisfaction"
+              }
+            },
+            "Property": "Werklocatie"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "satisfaction",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "s"
+                              }
+                            },
+                            "Property": "Werklocatie"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}
