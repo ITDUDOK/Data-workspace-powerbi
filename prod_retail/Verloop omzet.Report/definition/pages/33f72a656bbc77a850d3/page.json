@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "33f72a656bbc77a850d3",
+  "displayName": "Verloop Omzet - Personeelskosten",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

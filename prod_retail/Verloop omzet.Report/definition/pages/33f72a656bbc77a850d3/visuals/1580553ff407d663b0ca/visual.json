@@ -1,0 +1,211 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "1580553ff407d663b0ca",
+  "position": {
+    "x": 0,
+    "y": 230.51671732522797,
+    "z": 4000,
+    "height": 489.24012158054711,
+    "width": 640,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "time"
+                    }
+                  },
+                  "Property": "Hour"
+                }
+              },
+              "queryRef": "time.Hour",
+              "nativeQueryRef": "Hour",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTW_Cumulative"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTW_Cumulative",
+              "nativeQueryRef": "Omzet Cumulatief",
+              "displayName": "Omzet Cumulatief"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "LabourCost_Hourly_Cumulative"
+                }
+              },
+              "queryRef": "measurements.LabourCost_Hourly_Cumulative",
+              "nativeQueryRef": "Personeelskosten Cumulatief",
+              "displayName": "Personeelskosten Cumulatief"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "LabourCost_HourlyPercentageOfRevenue_Cumulative"
+                }
+              },
+              "queryRef": "measurements.LabourCost_HourlyPercentageOfRevenue_Cumulative",
+              "nativeQueryRef": "Personeel %",
+              "displayName": "Personeel %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "time"
+                  }
+                },
+                "Property": "Hour"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "205.30952241543602D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.LabourCost_Hourly_Cumulative"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "200.5149105931023D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.LabourCost_HourlyPercentageOfRevenue_Cumulative"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "146.1793290861633D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.TotaleOmzetExBTW_Cumulative"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3611cc9d455a77791566",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "time"
+              }
+            },
+            "Property": "Hour"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "78ac024ae820d268ea0d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTW_Cumulative"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ca47b097fa7530e097cd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_Hourly_Cumulative"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c83362b5cd19a60a76e3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_HourlyPercentageOfRevenue_Cumulative"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,383 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "1985788e60f018210105",
+  "position": {
+    "x": 252.80249804839971,
+    "y": 84.9336455893833,
+    "z": 3000,
+    "height": 314.75409836065575,
+    "width": 1027.1975019516003,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "centers"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              },
+              "queryRef": "centers.Location",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTWKoudeDranken"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTWKoudeDranken",
+              "nativeQueryRef": "Koude Dranken",
+              "displayName": "Koude Dranken"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTWWarmeDranken"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTWWarmeDranken",
+              "nativeQueryRef": "Warme Dranken",
+              "displayName": "Warme Dranken"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTWTaart"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTWTaart",
+              "nativeQueryRef": "Taart",
+              "displayName": "Taart"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTWPunt"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTWPunt",
+              "nativeQueryRef": "Punt",
+              "displayName": "Punt"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTWKlein"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTWKlein",
+              "nativeQueryRef": "Klein Patisserie",
+              "displayName": "Klein Patisserie"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTWBake-off"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTWBake-off",
+              "nativeQueryRef": "Bake-off",
+              "displayName": "Bake-off"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTWIjs"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTWIjs",
+              "nativeQueryRef": "IJs",
+              "displayName": "IJs"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTWOverige"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTWOverige",
+              "nativeQueryRef": "Overige",
+              "displayName": "Overige"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTW"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTW",
+              "nativeQueryRef": "Total",
+              "displayName": "Total"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "47.50759878419453D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.TotaleOmzetExBTWIjs"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Omzet'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "745283b3102b67d379c7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "centers"
+              }
+            },
+            "Property": "Location"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5ee94eee03d86d9635c0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTWKoudeDranken"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "42ab05fdb3c1dfa6a038",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTWWarmeDranken"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8e0310e2ce9918146335",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTWTaart"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "30e98cbf052682f04c4a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTWPunt"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f57cf003227b296593f2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTWKlein"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ed0a4265b639528da586",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTWBake-off"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5ed7838e0d559e912268",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTWIjs"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "171c93633f109ab9b0a9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTWOverige"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9562c99c413872fcdc1b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTW"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

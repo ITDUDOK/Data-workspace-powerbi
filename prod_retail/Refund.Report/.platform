@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Refund"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b74cba00-c694-4b3b-8f05-496e087a99e4"
+  }
+}

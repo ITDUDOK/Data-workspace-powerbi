@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "c73619d2e51b7393eaa0",
+  "displayName": "Refund",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

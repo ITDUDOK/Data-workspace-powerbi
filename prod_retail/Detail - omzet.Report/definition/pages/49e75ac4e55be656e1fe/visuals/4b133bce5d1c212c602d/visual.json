@@ -1,0 +1,324 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "4b133bce5d1c212c602d",
+  "position": {
+    "x": 294.427645788337,
+    "y": 340.0431965442765,
+    "z": 6000,
+    "height": 215.63714902807777,
+    "width": 985.57235421166308,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "centers"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              },
+              "queryRef": "centers.Location",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Product_Sum_Quantity_WarmeDranken"
+                }
+              },
+              "queryRef": "measurements.Product_Sum_Quantity_WarmeDranken",
+              "nativeQueryRef": "Warme Dranken",
+              "displayName": "Warme Dranken"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Product_Sum_Quantity_KoudeDranken"
+                }
+              },
+              "queryRef": "measurements.Product_Sum_Quantity_KoudeDranken",
+              "nativeQueryRef": "Koude Dranken",
+              "displayName": "Koude Dranken"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Product_Sum_Quantity_Taart"
+                }
+              },
+              "queryRef": "measurements.Product_Sum_Quantity_Taart",
+              "nativeQueryRef": "Taart",
+              "displayName": "Taart"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Product_Sum_Quantity_Punt"
+                }
+              },
+              "queryRef": "measurements.Product_Sum_Quantity_Punt",
+              "nativeQueryRef": "Punt",
+              "displayName": "Punt"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Product_Sum_Quantity_Klein"
+                }
+              },
+              "queryRef": "measurements.Product_Sum_Quantity_Klein",
+              "nativeQueryRef": "Klein Patisserie",
+              "displayName": "Klein Patisserie"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Product_Sum_Quantity_Bake-off"
+                }
+              },
+              "queryRef": "measurements.Product_Sum_Quantity_Bake-off",
+              "nativeQueryRef": "Bake-off",
+              "displayName": "Bake-off"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Product_Sum_Quantity_IJs"
+                }
+              },
+              "queryRef": "measurements.Product_Sum_Quantity_IJs",
+              "nativeQueryRef": "IJs",
+              "displayName": "IJs"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Product_Sum_Quantity_Chocolade"
+                }
+              },
+              "queryRef": "measurements.Product_Sum_Quantity_Chocolade",
+              "nativeQueryRef": "Chocolade",
+              "displayName": "Chocolade"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Product_Sum_Quantity_Overige"
+                }
+              },
+              "queryRef": "measurements.Product_Sum_Quantity_Overige",
+              "nativeQueryRef": "Overige",
+              "displayName": "Overige"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Product_Sum_Quantity"
+                }
+              },
+              "queryRef": "measurements.Product_Sum_Quantity",
+              "nativeQueryRef": "Total",
+              "displayName": "Total"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "106.42361530727757D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Product_Sum_Quantity_KoudeDranken"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "45.33036848289349D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Product_Sum_Quantity_Taart"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "67.32144526175959D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Product_Sum_Quantity_Punt"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "104.33036797093199D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Product_Sum_Quantity_Klein"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74.72501511606153D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Product_Sum_Quantity_Overige"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "56.79821626184821D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Product_Sum_Quantity"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Aantal Tickets'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

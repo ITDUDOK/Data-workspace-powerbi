@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Analyse planning"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6e359399-a127-4c47-9366-ce1c53b349c2"
+  }
+}

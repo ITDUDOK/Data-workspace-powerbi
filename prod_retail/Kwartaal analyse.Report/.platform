@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Kwartaal analyse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "82dc5ac8-2492-4fe1-99ca-537dbabba196"
+  }
+}

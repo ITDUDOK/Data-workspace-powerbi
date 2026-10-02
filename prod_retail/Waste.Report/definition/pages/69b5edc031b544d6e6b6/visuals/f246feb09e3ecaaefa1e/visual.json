@@ -1,0 +1,251 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "f246feb09e3ecaaefa1e",
+  "position": {
+    "x": 294.71124620060789,
+    "y": 337.50759878419456,
+    "z": 6000,
+    "height": 217.87234042553192,
+    "width": 985.28875379939211,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "centers"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              },
+              "queryRef": "centers.Location",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Internal_Derving/Verlies%"
+                }
+              },
+              "queryRef": "measurements.Internal_Derving/Verlies%",
+              "nativeQueryRef": "Derving/Verlies",
+              "displayName": "Derving/Verlies"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Internal_EigenGebruik%"
+                }
+              },
+              "queryRef": "measurements.Internal_EigenGebruik%",
+              "nativeQueryRef": "Eigen Gebruik",
+              "displayName": "Eigen Gebruik"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Internal_Representatie%"
+                }
+              },
+              "queryRef": "measurements.Internal_Representatie%",
+              "nativeQueryRef": "Representatie",
+              "displayName": "Representatie"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Internal_TooGoodToGo%"
+                }
+              },
+              "queryRef": "measurements.Internal_TooGoodToGo%",
+              "nativeQueryRef": "Too Good To Go",
+              "displayName": "Too Good To Go"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Internal_TotalComped%"
+                }
+              },
+              "queryRef": "measurements.Internal_TotalComped%",
+              "nativeQueryRef": "Total",
+              "displayName": "Total"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Waste (% omzet)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3db6907cf14c7a66b90b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "centers"
+              }
+            },
+            "Property": "Location"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0a8d3cef6b1549db7d7e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Internal_Derving/Verlies%"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e9bed266cb711da961e7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Internal_EigenGebruik%"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2096eeb9186c5d9023b8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Internal_Representatie%"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cee4c6746f8e88818ff6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Internal_TooGoodToGo%"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0c5aafe175f34813afbe",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Internal_TotalComped%"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
