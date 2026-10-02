@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Gemiddelde Besteding"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ee57c79e-7eb4-4423-9766-f4d7d82c0d7a"
+  }
+}

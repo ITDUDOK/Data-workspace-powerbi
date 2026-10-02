@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Overzicht dagdelen"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9171165e-b967-434d-ba6a-5140536bc3cf"
+  }
+}

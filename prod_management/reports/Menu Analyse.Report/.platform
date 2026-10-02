@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Menu Analyse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "03e3981b-fd6e-4237-be13-ab410055c00f"
+  }
+}

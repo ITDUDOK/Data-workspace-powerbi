@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Prognose"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "75bd2242-1c2f-4fbf-9175-df9322e5d07b"
+  }
+}

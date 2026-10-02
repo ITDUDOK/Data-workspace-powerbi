@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "11d136be33eef15474e7",
+  "position": {
+    "x": 0,
+    "y": 430.88145896656539,
+    "z": 6000,
+    "height": 87.537993920972653,
+    "width": 266.50455927051672,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "center_classification"
+                    }
+                  },
+                  "Property": "Classification"
+                }
+              },
+              "queryRef": "center_classification.Classification",
+              "nativeQueryRef": "Business line",
+              "active": true,
+              "displayName": "Business line"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4c856e21885b5852d185",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "center_classification"
+              }
+            },
+            "Property": "Classification"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

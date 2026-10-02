@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Product analyse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1dbe3715-3331-46be-bb6d-b0f94a802d54"
+  }
+}

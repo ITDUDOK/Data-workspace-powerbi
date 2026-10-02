@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Overzicht Week"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "616c161c-d9f2-441b-a880-c7a9eb26fb8f"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Betaalwijzen"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7080f8d0-6490-4c1c-9386-0e89c4db70c3"
+  }
+}

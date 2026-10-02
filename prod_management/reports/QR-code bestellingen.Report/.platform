@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "QR-code bestellingen"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "19120f01-e640-4219-b62f-48103cf6e76b"
+  }
+}
