@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "743b1f75e50281d4b959",
+  "displayName": "Inkoop prognose",
+  "displayOption": "FitToPage",
+  "height": 910,
+  "width": 1280
+}

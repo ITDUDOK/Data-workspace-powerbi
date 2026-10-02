@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "03b17e99d40ad80d6deb",
+  "displayName": "Verkoop analyse",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/2.0.0/schema.json",
+  "version": "4.0",
+  "datasetReference": {
+    "byConnection": {
+      "connectionString": "Data Source=powerbi://api.powerbi.com/v1.0/myorg/Data;initial catalog=manufacturing_semantic_model;integrated security=ClaimsToken;semanticmodelid=b3ec14d7-39ea-4cf8-94b3-48711ad1d825"
+    }
+  }
+}

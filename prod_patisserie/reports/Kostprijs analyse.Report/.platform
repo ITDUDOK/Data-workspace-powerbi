@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Kostprijs analyse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b5f762d6-bf7d-4b37-9e15-0f6e78fc4bf8"
+  }
+}

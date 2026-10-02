@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Verkoop analyse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c3a855c2-67ad-433b-ac26-26ba8b5b68f6"
+  }
+}
