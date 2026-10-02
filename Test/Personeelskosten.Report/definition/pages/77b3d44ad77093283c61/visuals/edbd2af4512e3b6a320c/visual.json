@@ -46,8 +46,9 @@
                 }
               },
               "queryRef": "dim_departments.DepartmentName",
-              "nativeQueryRef": "DepartmentName",
-              "active": true
+              "nativeQueryRef": "Afdeling",
+              "active": true,
+              "displayName": "Afdeling"
             }
           ]
         },

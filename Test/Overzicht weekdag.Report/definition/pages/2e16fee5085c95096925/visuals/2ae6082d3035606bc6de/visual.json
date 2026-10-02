@@ -223,6 +223,118 @@
                               "Value": "null"
                             }
                           }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Dudok HQ Testomgeving'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Alfredo''s'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Bar Bistro Binnenrotte'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - De Harmonie'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Dudok Barendrecht'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Dudok Delft'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Dudok Patisserie Westewagenstraat B.V'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Dudok Rijnstraat Den Haag'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Lola'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Mart Café'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Roes'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Schielandshuis'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Stadbrasserie Rotterdam'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Stadsbrasserie Rotterdam'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'OUD - Vicini Arnhem'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Dudok Horeca Shared Services'"
+                            }
+                          }
                         ]
                       ]
                     }
@@ -260,6 +372,182 @@
                             }
                           ]
                         }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'Dudok Horeca Shared Services'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'Dudok HQ Testomgeving'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Alfredo''s'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Bar Bistro Binnenrotte'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - De Harmonie'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Dudok Barendrecht'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Dudok Delft'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Dudok Patisserie Westewagenstraat B.V'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Dudok Rijnstraat Den Haag'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Lola'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Mart Café'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Roes'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Schielandshuis'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Stadbrasserie Rotterdam'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Stadsbrasserie Rotterdam'"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "0": [
+                            {
+                              "Literal": {
+                                "Value": "'OUD - Vicini Arnhem'"
+                              }
+                            }
+                          ]
+                        }
                       ]
                     ],
                     "columns": [
@@ -280,6 +568,54 @@
                   "valueMap": [
                     {
                       "0": "(Leeg)"
+                    },
+                    {
+                      "0": "Dudok Horeca Shared Services"
+                    },
+                    {
+                      "0": "Dudok HQ Testomgeving"
+                    },
+                    {
+                      "0": "OUD - Alfredo's"
+                    },
+                    {
+                      "0": "OUD - Bar Bistro Binnenrotte"
+                    },
+                    {
+                      "0": "OUD - De Harmonie"
+                    },
+                    {
+                      "0": "OUD - Dudok Barendrecht"
+                    },
+                    {
+                      "0": "OUD - Dudok Delft"
+                    },
+                    {
+                      "0": "OUD - Dudok Patisserie Westewagenstraat B.V"
+                    },
+                    {
+                      "0": "OUD - Dudok Rijnstraat Den Haag"
+                    },
+                    {
+                      "0": "OUD - Lola"
+                    },
+                    {
+                      "0": "OUD - Mart Café"
+                    },
+                    {
+                      "0": "OUD - Roes"
+                    },
+                    {
+                      "0": "OUD - Schielandshuis"
+                    },
+                    {
+                      "0": "OUD - Stadbrasserie Rotterdam"
+                    },
+                    {
+                      "0": "OUD - Stadsbrasserie Rotterdam"
+                    },
+                    {
+                      "0": "OUD - Vicini Arnhem"
                     }
                   ]
                 }
