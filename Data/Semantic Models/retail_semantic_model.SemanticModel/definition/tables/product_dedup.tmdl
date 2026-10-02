@@ -58,26 +58,6 @@ table product_dedup
 
 		annotation SummarizationSetBy = Automatic
 
-	column IsAddon
-		dataType: boolean
-		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: da647db4-549e-4ede-86aa-62fcb556b65b
-		sourceLineageTag: IsAddon
-		summarizeBy: none
-		sourceColumn: IsAddon
-
-		annotation SummarizationSetBy = Automatic
-
-	column LineId
-		dataType: int64
-		formatString: 0
-		lineageTag: 37c06d57-7af7-4d58-a637-3ea0d8c2918f
-		sourceLineageTag: LineId
-		summarizeBy: count
-		sourceColumn: LineId
-
-		annotation SummarizationSetBy = Automatic
-
 	column ModifiedAt
 		dataType: dateTime
 		formatString: General Date
@@ -91,7 +71,7 @@ table product_dedup
 	partition product_dedup = entity
 		mode: directLake
 		source
-			entityName: product_dedup
+			entityName: pos_products
 			schemaName: dbo
 			expressionSource: 'DirectLake - lh_dudodata_gold_powerbi'
 
