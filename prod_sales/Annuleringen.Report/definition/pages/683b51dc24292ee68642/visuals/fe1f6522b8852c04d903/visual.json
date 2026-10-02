@@ -1,0 +1,463 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "fe1f6522b8852c04d903",
+  "position": {
+    "x": 258.90359168241969,
+    "y": 83.478260869565219,
+    "z": 9000,
+    "height": 623.062381852552,
+    "width": 1002.9489603024575,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "events"
+                    }
+                  },
+                  "Property": "EventLabel"
+                }
+              },
+              "queryRef": "events.Event_Label",
+              "nativeQueryRef": "Event",
+              "displayName": "Event"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "events"
+                    }
+                  },
+                  "Property": "LocationName"
+                }
+              },
+              "queryRef": "events.LocationName",
+              "nativeQueryRef": "Locatie",
+              "displayName": "Locatie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "events"
+                    }
+                  },
+                  "Property": "ClientName"
+                }
+              },
+              "queryRef": "events.ClientName",
+              "nativeQueryRef": "Klant",
+              "displayName": "Klant"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "events"
+                        }
+                      },
+                      "Property": "TotalPriceExclVat"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FACT_Events.event_total_price_excl_vat)",
+              "nativeQueryRef": "Som van event_total_price_excl_vat",
+              "displayName": "Omzet"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "events"
+                    }
+                  },
+                  "Property": "EventDate"
+                }
+              },
+              "queryRef": "events.EventDate",
+              "nativeQueryRef": "Datum event",
+              "displayName": "Datum event"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Event_planner"
+                }
+              },
+              "queryRef": "measurements.Event_planner",
+              "nativeQueryRef": "Accountmanager",
+              "displayName": "Accountmanager"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "events"
+                    }
+                  },
+                  "Property": "CancellationReason"
+                }
+              },
+              "queryRef": "events.CancellationReason",
+              "nativeQueryRef": "CancellationReason"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Event_URL"
+                }
+              },
+              "queryRef": "measurements.Event_URL",
+              "nativeQueryRef": "URL",
+              "displayName": "URL"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "122.89375074473992D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Event_planner"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "172D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "events.Event_Label"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "122.58354330778275D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "events.ClientName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "186.01081081081082D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "events.LocationName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "97.91891891891892D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FACT_Events.event_total_price_excl_vat)"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "webURL": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Event_URL"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "measurements.Event_URL"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FACT_Events.event_total_price_excl_vat)"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c6d3ccc3388099c9d61b",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "events"
+                  }
+                },
+                "Property": "TotalPriceExclVat"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "e",
+              "Entity": "events",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Aggregation": {
+                          "Expression": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "e"
+                                }
+                              },
+                              "Property": "TotalPriceExclVat"
+                            }
+                          },
+                          "Function": 0
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "48d423d4d3dc9cd1e610",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Event_planner"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "34cd9e3d22e05880e1e7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Event_URL"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1f59a22f0c0e91c51656",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "events"
+              }
+            },
+            "Property": "EventLabel"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "88e1f4b44cbc4851d1be",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "events"
+              }
+            },
+            "Property": "LocationName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "34f700f88d46cbd092ed",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "events"
+              }
+            },
+            "Property": "ClientName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "82ff68d3c9b2abe0aa68",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "events"
+              }
+            },
+            "Property": "EventDate"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3e25ad4c48aa77224846",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "events"
+              }
+            },
+            "Property": "CancellationReason"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "095f0260c31930720d07",
+  "displayName": "Offertes geannuleerd",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "a4dfb37e53b09cb0164a",
+      "target": "3a285e945483e00bbd69",
+      "type": "DataFilter"
+    },
+    {
+      "source": "3a285e945483e00bbd69",
+      "target": "a4dfb37e53b09cb0164a",
+      "type": "DataFilter"
+    }
+  ]
+}

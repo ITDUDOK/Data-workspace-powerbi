@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Nacalculatie"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6d4a0c2b-f06d-aa5a-4b44-b3512a9ad964"
+  }
+}
