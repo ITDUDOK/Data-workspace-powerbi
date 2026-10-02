@@ -1,0 +1,78 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "5d50908c6169d23a094f",
+  "position": {
+    "x": 0,
+    "y": 488.52664576802511,
+    "z": 8000,
+    "height": 84.263322884012538,
+    "width": 251.78683385579939,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "EmployeeType"
+                }
+              },
+              "queryRef": "hours_summary.EmployeeType",
+              "nativeQueryRef": "Medewerkers type",
+              "active": true,
+              "displayName": "Medewerkers type"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a1ffd0f04be3007680c8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "hours_summary"
+              }
+            },
+            "Property": "EmployeeType"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

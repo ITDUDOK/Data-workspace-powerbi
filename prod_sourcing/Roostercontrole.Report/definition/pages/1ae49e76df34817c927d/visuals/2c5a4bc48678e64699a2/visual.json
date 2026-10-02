@@ -1,0 +1,850 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "2c5a4bc48678e64699a2",
+  "position": {
+    "x": 249.81412639405207,
+    "y": 78.513011152416368,
+    "z": 1000,
+    "height": 628.104089219331,
+    "width": 1026.6171003717473,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dates"
+                    }
+                  },
+                  "Property": "ThisWeekISO"
+                }
+              },
+              "queryRef": "dates.ThisWeekISO",
+              "nativeQueryRef": "ThisWeekISO",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC TotalPrognosis"
+                }
+              },
+              "queryRef": "measurements.RC TotalPrognosis",
+              "nativeQueryRef": "Omzet gepland",
+              "displayName": "Omzet gepland"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "TotaleOmzetExBTW"
+                }
+              },
+              "queryRef": "measurements.TotaleOmzetExBTW",
+              "nativeQueryRef": "Omzet gerealiseerd",
+              "displayName": "Omzet gerealiseerd",
+              "format": "\"€\" #,0;\"€\" -#,0;\"€\" #,0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Verschil Omzet %"
+                }
+              },
+              "queryRef": "measurements.RC Verschil Omzet %",
+              "nativeQueryRef": "Verschil omzet %",
+              "displayName": "Verschil omzet %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Totalplanned"
+                }
+              },
+              "queryRef": "measurements.Totalplanned",
+              "nativeQueryRef": "Uren gepland",
+              "displayName": "Uren gepland"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Netto_GewerktUren"
+                }
+              },
+              "queryRef": "measurements.Netto_GewerktUren",
+              "nativeQueryRef": "Uren gerealiseerd",
+              "displayName": "Uren gerealiseerd",
+              "format": "#,0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Verschil Uren %"
+                }
+              },
+              "queryRef": "measurements.RC Verschil Uren %",
+              "nativeQueryRef": "RC Verschil Uren %",
+              "displayName": "Verschil uren %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Diensten Gepland"
+                }
+              },
+              "queryRef": "measurements.RC Diensten Gepland",
+              "nativeQueryRef": "Diensten gepland",
+              "displayName": "Diensten gepland"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Diensten Gerealiseerd"
+                }
+              },
+              "queryRef": "measurements.RC Diensten Gerealiseerd",
+              "nativeQueryRef": "Diensten gerealiseerd",
+              "displayName": "Diensten gerealiseerd"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Diensten Verschil %"
+                }
+              },
+              "queryRef": "measurements.RC Diensten Verschil %",
+              "nativeQueryRef": "Diensten verschil %",
+              "displayName": "Diensten verschil %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Gemiddelde duur dienst"
+                }
+              },
+              "queryRef": "measurements.RC Gemiddelde duur dienst",
+              "nativeQueryRef": "Gemiddelde duur dienst",
+              "displayName": "Gemiddelde duur dienst"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Personeelskosten Gepland %"
+                }
+              },
+              "queryRef": "measurements.RC Personeelskosten Gepland %",
+              "nativeQueryRef": "Personeelskosten Gepland %",
+              "displayName": "Personeelskosten Gepland %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Personeelskosten Gerealiseerd %"
+                }
+              },
+              "queryRef": "measurements.RC Personeelskosten Gerealiseerd %",
+              "nativeQueryRef": "RC Personeelskosten Gerealiseerd %",
+              "displayName": "Personeelskosten Gerealiseerd %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Verschil Personeelskosten %"
+                }
+              },
+              "queryRef": "measurements.RC Verschil Personeelskosten %",
+              "nativeQueryRef": "RC Verschil Personeelskosten %",
+              "displayName": "Verschil personeelskosten %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Omzet Per Uur Gepland"
+                }
+              },
+              "queryRef": "measurements.RC Omzet Per Uur Gepland",
+              "nativeQueryRef": "RC Omzet Per Uur Gepland",
+              "displayName": "Omzet per uur gepland"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Omzet Per Uur Gerealiseerd"
+                }
+              },
+              "queryRef": "measurements.RC Omzet Per Uur Gerealiseerd",
+              "nativeQueryRef": "Omzet per uur gerealiseerd",
+              "displayName": "Omzet per uur gerealiseerd"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Verschil Omzet Per Uur %"
+                }
+              },
+              "queryRef": "measurements.RC Verschil Omzet Per Uur %",
+              "nativeQueryRef": "RC Verschil Omzet Per Uur %",
+              "displayName": "Verschil omzet per uur %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Gem Uurloon"
+                }
+              },
+              "queryRef": "measurements.RC Gem Uurloon",
+              "nativeQueryRef": "RC Gem Uurloon",
+              "displayName": "Gem. Uurloon"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Totalsicknesshours"
+                }
+              },
+              "queryRef": "measurements.RC Totalsicknesshours",
+              "nativeQueryRef": "Uren ziekte",
+              "displayName": "Uren ziekte"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "RC Uren Training"
+                }
+              },
+              "queryRef": "measurements.RC Uren Training",
+              "nativeQueryRef": "Uren training",
+              "displayName": "Uren training"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "layout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Compact'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "repeatRowHeaders": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "65.84031894381548D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dates"
+                          }
+                        },
+                        "Property": "DayName"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'zondag'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "71.91957138473884D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dates"
+                        }
+                      },
+                      "Property": "DayName"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "173.16575582340548D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dates"
+                          }
+                        },
+                        "Property": "ThisWeekISO"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Week 21 - vorige week'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "233.97481253450678D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.RC TotalPrognosis"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Default'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4b8f349635637a508dca",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dates"
+              }
+            },
+            "Property": "ThisWeekISO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7307165196800c96848c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC TotalPrognosis"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c17cfdda53ef39068305",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTW"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fa50236d8b6735105494",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Verschil Omzet %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "78c5d5a9ca616107dab4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Totalplanned"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "200dd25202764ad006b2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Netto_GewerktUren"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "db11b46a85c676d31c85",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Diensten Gepland"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9fdc00efb39344ca1261",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Diensten Gerealiseerd"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ad2b2cc52afef1dc896e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Diensten Verschil %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "19743bf819005b42d7b8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Gemiddelde duur dienst"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8cadebfdb464f067c00e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Personeelskosten Gepland %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e3cd7ed5de7ce89c9134",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Omzet Per Uur Gerealiseerd"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6b54c500ceac323d685b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Totalsicknesshours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c01c600af06e306c0af8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Uren Training"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "11ecba8a709003e47121",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Omzet Per Uur Gepland"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "83c1c59696ec400e3a95",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Gem Uurloon"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8034aaa97755b350b54e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Verschil Omzet Per Uur %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8eb79cffbce5b8cd580c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Verschil Personeelskosten %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d2de74b0905a7b227eb3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Verschil Uren %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d28b9ab1731282ec130c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "RC Personeelskosten Gerealiseerd %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

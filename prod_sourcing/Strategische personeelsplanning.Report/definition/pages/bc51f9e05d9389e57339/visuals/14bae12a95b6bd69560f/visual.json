@@ -1,0 +1,735 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "14bae12a95b6bd69560f",
+  "position": {
+    "x": 181.46010186757215,
+    "y": 79.320882852292016,
+    "z": 3000,
+    "height": 620.44142614601026,
+    "width": 1098.5398981324279,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "contracts_enriched"
+                    }
+                  },
+                  "Property": "CompanyName"
+                }
+              },
+              "queryRef": "contracts_enriched.CompanyName",
+              "nativeQueryRef": "Locatie",
+              "displayName": "Locatie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "contracts_enriched"
+                    }
+                  },
+                  "Property": "DepartmentName"
+                }
+              },
+              "queryRef": "FACT_ALLContract.DepartmentName",
+              "nativeQueryRef": "Afdeling",
+              "displayName": "Afdeling"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "contracts_enriched"
+                    }
+                  },
+                  "Property": "FullName"
+                }
+              },
+              "queryRef": "All Contract Periods.FullName",
+              "nativeQueryRef": "Medewerker",
+              "displayName": "Medewerker"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "contracts_enriched"
+                    }
+                  },
+                  "Property": "HRFunctionName"
+                }
+              },
+              "queryRef": "contracts_enriched.HRFunctionName",
+              "nativeQueryRef": "Functie",
+              "displayName": "Functie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "contracts_enriched"
+                    }
+                  },
+                  "Property": "CardContractHours"
+                }
+              },
+              "queryRef": "Sum(All Contract Periods.CardContractHours)",
+              "nativeQueryRef": "Contract Uren",
+              "displayName": "Contract Uren"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "contracts_enriched"
+                    }
+                  },
+                  "Property": "UurloonExclusief"
+                }
+              },
+              "queryRef": "Sum(// CALCULATED TABLE: Simple - CardEnd first, then FACT_HRContracts endDateAll Contract Periods.Uurloon_Exclusief)",
+              "nativeQueryRef": "Uurloon Exclusief",
+              "displayName": "Uurloon Exclusief"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "contracts_enriched"
+                    }
+                  },
+                  "Property": "EmployeeAge"
+                }
+              },
+              "queryRef": "Sum(// CALCULATED TABLE: Simple - CardEnd first, then FACT_HRContracts endDateAll Contract Periods.Employee_Age)",
+              "nativeQueryRef": "Leeftijd",
+              "displayName": "Leeftijd"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "contracts_enriched"
+                    }
+                  },
+                  "Property": "GemArbeidsduurJaren"
+                }
+              },
+              "queryRef": "Sum(FACT_ALLContract.Gem. Arbeidsduur (jaren))",
+              "nativeQueryRef": "Gem. Arbeidsduur (Jaren)",
+              "displayName": "Gem. Arbeidsduur (Jaren)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "contracts_enriched"
+                    }
+                  },
+                  "Property": "VerzuimredenCode"
+                }
+              },
+              "queryRef": "contracts_enriched.VerzuimredenCode",
+              "nativeQueryRef": "Verzuimreden code",
+              "displayName": "Verzuimreden code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "contracts_enriched"
+                    }
+                  },
+                  "Property": "FinalEndDate"
+                }
+              },
+              "queryRef": "contracts_enriched.Final End Date",
+              "nativeQueryRef": "Contract Einddatum",
+              "displayName": "Contract Einddatum"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "contracts_enriched"
+                    }
+                  },
+                  "Property": "CountContracts"
+                }
+              },
+              "queryRef": "Sum(FACT_AllContracts.CountContracts)",
+              "nativeQueryRef": "CountContracts",
+              "displayName": "Keten"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "contracts_enriched"
+                    }
+                  },
+                  "Property": "ContractType"
+                }
+              },
+              "queryRef": "All Contract Periods.ContractType",
+              "nativeQueryRef": "Contract Type",
+              "displayName": "Contract Type"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "contracts_enriched"
+                  }
+                },
+                "Property": "FinalEndDate"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.71732241747904D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(FACT_HRContracts.hoursPerWeek)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.61032093934948D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measurements.Functie Concat"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "133.24100046030702D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "employments.endDate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "67.92875753054665D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(All Contract Periods.CardContractHours)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "118.72266486155421D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "All Contract Periods.FullName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "98.5738818497302D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FACT_ALLContract.DepartmentName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "61.92478542979998D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(// CALCULATED TABLE: Simple - CardEnd first, then FACT_HRContracts endDateAll Contract Periods.Uurloon_Exclusief)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "50.09481985540151D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(// CALCULATED TABLE: Simple - CardEnd first, then FACT_HRContracts endDateAll Contract Periods.Employee_Age)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "111.00350506927036D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FACT_ALLContract.Gem. Arbeidsduur (jaren))"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "97.28557369301075D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "All Contract Periods.ContractType"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "123.59819091694153D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "contracts_enriched.HRFunctionName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.27810373008336D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "contracts_enriched.VerzuimredenCode"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "81.64288795416465D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "contracts_enriched.Final End Date"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e51852272fa49402a6f9",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "DepartmentName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "064c10cc90559c820a5e",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "FinalEndDate"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2124e9ff9220a8fddb6b",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "ContractType"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "79498517155f19aa8ead",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "CardContractHours"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1d38ecfea635e1455e28",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "FunctionName"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "7361a9f3becb1388e6ee",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "GemArbeidsduurJaren"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c2b500662eca3e54f921",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "EmployeeAge"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ba196374e1e0c65d4540",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "FullName"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "a",
+              "Entity": "contracts_enriched",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "a"
+                              }
+                            },
+                            "Property": "FullName"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "6d1776fd24883105010e",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "UurloonExclusief"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9e2c692255159e333456",
+        "ordinal": 9,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Newest Contract Only"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "4cd2ab88d2346961daa9",
+        "ordinal": 10,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "HRFunctionName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "308f67923e44e641fd03",
+        "ordinal": 11,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "VerzuimredenCode"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a94abab9e31c3cc91db6",
+        "ordinal": 12,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "CountContracts"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "72d0a576062a21d23072",
+        "ordinal": 13,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "contracts_enriched"
+              }
+            },
+            "Property": "CompanyName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}
