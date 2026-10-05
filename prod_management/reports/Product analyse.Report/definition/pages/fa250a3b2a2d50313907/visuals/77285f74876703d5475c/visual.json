@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "77285f74876703d5475c",
   "position": {
     "x": 0,
@@ -20,16 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_product"
+                      "Entity": "fact_sales"
                     }
                   },
                   "Property": "IsAddon"
                 }
               },
-              "queryRef": "dim_product.IsAddon",
-              "nativeQueryRef": "Is Toevoeging",
+              "queryRef": "fact_sales.IsAddon",
+              "nativeQueryRef": "Is toevoeging",
               "active": true,
-              "displayName": "Is Toevoeging"
+              "displayName": "Is toevoeging"
             }
           ]
         }
@@ -47,6 +47,11 @@
               }
             }
           }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
         }
       ]
     },
@@ -372,12 +377,12 @@
         }
       },
       {
-        "name": "2ce2213f52ea2231c59e",
+        "name": "61ae1ac5fdf903513781",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "dim_product"
+                "Entity": "fact_sales"
               }
             },
             "Property": "IsAddon"
