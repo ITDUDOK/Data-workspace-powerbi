@@ -67,37 +67,17 @@ table measurements
 	measure LabourCost = ```
 			
 			VAR UniekeUren =
-			    SUMMARIZE(
-			        FILTER(
-			            hours,
-			            hours[HourHours] > 0
-			        ),
-			        hours[HourId],
-			        hours[CardId],
-			        hours[HourOfficeId],
-			        "Uren", MAX(hours[HourHours])
-			    )
-			VAR HoursWithRates = 
 			    ADDCOLUMNS(
-			        UniekeUren,
-			        "SalaryRate", 
-			        VAR CurrentOffice = [HourOfficeID]
-			        VAR CurrentCard = [CardID]
-			        RETURN
-			        MAXX(
-			            FILTER(
-			                staff,
-			                staff[OfficeId] = CurrentOffice &&
-			                staff[CardId] = CurrentCard
-			            ),
-			            staff[CardSalaryRate]
-			        )
+			        SUMMARIZE(
+			            FILTER(hours, hours[HourHours] > 0),
+			            hours[HourId]
+			        ),
+			        "Uren", CALCULATE(MAX(hours[HourHours])),
+			        "Tarief", CALCULATE(MAX(hours[SalaryRate]))
 			    )
 			RETURN
-			    SUMX(
-			        HoursWithRates,
-			        [Uren] * MAX([SalaryRate], 0)
-			    )
+			    SUMX(UniekeUren, [Uren] * MAX([Tarief], 0))
+			
 			```
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: b1956404-6447-4d28-9376-9fed7284f8d4
@@ -116,22 +96,8 @@ table measurements
 
 	measure LabourCost_PreviousWeek = ```
 			
-			CALCULATE(
-			    SUMX( hours,
-			        VAR TotalWorkedHours = hours[HourHours]
-			        VAR NetHours = TotalWorkedHours
-			        VAR CurrentOffice = hours[HourOfficeId]
-			        VAR CurrentCard = hours[CardId]
-			        VAR HourlyRate = LOOKUPVALUE(
-			            staff[CardSalaryRate], 
-			            staff[OfficeId], CurrentOffice,
-			            staff[CardId], CurrentCard
-			            )
-			        RETURN
-			        NetHours * HourlyRate
-			    ),
-			    DATEADD(dates[Date], -7, DAY)
-			)
+			CALCULATE([LabourCost], DATEADD(dates[Date], -7, DAY))
+			
 			```
 		formatString: 0
 		lineageTag: 4ac7da4a-d833-4069-a4e8-81978cc62cc0
