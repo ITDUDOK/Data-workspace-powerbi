@@ -64,28 +64,6 @@ table dim_product
 
 		annotation SummarizationSetBy = Automatic
 
-	column IsAddon
-		dataType: boolean
-		formatString: """TRUE"";""TRUE"";""FALSE"""
-		sourceProviderType: bit
-		lineageTag: 5c6ace88-1eb6-4b3f-a36e-5fedbf46bd62
-		sourceLineageTag: IsAddon
-		summarizeBy: none
-		sourceColumn: IsAddon
-
-		annotation SummarizationSetBy = Automatic
-
-	column LineId
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: 20608b25-b634-423a-9224-2ec5504b946a
-		sourceLineageTag: LineId
-		summarizeBy: count
-		sourceColumn: LineId
-
-		annotation SummarizationSetBy = Automatic
-
 	column ModifiedAt
 		dataType: dateTime
 		formatString: General Date
@@ -100,7 +78,7 @@ table dim_product
 	partition product_dedup = entity
 		mode: directLake
 		source
-			entityName: product_dedup
+			entityName: pos_products
 			schemaName: dbo
 			expressionSource: DatabaseQuery
 
