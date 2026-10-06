@@ -23,13 +23,28 @@
                       "Entity": "hours_summary"
                     }
                   },
+                  "Property": "WorkOffice"
+                }
+              },
+              "queryRef": "hours_summary.WorkOffice",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
                   "Property": "WorkCenter"
                 }
               },
               "queryRef": "hours_summary.WorkCenter",
-              "nativeQueryRef": "Locatie",
-              "active": true,
-              "displayName": "Locatie"
+              "nativeQueryRef": "WorkCenter",
+              "active": false
             },
             {
               "field": {
@@ -227,6 +242,25 @@
         "levels": [
           {
             "queryRefs": [
+              "hours_summary.WorkOffice"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hours_summary"
+                    }
+                  },
+                  "Property": "WorkOffice"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
               "hours_summary.WorkCenter"
             ],
             "isCollapsed": true,
@@ -283,148 +317,7 @@
             "isPinned": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Trattoria Sophia'"
-                  }
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Dudok Patisserie BV'"
-                  }
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Dudok Patisserie Den Haag CS'"
-                  }
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Dudok Horeca Shared Services'"
-                  }
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Dudok Evenementen'"
-                  }
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Dudok Retail Holding B.V.'"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Meent'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                },
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Rotterdam CS'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                },
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Winkel'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Dudok HAKA'"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Bediening'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                },
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'MT'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Dudok Staffing'"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Afwas / Schoonmaak - Staffing'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "objects": {
@@ -455,20 +348,6 @@
           },
           "selector": {
             "metadata": "hours_summary.Netto_GewerktUren_Vast_new"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "224.26669367260354D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "hours_summary.WorkCenter"
           }
         },
         {

@@ -214,7 +214,178 @@
   "filterConfig": {
     "filters": [
       {
+        "name": "7c266bb9920096b7031b",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Department Display"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b98dc3964b6bc5d0990c",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Heel onprettig"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3d680f54c1acdc3ea77e",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Heel prettig"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8b98e540e78186ce89e0",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "satisfaction"
+              }
+            },
+            "Property": "Office"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "03f99b2bdeb08ae74e01",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Normaal"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0eb9bd06a36337cfd7ad",
+        "ordinal": 5,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "IsActiefInPeriode"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "e",
+              "Entity": "employees_enriched",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "e"
+                        }
+                      },
+                      "Property": "IsActiefInPeriode"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "cebdf796aa07ec0c6b80",
+        "ordinal": 6,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Onprettig"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "de972da5566e2c6b6e62",
+        "ordinal": 7,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Prettig"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "704344ed01a5a8d62b1a",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "satisfaction"
+              }
+            },
+            "Property": "StaffName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
         "name": "3c54dc0ed20e4a9a4690",
+        "ordinal": 9,
         "field": {
           "Column": {
             "Expression": {
@@ -284,119 +455,8 @@
             }
           ]
         }
-      },
-      {
-        "name": "704344ed01a5a8d62b1a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "satisfaction"
-              }
-            },
-            "Property": "StaffName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "8b98e540e78186ce89e0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "satisfaction"
-              }
-            },
-            "Property": "Office"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b98dc3964b6bc5d0990c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "measurements"
-              }
-            },
-            "Property": "Heel onprettig"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3d680f54c1acdc3ea77e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "measurements"
-              }
-            },
-            "Property": "Heel prettig"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "03f99b2bdeb08ae74e01",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "measurements"
-              }
-            },
-            "Property": "Normaal"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "cebdf796aa07ec0c6b80",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "measurements"
-              }
-            },
-            "Property": "Onprettig"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "de972da5566e2c6b6e62",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "measurements"
-              }
-            },
-            "Property": "Prettig"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "7c266bb9920096b7031b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "measurements"
-              }
-            },
-            "Property": "Department Display"
-          }
-        },
-        "type": "Advanced"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

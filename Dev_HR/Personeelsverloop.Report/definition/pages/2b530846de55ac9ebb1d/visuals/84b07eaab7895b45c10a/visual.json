@@ -300,21 +300,28 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "14d7eb9a0315e98a90ac",
+        "name": "7b94ac344002ad620a2e",
+        "ordinal": 0,
         "field": {
-          "Column": {
+          "Aggregation": {
             "Expression": {
-              "SourceRef": {
-                "Entity": "employees_enriched"
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "employees_enriched"
+                  }
+                },
+                "Property": "ContractHours"
               }
             },
-            "Property": "FullName"
+            "Function": 0
           }
         },
-        "type": "Categorical"
+        "type": "Advanced"
       },
       {
         "name": "15fb8030cbb2d73c3e20",
+        "ordinal": 1,
         "field": {
           "Aggregation": {
             "Expression": {
@@ -333,7 +340,114 @@
         "type": "Advanced"
       },
       {
+        "name": "3faf4f39b8a54c48001f",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "IsUitDienstInPeriode"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "e",
+              "Entity": "employees_enriched",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "e"
+                            }
+                          },
+                          "Property": "IsUitDienstInPeriode"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "8764a177d92d44ca943a",
+        "ordinal": 3,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "employees_enriched"
+                  }
+                },
+                "Property": "FunctionName"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "33c0fe3fdf759104090b",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "Uit Dienst"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "cff456c5ddce14c94f62",
+        "ordinal": 5,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "Aantal_UitDienst_In_Periode"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
         "name": "acb063c640bc94266d34",
+        "ordinal": 6,
         "field": {
           "Aggregation": {
             "Expression": {
@@ -353,6 +467,7 @@
       },
       {
         "name": "96c78afc05d193e8a10c",
+        "ordinal": 7,
         "field": {
           "Aggregation": {
             "Expression": {
@@ -371,26 +486,23 @@
         "type": "Advanced"
       },
       {
-        "name": "572f5cb159c4673b5c85",
+        "name": "14d7eb9a0315e98a90ac",
+        "ordinal": 8,
         "field": {
-          "Aggregation": {
+          "Column": {
             "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "employees_enriched"
-                  }
-                },
-                "Property": "ContractStartDate"
+              "SourceRef": {
+                "Entity": "employees_enriched"
               }
             },
-            "Function": 3
+            "Property": "FullName"
           }
         },
-        "type": "Advanced"
+        "type": "Categorical"
       },
       {
         "name": "17678460751e1009b43b",
+        "ordinal": 9,
         "field": {
           "Aggregation": {
             "Expression": {
@@ -409,7 +521,8 @@
         "type": "Advanced"
       },
       {
-        "name": "8764a177d92d44ca943a",
+        "name": "572f5cb159c4673b5c85",
+        "ordinal": 10,
         "field": {
           "Aggregation": {
             "Expression": {
@@ -419,33 +532,15 @@
                     "Entity": "employees_enriched"
                   }
                 },
-                "Property": "FunctionName"
+                "Property": "ContractStartDate"
               }
             },
             "Function": 3
           }
         },
         "type": "Advanced"
-      },
-      {
-        "name": "7b94ac344002ad620a2e",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "employees_enriched"
-                  }
-                },
-                "Property": "ContractHours"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

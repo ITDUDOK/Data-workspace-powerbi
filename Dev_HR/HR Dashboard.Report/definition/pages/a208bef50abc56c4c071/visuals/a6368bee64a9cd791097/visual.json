@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "employees_enriched"
+                      "Entity": "companies"
                     }
                   },
-                  "Property": "OfficeName"
+                  "Property": "CompanyName"
                 }
               },
-              "queryRef": "employees_enriched.OfficeName",
-              "nativeQueryRef": "OfficeName",
+              "queryRef": "companies.CompanyName",
+              "nativeQueryRef": "CompanyName",
               "active": true
             }
           ]
@@ -72,15 +72,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "6abb9298dc710b024bc2",
+        "name": "0fad4fc2231557041d06",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "employees_enriched"
+                "Entity": "companies"
               }
             },
-            "Property": "OfficeName"
+            "Property": "CompanyName"
           }
         },
         "type": "Categorical",
@@ -88,8 +88,8 @@
           "Version": 2,
           "From": [
             {
-              "Name": "e",
-              "Entity": "employees_enriched",
+              "Name": "c",
+              "Entity": "companies",
               "Type": 0
             }
           ],
@@ -104,10 +104,10 @@
                           "Column": {
                             "Expression": {
                               "SourceRef": {
-                                "Source": "e"
+                                "Source": "c"
                               }
                             },
-                            "Property": "OfficeName"
+                            "Property": "CompanyName"
                           }
                         }
                       ],

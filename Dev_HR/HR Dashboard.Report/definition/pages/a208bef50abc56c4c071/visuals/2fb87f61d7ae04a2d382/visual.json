@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "2fb87f61d7ae04a2d382",
   "position": {
-    "x": 241.37715179968703,
-    "y": 84.131455399061039,
+    "x": 241.15942028985506,
+    "y": 82.764771460423631,
     "z": 1000,
-    "height": 622.97339593114248,
-    "width": 1037.6212832550862,
+    "height": 623.58974358974353,
+    "width": 1037.4136008918617,
     "tabOrder": 3000
   },
   "visual": {
@@ -23,10 +23,10 @@
                       "Entity": "employees_enriched"
                     }
                   },
-                  "Property": "OfficeName"
+                  "Property": "CompanyName"
                 }
               },
-              "queryRef": "employees_enriched.OfficeName",
+              "queryRef": "employees_enriched.CompanyName",
               "nativeQueryRef": "Locatie",
               "active": true,
               "displayName": "Locatie"
@@ -242,21 +242,9 @@
         "levels": [
           {
             "queryRefs": [
-              "employees_enriched.OfficeName"
+              "employees_enriched.CompanyName"
             ],
             "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "employees_enriched"
-                    }
-                  },
-                  "Property": "OfficeName"
-                }
-              }
-            ],
             "isPinned": true
           },
           {
@@ -532,24 +520,8 @@
         "type": "Advanced"
       },
       {
-        "name": "b5ff574c3d5ce1583926",
-        "ordinal": 4,
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "employees_enriched"
-              }
-            },
-            "Property": "Historical Employee Active"
-          }
-        },
-        "type": "Advanced",
-        "howCreated": "User"
-      },
-      {
         "name": "f7fb8e727d247cfeeb56",
-        "ordinal": 5,
+        "ordinal": 4,
         "field": {
           "Measure": {
             "Expression": {
@@ -602,7 +574,7 @@
       },
       {
         "name": "4730c94988c99e8c6368",
-        "ordinal": 6,
+        "ordinal": 5,
         "field": {
           "Measure": {
             "Expression": {
@@ -617,7 +589,7 @@
       },
       {
         "name": "619688a7c2b08c59a171",
-        "ordinal": 7,
+        "ordinal": 6,
         "field": {
           "Measure": {
             "Expression": {
@@ -632,7 +604,7 @@
       },
       {
         "name": "8e137aa46035def5fc98",
-        "ordinal": 8,
+        "ordinal": 7,
         "field": {
           "Column": {
             "Expression": {
@@ -646,29 +618,8 @@
         "type": "Categorical"
       },
       {
-        "name": "dc215d2b637ccb3f26d2",
-        "ordinal": 9,
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "employees_enriched"
-                  }
-                },
-                "Property": "FullName"
-              }
-            },
-            "Function": 2
-          }
-        },
-        "type": "Advanced",
-        "howCreated": "User"
-      },
-      {
         "name": "d8cc2e54c40297210b99",
-        "ordinal": 10,
+        "ordinal": 8,
         "field": {
           "Measure": {
             "Expression": {
@@ -683,7 +634,7 @@
       },
       {
         "name": "e25bdcefa4df0760df76",
-        "ordinal": 11,
+        "ordinal": 9,
         "field": {
           "Measure": {
             "Expression": {
@@ -698,7 +649,7 @@
       },
       {
         "name": "4a957b85645ab2acb868",
-        "ordinal": 12,
+        "ordinal": 10,
         "field": {
           "Measure": {
             "Expression": {
@@ -712,57 +663,8 @@
         "type": "Advanced"
       },
       {
-        "name": "085b99e1996e8a8d9068",
-        "ordinal": 13,
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "employees_enriched"
-              }
-            },
-            "Property": "Verzuim Datum Filter"
-          }
-        },
-        "type": "Advanced",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "b",
-              "Entity": "employees_enriched",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Comparison": {
-                  "ComparisonKind": 0,
-                  "Left": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "b"
-                        }
-                      },
-                      "Property": "Verzuim Datum Filter"
-                    }
-                  },
-                  "Right": {
-                    "Literal": {
-                      "Value": "1L"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
-      },
-      {
         "name": "61ef4e22630c4b524341",
+        "ordinal": 11,
         "field": {
           "Column": {
             "Expression": {
@@ -771,6 +673,21 @@
               }
             },
             "Property": "OfficeName"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "1f93f9ae3aafb8952e7c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "employees_enriched"
+              }
+            },
+            "Property": "CompanyName"
           }
         },
         "type": "Categorical"
