@@ -71,7 +71,8 @@ def _gltransacties_fin():
         "EntryDate",
         F.lower(F.regexp_replace(F.regexp_replace(F.col("GLAccount").cast("string"), "\\{", ""), "\\}", "")).alias("GLAccount"),
         F.col("AmountFC").cast("double").alias("AmountFC"),
-        "Division", "ReportingPeriod", "Status"
+        "Division", "ReportingPeriod", "Status",
+        F.when(F.col("EntryDate") <= F.current_date(), F.lit(1)).otherwise(F.lit(0)).cast("long").alias("IsPeriodeZichtbaar")
     )
 run_step("gltransacties_fin", _gltransacties_fin)
 
