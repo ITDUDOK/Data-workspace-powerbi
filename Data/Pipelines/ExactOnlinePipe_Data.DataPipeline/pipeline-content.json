@@ -248,6 +248,29 @@
         "name": "Manufacturing",
         "dependsOn": [
           {
+            "activity": "BuildExactOnline",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "a1be43e7-f83f-9471-4e54-5b05cf8a3238",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "BuildExactOnline",
+        "dependsOn": [
+          {
             "activity": "DedupIncremental",
             "dependencyConditions": [
               "Succeeded"
