@@ -408,6 +408,44 @@ table employees_enriched
 		formatString: 0
 		lineageTag: 40764efe-0f3f-42df-83fe-21f138b1d3bc
 
+	/// Aantal personen dat uit dienst is gegaan (op FinalEndDate, gerealiseerd, excl. reden 90/92 en excl. doorlopend via zusterrecord).
+	measure Uitstroom =
+			CALCULATE(
+			    DISTINCTCOUNT(employee_business_line[PersonKey]),
+			    USERELATIONSHIP(employees_enriched[FinalEndDate], dates[Date]),
+			    NOT ISBLANK(employees_enriched[FinalEndDate]),
+			    employees_enriched[FinalEndDate] <= TODAY(),
+			    NOT(LEFT(employees_enriched[EndContractReason], 2) IN { "90", "92" }),
+			    employee_business_line[IsContinuingElsewhere] = FALSE()
+			)
+		formatString: #,0
+		displayFolder: Uitstroom
+		lineageTag: fdc39105-7294-4033-9070-f263b21602f7
+
+	/// Uitstroom in dezelfde periode een jaar eerder.
+	measure 'Uitstroom Vorig Jaar' =
+			CALCULATE(
+			    [Uitstroom],
+			    SAMEPERIODLASTYEAR(dates[Date])
+			)
+		formatString: #,0
+		displayFolder: Uitstroom
+		lineageTag: e494c7d7-15e2-4a7b-90df-d2992a8d49db
+
+	/// Uitstroom in de laatste 12 afgesloten maanden (rollend; negeert niet de overige slicers). Blank buiten dat venster.
+	measure 'Uitstroom L12M' =
+			VAR EindMaand = EOMONTH(TODAY(), -1)
+			VAR StartMaand = DATE(YEAR(EindMaand), MONTH(EindMaand) - 11, 1)
+			RETURN
+			IF(
+			    MAX(dates[Date]) < StartMaand || MIN(dates[Date]) > EindMaand,
+			    BLANK(),
+			    CALCULATE([Uitstroom], KEEPFILTERS(DATESBETWEEN(dates[Date], StartMaand, EindMaand)))
+			)
+		formatString: #,0
+		displayFolder: Uitstroom
+		lineageTag: 6af8ad65-0005-4ba2-ac4a-5d4f0f96cc46
+
 	column EmployeeId
 		dataType: string
 		lineageTag: bfd877dd-65b7-4e09-896d-be22a22d8234

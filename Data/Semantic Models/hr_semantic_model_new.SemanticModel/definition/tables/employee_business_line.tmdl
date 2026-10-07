@@ -55,6 +55,20 @@ table employee_business_line
 		lineageTag: 49589e32-eea7-4aa9-bb70-5dbd53b2ac3b
 		sourceColumn: EffectiveOfficeName
 
+	column PersonKey
+		dataType: string
+		isHidden
+		lineageTag: 4eb605e5-7145-4467-ba69-6e38c9093ece
+		summarizeBy: none
+		sourceColumn: PersonKey
+
+	column IsContinuingElsewhere
+		dataType: boolean
+		isHidden
+		lineageTag: bdebef32-4370-49ea-8955-074b146c82b6
+		summarizeBy: none
+		sourceColumn: IsContinuingElsewhere
+
 	partition employee_business_line = entity
 		mode: directLake
 		source
