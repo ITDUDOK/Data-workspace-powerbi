@@ -19,6 +19,7 @@ table dim_finreportrows
 		sourceLineageTag: Hoofdgroep
 		summarizeBy: none
 		sourceColumn: Hoofdgroep
+		sortByColumn: SortHoofd
 
 		annotation SummarizationSetBy = Automatic
 

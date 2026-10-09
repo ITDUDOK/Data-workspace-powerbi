@@ -630,13 +630,12 @@ table measurements
 		lineageTag: 947b56e4-53a5-4bbd-844d-42392788752a
 
 	measure 'Bedrag P&L' =
-			VAR Cutoff       = EOMONTH(TODAY(), 0)
+			VAR Yrs = VALUES('dim_date'[YearISO])
 			VAR IsGrandTotal = NOT ISINSCOPE('dim_finreportrows'[Hoofdgroep])
-			VAR PeriodStart  = MIN('dim_date'[Date])
-			VAR IsFuture     = ISFILTERED('dim_date'[MonthName]) && PeriodStart > Cutoff
-			
-			VAR GrandTotal =
-			    CALCULATE(
+			RETURN
+			CALCULATE(
+			    IF(
+			        IsGrandTotal,
 			        -1 * SUMX(
 			            FILTER(
 			                'gltransacties_fin',
@@ -644,46 +643,47 @@ table measurements
 			            ),
 			            'gltransacties_fin'[AmountFC]
 			        ),
-			        KEEPFILTERS('dim_date'[Date] <= Cutoff)
-			    )
-			
-			VAR RowTotal =
-			    CALCULATE(
 			        SUMX(
 			            'gltransacties_fin',
 			            'gltransacties_fin'[AmountFC] * RELATED('dim_finreportrows'[Teken])
-			        ),
-			        KEEPFILTERS('dim_date'[Date] <= Cutoff)
-			    )
-			
-			RETURN
-			    SWITCH(
-			        TRUE(),
-			        IsFuture,     BLANK(),
-			        IsGrandTotal, GrandTotal,
-			                      RowTotal
-			    )
+			        )
+			    ),
+			    REMOVEFILTERS('dim_date'[YearISO]),
+			    KEEPFILTERS(TREATAS(Yrs, 'dim_date'[Year]))
+			)
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 3b66438a-6143-4fb5-be52-f7a2a5fb60ef
 
 	measure _Fin_Omzet =
+			VAR Yrs = VALUES('dim_date'[YearISO])
+			RETURN
 			CALCULATE(
 			    SUMX('gltransacties_fin', 'gltransacties_fin'[AmountFC] * RELATED('dim_finreportrows'[Teken])),
-			    'dim_finreportrows'[Hoofdgroep] = "Omzet"
+			    'dim_finreportrows'[Hoofdgroep] = "Omzet",
+			    REMOVEFILTERS('dim_date'[YearISO]),
+			    KEEPFILTERS(TREATAS(Yrs, 'dim_date'[Year]))
 			)
 		lineageTag: f75e5b0f-f6d6-452c-89c6-62f55065cdea
 
 	measure _Fin_Inkoopwaarde =
+			VAR Yrs = VALUES('dim_date'[YearISO])
+			RETURN
 			CALCULATE(
 			    SUMX('gltransacties_fin', 'gltransacties_fin'[AmountFC] * RELATED('dim_finreportrows'[Teken])),
-			    'dim_finreportrows'[Hoofdgroep] = "Inkoopwaarde"
+			    'dim_finreportrows'[Hoofdgroep] = "Inkoopwaarde",
+			    REMOVEFILTERS('dim_date'[YearISO]),
+			    KEEPFILTERS(TREATAS(Yrs, 'dim_date'[Year]))
 			)
 		lineageTag: a2eed78b-234d-4a1c-86ab-9d62dc92b4f9
 
 	measure _Fin_Personeelskosten =
+			VAR Yrs = VALUES('dim_date'[YearISO])
+			RETURN
 			CALCULATE(
 			    SUMX('gltransacties_fin', 'gltransacties_fin'[AmountFC] * RELATED('dim_finreportrows'[Teken])),
-			    'dim_finreportrows'[Hoofdgroep] = "Personeelskosten"
+			    'dim_finreportrows'[Hoofdgroep] = "Personeelskosten",
+			    REMOVEFILTERS('dim_date'[YearISO]),
+			    KEEPFILTERS(TREATAS(Yrs, 'dim_date'[Year]))
 			)
 		lineageTag: 542f4f73-4e33-4be5-a47e-af50c3f900da
 
