@@ -271,7 +271,56 @@
         "name": "BuildExactOnline",
         "dependsOn": [
           {
+            "activity": "PurgeDeletedGL",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "RefreshDataflow",
+        "typeProperties": {
+          "dataflowId": "87bc4de7-900e-bb75-46e2-22faf378c9e0",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "notifyOption": "NoNotification",
+          "dataflowType": "DataflowFabric",
+          "executeMashupQueriesOnly": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "GL Window",
+        "dependsOn": [
+          {
             "activity": "DedupIncremental",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "ff18fe67-3c4c-b29f-411b-53c5a0b74168",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "PurgeDeletedGL",
+        "dependsOn": [
+          {
+            "activity": "GL Window",
             "dependencyConditions": [
               "Succeeded"
             ]

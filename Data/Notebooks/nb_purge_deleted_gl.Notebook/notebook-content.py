@@ -31,7 +31,7 @@ from delta.tables import DeltaTable
 import json, datetime
 
 DRY_RUN = False             # eerst True draaien, Files/purge_deleted_gl_log.json beoordelen, dan False
-LOOKBACK_DAYS = 150        # gelijk aan de dataflow
+LOOKBACK_DAYS = 150        # gelijk aan de dataflow (Exact Online GL Window)
 BUFFER_DAYS = 2            # randmarge i.v.m. tijdzone/venstergrens
 MIN_COVERAGE = 0.8         # per administratie: window moet >= 80% bevatten van wat de lakehouse in dat venster heeft
 MAX_DELETE_SHARE = 0.05    # nooit meer dan 5% van de venster-rijen in 1 run verwijderen
@@ -57,8 +57,11 @@ try:
     skipped = [r["Division"] for r in cov.where("not ok").collect()]
 
     # Alleen status 20 (open): verwerkte boekingen (50) kunnen in Exact niet verwijderd worden.
-    cand = (gl.where((F.col("EntryDate") >= start) & (F.col("Status") == 20) & F.col("Division").isin(ok_divs))
-              .join(win.select("ID").distinct(), "ID", "left_anti"))
+    cand_all = (gl.where((F.col("EntryDate") >= start) & F.col("Division").isin(ok_divs))
+                  .join(win.select("ID").distinct(), "ID", "left_anti"))
+    by_status = [r.asDict() for r in cand_all.groupBy("Status").agg(F.count("*").alias("rows"), F.round(F.sum("AmountFC"), 2).alias("sum_amount")).collect()]
+    by_year = [r.asDict() for r in cand_all.groupBy(F.year("EntryDate").alias("year"), "Status").agg(F.count("*").alias("rows")).collect()]
+    cand = cand_all.where(F.col("Status") == 20)
     to_del = cand.select("ID").distinct().cache()
     n_del = to_del.count()
     detail = [r.asDict() for r in cand.groupBy("Division", "ReportingPeriod")
@@ -72,7 +75,7 @@ try:
             to_del.alias("s"), "t.ID = s.ID").whenMatchedDelete().execute()
 
     log = {"run_utc": datetime.datetime.utcnow().isoformat(), "dry_run": DRY_RUN, "window_rows": win_n,
-           "ids_to_delete": n_del, "skipped_divisions": skipped, "detail": detail}
+           "ids_to_delete": n_del, "skipped_divisions": skipped, "not_in_exact_by_status": by_status, "not_in_exact_by_year_status": by_year, "detail": detail}
     mssparkutils.fs.put("Files/purge_deleted_gl_log.json", json.dumps(log, indent=2, default=str), overwrite=True)
     print(json.dumps(log, indent=2, default=str))
 
