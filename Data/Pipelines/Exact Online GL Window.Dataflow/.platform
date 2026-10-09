@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "Exact Online GL Window",
+    "description": "Volledige lezing van recente GLTransactions-IDs (150 dagen) naar GLTransactions_Window; gebruikt door nb_purge_deleted_gl om in Exact verwijderde boekingen uit de lakehouse te halen."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "87bc4de7-900e-bb75-46e2-22faf378c9e0"
+  }
+}

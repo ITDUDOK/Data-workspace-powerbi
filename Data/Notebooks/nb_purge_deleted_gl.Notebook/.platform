@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "nb_purge_deleted_gl",
+    "description": "Verwijdert in Exact verwijderde open GL-boekingen uit lakehouse.GLTransactions (zie dataflow Exact Online GL Window)."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ff18fe67-3c4c-b29f-411b-53c5a0b74168"
+  }
+}
