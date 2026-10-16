@@ -40,6 +40,11 @@ table event_types
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Event categorie'
+		dataType: string
+		lineageTag: a54d7e6d-7db6-4c68-a7cf-831836507bdb
+		sourceColumn: EventCategorie
+
 	partition event_types = entity
 		mode: directLake
 		source
