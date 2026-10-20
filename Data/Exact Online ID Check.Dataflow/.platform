@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "Exact Online ID Check",
+    "description": "Leest alle huidige IDs per Append-tabel uit Exact (<Tabel>_Ids) om in Exact verwijderde regels in de lakehouse te kwantificeren. Alleen lezen/diagnose."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "65bc1546-f299-a6e5-4d8e-cb282e88ddbf"
+  }
+}

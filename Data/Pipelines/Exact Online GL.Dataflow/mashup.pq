@@ -21,7 +21,7 @@ shared GLTransactions = let
     LHData = WS{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data],
     Existing = try LHData{[Id = "GLTransactions", ItemKind = "Table"]}[Data] otherwise #table({"sysmodified"}, {}),
     WM = List.Max(Existing[sysmodified]),
-    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM,
+    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM - #duration(7, 0, 0, 0),
  
     DivisionCodes = Table.Column(Administratie, "Code"),
 
@@ -73,7 +73,7 @@ shared Costcenters = let
     LHData = WS{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data],
     Existing = try LHData{[Id = "Costcenters", ItemKind = "Table"]}[Data] otherwise #table({"sysmodified"}, {}),
     WM = List.Max(Existing[sysmodified]),
-    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM,
+    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM - #duration(7, 0, 0, 0),
  
     DivisionCodes = Table.Column(Administratie, "Code"),
 

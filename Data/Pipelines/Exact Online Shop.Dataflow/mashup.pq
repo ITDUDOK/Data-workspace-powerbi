@@ -10,7 +10,7 @@ shared ShopOrderRoutingStepPlans = let
     LHData = WS{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data],
     Existing = try LHData{[Id = "ShopOrderRoutingStepPlans", ItemKind = "Table"]}[Data] otherwise #table({"sysmodified"}, {}),
     WM = List.Max(Existing[sysmodified]),
-    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM,
+    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM - #duration(7, 0, 0, 0),
  
     Source = fnGetExactOnlineTable("ShopOrderRoutingStepPlans"),
     Filtered = Table.SelectRows(Source, each true and [sysmodified] > SafeWM)
@@ -52,7 +52,7 @@ shared ShopOrderMaterialPlans = let
     LHData = WS{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data],
     Existing = try LHData{[Id = "ShopOrderMaterialPlans", ItemKind = "Table"]}[Data] otherwise #table({"sysmodified"}, {}),
     WM = List.Max(Existing[sysmodified]),
-    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM,
+    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM - #duration(7, 0, 0, 0),
  
     Source = fnGetExactOnlineTable("ShopOrderMaterialPlans"),
     Filtered = Table.SelectRows(Source, each true and [sysmodified] > SafeWM)

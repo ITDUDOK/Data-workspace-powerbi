@@ -7,7 +7,7 @@ shared PurchaseOrders = let
     LHData = WS{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data],
     Existing = try LHData{[Id = "PurchaseOrders", ItemKind = "Table"]}[Data] otherwise #table({"sysmodified"}, {}),
     WM = List.Max(Existing[sysmodified]),
-    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM,
+    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM - #duration(7, 0, 0, 0),
  
     Source = fnGetExactOnlineTable("PurchaseOrders"),
     Filtered = Table.SelectRows(Source, each true and [sysmodified] > SafeWM)
@@ -27,7 +27,7 @@ shared PurchaseTransactions = let
 
     // Bepaal de laatste sysmodified datum
     WM = List.Max(Existing[sysmodified]),
-    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM,
+    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM - #duration(7, 0, 0, 0),
 
     // Filter de PurchaseTransactions tabel
     // Vervang "Div" door de daadwerkelijke divisie-waarde of parameter

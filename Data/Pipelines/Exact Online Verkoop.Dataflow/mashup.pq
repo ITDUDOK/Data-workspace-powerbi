@@ -25,7 +25,7 @@ shared SalesOrders = let
     LHData = WS{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data],
     Existing = try LHData{[Id = "SalesOrders", ItemKind = "Table"]}[Data] otherwise #table({"sysmodified"}, {}),
     WM = List.Max(Existing[sysmodified]),
-    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM,
+    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM - #duration(7, 0, 0, 0),
 
     Source = fnGetExactOnlineTable("SalesOrderHeaders"),
     #"Rijen gefilterd" = Table.SelectRows(Source, each true and [sysmodified] > SafeWM),
@@ -51,7 +51,7 @@ shared SalesOrderLines = let
     LHData = WS{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data],
     Existing = try LHData{[Id = "SalesOrderLines", ItemKind = "Table"]}[Data] otherwise #table({"sysmodified"}, {}),
     WM = List.Max(Existing[sysmodified]),
-    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM,
+    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM - #duration(7, 0, 0, 0),
  
     SalesOrderLines = fnGetExactOnlineTable("SalesOrderLines"),
     SOL_Filtered = Table.SelectRows(SalesOrderLines, each true and [sysmodified] > SafeWM),
@@ -87,7 +87,7 @@ shared SalesTransactions = let
     LHData = WS{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data],
     Existing = try LHData{[Id = "SalesTransactions", ItemKind = "Table"]}[Data] otherwise #table({"sysmodified"}, {}),
     WM = List.Max(Existing[sysmodified]),
-    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM,
+    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM - #duration(7, 0, 0, 0),
  
     Source = fnGetExactOnlineTable("SalesTransactions"),
     Filtered = Table.SelectRows(Source, each true and [sysmodified] > SafeWM),
@@ -184,7 +184,7 @@ shared OmzetTransacties = let
     LHData = WS{[lakehouseId = "380445e2-5d18-4ef6-b3f0-2b4aab5bea0d"]}[Data],
     Existing = try LHData{[Id = "OmzetTransacties", ItemKind = "Table"]}[Data] otherwise #table({"sysmodified"}, {}),
     WM = List.Max(Existing[sysmodified]),
-    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM,
+    SafeWM = if WM = null then #datetime(2020, 1, 1, 0, 0, 0) else WM - #duration(7, 0, 0, 0),
 
     // === GLTransactions: filter + watermark ===
     GL = fnGetExactOnlineTable("GLTransactions"),
