@@ -7,3 +7,5 @@ role PowerBIHRHoreca
 
 	tablePermission companies = [CompanyNumber] = 4 || [CompanyNumber] = 7 || [CompanyNumber] = 3 || [CompanyNumber] = 43 || [CompanyNumber] = 37
 
+	annotation PBI_Id = 78b80d7f3f1d44ee88243f92a8253c68
+

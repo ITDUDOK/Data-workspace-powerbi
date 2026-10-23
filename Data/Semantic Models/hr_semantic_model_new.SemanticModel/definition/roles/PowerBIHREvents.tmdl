@@ -11,3 +11,5 @@ role PowerBIHREvents
 
 	tablePermission satisfaction = [Office] = "Dudok Staffing B.V." || [Office] = "Dudok in het Park B.V." || [Office] = "Dudok aan de Maas B.V" || [Office] = "Dudok RDM B.V." || [Office] = "Dudok Banqueting" || [Office] = "Dudok Schiecentrale Events B.V." || [Office] = "Van Nelle Fabriek"
 
+	annotation PBI_Id = 3d66102f6f6c48629ab2b9f0496cc7cb
+

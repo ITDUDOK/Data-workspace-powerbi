@@ -5,3 +5,5 @@ role PowerBIPatisserieMeent
 
 	tablePermission offices = [OfficeId] = 41
 
+	annotation PBI_Id = c02e67c2df1c40ad894dbf8506b9652d
+

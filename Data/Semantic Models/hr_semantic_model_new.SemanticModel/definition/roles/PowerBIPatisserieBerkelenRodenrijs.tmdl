@@ -5,3 +5,5 @@ role PowerBIPatisserieBerkelenRodenrijs
 
 	tablePermission offices = [OfficeId] = 42
 
+	annotation PBI_Id = 3c866cc9eebf4316a4bd5fe955e30c5c
+

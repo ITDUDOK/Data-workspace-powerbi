@@ -5,3 +5,5 @@ role PowerBIHorecaArnhem
 
 	tablePermission offices = [OfficeId] = 10
 
+	annotation PBI_Id = 67d8f94af8ed4e18be199a5b36c0d963
+

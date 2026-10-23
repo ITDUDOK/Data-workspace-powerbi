@@ -9,3 +9,5 @@ role PowerBIHRPatisserie
 
 	tablePermission bridge_center_office = [OfficeId] = 13 || [OfficeId] = 42 || [OfficeId] = 41 || [OfficeId] = 12 || [OfficeId] = 45 || [OfficeId] = 46 || [OfficeId] = 11 || [OfficeId] = 40
 
+	annotation PBI_Id = 39272ec9f4a742fe8e34b113c664f6e6
+

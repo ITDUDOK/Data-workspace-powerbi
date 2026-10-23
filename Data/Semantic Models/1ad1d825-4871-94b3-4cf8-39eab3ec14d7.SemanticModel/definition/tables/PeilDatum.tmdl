@@ -2,30 +2,37 @@ table PeilDatum
 	lineageTag: a6ed0439-0657-4a73-8f45-c92b70ec5c78
 
 	column Date
+		lineageTag: 0bff0740-b541-494c-8861-ef3707466d69
 		isNameInferred
 		sourceColumn: [Date]
 
 	column Jaar
+		lineageTag: 3f2fd033-132d-4d3d-bf5e-675734e6a03d
 		isNameInferred
 		sourceColumn: [Jaar]
 
 	column Maand
+		lineageTag: 661d2aaf-991a-4557-9f75-9c194d089544
 		isNameInferred
 		sourceColumn: [Maand]
 
 	column MaandNaam
+		lineageTag: 53f34a98-0eba-461b-8b75-1bc577446b04
 		isNameInferred
 		sourceColumn: [MaandNaam]
 
 	column WeekNr
+		lineageTag: 24eceac6-d33f-4ccc-b5c5-9a34a59cb586
 		isNameInferred
 		sourceColumn: [WeekNr]
 
 	column JaarMaand
+		lineageTag: 77d5c0d2-ec36-4c71-87fb-9868c3781ae2
 		isNameInferred
 		sourceColumn: [JaarMaand]
 
 	column JaarWeek
+		lineageTag: 92d6bf44-0a1b-447b-9518-1d18ca4d89d9
 		isNameInferred
 		sourceColumn: [JaarWeek]
 

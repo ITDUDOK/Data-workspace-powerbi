@@ -1,3 +1,5 @@
 role PowerBIAdmin
 	modelPermission: read
 
+	annotation PBI_Id = 80d4316d67ee4653b476909e3f8fa59e
+
