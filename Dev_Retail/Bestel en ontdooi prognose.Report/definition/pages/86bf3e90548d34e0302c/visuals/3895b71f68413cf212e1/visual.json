@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "3895b71f68413cf212e1",
   "position": {
-    "x": 168.76712328767124,
-    "y": 84.38356164383562,
+    "x": 167.50629722921914,
+    "y": 84.382871536523922,
     "z": 3000,
-    "height": 304.65753424657532,
-    "width": 787.945205479452,
+    "height": 301.007556675063,
+    "width": 787.153652392947,
     "tabOrder": 3000
   },
   "visual": {
@@ -30,7 +30,8 @@
               "nativeQueryRef": "DayName",
               "active": true
             }
-          ]
+          ],
+          "showAll": true
         },
         "Rows": {
           "projections": [
@@ -39,28 +40,29 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "centers"
+                      "Entity": "predicted_cake_sales"
                     }
                   },
                   "Property": "Location"
                 }
               },
-              "queryRef": "centers.Location",
-              "nativeQueryRef": "Location",
-              "active": true
+              "queryRef": "predicted_cake_sales.Location",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "bridge_cake_forecast"
+                      "Entity": "predicted_cake_sales"
                     }
                   },
                   "Property": "SizeCategory"
                 }
               },
-              "queryRef": "bridge_cake_forecast.SizeCategory",
+              "queryRef": "predicted_cake_sales.SizeCategory",
               "nativeQueryRef": "SizeCategory",
               "active": false
             },
@@ -69,13 +71,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "bridge_cake_forecast"
+                      "Entity": "predicted_cake_sales"
                     }
                   },
                   "Property": "CakeType"
                 }
               },
-              "queryRef": "bridge_cake_forecast.CakeType",
+              "queryRef": "predicted_cake_sales.CakeType",
               "nativeQueryRef": "CakeType",
               "active": false
             }
@@ -114,7 +116,7 @@
         "levels": [
           {
             "queryRefs": [
-              "centers.Location"
+              "predicted_cake_sales.Location"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -122,7 +124,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "centers"
+                      "Entity": "predicted_cake_sales"
                     }
                   },
                   "Property": "Location"
@@ -133,7 +135,7 @@
           },
           {
             "queryRefs": [
-              "bridge_cake_forecast.SizeCategory"
+              "predicted_cake_sales.SizeCategory"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -141,7 +143,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "bridge_cake_forecast"
+                      "Entity": "predicted_cake_sales"
                     }
                   },
                   "Property": "SizeCategory"
@@ -152,7 +154,7 @@
           },
           {
             "queryRefs": [
-              "bridge_cake_forecast.CakeType"
+              "predicted_cake_sales.CakeType"
             ],
             "isCollapsed": true,
             "isPinned": true
@@ -164,49 +166,7 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Dudok Patisserie Utrecht CS'"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Groot'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Dudok Patisserie Berkel en Rodenrijs'"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Groot'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Dudok Patisserie Meent'"
+                    "Value": "'Dudok Patisserie Rotterdam CS'"
                   }
                 }
               ],
@@ -470,6 +430,20 @@
               }
             ]
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "141.48247512298929D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "predicted_cake_sales.Location"
+          }
         }
       ]
     },
@@ -500,31 +474,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "a620c0e3551f1e88d42c",
-        "ordinal": 0,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "predicted_cake_sales"
-              }
-            },
-            "Property": "CakeType"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {}
-            }
-          ]
-        }
-      },
-      {
-        "name": "c59058932e9bdd1761aa",
-        "ordinal": 1,
+        "name": "59bf3baff0b16fe538ae",
         "field": {
           "Column": {
             "Expression": {
@@ -538,13 +488,12 @@
         "type": "Categorical"
       },
       {
-        "name": "1c2bccc812df2671f9f6",
-        "ordinal": 2,
+        "name": "17782d9b75522450754e",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "centers"
+                "Entity": "predicted_cake_sales"
               }
             },
             "Property": "Location"
@@ -553,8 +502,7 @@
         "type": "Categorical"
       },
       {
-        "name": "be39aa1bbedb2d26688b",
-        "ordinal": 3,
+        "name": "e8dc6618eb8167c7ca12",
         "field": {
           "Column": {
             "Expression": {
@@ -565,12 +513,24 @@
             "Property": "SizeCategory"
           }
         },
-        "type": "Categorical",
-        "howCreated": "User"
+        "type": "Categorical"
       },
       {
-        "name": "d06c3a2b5664adb5cfee",
-        "ordinal": 4,
+        "name": "2a74b93b7dc06dc047d2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "predicted_cake_sales"
+              }
+            },
+            "Property": "CakeType"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "344d4ac99c5797f5569f",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -587,36 +547,7 @@
           }
         },
         "type": "Advanced"
-      },
-      {
-        "name": "b2beb9b444c7748f7fca",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "bridge_cake_forecast"
-              }
-            },
-            "Property": "CakeType"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a598e341385cd783f87b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "bridge_cake_forecast"
-              }
-            },
-            "Property": "SizeCategory"
-          }
-        },
-        "type": "Categorical"
       }
-    ],
-    "filterSortOrder": "Custom"
+    ]
   }
 }

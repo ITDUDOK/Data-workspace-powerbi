@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "fc882e48d0d39ee2988d",
   "position": {
     "x": 318.17440912795433,
@@ -653,5 +653,177 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7d0b47cb6281059a5cde",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dates"
+              }
+            },
+            "Property": "DayName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f5947a5fdb1c9b51a606",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "time"
+              }
+            },
+            "Property": "Dagdelen"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6ac905afddbe6e632551",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "time"
+              }
+            },
+            "Property": "Hour"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d89fee93ac6e38707195",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTW"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6be20ba0486862eca7d9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTW_PreviousWeek"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "21d9f0542d785ceba033",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotaleOmzetExBTW_PercentageChange"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "024c90501cd0629d5d2d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_Hourly"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "aa0b426ed29637ade01e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_Hourly_PreviousWeek"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f1375ec2881be658ae10",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_HourlyPercentageOfRevenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "225a321c84807833c13e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "LabourCost_HourlyPercentageOfRevenue_PreviousWeek"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "94e0e6363b216e672503",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "TotalTickets"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "83ef45dd2063999880d8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measurements"
+              }
+            },
+            "Property": "AverageSpendingPerTicket"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

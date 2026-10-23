@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "8f07d36c5e2c0c8b8b8a",
   "position": {
     "x": 0,
-    "y": 195.06849315068493,
+    "y": 430.58430717863104,
     "z": 6000,
-    "height": 80,
-    "width": 169.86301369863014,
+    "height": 80.133555926544247,
+    "width": 169.88313856427379,
     "tabOrder": 6000
   },
   "visual": {
@@ -338,6 +338,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "71175d9ee5b83e5f5937",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dates"
+              }
+            },
+            "Property": "YearISO"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

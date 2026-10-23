@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "f5a71cec1ff1e7ba307c",
   "position": {
     "x": 957.32888146911523,
@@ -31,7 +31,8 @@
               "active": true,
               "displayName": "Dag"
             }
-          ]
+          ],
+          "showAll": true
         },
         "Y": {
           "projections": [
@@ -147,7 +148,21 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "d521ab43f3de8fd4ade6",
+        "name": "493f002b61d3c79d91d7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dates"
+              }
+            },
+            "Property": "DayName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "48570883c7307b474924",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -166,7 +181,7 @@
         "type": "Advanced"
       },
       {
-        "name": "0d46418efa8d2dbca3df",
+        "name": "f01641e202ccdb5cd6c5",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -183,20 +198,6 @@
           }
         },
         "type": "Advanced"
-      },
-      {
-        "name": "3e24f81cf64b5c7949dc",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dates"
-              }
-            },
-            "Property": "DayName"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

@@ -3,10 +3,10 @@
   "name": "2d4bdd21a8219c9e55e6",
   "position": {
     "x": 0,
-    "y": 115.06849315068493,
+    "y": 350.45075125208683,
     "z": 0,
-    "height": 80,
-    "width": 169.86301369863014,
+    "height": 80.133555926544247,
+    "width": 169.88313856427379,
     "tabOrder": 0
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "centers"
                     }
                   },
-                  "Property": "CenterName"
+                  "Property": "Location"
                 }
               },
-              "queryRef": "centers.CenterName",
-              "nativeQueryRef": "CenterName",
+              "queryRef": "centers.Location",
+              "nativeQueryRef": "Location",
               "active": true
             }
           ]
@@ -72,7 +72,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "f1ac157f0344116806b9",
+        "name": "e64da116720654919bed",
         "field": {
           "Column": {
             "Expression": {
@@ -80,7 +80,7 @@
                 "Entity": "centers"
               }
             },
-            "Property": "CenterName"
+            "Property": "Location"
           }
         },
         "type": "Categorical"

@@ -3,12 +3,12 @@
   "name": "86bf3e90548d34e0302c",
   "displayName": "Bestel en Ontdooi prognose",
   "displayOption": "FitToPage",
-  "height": 720,
+  "height": 1000,
   "width": 1280,
   "filterConfig": {
     "filters": [
       {
-        "name": "f35630a08bdeeeba6037",
+        "name": "fcbe6a7e80d9127cc10e",
         "field": {
           "Column": {
             "Expression": {
@@ -97,80 +97,7 @@
         "howCreated": "User"
       },
       {
-        "name": "062cc15e7f7f4a5a6245",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "bridge_cake_forecast"
-              }
-            },
-            "Property": "CakeType"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "b",
-              "Entity": "bridge_cake_forecast",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "b"
-                              }
-                            },
-                            "Property": "CakeType"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "null"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "86baa64127e14bfc2e4b",
+        "name": "93033894790089c4b0a3",
         "field": {
           "Column": {
             "Expression": {

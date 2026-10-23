@@ -95,6 +95,13 @@
                           "Value": "'Dudok Patisserie Utrecht CS'"
                         }
                       }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Dudok Patisserie Berkel en Rodenrijs'"
+                        }
+                      }
                     ]
                   ]
                 }

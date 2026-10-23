@@ -1,0 +1,86 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "a1000000000000000005",
+  "position": {
+    "x": 0.97264437689969607,
+    "y": 249.96960486322189,
+    "z": 102,
+    "height": 70.030395136778125,
+    "width": 294.71124620060789,
+    "tabOrder": 102
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "centers"
+                    }
+                  },
+                  "Property": "Location"
+                }
+              },
+              "queryRef": "centers.Location",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Locatie'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "60fb3c7f32cbbd00cb55",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "centers"
+              }
+            },
+            "Property": "Location"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

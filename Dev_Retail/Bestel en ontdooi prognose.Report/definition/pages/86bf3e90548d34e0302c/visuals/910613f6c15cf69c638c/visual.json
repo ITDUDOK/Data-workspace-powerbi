@@ -3,10 +3,10 @@
   "name": "910613f6c15cf69c638c",
   "position": {
     "x": 0,
-    "y": 275.06849315068496,
+    "y": 510.7178631051753,
     "z": 7000,
-    "height": 80,
-    "width": 169.86301369863014,
+    "height": 80.133555926544247,
+    "width": 169.88313856427379,
     "tabOrder": 7000
   },
   "visual": {
@@ -81,7 +81,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Week 34 - vorige week'"
+                                "Value": "'Week 36 - vorige week'"
                               }
                             }
                           ]

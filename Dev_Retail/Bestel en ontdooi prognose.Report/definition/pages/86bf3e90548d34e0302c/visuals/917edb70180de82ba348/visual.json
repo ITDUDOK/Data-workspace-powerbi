@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "917edb70180de82ba348",
   "position": {
-    "x": 169.88313856427379,
-    "y": 389.983305509182,
+    "x": 170.02518891687657,
+    "y": 692.69521410579341,
     "z": 4000,
-    "height": 329.08180300500834,
-    "width": 787.44574290484138,
+    "height": 307.30478589420653,
+    "width": 784.63476070528964,
     "tabOrder": 4000
   },
   "visual": {
@@ -30,7 +30,8 @@
               "nativeQueryRef": "DayName",
               "active": true
             }
-          ]
+          ],
+          "showAll": true
         },
         "Rows": {
           "projections": [
@@ -39,28 +40,29 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "centers"
+                      "Entity": "historic_cake_sales"
                     }
                   },
-                  "Property": "Location"
+                  "Property": "CenterName"
                 }
               },
-              "queryRef": "centers.Location",
-              "nativeQueryRef": "Location",
-              "active": true
+              "queryRef": "historic_cake_sales.CenterName",
+              "nativeQueryRef": "Locatie",
+              "active": true,
+              "displayName": "Locatie"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "bridge_cake_forecast"
+                      "Entity": "historic_cake_sales"
                     }
                   },
                   "Property": "SizeCategory"
                 }
               },
-              "queryRef": "bridge_cake_forecast.SizeCategory",
+              "queryRef": "historic_cake_sales.SizeCategory",
               "nativeQueryRef": "SizeCategory",
               "active": false
             },
@@ -69,13 +71,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "bridge_cake_forecast"
+                      "Entity": "dim_cake_type"
                     }
                   },
                   "Property": "CakeType"
                 }
               },
-              "queryRef": "bridge_cake_forecast.CakeType",
+              "queryRef": "dim_cake_type.CakeType",
               "nativeQueryRef": "CakeType",
               "active": false
             }
@@ -115,7 +117,7 @@
         "levels": [
           {
             "queryRefs": [
-              "centers.Location"
+              "historic_cake_sales.CenterName"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -123,10 +125,10 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "centers"
+                      "Entity": "historic_cake_sales"
                     }
                   },
-                  "Property": "Location"
+                  "Property": "CenterName"
                 }
               }
             ],
@@ -134,7 +136,7 @@
           },
           {
             "queryRefs": [
-              "bridge_cake_forecast.SizeCategory"
+              "historic_cake_sales.SizeCategory"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -142,7 +144,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "bridge_cake_forecast"
+                      "Entity": "historic_cake_sales"
                     }
                   },
                   "Property": "SizeCategory"
@@ -153,7 +155,7 @@
           },
           {
             "queryRefs": [
-              "bridge_cake_forecast.CakeType"
+              "dim_cake_type.CakeType"
             ],
             "isCollapsed": true,
             "isPinned": true
@@ -165,8 +167,30 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Dudok Patisserie Berkel en Rodenrijs'"
+                    "Value": "'Dudok Patisserie Rotterdam CS'"
                   }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Groot'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Klein'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
                 }
               ]
             }
@@ -363,6 +387,20 @@
               }
             ]
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "147.89315920271753D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "historic_cake_sales.CenterName"
+          }
         }
       ]
     },
@@ -405,7 +443,6 @@
           }
         },
         "type": "Categorical",
-        "howCreated": "User",
         "objects": {
           "general": [
             {
@@ -423,21 +460,49 @@
         }
       },
       {
-        "name": "394d8736eef7b0246e77",
+        "name": "fbabdcddd48a69b2d529",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "centers"
+                "Entity": "dates"
               }
             },
-            "Property": "Location"
+            "Property": "DayName"
           }
         },
         "type": "Categorical"
       },
       {
-        "name": "9a762524e20795e40da0",
+        "name": "43f7aa42d6c6b2c5e88b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "historic_cake_sales"
+              }
+            },
+            "Property": "SizeCategory"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2a715c231fba1609a502",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_cake_type"
+              }
+            },
+            "Property": "CakeType"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3ff1e05a2c32f5e65e4b",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -454,48 +519,6 @@
           }
         },
         "type": "Advanced"
-      },
-      {
-        "name": "37fc711b716c5ef6160c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "bridge_cake_forecast"
-              }
-            },
-            "Property": "SizeCategory"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "7f4151607458539072fa",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "bridge_cake_forecast"
-              }
-            },
-            "Property": "CakeType"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "d170bc1d6828c31fa54f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dates"
-              }
-            },
-            "Property": "DayName"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }
