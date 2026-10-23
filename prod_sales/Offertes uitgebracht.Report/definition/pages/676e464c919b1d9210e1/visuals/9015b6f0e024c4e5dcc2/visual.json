@@ -90,7 +90,7 @@
                 "Entity": "dates"
               }
             },
-            "Property": "YearISO"
+            "Property": "Year"
           }
         },
         "type": "Categorical",
@@ -117,7 +117,7 @@
                                 "Source": "d"
                               }
                             },
-                            "Property": "YearISO"
+                            "Property": "Year"
                           }
                         }
                       ],

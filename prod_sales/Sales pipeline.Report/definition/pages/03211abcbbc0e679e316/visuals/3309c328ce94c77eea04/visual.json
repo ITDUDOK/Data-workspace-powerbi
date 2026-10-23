@@ -166,54 +166,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "b26d2eb010dd00c3d8e5",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dates"
-              }
-            },
-            "Property": "MonthName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "09101d13824cbc6a5474",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "bridge_location_office"
-              }
-            },
-            "Property": "LocationName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ec157d3a3a2e0ba160a9",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "events"
-                  }
-                },
-                "Property": "TotalPriceExclVat"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e553dd4f843b28d7a95a",
+        "name": "3bd5faa033ad0037e5be",
         "field": {
           "Column": {
             "Expression": {
@@ -229,7 +182,7 @@
           "Version": 2,
           "From": [
             {
-              "Name": "e",
+              "Name": "f",
               "Entity": "events",
               "Type": 0
             }
@@ -243,7 +196,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Source": "e"
+                            "Source": "f"
                           }
                         },
                         "Property": "Status"

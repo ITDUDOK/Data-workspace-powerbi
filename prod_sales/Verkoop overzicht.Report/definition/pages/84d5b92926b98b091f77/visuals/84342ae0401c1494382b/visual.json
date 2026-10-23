@@ -23,11 +23,11 @@
                       "Entity": "dates"
                     }
                   },
-                  "Property": "YearISO"
+                  "Property": "Year"
                 }
               },
-              "queryRef": "dates.YearISO",
-              "nativeQueryRef": "YearISO",
+              "queryRef": "dates.Year",
+              "nativeQueryRef": "Year",
               "active": true
             }
           ]
@@ -80,7 +80,7 @@
                                   "Source": "d"
                                 }
                               },
-                              "Property": "YearISO"
+                              "Property": "Year"
                             }
                           }
                         ],
@@ -134,7 +134,7 @@
                 "Entity": "dates"
               }
             },
-            "Property": "YearISO"
+            "Property": "Year"
           }
         },
         "type": "Categorical",
@@ -161,7 +161,7 @@
                                 "Source": "d"
                               }
                             },
-                            "Property": "YearISO"
+                            "Property": "Year"
                           }
                         }
                       ],

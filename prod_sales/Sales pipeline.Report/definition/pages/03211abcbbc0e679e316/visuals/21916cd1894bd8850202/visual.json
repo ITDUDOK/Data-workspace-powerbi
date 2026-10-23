@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "event_planners"
+                      "Entity": "events"
                     }
                   },
-                  "Property": "PlannerFirstName"
+                  "Property": "PlannerFullName"
                 }
               },
-              "queryRef": "event_planners.PlannerFirstName",
-              "nativeQueryRef": "PlannerFirstName",
+              "queryRef": "events.PlannerFullName",
+              "nativeQueryRef": "PlannerFullName",
               "active": true
             }
           ]
@@ -92,7 +92,7 @@
                 "Entity": "dates"
               }
             },
-            "Property": "YearISO"
+            "Property": "Year"
           }
         },
         "type": "Categorical",
@@ -119,7 +119,7 @@
                                 "Source": "d"
                               }
                             },
-                            "Property": "YearISO"
+                            "Property": "Year"
                           }
                         }
                       ],
@@ -157,83 +157,18 @@
         }
       },
       {
-        "name": "754ba1dd92d086754555",
+        "name": "4ab912901cc274824a77",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "event_planners"
+                "Entity": "events"
               }
             },
-            "Property": "PlannerFirstName"
+            "Property": "PlannerFullName"
           }
         },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "e",
-              "Entity": "event_planners",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "e"
-                              }
-                            },
-                            "Property": "PlannerFirstName"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "null"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Boudijn'"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
+        "type": "Categorical"
       }
     ]
   }

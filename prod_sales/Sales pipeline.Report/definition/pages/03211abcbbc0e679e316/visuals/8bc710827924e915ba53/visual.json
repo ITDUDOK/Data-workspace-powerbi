@@ -105,7 +105,7 @@
                 "Entity": "dates"
               }
             },
-            "Property": "YearISO"
+            "Property": "Year"
           }
         },
         "type": "Categorical",
@@ -132,7 +132,7 @@
                                 "Source": "d"
                               }
                             },
-                            "Property": "YearISO"
+                            "Property": "Year"
                           }
                         }
                       ],
@@ -153,78 +153,6 @@
           ]
         },
         "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "181dcf1f821102b23513",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "event_types"
-              }
-            },
-            "Property": "EventTypeName"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "e",
-              "Entity": "event_types",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "e"
-                              }
-                            },
-                            "Property": "EventTypeName"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "null"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
         "objects": {
           "general": [
             {

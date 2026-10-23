@@ -100,7 +100,7 @@
                 "Entity": "dates"
               }
             },
-            "Property": "YearISO"
+            "Property": "Year"
           }
         },
         "type": "Categorical",
@@ -127,7 +127,7 @@
                                 "Source": "d"
                               }
                             },
-                            "Property": "YearISO"
+                            "Property": "Year"
                           }
                         }
                       ],
@@ -163,20 +163,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "b020c52795d8dbb60036",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "clients"
-              }
-            },
-            "Property": "Name"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

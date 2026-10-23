@@ -39,15 +39,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "events"
+                      "Entity": "bridge_location_office"
                     }
                   },
                   "Property": "LocationName"
                 }
               },
-              "queryRef": "events.LocationName",
-              "nativeQueryRef": "LocationName",
-              "active": true
+              "queryRef": "bridge_location_office.Event Location",
+              "nativeQueryRef": "Locaties",
+              "active": true,
+              "displayName": "Locaties"
             }
           ]
         },
@@ -143,6 +144,20 @@
             "value": {
               "expr": {
                 "Literal": {
+                  "Value": "172.46504715080957D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "bridge_location_office.Event Location"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
                   "Value": "65.99638489221675D"
                 }
               }
@@ -204,40 +219,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "617fa921122d40c0b0cc",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dates"
-              }
-            },
-            "Property": "MonthName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f6c18b587ee542d10c1b",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "events"
-                  }
-                },
-                "Property": "TotalPriceExclVat"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5c92450091107308752d",
+        "name": "45ecb55e7b8827daa4ae",
         "field": {
           "Column": {
             "Expression": {
@@ -253,7 +235,7 @@
           "Version": 2,
           "From": [
             {
-              "Name": "e",
+              "Name": "f",
               "Entity": "events",
               "Type": 0
             }
@@ -267,7 +249,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Source": "e"
+                            "Source": "f"
                           }
                         },
                         "Property": "Status"
@@ -289,20 +271,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "0fe1b20b5307202a3ae0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "events"
-              }
-            },
-            "Property": "LocationName"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

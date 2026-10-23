@@ -44,7 +44,7 @@
               },
               "queryRef": "event_types.EventTypeName",
               "nativeQueryRef": "Event type",
-              "active": true,
+              "active": false,
               "displayName": "Event type"
             }
           ]
@@ -85,8 +85,61 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "events"
+                  }
+                },
+                "Property": "PlannerFullName"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "events.PlannerFullName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "events"
+                    }
+                  },
+                  "Property": "PlannerFullName"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "event_types.EventTypeName"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
     "objects": {
       "columnHeaders": [
         {

@@ -43,13 +43,58 @@
                       "Entity": "event_types"
                     }
                   },
+                  "Property": "Event categorie"
+                }
+              },
+              "queryRef": "event_types.Event categorie",
+              "nativeQueryRef": "Event categorie",
+              "active": true,
+              "displayName": "Segment"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "events"
+                    }
+                  },
                   "Property": "EventTypeName"
                 }
               },
-              "queryRef": "event_types.EventTypeName",
-              "nativeQueryRef": "Event type",
-              "active": true,
-              "displayName": "Event type"
+              "queryRef": "events.EventTypeName",
+              "nativeQueryRef": "EventTypeName",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "events"
+                    }
+                  },
+                  "Property": "EventName"
+                }
+              },
+              "queryRef": "events.EventName",
+              "nativeQueryRef": "EventName",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "events"
+                    }
+                  },
+                  "Property": "EventName"
+                }
+              },
+              "queryRef": "events.EventName",
+              "nativeQueryRef": "EventName",
+              "active": false
             }
           ]
         },
@@ -75,6 +120,61 @@
         }
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "event_types.EventTypeName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "event_types"
+                    }
+                  },
+                  "Property": "Event categorie"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "events.EventTypeName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "events"
+                    }
+                  },
+                  "Property": "EventTypeName"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "events.EventName"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
     "objects": {
       "columnHeaders": [
         {
@@ -131,20 +231,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "4985c880cdbb3a866604",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "event_types"
-              }
-            },
-            "Property": "EventTypeName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
         "name": "e6c32b35702aabdb05ad",
         "field": {
           "Column": {
@@ -171,6 +257,48 @@
           }
         },
         "type": "Advanced"
+      },
+      {
+        "name": "5c7f51f6fbc6b2e4550f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "event_types"
+              }
+            },
+            "Property": "Event categorie"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e98694fb5e9e860b662a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "events"
+              }
+            },
+            "Property": "EventName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2c49b08242d92c88b0af",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "events"
+              }
+            },
+            "Property": "EventTypeName"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

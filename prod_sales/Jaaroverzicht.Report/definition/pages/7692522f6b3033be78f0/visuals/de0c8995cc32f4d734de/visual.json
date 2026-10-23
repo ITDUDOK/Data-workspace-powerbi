@@ -60,6 +60,11 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
       ]
     },
     "drillFilterOtherVisuals": true
