@@ -664,6 +664,31 @@ table measurements
 		formatString: 0.00
 		lineageTag: 7d8c4039-d0e4-44f2-a683-800cbdcfc298
 
+	measure Bakeoff_Verkocht_Stuks = CALCULATE(SUM(sales[LineQty]), sales[IsAddon] = FALSE(), ISBLANK(sales[TicketInternal]))
+		formatString: #,0
+		displayFolder: Bake-off
+		lineageTag: d546532b-db68-427e-b6fd-43a1e42296b4
+
+	measure Bakeoff_Verkocht_Omzet = CALCULATE(SUM(sales[LineTotalEx]), sales[IsAddon] = FALSE(), ISBLANK(sales[TicketInternal]))
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		displayFolder: Bake-off
+		lineageTag: 221cb513-8486-45ff-9018-9442a3d9737d
+
+	measure Bakeoff_Waste_Stuks = CALCULATE(SUM(sales[LineQty]), sales[IsAddon] = FALSE(), sales[TicketInternal] IN {"Derving/Verlies", "Too Good To Go"})
+		formatString: #,0
+		displayFolder: Bake-off
+		lineageTag: 59fa23cc-4a9d-491f-8f2b-a2ebe1318c17
+
+	measure Bakeoff_Rest_Stuks = CALCULATE(SUM(sales[LineQty]), sales[IsAddon] = FALSE(), NOT ISBLANK(sales[TicketInternal]), NOT (sales[TicketInternal] IN {"Derving/Verlies", "Too Good To Go"}))
+		formatString: #,0
+		displayFolder: Bake-off
+		lineageTag: 5f8a5b02-932a-4070-823d-893dad69ddad
+
+	measure Bakeoff_Waste_Pct = DIVIDE([Bakeoff_Waste_Stuks], [Bakeoff_Verkocht_Stuks] + [Bakeoff_Waste_Stuks])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Bake-off
+		lineageTag: 28f89f05-0f7b-4bf6-9ef8-953bc92f6f87
+
 	column Column
 		lineageTag: 1af5134a-8612-4197-a805-4e19f28423b7
 		isNameInferred
