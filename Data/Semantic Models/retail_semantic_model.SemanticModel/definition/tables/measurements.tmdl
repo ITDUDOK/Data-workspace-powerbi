@@ -664,6 +664,18 @@ table measurements
 		formatString: 0.00
 		lineageTag: 7d8c4039-d0e4-44f2-a683-800cbdcfc298
 
+	/// Aantal (tekst, nl-NL notatie) voor Waste - producten
+	measure Waste_Aantal_NL =
+			VAR x = SUM(sales[LineQty])
+			RETURN IF(ISBLANK(x), BLANK(), FORMAT(x, "#,0", "nl-NL"))
+		lineageTag: 3af14509-38cf-44cf-bfb3-502c32992d41
+
+	/// Waarde ex BTW (tekst, nl-NL notatie) voor Waste - producten
+	measure Waste_Waarde_NL =
+			VAR x = SUM(sales[LineTotalEx])
+			RETURN IF(ISBLANK(x), BLANK(), UNICHAR(8364) & " " & FORMAT(x, "#,0.00", "nl-NL"))
+		lineageTag: 950d5af0-005d-4765-bb92-6b5153896e3a
+
 	column Column
 		lineageTag: 1af5134a-8612-4197-a805-4e19f28423b7
 		isNameInferred
