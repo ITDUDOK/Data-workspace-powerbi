@@ -5,3 +5,5 @@ role PowerBIHRPatisserie
 
 	tablePermission offices = [OfficeId] = 13 || [OfficeId] = 42 || [OfficeId] = 41 || [OfficeId] = 12 || [OfficeId] = 45 || [OfficeId] = 46
 
+	annotation PBI_Id = c397fdffef494909b166fd86a943a792
+

@@ -3,3 +3,5 @@ role PowerBIPatisserieUtrechtCS
 
 	tablePermission centers = [SiteNr] = 56
 
+	annotation PBI_Id = 7c5d07cd32a046a8a5afcc3ec65511d5
+

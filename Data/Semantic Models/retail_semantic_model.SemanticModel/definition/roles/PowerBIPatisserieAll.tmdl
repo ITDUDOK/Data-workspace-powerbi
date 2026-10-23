@@ -7,3 +7,5 @@ role PowerBIPatisserieAll
 
 	tablePermission predicted_cake_sales
 
+	annotation PBI_Id = 149bf89861334a13b133240f0de3fa51
+

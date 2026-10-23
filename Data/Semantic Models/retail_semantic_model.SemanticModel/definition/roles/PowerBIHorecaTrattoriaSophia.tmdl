@@ -5,3 +5,5 @@ role PowerBIHorecaTrattoriaSophia
 
 	tablePermission offices = [OfficeId] = 37
 
+	annotation PBI_Id = 4cad4d570dba40d78a811d5c76a578ba
+

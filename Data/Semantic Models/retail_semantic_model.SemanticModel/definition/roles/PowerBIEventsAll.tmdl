@@ -5,3 +5,5 @@ role PowerBIEventsAll
 
 	tablePermission offices = [OfficeId] = 21 || [OfficeId] = 39 || [OfficeId] = 23 || [OfficeId] = 24 || [OfficeId] = 44 || [OfficeId] = 43 || [OfficeId] = 47
 
+	annotation PBI_Id = bbf86d93c44648be8428a9abe6c14147
+

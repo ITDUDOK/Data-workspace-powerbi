@@ -3,3 +3,5 @@ role PowerBIPatisserieMeent
 
 	tablePermission centers = [SiteNr] = 53
 
+	annotation PBI_Id = 481c19e6e4f64398b364fc53c941a9a2
+

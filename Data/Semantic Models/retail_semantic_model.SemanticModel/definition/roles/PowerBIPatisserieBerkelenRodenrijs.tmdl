@@ -3,3 +3,5 @@ role PowerBIPatisserieBerkelenRodenrijs
 
 	tablePermission centers = [SiteNr] = 55
 
+	annotation PBI_Id = 52b02157ac81442787ece8d1a6a91fe7
+

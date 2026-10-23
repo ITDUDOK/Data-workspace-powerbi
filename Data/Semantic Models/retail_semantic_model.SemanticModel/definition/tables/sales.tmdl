@@ -99,15 +99,15 @@ table sales
 
 	column LineTotalEx
 		dataType: decimal
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: 1715539a-a4e1-4949-9d24-ea3a2a4795e1
 		sourceLineageTag: LineTotalEx
 		summarizeBy: sum
 		sourceColumn: LineTotalEx
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = FormatString
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		annotation SummarizationSetBy = Automatic
 
 	column LineTotalInc
 		dataType: decimal
