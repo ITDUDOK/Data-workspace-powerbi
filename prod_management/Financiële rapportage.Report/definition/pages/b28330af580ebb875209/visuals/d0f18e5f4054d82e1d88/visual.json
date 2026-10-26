@@ -89,16 +89,16 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "measurements"
+                    "Entity": "dim_finreportrows"
                   }
                 },
-                "Property": "Bedrag P&L"
+                "Property": "Hoofdgroep"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
