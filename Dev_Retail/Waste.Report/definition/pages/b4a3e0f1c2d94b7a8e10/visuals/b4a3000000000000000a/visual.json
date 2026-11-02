@@ -1,0 +1,146 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "b4a3000000000000000a",
+  "position": {
+    "x": 299.6,
+    "y": 84.6,
+    "z": 5000,
+    "height": 635.1,
+    "width": 975.6,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sales"
+                    }
+                  },
+                  "Property": "LineProductName"
+                }
+              },
+              "queryRef": "sales.LineProductName",
+              "nativeQueryRef": "Product",
+              "displayName": "Product"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sales"
+                    }
+                  },
+                  "Property": "LineGroupName"
+                }
+              },
+              "queryRef": "sales.LineGroupName",
+              "nativeQueryRef": "Productgroep",
+              "displayName": "Productgroep"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Bakeoff_Verkocht_Stuks"
+                }
+              },
+              "queryRef": "measurements.Bakeoff_Verkocht_Stuks",
+              "nativeQueryRef": "Verkocht (stuks)",
+              "displayName": "Verkocht (stuks)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Bakeoff_Verkocht_Omzet"
+                }
+              },
+              "queryRef": "measurements.Bakeoff_Verkocht_Omzet",
+              "nativeQueryRef": "Omzet verkocht (ex BTW)",
+              "displayName": "Omzet verkocht (ex BTW)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Bakeoff_Waste_Stuks"
+                }
+              },
+              "queryRef": "measurements.Bakeoff_Waste_Stuks",
+              "nativeQueryRef": "Waste (stuks)",
+              "displayName": "Waste (stuks)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Bakeoff_Rest_Stuks"
+                }
+              },
+              "queryRef": "measurements.Bakeoff_Rest_Stuks",
+              "nativeQueryRef": "Rest intern (stuks)",
+              "displayName": "Rest intern (stuks)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measurements"
+                    }
+                  },
+                  "Property": "Bakeoff_Waste_Pct"
+                }
+              },
+              "queryRef": "measurements.Bakeoff_Waste_Pct",
+              "nativeQueryRef": "Waste %",
+              "displayName": "Waste %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "measurements"
+                  }
+                },
+                "Property": "Bakeoff_Verkocht_Stuks"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
