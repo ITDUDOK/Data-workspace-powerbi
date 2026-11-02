@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "b4a3e0f1c2d94b7a8e10",
+  "displayName": "Bake-off - verkoop vs waste",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

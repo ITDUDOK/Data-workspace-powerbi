@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "a1000000000000000006",
   "position": {
-    "x": 0.97264437689969607,
-    "y": 320,
-    "z": 103,
+    "x": 0,
+    "y": 390.03039513677811,
+    "z": 3000,
     "height": 70.030395136778125,
     "width": 294.71124620060789,
-    "tabOrder": 103
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
@@ -111,23 +111,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "822f45cffde5bd720db2",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "sales"
-              }
-            },
-            "Property": "TicketInternal"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

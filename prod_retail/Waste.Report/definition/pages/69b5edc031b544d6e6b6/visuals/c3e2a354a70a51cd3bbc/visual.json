@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "c3e2a354a70a51cd3bbc",
   "position": {
     "x": 0,
@@ -136,23 +136,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "98646a0bb9bdfcbf68b6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "measurements"
-              }
-            },
-            "Property": "TotaleOmzetExBTW_PercentageChange"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
